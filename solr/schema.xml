@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema name="my_schema" version="1.5">
+  <uniqueKey>id</uniqueKey>
+
+    <fieldType name="ancestor_path" class="solr.TextField">
+    <analyzer type="index">
+      <tokenizer class="solr.KeywordTokenizerFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="/"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="binary" class="solr.BinaryField"/>
+  <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+  <fieldType name="booleans" class="solr.BoolField" multiValued="true" sortMissingLast="true"/>
+  <fieldType name="date" class="solr.TrieDateField" precisionStep="0" positionIncrementGap="0"/>
+  <fieldType name="dates" class="solr.TrieDateField" precisionStep="0" multiValued="true" positionIncrementGap="0"/>
+  <fieldType name="descendent_path" class="solr.TextField">
+    <analyzer type="index">
+      <tokenizer class="solr.PathHierarchyTokenizerFactory" delimiter="/"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.KeywordTokenizerFactory"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" positionIncrementGap="0"/>
+  <fieldType name="doubles" class="solr.TrieDoubleField" precisionStep="0" multiValued="true" positionIncrementGap="0"/>
+  <fieldType name="float" class="solr.TrieFloatField" precisionStep="0" positionIncrementGap="0"/>
+  <fieldType name="floats" class="solr.TrieFloatField" precisionStep="0" multiValued="true" positionIncrementGap="0"/>
+  <fieldType name="ignored" class="solr.StrField" multiValued="true" indexed="false" stored="false"/>
+  <fieldType name="int" class="solr.TrieIntField" precisionStep="0" positionIncrementGap="0"/>
+  <fieldType name="ints" class="solr.TrieIntField" precisionStep="0" multiValued="true" positionIncrementGap="0"/>
+  <fieldType name="location" class="solr.LatLonType" subFieldSuffix="_coordinate"/>
+  <fieldType name="location_rpt" class="solr.SpatialRecursivePrefixTreeFieldType" distanceUnits="kilometers" distErrPct="0.025" geo="true" maxDistErr="0.001"/>
+  <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
+  <fieldType name="longs" class="solr.TrieLongField" precisionStep="0" multiValued="true" positionIncrementGap="0"/>
+  <fieldType name="lowercase" class="solr.TextField" positionIncrementGap="100">
+    <analyzer>
+      <tokenizer class="solr.KeywordTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="phonetic_en" class="solr.TextField" indexed="true" stored="false">
+    <analyzer>
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.DoubleMetaphoneFilterFactory" inject="false"/>
+    </analyzer>
+  </fieldType>
+  <fieldType name="point" class="solr.PointType" dimension="2" subFieldSuffix="_d"/>
+  <fieldType name="random" class="solr.RandomSortField" indexed="true"/>
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true"/>
+  <fieldType name="strings" class="solr.StrField" multiValued="true" sortMissingLast="true"/>
+  <fieldType name="tdate" class="solr.TrieDateField" precisionStep="6" positionIncrementGap="0"/>
+  <fieldType name="tdates" class="solr.TrieDateField" precisionStep="6" multiValued="true" positionIncrementGap="0"/>
+  <fieldType name="tdouble" class="solr.TrieDoubleField" precisionStep="8" positionIncrementGap="0"/>
+  <fieldType name="tdoubles" class="solr.TrieDoubleField" precisionStep="8" multiValued="true" positionIncrementGap="0"/>
+
+    <fieldType name="tfloat" class="solr.TrieFloatField" precisionStep="8" positionIncrementGap="0"/>
+  <fieldType name="tfloats" class="solr.TrieFloatField" precisionStep="8" multiValued="true" positionIncrementGap="0"/>
+  <fieldType name="tint" class="solr.TrieIntField" precisionStep="8" positionIncrementGap="0"/>
+  <fieldType name="tints" class="solr.TrieIntField" precisionStep="8" multiValued="true" positionIncrementGap="0"/>
+  <fieldType name="tlong" class="solr.TrieLongField" precisionStep="8" positionIncrementGap="0"/>
+  <fieldType name="tlongs" class="solr.TrieLongField" precisionStep="8" multiValued="true" positionIncrementGap="0"/>
+  <fieldType name="tlongs2" class="solr.TrieLongField" precisionStep="8" multiValued="false" positionIncrementGap="0"/>
+
+  <!-- KD-tree versions of date fields -->
+    <fieldType name="pdate" class="solr.DatePointField" docValues="true"/>
+    <fieldType name="pdates" class="solr.DatePointField" docValues="true" multiValued="true"/>
+    <!--
+      Numeric field types that index values using KD-trees.
+      Point fields don't support FieldCache, so they must have docValues="true" if needed for sorting, faceting, functions, etc.
+    -->
+    <fieldType name="pint" class="solr.IntPointField" docValues="true"/>
+    <fieldType name="pfloat" class="solr.FloatPointField" docValues="true"/>
+    <fieldType name="plong" class="solr.LongPointField" docValues="true"/>
+    <fieldType name="pdouble" class="solr.DoublePointField" docValues="true"/>
+
+    <fieldType name="pints" class="solr.IntPointField" docValues="true" multiValued="true"/>
+    <fieldType name="pfloats" class="solr.FloatPointField" docValues="true" multiValued="true"/>
+    <fieldType name="plongs" class="solr.LongPointField" docValues="true" multiValued="true"/>
+    <fieldType name="pdoubles" class="solr.DoublePointField" docValues="true" multiValued="true"/>
+
+  <fieldType name="text_general" class="solr.TextField" multiValued="true" positionIncrementGap="100">
+    <analyzer type="index">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+    <analyzer type="query">
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.StopFilterFactory" words="stopwords.txt" ignoreCase="true"/>
+      <filter class="solr.SynonymFilterFactory" expand="true" synonyms="synonyms.txt" ignoreCase="true"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+  </fieldType>
+
+<fieldType class="solr.TextField" name="suggestType" positionIncrementGap="100">
+    <analyzer>
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+      <filter class="solr.ASCIIFoldingFilterFactory"/>
+    </analyzer>
+  </fieldType>
+  
+  
+  <field name="_root_" type="string" indexed="true" stored="false"/>
+  <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="false"/>
+  <field name="_version_" type="long" indexed="true" stored="true"/>
+  <field name="common_name" type="string"/>
+  <field name="coordinates" type="tdoubles"/>
+  <field name="lat" type="tdoubles"/>
+  <field name="lon" type="tdoubles"/>
+  <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
+  <field name="rank" type="strings"/>
+  <field name="sci_name" type="suggestType" indexed="true" stored="true" required="true"/>
+  <field name="taxid" type="tlongs"/>
+  <field name="nbdesc" type="tlongs"/>
+  <field name="zoom" type="tlongs2"/>
+  
+  <dynamicField name="from_csv*" type="string" />
+  
+  <field name="ingredient" type="string"/>
+
+  <field name="infos_concatenees" type="suggestType" indexed="true" stored="true" multiValued="true" />
+  <copyField source="sci_name" dest="infos_concatenees"/>
+  <copyField source="from_csv NCas" dest="infos_concatenees" />
+  <copyField source="from_csv AutresNoms" dest="infos_concatenees" />
+  <copyField source="from_csv Botanique" dest="infos_concatenees" />
+</schema>
