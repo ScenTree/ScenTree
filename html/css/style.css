@@ -321,6 +321,8 @@ td {
     text-decoration:underline;
 }
 
+
+
 @media screen and (min-width: 1400px) {
 h1 {
     width: 100%;
@@ -328,42 +330,6 @@ h1 {
    font-size: 0.9vw;
    margin-top: 0%;
    margin-bottom: 0%;
-}
-#map {
-    height:100%;
-    width: 100%;
-    min-height:100%;
-    max-height:100%;
-    min-width: 100%;
-    max-width:100%;
-    padding:0;
-    margin:0;
-    display: block;
-    z-index: 6;
-}
-.fill2{
-    height:100%;
-    min-height:100%;
-    max-height:100%;
-    width: 80%;
-    min-width: 80%;
-    max-width:80%;
-    padding:0px;
-    z-index: 5;
-    background-color: white;
-}
-.logomenu {
-    height:90%;
-    width: 100%;
-    transition: 0,75s;
-    cursor:pointer;
-    z-index: 2;
-}
-.menu {
-    height:20%;
-    max-width: 100%;
-    overflow : hidden;
-    text-align: center;
 }
 .blanc2 {
   height: 44%;
@@ -458,19 +424,6 @@ h1 {
    font-size: 1.1vw;
    margin-top: 0%;
    margin-bottom: 0%;
-}
-.logomenu {
-    height:90%;
-    width: 100%;
-    transition: 0,75s;
-    cursor:pointer;
-    z-index: 2;
-}
-.menu {
-    height:20%;
-    max-width: 100%;
-    overflow : hidden;
-    text-align: center;
 }
 .blanc2 {
    height: 42%;
@@ -572,19 +525,6 @@ h1 {
    font-size: 1.1vw;
    margin-top: 0%;
    margin-bottom: 0%;
-}
-.logomenu {
-    height:90%;
-    width: 100%;
-    transition: 0,75s;
-    cursor:pointer;
-    z-index: 2;
-}
-.menu {
-    height:20%;
-    max-width: 100%;
-    overflow : hidden;
-    text-align: center;
 }
 .blanc2 {
    height: 42%;
@@ -695,19 +635,6 @@ h1 {
    margin-bottom: 0%;
    display: none;
 }
-.logomenu {
-    height:80%;
-    width: 100%;
-    transition: 0,75s;
-    cursor:pointer;
-    z-index: 2;
-}
-.menu {
-    height:20%;
-    max-width: 100%;
-    overflow : hidden;
-    text-align: center;
-}
 .blanc2 {
     height: 30%;
 }
@@ -814,20 +741,6 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
-.fill2{
-    height:100%;
-    min-height:100%;
-    max-height:100%;
-    width: 100%;
-    min-width: 100%;
-    max-width:100%;
-    padding:0px;
-    z-index: 5;
-    background-color: white;
-}
-.fillright{
-display:none;
-}
 .onglets {
     font-size: 12px;
 }
