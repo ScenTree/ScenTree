@@ -393,7 +393,7 @@ $(function() {
 
 
 
-searchBtn.addEventListener("click", expand);
+//searchBtn.addEventListener("click", expand);
 ////////////////////////////////
 /////////////VIDEO//////////////
 ////////////////////////////////
