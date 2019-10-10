@@ -18,7 +18,7 @@ html, body {
     min-width: 200px;
 }
 .fill2{
-    z-index: 5;
+    /*z-index: 5;*/
     background-color: white;
 }
 
