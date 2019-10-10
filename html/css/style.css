@@ -320,3 +320,524 @@ td {
     text-align: center;
     text-decoration:underline;
 }
+
+@media screen and (min-width: 1400px) {
+h1 {
+    width: 100%;
+   font-style: bold;
+   font-size: 0.9vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+}
+#map {
+    height:100%;
+    width: 100%;
+    min-height:100%;
+    max-height:100%;
+    min-width: 100%;
+    max-width:100%;
+    padding:0;
+    margin:0;
+    display: block;
+    z-index: 6;
+}
+.fill2{
+    height:100%;
+    min-height:100%;
+    max-height:100%;
+    width: 80%;
+    min-width: 80%;
+    max-width:80%;
+    padding:0px;
+    z-index: 5;
+    background-color: white;
+}
+.logomenu {
+    height:90%;
+    width: 100%;
+    transition: 0,75s;
+    cursor:pointer;
+    z-index: 2;
+}
+.menu {
+    height:20%;
+    max-width: 100%;
+    overflow : hidden;
+    text-align: center;
+}
+.blanc2 {
+  height: 44%;
+}
+.block{
+    height: 100%;
+    text-align: center;
+    padding-top: 2%;
+}
+.space{
+    height:30%;
+}
+.boutonclickable {
+    color:black;
+    font-size: 0.9vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.modal-body {
+    text-align: justify;
+    overflow-y: auto;
+    max-height: calc(100vh - 210px);
+}
+.modal-title {
+    min-width: 100%;
+    font-size: 22px;#####################################
+    font-weight: bold;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
+.item {
+    font-size: 14px;
+}
+.textdescripteurs {
+    font-size:small;
+}
+.textitem {
+    padding: 5px;
+    font-size:small;
+}
+.textitem2 {
+    padding: 5px;
+    font-size:small;
+}
+.textitem3 {
+    padding: 5px;
+    font-size:small;
+    font-style: italic;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    float: right;
+}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+h1 {
+   width: 100%;
+   font-style: bold;
+   font-size: 1.1vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+}
+.logomenu {
+    height:90%;
+    width: 100%;
+    transition: 0,75s;
+    cursor:pointer;
+    z-index: 2;
+}
+.menu {
+    height:20%;
+    max-width: 100%;
+    overflow : hidden;
+    text-align: center;
+}
+.blanc2 {
+   height: 42%;
+}
+.block{
+    height: 72%;
+    text-align: center;
+}
+.space{
+    height:20%;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.1vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 0.8vw;
+    padding-top: 2%;
+}
+.modal-body {
+    text-align: justify;
+    overflow-y: auto;
+    max-height: calc(100vh - 210px);
+}
+.modal-title {
+    min-width: 100%;
+    font-size: 22px;####################
+    font-weight: bold;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
+.item {
+    font-size: 14px;
+}
+.textdescripteurs {
+    font-size:small;
+}
+.textitem {
+    padding: 5px;
+    font-size:small;
+}
+.textitem2 {
+    padding: 5px;
+    font-size:small;
+}
+.textitem3 {
+    padding: 5px;
+    font-size:small;
+    font-style: italic;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    float: right;
+}
+}
+
+
+
+@media screen and (min-width: 990px) and (max-width: 1200px) {
+h1 {
+   width: 100%;
+   font-style: bold;
+   font-size: 1.1vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+}
+.logomenu {
+    height:90%;
+    width: 100%;
+    transition: 0,75s;
+    cursor:pointer;
+    z-index: 2;
+}
+.menu {
+    height:20%;
+    max-width: 100%;
+    overflow : hidden;
+    text-align: center;
+}
+.blanc2 {
+   height: 42%;
+}
+#block{
+    height: 70%;
+    width: 40%;
+    text-align: center;
+}
+#block2{
+    height: 70%;
+    width: 60%;
+    text-align: center;
+}
+.boutons {
+    height: 10%;
+}
+.space{
+    height:20%;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.1vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 0.8vw;
+    padding-top: 2%;
+}
+.modal-body {
+    text-align: justify;
+    overflow-y: auto;
+    max-height: calc(100vh - 210px);
+}
+.modal-title {
+    min-width: 100%;
+    font-size: 22px;####################
+    font-weight: bold;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
+.item {
+    font-size: 14px;
+}
+.textdescripteurs {
+    font-size:small;
+}
+.textitem {
+    padding: 5px;
+    font-size:small;
+}
+.textitem2 {
+    padding: 5px;
+    font-size:small;
+}
+.textitem3 {
+    padding: 5px;
+    font-size:small;
+    font-style: italic;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    float: right;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 990px) {
+h1 {
+    width: 100%;
+   font-style: bold;
+   font-size: 1.3vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+   display: none;
+}
+.logomenu {
+    height:80%;
+    width: 100%;
+    transition: 0,75s;
+    cursor:pointer;
+    z-index: 2;
+}
+.menu {
+    height:20%;
+    max-width: 100%;
+    overflow : hidden;
+    text-align: center;
+}
+.blanc2 {
+    height: 30%;
+}
+.space{
+    height: 10%;
+}
+.boutons {
+    height: 20%;
+}
+.block{
+    height: 70%;
+    text-align: center;
+}
+#searchclear {
+    display: none;
+}
+#searchinput {
+    border-radius: 7px;
+}
+.block{
+    height: 40%;
+    text-align: center;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.3vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 1.3vw;
+}
+.modal-body {
+    text-align: justify;
+    overflow-y: auto;
+    max-height: calc(100vh - 210px);
+}
+.modal-title {
+    min-width: 100%;
+    font-size: 22px;
+    font-weight: bold;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.onglets {
+    font-size: 12px;
+}
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
+.item {
+    font-size: 14px;
+}
+.textitem {
+    padding: 5px;
+    font-size:small;
+}
+.textitem2 {
+    padding: 5px;
+    font-size:small;
+}
+.textitem3 {
+    padding: 5px;
+    font-size:small;
+    font-style: italic;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    padding-left: 35%;
+    margin-bottom: 5%;
+}
+.blockdonnees {
+    width: 55%;
+}
+}
+
+@media screen and (max-width: 768px) {
+.fill2{
+    height:100%;
+    min-height:100%;
+    max-height:100%;
+    width: 100%;
+    min-width: 100%;
+    max-width:100%;
+    padding:0px;
+    z-index: 5;
+    background-color: white;
+}
+.fillright{
+display:none;
+}
+.onglets {
+    font-size: 12px;
+}
+.panel-footer{
+    display: none;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    padding-left: 35%;
+    margin-bottom: 5%;
+}
+}
