@@ -811,9 +811,9 @@ function markofun(the_node_as_json, show_the_modal = true) {
    };*/
 };
 
-if (displaytab1) {
+/*if (displaytab1) {
    		$("#tab1info").css('display', 'inline-table');
-   };
+   };*/
 
 $("#SynthetiqueModal").on("hide.bs.modal", function (e) {
 	$(".table1").hide();
