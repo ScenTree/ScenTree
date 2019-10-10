@@ -161,7 +161,7 @@ map.setView([2,0,], zoom_initial);
 
 /* Définission de l'icone qui pointe les MP recherchées*/
 var mark = L.icon({
-    iconUrl: 'img/mark.png',
+    iconUrl: '../img/mark.png',
     iconSize:     [20, 20], // size of the icon
     iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
 });
@@ -262,7 +262,7 @@ map.on("moveend", function() {
 // définition du pointeur valable, celui jaune de google maps
 var SPfocus;
 var pin1 = L.icon({
-    iconUrl: 'img/pin1.png',
+    iconUrl: '../img/pin1.png',
     iconSize:     [18, 25], // size of the icon
     iconAnchor:   [9, 30], // point of the icon which will correspond to marker's location
 });
@@ -751,10 +751,10 @@ function markofun(the_node_as_json, show_the_modal = true) {
     $('#modalbody-pictA').empty();
     $('#modalbody-pict1').empty();
     $('#modalbody-pict1A').empty();
-	$('#modalbody-pict').append("<img class='imgmp' src='img/matieres_premieres/" + the_title + ".jpg' alt='' />");
-    $('#modalbody-pictA').append("<img class='imgmp' src='img/matieres_premieres/" + the_title + ".jpg' alt='' />");
-    $('#modalbody-pict1').append("<img class='imgmp' src='img/matieres_premieres/" + the_title + ".PNG' alt='' />");
-    $('#modalbody-pict1A').append("<img class='imgmp' src='img/matieres_premieres/" + the_title + ".PNG' alt='' />");
+	$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".jpg' alt='' />");
+    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".jpg' alt='' />");
+    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".PNG' alt='' />");
+    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".PNG' alt='' />");
     };  
     
     if (is_an_naturelle) {
