@@ -352,7 +352,7 @@ h1 {
 .modal-body {
     text-align: justify;
     overflow-y: auto;
-    max-height: calc(100vh - 210px);
+    max-height: calc(100vh - 220px);
 }
 .modal-title {
     min-width: 100%;
@@ -451,7 +451,7 @@ h1 {
 .modal-body {
     text-align: justify;
     overflow-y: auto;
-    max-height: calc(100vh - 210px);
+    max-height: calc(100vh - 220px);
 }
 .modal-title {
     min-width: 100%;
@@ -561,7 +561,7 @@ h1 {
 .modal-body {
     text-align: justify;
     overflow-y: auto;
-    max-height: calc(100vh - 210px);
+    max-height: calc(100vh - 220px);
 }
 .modal-title {
     min-width: 100%;
@@ -673,7 +673,7 @@ h1 {
 .modal-body {
     text-align: justify;
     overflow-y: auto;
-    max-height: calc(100vh - 210px);
+    max-height: calc(100vh - 220px);
 }
 .modal-title {
     min-width: 100%;
