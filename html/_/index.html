@@ -472,13 +472,21 @@ crossorigin=""/>
 <div class="modal-body">           
   <!-- définissions des onglets -->
 <div class="panel-heading">
-  <ul id="ongletsnat" class="nav nav-pills nav-justified" role="tablist">
+<nav class="navbar navbar-expand-sm navbar-light bg-transparent">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarForNaturelles" aria-controls="navbarForNaturelles" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarForNaturelles">
+  <ul id="ongletsnat" class="navbar-nav nav nav-pills nav-justified" role="tablist">
     <li class="nav-item"><a href="#tab1info" data-toggle="pill" aria-controls="tab1info" aria-selected="true" class="onglets nav-link active" id="pills-tab1">Présentation Générale</a></li>
     <li class="nav-item"><a href="#tab2info" data-toggle="pill" aria-controls="tab2info" aria-selected="false" class="onglets nav-link" id="pills-tab2">Botanique Origine Extraction</a></li>
     <li class="nav-item"><a href="#tab3info" data-toggle="pill" aria-controls="tab3info" aria-selected="false" class="onglets nav-link" id="pills-tab3">Réglementation</a></li>
     <li class="nav-item"><a href="#tab4info" data-toggle="pill" aria-controls="tab4info" aria-selected="false" class="onglets nav-link" id="pills-tab4">Autres Remarques</a></li>
     <li class="nav-item"><a href="#tab6info" data-toggle="pill" aria-controls="tab6info" aria-selected="false" class="onglets nav-link" id="pills-tab6">Fournisseurs</a></li>
   </ul>
+  </div>
+</nav>
 </div>
 <!--contenu des onglets-->
 <div class="panel-body">
