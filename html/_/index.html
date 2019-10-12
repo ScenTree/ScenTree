@@ -37,51 +37,53 @@ crossorigin=""/>
   <!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
 
 <div id="menu-block" class="col-md-3 col-xl-2  fillright">
+<div class="container-fluid">
 <div class="row">
-  
+ 
 <div class="col-2 col-md-12">
   <img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree">
 </div>
 
 <div class="m-top-40  col-md-12  d-none d-sm-none d-md-block">Trouver une matière première :</div>
+
 <div class="col-6 col-md-12">
   <!--Recherche -->
 <div class="input-group">
   <form action="" autocomplete="off">
-  <input id="searchinput" type="search" class="form-control" placeholder="Nom (botanique) ou N°CAS..." />
-</form>
+    <input id="searchinput" type="search" class="form-control" placeholder="Nom (botanique) ou N°CAS..." />
+  </form>
 </div>
 </div>
 
-
-<div class="btn-group menubouton  col-2  d-block d-sm-block d-md-none">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" />
-  <span class="glyphicon glyphicon-menu-hamburger"></span>
-  <ul class="dropdown-menu dropdown-menu-right">
-    <li><a class="bouton credit_button">Crédits</a></li>
-    <li role="separator" class="divider trait"></li>
-    <li><a class="bouton contact_button">Contacts</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a class="bouton source_button">Sources</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a class="bouton confidentialite_button">Mentions Légales</a></li>
-  </ul>
+<div class="col-3 col-md-12">
+<nav class="navbar navbar-expand-md menubouton navbar-light bg-transparent">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarMainMenu">
+    <ul class="navbar-nav mr-auto flex-column">
+      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="news_button">Découvrez les nouveautés !</a></li>
+      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="credit_button">Les collaborateurs de ScenTree</a></li>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="source_button">Sources</a></li>
+        <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="contact_button">Contacts</a></li>
+      </ul>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="confidentialite_button">Mentions Légales</a></li>
+        <ul class="navbar-nav mr-auto">
+	  <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="linkedIn_button">IN</a></li>
+          <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="instagram_button">IG</a></li>
+        </ul>
+      </ul>
+    </ul>
+  </div>
+</nav>
 </div>
-
-
-<div class="boutons m-top-90  col-md-6  d-none d-sm-none d-md-block">
-<div class="source_button"><a class="boutonclickable"> Sources </a></div>
-<div class="credit_button"><a class="boutonclickable"> Crédits </a></div>	
-</div>
-<div class="boutons m-top-90  col-md-6  d-none d-sm-none d-md-block">
-<div class="contact_button"><a class="boutonclickable"> Contacts </a></div>
-<div class="confidentialite_button"><a class="boutonclickable"> Mentions Légales </a></div>
-</div>
-
-
 
 <div id="copyright" class="col-md-12   d-none d-sm-none d-md-block"><sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |</div>
 
+</div>
 </div>
 </div>
 
