@@ -49,14 +49,16 @@ crossorigin=""/>
 <div class="col-2 offset-5 offset-md-0 col-md-12">
   <!--Recherche -->
 <nav class="navbar navbar-expand-md navbar-light  menubouton">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#search-input" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon">OO</span>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSearch" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-<div id="search-input" class="collapse navbar-collapse input-group">
+
+<div class="collapse navbar-collapse  input-group" id="navbarSearch">
   <form action="" autocomplete="off">
     <input id="searchinput" type="search" class="form-control" placeholder="Nom (botanique) ou N°CAS..." />
   </form>
 </div>
+</nav>
 </div>
 
 <div class="col-2 col-md-12">
@@ -66,14 +68,14 @@ crossorigin=""/>
   </button>
   
   <div class="collapse navbar-collapse" id="navbarMainMenu">
-    <ul class="navbar-nav mr-auto flex-column">
-      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="news_button">Découvrez les nouveautés !</a></li>
-      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="credit_button">Les collaborateurs de ScenTree</a></li>
-      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="source_button">Sources</a></li>
-      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="contact_button">Contacts</a></li>
-      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="confidentialite_button">Mentions Légales</a></li>
-      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="linkedIn_button">IN</a></li>
-      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="instagram_button">IG</a></li>
+    <ul class="navbar-nav flex-column boutonclickable bouton boutons">
+      <li class="nav-item"><a class="nav-link" id="news_button">Découvrez les nouveautés !</a></li>
+      <li class="nav-item"><a class="nav-link" id="credit_button">Les collaborateurs de ScenTree</a></li>
+      <li class="nav-item"><a class="nav-link" id="source_button">Sources</a></li>
+      <li class="nav-item"><a class="nav-link" id="contact_button">Contacts</a></li>
+      <li class="nav-item"><a class="nav-link" id="confidentialite_button">Mentions Légales</a></li>
+      <li class="nav-item"><a class="nav-link" id="linkedIn_button">IN</a></li>
+      <li class="nav-item"><a class="nav-link" id="instagram_button">IG</a></li>
     </ul>
   </div>
 </nav>
