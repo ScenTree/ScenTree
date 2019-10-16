@@ -36,27 +36,31 @@ crossorigin=""/>
 <div class="row h-100">
   <!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
 
-<div id="menu-block" class="col-md-3 col-xl-2  fillright">
+<div id="menu-block" class="col-md-3 col-xl-2  h-60px-md-100pc fillright">
 <div class="container-fluid">
 <div class="row">
  
-<div class="col-2 col-md-12">
+<div class="col-3 col-md-12">
   <img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree">
 </div>
 
 <div class="m-top-40  col-md-12  d-none d-sm-none d-md-block">Trouver une matière première :</div>
 
-<div class="col-6 col-md-12">
+<div class="col-2 offset-5 offset-md-0 col-md-12">
   <!--Recherche -->
-<div class="input-group">
+<nav class="navbar navbar-expand-md navbar-light  menubouton">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#search-input" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon">OO</span>
+  </button>
+<div id="search-input" class="collapse navbar-collapse input-group">
   <form action="" autocomplete="off">
     <input id="searchinput" type="search" class="form-control" placeholder="Nom (botanique) ou N°CAS..." />
   </form>
 </div>
 </div>
 
-<div class="col-3 col-md-12">
-<nav class="navbar navbar-expand-md menubouton navbar-light bg-transparent">
+<div class="col-2 col-md-12">
+<nav class="navbar navbar-expand-md navbar-light  menubouton">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMainMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -65,17 +69,11 @@ crossorigin=""/>
     <ul class="navbar-nav mr-auto flex-column">
       <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="news_button">Découvrez les nouveautés !</a></li>
       <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="credit_button">Les collaborateurs de ScenTree</a></li>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="source_button">Sources</a></li>
-        <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="contact_button">Contacts</a></li>
-      </ul>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="confidentialite_button">Mentions Légales</a></li>
-        <ul class="navbar-nav mr-auto">
-	  <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="linkedIn_button">IN</a></li>
-          <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="instagram_button">IG</a></li>
-        </ul>
-      </ul>
+      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="source_button">Sources</a></li>
+      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="contact_button">Contacts</a></li>
+      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="confidentialite_button">Mentions Légales</a></li>
+      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="linkedIn_button">IN</a></li>
+      <li class="nav-item"><a class="nav-link boutonclickable bouton boutons" id="instagram_button">IG</a></li>
     </ul>
   </div>
 </nav>
@@ -88,7 +86,7 @@ crossorigin=""/>
 </div>
 
 
-<div id="mapblock" class="col-md-9 order-md-first col-xl-10 p-0 h-md-85  fill2">
+<div id="mapblock" class="col-md-9 order-md-first col-xl-10 p-0  h-80pc-md-100pc  fill2">
 
 <div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
 <div id="blanc1" class="row blockrgpd"></div>

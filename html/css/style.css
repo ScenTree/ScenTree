@@ -3,6 +3,14 @@ html, body {
     width: 100%;
 }
 
+#menu-block {
+  z-index: 2;
+}
+
+#mapblock {
+  z-index: 1;
+}
+
 /*#########################
 #######PAGE ENTIERE########
 #########################*/
@@ -31,9 +39,22 @@ html, body {
     position: absolute;
     bottom: 0px;
 }
+.h-60px-md-100pc {
+   height: 45px;
+}
+.h-80pc-md-100pc {
+    height: calc(100vh - 45px);
+}
+
 }
 @media screen and (min-width: 768px) {
 .h-md-85 {
+    height: 100%;
+}
+.h-60px-md-100pc {
+    height: 100%;
+}
+.h-80pc-md-100pc {
     height: 100%;
 }
 }
@@ -128,6 +149,11 @@ html, body {
 ##################################################*/
 .logomenu:hover{
     transform: scale(1.1);
+}
+@media screen and (max-width: 767px) {
+.logomenu{
+    max-height: 40px;
+}
 }
 
 /*##################################################
