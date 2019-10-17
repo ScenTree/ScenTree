@@ -160,6 +160,10 @@ html, body {
 ############ZONE DE LA RECHERCHE####################
 ##################################################*/
 
+#searchinput-sm {
+  width: 300px;
+}
+
 .titrerecherche {
     height:4%;
     width: 100%;

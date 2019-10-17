@@ -38,7 +38,41 @@ crossorigin=""/>
 
 <div id="menu-block" class="col-md-3 col-xl-2  h-60px-md-100pc fillright">
 <div class="container-fluid">
-<div class="row">
+<div class="row d-md-none">
+
+<div class="col-3">
+  <img id="logo-image-sm" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree">
+</div>
+
+<div class="dropdown offset-5 col-2">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    R
+  </button>
+  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownSearchButton-sm">
+    <div class="form-group"><input id="searchinput-sm" type="search" class="form-control" placeholder="Nom (botanique) ou N°CAS..." /></div>
+  </form>
+</div>
+
+<div class="dropdown col-2">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    M
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <a class="dropdown-item" href="#">Les nouveautés</a>
+    <a class="dropdown-item" href="#">Les collaborateurs</a>
+    <a class="dropdown-item" href="#">Contacts</a>
+    <a class="dropdown-item" href="#">Sources</a>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-secondary active"><input type="radio" name="options" id="option1" autocomplete="off" checked />FR</label>
+      <label class="btn btn-secondary"><input type="radio" name="options" id="option2" autocomplete="off" checked />EN</label>
+    </div>
+    <a class="dropdown-item" href="#">Mentions Légales</a>
+    <a href="#">IN</a> <a href="#">IG</a>
+  </div>
+</div>
+
+</div>
+<div class="row d-none d-md-block">
  
 <div class="col-3 col-md-12">
   <img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree">
@@ -49,15 +83,15 @@ crossorigin=""/>
 <div class="col-2 offset-5 offset-md-0 col-md-12">
   <!--Recherche -->
   <button type="button" class="btn d-md-none">R</button>
-  <form class="" action="" autocomplete="off">
+  <form class="" action="" autocomplete="off" id="searchForm">
     <input id="searchinput" type="search" class="form-control" placeholder="Nom (botanique) ou N°CAS..." />
   </form>
 </div>
 
-<div class="col-2 col-md-12">
+<div class="col-2 col-md-12 d-none d-md-block">
 <button type="button" class="btn d-md-none">M</button>
 <div class="container-fluid  text-center  boutonclickable bouton boutons  ">
-<div class="row">
+<div class="row" id="menuRow">
 
 <div class="col-12"><a id="news_button"><span class="d-none d-sm-none d-md-inline">Découvrez les nouveautés !</span><span class="d-md-none">Les nouveautés</span></a></div>
 <div class="col-12"><a id="credit_button"><span class="d-none d-sm-none d-md-inline">Les collaborateurs de ScenTree</span><span class="d-md-none">Les collaborateurs</span></a></div>
