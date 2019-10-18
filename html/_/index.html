@@ -32,7 +32,7 @@ crossorigin=""/>
 <header class="d-md-none">
 <!-- fixed navbar -->
 <nav class="navbar  navbar-dark fixed-top bg-dark">
-<img id="logo-image-sm" class="img-fluid mr-auto  logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree">
+	<button class="btn  mr-auto" type="button" data-toggle="modal" data-target="#decouvrirScenTree"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree"></button>
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     R
@@ -46,15 +46,15 @@ crossorigin=""/>
     M
   </button>
   <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
-    <a class="dropdown-item" href="#">Les nouveautés</a>
-    <a class="dropdown-item" href="#">Les collaborateurs</a>
-    <a class="dropdown-item" href="#">Contacts</a>
-    <a class="dropdown-item" href="#">Sources</a>
+    <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>
+    <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesCollaborateurs">Les collaborateurs</button>
+    <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesContacts">Contacts</button>
+    <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesSources">Sources</button>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-primary active"><input type="radio" name="options" id="option1" autocomplete="off" checked />FR</label>
       <label class="btn btn-primary"><input type="radio" name="options" id="option2" autocomplete="off" checked />EN</label>
     </div>
-    <a class="dropdown-item" href="#">Mentions Légales</a>
+    <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesMentionsLegales">Mentions Légales</button>
     <a href="#">IN</a> <a href="#">IG</a>
   </div>
 </div>
@@ -75,7 +75,7 @@ crossorigin=""/>
 <div class="row">
  
 <div class="col-3 col-md-12">
-  <img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree">
+	<button class="btn" type="button" data-toggle="modal" data-target="#decouvrirScenTree"><img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree"></button>
 </div>
 
 <div class="m-top-40  col-md-12  d-none d-sm-none d-md-block">Trouver une matière première :</div>
@@ -93,11 +93,11 @@ crossorigin=""/>
 <div class="container-fluid  text-center  boutonclickable bouton boutons  ">
 <div class="row" id="menuRow">
 
-<div class="col-12"><a id="news_button"><span class="d-none d-sm-none d-md-inline">Découvrez les nouveautés !</span><span class="d-md-none">Les nouveautés</span></a></div>
-<div class="col-12"><a id="credit_button"><span class="d-none d-sm-none d-md-inline">Les collaborateurs de ScenTree</span><span class="d-md-none">Les collaborateurs</span></a></div>
-<div class="col-12 col-md-6"><a id="source_button">Sources</a></div>
-<div class="col-12 col-md-6"><a id="contact_button">Contacts</a></div>
-<div class="col-12 col-md-6 p-0"><a id="confidentialite_button">Mentions Légales</a></div>
+<div class="col-12"><button class="btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Découvrez les nouveautés !</button></div>
+<div class="col-12"><button class="btn" type="button" data-toggle="modal" data-target="#lesCollaborateurs">Les collaborateurs de ScenTree</button></div>
+<div class="col-12 col-md-6"><button class="btn" type="button" data-toggle="modal" data-target="#lesSources">Sources</button></div>
+<div class="col-12 col-md-6"><button class="btn" type="button" data-toggle="modal" data-target="#lesContacts">Contacts</button></div>
+<div class="col-12 col-md-6 p-0"><button class="btn" type="button" data-toggle="modal" data-target="#lesMentionsLegales">Mentions Légales</button></div>
 
 <div class="col-12 col-md-6">
 <div class="container-fluid">
@@ -299,7 +299,7 @@ crossorigin=""/>
 
 
 <!--MODAL CREDITS -->  
-<div class="modal" tabindex="-1" role="dialog" id="Crédits">
+<div class="modal" tabindex="-1" role="dialog" id="lesCollaborateurs">
 <div class="modal-dialog" role="document">
 <div class="modal-content">
   

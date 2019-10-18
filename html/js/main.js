@@ -225,16 +225,16 @@ $("#searchclear").click(function(){
 $("#searchinput").focus(function() {
     $(this).autocomplete('search', $(this).val())
 });
-$(".logomenu").click(function() {
+/*$(".logomenu").click(function() {
     $(".modalmenu").modal("toggle");
-});
+});*/
 $("#ListeMP").click(function() {
     $("#listeMP").modal("show");
 });
 $("#Listefamilles").click(function() {
     $("#listefamilles").modal("show");
 });
-$("#Vidéo").click(function() {
+/*$("#Vidéo").click(function() {
     $("#vidéo").modal("show");
 });
 $("#credit").click(function() {
@@ -251,7 +251,7 @@ $("#confidentialite").click(function() {
 });
 $("#source").click(function() {
     $("#Source").modal("toggle");
-});
+});*/
 
 
 //pop-up
