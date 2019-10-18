@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" class="h-100">
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -28,23 +28,12 @@ integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIpt
 crossorigin=""/>
 </head>
 
-<body>
-
-
-<!-- Class container corresponds à l'ensemble de la page-->
-<div class="container-fluid h-100 PageEntiere">
-<div class="row h-100">
-  <!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
-
-<div id="menu-block" class="col-md-3 col-xl-2  h-60px-md-100pc fillright">
-<div class="container-fluid">
-<div class="row d-md-none">
-
-<div class="col-3">
-  <img id="logo-image-sm" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree">
-</div>
-
-<div class="dropdown offset-5 col-2">
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  navbar-dark fixed-top bg-dark">
+<img id="logo-image-sm" class="img-fluid mr-auto  logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree">
+<div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     R
   </button>
@@ -52,8 +41,7 @@ crossorigin=""/>
     <div class="form-group"><input id="searchinput-sm" type="search" class="form-control" placeholder="Nom (botanique) ou N°CAS..." /></div>
   </form>
 </div>
-
-<div class="dropdown col-2">
+<div class="dropdown pl-1">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     M
   </button>
@@ -63,16 +51,28 @@ crossorigin=""/>
     <a class="dropdown-item" href="#">Contacts</a>
     <a class="dropdown-item" href="#">Sources</a>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary active"><input type="radio" name="options" id="option1" autocomplete="off" checked />FR</label>
-      <label class="btn btn-secondary"><input type="radio" name="options" id="option2" autocomplete="off" checked />EN</label>
+      <label class="btn btn-primary active"><input type="radio" name="options" id="option1" autocomplete="off" checked />FR</label>
+      <label class="btn btn-primary"><input type="radio" name="options" id="option2" autocomplete="off" checked />EN</label>
     </div>
     <a class="dropdown-item" href="#">Mentions Légales</a>
     <a href="#">IN</a> <a href="#">IG</a>
   </div>
 </div>
+</nav>
+</header>
 
-</div>
-<div class="row d-none d-md-block">
+
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
+
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
+
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-block  col-md-3 col-xl-2  h-100 fillright">
+<div class="container-fluid">
+<div class="row">
  
 <div class="col-3 col-md-12">
   <img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree">
@@ -120,7 +120,7 @@ crossorigin=""/>
 </div>
 
 
-<div id="mapblock" class="col-md-9 order-md-first col-xl-10 p-0  h-80pc-md-100pc  fill2">
+<div id="mapblock" class="col-md-9 order-md-first col-xl-10 p-0  h-100  fill2">
 
 <div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
 <div id="blanc1" class="row blockrgpd"></div>
@@ -133,7 +133,7 @@ crossorigin=""/>
 <div id="blanc1" class="row blockrgpd"></div>
 </div>
 
-<div id="map" class="h-100"></div>
+<div id="map" class="h-100-with-padding-60px-before-md"></div>
 </div>
 
 </div>
@@ -144,7 +144,7 @@ crossorigin=""/>
 
 <!--MODAL MENU -->
 
-<div class="modal fade modalmenu" tabindex="-1" role="dialog">
+<div class="modal fade modalmenu" id="decouvrirScenTree" tabindex="-1" role="dialog">
 <div class="modal-dialog modal-lg" role="document">
 <div class="modal-content">
   
