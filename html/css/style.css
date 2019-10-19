@@ -6,6 +6,10 @@
   z-index: 1;
 }
 
+.max-height-70px {
+  max-height: 70px;
+}
+
 /*#########################
 #######PAGE ENTIERE########
 #########################*/
@@ -367,6 +371,15 @@ td {
     text-decoration:underline;
 }
 
+.my-modal {
+  background-color: #F2F2F2FF;
+}
+
+.my-modal-body {
+  font-size: small;
+  padding-top: 10px;
+}
+
 
 
 @media screen and (min-width: 1400px) {
@@ -395,7 +408,7 @@ h1 {
     cursor:pointer;
     display: inline;
 }
-.modal-body {
+/*.modal-body {
     text-align: justify;
     overflow-y: auto;
     max-height: calc(100vh - 220px);
@@ -404,7 +417,7 @@ h1 {
     min-width: 100%;
     font-size: 22px;#####################################
     font-weight: bold;
-}
+}*/
 .modalheader-type {
     font-style: 18px;
     text-transform: uppercase;
@@ -494,6 +507,7 @@ h1 {
     font-size: 0.8vw;
     padding-top: 2%;
 }
+/*
 .modal-body {
     text-align: justify;
     overflow-y: auto;
@@ -503,7 +517,7 @@ h1 {
     min-width: 100%;
     font-size: 22px;####################
     font-weight: bold;
-}
+}*/
 .modalheader-type {
     font-style: 18px;
     text-transform: uppercase;
@@ -604,6 +618,7 @@ h1 {
     font-size: 0.8vw;
     padding-top: 2%;
 }
+/*
 .modal-body {
     text-align: justify;
     overflow-y: auto;
@@ -613,7 +628,7 @@ h1 {
     min-width: 100%;
     font-size: 22px;####################
     font-weight: bold;
-}
+}*/
 .modalheader-type {
     font-style: 18px;
     text-transform: uppercase;
@@ -716,6 +731,7 @@ h1 {
     color: #D64E26;
     font-size: 1.3vw;
 }
+/*
 .modal-body {
     text-align: justify;
     overflow-y: auto;
@@ -725,7 +741,7 @@ h1 {
     min-width: 100%;
     font-size: 22px;
     font-weight: bold;
-}
+}*/
 .modalheader-type {
     font-style: 18px;
     text-transform: uppercase;
