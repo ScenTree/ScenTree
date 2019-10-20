@@ -11,6 +11,14 @@
   max-height: 70px;
 }
 
+.max-height-30px {
+  max-height: 30px;
+}
+
+.max-height-20px {
+  max-height: 20px;
+}
+
 .text-underline {
   text-decoration: underline;
 }
