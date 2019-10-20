@@ -30,6 +30,11 @@
   bottom: 5px;
 }
 
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(115vh - 320px);
+}
+
 /*#########################
 #######PAGE ENTIERE########
 #########################*/
