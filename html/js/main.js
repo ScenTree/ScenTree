@@ -216,13 +216,14 @@ var searchMarker = new L.FeatureGroup();
 var markers = new L.FeatureGroup();
 
 //pop-ups des boutons du HTML
-$("#searchclear").click(function(){
-    $("#searchinput").val('');
-    if (SPfocus) {
+$(".my-search-bar").on("input", function(){
+    if ((! this.value) || (this.value == "")) {
+      if (SPfocus) {
    	 map.removeLayer(SPfocus);
+      };
     };
 });
-$("#searchinput").focus(function() {
+$(".my-search-bar").focus(function() {
     $(this).autocomplete('search', $(this).val())
 });
 /*$(".logomenu").click(function() {
@@ -284,16 +285,17 @@ $(function() {
     var URL_PREFIX_SELECTER = "/select/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
     
-    $("#searchinput").autocomplete({
+    $(".my-search-bar").autocomplete({
 	source : function(request, response) {
 	    //envoi de la requête à searchinput, la classe HTML définie dans l'index.html
-	    var URL_SUGGESTER = URL_PREFIX_SUGGESTER + $("#searchinput").val() + URL_SUFFIX;
+	    let the_value_from_the_search_input = this.element.val();
+	    var URL_SUGGESTER = URL_PREFIX_SUGGESTER + the_value_from_the_search_input + URL_SUFFIX;
 	    console.log(URL_SUGGESTER);
 	    $.ajax({
 		url : URL_SUGGESTER,
 		
 		success : function(data) {
-		    var step1 = data.suggest.mySuggester[$("#searchinput").val().toString()];
+		    var step1 = data.suggest.mySuggester[the_value_from_the_search_input.toString()];
 		    if (! step1.suggestions) {
 			    return;
 		    };
@@ -356,7 +358,7 @@ $(function() {
 	    return false;
 	},
 	select: function(e, ui) {
-	    $("#searchinput").blur();						
+	    $(".my-search-bar").blur();						
 	    var URL = URL_PREFIX_SELECTER + "\"" + ui.item.label.id + "\"" + URL_SUFFIX;
 	    console.log(URL);
 	    $.ajax({
