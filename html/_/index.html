@@ -33,7 +33,7 @@ crossorigin=""/>
 <!-- fixed navbar -->
 <nav class="navbar  navbar-dark fixed-top bg-dark">
 	<button class="btn  mr-auto" type="button" data-toggle="modal" data-target="#decouvrirScenTree"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree"></button>
-<div class="dropdown">
+<div class="dropdown dropleft">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     R
   </button>
@@ -46,16 +46,16 @@ crossorigin=""/>
     M
   </button>
   <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
-    <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>
-    <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesCollaborateurs">Les collaborateurs</button>
+	  <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesCollaborateurs">Ils nous soutiennent</button>
     <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesContacts">Contacts</button>
     <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesSources">Sources</button>
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <!--<div class="btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-primary active"><input type="radio" name="options" id="option1" autocomplete="off" checked />FR</label>
       <label class="btn btn-primary"><input type="radio" name="options" id="option2" autocomplete="off" checked />EN</label>
-    </div>
+    </div>-->
     <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesMentionsLegales">Mentions Légales</button>
-    <a href="#">IN</a> <a href="#">IG</a>
+    <a class="linkedIn_button" href="https://www.linkedin.com/company/scentree/">IN</a> <a class="instagram_button" href="https://www.instagram.com/scentree_/">IG</a> <a class="twitter_button" href="https://www.twitter.com/Scentree1">TW</a>
   </div>
 </div>
 </nav>
@@ -82,14 +82,12 @@ crossorigin=""/>
 
 <div class="col-2 offset-5 offset-md-0 col-md-12">
   <!--Recherche -->
-  <button type="button" class="btn d-md-none">R</button>
   <form class="" action="" autocomplete="off" id="searchForm">
     <input id="searchinput" type="search" class="form-control" placeholder="Nom (botanique) ou N°CAS..." />
   </form>
 </div>
 
 <div class="col-2 col-md-12 d-none d-md-block  my-footer">
-<button type="button" class="btn d-md-none">M</button>
 <div class="container-fluid  text-center">
 <div class="row" id="menuRow">
 
@@ -102,9 +100,9 @@ crossorigin=""/>
 <div class="col-12 col-md-6">
 <div class="container-fluid">
 <div class="row">
-<div class="col-4 p-0"><a id="linkedIn_button" href="https://www.linkedin.com/company/scentree/">IN</a></div>
-<div class="col-4 p-0"><a id="instagram_button" href="https://www.instagram.com/scentree_/">IG</a></div>
-<div class="col-4 p-0"><a id="twitter_button" href="https://www.twitter.com/Scentree1">TW</a></div>
+<div class="col-4 p-0"><a class="linkedIn_button" href="https://www.linkedin.com/company/scentree/">IN</a></div>
+<div class="col-4 p-0"><a class="instagram_button" href="https://www.instagram.com/scentree_/">IG</a></div>
+<div class="col-4 p-0"><a class="twitter_button" href="https://www.twitter.com/Scentree1">TW</a></div>
 </div>
 </div>
 </div>
