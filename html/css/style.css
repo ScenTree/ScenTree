@@ -1,5 +1,6 @@
 #menu-block {
   z-index: 2;
+  min-height: 500px;
 }
 
 #mapblock {
@@ -8,6 +9,17 @@
 
 .max-height-70px {
   max-height: 70px;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.my-footer {
+  position: absolute;
+  width: auto;
+  height: auto;
+  bottom: 5px;
 }
 
 /*#########################
@@ -29,7 +41,7 @@
 ###########MAP#############
 #########################*/
 #map {
-    min-height: 200px;
+    min-height: 500px;
     min-width: 200px;
 }
 .fill2{
