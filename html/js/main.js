@@ -801,10 +801,10 @@ function markofun(the_node_as_json, show_the_modal = true) {
    };
 
    if (displayblocktable) {
-   		$(".blocktable").css('display', 'none');
+   		$(".blocktable").css('display', 'block');
    }
    if (displayblockifra1 ) {
-   		$(".blockifra1").css('display', 'none');
+   		$(".blockifra1").css('display', 'block');
    }
    /*
    if (displaytab1) {
