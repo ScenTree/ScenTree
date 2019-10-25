@@ -31,7 +31,7 @@
   position: absolute;
   width: auto;
   height: auto;
-  bottom: 5px;
+  bottom: 10px;
 }
 
 .scrollbar-inside {
@@ -220,6 +220,13 @@
    float: top;
 }
 
+.text-in-color-brown {
+  color: #D64E26;
+}
+
+.text-in-size-16px {
+  font-size: 18px
+}
 
 /*##################################################
 ############ZONE DE LA RECHERCHE####################
