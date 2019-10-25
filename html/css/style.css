@@ -43,9 +43,18 @@
   font-size: 14px;
 }
 
+.text-size-13px {
+  font-size: 13px;
+}
+
 .text-size-1-5vw {
  font-size: 1.2vw; 
 }
+
+.text-my-grey {
+    color : grey;
+}
+
 
 /*#########################
 #######PAGE ENTIERE########
@@ -330,6 +339,7 @@ td {
     color : grey;
     text-align: center;
     font-style: italic;
+    caption-side: top;
 }
 .logoifra {
     width: 90%;
