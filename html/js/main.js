@@ -788,15 +788,15 @@ function markofun(the_node_as_json, show_the_modal = true) {
    	    $(".table3").show();
    };
    if (displaylogo) {
-   		$(".logoifra").css('display', 'inline');
+   		$(".logoifra").css('display', 'block');
    	    $(".logoifra").show();
    };
    if (displayamendment) {
-   		$(".amendment").css('display', 'inline');
+   		$(".amendment").css('display', 'block');
    	    $(".amendment").show();
    };
    if (displaycommentaires) {
-   		$(".commentaires").css('display', 'inline');
+   		$(".commentaires").css('display', 'block');
    	    $(".commentaires").show();
    };
 

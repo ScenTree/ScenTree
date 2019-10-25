@@ -341,14 +341,6 @@ td {
     font-style: italic;
     caption-side: top;
 }
-.logoifra {
-    width: 90%;
-    height: 90%;
-    text-align: center;
-}
-.blocktable {
-    padding-bottom: 1%;
-}
 .table1 {
     display: none;
 }
