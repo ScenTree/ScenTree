@@ -367,6 +367,9 @@ td {
 .commentaires {
     display: none;
 }
+.width-100-px {
+  width: 100px;
+}
 
 /*############################
 ######MENTIONS LEGALES########
