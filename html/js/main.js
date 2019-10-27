@@ -251,7 +251,8 @@ $(".my-search-bar").on("input", function(){
     if ((! this.value) || (this.value == "")) {
       if (SPfocus) {
    	 map.removeLayer(SPfocus);
-    };
+      };
+    }
 });
 $(".my-search-bar").focus(function() {
     $(this).autocomplete('search', $(this).val())
