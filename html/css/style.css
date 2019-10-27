@@ -367,15 +367,16 @@ table {
   border: 1px solid black;
   width: 100%;
 }
-th {
+th, .table th {
     border: 1px solid black;
     text-align: center;
     height: 50%;
     font-style: large;
 }
-td {
+td, .table td {
     border: 1px solid black;
     text-align: center;  
+    vertical-align: middle;
 }
 .caption {
     color : grey;
