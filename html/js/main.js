@@ -175,7 +175,7 @@ map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, 
 
 /* Définission de l'icone qui pointe les MP recherchées*/
 var mark = L.icon({
-    iconUrl: 'img/mark.png',
+    iconUrl: '../img/mark.png',
     iconSize:     [20, 20], // size of the icon
     iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
 });
@@ -247,25 +247,25 @@ var searchMarker = new L.FeatureGroup();
 var markers = new L.FeatureGroup();
 
 //pop-ups des boutons du HTML
-$("#searchclear").click(function(){
-    $("#searchinput").val('');
-    if (SPfocus) {
+$(".my-search-bar").on("input", function(){
+    if ((! this.value) || (this.value == "")) {
+      if (SPfocus) {
    	 map.removeLayer(SPfocus);
     };
 });
-$("#searchinput").focus(function() {
+$(".my-search-bar").focus(function() {
     $(this).autocomplete('search', $(this).val())
 });
-$("#logo").click(function() {
-    $("#theMenu").modal("toggle");
-});
+/*$(".logomenu").click(function() {
+     $(".modalmenu").modal("toggle");
+ });*/
 $("#ListeMP").click(function() {
     $("#listeMP").modal("show");
 });
 $("#Listefamilles").click(function() {
     $("#listefamilles").modal("show");
 });
-$("#modal_video").click(function() {
+/*$("#modal_video").click(function() {
     $("#vidéo").modal("show");
 });
 $("#credit").click(function() {
@@ -279,7 +279,7 @@ $("#confidentialite").click(function() {
 });
 $("#source").click(function() {
     $("#Source").modal("toggle");
-});
+});*/
 
 //pop-up
 map.on("moveend", function() {
@@ -289,7 +289,7 @@ map.on("moveend", function() {
 // définition du pointeur valable, celui jaune de google maps
 var SPfocus;
 var pin1 = L.icon({
-    iconUrl: 'img/pin1.png',
+    iconUrl: '../img/pin1.png',
     iconSize:     [18, 25], // size of the icon
     iconAnchor:   [9, 30], // point of the icon which will correspond to marker's location
 });
@@ -311,16 +311,17 @@ $(function() {
     var URL_PREFIX_SELECTER = "/select/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
     
-    $("#searchinput").autocomplete({
+    $(".my-search-bar").autocomplete({
 	source : function(request, response) {
 	    //envoi de la requête à searchinput, la classe HTML définie dans l'index.html
-	    var URL_SUGGESTER = URL_PREFIX_SUGGESTER + $("#searchinput").val() + URL_SUFFIX;
-	    console.log(URL_SUGGESTER);
+	    let the_value_from_the_search_input = this.element.val();
+ 	    var URL_SUGGESTER = URL_PREFIX_SUGGESTER + the_value_from_the_search_input + URL_SUFFIX;
+            console.log(URL_SUGGESTER);
 	    $.ajax({
 		url : URL_SUGGESTER,
 		
 		success : function(data) {
-		    var step1 = data.suggest.mySuggester[$("#searchinput").val().toString()];
+		    var step1 = data.suggest.mySuggester[the_value_from_the_search_input.toString()];
 		    if (! step1.suggestions) {
 			    return;
 		    };
@@ -383,7 +384,7 @@ $(function() {
 	    return false;
 	},
 	select: function(e, ui) {
-	    $("#searchinput").blur();						
+	    $(".my-search-bar").blur();						
 	    var URL = URL_PREFIX_SELECTER + "\"" + ui.item.label.id + "\"" + URL_SUFFIX;
 	    console.log(URL);
 	    $.ajax({
@@ -405,8 +406,11 @@ $(function() {
 		    searchMarker = new L.FeatureGroup();
 		    
 
-		    SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1, bubblingMouseEvents: true}).addTo(searchMarker);
-		    searchMarker.addTo(map);
+		    SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
+ 		    SPfocus.on("click", function() {
+ 			markofun(jsonData[0]);
+ 		    });
+                    searchMarker.addTo(map);
 		},
 		dataType : 'jsonp',
 		jsonp : 'json.wrf'
@@ -503,6 +507,9 @@ function markofun(the_node_as_json, show_the_modal = true) {
 
 
     var the_commentary = the_node_as_json['from_csv Commentaires']
+    if (the_commentary) { // avoid applying .replace to undefined
+         the_commentary = the_commentary.replace(/\n/g,"<br />");  //convert \n to <br /> = convert json end of line to html end of line
+     };
     var the_type = the_node_as_json['from_csv Type'];
     var the_background_color = the_node_as_json['from_csv Couleur'];
     if (! (the_background_color)) {
@@ -525,8 +532,10 @@ function markofun(the_node_as_json, show_the_modal = true) {
     var displaylogo = (false);
     var displayamendment = (false);
     var displaycommentaires = (false);
+    var displayblockifra1 = (false); 
+    var displayblocktable = (false);
 
-    /*if (IFRAQRA) {
+    if (IFRAQRA) {
     	displaytable1 = true;
     	displayamendment = true;
     	displaycommentaires = true;
@@ -548,7 +557,11 @@ function markofun(the_node_as_json, show_the_modal = true) {
     if (IFRAspécification) {
     	displaycommentaires = true;
     	displaylogo = true;
-    };*/
+    };
+    if (nonIFRA) {
+     	displayblockifra1 = true;
+     	displayblocktable = true;
+     };
 
 
 
@@ -745,10 +758,10 @@ function markofun(the_node_as_json, show_the_modal = true) {
     $('#modalbody-pictA').empty();
     $('#modalbody-pict1').empty();
     $('#modalbody-pict1A').empty();
-	$('#modalbody-pict').append("<img class='modal_picture' src='img/matieres_premieres/" + the_title + ".jpg' alt='' />");
-    $('#modalbody-pictA').append("<img class='modal_picture' src='img/matieres_premieres/" + the_title + ".jpg' alt='' />");
-    $('#modalbody-pict1').append("<img class='modal_picture' src='img/matieres_premieres/" + the_title + ".PNG' alt='' />");
-    $('#modalbody-pict1A').append("<img class='modal_picture' src='img/matieres_premieres/" + the_title + ".PNG' alt='' />");
+	$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".jpg' alt='' />");
+    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".jpg' alt='' />");
+    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".PNG' alt='' />");
+    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".PNG' alt='' />");
     };  
     
     if (is_an_naturelle) {
@@ -768,24 +781,32 @@ function markofun(the_node_as_json, show_the_modal = true) {
    $('title').html('ScenTree - ' + the_title);
 
    if (displaytable1) {
-   		//$("#table1").css('display', 'inline-table');
+   		$(".table1").css('display', 'inline-table');
    		$(".table1").show();
    };
    if (displaytable2) {
+	   $(".table2").css('display', 'inline-table');
    	    $(".table2").show();
    };
    if (displaytable3) {
+	   $(".table3").css('display', 'inline-table');
    	    $(".table3").show();
    };
-   if (displaylogo) {
-   	    $(".logoifra").show();
-   };
    if (displayamendment) {
-   	    $(".amendment").show();
+   	   $(".amendment").css('display', 'block');
+	   $(".amendment").show();
    };
    if (displaycommentaires) {
-   	    $(".commentaires").show();
+   	    $(".commentaires").css('display', 'block');
+	    $(".commentaires").show();
    };
+    if (displayblocktable) {
+    		$(".blocktable").css('display', 'block');
+    }
+    if (displayblockifra1 ) {
+    		$(".blockifra1").css('display', 'block');
+    }
+
 };
 
 $("#SynthetiqueModal").on("hide.bs.modal", function (e) {
