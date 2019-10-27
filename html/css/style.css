@@ -68,6 +68,23 @@
     color : grey;
 }
 
+@media screen and (max-width: 767px) {
+.font-italic-before-md {
+  font-style: italic;
+}
+.text-center-before-md {
+  text-align: center;
+}
+}
+
+@media screen and (min-width: 768px) {
+.text-align-left-strictly-after-md {
+  text-align: left;
+}
+.text-align-right-strictly-after-md {
+  text-align: right;
+}
+}
 
 /*#########################
 #######PAGE ENTIERE########
