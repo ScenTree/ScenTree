@@ -185,13 +185,13 @@ html, body {
 }
 @keyframes RGPD_animation {
   0%   {bottom: -100px;}
-  100% {bottom: 10px;}
+  100% {bottom: 40%;}
 }
 
 #RGPD_warning {
     display: none;
     position: absolute;
-    bottom: 1px;
+    bottom: 40%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, 0);
