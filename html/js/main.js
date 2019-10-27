@@ -540,24 +540,24 @@ function markofun(the_node_as_json, show_the_modal = true) {
     	displaytable1 = true;
     	displayamendment = true;
     	displaycommentaires = true;
-    	displaylogo = true;
+	displaylogo = true;
     };
     if (IFRAnonQRA) {
     	displaytable2 = true;
     	displayamendment = true;
     	displaycommentaires = true;
-    	displaylogo = true;
+	displaylogo = true;
     };
     if (IFRAnonQRAspe) {
     	displaytable2 = false;
     	displaytable3 = true;
     	displayamendment = true;
     	displaycommentaires = true;
-    	displaylogo = true;
+	displaylogo = true;
     };
     if (IFRAspécification) {
     	displaycommentaires = true;
-    	displaylogo = true;
+	displaylogo = true;
     };
     if (nonIFRA) {
      	displayblockifra1 = true;
@@ -793,12 +793,16 @@ function markofun(the_node_as_json, show_the_modal = true) {
 	   $(".table3").css('display', 'inline-table');
    	    $(".table3").show();
    };
+   if (displaylogo) {
+    		$(".logoifra").css('display', 'inline');
+    	    $(".logoifra").show();
+    };
    if (displayamendment) {
-   	   $(".amendment").css('display', 'block');
+   	   $(".amendment").css('display', 'inline');
 	   $(".amendment").show();
    };
    if (displaycommentaires) {
-   	    $(".commentaires").css('display', 'block');
+   	    $(".commentaires").css('display', 'inline');
 	    $(".commentaires").show();
    };
     if (displayblocktable) {
