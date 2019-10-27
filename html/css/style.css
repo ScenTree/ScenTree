@@ -36,12 +36,6 @@
   text-decoration: underline;
 }
 
-.my-footer {
-  position: absolute;
-  width: auto;
-  height: auto;
-  bottom: 10px;
-}
 
 .scrollbar-inside {
   overflow-y: auto;
@@ -89,6 +83,7 @@
   text-align: right;
 }
 }
+
 
 /*#########################
 #######PAGE ENTIERE########
