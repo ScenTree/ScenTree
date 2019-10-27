@@ -44,10 +44,18 @@
   max-height: calc(115vh - 320px);
 }
 
+.text-size-20px {
+  font-size: 20px;
+}
+.text-size-18px {
+  font-size: 18px;
+}
+.text-size-16px {
+  font-size: 16px;
+}
 .text-size-14px {
   font-size: 14px;
 }
-
 .text-size-11px {
   font-size: 11px;
 }
