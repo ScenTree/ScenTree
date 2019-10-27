@@ -70,28 +70,34 @@ crossorigin=""/>
 
 <!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
 
-<div id="menu-block" class="d-none d-md-block  col-md-3  h-100 fillright">
+<div id="menu-block" class="d-none d-md-flex  col-md-3  h-100 fillright">
 <div class="container-fluid">
-<div class="row">
- 
-<div class="col-md-12">
-	<button class="btn mt-4" type="button" data-toggle="modal" data-target="#decouvrirScenTree"><img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree"></button>
+
+<div class="row h-25 align-items-start">
+  <button class="btn mt-4" type="button" data-toggle="modal" data-target="#decouvrirScenTree"><img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logob.png" alt="le logo de Scentree"></button>
 </div>
 
-<div class="text-underline font-weight-bold text-size-1-5vw  mt-5 mb-2  col-md-12  d-none d-sm-none d-md-block">Trouver une matière première&nbsp;:&nbsp;</div>
-
-<div class="col-md-12">
+<div class="row h-25 align-items-start">
+  <div class="col-12">
+    <div class="text-underline font-weight-bold text-size-1-5vw  mt-5 mb-2  d-none d-sm-none d-md-block">Trouver une matière première&nbsp;:&nbsp;</div>
+  </div>
+  <div class="col-12 text-center">
   <!--Recherche -->
   <form class="" action="" autocomplete="off" id="searchForm">
     <input id="searchinput" type="search" class="my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." />
   </form>
+  </div>
 </div>
 
-<div class="col-md-12 d-none d-md-block  my-footer  pl-0">
+<div class="row h-25 align-items-center  text-center">
+  <div class="col">
+<!--<div class="col-12"><button class="btn btn text-underline" type="button" data-toggle="modal" data-target="#lesNouveautes">Découvrez les nouveautés !</button></div>-->
+  <button class="btn  text-underline font-weight-bold  mt-3 mb-5 px-0  text-in-color-brown text-in-size-16px" type="button" data-toggle="modal" data-target="#lesCollaborateurs">Ils nous soutiennent</button>
+</div>
+</div>
+<div class="row h-25 align-items-end">
 <div class="container-fluid  text-center">
 <div class="row">
-	<!--<div class="col-12"><button class="btn btn text-underline" type="button" data-toggle="modal" data-target="#lesNouveautes">Découvrez les nouveautés !</button></div>-->
-<div class="col-12  p-0"><button class="btn  text-underline font-weight-bold  mt-3 mb-5 px-0  text-in-color-brown text-in-size-16px" type="button" data-toggle="modal" data-target="#lesCollaborateurs">Ils nous soutiennent</button></div>
 <div class="col-12 col-md-6 p-0"><button class="btn btn-sm  text-underline" type="button" data-toggle="modal" data-target="#lesSources">Sources</button></div>
 <div class="col-12 col-md-6 p-0"><button class="btn btn-sm  text-underline" type="button" data-toggle="modal" data-target="#lesContacts">Contacts</button></div>
 <div class="col-12 col-md-6 p-0"><button class="btn btn-sm  text-underline" type="button" data-toggle="modal" data-target="#lesMentionsLegales">Mentions Légales</button></div>
@@ -117,7 +123,6 @@ crossorigin=""/>
 
 </div>
 
-</div>
 </div>
 
 
