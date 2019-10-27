@@ -158,14 +158,14 @@
 .m-top-90 {
     margin-top: 90%;
 }
+.m-top-15-percent {
+    margin-top: 15%;
+}
 
-
-
-#copyright {
+.copyright {
     text-align: center;
     color: #D64E26;
     font-size: 10px;
-    margin-top: 15%;
 }
 
 
@@ -350,12 +350,12 @@
 /*###############################################
 ################ COPYRIGHT ######################
 ###############################################*/
-.copyright {
+/*.copyright {
     text-align: center;
     color: #D64E26;
     font-size: 0.65vw;
     padding-top: 2%;
-}
+}*/
 /*#########################
 ######CARTE IDENTITE#######
 #########################*/
@@ -585,12 +585,12 @@ h1 {
     cursor:pointer;
     display: inline;
 }
-.copyright {
+/*.copyright {
     text-align: center;
     color: #D64E26;
     font-size: 0.8vw;
     padding-top: 2%;
-}
+}*/
 /*
 .modal-body {
     text-align: justify;
@@ -696,12 +696,12 @@ h1 {
     cursor:pointer;
     display: inline;
 }
-.copyright {
+/*.copyright {
     text-align: center;
     color: #D64E26;
     font-size: 0.8vw;
     padding-top: 2%;
-}
+}*/
 /*
 .modal-body {
     text-align: justify;
@@ -810,11 +810,11 @@ h1 {
     cursor:pointer;
     display: inline;
 }
-.copyright {
+/*.copyright {
     text-align: center;
     color: #D64E26;
     font-size: 1.3vw;
-}
+}*/
 /*
 .modal-body {
     text-align: justify;
