@@ -533,8 +533,8 @@ function markofun(the_node_as_json, show_the_modal = true) {
     var displaylogo = (false);
     var displayamendment = (false);
     var displaycommentaires = (false);
-    var displayblockifra1 = (false); 
-    var displayblocktable = (false);
+    var displayblockifra1 = (true); 
+    var displayblocktable = (true);
 
     if (IFRAQRA) {
     	displaytable1 = true;
@@ -560,8 +560,8 @@ function markofun(the_node_as_json, show_the_modal = true) {
 	displaylogo = true;
     };
     if (nonIFRA) {
-     	displayblockifra1 = true;
-     	displayblocktable = true;
+     	displayblockifra1 = false;
+     	displayblocktable = false;
      };
 
 
@@ -784,33 +784,57 @@ function markofun(the_node_as_json, show_the_modal = true) {
    if (displaytable1) {
    		$(".table1").css('display', 'inline-table');
    		$(".table1").show();
+   }
+   else {
+	$(".table1").css('display', 'none');	   
    };
    if (displaytable2) {
 	   $(".table2").css('display', 'inline-table');
    	    $(".table2").show();
+   }
+   else {
+        $(".table2").css('display', 'none');
    };
    if (displaytable3) {
 	   $(".table3").css('display', 'inline-table');
    	    $(".table3").show();
+   }
+   else {
+        $(".table3").css('display', 'none');        
    };
    if (displaylogo) {
-    		$(".logoifra").css('display', 'inline');
+    		$(".logoifra").css('display', 'block');
     	    $(".logoifra").show();
-    };
+    }
+   else {
+        $(".logoifra").css('display', 'none');
+   };
    if (displayamendment) {
-   	   $(".amendment").css('display', 'inline');
+   	   $(".amendment").css('display', 'block');
 	   $(".amendment").show();
+   }
+   else {
+      $(".amendment").css('display', 'none');  
    };
    if (displaycommentaires) {
-   	    $(".commentaires").css('display', 'inline');
+   	    $(".commentaires").css('display', 'block');
 	    $(".commentaires").show();
+   }
+   else {
+        $(".commentaires").css('display', 'none');
    };
     if (displayblocktable) {
     		$(".blocktable").css('display', 'block');
     }
+    else {
+         $(".blocktable").css('display', 'none');
+    };
     if (displayblockifra1 ) {
     		$(".blockifra1").css('display', 'block');
     }
+    else {
+         $(".blockifra1").css('display', 'none');
+    };
 
 };
 

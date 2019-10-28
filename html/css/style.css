@@ -386,6 +386,7 @@ td, .table td {
     font-style: italic;
     caption-side: top;
 }
+/*
 .table1 {
     display: none;
 }
@@ -403,7 +404,7 @@ td, .table td {
 }
 .commentaires {
     display: none;
-}
+}*/
 .width-100-px {
   width: 100px;
 }
