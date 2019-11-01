@@ -176,8 +176,8 @@ map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, 
 /* Définission de l'icone qui pointe les MP recherchées*/
 var mark = L.icon({
     iconUrl: '../img/mark.png',
-    iconSize:     [20, 20], // size of the icon
-    iconAnchor:   [10, 10], // point of the icon which will correspond to marker's location
+    iconSize:     [75, 25], // size of the icon
+    iconAnchor:   [35, 13], // point of the icon which will correspond to marker's location
 });
 
 /////////////////////////////
