@@ -879,10 +879,14 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
 $(".to_english_button").click(function() {
     $("*:lang(fr)").css({'display' : 'none'});
     $("*:lang(en)").css({'display' : 'inherit'});
+    // change search
+    // change map
 });
 $(".to_french_button").click(function() {
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'inherit'});
+    // change search
+    // change map
 });
 
 
