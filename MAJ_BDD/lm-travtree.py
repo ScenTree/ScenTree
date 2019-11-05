@@ -33,17 +33,31 @@ except:
     prg.close()
     sys.exit(1)
 
-# reading the csv file
-the_csv_file_as_dict = {}
+# reading the csv files : EN then FR, then inside the same dict
+the_csv_EN_file_as_dict = {}
 try:
-    with open(THE_PATH_OF_THE_CSV_FILE, 'r') as csvfile:
+    with open(THE_PATH_OF_THE_CSV_EN_FILE, 'r') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=';')
         for row in reader:
-            the_csv_file_as_dict[str(row['id'])] = row # id is possibly int, so convert int to string
+            the_csv_EN_file_as_dict[str(row['id'])] = row # id is possibly int, so convert int to string
 except:
-    prg.write('"Success":false,"Reason": "The csv file could not be red. Maybe it does not exists ? Stopping"')
+    prg.write('"Success":false,"Reason": "The csv-EN file could not be red. Maybe it does not exists ? Stopping"')
     prg.close()
     sys.exit(1)
+
+the_csv_FR_file_as_dict = {}
+try:
+    with open(THE_PATH_OF_THE_CSV_FR_FILE, 'r') as csvfile:
+        reader = csv.DictReader(csvfile, delimiter=';')
+        for row in reader:
+            the_csv_FR_file_as_dict[str(row['id'])] = row # id is possibly int, so convert int to string
+except:
+    prg.write('"Success":false,"Reason": "The csv-FR file could not be red. Maybe it does not exists ? Stopping"')
+    prg.close()
+    sys.exit(1)
+
+the_csv_files_as_one_dict = {**the_csv_EN_file_as_dict, **the_csv_FR_file_as_dict}
+
 
 
 t.x = 0.0;
