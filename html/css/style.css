@@ -904,3 +904,14 @@ h1 {
     margin-bottom: 5%;
 }
 }
+
+
+
+/* LANGUAGES */
+
+*:lang(fr) {
+	display: none;
+}
+*:lang(en) {
+	display: inherit;
+}

@@ -876,6 +876,20 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
         $('title').html("ScenTree - Classification innovante des ingrédients parfum");
 });
 
+$(".to_english_button").click(function() {
+    $("*:lang(fr)").css({'display' : 'none'});
+    $("*:lang(en)").css({'display' : 'inherit'});
+    // change search
+    // change map
+});
+$(".to_french_button").click(function() {
+    $("*:lang(en)").css({'display' : 'none'});
+    $("*:lang(fr)").css({'display' : 'inherit'});
+    // change search
+    // change map
+});
+
+
 /*suppression du copier-coller*/
 function addLink() {
     var body_element = document.getElementsByTagName('body')[0];
