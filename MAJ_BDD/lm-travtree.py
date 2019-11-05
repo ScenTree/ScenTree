@@ -9,10 +9,11 @@ import numpy as np
 from ete3 import Tree
 import psycopg2 ##for postgresql connection
 
-THE_SECRET_PSWRD = "35740"
+THE_SECRET_PSWRD = "M31@gis"
 THE_URL_TO_THE_DATABASE = "localhost"
 THE_PATH_OF_THE_TRE_FILE = "./tree.tre"
-THE_PATH_OF_THE_CSV_FILE = "./csv.csv"
+THE_PATH_OF_THE_CSV_FR_FILE = "./csv_FR.csv"
+THE_PATH_OF_THE_CSV_EN_FILE = "./csv_EN.csv"
 THE_PATH_OF_THE_LOG_FILE = "./result.json"
 THE_PATH_OF_THE_JSON_FILE = "./TreeFeaturesNEW.json" # JSON file to populate solr database
 
@@ -110,9 +111,9 @@ if (cur.fetchone()[0]): ## we drop tables only if they exist.
     cur.execute("DROP TABLE polygons;")
     conn.commit()
 ##we create the database structure here
-cur.execute("CREATE TABLE points(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankame boolean,sci_name text,common_name text,full_name text,rank text, name text, nbdesc integer,taxid text, color text, way geometry(POINT,900913));")
-cur.execute("CREATE TABLE lines(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankname boolean,sci_name text,common_name text,full_name text,rank text,name text, nbdesc integer,taxid text, color text, way geometry(LINESTRING,900913));")
-cur.execute("CREATE TABLE polygons(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankame boolean,sci_name text,common_name text,full_name text,rank text, name text, nbdesc integer,taxid text, color text, way geometry(POLYGON,900913));")
+cur.execute("CREATE TABLE points(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankame boolean,  sci_name_en text, sci_name_fr text,  common_name_en text, common_name_fr text,  full_name_en text, full_name_fr text,  rank text,  name_en text, name_fr text,  nbdesc integer,taxid text, color text, way geometry(POINT,900913));")
+cur.execute("CREATE TABLE lines(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankname boolean,  sci_name_en text, sci_name_fr text,  common_name_en text, common_name_fr text,  full_name_en text, full_name_fr text,  rank text,  name_en text, name_fr text,  nbdesc integer,taxid text, color text, way geometry(LINESTRING,900913));")
+cur.execute("CREATE TABLE polygons(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankame boolean,  sci_name_en text, sci_name_fr text,  common_name_en text, common_name_fr text,  full_name_en text, full_name_fr text,  rank text,  name_en text, name_fr text,  nbdesc integer,taxid text, color text, way geometry(POLYGON,900913));")
 conn.commit()
 
 ##we include the root node
