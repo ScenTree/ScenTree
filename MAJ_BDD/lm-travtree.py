@@ -9,7 +9,9 @@ import numpy as np
 from ete3 import Tree
 import psycopg2 ##for postgresql connection
 
-THE_SECRET_PSWRD = "M31@gis"
+THE_NAME_OF_THE_DATABASE = "gis"
+THE_USER_OF_THE_DATABASE = "maxime"
+THE_SECRET_PSWRD = os.environ.get('THE_SECRET_PSWRD')
 THE_URL_TO_THE_DATABASE = "localhost"
 THE_PATH_OF_THE_TRE_FILE = "./tree.tre"
 THE_PATH_OF_THE_CSV_FR_FILE = "./csv_FR.csv"
@@ -107,7 +109,7 @@ def HalfCircPlusEllips(x,y,r,alpha, start, end,nsteps):
 ##CONNECT TO POSTGRESQL/POSTGIS DATABASE
 
 try:
-    conn = psycopg2.connect("dbname='tree' user='lm' host='%s' password='%s'" % (THE_URL_TO_THE_DATABASE, THE_SECRET_PSWRD))
+    conn = psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (THE_NAME_OF_THE_DATABASE, THE_USER_OF_THE_DATABASE, THE_URL_TO_THE_DATABASE, THE_SECRET_PSWRD))
 except Exception as e:
     prg.write(repr(e))
     prg.write('"Success":false,"Reason": "Could not connect to the database. Restart the virtual Machine to solve this issue."}')
