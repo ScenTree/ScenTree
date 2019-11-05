@@ -678,7 +678,7 @@
   <StyleName>Clade_names</StyleName>
   <Datasource>
     <Parameter name="table">
-      (select way,cladecenter,zoomview,sci_name_EN, common_name_EN, nbdesc,taxid
+      (select way,cladecenter,zoomview,sci_name_EN, nbdesc,taxid
       from points
       where cladecenter is true
       order by taxid DESC
@@ -690,7 +690,7 @@
   <StyleName>Node_names</StyleName>
   <Datasource>
     <Parameter name="table">
-      (select way,tip,zoomview,sci_name_EN,common_name_EN, nbdesc,taxid
+      (select way,tip,zoomview,sci_name_EN, nbdesc,taxid
       from points
       where cladecenter is null and tip &lt; 1
       order by taxid DESC
@@ -702,7 +702,7 @@
   <StyleName>tip_names</StyleName>
   <Datasource>
     <Parameter name="table">
-      (select way,sci_name_EN,common_name_EN,tip,zoomview, nbdesc
+      (select way,sci_name_EN,tip,zoomview, nbdesc
       from points where tip &gt; 0
     ) as placenames</Parameter>
     &datasource-settings;
