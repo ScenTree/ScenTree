@@ -45,8 +45,8 @@ except:
     prg.close()
     sys.exit(1)
 else:
-    reader_en = csv.DictReader(the_en_csv_file, delimiter=';')
-    reader_fr = csv.DictReader(the_fr_csv_file, delimiter=';')
+    reader_en = [d for d in csv.DictReader(the_en_csv_file, delimiter=';')]
+    reader_fr = [d for d in csv.DictReader(the_fr_csv_file, delimiter=';')]
     if len(reader_en) != len(reader_fr):
         prg.write('"Success":false,"Reason": "csv-en and csv-fr have not the same length !"')
         prg.close()
@@ -58,9 +58,9 @@ else:
             sys.exit(1)
         the_id_of_the_row = str(a_fr_row['id'])
         the_csv_files_as_one_dict[the_id_of_the_row] = {}
-        for a_key, a_fr_value in a_fr_row:
+        for a_key, a_fr_value in a_fr_row.items():
             the_csv_files_as_one_dict[the_id_of_the_row][a_key] = {'FR' : a_fr_value}
-        for a_key, a_en_value in an_en_row:
+        for a_key, a_en_value in an_en_row.items():
             the_csv_files_as_one_dict[the_id_of_the_row][a_key]['EN'] = a_en_value
 
 
@@ -167,24 +167,27 @@ def getNodeNameFRForTheDatabase(the_node):
 def getNodeNameFRForTheJSON(the_node):
     return getNodeNameFR(the_node).replace('"','\\"')
 def getNodeColor(the_node):
-    return the_node.the_properties_from_the_csv.get('Couleur', None)
+    try:
+        return the_node.the_properties_from_the_csv['Couleur']['FR']
+    except KeyError:
+        return None
 def getNodeZoom(the_node):
     try:
-        return int(the_node.the_properties_from_the_csv.get('zoomview', None))
+        return int(the_node.the_properties_from_the_csv.get('zoomview', None)['FR'])
     except TypeError:
         return None
 def writeosmNode(node):
     ##we write INFO FOR EACH NODE. Clades will be delt with later on. We put less info than for the json file
     the_color = getNodeColor(node)
     node.zoomwiew = getNodeZoom(node)
-    command = "INSERT INTO points (id, taxid, sci_name_en, sci_name_fr, nbdesc,zoomview, tip, color, way) VALUES(%d,%s,'%s',%d,'%s',%d, '%s', ST_Transform(ST_GeomFromText('POINT(%.20f %.20f)', 4326), 900913));" % (node.id, node.support, getNodeNameENForTheDatabase(node), getNodeNameFRForTheDatabase(node),  node.nbdesc,node.zoomview, node.is_leaf(), the_color, node.x, node.y);
+    command = "INSERT INTO points (id, taxid, sci_name_en, sci_name_fr, nbdesc,zoomview, tip, color, way) VALUES(%d,'%s', '%s','%s',%d,'%s',%d, '%s', ST_Transform(ST_GeomFromText('POINT(%.20f %.20f)', 4326), 900913));" % (node.id, node.support, getNodeNameENForTheDatabase(node), getNodeNameFRForTheDatabase(node),  node.nbdesc,node.zoomview, node.is_leaf(), the_color, node.x, node.y);
     cur.execute(command);
     conn.commit();
     ##write json for search
     
 def writeosmWays(node, id):
     #Create branch names
-    command = "INSERT INTO lines (id, branch, zoomview, ref, way) VALUES(%d,'TRUE','%s','%s',E'%s',ST_Transform(ST_GeomFromText('LINESTRING(%.20f %.20f, %.20f %.20f)', 4326), 900913));" % (id, node.zoomview, '1', node.up.x, node.up.y, node.x, node.y);
+    command = "INSERT INTO lines (id, branch, zoomview, ref, way) VALUES(%d,'TRUE','%s',E'%s',ST_Transform(ST_GeomFromText('LINESTRING(%.20f %.20f, %.20f %.20f)', 4326), 900913));" % (id, node.zoomview, '1', node.up.x, node.up.y, node.x, node.y);
     cur.execute(command);
     conn.commit();
         
@@ -196,11 +199,11 @@ def writeosmpolyg(node, ids):
         cooPolyg += ',%.20f %.20f' % (polyg[0][i], polyg[1][i]);
     cooPolyg += ',%.20f %.20f' % (polyg[0][0], polyg[1][0]); #to close the ring...
     cooPolyg += '))';
-    command = "INSERT INTO polygons (id, ref, clade, taxid, sci_name_en, sci_name_fr, nbdesc,zoomview, color, way) VALUES(%d,'%s','TRUE', %s,'%s','%s',%d,'%s', '%s', ST_Transform(ST_GeomFromText('%s', 4326), 900913));" % (ids[60], '1', node.support, getNodeNameENForTheDatabase(node), getNodeNameFRForTheDatabase(node), node.nbdesc, node.zoomview, getNodeColor(node), cooPolyg);
+    command = "INSERT INTO polygons (id, ref, clade, taxid, sci_name_en, sci_name_fr, nbdesc,zoomview, color, way) VALUES(%d,'%s','TRUE', '%s','%s','%s',%d,'%s', '%s', ST_Transform(ST_GeomFromText('%s', 4326), 900913));" % (ids[60], '1', node.support, getNodeNameENForTheDatabase(node), getNodeNameFRForTheDatabase(node), node.nbdesc, node.zoomview, getNodeColor(node), cooPolyg);
     cur.execute(command);
     conn.commit();
     #and add the clade center
-    command = "INSERT INTO points (id, cladecenter, taxid, sci_name_en, sci_name_fr, nbdesc,zoomview, color, way) VALUES('%d','TRUE', %s,'%s','%s',%d,'%s', '%s', ST_Transform(ST_GeomFromText('POINT(%.20f %.20f)', 4326), 900913));" % (ids[61], node.support, getNodeNameENForTheDatabase(node), getNodeNameFRForTheDatabase(node), node.nbdesc,node.zoomview, getNodeColor(node), polygcenter[0], polygcenter[1]);
+    command = "INSERT INTO points (id, cladecenter, taxid, sci_name_en, sci_name_fr, nbdesc,zoomview, color, way) VALUES('%d','TRUE', '%s','%s','%s',%d,'%s', '%s', ST_Transform(ST_GeomFromText('POINT(%.20f %.20f)', 4326), 900913));" % (ids[61], node.support, getNodeNameENForTheDatabase(node), getNodeNameFRForTheDatabase(node), node.nbdesc,node.zoomview, getNodeColor(node), polygcenter[0], polygcenter[1]);
     cur.execute(command);
     conn.commit();
     #we add a way on which we will write the rank
@@ -208,7 +211,7 @@ def writeosmpolyg(node, ids):
     for i in range(36,45):
         cooLine += ',%.20f %.20f' % (polyg[0][i], polyg[1][i]);
     cooLine += ')';
-    command = "INSERT INTO lines (id, ref, rankname, zoomview, rank, nbdesc, color, way) VALUES(%d,%s,'TRUE','%s','%s',%d, '%s', ST_Transform(ST_GeomFromText('%s', 4326), 900913));" % (ids[62], '1', node.zoomview, '', node.nbdesc, getNodeColor(node), cooLine);
+    command = "INSERT INTO lines (id, ref, rankname, zoomview, nbdesc, color, way) VALUES(%d,'%s','TRUE','%s',%d, '%s', ST_Transform(ST_GeomFromText('%s', 4326), 900913));" % (ids[62], '1', node.zoomview, node.nbdesc, getNodeColor(node), cooLine);
     cur.execute(command);
     conn.commit();
 
@@ -222,12 +225,11 @@ for n in t.traverse():
     else:
         the_id_of_the_node = str(n.name)
     try:
-        the_properties_from_the_csv = the_csv_file_as_dict[the_id_of_the_node]
+        the_properties_from_the_csv = the_csv_files_as_one_dict[the_id_of_the_node]
     except KeyError:
         the_properties_from_the_csv = {}
     n.the_properties_from_the_csv = the_properties_from_the_csv
 
-    
 
 
 #################################
@@ -237,7 +239,7 @@ jsonfile = THE_PATH_OF_THE_JSON_FILE; ##changed groupnb by '1'
 json = open(jsonfile, "w");
 json.write("[\n");
 def writejsonNode(node):
-    sci_name = getNodeNameForTheJSON(node)
+    sci_name = getNodeNameFRForTheJSON(node)
     if bool(sci_name):
         json.write("  {\n")
         json.write("    \"id\":\"%d\",\n" % (node.id))
