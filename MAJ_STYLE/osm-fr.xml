@@ -654,7 +654,7 @@
     <Parameter name="table">
       (select way, clade,zoomview,ref, nbdesc,taxid,
       (CASE WHEN (color = '' OR color = 'None' OR color IS NULL) THEN '#FFFFFF' ELSE
-      color END) AS color
+      color END) AS color, NULL AS common_name
       from polygons
       where ref=1
       order by taxid DESC
@@ -666,7 +666,7 @@
   <StyleName>branches1</StyleName>
   <Datasource>
     <Parameter name="table">
-      (select way,branch,zoomview, ref
+      (select way,branch,zoomview, ref, NULL AS common_name
       from lines
       where branch is true AND zoomview &gt; 3
       ) as roads
@@ -678,7 +678,7 @@
   <StyleName>Clade_names</StyleName>
   <Datasource>
     <Parameter name="table">
-      (select way,cladecenter,zoomview,sci_name_FR, nbdesc,taxid
+      (select way,cladecenter,zoomview,sci_name_FR AS sci_name, nbdesc,taxid, NULL AS common_name
       from points
       where cladecenter is true
       order by taxid DESC
@@ -690,7 +690,7 @@
   <StyleName>Node_names</StyleName>
   <Datasource>
     <Parameter name="table">
-      (select way,tip,zoomview,sci_name_FR, nbdesc,taxid
+      (select way,tip,zoomview,sci_name_FR AS sci_name, nbdesc,taxid, NULL AS common_name
       from points
       where cladecenter is null and tip &lt; 1
       order by taxid DESC
@@ -702,7 +702,7 @@
   <StyleName>tip_names</StyleName>
   <Datasource>
     <Parameter name="table">
-      (select way,sci_name_FR,tip,zoomview, nbdesc
+      (select way,sci_name_FR AS sci_name,tip,zoomview, nbdesc, NULL AS common_name
       from points where tip &gt; 0
     ) as placenames</Parameter>
     &datasource-settings;
