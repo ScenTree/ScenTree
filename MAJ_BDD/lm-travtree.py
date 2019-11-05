@@ -243,7 +243,7 @@ def writejsonNode(node):
     if bool(sci_name):
         json.write("  {\n")
         json.write("    \"id\":\"%d\",\n" % (node.id))
-        json.write("    \"sci_name\":\"%s\",\n" % (sci_name))
+        json.write("    \"sci_name\": {\"EN\" : \"%s\", \"FR\" : \"%s\"},\n" % (getNodeNameENForTheJSON(node), getNodeNameFRForTheJSON(node)))
         json.write("    \"zoom\":\"%s\",\n" % (node.zoomview))
         json.write("    \"nbdesc\":\"%d\",\n" % (node.nbdesc))
         json.write("    \"coordinates\": [%.20f,%.20f],\n" % (node.y, node.x))
@@ -253,7 +253,7 @@ def writejsonNode(node):
         try:
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value):
-                    json.write("    \"from_csv %s\": \"%s\",\n" % (a_key, a_value.replace("\n", "\\n")))
+                    json.write("    \"from_csv %s\": {\"EN\" : \"%s\", \"FR\" : \"%s\"} \n" % (a_key, a_value['EN'].replace("\n", "\\n"), a_value['FR'].replace("\n", "\\n")))
         except AttributeError:
             pass
         json.write("    \"lon\": \"%.20f\"\n" % (node.x))
