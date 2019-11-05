@@ -151,7 +151,8 @@ $.extend( proto, {
 /* Définissions de la map*/
 var map = L.map('map', {zoomControl: true, attributionControl: false});
 /* Dire que la map est disponible dans le cache du serveur à l'adresse suivante */
-var tolUrl= '/hot/{z}/{x}/{y}.png';
+var tolUrl_fr = '/scentree-map-fr/{z}/{x}/{y}.png';
+var tolUrl_en = '/scentree-map-en/{z}/{x}/{y}.png';
 /* Zoom initial = zoom 5 décalé de 2 sur la gauche et 0 sur la droite*/
 the_width_of_the_window = $(window).width();
 if (the_width_of_the_window <= 800) {
@@ -163,14 +164,16 @@ if (the_width_of_the_window <= 800) {
     zoom_initial = 5;
 };
 /* Definir les niveau de zoom minimum et maximum*/
-var tol = new L.TileLayer(tolUrl, {minZoom: zoom_initial, maxZoom: 13});
+var tol_fr = new L.TileLayer(tolUrl_fr, {minZoom: zoom_initial, maxZoom: 13});
+var tol_en = new L.TileLayer(tolUrl_en, {minZoom: zoom_initial, maxZoom: 13});
 // get the parameters of the previous map
 var the_previous_map__zoom = Cookies.get('the_previous_map__zoom');
 var the_previous_map__latitude = Cookies.get('the_previous_map__latitude');
 var the_previous_map__longitude = Cookies.get('the_previous_map__longitude');
 
 /* Définir la taille de la carte */
-map.addLayer(tol);
+//map.addLayer(tol_fr);
+//map.addLayer(tol_en);
 map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, ], the_previous_map__zoom || zoom_initial);
 
 /* Définission de l'icone qui pointe les MP recherchées*/
@@ -217,7 +220,8 @@ function CreatePopUps() {
 		//positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
 		var marker = L.marker(latlong,{icon: mark});
 		// non-ingredient -> basic modal
-		if ( ! is_an_ingredient(ok[index]) ) {
+		//if ( ! is_an_ingredient(ok[index]) ) {
+		if (true) {
 			marker.on("click", function() {
 		    		markofun(ok[index]);
 			});
@@ -881,12 +885,16 @@ $(".to_english_button").click(function() {
     $("*:lang(en)").css({'display' : 'inherit'});
     // change search
     // change map
+    map.addLayer(tol_en);
+    map.removeLayer(tol_fr);
 });
 $(".to_french_button").click(function() {
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'inherit'});
     // change search
     // change map
+    map.addLayer(tol_fr);
+    map.removeLayer(tol_en);
 });
 
 
