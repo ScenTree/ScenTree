@@ -882,7 +882,7 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
 
 $(".to_english_button").click(function() {
     $("*:lang(fr)").css({'display' : 'none'});
-    $("*:lang(en)").css({'display' : 'inherit'});
+    $("*:lang(en)").css({'display' : 'initial'});
     // change search
     // change map
     map.addLayer(tol_en);
@@ -890,7 +890,7 @@ $(".to_english_button").click(function() {
 });
 $(".to_french_button").click(function() {
     $("*:lang(en)").css({'display' : 'none'});
-    $("*:lang(fr)").css({'display' : 'inherit'});
+    $("*:lang(fr)").css({'display' : 'initial'});
     // change search
     // change map
     map.addLayer(tol_fr);
