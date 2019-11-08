@@ -246,12 +246,12 @@ def writejsonNode(the_json, node, the_language_in_two_chars):
         the_json.write("    \"nbdesc\":\"%d\",\n" % (node.nbdesc))
         the_json.write("    \"coordinates\": [%.20f,%.20f],\n" % (node.y, node.x))
         the_json.write("    \"lat\": \"%.20f\",\n" % (node.y))
-        if len( str(node.the_properties_from_the_csv['id']) ) == 5:
+        if len( str(node.the_properties_from_the_csv['id'][the_language_in_two_chars]) ) == 5:
             the_json.write("    \"ingredient\": \"%s\",\n" % ("yes"))
         try:
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value[the_language_in_two_chars]):
-                    the_json.write("    \"from_csv %s\": \"%s\" \n" % (a_key, a_value[the_language_in_two_chars].replace("\n", "\\n")))
+                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, a_value[the_language_in_two_chars].replace("\n", "\\n")))
         except AttributeError:
             pass
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
