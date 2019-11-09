@@ -898,6 +898,20 @@ $(".to_french_button").click(function() {
     map.removeLayer(tol_en);
 });
 
+var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
+               navigator.language ||   // All browsers
+               navigator.userLanguage; // IE <= 10
+
+//console.log(language);
+
+if ((language == "fr") || (language.startsWith("fr-"))) {
+    $("*:lang(en)").css({'display' : 'none'});
+    $("*:lang(fr)").css({'display' : 'initial'});
+    // change search
+    // change map
+    map.addLayer(tol_fr);
+    map.removeLayer(tol_en);
+};
 
 /*suppression du copier-coller*/
 function addLink() {
