@@ -913,5 +913,5 @@ h1 {
 	display: none;
 }
 *:lang(en) {
-	display: inherit;
+	display: initial;
 }
