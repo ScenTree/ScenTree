@@ -207,7 +207,7 @@ function CreatePopUps() {
     var lat1 = bb._southWest.lat;
     var lat2 = bb._northEast.lat;
     //Utilisation des données géographiques dans l'URL de requête Solr
-    var URL2 = "/select/?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000"; 
+    var URL2 = "/select_EN/?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000"; 
     // 
     $.ajax({
 	//
@@ -244,6 +244,7 @@ function CreatePopUps() {
 	jsonp : 'json.wrf'
     });
     markers.addTo(map);
+    markers.bringToFront();
 };
 
 //definitions de 2 nouvelles variables
@@ -312,8 +313,8 @@ jQuery.ui.autocomplete.prototype._resizeMenu = function () {
 $(function() {
     var str;
     //définitions des URL de la requete de solr//
-    var URL_PREFIX_SUGGESTER = "/suggesthandler/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
-    var URL_PREFIX_SELECTER = "/select/?q=id%3A";
+    var URL_PREFIX_SUGGESTER = "/suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
+    var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
     
     $(".my-search-bar").autocomplete({
@@ -448,7 +449,7 @@ function markofun(the_node_as_json, show_the_modal = true) {
     //    };
     //});
     // the_node_as_json = the_node_as_json_2;
-    
+     
     //communs
     var the_use = the_node_as_json['from_csv Utilisation'];
     var the_type = the_node_as_json['from_csv Type'];
@@ -522,9 +523,9 @@ function markofun(the_node_as_json, show_the_modal = true) {
     };
 
     var is_an_ingredient = (the_node_as_json['ingredient'] == "yes");
-    var is_an_naturelle = (the_node_as_json['from_csv Type'] == "Naturelle");
-    var is_an_synthetique = (the_node_as_json['from_csv Type'] == "Synthétique");
-    var is_an_descripteur = (the_node_as_json['from_csv Type'] == "Descripteur");
+    var is_an_naturelle = ((the_node_as_json['from_csv Type'] == "Naturelle") || (the_node_as_json['from_csv Type'] == "Natural"));
+    var is_an_synthetique = ((the_node_as_json['from_csv Type'] == "Synthétique") || (the_node_as_json['from_csv Type'] == "Synthetic"));
+    var is_an_descripteur = ((the_node_as_json['from_csv Type'] == "Descripteur") || (the_node_as_json['from_csv Type'] == "Descriptor"));
     
     var nonIFRA = (the_node_as_json['from_csv IFRA'] == "Ingrédient non réglementé");
     var IFRAQRA = (the_node_as_json['from_csv IFRA'] == "Restrictions QRA");
