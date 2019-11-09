@@ -881,21 +881,28 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
         $('title').html("ScenTree - Classification innovante des ingrédients parfum");
 });
 
-$(".to_english_button").click(function() {
+function switch_to_en() {
     $("*:lang(fr)").css({'display' : 'none'});
     $("*:lang(en)").css({'display' : 'initial'});
     // change search
     // change map
     map.addLayer(tol_en);
     map.removeLayer(tol_fr);
-});
-$(".to_french_button").click(function() {
+};
+function switch_to_fr() {
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'initial'});
     // change search
     // change map
     map.addLayer(tol_fr);
     map.removeLayer(tol_en);
+};
+
+$(".to_english_button").click(function() {
+    switch_to_en();
+});
+$(".to_french_button").click(function() {
+    switch_to_fr();
 });
 
 var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
@@ -905,12 +912,9 @@ var language = navigator.languages && navigator.languages[0] || // Chrome / Fire
 //console.log(language);
 
 if ((language == "fr") || (language.startsWith("fr-"))) {
-    $("*:lang(en)").css({'display' : 'none'});
-    $("*:lang(fr)").css({'display' : 'initial'});
-    // change search
-    // change map
-    map.addLayer(tol_fr);
-    map.removeLayer(tol_en);
+    switch_to_fr();
+} else {
+    switch_to_en();
 };
 
 /*suppression du copier-coller*/
