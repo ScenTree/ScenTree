@@ -911,7 +911,7 @@ var language = navigator.languages && navigator.languages[0] || // Chrome / Fire
 
 //console.log(language);
 
-if ((language == "fr") || (language.startsWith("fr-"))) {
+if ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-"))) {
     switch_to_fr();
 } else {
     switch_to_en();
