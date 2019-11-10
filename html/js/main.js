@@ -234,7 +234,7 @@ function CreatePopUps() {
 				Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
 				Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
 				Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
-                                window.location.href = "../ingredients/" + ok[index]['sci_name'].replace( new RegExp("\\s", "gi"), "_") + ".html";
+                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("\\s", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("\\s", "gi"), "_") + ".html";
                         });
 		};
 		markers.addLayer(marker);
