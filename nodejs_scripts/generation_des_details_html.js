@@ -24,7 +24,7 @@ if (! fs.existsSync(the_index_html_path)) {
 };
 
 //const the_json_file = 'test.json';
-const the_json_file = '/home/maxime/BDD/TreeFeaturesNEW.json';
+const the_json_file = '/home/maxime/BDD/TreeFeaturesNEW_EN_and_FR.json';
 
 if (! fs.existsSync(the_json_file)) {
     console.log("The JSON file '" + the_json_file + "' does not exist -> STOP!" );
@@ -81,11 +81,11 @@ function is_an_ingredient(the_object) {
 };
 
 function is_a_famille_principale(the_object) {
-    return (the_object["from_csv id"].length == 3);
+    return (the_object["from_csv FR id"].length == 3);
 };
 
 function is_a_descripteur(the_object) {
-    return (the_object["from_csv Type"] == "Descripteur");
+    return (the_object["from_csv FR Type"] == "Descripteur");
 };
 
 async function generate_one_file(dom, the_current_object) {
@@ -99,16 +99,16 @@ async function generate_one_file(dom, the_current_object) {
     the_script_to_open_the_modal_onload.type = "text/javascript";
     //the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#Vidéo').hide(); $('.modal-backdrop').remove(); markofun(" + JSON.stringify(the_current_object) + ", true); });";
     //the_script_to_open_the_modal_onload.text = "markofun(" + JSON.stringify(the_current_object) + ", true);";
-    if (the_current_object["from_csv Type"] == "Synthétique") {
+    if (the_current_object["from_csv FR Type"] == "Synthétique") {
     	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#SynthetiqueModal').modal('show'); });";
-    } else if (the_current_object["from_csv Type"] == "Naturelle") { 
+    } else if (the_current_object["from_csv FR Type"] == "Naturelle") { 
 	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#naturelleModal').modal('show'); });";
     } else {
 	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#DescripteurModal').modal('show'); });";
     };
     dom.window.document.body.appendChild(the_script_to_open_the_modal_onload);
     
-    let the_name_of_the_file = the_current_object["sci_name"].replace( new RegExp("\\s", "gi"), "_");
+    let the_name_of_the_file = the_current_object["from_csv EN Nom"].replace( new RegExp("\\s", "gi"), "_") + "__" + the_current_object["from_csv FR Nom"].replace( new RegExp("\\s", "gi"), "_");
     if (is_an_ingredient(the_current_object)) {
 	the_name_of_the_file = ingredients_folder_path + the_name_of_the_file;
     } else if (is_a_famille_principale(the_current_object)) {

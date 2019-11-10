@@ -7,7 +7,7 @@ if (! window.document.jsdom_reader) {
 	if (! RGPD_warning_has_been_done) {
 	    Cookies.set('RGPD_warning', '1', { expires: 365 });
 	    $("#RGPD_warning").css({'display' : 'block'});
-	    $("#modal_video").modal("show");
+	    //$("#modal_video").modal("show");
 	} else {
 	    if ((! RGPD_choice_has_been_done) || ((RGPD_choice_has_been_done != 1) && (RGPD_choice_has_been_done != -1))) {
 	        $("#RGPD_warning").css({'display' : 'block'});
@@ -220,8 +220,8 @@ function CreatePopUps() {
 		//positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
 		var marker = L.marker(latlong,{icon: mark});
 		// non-ingredient -> basic modal
-		//if ( ! is_an_ingredient(ok[index]) ) {
-		if (true) {
+		if ( ! is_an_ingredient(ok[index]) ) {
+		//if (true) {
 			marker.on("click", function() {
 		    		markofun(ok[index]);
 			});
