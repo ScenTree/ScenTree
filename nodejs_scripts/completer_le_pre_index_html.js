@@ -87,7 +87,7 @@ function add_one_object_to_a_dom(the_dom, the_object) {
     the_name_of_the_html_of_the_element = the_name_of_the_html_of_the_element + ".html";
     //the_link_to_the_html_of_the_element.href = "/" + the_name_of_the_html_of_the_element;
     the_link_to_the_html_of_the_element.href = "../" + the_name_of_the_html_of_the_element;
-    the_link_to_the_html_of_the_element.text = the_object["sci_name"];
+    the_link_to_the_html_of_the_element.innerHTML = "<span lang='en'>" + the_object["from_csv EN Nom"] + "</span><span lang='fr'>" + the_object["from_csv FR Nom"] + "</span>";
     
     the_list_element.appendChild(the_link_to_the_html_of_the_element);
     the_html_list_to_be_filled.appendChild(the_list_element);
