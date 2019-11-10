@@ -910,7 +910,7 @@ h1 {
 /* LANGUAGES */
 
 *:lang(fr) {
-	display: none;
+	display: initial;
 }
 *:lang(en) {
 	display: initial;

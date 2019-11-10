@@ -207,7 +207,7 @@ function CreatePopUps() {
     var lat1 = bb._southWest.lat;
     var lat2 = bb._northEast.lat;
     //Utilisation des données géographiques dans l'URL de requête Solr
-    var URL2 = "/select/?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000"; 
+    var URL2 = "/select_EN_and_FR/?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000"; 
     // 
     $.ajax({
 	//
@@ -244,6 +244,7 @@ function CreatePopUps() {
 	jsonp : 'json.wrf'
     });
     markers.addTo(map);
+    markers.bringToFront();
 };
 
 //definitions de 2 nouvelles variables
@@ -312,8 +313,9 @@ jQuery.ui.autocomplete.prototype._resizeMenu = function () {
 $(function() {
     var str;
     //définitions des URL de la requete de solr//
-    var URL_PREFIX_SUGGESTER = "/suggesthandler/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
-    var URL_PREFIX_SELECTER = "/select/?q=id%3A";
+    var URL_PREFIX_SUGGESTER = "/suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
+    var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
+    var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/select_EN_and_FR/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
     
     $(".my-search-bar").autocomplete({
@@ -390,7 +392,7 @@ $(function() {
 	},
 	select: function(e, ui) {
 	    $(".my-search-bar").blur();						
-	    var URL = URL_PREFIX_SELECTER + "\"" + ui.item.label.id + "\"" + URL_SUFFIX;
+	    var URL = URL_PREFIX_SELECTER_BOTH_LANGUAGES + "\"" + ui.item.label.id + "\"" + URL_SUFFIX;
 	    console.log(URL);
 	    $.ajax({
 		url : URL,
@@ -438,8 +440,11 @@ $('#modal_video').on('hide.bs.modal', function (e) {
 }) 
 });
 
+function from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, the_key_as_text) {
+     return "<span lang='en'>" + the_node_as_json_EN_and_FR['from_csv EN ' + the_key_as_text] + "</span><span lang='fr'>" + the_node_as_json_EN_and_FR['from_csv FR ' + the_key_as_text] + "</span>";
+};
 
-function markofun(the_node_as_json, show_the_modal = true) {
+function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //convert \n to <br /> = convert 'json end of line' to 'html end of line'
     //var the_node_as_json_2 = {};
     //$.each(the_node_as_json, function(the_key, the_value) {
@@ -450,87 +455,87 @@ function markofun(the_node_as_json, show_the_modal = true) {
     // the_node_as_json = the_node_as_json_2;
     
     //communs
-    var the_use = the_node_as_json['from_csv Utilisation'];
-    var the_type = the_node_as_json['from_csv Type'];
-    var the_title = the_node_as_json['from_csv Nom'];
-    var the_aspect = the_node_as_json['from_csv Aspect'];
-    var the_allergenes = the_node_as_json['from_csv Allergenes'];
-    var the_tenue = the_node_as_json['from_csv Tenue'];
-    var the_ifra = the_node_as_json['from_csv IFRA'];
-    var the_autresd = the_node_as_json['from_csv Autres_Descripteurs'];
-    var the_price = the_node_as_json['from_csv Prix'];
-    var the_filiation = the_node_as_json['from_csv Filiation'];
-    var the_remarques = the_node_as_json['from_csv autresremarques'];
-    var the_parole = the_node_as_json['from_csv paroledeparfumeur'];
-    var the_stab = the_node_as_json['from_csv Stabilite'];
-    var the_utilisation = the_node_as_json['from_csv Utilisation'];
-    var the_cas = the_node_as_json['from_csv NCas'];
+    var the_use = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
+    var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
+    var the_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
+    var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
+    var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
+    var the_ifra = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'IFRA');
+    var the_autresd = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Autres_Descripteurs');
+    var the_price = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Prix');
+    var the_filiation = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Filiation');
+    var the_remarques = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'autresremarques');
+    var the_parole = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'paroledeparfumeur');
+    var the_stab = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Stabilite');
+    var the_utilisation = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
+    var the_cas = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'NCas');
     //Naturelles
-    var the_nbota = the_node_as_json['from_csv Botanique'];
-    var the_bota = the_node_as_json['from_csv Nom Botanique'];
-    var the_methode = the_node_as_json['from_csv Extractions'];
-    var the_origine = the_node_as_json['from_csv Origine geographique'];
-    var the_componat = the_node_as_json['from_csv composantsmajoritaires'];
-    var the_pemblem = the_node_as_json['from_csv parfumemblematiques'];
-    var the_chemotype = the_node_as_json['from_csv chemotype'];
-    var the_medecine = the_node_as_json['from_csv medecine'];
+    var the_nbota = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Botanique');
+    var the_bota = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom Botanique');
+    var the_methode = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Extractions');
+    var the_origine = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Origine geographique');
+    var the_componat = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'composantsmajoritaires');
+    var the_pemblem = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'parfumemblematiques');
+    var the_chemotype = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'chemotype');
+    var the_medecine = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'medecine');
     //Synthétiques
-    var the_densite = the_node_as_json['from_csv Densite'];
-    var the_logp = the_node_as_json['from_csv LogP'];
-    var the_fp = the_node_as_json['from_csv FlashPoint'];
-    var the_bp = the_node_as_json['from_csv BoilingPoint'];
-    var the_decouverte = the_node_as_json['from_csv Decouverte'];
-    var the_synthese = the_node_as_json['from_csv Synthese'];
-    var the_precurseur = the_node_as_json['from_csv Precurseurs'];
-    var the_isomerie = the_node_as_json['from_csv Isomerie'];
-    var the_presencenat = the_node_as_json['from_csv Presencenat'];
-    var the_molaire = the_node_as_json['from_csv mmolaire'];
-    var the_fbrute = put_all_digits_into_sub(the_node_as_json['from_csv formulebrute']);
+    var the_densite = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Densite');
+    var the_logp = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'LogP');
+    var the_fp = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'FlashPoint');
+    var the_bp = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'BoilingPoint');
+    var the_decouverte = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Decouverte');
+    var the_synthese = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Synthese');
+    var the_precurseur = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Precurseurs');
+    var the_isomerie = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Isomerie');
+    var the_presencenat = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Presencenat');
+    var the_molaire = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'mmolaire');
+    var the_fbrute = put_all_digits_into_sub(from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'formulebrute'));
     //IFRA
-    var the_amendment = the_node_as_json['from_csv Amendment'];
-    var the_cat1 = the_node_as_json['from_csv Category 1'];
-    var the_cat2 = the_node_as_json['from_csv Category 2'];
-    var the_cat3 = the_node_as_json['from_csv Category 3'];
-    var the_cat4 = the_node_as_json['from_csv Category 4'];
-    var the_cat5 = the_node_as_json['from_csv Category 5'];
-    var the_cat6 = the_node_as_json['from_csv Category 6'];
-    var the_cat7 = the_node_as_json['from_csv Category 7'];
-    var the_cat8 = the_node_as_json['from_csv Category 8'];
-    var the_cat9 = the_node_as_json['from_csv Category 9'];
-    var the_cat10 = the_node_as_json['from_csv Category 10'];
-    var the_cat11 = the_node_as_json['from_csv Category 11'];
-    var the_commentifra = the_node_as_json['from_csv Commentaires'];
-    var the_leaveon = the_node_as_json['from_csv Leave on products'];
-    var the_fcream = the_node_as_json['from_csv Fragrancing cream'];
-    var the_finef = the_node_as_json['from_csv Fine Fragrance'];
-    var the_edt = the_node_as_json['from_csv Eau de Toilette'];
-    var the_fcream = the_node_as_json['from_csv Fragrancing cream'];
-    var the_rinseoff = the_node_as_json['from_csv Rinse off'];
-    var the_otherleaveon = the_node_as_json['from_csv Other leave on'];
-    var the_noskin = the_node_as_json['from_csv Non-skin, incidental skin contact'];
+    var the_amendment = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Amendment');
+    var the_cat1 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 1');
+    var the_cat2 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 2');
+    var the_cat3 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 3');
+    var the_cat4 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 4');
+    var the_cat5 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 5');
+    var the_cat6 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 6');
+    var the_cat7 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 7');
+    var the_cat8 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 8');
+    var the_cat9 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 9');
+    var the_cat10 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 10');
+    var the_cat11 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 11');
+    var the_commentifra = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Commentaires');
+    var the_leaveon = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Leave on products');
+    var the_fcream = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Fragrancing cream');
+    var the_finef = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Fine Fragrance');
+    var the_edt = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Eau de Toilette');
+    var the_fcream = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Fragrancing cream');
+    var the_rinseoff = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Rinse off');
+    var the_otherleaveon = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Other leave on');
+    var the_noskin = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Non-skin, incidental skin contact');
     
 
 
-    var the_commentary = the_node_as_json['from_csv Commentaires']
+    var the_commentary = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Commentaires');
     if (the_commentary) { // avoid applying .replace to undefined
          the_commentary = the_commentary.replace(/\n/g,"<br />");  //convert \n to <br /> = convert json end of line to html end of line
      };
-    var the_type = the_node_as_json['from_csv Type'];
-    var the_background_color = the_node_as_json['from_csv Couleur'];
+    var the_type = the_node_as_json_EN_and_FR['from_csv FR Type'];
+    var the_background_color = the_node_as_json_EN_and_FR['from_csv FR Couleur'];
     if (! (the_background_color)) {
         the_background_color = "#FFFFFF"
     };
 
-    var is_an_ingredient = (the_node_as_json['ingredient'] == "yes");
-    var is_an_naturelle = (the_node_as_json['from_csv Type'] == "Naturelle");
-    var is_an_synthetique = (the_node_as_json['from_csv Type'] == "Synthétique");
-    var is_an_descripteur = (the_node_as_json['from_csv Type'] == "Descripteur");
+    var is_an_ingredient = (the_node_as_json_EN_and_FR['ingredient'] == "yes");
+    var is_an_naturelle = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Naturelle");
+    var is_an_synthetique = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Synthétique");
+    var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
     
-    var nonIFRA = (the_node_as_json['from_csv IFRA'] == "Ingrédient non réglementé");
-    var IFRAQRA = (the_node_as_json['from_csv IFRA'] == "Restrictions QRA");
-    var IFRAnonQRA = (the_node_as_json['from_csv IFRA'] == "Restrictions Non QRA");
-    var IFRAnonQRAspe = ((the_node_as_json['from_csv IFRA'] == "Restrictions Non QRA") && (the_node_as_json['from_csv Fine Fragrance']));
-    var IFRAspécification = (the_node_as_json['from_csv IFRA'] == "Spécifications");
+    var nonIFRA = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Ingrédient non réglementé");
+    var IFRAQRA = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Restrictions QRA");
+    var IFRAnonQRA = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Restrictions Non QRA");
+    var IFRAnonQRAspe = ((the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Restrictions Non QRA") && (the_node_as_json_EN_and_FR['from_csv FR Fine Fragrance']));
+    var IFRAspécification = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Spécifications");
     var displaytable1 = (false);
     var displaytable2 = (false);
     var displaytable3 = (false);
@@ -735,7 +740,7 @@ function markofun(the_node_as_json, show_the_modal = true) {
     $('#modalbody-cat11').append(the_cat11);
     $('#modalbody-commentifra').append(the_commentifra);
     $('#modalbody-leaveon').append(the_leaveon);
-    //APPEND - IFRA synth
+    //APPEND - IFRA synth:w
     $('#modalbody-amendments').append(the_amendment);
     $('#modalbody-cat1s').append(the_cat1);
     $('#modalbody-cat2s').append(the_cat2);
@@ -842,6 +847,40 @@ function markofun(the_node_as_json, show_the_modal = true) {
 
 };
 
+$("#SynthetiqueModal").on("show.bs.modal", function (e) {
+    var display_french_language = Cookies.get('display_french_language');
+    if (display_french_language == 1) {
+        $("*:lang(en)").css({'display' : 'none'});
+        $("*:lang(fr)").css({'display' : 'initial'});
+    } else {
+	$("*:lang(fr)").css({'display' : 'none'});
+        $("*:lang(en)").css({'display' : 'initial'});
+    };
+});
+
+$("#naturelleModal").on("show.bs.modal", function (e) {
+    var display_french_language = Cookies.get('display_french_language');
+    if (display_french_language == 1) {
+        $("*:lang(en)").css({'display' : 'none'});
+        $("*:lang(fr)").css({'display' : 'initial'});
+    } else {
+        $("*:lang(fr)").css({'display' : 'none'});
+        $("*:lang(en)").css({'display' : 'initial'});
+    };
+});
+
+$('#DescripteurModal').on("show.bs.modal", function (e) {
+    var display_french_language = Cookies.get('display_french_language');
+    if (display_french_language == 1) {
+        $("*:lang(en)").css({'display' : 'none'});
+        $("*:lang(fr)").css({'display' : 'initial'});
+    } else {
+        $("*:lang(fr)").css({'display' : 'none'});
+        $("*:lang(en)").css({'display' : 'initial'});
+    };
+});
+
+
 $("#SynthetiqueModal").on("hide.bs.modal", function (e) {
 	$(".table1").hide();
 	$(".table2").hide();
@@ -880,23 +919,47 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
         $('title').html("ScenTree - Classification innovante des ingrédients parfum");
 });
 
-$(".to_english_button").click(function() {
+function switch_to_en() {
+    // cookie
+    Cookies.set('display_french_language', -1, { expires: 365});
+    // CSS
     $("*:lang(fr)").css({'display' : 'none'});
     $("*:lang(en)").css({'display' : 'initial'});
     // change search
     // change map
     map.addLayer(tol_en);
     map.removeLayer(tol_fr);
-});
-$(".to_french_button").click(function() {
+};
+function switch_to_fr() {
+    // cookie
+    Cookies.set('display_french_language', 1, { expires: 365});
+    // CSS
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'initial'});
     // change search
     // change map
     map.addLayer(tol_fr);
     map.removeLayer(tol_en);
+};
+
+$(".to_english_button").click(function() {
+    switch_to_en();
+});
+$(".to_french_button").click(function() {
+    switch_to_fr();
 });
 
+var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
+               navigator.language ||   // All browsers
+               navigator.userLanguage; // IE <= 10
+
+//console.log(language);
+
+if ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-"))) {
+    switch_to_fr();
+} else {
+    switch_to_en();
+};
 
 /*suppression du copier-coller*/
 function addLink() {
