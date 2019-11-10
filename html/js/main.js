@@ -457,7 +457,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //communs
     var the_use = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
     var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
-    var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
+    var the_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -847,6 +847,40 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
 };
 
+$("#SynthetiqueModal").on("show.bs.modal", function (e) {
+    var display_french_language = Cookies.get('display_french_language');
+    if (display_french_language == 1) {
+        $("*:lang(en)").css({'display' : 'none'});
+        $("*:lang(fr)").css({'display' : 'initial'});
+    } else {
+	$("*:lang(fr)").css({'display' : 'none'});
+        $("*:lang(en)").css({'display' : 'initial'});
+    };
+});
+
+$("#naturelleModal").on("show.bs.modal", function (e) {
+    var display_french_language = Cookies.get('display_french_language');
+    if (display_french_language == 1) {
+        $("*:lang(en)").css({'display' : 'none'});
+        $("*:lang(fr)").css({'display' : 'initial'});
+    } else {
+        $("*:lang(fr)").css({'display' : 'none'});
+        $("*:lang(en)").css({'display' : 'initial'});
+    };
+});
+
+$('#DescripteurModal').on("show.bs.modal", function (e) {
+    var display_french_language = Cookies.get('display_french_language');
+    if (display_french_language == 1) {
+        $("*:lang(en)").css({'display' : 'none'});
+        $("*:lang(fr)").css({'display' : 'initial'});
+    } else {
+        $("*:lang(fr)").css({'display' : 'none'});
+        $("*:lang(en)").css({'display' : 'initial'});
+    };
+});
+
+
 $("#SynthetiqueModal").on("hide.bs.modal", function (e) {
 	$(".table1").hide();
 	$(".table2").hide();
@@ -886,6 +920,9 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
 });
 
 function switch_to_en() {
+    // cookie
+    Cookies.set('display_french_language', -1, { expires: 365});
+    // CSS
     $("*:lang(fr)").css({'display' : 'none'});
     $("*:lang(en)").css({'display' : 'initial'});
     // change search
@@ -894,6 +931,9 @@ function switch_to_en() {
     map.removeLayer(tol_fr);
 };
 function switch_to_fr() {
+    // cookie
+    Cookies.set('display_french_language', 1, { expires: 365});
+    // CSS
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'initial'});
     // change search
