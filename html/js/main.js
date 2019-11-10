@@ -457,7 +457,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //communs
     var the_use = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
     var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
-    var the_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
+    var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'];
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -520,7 +522,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (the_commentary) { // avoid applying .replace to undefined
          the_commentary = the_commentary.replace(/\n/g,"<br />");  //convert \n to <br /> = convert json end of line to html end of line
      };
-    var the_type = the_node_as_json_EN_and_FR['from_csv FR Type'];
     var the_background_color = the_node_as_json_EN_and_FR['from_csv FR Couleur'];
     if (! (the_background_color)) {
         the_background_color = "#FFFFFF"
@@ -768,10 +769,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $('#modalbody-pictA').empty();
     $('#modalbody-pict1').empty();
     $('#modalbody-pict1A').empty();
-	$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".jpg' alt='' />");
-    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".jpg' alt='' />");
-    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".PNG' alt='' />");
-    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".PNG' alt='' />");
+	$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='' />");
+    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='' />");
+    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='' />");
+    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='' />");
     };  
     
     if (is_an_naturelle) {
@@ -788,7 +789,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     
 
-   $('title').html('ScenTree - ' + the_title);
+   $('title').html('ScenTree - ' + the_webpage_title);
 
    if (displaytable1) {
    		$(".table1").css('display', 'inline-table');
