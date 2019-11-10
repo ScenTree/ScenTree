@@ -124,9 +124,9 @@ async function generate_one_file(dom, the_current_object) {
     });
 };
 
-async function generate_files(the_objects) {
+async function generate_files(the_objects, min_index, max_index) {
   var dom = await get_the_dom_from_the_net();
-  for (var i = 0, len = the_objects.length; i < len; i++) {
+  for (var i = min_index, len = the_objects.length; i < max_index; i++) {
   //for (var i = 0, len = the_objects.length; i < 20; i++) {
     console.log(i + "/" + the_objects.length);
     var the_current_object = the_objects[i];
@@ -135,5 +135,8 @@ async function generate_files(the_objects) {
   };
 };
 
-generate_files(the_objects);
-
+generate_files(the_objects, 0, 200);
+generate_files(the_objects, 200, 400);
+generate_files(the_objects, 400, 600);
+generate_files(the_objects, 600, 800);
+generate_files(the_objects, 800, the_objects.length);
