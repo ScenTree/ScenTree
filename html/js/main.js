@@ -955,7 +955,7 @@ var language = navigator.languages && navigator.languages[0] || // Chrome / Fire
 
 //console.log(language);
 
-if ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-"))) {
+if ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-")))) {
     switch_to_fr();
 } else {
     switch_to_en();
