@@ -22,6 +22,7 @@ THE_PATH_OF_THE_LOG_FILE = "./result.json"
  # JSON files to populate solr database (taxoEN and taxoFR)
 THE_PATH_OF_THE_EN_JSON_FILE = "./TreeFeaturesNEW_EN.json"
 THE_PATH_OF_THE_FR_JSON_FILE = "./TreeFeaturesNEW_FR.json"
+THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = "./TreeFeaturesNEW_EN_and_FR.json"
 
 
 prg = open(THE_PATH_OF_THE_LOG_FILE, "w"); ##this will contain the progress made by the code.
@@ -257,11 +258,37 @@ def writejsonNode(the_json, node, the_language_in_two_chars):
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
         the_json.write("  },\n")
 
+def writejsonNodeBothLanguages(the_json, node):
+    sci_name = getNodeNameForTheJSON(node, 'FR')
+    if bool(sci_name):
+        the_json.write("  {\n")
+        the_json.write("    \"id\":\"%d\",\n" % (node.id))
+        the_json.write("    \"sci_name\": \"%s\",\n" % (sci_name))
+        the_json.write("    \"zoom\":\"%s\",\n" % (node.zoomview))
+        the_json.write("    \"nbdesc\":\"%d\",\n" % (node.nbdesc))
+        the_json.write("    \"coordinates\": [%.20f,%.20f],\n" % (node.y, node.x))
+        the_json.write("    \"lat\": \"%.20f\",\n" % (node.y))
+        if len( str(node.the_properties_from_the_csv['id']['FR']) ) == 5:
+            the_json.write("    \"ingredient\": \"%s\",\n" % ("yes"))
+        try:
+            for a_key, a_value in node.the_properties_from_the_csv.items():
+                if bool(a_value['EN']):
+                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, a_value['EN'].replace("\n", "\\n")))
+        except AttributeError:
+            pass
+        try:
+            for a_key, a_value in node.the_properties_from_the_csv.items():
+                if bool(a_value['FR']):
+                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, a_value['FR'].replace("\n", "\\n")))
+        except AttributeError:
+            pass        
+        the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
+        the_json.write("  },\n")
 
 
 the_opened_json_EN_file = create_an_opened_json_file(THE_PATH_OF_THE_EN_JSON_FILE)
 the_opened_json_FR_file = create_an_opened_json_file(THE_PATH_OF_THE_FR_JSON_FILE)
-
+the_opened_json_EN_and_FR_file = create_an_opened_json_file(THE_PATH_OF_THE_EN_AND_FR_JSON_FILE)
 
 for n in t.traverse():
     special = 0
@@ -337,12 +364,14 @@ for n in t.traverse():
     try:
         writejsonNode(the_opened_json_EN_file, n, 'EN')
         writejsonNode(the_opened_json_FR_file, n, 'FR')
+        writejsonNodeBothLanguages(the_opened_json_EN_and_FR_file, n)
     except KeyError:
         pass
 
 
 the_opened_json_EN_file.close()
 the_opened_json_FR_file.close()
+the_opened_json_EN_and_FR_file.close()
 
 ##we add the way from LUCA to the root of the subtree 
 #ndid=ndid+1
@@ -374,4 +403,4 @@ def terminate_a_json_file(the_path_of_the_json_file):
 
 terminate_a_json_file(THE_PATH_OF_THE_EN_JSON_FILE)
 terminate_a_json_file(THE_PATH_OF_THE_FR_JSON_FILE)
-
+terminate_a_json_file(THE_PATH_OF_THE_EN_AND_FR_JSON_FILE)
