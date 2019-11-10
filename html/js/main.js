@@ -314,7 +314,7 @@ $(function() {
     var str;
     //définitions des URL de la requete de solr//
     var URL_PREFIX_SUGGESTER = "/suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
-    var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
+    //var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
     var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/select_EN_and_FR/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
     
@@ -920,6 +920,7 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
         $('title').html("ScenTree - Classification innovante des ingrédients parfum");
 });
 
+var URL_PREFIX_SELECTER;
 function switch_to_en() {
     // cookie
     Cookies.set('display_french_language', -1, { expires: 365});
@@ -927,6 +928,7 @@ function switch_to_en() {
     $("*:lang(fr)").css({'display' : 'none'});
     $("*:lang(en)").css({'display' : 'initial'});
     // change search
+    URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
     // change map
     map.addLayer(tol_en);
     map.removeLayer(tol_fr);
@@ -938,6 +940,7 @@ function switch_to_fr() {
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'initial'});
     // change search
+    URL_PREFIX_SELECTER = "/select_FR/?q=id%3A";
     // change map
     map.addLayer(tol_fr);
     map.removeLayer(tol_en);
