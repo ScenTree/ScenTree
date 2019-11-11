@@ -265,7 +265,7 @@ html, body {
 ############ZONE DE LA RECHERCHE####################
 ##################################################*/
 
-#searchinput-sm {
+.searchinput-sm {
   width: 300px;
   border: none;
 }
@@ -280,7 +280,7 @@ html, body {
     margin-bottom: 0%;
 }
 
-#searchinput::placeholder {
+.searchinput::placeholder {
   font-size: 1vw; 
 }
 .ui-autocomplete {
@@ -800,7 +800,7 @@ h1 {
 #searchclear {
     display: none;
 }
-#searchinput {
+.searchinput {
     border-radius: 7px;
 }
 .block{
