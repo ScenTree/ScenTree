@@ -40,26 +40,25 @@ const descripteurs_secondaires_folder_path = the_folder_path + "descripteurs_sec
 // they should not exist
 if (fs.existsSync(ingredients_folder_path)) {
     console.log("The ingredients folder '" + ingredients_folder_path + "' exist -> STOP! (please remove it or rename it)" );
-    return;
+    //return;
 } else {
         console.log("The ingredients folder '" + ingredients_folder_path + "' does not exists, that is perfect …" );
+        fs.mkdirSync(ingredients_folder_path, { recursive: true });
 };
 if (fs.existsSync(descripteurs_principaux_folder_path)) {
     console.log("The 'descripteurs principaux' folder '" + descripteurs_principaux_folder_path + "' exist -> STOP! (please remove it or rename it)" );
-    return;
+    //return;
 } else {
         console.log("The 'descripteurs principaux' folder '" + descripteurs_principaux_folder_path + "' does not exists, that is perfect …" );
+        fs.mkdirSync(descripteurs_principaux_folder_path, { recursive: true });
 };
 if (fs.existsSync(descripteurs_secondaires_folder_path)) {
     console.log("The 'descripteurs secondaires' folder '" + descripteurs_secondaires_folder_path + "' exist -> STOP! (please remove it or rename it)" );
-    return;
+    //return;
 } else {
         console.log("The 'descripteurs secondaires' folder '" + descripteurs_secondaires_folder_path + "' does not exists, that is perfect …" );
+        fs.mkdirSync(descripteurs_secondaires_folder_path, { recursive: true });
 };
-// create those folders
-fs.mkdirSync(ingredients_folder_path, { recursive: true });
-fs.mkdirSync(descripteurs_principaux_folder_path, { recursive: true });
-fs.mkdirSync(descripteurs_secondaires_folder_path, { recursive: true });
 
 
 
@@ -108,7 +107,7 @@ async function generate_one_file(dom, the_current_object) {
     };
     dom.window.document.body.appendChild(the_script_to_open_the_modal_onload);
     
-    let the_name_of_the_file = the_current_object["from_csv EN Nom"].replace( new RegExp("\\s", "gi"), "_") + "__" + the_current_object["from_csv FR Nom"].replace( new RegExp("\\s", "gi"), "_");
+    let the_name_of_the_file = the_current_object["from_csv EN Nom"].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + the_current_object["from_csv FR Nom"].replace( new RegExp("[\\s\/]", "gi"), "_");
     if (is_an_ingredient(the_current_object)) {
 	the_name_of_the_file = ingredients_folder_path + the_name_of_the_file;
     } else if (is_a_famille_principale(the_current_object)) {
@@ -135,8 +134,30 @@ async function generate_files(the_objects, min_index, max_index) {
   };
 };
 
-generate_files(the_objects, 0, 200);
-generate_files(the_objects, 200, 400);
-generate_files(the_objects, 400, 600);
-generate_files(the_objects, 600, 800);
-generate_files(the_objects, 800, the_objects.length);
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+};
+
+async function generate_all_files(the_objects) {
+    await generate_files(the_objects, 0, 50);
+    await generate_files(the_objects, 50, 100);
+    await generate_files(the_objects, 100, 150);
+    await generate_files(the_objects, 150, 200);
+    await generate_files(the_objects, 200, 250);
+    await generate_files(the_objects, 250, 300);
+    await generate_files(the_objects, 300, 350);
+    await generate_files(the_objects, 350, 400);
+    await generate_files(the_objects, 400, 450);
+    await generate_files(the_objects, 450, 500);
+    await generate_files(the_objects, 500, 550);
+    await generate_files(the_objects, 550, 600);
+    await generate_files(the_objects, 600, 650);
+    await generate_files(the_objects, 650, 700);
+    await generate_files(the_objects, 700, 750);
+    await generate_files(the_objects, 750, 800);
+    await generate_files(the_objects, 800, 850);
+    await generate_files(the_objects, 850, the_objects.length);
+};
+
+generate_files(the_objects, process.argv[4 -1], process.argv[5 -1]);
+
