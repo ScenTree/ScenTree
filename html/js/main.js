@@ -922,6 +922,11 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
 
 var URL_PREFIX_SELECTER;
 function switch_to_en() {
+    // emphasize the EN button
+    $('.to_french_button').css("font-weight","normal");
+    $('.to_english_button').css("font-weight","Bold");
+    $('.to_english_radio_input').addClass("active");
+    $('.to_french_radio_input').removeClass("active");
     // cookie
     Cookies.set('display_french_language', -1, { expires: 365});
     // CSS
@@ -936,6 +941,11 @@ function switch_to_en() {
     map.removeLayer(tol_fr);
 };
 function switch_to_fr() {
+    // emphasize the FR button
+    $('.to_english_button').css("font-weight","normal");
+    $('.to_french_button').css("font-weight","Bold");
+    $('.to_french_radio_input').addClass("active");
+    $('.to_english_radio_input').removeClass("active");
     // cookie
     Cookies.set('display_french_language', 1, { expires: 365});
     // CSS
@@ -954,6 +964,12 @@ $(".to_english_button").click(function() {
     switch_to_en();
 });
 $(".to_french_button").click(function() {
+    switch_to_fr();
+});
+$(".to_english_radio_input").click(function() {
+    switch_to_en();
+});
+$(".to_french_radio_input").click(function() {
     switch_to_fr();
 });
 
