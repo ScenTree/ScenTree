@@ -985,6 +985,10 @@ if ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_fre
     switch_to_en();
 };
 
+$('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});
+
 /*suppression du copier-coller*/
 function addLink() {
     var body_element = document.getElementsByTagName('body')[0];
