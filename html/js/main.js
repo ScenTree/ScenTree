@@ -935,7 +935,7 @@ function switch_to_en() {
     // change search
     URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
     // clear search input
-    $("#searchinput").val('');
+    $(".searchinput").val('');
     // change map
     map.addLayer(tol_en);
     map.removeLayer(tol_fr);
@@ -954,7 +954,7 @@ function switch_to_fr() {
     // change search
     URL_PREFIX_SELECTER = "/select_FR/?q=id%3A";
     // clear search input
-    $("#searchinput").val('');  
+    $(".searchinput").val('');  
     // change map
     map.addLayer(tol_fr);
     map.removeLayer(tol_en);
