@@ -939,8 +939,8 @@ function switch_to_en() {
     // change map
     map.addLayer(tol_en);
     map.removeLayer(tol_fr);
-    //change page title
-    document.title = "ScenTree - The new collaborative perfumery raw materials classification";
+    //change page title only for the main page
+    if (document.title ==  "ScenTree - Classification innovante des ingrédients parfum") document.title = "ScenTree - The new collaborative perfumery raw materials classification";
 };
 function switch_to_fr() {
     // emphasize the FR button
@@ -960,8 +960,8 @@ function switch_to_fr() {
     // change map
     map.addLayer(tol_fr);
     map.removeLayer(tol_en);
-    //change page title
-    document.title = "ScenTree - Classification innovante des ingrédients parfum";
+    //change page title only for the main page
+    if (document.title ==  "ScenTree - The new collaborative perfumery raw materials classification") document.title = "ScenTree - Classification innovante des ingrédients parfum";
 };
 
 $(".to_english_button").click(function() {
