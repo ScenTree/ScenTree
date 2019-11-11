@@ -38,7 +38,7 @@ crossorigin=""/>
 	  <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
   </button>
   <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
-    <div class=""><input id="searchinput-sm" type="search" class="my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /></div>
+    <div class=""><input lang="fr" id="searchinput-sm" type="search" class="my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" id="searchinput-sm" type="search" class="my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
   </form>
 </div>
 <div class="dropdown pl-1">
@@ -51,8 +51,8 @@ crossorigin=""/>
     <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesContacts"><span lang="fr">Contacts</span><span lang="en">Contacts</span></button>
     <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesSources"><span lang="fr">Sources</span><span lang="en">Sources</span></button>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-primary active"><input type="radio" name="options" id="option1" autocomplete="off" checked />FR</label>
-      <label class="btn btn-primary"><input type="radio" name="options" id="option2" autocomplete="off" checked />EN</label>
+      <label class="btn btn-primary to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked />FR</label>
+      <label class="btn btn-primary to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked />EN</label>
     </div>
     <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesMentionsLegales"><span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span></button>
     <a class="linkedIn_button" href="https://www.linkedin.com/company/scentree/"><img src="../img/LI-In-Bug.png" alt="vers notre linkedIn" class="img-fluid max-height-20px" /></a> <a class="instagram_button" href="https://www.instagram.com/scentree_/"><img src="../img/Instagram_AppIcon_Aug2017.png" alt="vers notre Instagram" class="img-fluid max-height-20px" /></a> <a class="twitter_button" href="https://www.twitter.com/Scentree1"><img src="../img/Twitter_Logo_Blue.png" alt="vers notre Twitter" class="img-fluid max-height-20px" /></a>
@@ -74,9 +74,12 @@ crossorigin=""/>
 <div class="container-fluid">
 
 <div class="row h-25 align-items-start">
-	  <button class="btn to_english_button" type="button">EN</button>
-	  <button class="btn to_french_button" type="button">FR</button>
-	  <button class="btn" type="button" data-toggle="modal" data-target="#decouvrirScenTree"><img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></button>
+	<div class="clearfix w-100">
+	  <button class="btn to_english_button text-in-color-brown float-right" type="button">EN</button>
+	  <button class="btn text-in-color-brown float-right px-0">/</button>
+	  <button class="btn to_french_button text-in-color-brown float-right" type="button">FR</button>
+	</div>
+	<button class="btn" type="button" data-toggle="modal" data-target="#decouvrirScenTree"><img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></button>
 </div>
 
 <div class="row h-25 align-items-start">
@@ -192,8 +195,8 @@ crossorigin=""/>
 </div>
 
 <div class="papernote">
-  <p lang="fr"><i class='fa fa-info fa-fw fa-lg icone'></i>&nbsp;A ce jour, la classification contient <a href="#listeMP" data-toggle="modal" data-dismiss="modal" id="listeMP-number">370</a> matières premières, réunies en <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" id="Listefamilles-principales-number">16</a> familles principales et <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" id="Listefamilles-descripteurs-number">82</a> descripteurs. Pour chaque matière première, <b>chaque descripteur est classé par ordre d’importance olfactive</b>. Ainsi, plus vous vous rapprocherez d’une bordure extérieure de l’arbre, plus les descripteurs seront précis pour une matière première donnée. En somme, <b><i>ScenTree</i> discrimine</b> les ingrédients entre eux et permet de mettre en évidence leurs <b>similitudes olfactives</b>.</p>
-  <p lang="en"><i class='fa fa-info fa-fw fa-lg icone'></i>&nbsp;Today, this classification contains <a href="#listeMP" data-toggle="modal" data-dismiss="modal" id="listeMP-number">370</a> raw materials, united into <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" id="Listefamilles-principales-number">16</a> families and <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" id="Listefamilles-descripteurs-number">82</a> olfactive descriptors. For each raw material, <b>every descriptor is classified in order of olfactive importance</b>. Thus, the more you get close to an external border, the more precise the descriptors will be for one raw material. Then, <b><i>ScenTree</i> discriminates</b> the ingredients and puts in evidence their <b>olfactive similarity</b>.</p>
+  <p lang="fr"><i class='fa fa-info fa-fw fa-lg icone'></i>&nbsp;A ce jour, la classification contient <a href="#listeMP" data-toggle="modal" data-dismiss="modal" class="listeMP-number">370</a> matières premières, réunies en <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" class="Listefamilles-principales-number">16</a> familles principales et <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" class="Listefamilles-descripteurs-number">82</a> descripteurs. Pour chaque matière première, <b>chaque descripteur est classé par ordre d’importance olfactive</b>. Ainsi, plus vous vous rapprocherez d’une bordure extérieure de l’arbre, plus les descripteurs seront précis pour une matière première donnée. En somme, <b><i>ScenTree</i> discrimine</b> les ingrédients entre eux et permet de mettre en évidence leurs <b>similitudes olfactives</b>.</p>
+  <p lang="en"><i class='fa fa-info fa-fw fa-lg icone'></i>&nbsp;Today, this classification contains <a href="#listeMP" data-toggle="modal" data-dismiss="modal" class="listeMP-number">370</a> raw materials, united into <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" class="Listefamilles-principales-number">16</a> families and <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" class="Listefamilles-descripteurs-number">82</a> olfactive descriptors. For each raw material, <b>every descriptor is classified in order of olfactive importance</b>. Thus, the more you get close to an external border, the more precise the descriptors will be for one raw material. Then, <b><i>ScenTree</i> discriminates</b> the ingredients and puts in evidence their <b>olfactive similarity</b>.</p>
 </div>
 
 <div class="papernote">
@@ -213,7 +216,7 @@ crossorigin=""/>
 
 <div class="papernote">
   <p lang="fr"><i class='fas fa-search-location fa-fw fa-lg icone'></i>&nbsp;La mise en forme de la classification <b><i>Scentree</i></b> est inspirée de celle de <a href="http://lifemap.univ-lyon1.fr/explore.html" target ="_BLANK">LifeMap</a> crée par Mr. De Vienne pour l'université de Lyon I. Le concept est similaire à des cartographies telles que celles rencontrées dans Open Street Maps: l'exploration se fait par le biais de zooms et d'interactions avec des images.</p>
-  <p lang="en"><i class='fas fa-search-location fa-fw fa-lg icone'></i>&nbsp;<i><b>ScenTree</b></i>’s shaping is inspired by the LifeMap <a href="http://lifemap.univ-lyon1.fr/explore.html" target ="_BLANK">LifeMap</a>, created by M. De Vienne from the University of Lyon I. This concept is quite similar to the ones met on cartographies as Open Street Maps: exploration is made through zooms and interactions with images.</p>
+  <p lang="en"><i class='fas fa-search-location fa-fw fa-lg icone'></i>&nbsp;<i><b>ScenTree</b></i>’s shaping is inspired by the <a href="http://lifemap.univ-lyon1.fr/explore.html" target ="_BLANK">LifeMap</a>, created by M. De Vienne from the University of Lyon I. This concept is quite similar to the ones met on cartographies as Open Street Maps: exploration is made through zooms and interactions with images.</p>
 </div>
 
 <div class="papernote">
@@ -352,7 +355,7 @@ crossorigin=""/>
 
 <!--MODAL ILS NOUS SOUTIENNENT ex-COLLABORATEURS ex-CREDITS -->  
 <div class="modal" tabindex="-1" role="dialog" id="lesCollaborateurs">
-<div class="modal-dialog modal-lg" role="document">
+<div class="modal-dialog modal-xl" role="document">
 <div class="modal-content">
  
 <div class="modal-header d-block">
@@ -592,29 +595,29 @@ crossorigin=""/>
 <div class="tab-content">
   
   <!--Onglet présentation générale-->
-<div class="tab-pane fade" id="tab1info" role="tabpanel" aria-labelledby="pills-tab1">
+<div class="tab-pane fade show active" id="tab1info" role="tabpanel" aria-labelledby="pills-tab1">
 <div class="container-fluid">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-lg-4  panelcontent" >
   
-<p class="item"><span><b>Tenue <sup class="fas fa-question-circle iconetab" title="Indice sur la ténacité de la matière première (Tête : quelques minutes; Coeur : quelques heures; Fond : jusqu'à plusieurs jours)."></sup> :</b>
+	<p class="item"><span><b lang="fr">Tenue <sup class="fas fa-question-circle iconetab" title="Indice sur la ténacité de la matière première (Tête : quelques minutes; Coeur : quelques heures; Fond : jusqu'à plusieurs jours)."></sup> :</b><b lang="en">Volatility <sup class="fas fa-question-circle iconetab" title="Indication of the tenacity of the raw material (Head : a few minutes; Heart : a few hours; Base : sometimes a few days)."></sup> :</b>
 <span id="modalbody-tenue" class="textitem" ></span></span></p>
 
-<p class="item"><span><b> Prix <sup class="fas fa-question-circle iconetab" title="€ : 0 à 15 €/kg; €€ : 15 à 50 €/kg; €€€ : 50 à 200 €/kg; €€€€ : 200 à 1000 €/kg; €€€€€ : 1000 €/kg et plus. Le prix des matières premières peut grandement évoluer selon différents facteurs qui leurs sont propres."></sup> : </b>
+	<p class="item"><span><b lang="fr"> Prix <sup class="fas fa-question-circle iconetab" title="€ : 0 à 15 €/kg; €€ : 15 à 50 €/kg; €€€ : 50 à 200 €/kg; €€€€ : 200 à 1000 €/kg; €€€€€ : 1000 €/kg et plus. Le prix des matières premières peut grandement évoluer selon différents facteurs qui leurs sont propres."></sup> : </b><b lang="en"> Price <sup class="fas fa-question-circle iconetab" title="€ : 0 to 15 €/kg ; €€ : 15 to 50 €/kg; €€€ : 50 to 200 €/kg; €€€€ : 200 to 1000 €/kg; €€€€€ : 1000 €/kg and more. 1 € ≈ 1,1 USD. Raw materials’ cost can evolve according to various factors of their own."</sup> : </b>
 <span id="modalbody-price" class="textitem"></span></span></p>
 
-<p class="item"><span><b>Composants principaux <sup class="fas fa-question-circle iconetab" title="Molécules majoritairement présentes dans la matière première. Les pourcentages donnés sont ici présents à titre indicatif et ne peuvent être généralisés à l'ensemble des chémotypes et des millésimes de la matière première. "></sup> :</b><span id="modalbody-componat" class="textitem2"></span></span></p>
+<p class="item"><span><b lang="fr">Composants principaux <sup class="fas fa-question-circle iconetab" title="Molécules majoritairement présentes dans la matière première. Les pourcentages donnés sont ici présents à titre indicatif et ne peuvent être généralisés à l'ensemble des chémotypes et des millésimes de la matière première. "></sup> :</b><b lang="en">Major components <sup class="fas fa-question-circle iconetab" title="Majoritary components of the raw material. The given purcentages are for illustrative purposes and cannot be generalized to the whole chemotypes and vintages of the raw material. "></sup> :</b><span id="modalbody-componat" class="textitem2"></span></span></p>
 
 </div>
 <div class="col-xs-12 col-sm-12 col-lg-4  panelcontent">
 
-<p class="item"><span><b>N° CAS <sup class="fas fa-question-circle iconetab" title="Numéro d'identification universel de la matière première."></sup>:</b>
+<p class="item"><span><b lang="fr">N° CAS <sup class="fas fa-question-circle iconetab" title="Numéro d'identification universel de la matière première."></sup>:</b><b lang="en">CAS number <sup class="fas fa-question-circle iconetab" title="Universal identification number of the raw material."></sup>:</b>
 <span id="modalbody-cas" class="textitem"></span></span></p>
 
-<p class="item"><span><b>Aspect <sup class="fas fa-question-circle iconetab" title="Couleur et état physique de la matière première."></sup> :</b>
+<p class="item"><span><b lang="fr">Aspect <sup class="fas fa-question-circle iconetab" title="Couleur et état physique de la matière première."></sup> :</b><b lang="en">Aspect <sup class="fas fa-question-circle iconetab" title="Color and physical state of the raw material."></sup> :</b>
 <span id="modalbody-aspect" class="textitem"></span></span></p>
 
-<p class="item"><span><b>Stabilité <sup class="fas fa-question-circle iconetab" title="Comportement de la matière première sous des conditions de haute température, de lumière, et en bases fonctionnelles diverses."></sup> :</b>
+<p class="item"><span><b lang="fr">Stabilité <sup class="fas fa-question-circle iconetab" title="Comportement de la matière première sous des conditions de haute température, de lumière, et en bases fonctionnelles diverses."></sup> :</b>
 <span id="modalbody-stab" class="textitem"></span></span></p>
 
 </div>
@@ -631,17 +634,17 @@ crossorigin=""/>
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 panelcontent">
   
-<p class="item"><span><b>Nom botanique <sup class="fas fa-question-circle iconetab" title="Nom de la plante ou de l'animal selon le Code International de Nomenclature Botanique."></sup> :</b><span id="modalbody-nbota" class="textitem3" ></span></span></p>
+<p class="item"><span><b lang="fr">Nom botanique <sup class="fas fa-question-circle iconetab" title="Nom de la plante ou de l'animal selon le Code International de Nomenclature Botanique."></sup> :</b><span id="modalbody-nbota" class="textitem3" ></span></span></p>
 
-<p class="item"><span><b>Botanique <sup class="fas fa-question-circle iconetab" title="Famille et/ou genre botanique à laquelle la matière première est ratachée."></sup> :</b><span id="modalbody-bota"  class="textitem"></span></span></p>
+<p class="item"><span><b lang="fr">Botanique <sup class="fas fa-question-circle iconetab" title="Famille et/ou genre botanique à laquelle la matière première est ratachée."></sup> :</b><span id="modalbody-bota"  class="textitem"></span></span></p>
 
-<p class="item"><span><b>Origine(s) géographique(s) <sup class="fas fa-question-circle iconetab" title="Pays et régions de culture de la matière première."></sup> :</b><span id="modalbody-origine" class="textitem"></span></span></p>
+<p class="item"><span><b lang="fr">Origine(s) géographique(s) <sup class="fas fa-question-circle iconetab" title="Pays et régions de culture de la matière première."></sup> :</b><span id="modalbody-origine" class="textitem"></span></span></p>
 			    	
-<p class="item"><span><b>Méthode d'obtention <sup class="fas fa-question-circle iconetab" title="Méthode de culture et d'extraction de la matière première."></sup> :</b><span id="modalbody-methode" class="textitem"></span></span></p>
+<p class="item"><span><b lang="fr">Méthode d'obtention <sup class="fas fa-question-circle iconetab" title="Méthode de culture et d'extraction de la matière première."></sup> :</b><span id="modalbody-methode" class="textitem"></span></span></p>
 
-<p class="item"><span><b>Influence et répartition des chémotypes <sup class="fas fa-question-circle iconetab" title="Caractéristiques des autres variétés et/ou espèces de la plante étudiée."></sup> :</b><span id="modalbody-chemotype" class="textitem"></span></span></p>
+<p class="item"><span><b lang="fr">Influence et répartition des chémotypes <sup class="fas fa-question-circle iconetab" title="Caractéristiques des autres variétés et/ou espèces de la plante étudiée."></sup> :</b><span id="modalbody-chemotype" class="textitem"></span></span></p>
 
-<p class="item"><span><b>Médecine alternative <sup class="fas fa-question-circle iconetab" title="Usages en aromathérapie, phytothérapie ou olfactothérapie."></sup> :</b><span id="modalbody-medecine" class="textitem"></span></span></p>
+<p class="item"><span><b lang="fr">Médecine alternative <sup class="fas fa-question-circle iconetab" title="Usages en aromathérapie, phytothérapie ou olfactothérapie."></sup> :</b><span id="modalbody-medecine" class="textitem"></span></span></p>
 </div>
 
 <div id="modalbody-pictA" class="imgmp  col-xs-12 col-sm-12 col-md-12 col-lg-4  order-first order-sm-first order-lg-last"></div>
@@ -656,15 +659,15 @@ crossorigin=""/>
 <div class="row">
 <div class="col-12">
 
-  <p><span><b>IFRA <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) recommande des utilisations maximales pour certaines matières premières dans leur produit fini. L'avis donné par cette association possède une grande valeur dans le milieu du parfum. Respecter les normes IFRA est gage de qualité et de sécurité à l'emploi du parfum."></sup> :</b><span id="modalbody-ifra" class="textitem"></span></span></p>
+  <p><span><b lang="fr">IFRA <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) recommande des utilisations maximales pour certaines matières premières dans leur produit fini. L'avis donné par cette association possède une grande valeur dans le milieu du parfum. Respecter les normes IFRA est gage de qualité et de sécurité à l'emploi du parfum."></sup> :</b><span id="modalbody-ifra" class="textitem"></span></span></p>
   
 <div class="container-fluid">
 <div class="row">
 <div class="col-12">
 <div class="blockifra1">
-  <p class="amendment"><span><b>Amendement <sup class="fas fa-question-circle iconetab" title="Numéro du premier amendement dans lequel l'ingrédient à été ajouté. A ce jour, nous en sommes au 49ème. "></sup> :</b><span id="modalbody-amendment" class="textitem"></span></span></p>
+  <p class="amendment"><span><b lang="fr">Amendement <sup class="fas fa-question-circle iconetab" title="Numéro du premier amendement dans lequel l'ingrédient à été ajouté. A ce jour, nous en sommes au 49ème. "></sup> :</b><span id="modalbody-amendment" class="textitem"></span></span></p>
   <br>
-  <p class="commentaires"><span><b>Commentaires <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) fourni un certain nombre de recommandations ou de spécifications justifiants les restrictions des ingrédients. Les mentions suivantes sont valables pour une utilisation à forte dose de la matière première, ou en cas de sensibilité particulièrement élevée à cette matière première. Son utilisation en parfumerie étant restreinte, ces risques sont évités dans le cas des parfums."></sup> :</b><span id="modalbody-commentifra" class="textitem"></span></span></p>
+  <p class="commentaires"><span><b lang="fr">Commentaires <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) fourni un certain nombre de recommandations ou de spécifications justifiants les restrictions des ingrédients. Les mentions suivantes sont valables pour une utilisation à forte dose de la matière première, ou en cas de sensibilité particulièrement élevée à cette matière première. Son utilisation en parfumerie étant restreinte, ces risques sont évités dans le cas des parfums."></sup> :</b><span id="modalbody-commentifra" class="textitem"></span></span></p>
 </div>
 
 <div class="blocktable">
@@ -751,7 +754,7 @@ crossorigin=""/>
 </div>
 </div>
 
-<p class="item"><span><b>Allergènes <sup class="fas fa-question-circle iconetab" title="Il existe 26 allergènes en parfumerie. Leur utilisation est limitée à 10 ppm dans le produit fini pour les produits non rincés (eaux de toilette par exemple), contre 100 ppm pour les produits rincés (gels douche par exemple). Une réaction allergique à un allergène de parfumerie et cosmétiques n'apparaît que pour 1 à 3% de la population européenne (source : CSSC). Il est donc rare d'être allergique à l'une de ces substances. Quoi qu'il en soit, les allergènes ont une utilisation limitée dans les produits parfumés, pour éviter toute réaction à ces produits."></sup> :</b><span id="modalbody-allergenes" class="textitem"></span></span></p>
+<p class="item"><span><b lang="fr">Allergènes <sup class="fas fa-question-circle iconetab" title="Il existe 26 allergènes en parfumerie. Leur utilisation est limitée à 10 ppm dans le produit fini pour les produits non rincés (eaux de toilette par exemple), contre 100 ppm pour les produits rincés (gels douche par exemple). Une réaction allergique à un allergène de parfumerie et cosmétiques n'apparaît que pour 1 à 3% de la population européenne (source : CSSC). Il est donc rare d'être allergique à l'une de ces substances. Quoi qu'il en soit, les allergènes ont une utilisation limitée dans les produits parfumés, pour éviter toute réaction à ces produits."></sup> :</b><span id="modalbody-allergenes" class="textitem"></span></span></p>
 
 </div>		
 </div>	 
@@ -763,16 +766,16 @@ crossorigin=""/>
 <div class="container-fluid">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panelcontent">
-  <p class="item"><span><b>Utilisation <sup class="fas fa-question-circle iconetab" title="Types de parfums et d'accords auxquels la matière première peux être associée."></sup> :</b><span id="modalbody-utilisation" class="textitem"></span></span></p>
+  <p class="item"><span><b lang="fr">Utilisation <sup class="fas fa-question-circle iconetab" title="Types de parfums et d'accords auxquels la matière première peux être associée."></sup> :</b><span id="modalbody-utilisation" class="textitem"></span></span></p>
   
-  <p class="item"><span><b>Commentaires et anecdotes <sup class="fas fa-question-circle iconetab" title="Autres commentaires sur la matière première"></sup> : </b><span id="modalbody-remarques" class="textitem"></span></span></p>
+  <p class="item"><span><b lang="fr">Commentaires et anecdotes <sup class="fas fa-question-circle iconetab" title="Autres commentaires sur la matière première"></sup> : </b><span id="modalbody-remarques" class="textitem"></span></span></p>
 </div>
 </div> 
 </div>
 </div>
 
 <!-- Onglet Fournisseurs -->
-<div class="tab-pane fade show active" id="tab6info"  role="tabpanel" aria-labelledby="pills-tab6">
+<div class="tab-pane fade" id="tab6info"  role="tabpanel" aria-labelledby="pills-tab6">
 <div class="container-fluid">
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panelcontent">
@@ -842,7 +845,7 @@ crossorigin=""/>
 <div class="tab-content">
   
   <!--Onglet présentation générale-->
-<div class="tab-pane fade" id="tab12info" role="tabpanel" aria-labelledby="pills-tab-synthetiques-1">
+<div class="tab-pane fade show active" id="tab12info" role="tabpanel" aria-labelledby="pills-tab-synthetiques-1">
 <div class="container-fluid panelcontent">
 <div class="row">
 <div class="col-12 col-sm-12 col-lg-4 blockdonnees">
@@ -1015,7 +1018,7 @@ crossorigin=""/>
 </div>
 
 <!-- onglet fournisseurs -->
-<div class="tab-pane fade show show active" id="tab11info" role="tabpanel" aria-labelledby="pills-tab-synthetiques-5">
+<div class="tab-pane fade" id="tab11info" role="tabpanel" aria-labelledby="pills-tab-synthetiques-5">
 <div class="container-fluid">
 <div class="row">
 <div class="col-lg-12">

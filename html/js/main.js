@@ -7,7 +7,7 @@ if (! window.document.jsdom_reader) {
 	if (! RGPD_warning_has_been_done) {
 	    Cookies.set('RGPD_warning', '1', { expires: 365 });
 	    $("#RGPD_warning").css({'display' : 'block'});
-	    $("#modal_video").modal("show");
+	    //$("#modal_video").modal("show");
 	} else {
 	    if ((! RGPD_choice_has_been_done) || ((RGPD_choice_has_been_done != 1) && (RGPD_choice_has_been_done != -1))) {
 	        $("#RGPD_warning").css({'display' : 'block'});
@@ -234,7 +234,7 @@ function CreatePopUps() {
 				Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
 				Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
 				Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
-                                window.location.href = "../ingredients/" + ok[index]['sci_name'].replace( new RegExp("\\s", "gi"), "_") + ".html";
+                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("\\s", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("\\s", "gi"), "_") + ".html";
                         });
 		};
 		markers.addLayer(marker);
@@ -314,7 +314,7 @@ $(function() {
     var str;
     //définitions des URL de la requete de solr//
     var URL_PREFIX_SUGGESTER = "/suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
-    var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
+    //var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
     var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/select_EN_and_FR/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
     
@@ -457,7 +457,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //communs
     var the_use = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
     var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
-    var the_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
+    var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'];
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -520,7 +522,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (the_commentary) { // avoid applying .replace to undefined
          the_commentary = the_commentary.replace(/\n/g,"<br />");  //convert \n to <br /> = convert json end of line to html end of line
      };
-    var the_type = the_node_as_json_EN_and_FR['from_csv FR Type'];
     var the_background_color = the_node_as_json_EN_and_FR['from_csv FR Couleur'];
     if (! (the_background_color)) {
         the_background_color = "#FFFFFF"
@@ -768,10 +769,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $('#modalbody-pictA').empty();
     $('#modalbody-pict1').empty();
     $('#modalbody-pict1A').empty();
-	$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".jpg' alt='' />");
-    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".jpg' alt='' />");
-    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".PNG' alt='' />");
-    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_title + ".PNG' alt='' />");
+	$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='' />");
+    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='' />");
+    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='' />");
+    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='' />");
     };  
     
     if (is_an_naturelle) {
@@ -788,7 +789,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     
 
-   $('title').html('ScenTree - ' + the_title);
+   $('title').html('ScenTree - ' + the_webpage_title);
 
    if (displaytable1) {
    		$(".table1").css('display', 'inline-table');
@@ -919,24 +920,41 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
         $('title').html("ScenTree - Classification innovante des ingrédients parfum");
 });
 
+var URL_PREFIX_SELECTER;
 function switch_to_en() {
+    // emphasize the EN button
+    $('.to_french_button').css("font-weight","normal");
+    $('.to_english_button').css("font-weight","Bold");
+    $('.to_english_radio_input').addClass("active");
+    $('.to_french_radio_input').removeClass("active");
     // cookie
     Cookies.set('display_french_language', -1, { expires: 365});
     // CSS
     $("*:lang(fr)").css({'display' : 'none'});
     $("*:lang(en)").css({'display' : 'initial'});
     // change search
+    URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
+    // clear search input
+    $("#searchinput").val('');
     // change map
     map.addLayer(tol_en);
     map.removeLayer(tol_fr);
 };
 function switch_to_fr() {
+    // emphasize the FR button
+    $('.to_english_button').css("font-weight","normal");
+    $('.to_french_button').css("font-weight","Bold");
+    $('.to_french_radio_input').addClass("active");
+    $('.to_english_radio_input').removeClass("active");
     // cookie
     Cookies.set('display_french_language', 1, { expires: 365});
     // CSS
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'initial'});
     // change search
+    URL_PREFIX_SELECTER = "/select_FR/?q=id%3A";
+    // clear search input
+    $("#searchinput").val('');  
     // change map
     map.addLayer(tol_fr);
     map.removeLayer(tol_en);
@@ -948,6 +966,12 @@ $(".to_english_button").click(function() {
 $(".to_french_button").click(function() {
     switch_to_fr();
 });
+$(".to_english_radio_input").click(function() {
+    switch_to_en();
+});
+$(".to_french_radio_input").click(function() {
+    switch_to_fr();
+});
 
 var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
                navigator.language ||   // All browsers
@@ -955,7 +979,7 @@ var language = navigator.languages && navigator.languages[0] || // Chrome / Fire
 
 //console.log(language);
 
-if ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-"))) {
+if ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-")))) {
     switch_to_fr();
 } else {
     switch_to_en();

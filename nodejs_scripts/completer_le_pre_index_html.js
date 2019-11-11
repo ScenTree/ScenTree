@@ -14,7 +14,7 @@ if (! fs.existsSync(the_third_arg)) {
 	console.log("The folder '" + the_third_arg + "' exists …" );
 };
 
-const the_json_file = '/home/maxime/BDD/TreeFeaturesNEW.json';
+const the_json_file = '/home/maxime/BDD/TreeFeaturesNEW_EN_and_FR.json';
 //const the_json_file = 'TreeFeaturesNEW.json';
 const the_pre_index_file = the_third_arg + '_/pre_index.html';
 //const the_pre_index_file = 'pre_index.html';
@@ -51,18 +51,18 @@ function is_an_ingredient(the_object) {
 };
 
 function is_a_famille_principale(the_object) {
-    return (the_object["from_csv id"].length == 3);
+    return (the_object["from_csv FR id"].length == 3);
 };
 
 function is_a_descripteur(the_object) {
-    return (the_object["from_csv Type"] == "Descripteur");
+    return (the_object["from_csv FR Type"] == "Descripteur");
 };
 
 function add_one_object_to_a_dom(the_dom, the_object) {
     var the_html_list_to_be_filled;
     // #listeMP -> Ingrédients Naturels ou Ingrédients Synthétiques ; #Listefamilles -> Familles Principales ou Descripteurs Secondaires
     if (is_an_ingredient(the_object)) { // if the object is ingrédient
-	if (the_object["from_csv Type"] == "Naturelle") { // if the object is natural
+	if (the_object["from_csv FR Type"] == "Naturelle") { // if the object is natural
 	    the_html_list_to_be_filled = the_dom.window.document.getElementById("listeMP-Ingredients-naturels");
 	} else {
 	    the_html_list_to_be_filled = the_dom.window.document.getElementById("listeMP-Ingredients-synthetiques");
@@ -76,7 +76,7 @@ function add_one_object_to_a_dom(the_dom, the_object) {
     var the_list_element = the_dom.window.document.createElement("LI");
     var the_link_to_the_html_of_the_element = the_dom.window.document.createElement("A");
     
-    var the_name_of_the_html_of_the_element = the_object["sci_name"].replace( new RegExp("\\s", "gi"), "_");
+    var the_name_of_the_html_of_the_element = the_object["from_csv EN Nom"].replace( new RegExp("\\s", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("\\s", "gi"), "_");
     if (is_an_ingredient(the_object)) {
 	the_name_of_the_html_of_the_element = "ingredients/" + the_name_of_the_html_of_the_element;
     } else if (is_a_famille_principale(the_object)) {
@@ -87,7 +87,7 @@ function add_one_object_to_a_dom(the_dom, the_object) {
     the_name_of_the_html_of_the_element = the_name_of_the_html_of_the_element + ".html";
     //the_link_to_the_html_of_the_element.href = "/" + the_name_of_the_html_of_the_element;
     the_link_to_the_html_of_the_element.href = "../" + the_name_of_the_html_of_the_element;
-    the_link_to_the_html_of_the_element.text = the_object["sci_name"];
+    the_link_to_the_html_of_the_element.innerHTML = "<span lang='en'>" + the_object["from_csv EN Nom"] + "</span><span lang='fr'>" + the_object["from_csv FR Nom"] + "</span>";
     
     the_list_element.appendChild(the_link_to_the_html_of_the_element);
     the_html_list_to_be_filled.appendChild(the_list_element);
@@ -119,9 +119,13 @@ async function generate_the_post_index_file(the_objects) {
 	    the_number_of_descripteurs += 1;
 	};
     };
-    dom.window.document.getElementById("listeMP-number").text = the_number_of_MP;
-    dom.window.document.getElementById("Listefamilles-principales-number").text = the_number_of_familles_principales;
-    dom.window.document.getElementById("Listefamilles-descripteurs-number").text = the_number_of_descripteurs - the_number_of_familles_principales;
+    //console.log(dom.window.document.getElementsByClassName("listeMP-number"));
+    dom.window.document.getElementsByClassName("listeMP-number")[0].text = the_number_of_MP;
+    dom.window.document.getElementsByClassName("listeMP-number")[1].text = the_number_of_MP;
+    dom.window.document.getElementsByClassName("Listefamilles-principales-number")[0].text = the_number_of_familles_principales;
+    dom.window.document.getElementsByClassName("Listefamilles-principales-number")[1].text = the_number_of_familles_principales;
+    dom.window.document.getElementsByClassName("Listefamilles-descripteurs-number")[0].text = the_number_of_descripteurs - the_number_of_familles_principales;
+    dom.window.document.getElementsByClassName("Listefamilles-descripteurs-number")[1].text = the_number_of_descripteurs - the_number_of_familles_principales;
     
     return dom;
 };
