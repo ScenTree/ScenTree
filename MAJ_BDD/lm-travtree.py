@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import cgitb
 cgitb.enable()
 
@@ -9,12 +11,19 @@ import numpy as np
 from ete3 import Tree
 import psycopg2 ##for postgresql connection
 
-THE_SECRET_PSWRD = "35740"
+THE_NAME_OF_THE_DATABASE = "gis"
+THE_USER_OF_THE_DATABASE = "maxime"
+THE_SECRET_PSWRD = os.environ.get('THE_SECRET_PSWRD')
 THE_URL_TO_THE_DATABASE = "localhost"
 THE_PATH_OF_THE_TRE_FILE = "./tree.tre"
-THE_PATH_OF_THE_CSV_FILE = "./csv.csv"
+THE_PATH_OF_THE_CSV_FR_FILE = "./csv_FR.csv"
+THE_PATH_OF_THE_CSV_EN_FILE = "./csv_EN.csv"
 THE_PATH_OF_THE_LOG_FILE = "./result.json"
-THE_PATH_OF_THE_JSON_FILE = "./TreeFeaturesNEW.json" # JSON file to populate solr database
+ # JSON files to populate solr database (taxoEN and taxoFR)
+THE_PATH_OF_THE_EN_JSON_FILE = "./TreeFeaturesNEW_EN.json"
+THE_PATH_OF_THE_FR_JSON_FILE = "./TreeFeaturesNEW_FR.json"
+THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = "./TreeFeaturesNEW_EN_and_FR.json"
+
 
 prg = open(THE_PATH_OF_THE_LOG_FILE, "w"); ##this will contain the progress made by the code.
 prg.write(" ")##this will contain the progress made by the code.
@@ -32,17 +41,36 @@ except:
     prg.close()
     sys.exit(1)
 
-# reading the csv file
-the_csv_file_as_dict = {}
+# reading the csv files in parallel (EN | FR), they should have the same numbers of lines
+the_csv_files_as_one_dict = {} #{ id ingrédient : { attributes : {'EN' : value, 'FR': value} } }
 try:
-    with open(THE_PATH_OF_THE_CSV_FILE, 'r') as csvfile:
-        reader = csv.DictReader(csvfile, delimiter=';')
-        for row in reader:
-            the_csv_file_as_dict[str(row['id'])] = row # id is possibly int, so convert int to string
+    the_en_csv_file = open(THE_PATH_OF_THE_CSV_EN_FILE, 'r')
+    the_fr_csv_file = open(THE_PATH_OF_THE_CSV_FR_FILE, 'r')
 except:
-    prg.write('"Success":false,"Reason": "The csv file could not be red. Maybe it does not exists ? Stopping"')
+    prg.write('"Success":false,"Reason": "The csv-EN file and/or the csv-FR file could not be red. Maybe it/they does/do not exists ? Stopping"')
     prg.close()
     sys.exit(1)
+else:
+    reader_en = [d for d in csv.DictReader(the_en_csv_file, delimiter=';')]
+    reader_fr = [d for d in csv.DictReader(the_fr_csv_file, delimiter=';')]
+    if len(reader_en) != len(reader_fr):
+        prg.write('"Success":false,"Reason": "csv-en and csv-fr have not the same length !"')
+        prg.close()
+        sys.exit(1)
+    for an_en_row, a_fr_row in zip(sorted(reader_en, key = lambda d: d['id']), sorted(reader_fr, key = lambda d: d['id'])):
+        if an_en_row['id'] != a_fr_row['id']:
+            prg.write('"Success":false,"Reason": "csv-en sorted and csv-fr sorted, but not the same id for the same rank ! Stopping"')
+            prg.close()
+            sys.exit(1)
+        the_id_of_the_row = str(a_fr_row['id'])
+        the_csv_files_as_one_dict[the_id_of_the_row] = {}
+        for a_key, a_fr_value in a_fr_row.items():
+            the_csv_files_as_one_dict[the_id_of_the_row][a_key] = {'FR' : a_fr_value}
+        for a_key, a_en_value in an_en_row.items():
+            the_csv_files_as_one_dict[the_id_of_the_row][a_key]['EN'] = a_en_value
+
+
+
 
 
 t.x = 0.0;
@@ -92,7 +120,7 @@ def HalfCircPlusEllips(x,y,r,alpha, start, end,nsteps):
 ##CONNECT TO POSTGRESQL/POSTGIS DATABASE
 
 try:
-    conn = psycopg2.connect("dbname='tree' user='lm' host='%s' password='%s'" % (THE_URL_TO_THE_DATABASE, THE_SECRET_PSWRD))
+    conn = psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (THE_NAME_OF_THE_DATABASE, THE_USER_OF_THE_DATABASE, THE_URL_TO_THE_DATABASE, THE_SECRET_PSWRD))
 except Exception as e:
     prg.write(repr(e))
     prg.write('"Success":false,"Reason": "Could not connect to the database. Restart the virtual Machine to solve this issue."}')
@@ -110,9 +138,9 @@ if (cur.fetchone()[0]): ## we drop tables only if they exist.
     cur.execute("DROP TABLE polygons;")
     conn.commit()
 ##we create the database structure here
-cur.execute("CREATE TABLE points(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankame boolean,sci_name text,common_name text,full_name text,rank text, name text, nbdesc integer,taxid text, color text, way geometry(POINT,900913));")
-cur.execute("CREATE TABLE lines(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankname boolean,sci_name text,common_name text,full_name text,rank text,name text, nbdesc integer,taxid text, color text, way geometry(LINESTRING,900913));")
-cur.execute("CREATE TABLE polygons(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankame boolean,sci_name text,common_name text,full_name text,rank text, name text, nbdesc integer,taxid text, color text, way geometry(POLYGON,900913));")
+cur.execute("CREATE TABLE points(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankame boolean,  sci_name_en text, sci_name_fr text,  nbdesc integer,taxid text, color text, way geometry(POINT,900913));")
+cur.execute("CREATE TABLE lines(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankname boolean,  nbdesc integer,taxid text, color text, way geometry(LINESTRING,900913));")
+cur.execute("CREATE TABLE polygons(id bigint,ref smallint,z_order smallint,branch boolean,tip integer,zoomview integer,clade boolean,cladecenter boolean,rankame boolean,  sci_name_en text, sci_name_fr text,  nbdesc integer,taxid text, color text, way geometry(POLYGON,900913));")
 conn.commit()
 
 ##we include the root node
@@ -126,41 +154,37 @@ conn.commit()
 ###node.common_name removed
 ###node.rank removed
 
-def getNodeName(the_node):
+def getNodeName(the_node, the_language_as_two_chars):
     try:
-        return the_node.the_properties_from_the_csv['Nom']
+        return the_node.the_properties_from_the_csv['Nom'][the_language_as_two_chars]
     except KeyError:
         return the_node.name
+def getNodeNameForTheDatabase(the_node, the_language_as_two_chars):
+    return getNodeName(the_node, the_language_as_two_chars).replace("'", "''")
+def getNodeNameForTheJSON(the_node, the_language_as_two_chars):
+    return getNodeName(the_node, the_language_as_two_chars).replace('"','\\"')
 def getNodeColor(the_node):
-    return the_node.the_properties_from_the_csv.get('Couleur', None)
-def getNodeCommentary(the_node):
-    return the_node.the_properties_from_the_csv.get('Commentaires', None)
+    try:
+        return the_node.the_properties_from_the_csv['Couleur']['FR']
+    except KeyError:
+        return None
 def getNodeZoom(the_node):
     try:
-        return int(the_node.the_properties_from_the_csv.get('zoomview', None))
+        return int(the_node.the_properties_from_the_csv.get('zoomview', None)['FR'])
     except TypeError:
         return None
 def writeosmNode(node):
     ##we write INFO FOR EACH NODE. Clades will be delt with later on. We put less info than for the json file
     the_color = getNodeColor(node)
     node.zoomwiew = getNodeZoom(node)
-    the_name = getNodeName(node).replace("'", "''")
-    command = "INSERT INTO points (id, taxid, sci_name, common_name,rank,nbdesc,zoomview, tip, color, way) VALUES(%d,%s,'%s','%s','%s',%d,'%s',%d, '%s', ST_Transform(ST_GeomFromText('POINT(%.20f %.20f)', 4326), 900913));" % (node.id, node.support, the_name, '', '', node.nbdesc,node.zoomview, node.is_leaf(), the_color, node.x, node.y);
+    command = "INSERT INTO points (id, taxid, sci_name_en, sci_name_fr, nbdesc,zoomview, tip, color, way) VALUES(%d,'%s', '%s','%s',%d,'%s',%d, '%s', ST_Transform(ST_GeomFromText('POINT(%.20f %.20f)', 4326), 900913));" % (node.id, node.support, getNodeNameForTheDatabase(node, 'EN'), getNodeNameForTheDatabase(node, 'FR'),  node.nbdesc,node.zoomview, node.is_leaf(), the_color, node.x, node.y);
     cur.execute(command);
     conn.commit();
     ##write json for search
     
 def writeosmWays(node, id):
     #Create branch names
-    Upsci_name = getNodeName(node.up).replace("'", "''");
-    Downsci_name = getNodeName(node).replace("'", "''");
-    left = Upsci_name;
-    right = Downsci_name;
-    if (node.x >= node.up.x): #we are on the right
-        wayName = "\u2190  " + left + "     -     " + right + "  \u2192"
-    else: #we are on the left
-        wayName = "\u2190  " + right + "     -     " + left + "  \u2192"
-    command = "INSERT INTO lines (id, branch, zoomview, ref, name, way) VALUES(%d,'TRUE','%s','%s',E'%s',ST_Transform(ST_GeomFromText('LINESTRING(%.20f %.20f, %.20f %.20f)', 4326), 900913));" % (id, node.zoomview, '1', wayName, node.up.x, node.up.y, node.x, node.y);
+    command = "INSERT INTO lines (id, branch, zoomview, ref, way) VALUES(%d,'TRUE','%s',E'%s',ST_Transform(ST_GeomFromText('LINESTRING(%.20f %.20f, %.20f %.20f)', 4326), 900913));" % (id, node.zoomview, '1', node.up.x, node.up.y, node.x, node.y);
     cur.execute(command);
     conn.commit();
         
@@ -172,11 +196,11 @@ def writeosmpolyg(node, ids):
         cooPolyg += ',%.20f %.20f' % (polyg[0][i], polyg[1][i]);
     cooPolyg += ',%.20f %.20f' % (polyg[0][0], polyg[1][0]); #to close the ring...
     cooPolyg += '))';
-    command = "INSERT INTO polygons (id, ref, clade, taxid, sci_name, common_name, rank, nbdesc,zoomview, color, way) VALUES(%d,'%s','TRUE', %s,'%s','%s','%s',%d,'%s', '%s', ST_Transform(ST_GeomFromText('%s', 4326), 900913));" % (ids[60], '1', node.support, getNodeName(node).replace("'", "''"), '', '', node.nbdesc, node.zoomview, getNodeColor(node), cooPolyg);
+    command = "INSERT INTO polygons (id, ref, clade, taxid, sci_name_en, sci_name_fr, nbdesc,zoomview, color, way) VALUES(%d,'%s','TRUE', '%s','%s','%s',%d,'%s', '%s', ST_Transform(ST_GeomFromText('%s', 4326), 900913));" % (ids[60], '1', node.support, getNodeNameForTheDatabase(node, 'EN'), getNodeNameForTheDatabase(node, 'FR'), node.nbdesc, node.zoomview, getNodeColor(node), cooPolyg);
     cur.execute(command);
     conn.commit();
     #and add the clade center
-    command = "INSERT INTO points (id, cladecenter, taxid, sci_name, common_name,rank,nbdesc,zoomview, color, way) VALUES('%d','TRUE', %s,'%s','%s','%s',%d,'%s', '%s', ST_Transform(ST_GeomFromText('POINT(%.20f %.20f)', 4326), 900913));" % (ids[61], node.support, getNodeName(node).replace("'", "''"), '', '', node.nbdesc,node.zoomview, getNodeColor(node), polygcenter[0], polygcenter[1]);
+    command = "INSERT INTO points (id, cladecenter, taxid, sci_name_en, sci_name_fr, nbdesc,zoomview, color, way) VALUES('%d','TRUE', '%s','%s','%s',%d,'%s', '%s', ST_Transform(ST_GeomFromText('POINT(%.20f %.20f)', 4326), 900913));" % (ids[61], node.support, getNodeNameForTheDatabase(node, 'EN'), getNodeNameForTheDatabase(node, 'FR'), node.nbdesc,node.zoomview, getNodeColor(node), polygcenter[0], polygcenter[1]);
     cur.execute(command);
     conn.commit();
     #we add a way on which we will write the rank
@@ -184,7 +208,7 @@ def writeosmpolyg(node, ids):
     for i in range(36,45):
         cooLine += ',%.20f %.20f' % (polyg[0][i], polyg[1][i]);
     cooLine += ')';
-    command = "INSERT INTO lines (id, ref, rankname, sci_name, zoomview, rank, nbdesc, color, way) VALUES(%d,%s,'TRUE','%s','%s','%s',%d, '%s', ST_Transform(ST_GeomFromText('%s', 4326), 900913));" % (ids[62], '1', getNodeName(node).replace("'", "''"),  node.zoomview, '', node.nbdesc, getNodeColor(node), cooLine);
+    command = "INSERT INTO lines (id, ref, rankname, zoomview, nbdesc, color, way) VALUES(%d,'%s','TRUE','%s',%d, '%s', ST_Transform(ST_GeomFromText('%s', 4326), 900913));" % (ids[62], '1', node.zoomview, node.nbdesc, getNodeColor(node), cooLine);
     cur.execute(command);
     conn.commit();
 
@@ -198,47 +222,73 @@ for n in t.traverse():
     else:
         the_id_of_the_node = str(n.name)
     try:
-        the_properties_from_the_csv = the_csv_file_as_dict[the_id_of_the_node]
+        the_properties_from_the_csv = the_csv_files_as_one_dict[the_id_of_the_node]
     except KeyError:
         the_properties_from_the_csv = {}
     n.the_properties_from_the_csv = the_properties_from_the_csv
 
-    
 
 
 #################################
 #       WRITE JSON FILES        #
 #################################
-jsonfile = THE_PATH_OF_THE_JSON_FILE; ##changed groupnb by '1'
-json = open(jsonfile, "w");
-json.write("[\n");
-def writejsonNode(node):
-    sci_name = getNodeName(node)
-    sci_name = sci_name.replace('"','\\"')
+def create_an_opened_json_file(the_path_of_the_json_file):
+    json = open(the_path_of_the_json_file, "w");
+    json.write("[\n");
+    return json
+
+def writejsonNode(the_json, node, the_language_in_two_chars):
+    sci_name = getNodeNameForTheJSON(node, 'FR')
     if bool(sci_name):
-        json.write("  {\n")
-        json.write("    \"id\":\"%d\",\n" % (node.id))
-        json.write("    \"sci_name\":\"%s\",\n" % (sci_name))
-        json.write("    \"zoom\":\"%s\",\n" % (node.zoomview))
-        json.write("    \"nbdesc\":\"%d\",\n" % (node.nbdesc))
-        json.write("    \"coordinates\": [%.20f,%.20f],\n" % (node.y, node.x))
-        json.write("    \"lat\": \"%.20f\",\n" % (node.y))
-        if len( str(node.the_properties_from_the_csv['id']) ) == 5:
-            json.write("    \"ingredient\": \"%s\",\n" % ("yes"))
+        the_json.write("  {\n")
+        the_json.write("    \"id\":\"%d\",\n" % (node.id))
+        the_json.write("    \"sci_name\": \"%s\",\n" % (getNodeNameForTheJSON(node, the_language_in_two_chars)))
+        the_json.write("    \"zoom\":\"%s\",\n" % (node.zoomview))
+        the_json.write("    \"nbdesc\":\"%d\",\n" % (node.nbdesc))
+        the_json.write("    \"coordinates\": [%.20f,%.20f],\n" % (node.y, node.x))
+        the_json.write("    \"lat\": \"%.20f\",\n" % (node.y))
+        if len( str(node.the_properties_from_the_csv['id'][the_language_in_two_chars]) ) == 5:
+            the_json.write("    \"ingredient\": \"%s\",\n" % ("yes"))
         try:
             for a_key, a_value in node.the_properties_from_the_csv.items():
-                if bool(a_value):
-                    json.write("    \"from_csv %s\": \"%s\",\n" % (a_key, a_value.replace("\n", "\\n")))
+                if bool(a_value[the_language_in_two_chars]):
+                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, a_value[the_language_in_two_chars].replace("\n", "\\n")))
         except AttributeError:
             pass
-        json.write("    \"lon\": \"%.20f\"\n" % (node.x))
-        json.write("  },\n")
+        the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
+        the_json.write("  },\n")
+
+def writejsonNodeBothLanguages(the_json, node):
+    sci_name = getNodeNameForTheJSON(node, 'FR')
+    if bool(sci_name):
+        the_json.write("  {\n")
+        the_json.write("    \"id\":\"%d\",\n" % (node.id))
+        the_json.write("    \"sci_name\": \"%s\",\n" % (sci_name))
+        the_json.write("    \"zoom\":\"%s\",\n" % (node.zoomview))
+        the_json.write("    \"nbdesc\":\"%d\",\n" % (node.nbdesc))
+        the_json.write("    \"coordinates\": [%.20f,%.20f],\n" % (node.y, node.x))
+        the_json.write("    \"lat\": \"%.20f\",\n" % (node.y))
+        if len( str(node.the_properties_from_the_csv['id']['FR']) ) == 5:
+            the_json.write("    \"ingredient\": \"%s\",\n" % ("yes"))
+        try:
+            for a_key, a_value in node.the_properties_from_the_csv.items():
+                if bool(a_value['EN']):
+                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, a_value['EN'].replace("\n", "\\n")))
+        except AttributeError:
+            pass
+        try:
+            for a_key, a_value in node.the_properties_from_the_csv.items():
+                if bool(a_value['FR']):
+                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, a_value['FR'].replace("\n", "\\n")))
+        except AttributeError:
+            pass        
+        the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
+        the_json.write("  },\n")
 
 
-
-
-
-
+the_opened_json_EN_file = create_an_opened_json_file(THE_PATH_OF_THE_EN_JSON_FILE)
+the_opened_json_FR_file = create_an_opened_json_file(THE_PATH_OF_THE_FR_JSON_FILE)
+the_opened_json_EN_and_FR_file = create_an_opened_json_file(THE_PATH_OF_THE_EN_AND_FR_JSON_FILE)
 
 for n in t.traverse():
     special = 0
@@ -312,12 +362,17 @@ for n in t.traverse():
         writeosmpolyg(n, indexes)
         ndid = ndid+63
     try:
-        writejsonNode(n)
+        writejsonNode(the_opened_json_EN_file, n, 'EN')
+        writejsonNode(the_opened_json_FR_file, n, 'FR')
+        writejsonNodeBothLanguages(the_opened_json_EN_and_FR_file, n)
     except KeyError:
         pass
 
 
-json.close()
+the_opened_json_EN_file.close()
+the_opened_json_FR_file.close()
+the_opened_json_EN_and_FR_file.close()
+
 ##we add the way from LUCA to the root of the subtree 
 #ndid=ndid+1
 #command = "INSERT INTO lines (id, branch, zoomview, ref, way) VALUES(%d,'TRUE', '4','%s',ST_Transform(ST_GeomFromText('LINESTRING(0 -4.226497, %.20f %.20f)', 4326), 900913));" % (ndid, '1', t.x, t.y);
@@ -336,11 +391,16 @@ prg.close()
 
 #consoleexex = 'head -n -1 ' + jsonfile + ' > /var/www/html/out/tempi.txt ; cp /var/www/html/out/tempi.txt '+ jsonfile;
 #os.system(consoleexex);
-json = open(jsonfile, "rb+");
-json.seek(-2, os.SEEK_END)
-json.truncate()
-json.close()
-json = open(jsonfile, "a");
-json.write("\n]\n")
-json.close()
 
+def terminate_a_json_file(the_path_of_the_json_file):
+    json = open(the_path_of_the_json_file, "rb+");
+    json.seek(-2, os.SEEK_END)
+    json.truncate()
+    json.close()
+    json = open(the_path_of_the_json_file, "a");
+    json.write("\n]\n")
+    json.close()
+
+terminate_a_json_file(THE_PATH_OF_THE_EN_JSON_FILE)
+terminate_a_json_file(THE_PATH_OF_THE_FR_JSON_FILE)
+terminate_a_json_file(THE_PATH_OF_THE_EN_AND_FR_JSON_FILE)
