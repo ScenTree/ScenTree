@@ -998,6 +998,10 @@ $('.navbar-nav>li>a').on('click', function(){
     $('.navbar-collapse').collapse('hide');
 });
 
+$("#partenaireCinquiemeSens").on("show.bs.modal", function() {
+    $("#lesCollaborateurs").modal("hide");
+});
+
 /*suppression du copier-coller*/
 function addLink() {
     var body_element = document.getElementsByTagName('body')[0];
