@@ -492,6 +492,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_isomerie = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Isomerie');
     var the_presencenat = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Presencenat');
     var the_molaire = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'mmolaire');
+    var the_fusionp = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'PFusion');
     var the_fbrute = put_all_digits_into_sub(from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'formulebrute'));
     //IFRA
     var the_amendment = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Amendment');
@@ -628,6 +629,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $('#modalbody-utilisation1').empty();
     $('#modalbody-mmolaire1').empty();
     $('#modalbody-fbrute1').empty();
+    $('#modalbody-fusionp').empty();
 
     //EMPTY - Descripteurs
     $('#modalheader-type2').empty();
@@ -720,6 +722,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $('#modalbody-utilisation1').append(the_utilisation);
     $('#modalbody-mmolaire1').append(the_molaire);
     $('#modalbody-fbrute1').append(the_fbrute);
+    $('#modalbody-fusionp').append(the_fusionp);
+    $('#modalbody-stab').append(the_stab);
     
     //APPEND - Partie Descripteurs
     $('#modaltitle2').append(the_title);
