@@ -220,8 +220,8 @@ function CreatePopUps() {
 		//positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
 		var marker = L.marker(latlong,{icon: mark});
 		// non-ingredient -> basic modal
-		//if ( ! is_an_ingredient(ok[index]) ) {
-		if (true) {
+		if ( ! is_an_ingredient(ok[index]) ) {
+		//if (true) {
 			marker.on("click", function() {
 		    		markofun(ok[index]);
 			});
@@ -234,7 +234,7 @@ function CreatePopUps() {
 				Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
 				Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
 				Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
-                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("\\s", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("\\s", "gi"), "_") + ".html";
+                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + ".html";
                         });
 		};
 		markers.addLayer(marker);
@@ -939,6 +939,8 @@ function switch_to_en() {
     // change map
     map.addLayer(tol_en);
     map.removeLayer(tol_fr);
+    //change page title only for the main page
+    if (document.title ==  "ScenTree - Classification innovante des ingrédients parfum") document.title = "ScenTree - The new collaborative perfumery raw materials classification";
 };
 function switch_to_fr() {
     // emphasize the FR button
@@ -958,6 +960,8 @@ function switch_to_fr() {
     // change map
     map.addLayer(tol_fr);
     map.removeLayer(tol_en);
+    //change page title only for the main page
+    if (document.title ==  "ScenTree - The new collaborative perfumery raw materials classification") document.title = "ScenTree - Classification innovante des ingrédients parfum";
 };
 
 $(".to_english_button").click(function() {
@@ -984,6 +988,10 @@ if ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_fre
 } else {
     switch_to_en();
 };
+
+$('.navbar-nav>li>a').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});
 
 /*suppression du copier-coller*/
 function addLink() {
