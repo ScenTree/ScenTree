@@ -1,3 +1,7 @@
+var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
+var DEV_PREFIX_1 = "dev-"; // dev- ,  pre_prod- ,  or empty for production
+var DEV_PREFIX_2 = "dev_"; // dev_ ,  pre_prod__ ,   or empty for production
+
 var in30Minutes = 1/48;
 
 // cookies part, with "js-cookie" (https://github.com/js-cookie/js-cookie)
@@ -151,8 +155,8 @@ $.extend( proto, {
 /* Définissions de la map*/
 var map = L.map('map', {zoomControl: true, attributionControl: false});
 /* Dire que la map est disponible dans le cache du serveur à l'adresse suivante */
-var tolUrl_fr = '/scentree-map-fr/{z}/{x}/{y}.png';
-var tolUrl_en = '/scentree-map-en/{z}/{x}/{y}.png';
+var tolUrl_fr = '/' + DEV_PREFIX_1 + 'scentree-map-fr/{z}/{x}/{y}.png';
+var tolUrl_en = '/' + DEV_PREFIX_1 + 'dev-scentree-map-en/{z}/{x}/{y}.png';
 /* Zoom initial = zoom 5 décalé de 2 sur la gauche et 0 sur la droite*/
 the_width_of_the_window = $(window).width();
 if (the_width_of_the_window <= 800) {
@@ -207,7 +211,7 @@ function CreatePopUps() {
     var lat1 = bb._southWest.lat;
     var lat2 = bb._northEast.lat;
     //Utilisation des données géographiques dans l'URL de requête Solr
-    var URL2 = "/select_EN_and_FR/?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000"; 
+    var URL2 = "/" + DEV_PREFIX_2 + "select_EN_and_FR/?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000"; 
     // 
     $.ajax({
 	//
@@ -220,8 +224,7 @@ function CreatePopUps() {
 		//positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
 		var marker = L.marker(latlong,{icon: mark});
 		// non-ingredient -> basic modal
-		//if ( ! is_an_ingredient(ok[index]) ) {
-		if (true) {
+		if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
 			marker.on("click", function() {
 		    		markofun(ok[index]);
 			});
@@ -313,9 +316,9 @@ jQuery.ui.autocomplete.prototype._resizeMenu = function () {
 $(function() {
     var str;
     //définitions des URL de la requete de solr//
-    var URL_PREFIX_SUGGESTER = "/suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
+    var URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
     //var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
-    var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/select_EN_and_FR/?q=id%3A";
+    var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/" + DEV_PREFIX_2 + "select_EN_and_FR/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
     
     $(".my-search-bar").autocomplete({
@@ -938,7 +941,7 @@ function switch_to_en() {
     $("*:lang(fr)").css({'display' : 'none'});
     $("*:lang(en)").css({'display' : 'initial'});
     // change search
-    URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
+    URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_EN/?q=id%3A";
     // clear search input
     $(".searchinput").val('');
     // change map
@@ -959,7 +962,7 @@ function switch_to_fr() {
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'initial'});
     // change search
-    URL_PREFIX_SELECTER = "/select_FR/?q=id%3A";
+    URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_FR/?q=id%3A";
     // clear search input
     $(".searchinput").val('');  
     // change map
