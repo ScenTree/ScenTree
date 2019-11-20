@@ -1,6 +1,19 @@
-var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
-var DEV_PREFIX_1 = "dev-"; // dev- ,  pre_prod- ,  or empty for production
-var DEV_PREFIX_2 = "dev_"; // dev_ ,  pre_prod__ ,   or empty for production
+var KIND_OF_ENVIRONMENT = "dev"; // "dev", "pre_prod" or "prod"
+
+if (KIND_OF_ENVIRONMENT == "dev") {
+    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
+    var DEV_PREFIX_1 = "dev-"; // dev- ,  pre_prod- ,  or empty for production
+    var DEV_PREFIX_2 = "dev_"; // dev_ ,  pre_prod__ ,   or empty for production
+} else if (KIND_OF_ENVIRONMENT == "pre_prod") {
+    var DEV_ENVIRONMENT = "false";
+    var DEV_PREFIX_1 = "pre_prod-";
+    var DEV_PREFIX_2 = "pre_prod__";
+} else {
+    var DEV_ENVIRONMENT = "false";
+    var DEV_PREFIX_1 = "";
+    var DEV_PREFIX_2 = "";
+};
+
 
 var in30Minutes = 1/48;
 
