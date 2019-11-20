@@ -11,18 +11,30 @@ import numpy as np
 from ete3 import Tree
 import psycopg2 ##for postgresql connection
 
-THE_NAME_OF_THE_DATABASE = "gis"
+os.environ.get('MY_SCENTREE_ENVIRONMENT', "dev")
+if MY_SCENTREE_ENVIRONMENT == "prod":
+    THE_NAME_OF_THE_DATABASE = "gis"
+    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/prod_BDD/"
+elif MY_SCENTREE_ENVIRONMENT == "pre_prod":
+    THE_NAME_OF_THE_DATABASE = "pre_prod_gis"
+    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/pre_prod_BDD/"
+else:
+    THE_NAME_OF_THE_DATABASE = "dev_gis"
+    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/dev_BDD/"
+
 THE_USER_OF_THE_DATABASE = "maxime"
 THE_SECRET_PSWRD = os.environ.get('THE_SECRET_PSWRD')
 THE_URL_TO_THE_DATABASE = "localhost"
-THE_PATH_OF_THE_TRE_FILE = "./tree.tre"
-THE_PATH_OF_THE_CSV_FR_FILE = "./csv_FR.csv"
-THE_PATH_OF_THE_CSV_EN_FILE = "./csv_EN.csv"
-THE_PATH_OF_THE_LOG_FILE = "./result.json"
+
+
+THE_PATH_OF_THE_TRE_FILE = THE_PATH_OF_THE_BDD_FOLDER + "tree.tre"
+THE_PATH_OF_THE_CSV_FR_FILE = THE_PATH_OF_THE_BDD_FOLDER + "csv_FR.csv"
+THE_PATH_OF_THE_CSV_EN_FILE = THE_PATH_OF_THE_BDD_FOLDER + "csv_EN.csv"
+THE_PATH_OF_THE_LOG_FILE = THE_PATH_OF_THE_BDD_FOLDER + "result.json"
  # JSON files to populate solr database (taxoEN and taxoFR)
-THE_PATH_OF_THE_EN_JSON_FILE = "./TreeFeaturesNEW_EN.json"
-THE_PATH_OF_THE_FR_JSON_FILE = "./TreeFeaturesNEW_FR.json"
-THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = "./TreeFeaturesNEW_EN_and_FR.json"
+THE_PATH_OF_THE_EN_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "TreeFeaturesNEW_EN.json"
+THE_PATH_OF_THE_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "TreeFeaturesNEW_FR.json"
+THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "TreeFeaturesNEW_EN_and_FR.json"
 
 
 prg = open(THE_PATH_OF_THE_LOG_FILE, "w"); ##this will contain the progress made by the code.
