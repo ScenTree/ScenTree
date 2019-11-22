@@ -9,17 +9,48 @@ then
 fi
 echo "MY_SCENTREE_ENVIRONMENT = $MY_SCENTREE_ENVIRONMENT"
 
+THE_PROD_PATH=/home/maxime/prod_BDD
+THE_PRE_PROD_PATH=/home/maxime/pre_prod_BDD
+THE_DEV_PATH=/home/maxime/dev_BDD
 
-THE_TARGET_PATH=/home/maxime/dev_BDD
+if [ "$MY_SCENTREE_ENVIRONMENT" = "prod" ]
+then
+        THE_TARGET_PATH="$THE_PROD_PATH"
+elif [ "$MY_SCENTREE_ENVIRONMENT" = "pre_prod" ]
+then
+	THE_TARGET_PATH="$THE_PRE_PROD_PATH"
+else  #dev
+	THE_TARGET_PATH="$THE_DEV_PATH"
+fi
 
-THE_SOURCE_HTML_PATH="$THE_CURRENT_PATH/../html"
+if [ "$MY_SCENTREE_ENVIRONMENT" = "prod" ]
+then
+	THE_SOURCE_HTML_PATH="$THE_PRE_PROD_PATH/html"
+else
+	THE_SOURCE_HTML_PATH="$THE_CURRENT_PATH/../html"
+fi
 THE_TARGET_HTML_PATH="$THE_TARGET_PATH/html"
 
-THE_SOURCE_OSM_STYLE_PATH="$THE_CURRENT_PATH/../osm_style"
+if [ "$MY_SCENTREE_ENVIRONMENT" = "prod" ]
+then
+        THE_SOURCE_OSM_STYLE_PATH="$THE_PRE_PROD_PATH/style"
+else
+        THE_SOURCE_OSM_STYLE_PATH="$THE_CURRENT_PATH/../osm_style"
+fi
 THE_TARGET_OSM_STYLE_PATH="$THE_TARGET_PATH/style"
 
-THE_EN_OSM_TILE_FOLDER="/var/lib/mod_tile/dev-scentree-map-en"
-THE_FR_OSM_TILE_FOLDER="/var/lib/mod_tile/dev-scentree-map-fr"
+if [ "$MY_SCENTREE_ENVIRONMENT" = "prod" ]
+then
+       THE_EN_OSM_TILE_FOLDER="/var/lib/mod_tile/scentree-map-en"
+       THE_FR_OSM_TILE_FOLDER="/var/lib/mod_tile/scentree-map-fr"
+elif [ "$MY_SCENTREE_ENVIRONMENT" = "pre_prod" ]
+then
+	THE_EN_OSM_TILE_FOLDER="/var/lib/mod_tile/pre_prod-scentree-map-en"
+	THE_EN_OSM_TILE_FOLDER="/var/lib/mod_tile/pre_prod-scentree-map-fr"
+else  #dev
+	THE_EN_OSM_TILE_FOLDER="/var/lib/mod_tile/dev-scentree-map-en"
+	THE_FR_OSM_TILE_FOLDER="/var/lib/mod_tile/dev-scentree-map-fr"
+fi      
 
 THE_PYTHON_SCRIPT_FOLDER="$THE_CURRENT_PATH/../python_script"
 
@@ -27,10 +58,30 @@ THE_SECRET_DATA_FOLDER="$THE_TARGET_PATH/BDD"
 
 THE_SOLR_PATH="/home/scentree/src/solr-8.1.1"
 THE_SOLR_SERVER_PATH="$THE_SOLR_PATH/server/solr"
-THE_SOURCE_SOLR_CONFIG_PATH="$THE_CURRENT_PATH/../solr"
-THE_EN_SOLR_CORE="dev_taxoEN"
-THE_FR_SOLR_CORE="dev_taxoFR"
-THE_EN_and_FR_SOLR_CORE="dev_taxoENandFR"
+
+if [ "$MY_SCENTREE_ENVIRONMENT" = "prod" ]
+then
+	THE_SOURCE_SOLR_CONFIG_PATH="$THE_SOLR_SERVER_PATH/pre_prod_taxoEN/conf"
+else
+	THE_SOURCE_SOLR_CONFIG_PATH="$THE_CURRENT_PATH/../solr"
+fi
+
+if [ "$MY_SCENTREE_ENVIRONMENT" = "prod" ]
+then
+	THE_EN_SOLR_CORE="taxoEN"
+	THE_FR_SOLR_CORE="taxoFR"
+	THE_EN_and_FR_SOLR_CORE="taxoENandFR"
+elif [ "$MY_SCENTREE_ENVIRONMENT" = "pre_prod" ]
+then
+        THE_EN_SOLR_CORE="pre_prod_taxoEN"
+        THE_FR_SOLR_CORE="pre_prod_taxoFR"
+        THE_EN_and_FR_SOLR_CORE="pre_prod_taxoENandFR"
+else  #dev
+	THE_EN_SOLR_CORE="dev_taxoEN"
+	THE_FR_SOLR_CORE="dev_taxoFR"
+	THE_EN_and_FR_SOLR_CORE="dev_taxoENandFR"
+fi
+
 THE_TARGET_SOLR_CONFIG_PATH__EN="$THE_SOLR_SERVER_PATH/$THE_EN_SOLR_CORE/conf"
 THE_TARGET_SOLR_CONFIG_PATH__FR="$THE_SOLR_SERVER_PATH/$THE_FR_SOLR_CORE/conf"
 THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR="$THE_SOLR_SERVER_PATH/$THE_EN_and_FR_SOLR_CORE/conf"
@@ -84,8 +135,17 @@ fi
 # cp from the Scentree folder to dev_BDD's folders (style, html - no nodejs_scripts in dev env) and to solr conf folder
 # also set password inside style's datasource conf file
 # main.js gloval var set to "dev", 
+
 cp -r "$THE_SOURCE_HTML_PATH"/* "$THE_TARGET_HTML_PATH/"
-ln -s "$THE_TARGET_HTML_PATH/_/pre_index.html" "$THE_TARGET_HTML_PATH/_/index.html"
+
+if [ "$MY_SCENTREE_ENVIRONMENT" = "pre_prod" -o "$MY_SCENTREE_ENVIRONMENT" = "prod" ]
+then
+	ln -s "$THE_TARGET_HTML_PATH/_/post_index.html" "$THE_TARGET_HTML_PATH/_/index.html"
+        ln -s "$THE_TARGET_HTML_PATH/_/index.html" "$THE_TARGET_HTML_PATH/index.html"
+else
+	ln -s "$THE_TARGET_HTML_PATH/_/pre_index.html" "$THE_TARGET_HTML_PATH/_/index.html"	
+fi
+
 cp -r "$THE_SOURCE_OSM_STYLE_PATH"/*  "$THE_TARGET_OSM_STYLE_PATH/"
 cat "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc.template" | envsubst > "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc"
 
