@@ -12,25 +12,25 @@ echo "MY_SCENTREE_ENVIRONMENT = $MY_SCENTREE_ENVIRONMENT"
 
 THE_TARGET_PATH=/home/maxime/dev_BDD
 
-THE_SOURCE_HTML_PATH="$THE_CURRENT_PATH"/../html
-THE_TARGET_HTML_PATH="$THE_TARGET_PATH"/html
+THE_SOURCE_HTML_PATH="$THE_CURRENT_PATH/../html"
+THE_TARGET_HTML_PATH="$THE_TARGET_PATH/html"
 
-THE_SOURCE_OSM_STYLE_PATH="$THE_CURRENT_PATH"/../osm_style
-THE_TARGET_OSM_STYLE_PATH="$THE_TARGET_PATH"/style
+THE_SOURCE_OSM_STYLE_PATH="$THE_CURRENT_PATH/../osm_style"
+THE_TARGET_OSM_STYLE_PATH="$THE_TARGET_PATH/style"
 
-THE_PYTHON_SCRIPT_FOLDER="$THE_CURRENT_PATH"/../python_script
+THE_PYTHON_SCRIPT_FOLDER="$THE_CURRENT_PATH/../python_script"
 
-THE_SECRET_DATA_FOLDER="$THE_TARGET_PATH"/BDD
+THE_SECRET_DATA_FOLDER="$THE_TARGET_PATH/BDD"
 
-THE_SOLR_PATH=/home/scentree/src/solr-8.1.1
-THE_SOLR_SERVER_PATH="$THE_SOLR_PATH"/server/solr
-THE_SOURCE_SOLR_CONFIG_PATH="$THE_CURRENT_PATH"/../solr
+THE_SOLR_PATH="/home/scentree/src/solr-8.1.1"
+THE_SOLR_SERVER_PATH="$THE_SOLR_PATH/server/solr"
+THE_SOURCE_SOLR_CONFIG_PATH="$THE_CURRENT_PATH/../solr"
 THE_EN_SOLR_CORE="dev_taxoEN"
 THE_FR_SOLR_CORE="dev_taxoFR"
 THE_EN_and_FR_SOLR_CORE="dev_taxoENandFR"
-THE_TARGET_SOLR_CONFIG_PATH__EN="$THE_SOLR_SERVER_PATH"/"$THE_EN_SOLR_CORE"/conf
-THE_TARGET_SOLR_CONFIG_PATH__FR="$THE_SOLR_SERVER_PATH"/"$THE_FR_SOLR_CORE"/conf
-THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR="$THE_SOLR_SERVER_PATH"/"$THE_EN_and_FR_SOLR_CORE"/conf
+THE_TARGET_SOLR_CONFIG_PATH__EN="$THE_SOLR_SERVER_PATH/$THE_EN_SOLR_CORE/conf"
+THE_TARGET_SOLR_CONFIG_PATH__FR="$THE_SOLR_SERVER_PATH/$THE_FR_SOLR_CORE/conf"
+THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR="$THE_SOLR_SERVER_PATH/$THE_EN_and_FR_SOLR_CORE/conf"
 
 
 
@@ -72,11 +72,11 @@ fi
 # cp from the Scentree folder to dev_BDD's folders (style, html - no nodejs_scripts in dev env) and to solr conf folder
 # also set password inside style's datasource conf file
 # main.js gloval var set to "dev", 
-cp -r "$THE_SOURCE_HTML_PATH"/* "$THE_TARGET_OSM_STYLE_PATH"/
-ln -s "$THE_TARGET_OSM_STYLE_PATH"/_/pre_index.html "$THE_TARGET_OSM_STYLE_PATH"/_/index.html
-cp -r "$THE_SOURCE_OSM_STYLE_PATH"/*  "$THE_TARGET_OSM_STYLE_PATH"/
+cp -r "$THE_SOURCE_HTML_PATH/*" "$THE_TARGET_OSM_STYLE_PATH/"
+ln -s "$THE_TARGET_OSM_STYLE_PATH/_/pre_index.html" "$THE_TARGET_OSM_STYLE_PATH/_/index.html"
+cp -r "$THE_SOURCE_OSM_STYLE_PATH/*"  "$THE_TARGET_OSM_STYLE_PATH/"
 
-python3 "$THE_PYTHON_SCRIPT_FOLDER"/lm-travtree.py
+python3 "$THE_PYTHON_SCRIPT_FOLDER/lm-travtree.py"
 
 # delete old config of solr dev_taxo, copy new config inside solr dev_taxo, 
 # delete old data in solr dev_taxo, post new data in solr dev_taxo,
@@ -84,18 +84,18 @@ python3 "$THE_PYTHON_SCRIPT_FOLDER"/lm-travtree.py
 
 
 su - scentree -c "\
-	cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__EN\"/
-        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__FR\"/
-        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR\"/
+	cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH/*\" \"$THE_TARGET_SOLR_CONFIG_PATH__EN/\"
+        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH/*\" \"$THE_TARGET_SOLR_CONFIG_PATH__FR/\"
+        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH/*\" \"$THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR/\"
         
 	sudo -S rm -r /var/lib/mod_tile/dev-scentree-map-en/;\
 	sudo -S rm -r /var/lib/mod_tile/dev-scentree-map-fr/;\
-	curl http://localhost:8983/solr/$THE_EN_SOLR_CORE/update?commit=true -d '<delete><query>*:*</query></delete>;\
-	curl http://localhost:8983/solr/$THE_FR_SOLR_CORE/update?commit=true -d '<delete><query>*:*</query></delete>';\
-	curl http://localhost:8983/solr/$THE_EN_and_FR_SOLR_CORE/update?commit=true -d '<delete><query>*:*</query></delete>';\
-	$THE_SOLR_PATH/bin/post -c $THE_EN_SOLR_CORE /home/maxime/dev_BDD/BDD/TreeFeaturesNEW_EN.json;\
-	$THE_SOLR_PATH/bin/post -c $THE_FR_SOLR_CORE /home/maxime/dev_BDD/BDD/TreeFeaturesNEW_FR.json;\
-	$THE_SOLR_PATH/bin/post -c $THE_EN_and_FR_SOLR_CORE /home/maxime/dev_BDD/BDD/TreeFeaturesNEW_EN_and_FR.json\
+	curl \"http://localhost:8983/solr/$THE_EN_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>;\
+	curl \"http://localhost:8983/solr/$THE_FR_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
+	curl \"http://localhost:8983/solr/$THE_EN_and_FR_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
+	\"$THE_SOLR_PATH/bin/post\" -c $THE_EN_SOLR_CORE \"$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN.json\";\
+	\"$THE_SOLR_PATH/bin/post\" -c $THE_FR_SOLR_CORE \"$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_FR.json\";\
+	\"$THE_SOLR_PATH/bin/post\" -c $THE_EN_and_FR_SOLR_CORE \"$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN_and_FR.json\"\
 	"
 
 
