@@ -73,9 +73,9 @@ then
 	THE_EN_and_FR_SOLR_CORE="taxoENandFR"
 elif [ "$MY_SCENTREE_ENVIRONMENT" = "pre_prod" ]
 then
-        THE_EN_SOLR_CORE="pre_prod_taxoEN"
-        THE_FR_SOLR_CORE="pre_prod_taxoFR"
-        THE_EN_and_FR_SOLR_CORE="pre_prod_taxoENandFR"
+        THE_EN_SOLR_CORE="pre_prod__taxoEN"
+        THE_FR_SOLR_CORE="pre_prod__taxoFR"
+        THE_EN_and_FR_SOLR_CORE="pre_prod__taxoENandFR"
 else  #dev
 	THE_EN_SOLR_CORE="dev_taxoEN"
 	THE_FR_SOLR_CORE="dev_taxoFR"
@@ -137,6 +137,7 @@ fi
 # main.js gloval var set to "dev", 
 
 cp -r "$THE_SOURCE_HTML_PATH"/* "$THE_TARGET_HTML_PATH/"
+cat "$THE_TARGET_OSM_STYLE_PATH/js/main.js.template" | envsubst > "$THE_TARGET_OSM_STYLE_PATH/js/main.js"
 
 if [ "$MY_SCENTREE_ENVIRONMENT" = "pre_prod" -o "$MY_SCENTREE_ENVIRONMENT" = "prod" ]
 then

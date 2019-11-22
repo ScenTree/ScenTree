@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev"; // "dev", "pre_prod" or "prod"
+var KIND_OF_ENVIRONMENT = $MY_SCENTREE_ENVIRONMENT; // "dev", "pre_prod" or "prod"
 
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
