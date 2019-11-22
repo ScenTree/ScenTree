@@ -89,6 +89,7 @@ ln -s "$THE_TARGET_HTML_PATH/_/pre_index.html" "$THE_TARGET_HTML_PATH/_/index.ht
 cp -r "$THE_SOURCE_OSM_STYLE_PATH"/*  "$THE_TARGET_OSM_STYLE_PATH/"
 cat "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc.template" | envsubst > "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc"
 
+echo "Entering lm-travtree.py …"
 python3 "$THE_PYTHON_SCRIPT_FOLDER/lm-travtree.py";
 
 if [ $? -ne 0 ]
@@ -98,20 +99,22 @@ then
 	echo ""
 	exit 1;
 fi
+echo "lm-travtree.py : done :-)"
 
 # delete old config of solr dev_taxo, copy new config inside solr dev_taxo, 
 # delete old data in solr dev_taxo, post new data in solr dev_taxo,
 # delete old osm-style xml from dev-mapnik, copy new osm-style xml to dev-mapnik
 
-
+echo "Entering scentree user …"
 su - scentree -c "\
-	cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__EN/\"
-        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__FR/\"
-        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR/\"
-        
-	sudo -S rm -r \"$THE_EN_OSM_TILE_FOLDER\";\
-	sudo -S rm -r \"$THE_FR_OSM_TILE_FOLDER\";\
-	curl \"http://localhost:8983/solr/$THE_EN_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>;\
+	cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__EN/\";\
+        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__FR/\";\
+        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR/\";\
+        \
+	sudo -S rm -r \"$THE_EN_OSM_TILE_FOLDER\"/*;\
+	sudo -S rm -r \"$THE_FR_OSM_TILE_FOLDER\"/*;\
+	echo 'posting datas inside solr cores …';\
+	curl \"http://localhost:8983/solr/$THE_EN_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
 	curl \"http://localhost:8983/solr/$THE_FR_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
 	curl \"http://localhost:8983/solr/$THE_EN_and_FR_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
 	\"$THE_SOLR_PATH/bin/post\" -c $THE_EN_SOLR_CORE \"$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN.json\";\
@@ -119,4 +122,5 @@ su - scentree -c "\
 	\"$THE_SOLR_PATH/bin/post\" -c $THE_EN_and_FR_SOLR_CORE \"$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN_and_FR.json\"\
 	"
 
+echo "All done :-)"
 exit 0;
