@@ -84,12 +84,20 @@ fi
 # cp from the Scentree folder to dev_BDD's folders (style, html - no nodejs_scripts in dev env) and to solr conf folder
 # also set password inside style's datasource conf file
 # main.js gloval var set to "dev", 
-cp -r "$THE_SOURCE_HTML_PATH/*" "$THE_TARGET_OSM_STYLE_PATH/"
-ln -s "$THE_TARGET_OSM_STYLE_PATH/_/pre_index.html" "$THE_TARGET_OSM_STYLE_PATH/_/index.html"
-cp -r "$THE_SOURCE_OSM_STYLE_PATH/*"  "$THE_TARGET_OSM_STYLE_PATH/"
+cp -r "$THE_SOURCE_HTML_PATH"/* "$THE_TARGET_HTML_PATH/"
+ln -s "$THE_TARGET_HTML_PATH/_/pre_index.html" "$THE_TARGET_HTML_PATH/_/index.html"
+cp -r "$THE_SOURCE_OSM_STYLE_PATH"/*  "$THE_TARGET_OSM_STYLE_PATH/"
 cat "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc.template" | envsubst > "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc"
 
-python3 "$THE_PYTHON_SCRIPT_FOLDER/lm-travtree.py"
+python3 "$THE_PYTHON_SCRIPT_FOLDER/lm-travtree.py";
+
+if [ $? -ne 0 ]
+then
+	echo "Something went wrong inside lm-travtree.py -> Aborting"
+   	cat "$THE_SECRET_DATA_FOLDER/result.json"
+	echo ""
+	exit 1;
+fi
 
 # delete old config of solr dev_taxo, copy new config inside solr dev_taxo, 
 # delete old data in solr dev_taxo, post new data in solr dev_taxo,
@@ -97,9 +105,9 @@ python3 "$THE_PYTHON_SCRIPT_FOLDER/lm-travtree.py"
 
 
 su - scentree -c "\
-	cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH/*\" \"$THE_TARGET_SOLR_CONFIG_PATH__EN/\"
-        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH/*\" \"$THE_TARGET_SOLR_CONFIG_PATH__FR/\"
-        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH/*\" \"$THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR/\"
+	cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__EN/\"
+        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__FR/\"
+        cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH\"/* \"$THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR/\"
         
 	sudo -S rm -r \"$THE_EN_OSM_TILE_FOLDER\";\
 	sudo -S rm -r \"$THE_FR_OSM_TILE_FOLDER\";\
@@ -111,4 +119,4 @@ su - scentree -c "\
 	\"$THE_SOLR_PATH/bin/post\" -c $THE_EN_and_FR_SOLR_CORE \"$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN_and_FR.json\"\
 	"
 
-
+exit 0;

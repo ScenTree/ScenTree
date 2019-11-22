@@ -11,7 +11,7 @@ import numpy as np
 from ete3 import Tree
 import psycopg2 ##for postgresql connection
 
-os.environ.get('MY_SCENTREE_ENVIRONMENT', "dev")
+MY_SCENTREE_ENVIRONMENT = os.environ.get('MY_SCENTREE_ENVIRONMENT', "dev")
 if MY_SCENTREE_ENVIRONMENT == "prod":
     THE_NAME_OF_THE_DATABASE = "gis"
     THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/prod_BDD/BDD/"
