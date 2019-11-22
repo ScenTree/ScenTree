@@ -18,6 +18,9 @@ THE_TARGET_HTML_PATH="$THE_TARGET_PATH/html"
 THE_SOURCE_OSM_STYLE_PATH="$THE_CURRENT_PATH/../osm_style"
 THE_TARGET_OSM_STYLE_PATH="$THE_TARGET_PATH/style"
 
+THE_EN_OSM_TILE_FOLDER="/var/lib/mod_tile/dev-scentree-map-en"
+THE_FR_OSM_TILE_FOLDER="/var/lib/mod_tile/dev-scentree-map-fr"
+
 THE_PYTHON_SCRIPT_FOLDER="$THE_CURRENT_PATH/../python_script"
 
 THE_SECRET_DATA_FOLDER="$THE_TARGET_PATH/BDD"
@@ -39,6 +42,11 @@ then
 	echo "The env var THE_SECRET_PSWRD is not set -> Aborting"
 	ABORT_PLEASE=1;
 fi
+if [ -z "$THE_DATABASE_NAME" ] # if env var is set, continue
+then
+        echo "The env var THE_DATABASE_NAME is not set -> Aborting"
+        ABORT_PLEASE=1;
+fi
 
 does_the_folder_exist () {
         if [ ! -d "$1" ]
@@ -52,6 +60,10 @@ does_the_folder_exist "$THE_SOURCE_HTML_PATH" "THE_SOURCE_HTML_PATH"
 does_the_folder_exist "$THE_TARGET_HTML_PATH" "THE_TARGET_HTML_PATH"
 does_the_folder_exist "$THE_SOURCE_OSM_STYLE_PATH" "THE_SOURCE_OSM_STYLE_PATH"
 does_the_folder_exist "$THE_TARGET_OSM_STYLE_PATH" "THE_TARGET_OSM_STYLE_PATH"
+
+does_the_folder_exist "$THE_EN_OSM_TILE_FOLDER" "THE_EN_OSM_TILE_FOLDER"
+does_the_folder_exist "$THE_FR_OSM_TILE_FOLDER" "THE_FR_OSM_TILE_FOLDER"
+
 does_the_folder_exist "$THE_PYTHON_SCRIPT_FOLDER" "THE_PYTHON_SCRIPT_FOLDER"
 does_the_folder_exist "$THE_SECRET_DATA_FOLDER" "THE_SECRET_DATA_FOLDER":
 does_the_folder_exist "$THE_SOLR_PATH" "THE_SOLR_PATH"
@@ -75,6 +87,7 @@ fi
 cp -r "$THE_SOURCE_HTML_PATH/*" "$THE_TARGET_OSM_STYLE_PATH/"
 ln -s "$THE_TARGET_OSM_STYLE_PATH/_/pre_index.html" "$THE_TARGET_OSM_STYLE_PATH/_/index.html"
 cp -r "$THE_SOURCE_OSM_STYLE_PATH/*"  "$THE_TARGET_OSM_STYLE_PATH/"
+cat "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc.template" | envsubst > "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc"
 
 python3 "$THE_PYTHON_SCRIPT_FOLDER/lm-travtree.py"
 
@@ -88,8 +101,8 @@ su - scentree -c "\
         cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH/*\" \"$THE_TARGET_SOLR_CONFIG_PATH__FR/\"
         cp -r \"$THE_SOURCE_SOLR_CONFIG_PATH/*\" \"$THE_TARGET_SOLR_CONFIG_PATH__EN_and_FR/\"
         
-	sudo -S rm -r /var/lib/mod_tile/dev-scentree-map-en/;\
-	sudo -S rm -r /var/lib/mod_tile/dev-scentree-map-fr/;\
+	sudo -S rm -r \"$THE_EN_OSM_TILE_FOLDER\";\
+	sudo -S rm -r \"$THE_FR_OSM_TILE_FOLDER\";\
 	curl \"http://localhost:8983/solr/$THE_EN_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>;\
 	curl \"http://localhost:8983/solr/$THE_FR_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
 	curl \"http://localhost:8983/solr/$THE_EN_and_FR_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
