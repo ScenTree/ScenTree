@@ -150,8 +150,9 @@ fi
 cp -r "$THE_SOURCE_OSM_STYLE_PATH"/*  "$THE_TARGET_OSM_STYLE_PATH/"
 cat "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc.template" | envsubst > "$THE_TARGET_OSM_STYLE_PATH/inc/datasource-settings.xml.inc"
 
+cp "$THE_PYTHON_SCRIPT_FOLDER/lm-travtree.py" "$THE_SECRET_DATA_FOLDER/"
 echo "Entering lm-travtree.py …"
-python3 "$THE_PYTHON_SCRIPT_FOLDER/lm-travtree.py";
+python3 "$THE_SECRET_DATA_FOLDER/lm-travtree.py";
 
 if [ $? -ne 0 ]
 then
@@ -182,6 +183,10 @@ su - scentree -c "\
 	\"$THE_SOLR_PATH/bin/post\" -c $THE_FR_SOLR_CORE \"$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_FR.json\";\
 	\"$THE_SOLR_PATH/bin/post\" -c $THE_EN_and_FR_SOLR_CORE \"$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN_and_FR.json\"\
 	"
+echo "scentree user part : done :-)"
+
+# nodejs scripts
+nodejs completer_le_pre_index_html.js "$THE_TARGET_HTML_PATH"
 
 echo "All done :-)"
 exit 0;
