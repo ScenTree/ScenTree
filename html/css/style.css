@@ -300,7 +300,7 @@ html, body {
 }
 .numero_cas {
     font-style: italic;
-    font-size: 70%;
+    font-size: 50%;
     color: black;
 }
 .ui-state-highlight { 
