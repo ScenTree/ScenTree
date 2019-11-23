@@ -306,6 +306,7 @@ html, body {
 }
 .ui-state-highlight { 
     background: #FAE8BE !important;
+    height: 50%;
 }
 .ui-state-active { 
     background: #FFF7E4 !important;
