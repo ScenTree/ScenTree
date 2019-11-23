@@ -284,7 +284,7 @@ html, body {
   font-size: 1vw; 
 }
 .ui-autocomplete {
-    max-height:30%;
+    max-height:40%;
     overflow-y: auto;
     overflow-x: hidden;
     position:absolute;
