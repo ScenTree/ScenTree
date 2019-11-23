@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = $MY_SCENTREE_ENVIRONMENT; // "dev", "pre_prod" or "prod"
+var KIND_OF_ENVIRONMENT = "dev"; // "dev", "pre_prod" or "prod"
 
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
@@ -169,7 +169,7 @@ $.extend( proto, {
 var map = L.map('map', {zoomControl: true, attributionControl: false});
 /* Dire que la map est disponible dans le cache du serveur à l'adresse suivante */
 var tolUrl_fr = '/' + DEV_PREFIX_1 + 'scentree-map-fr/{z}/{x}/{y}.png';
-var tolUrl_en = '/' + DEV_PREFIX_1 + 'dev-scentree-map-en/{z}/{x}/{y}.png';
+var tolUrl_en = '/' + DEV_PREFIX_1 + 'scentree-map-en/{z}/{x}/{y}.png';
 /* Zoom initial = zoom 5 décalé de 2 sur la gauche et 0 sur la droite*/
 the_width_of_the_window = $(window).width();
 if (the_width_of_the_window <= 800) {

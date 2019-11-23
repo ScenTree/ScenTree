@@ -56,7 +56,7 @@ su - scentree -c "\
         curl \"http://localhost:8983/solr/$THE_EN_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
         curl \"http://localhost:8983/solr/$THE_FR_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
         curl \"http://localhost:8983/solr/$THE_EN_and_FR_SOLR_CORE/update?commit=true\" -d '<delete><query>*:*</query></delete>';\
-        \"$THE_SOLR_PATH/bin/post\" -c $THE_EN_SOLR_CORE \"$THE_JSON_DATA_EN\";\
+        \"$THE_SOLR_PATH/bin/post\" -c $THE_EN_SOLR_CORE \"$THE_JSON_DATA__EN\";\
         \"$THE_SOLR_PATH/bin/post\" -c $THE_FR_SOLR_CORE \"$THE_JSON_DATA__FR\";\
         \"$THE_SOLR_PATH/bin/post\" -c $THE_EN_and_FR_SOLR_CORE \"$THE_JSON_DATA__EN_and_FR\"\
         "
@@ -64,7 +64,7 @@ su - scentree -c "\
 THE_RESULT=$?
 echo "----------------------"
 
-if [ THE_RESULT -ne 0 ]
+if [ $THE_RESULT -ne 0 ]
 then
     	echo "Problem while entering scentree user ! Stopping :-("
 	exit 1;
