@@ -311,6 +311,7 @@ html, body {
 .ui-state-active { 
     background: #FFF7E4 !important;
     border-color: #FAE8BE !important;
+    height:50%;
 }
 
 
