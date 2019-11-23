@@ -295,12 +295,12 @@ html, body {
     color: black;
 }
 .synonymes {
-    font-size: 30%;
+    font-size: 55%;
     color: grey;
 }
 .numero_cas {
     font-style: italic;
-    font-size: 50%;
+    font-size: 55%;
     color: black;
 }
 .ui-state-highlight { 
