@@ -1,13 +1,13 @@
-var KIND_OF_ENVIRONMENT = "dev"; // "dev", "pre_prod" or "prod"
+var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
 
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
     var DEV_PREFIX_1 = "dev-"; // dev- ,  pre_prod- ,  or empty for production
     var DEV_PREFIX_2 = "dev_"; // dev_ ,  pre_prod__ ,   or empty for production
-} else if (KIND_OF_ENVIRONMENT == "pre_prod") {
+} else if (KIND_OF_ENVIRONMENT == "prod2") {
     var DEV_ENVIRONMENT = "false";
-    var DEV_PREFIX_1 = "pre_prod-";
-    var DEV_PREFIX_2 = "pre_prod__";
+    var DEV_PREFIX_1 = "prod2-";
+    var DEV_PREFIX_2 = "prod2_";
 } else {
     var DEV_ENVIRONMENT = "false";
     var DEV_PREFIX_1 = "";
@@ -329,7 +329,7 @@ jQuery.ui.autocomplete.prototype._resizeMenu = function () {
 $(function() {
     var str;
     //définitions des URL de la requete de solr//
-    var URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
+    //var URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
     //var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
     var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/" + DEV_PREFIX_2 + "select_EN_and_FR/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
@@ -942,6 +942,7 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
 });
 
 var URL_PREFIX_SELECTER;
+var URL_PREFIX_SUGGESTER;
 function switch_to_en() {
     // emphasize the EN button
     $('.to_french_button').css("font-weight","normal");
@@ -954,6 +955,7 @@ function switch_to_en() {
     $("*:lang(fr)").css({'display' : 'none'});
     $("*:lang(en)").css({'display' : 'initial'});
     // change search
+    URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
     URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_EN/?q=id%3A";
     // clear search input
     $(".searchinput").val('');
@@ -975,6 +977,7 @@ function switch_to_fr() {
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'initial'});
     // change search
+    URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_FR/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
     URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_FR/?q=id%3A";
     // clear search input
     $(".searchinput").val('');  

@@ -15,9 +15,9 @@ MY_SCENTREE_ENVIRONMENT = os.environ.get('MY_SCENTREE_ENVIRONMENT', "dev")
 if MY_SCENTREE_ENVIRONMENT == "prod":
     THE_NAME_OF_THE_DATABASE = "gis"
     THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/prod_BDD/BDD/"
-elif MY_SCENTREE_ENVIRONMENT == "pre_prod":
-    THE_NAME_OF_THE_DATABASE = "pre_prod_gis"
-    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/pre_prod_BDD/BDD/"
+elif MY_SCENTREE_ENVIRONMENT == "prod2":
+    THE_NAME_OF_THE_DATABASE = "prod2_gis"
+    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/prod2_BDD/BDD/"
 else:
     THE_NAME_OF_THE_DATABASE = "dev_gis"
     THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/dev_BDD/BDD/"
