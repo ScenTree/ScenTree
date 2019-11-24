@@ -124,7 +124,7 @@ $.extend( proto, {
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
 	    if (item.label["from_csv AutresNoms"]) {
-		newText = newText + "<br /><span class='synonymes p-0'>(" + String(item.label["from_csv AutresNoms"]).replace(
+		newText = newText + "<br /><span class='synonymes p-0' style='margin: 0px;' >(" + String(item.label["from_csv AutresNoms"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
 	    };
@@ -134,7 +134,7 @@ $.extend( proto, {
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
 	    };
 	    if (item.label["from_csv NCas"]) {
-		newText = newText + "<br /><span class='numero_cas p-0'>N° CAS : " + String(item.label["from_csv NCas"]).replace(
+		newText = newText + "<br /><span class='numero_cas p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
                     "<span class='ui-state-highlight'>$&</span>") + "</span>";
 	    };
