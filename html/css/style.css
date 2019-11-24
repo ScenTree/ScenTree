@@ -297,7 +297,7 @@ html, body {
 .nom_de_l_ingredient {
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 70%;
+    font-size: 85%;
     color: black;
 }
 .synonymes {
