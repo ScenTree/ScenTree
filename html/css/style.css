@@ -46,6 +46,11 @@ html, body {
   max-height: calc(110vh - 320px);
 }
 
+.scrollbar-inside2 {
+  overflow-y: auto;
+  max-height: calc(140vh - 320px);
+}
+
 .text-size-20px {
   font-size: 20px;
 }
