@@ -879,6 +879,9 @@ h1 {
     font-size:small;
     font-style: italic;
 }
+.textitemfooter{
+    font-size:small;
+}
 .imgmp {
     max-width: 180px;
     max-height: 180px;
