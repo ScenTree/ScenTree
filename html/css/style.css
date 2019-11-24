@@ -43,7 +43,7 @@ html, body {
 
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(115vh - 320px);
+  max-height: calc(130vh - 320px);
 }
 
 .text-size-20px {
@@ -293,25 +293,22 @@ html, body {
     text-transform: uppercase;
     font-weight: 400;
     color: black;
-    font-size: 85%;
 }
 .synonymes {
-    font-size: 65%;
+    font-size: 80%;
     color: grey;
 }
 .numero_cas {
     font-style: italic;
-    font-size: 55%;
+    font-size: 70%;
     color: black;
 }
 .ui-state-highlight { 
     background: #FAE8BE !important;
-    height: 50%;
 }
 .ui-state-active { 
     background: #FFF7E4 !important;
     border-color: #FAE8BE !important;
-    height:50%;
 }
 
 
