@@ -15,7 +15,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
 };
 
 
-var in30Minutes = 1/48;
+var in30Minutes = 1/96; // in 15 minutes
 
 // cookies part, with "js-cookie" (https://github.com/js-cookie/js-cookie)
 var RGPD_warning_has_been_done = Cookies.get('RGPD_warning'); // RGPD_warning unset means this is the first visit
@@ -137,21 +137,21 @@ $.extend( proto, {
 	},
 
 	_renderItem: function( ul, item) {
-	    var newText = "<span class='nom_de_l_ingredient'>" + String(item.label.sci_name).replace(
+	    var newText = "<span class='nom_de_l_ingredient p-0'>" + String(item.label.sci_name).replace(
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
 	    if (item.label["from_csv AutresNoms"]) {
-		newText = newText + "<br /><span class='synonymes'>(" + String(item.label["from_csv AutresNoms"]).replace(
+		newText = newText + "<br /><span class='synonymes p-0'>(" + String(item.label["from_csv AutresNoms"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
 	    };
 	    if (item.label["from_csv Botanique"]) {
-		newText = newText + "<br /><span class='synonymes'>(" + String(item.label["from_csv Botanique"]).replace(
+		newText = newText + "<br /><span class='synonymes p-0'>(" + String(item.label["from_csv Botanique"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
 	    };
 	    if (item.label["from_csv NCas"]) {
-		newText = newText + "<br /><span class='numero_cas'>N° CAS : " + String(item.label["from_csv NCas"]).replace(
+		newText = newText + "<br /><span class='numero_cas p-0'>N° CAS : " + String(item.label["from_csv NCas"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
                     "<span class='ui-state-highlight'>$&</span>") + "</span>";
 	    };
