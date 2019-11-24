@@ -475,7 +475,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
     var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
     var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
-    var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -622,178 +622,178 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //EMPTY - partie synthétique
     $('#modalheader-type1').empty();
     $('#modaltitle1').empty();
-    $('#modaltitle1-fili').empty();
-    $('#modalbody-pict1').empty();
-    $('#modalbody-remarques1').empty();
-    $('#modalbody-densite1').empty();
-    $('#modalbody-price1').empty();
-    $('#modalbody-ncas1').empty();
-    $('#modalbody-aspect1').empty();
-    $('#modalbody-autresd1').empty();
-    $('#modalbody-ifra1').empty();
-    $('#modalbody-allergenes1').empty();
-    $('#modalbody-fp1').empty();
-    $('#modalbody-logp').empty();
-    $('#modalbody-tenue1').empty();
-    $('#modalbody-bp1').empty();
-    $('#modalbody-decouverte1').empty();
-    $('#modalbody-synthèse').empty();
-    $('#modalbody-précurseur').empty();
-    $('#modalbody-isomérie').empty();
-    $('#modalbody-présencenat').empty();
-    $('#modalbody-parole1').empty();
-    $('#modalbody-utilisation1').empty();
-    $('#modalbody-mmolaire1').empty();
-    $('#modalbody-fbrute1').empty();
-    $('#modalbody-fusionp1').empty();
-    $('#modalbody-stab1').empty();
+	$('#modaltitle1-fili').empty();
+	$('#modalbody-pict1').empty();
+	$('#modalbody-remarques1').empty();
+	$('#modalbody-densite1').empty();
+	$('#modalbody-price1').empty();
+	$('#modalbody-ncas1').empty();
+	$('#modalbody-aspect1').empty();
+	$('#modalbody-autresd1').empty();
+	$('#modalbody-ifra1').empty();
+	$('#modalbody-allergenes1').empty();
+	$('#modalbody-fp1').empty();
+	$('#modalbody-logp').empty();
+	$('#modalbody-tenue1').empty();
+	$('#modalbody-bp1').empty();
+	$('#modalbody-decouverte1').empty();
+	$('#modalbody-synthèse').empty();
+	$('#modalbody-précurseur').empty();
+	$('#modalbody-isomérie').empty();
+	$('#modalbody-présencenat').empty();
+	$('#modalbody-parole1').empty();
+	$('#modalbody-utilisation1').empty();
+	$('#modalbody-mmolaire1').empty();
+	$('#modalbody-fbrute1').empty();
+	$('#modalbody-fusionp1').empty();
+	$('#modalbody-stab1').empty();
 
-    //EMPTY - Descripteurs
-    $('#modalheader-type2').empty();
-    $('#modaltitle2').empty();
-    $('#modalbody-comment2').empty();
-   
-    //EMPTY - IFRA 
-    //nat
-    $('#modalbody-amendment').empty();
-    $('#modalbody-cat1').empty();
-    $('#modalbody-cat2').empty();
-    $('#modalbody-cat3').empty();
-    $('#modalbody-cat4').empty();
-    $('#modalbody-cat5').empty();
-    $('#modalbody-cat6').empty();
-    $('#modalbody-cat7').empty();
-    $('#modalbody-cat8').empty();
-    $('#modalbody-cat9').empty();
-    $('#modalbody-cat10').empty();
-    $('#modalbody-cat11').empty();
-    $('#modalbody-commentifra').empty();
-    $('#modalbody-leaveon').empty();
-    //synth
-    $('#modalbody-amendments').empty();
-    $('#modalbody-cat1s').empty();
-    $('#modalbody-cat2s').empty();
-    $('#modalbody-cat3s').empty();
-    $('#modalbody-cat4s').empty();
-    $('#modalbody-cat5s').empty();
-    $('#modalbody-cat6s').empty();
-    $('#modalbody-cat7s').empty();
-    $('#modalbody-cat8s').empty();
-    $('#modalbody-cat9s').empty();
-    $('#modalbody-cat10s').empty();
-    $('#modalbody-cat11s').empty();
-    $('#modalbody-commentifras').empty();
-    $('#modalbody-leaveons').empty();
-    $('#modalbody-finef').empty();
-    $('#modalbody-edt').empty();
-    $('#modalbody-fcream').empty();
-    $('#modalbody-otherleaveon').empty();
-    $('#modalbody-rinseoff').empty();
-    $('#modalbody-noskin').empty();
+	//EMPTY - Descripteurs
+	$('#modalheader-type2').empty();
+	$('#modaltitle2').empty();
+	$('#modalbody-comment2').empty();
 
-    //APPEND - Partie Naturelles
-    $('#modalheader-type').append(the_type);
-    $('#modaltitle').append(the_title); 
-    $('#modaltitle-fili').append(the_filiation);
-    $('#modalbody-nbota').append(the_nbota); 
-    $('#modalbody-bota').append(the_bota);
-    $('#modalbody-allergenes').append(the_allergenes);
-    $('#modalbody-autresd').append(the_autresd);
-    $('#modalbody-tenue').append(the_tenue);
-    $('#modalbody-cas').append(the_cas);
-    $('#modalbody-origine').append(the_origine);
-    $('#modalbody-aspect').append(the_aspect);
-    $('#modalbody-methode').append(the_methode);
-    $('#modalbody-remarques').append(the_remarques);
-    $('#modalbody-ifra').append(the_ifra);
-    $('#modalbody-price').append(the_price);
-    $('#modalbody-componat').append(the_componat);
-    $('#modalbody-pemblem').append(the_pemblem);
-    $('#modalbody-parole').append(the_parole);
-    $('#modalbody-chemotype').append(the_chemotype);
-    $('#modalbody-medecine').append(the_medecine);
-    $('#modalbody-stab').append(the_stab);
-    $('#modalbody-utilisation').append(the_utilisation);
-    //APPEND - Partie Synthétique
-    $('#modalheader-type1').append(the_type);
-    $('#modaltitle1').append(the_title);
-    $('#modaltitle1-fili').append(the_filiation); 
-    $('#modalbody-allergenes1').append(the_allergenes);
-    $('#modalbody-autresd1').append(the_autresd);
-    $('#modalbody-tenue1').append(the_tenue);
-    $('#modalbody-ncas1').append(the_cas);
-    $('#modalbody-densite1').append(the_densite);
-    $('#modalbody-logp').append(the_logp);
-    $('#modalbody-aspect1').append(the_aspect);
-    $('#modalbody-fp1').append(the_fp);
-    $('#modalbody-remarques1').append(the_remarques);
-    $('#modalbody-ifra1').append(the_ifra);
-    $('#modalbody-price1').append(the_price);
-    $('#modalbody-bp1').append(the_bp);
-    $('#modalbody-decouverte1').append(the_decouverte);
-    $('#modalbody-synthèse').append(the_synthese);
-    $('#modalbody-précurseur').append(the_precurseur);
-    $('#modalbody-isomérie').append(the_isomerie);
-    $('#modalbody-présencenat').append(the_presencenat);
-    $('#modalbody-parole1').append(the_parole);
-    $('#modalbody-utilisation1').append(the_utilisation);
-    $('#modalbody-mmolaire1').append(the_molaire);
-    $('#modalbody-fbrute1').append(the_fbrute);
-    $('#modalbody-fusionp1').append(the_fusionp);
-    $('#modalbody-stab1').append(the_stab);
-    
-    //APPEND - Partie Descripteurs
-    $('#modaltitle2').append(the_title);
-    $('#modalheader-type2').append(the_type);
-    $('#modalbody-comment2').append(the_use);
+	//EMPTY - IFRA 
+	//nat
+	$('#modalbody-amendment').empty();
+	$('#modalbody-cat1').empty();
+	$('#modalbody-cat2').empty();
+	$('#modalbody-cat3').empty();
+	$('#modalbody-cat4').empty();
+	$('#modalbody-cat5').empty();
+	$('#modalbody-cat6').empty();
+	$('#modalbody-cat7').empty();
+	$('#modalbody-cat8').empty();
+	$('#modalbody-cat9').empty();
+	$('#modalbody-cat10').empty();
+	$('#modalbody-cat11').empty();
+	$('#modalbody-commentifra').empty();
+	$('#modalbody-leaveon').empty();
+	//synth
+	$('#modalbody-amendments').empty();
+	$('#modalbody-cat1s').empty();
+	$('#modalbody-cat2s').empty();
+	$('#modalbody-cat3s').empty();
+	$('#modalbody-cat4s').empty();
+	$('#modalbody-cat5s').empty();
+	$('#modalbody-cat6s').empty();
+	$('#modalbody-cat7s').empty();
+	$('#modalbody-cat8s').empty();
+	$('#modalbody-cat9s').empty();
+	$('#modalbody-cat10s').empty();
+	$('#modalbody-cat11s').empty();
+	$('#modalbody-commentifras').empty();
+	$('#modalbody-leaveons').empty();
+	$('#modalbody-finef').empty();
+	$('#modalbody-edt').empty();
+	$('#modalbody-fcream').empty();
+	$('#modalbody-otherleaveon').empty();
+	$('#modalbody-rinseoff').empty();
+	$('#modalbody-noskin').empty();
 
-    //APPEND - IFRA nat
-    $('#modalbody-amendment').append(the_amendment);
-    $('#modalbody-cat1').append(the_cat1);
-    $('#modalbody-cat2').append(the_cat2);
-    $('#modalbody-cat3').append(the_cat3);
-    $('#modalbody-cat4').append(the_cat4);
-    $('#modalbody-cat5').append(the_cat5);
-    $('#modalbody-cat6').append(the_cat6);
-    $('#modalbody-cat7').append(the_cat7);
-    $('#modalbody-cat8').append(the_cat8);
-    $('#modalbody-cat9').append(the_cat9);
-    $('#modalbody-cat10').append(the_cat10);
-    $('#modalbody-cat11').append(the_cat11);
-    $('#modalbody-commentifra').append(the_commentifra);
-    $('#modalbody-leaveon').append(the_leaveon);
-    //APPEND - IFRA synth:w
-    $('#modalbody-amendments').append(the_amendment);
-    $('#modalbody-cat1s').append(the_cat1);
-    $('#modalbody-cat2s').append(the_cat2);
-    $('#modalbody-cat3s').append(the_cat3);
-    $('#modalbody-cat4s').append(the_cat4);
-    $('#modalbody-cat5s').append(the_cat5);
-    $('#modalbody-cat6s').append(the_cat6);
-    $('#modalbody-cat7s').append(the_cat7);
-    $('#modalbody-cat8s').append(the_cat8);
-    $('#modalbody-cat9s').append(the_cat9);
-    $('#modalbody-cat10s').append(the_cat10);
-    $('#modalbody-cat11s').append(the_cat11);
-    $('#modalbody-commentifras').append(the_commentifra);
-    $('#modalbody-leaveons').append(the_leaveon);
-    $('#modalbody-finef').append(the_finef);
-    $('#modalbody-edt').append(the_edt);
-    $('#modalbody-fcream').append(the_fcream);
-    $('#modalbody-otherleaveon').append(the_otherleaveon);
-    $('#modalbody-rinseoff').append(the_rinseoff);
-    $('#modalbody-noskin').append(the_noskin);
+	//APPEND - Partie Naturelles
+	$('#modalheader-type').append(the_type);
+	$('#modaltitle').append(the_title); 
+	$('#modaltitle-fili').append(the_filiation);
+	$('#modalbody-nbota').append(the_nbota); 
+	$('#modalbody-bota').append(the_bota);
+	$('#modalbody-allergenes').append(the_allergenes);
+	$('#modalbody-autresd').append(the_autresd);
+	$('#modalbody-tenue').append(the_tenue);
+	$('#modalbody-cas').append(the_cas);
+	$('#modalbody-origine').append(the_origine);
+	$('#modalbody-aspect').append(the_aspect);
+	$('#modalbody-methode').append(the_methode);
+	$('#modalbody-remarques').append(the_remarques);
+	$('#modalbody-ifra').append(the_ifra);
+	$('#modalbody-price').append(the_price);
+	$('#modalbody-componat').append(the_componat);
+	$('#modalbody-pemblem').append(the_pemblem);
+	$('#modalbody-parole').append(the_parole);
+	$('#modalbody-chemotype').append(the_chemotype);
+	$('#modalbody-medecine').append(the_medecine);
+	$('#modalbody-stab').append(the_stab);
+	$('#modalbody-utilisation').append(the_utilisation);
+	//APPEND - Partie Synthétique
+	$('#modalheader-type1').append(the_type);
+	$('#modaltitle1').append(the_title);
+	$('#modaltitle1-fili').append(the_filiation); 
+	$('#modalbody-allergenes1').append(the_allergenes);
+	$('#modalbody-autresd1').append(the_autresd);
+	$('#modalbody-tenue1').append(the_tenue);
+	$('#modalbody-ncas1').append(the_cas);
+	$('#modalbody-densite1').append(the_densite);
+	$('#modalbody-logp').append(the_logp);
+	$('#modalbody-aspect1').append(the_aspect);
+	$('#modalbody-fp1').append(the_fp);
+	$('#modalbody-remarques1').append(the_remarques);
+	$('#modalbody-ifra1').append(the_ifra);
+	$('#modalbody-price1').append(the_price);
+	$('#modalbody-bp1').append(the_bp);
+	$('#modalbody-decouverte1').append(the_decouverte);
+	$('#modalbody-synthèse').append(the_synthese);
+	$('#modalbody-précurseur').append(the_precurseur);
+	$('#modalbody-isomérie').append(the_isomerie);
+	$('#modalbody-présencenat').append(the_presencenat);
+	$('#modalbody-parole1').append(the_parole);
+	$('#modalbody-utilisation1').append(the_utilisation);
+	$('#modalbody-mmolaire1').append(the_molaire);
+	$('#modalbody-fbrute1').append(the_fbrute);
+	$('#modalbody-fusionp1').append(the_fusionp);
+	$('#modalbody-stab1').append(the_stab);
 
-    //Apparition des images pour les Naturelles et les Synthétiques
-    if (is_an_ingredient) {
-    $('#modalbody-pict').empty();
-    $('#modalbody-pictA').empty();
-    $('#modalbody-pict1').empty();
-    $('#modalbody-pict1A').empty();
-	$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='' />");
-    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='' />");
-    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='' />");
-    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='' />");
+	//APPEND - Partie Descripteurs
+	$('#modaltitle2').append(the_title);
+	$('#modalheader-type2').append(the_type);
+	$('#modalbody-comment2').append(the_use);
+
+	//APPEND - IFRA nat
+	$('#modalbody-amendment').append(the_amendment);
+	$('#modalbody-cat1').append(the_cat1);
+	$('#modalbody-cat2').append(the_cat2);
+	$('#modalbody-cat3').append(the_cat3);
+	$('#modalbody-cat4').append(the_cat4);
+	$('#modalbody-cat5').append(the_cat5);
+	$('#modalbody-cat6').append(the_cat6);
+	$('#modalbody-cat7').append(the_cat7);
+	$('#modalbody-cat8').append(the_cat8);
+	$('#modalbody-cat9').append(the_cat9);
+	$('#modalbody-cat10').append(the_cat10);
+	$('#modalbody-cat11').append(the_cat11);
+	$('#modalbody-commentifra').append(the_commentifra);
+	$('#modalbody-leaveon').append(the_leaveon);
+	//APPEND - IFRA synth:w
+	$('#modalbody-amendments').append(the_amendment);
+	$('#modalbody-cat1s').append(the_cat1);
+	$('#modalbody-cat2s').append(the_cat2);
+	$('#modalbody-cat3s').append(the_cat3);
+	$('#modalbody-cat4s').append(the_cat4);
+	$('#modalbody-cat5s').append(the_cat5);
+	$('#modalbody-cat6s').append(the_cat6);
+	$('#modalbody-cat7s').append(the_cat7);
+	$('#modalbody-cat8s').append(the_cat8);
+	$('#modalbody-cat9s').append(the_cat9);
+	$('#modalbody-cat10s').append(the_cat10);
+	$('#modalbody-cat11s').append(the_cat11);
+	$('#modalbody-commentifras').append(the_commentifra);
+	$('#modalbody-leaveons').append(the_leaveon);
+	$('#modalbody-finef').append(the_finef);
+	$('#modalbody-edt').append(the_edt);
+	$('#modalbody-fcream').append(the_fcream);
+	$('#modalbody-otherleaveon').append(the_otherleaveon);
+	$('#modalbody-rinseoff').append(the_rinseoff);
+	$('#modalbody-noskin').append(the_noskin);
+
+	//Apparition des images pour les Naturelles et les Synthétiques
+	if (is_an_ingredient) {
+		$('#modalbody-pict').empty();
+		$('#modalbody-pictA').empty();
+		$('#modalbody-pict1').empty();
+		$('#modalbody-pict1A').empty();
+		$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
     };  
     
     if (is_an_naturelle) {
