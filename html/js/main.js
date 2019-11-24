@@ -1,4 +1,4 @@
-var in30Minutes = 1/48;
+var in30Minutes = 1/96;
 
 // cookies part, with "js-cookie" (https://github.com/js-cookie/js-cookie)
 var RGPD_warning_has_been_done = Cookies.get('RGPD_warning'); // RGPD_warning unset means this is the first visit
