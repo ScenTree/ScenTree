@@ -300,12 +300,12 @@ html, body {
     color: black;
 }
 .synonymes {
-    font-size: 80%;
+    font-size: 70%;
     color: grey;
 }
 .numero_cas {
     font-style: italic;
-    font-size: 70%;
+    font-size: 65%;
     color: black;
 }
 .ui-state-highlight { 
