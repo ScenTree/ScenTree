@@ -895,7 +895,7 @@ h1 {
     font-size: 12px;
 }
 .panel-footer{
-    display: none;
+    font-size:12px;
 }
 .imgmp {
     max-width: 180px;
@@ -910,8 +910,8 @@ h1 {
 /* LANGUAGES */
 
 *:lang(fr) {
-	display: initial;
+    display: initial;
 }
 *:lang(en) {
-	display: initial;
+    display: initial;
 }
