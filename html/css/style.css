@@ -958,3 +958,8 @@ p.#you_can_zoom {
 #close_you_can_zoom {
     color: #D64E26;
 }
+
+#imgen #imgfr {
+    max-width: 10px;
+    max-height: 10px;
+}
