@@ -946,7 +946,9 @@ h1 {
     top: 5px;
     right: 5px;
     z-index: 999;
-    font-size: 1.3vw;
+    font-size: small;
+    color: #D64E26;
+    text-align: justify; 
     border: solid;
     border-color: #FBE5D6FF;
     border-radius: 10px;
