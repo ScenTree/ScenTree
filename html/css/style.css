@@ -943,16 +943,16 @@ h1 {
     position: absolute;
     width: 250px;
     height: 50px;
-    top: 5%;
-    right: 5%;
+    top: 3%;
+    right: 3%;
     z-index: 999;
     font-size: small;
     color: #D64E26;
     text-align: justify; 
     border: 0.5rem solid;
-    border-color: #FBE5D6FF;
+    border-color: #D64E26;
     border-radius: 10px;
 }
-p.#you_can_zoom {
-    margin-right: 5px;
+#close_you_can_zoom {
+    color: #D64E26;
 }
