@@ -942,14 +942,14 @@ h1 {
     /*display: none;*/
     position: absolute;
     width: 250px;
-    height: 50px;
+    min-height: 65px;
     top: 3%;
     right: 3%;
     z-index: 999;
     font-size: small;
     color: #D64E26;
     text-align: justify; 
-    border: 0.5rem solid;
+    border: 0.3rem solid;
     border-color: #D64E26;
     border-radius: 10px;
 }
