@@ -936,3 +936,14 @@ h1 {
 *:lang(en) {
     display: initial;
 }
+
+/* YOU CAN ZOOM */
+#you_can_zoom {
+    /*display: none;*/
+    position: absolute;
+    width: 250px;
+    height: 50px;
+    top: 5px;
+    right: 5px;
+    z-index: 999;
+}
