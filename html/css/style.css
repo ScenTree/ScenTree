@@ -952,6 +952,9 @@ h1 {
     border-color: #F0BEB0;
     border-radius: 10px;
 }
+p.#you_can_zoom {
+    margin: 5%;
+}
 #close_you_can_zoom {
     color: #D64E26;
 }
