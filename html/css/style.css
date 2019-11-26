@@ -942,15 +942,14 @@ h1 {
     /*display: none;*/
     position: absolute;
     width: 250px;
-    min-height: 65px;
     top: 3%;
     right: 3%;
     z-index: 999;
     font-size: small;
     color: #D64E26;
     text-align: justify; 
-    border: 0.3rem solid;
-    border-color: #D64E26;
+    border: 0.25rem solid;
+    border-color: #F0BEB0;
     border-radius: 10px;
 }
 #close_you_can_zoom {
