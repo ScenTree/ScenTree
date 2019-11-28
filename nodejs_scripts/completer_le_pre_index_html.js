@@ -87,6 +87,9 @@ function add_one_object_to_a_dom(the_dom, the_object) {
     the_name_of_the_html_of_the_element = the_name_of_the_html_of_the_element + ".html";
     //the_link_to_the_html_of_the_element.href = "/" + the_name_of_the_html_of_the_element;
     the_link_to_the_html_of_the_element.href = "../" + the_name_of_the_html_of_the_element;
+    if (! is_an_ingredient(the_object)) {
+        the_link_to_the_html_of_the_element.rel = "nofollow";
+    };
     the_link_to_the_html_of_the_element.innerHTML = "<span lang='en'>" + the_object["from_csv EN Nom"] + "</span><span lang='fr'>" + the_object["from_csv FR Nom"] + "</span>";
     
     the_list_element.appendChild(the_link_to_the_html_of_the_element);
