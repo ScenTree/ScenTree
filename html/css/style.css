@@ -74,10 +74,7 @@ html, body {
 .text-my-grey {
     color : grey;
 }
-.brmodalMP {
-  height:5%;
-  background-color: blue;
-}
+
 
 @media screen and (max-width: 767px) {
 .font-italic-before-md {
@@ -555,6 +552,7 @@ h1 {
 .textitem {
     padding: 5px;
     font-size:small;
+    margin-bottom: 5px;
 }
 .textitem2 {
     padding: 5px;
