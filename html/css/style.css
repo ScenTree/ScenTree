@@ -74,7 +74,9 @@ html, body {
 .text-my-grey {
     color : grey;
 }
-
+.brmodalMP {
+  height:5%;
+}
 @media screen and (max-width: 767px) {
 .font-italic-before-md {
   font-style: italic;
