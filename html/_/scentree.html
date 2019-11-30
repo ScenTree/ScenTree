@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - Classification innovante des ingrédients parfum</title>
+<title lang="en">ScenTree - The new collaborative perfumery raw materials classification</title>
+<!--Description Google-->
+<meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Fichier Style CSS -->
+<link href="../css/style.css" rel="stylesheet" />
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
+
+<body class="h-100">
+<main class="h-100">
+
+
+<div class="modal fade in  my-modal show_modal_at_start go_to_main_page_after_closing_modal" id="decouvrirScenTree" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+
+  <!--Block Haut avec le logo -->
+<div class="modal-header d-block">
+  <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="text-center  modal-title modal-title1"><img class="img-fluid  max-height-70px" src="../img/logon.png" alt="Découvrir ScenTree" /></h4>
+</div>
+
+<!--Block Bas avec les textes -->
+<div class="modal-body text-size-14px text-justify my-modal-body">
+
+
+ <!--lang dans <p> -->
+<div class="papernote">
+  <p lang="fr"><i class='fa fa-question-circle fa-fw fa-lg icone'></i>&nbsp;<b><i>ScenTree</i></b> est un projet initié en 2017 par <a href="https://www.linkedin.com/in/maxime-baud-915a79130/" target ="_BLANK">Maxime BAUD </a> et <a href= "https://www.linkedin.com/in/thomas-espinasse-1aa576103/" target ="_BLANK"> Thomas ESPINASSE </a>, deux étudiants de l’ISIPCA. Il s’agit d’une <b>classification collaborative des matières premières de parfumerie, en fonction de leur famille et de leurs descripteurs olfactifs</b>. Pour chaque matière première, une famille et quatre descripteurs principaux sont possibles. Cela amène à présenter leur classification sous la forme d’un <b>arbre</b> à plusieurs niveaux de zoom, dont chaque nœud représente une famille ou un descripteur. Le terme «<b>collaboratif</b>» signifie que cette classification découle de la contribution de professionnels de la parfumerie : parfumeurs, évaluateurs, experts en matières premières etc. Tous nous ont aidé à classifier certaines matières premières de l’arbre.</p>
+  <p lang="en"><i class='fa fa-question-circle fa-fw fa-lg icone'></i>&nbsp;<b><i>ScenTree</i></b> is a project initiated in 2017 by <a href="https://www.linkedin.com/in/maxime-baud-915a79130/" target ="_BLANK">Maxime BAUD </a> and <a href= "https://www.linkedin.com/in/thomas-espinasse-1aa576103/" target ="_BLANK"> Thomas ESPINASSE </a>, while studying at the ISIPCA (Versailles, France). It is a <b>collaborative perfumery raw materials classification, according to their olfactive family and description</b>. For each raw material, one family and four descriptors can exist. This leads to a <b>tree</b>-looking classification, with a few zoom levels, and in which every node represents a descriptor or an olfactive family. The word “<b>collaborative</b>” means that this classification is the result of the contribution of perfumery professionals: perfumers, evaluators, raw materials experts… Every contributor helped in classifying some raw materials.</p>
+</div>
+
+<div class="papernote">
+  <p lang="fr"><i class='fa fa-info fa-fw fa-lg icone'></i>&nbsp;A ce jour, la classification contient <a href="#listeMP" data-toggle="modal" data-dismiss="modal" class="listeMP-number">370</a> matières premières, réunies en <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" class="Listefamilles-principales-number">16</a> familles principales et <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" class="Listefamilles-descripteurs-number">82</a> descripteurs. Pour chaque matière première, <b>chaque descripteur est classé par ordre d’importance olfactive</b>. Ainsi, plus vous vous rapprocherez d’une bordure extérieure de l’arbre, plus les descripteurs seront précis pour une matière première donnée. En somme, <b><i>ScenTree</i> discrimine</b> les ingrédients entre eux et permet de mettre en évidence leurs <b>similitudes olfactives</b>.</p>
+  <p lang="en"><i class='fa fa-info fa-fw fa-lg icone'></i>&nbsp;Today, this classification contains <a href="#listeMP" data-toggle="modal" data-dismiss="modal" class="listeMP-number">370</a> raw materials, united into <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" class="Listefamilles-principales-number">16</a> families and <a href="#Listefamilles" data-toggle="modal" data-dismiss="modal" class="Listefamilles-descripteurs-number">82</a> olfactive descriptors. For each raw material, <b>every descriptor is classified in order of olfactive importance</b>. Thus, the more you get close to an external border, the more precise the descriptors will be for one raw material. Then, <b><i>ScenTree</i> discriminates</b> the ingredients and puts in evidence their <b>olfactive similarity</b>.</p>
+</div>
+
+<div class="papernote">
+  <p lang="fr"><i class='fa fa-globe-europe fa-fw fa-lg icone'></i>&nbsp;Nous vous invitons ici à un voyage. De <b>descripteur en descripteur</b>, vous trouverez l’ingrédient correspondant aux notes recherchées. En utilisant la <b>barre de recherche</b>, vous serez transportés directement vers la matière première souhaitée, pour en découvrir les facettes.Pour chaque matière première ou descripteur, il vous est possible de cliquer sur ces derniers pour en obtenir des informations. Des <b>caractéristiques techniques</b> vous seront données sur les ingrédients, et une <b>explication</b> apparaitra pour les descripteurs et familles.</p>
+  <p lang="en"><i class='fa fa-globe-europe fa-fw fa-lg icone'></i>&nbsp;You are invited to a trip. For <b>descriptor to descriptor</b>, you will find the ingredient corresponding to the notes you are looking for. By using the <b>search bar</b>, you will be directly transported to the desired ingredient, to discover its facets. For each raw material and descriptor, it is possible to click to obtain some information. <b>Technical characteristics</b> for ingredients, and an <b>explanation</b> from descriptors and families will be given.</p>
+</div>
+
+<div class="papernote">
+  <p lang="fr"><i class='fas fa-bullseye fa-fw fa-lg icone'></i>&nbsp;L’utilisation d’un lexique spécifique à la parfumerie rend cette classification accessible en priorité aux personnes étudiant, travaillant dans le domaine de la parfumerie, ou étant à l’aise avec ce vocabulaire.</p>
+  <p lang="en"><i class='fas fa-bullseye fa-fw fa-lg icone'></i>&nbsp;The use of a perfumery-specific vocabulary targets in priority people studying or working in the area of perfumery, or being comfortable with this language.</p>
+</div>
+
+<div class="papernote">
+  <p lang="fr"><i class='far fa-handshake fa-fw fa-lg icone'></i>&nbsp;Comme toute classification, sa <b>subjectivité</b> n’est pas négligeable. Chaque descripteur utilisé est un parti pris. Nous avons tenté de les faire correspondre avec l’avis général du milieu de la parfumerie, grâce à l’intervention de chaque collaborateur ayant permis à <i>ScenTree</i> de voir le jour. La <b>collaboration</b> restera toujours le guide de cette classification.</p>
+  <p lang="en"><i class='far fa-handshake fa-fw fa-lg icone'></i>&nbsp;As every classification, its <b>subjectivity</b> is not deniable. Every descriptor is a choice. We want to make them correspond to a general opinion, thanks to every contributor that permitted <i>ScenTree</i> to grow. <b>Collaboration</b> will always stay a guide for this classification.</p>
+</div>
+
+<div class="papernote">
+  <p lang="fr"><i class='fas fa-search-location fa-fw fa-lg icone'></i>&nbsp;La mise en forme de la classification <b><i>ScenTree</i></b> est inspirée de celle de <a href="http://lifemap.univ-lyon1.fr/explore.html" target ="_BLANK">LifeMap</a> crée par Mr. De Vienne pour l'université de Lyon I. Le concept est similaire à des cartographies telles que celles rencontrées dans Open Street Maps: l'exploration se fait par le biais de zooms et d'interactions avec des images.</p>
+  <p lang="en"><i class='fas fa-search-location fa-fw fa-lg icone'></i>&nbsp;<i><b>ScenTree</b></i>’s shaping is inspired by the <a href="http://lifemap.univ-lyon1.fr/explore.html" target ="_BLANK">LifeMap</a>, created by M. De Vienne from the University of Lyon I. This concept is quite similar to the ones met on cartographies as Open Street Maps: exploration is made through zooms and interactions with images.</p>
+</div>
+
+<div class="papernote">
+  <p lang="fr"><b>Grimpez à l’arbre et rejoignez-nous dans cette expérience pleine d’histoires, cette invitation au voyage à travers les matières premières de la parfumerie : le <i>ScenTree</i>.</b></p>
+  <p lang="en"><b>Just climb to the tree and join us in this experience full of story-telling, this invitation to a trip through raw materials: ScenTree. </b></p>
+</div>
+<p class="license text-center" lang="fr"><i>Pour tout complément d'information, question ou remarque, merci de rentrer en contact avec <a href="https://www.linkedin.com/in/maxime-baud-915a79130/" target ="_BLANK">Maxime BAUD </a> ou <a href= "https://www.linkedin.com/in/thomas-espinasse-1aa576103/" target ="_BLANK"> Thomas ESPINASSE </a></i></p>
+<p class="license text-center" lang="en"><i>For any information, request or remark, please contact <a href="https://www.linkedin.com/in/maxime-baud-915a79130/" target ="_BLANK">Maxime BAUD</a> and <a href= "https://www.linkedin.com/in/thomas-espinasse-1aa576103/" target ="_BLANK"> Thomas ESPINASSE </a></i></p>
+
+<p class="license"><i><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />ScenTree project is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</i><br></p>
+
+<p class="copyright"><sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |</p>
+
+</div>
+
+</div>
+</div>
+</div>
+
+
+</main>
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## -->
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+
+</body>
+</html>
+

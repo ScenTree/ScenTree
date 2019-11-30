@@ -1026,8 +1026,8 @@ $(".save_map_status_on_leaving").on("click", function() {
 	save_map_status_inside_cookies(map);
     };
 });
-$("#lesSources").modal("show"); // will actually work only for the source.html page 
-$("#lesSources").on("hide.bs.modal", function() {
+$(".show_modal_at_start").modal("show"); 
+$(".go_to_main_page_after_closing_modal").on("hide.bs.modal", function() {
     window.location.href = "../_/index.html";
 });
 	
