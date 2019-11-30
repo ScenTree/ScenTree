@@ -166,7 +166,9 @@ $.extend( proto, {
 /* end of jQuery UI Autocomplete HTML Extension */
 
 /* Définissions de la map*/
-var map = L.map('map', {zoomControl: true, attributionControl: false});
+if ($("#map").length) {
+    var map = L.map('map', {zoomControl: true, attributionControl: false});
+};
 /* Dire que la map est disponible dans le cache du serveur à l'adresse suivante */
 var tolUrl_fr = '/' + DEV_PREFIX_1 + 'scentree-map-fr/{z}/{x}/{y}.png';
 var tolUrl_en = '/' + DEV_PREFIX_1 + 'scentree-map-en/{z}/{x}/{y}.png';
@@ -191,8 +193,9 @@ var the_previous_map__longitude = Cookies.get('the_previous_map__longitude');
 /* Définir la taille de la carte */
 //map.addLayer(tol_fr);
 //map.addLayer(tol_en);
-map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, ], the_previous_map__zoom || zoom_initial);
-
+if ($("#map").length) {
+	map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, ], the_previous_map__zoom || zoom_initial);
+};
 /* Définission de l'icone qui pointe les MP recherchées*/
 var mark = L.icon({
     iconUrl: '../img/mark.png',
@@ -243,13 +246,7 @@ function CreatePopUps() {
 			});
                 } else {  // else : ingredient -> link to a new html page
                         marker.on("click", function() {
-				var the_map_center = map.getCenter();
-				var rounded_latitude = Math.round(the_map_center.lat * 100000) / 100000;
-				var rounded_longitude = Math.round(the_map_center.lng * 100000) / 100000;
-				var the_map_zoom = map.getZoom();
-				Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
-				Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
-				Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
+				save_map_status_inside_cookies(map);
                                 window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + ".html";
                         });
 		};
@@ -304,9 +301,11 @@ $("#source").click(function() {
 });*/
 
 //pop-up
-map.on("moveend", function() {
-    CreatePopUps();
-});
+if ($("#map").length) {
+	map.on("moveend", function() {
+	    CreatePopUps();
+	});
+};
 
 // définition du pointeur valable, celui jaune de google maps
 var SPfocus;
@@ -902,6 +901,15 @@ $('#DescripteurModal').on("show.bs.modal", function (e) {
     };
 });
 
+function save_map_status_inside_cookies(the_map) {
+        var the_map_center = the_map.getCenter();
+        var rounded_latitude = Math.round(the_map_center.lat * 100000) / 100000;
+        var rounded_longitude = Math.round(the_map_center.lng * 100000) / 100000;
+        var the_map_zoom = the_map.getZoom();
+        Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
+        Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
+        Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
+};
 
 $("#SynthetiqueModal").on("hide.bs.modal", function (e) {
 	$(".table1").hide();
@@ -911,14 +919,8 @@ $("#SynthetiqueModal").on("hide.bs.modal", function (e) {
 	$(".amendment").hide();
 	$(".commentaires").hide();
 	$('title').html("ScenTree - Classification innovante des ingrédients parfum");
-        var the_map_center = map.getCenter();
-        var rounded_latitude = Math.round(the_map_center.lat * 100000) / 100000;
-        var rounded_longitude = Math.round(the_map_center.lng * 100000) / 100000;
-        var the_map_zoom = map.getZoom();
-        Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
-        Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
-        Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
-        window.location.href = "../_/index.html";
+        save_map_status_inside_cookies(map);
+	window.location.href = "../_/index.html";
 });
 $("#naturelleModal").on("hide.bs.modal", function (e) {
 	$(".table1").hide();
@@ -928,13 +930,7 @@ $("#naturelleModal").on("hide.bs.modal", function (e) {
 	$(".amendment").hide();
 	$(".commentaires").hide();
 	$('title').html("ScenTree - Classification innovante des ingrédients parfum");
-        var the_map_center = map.getCenter();
-        var rounded_latitude = Math.round(the_map_center.lat * 100000) / 100000;
-        var rounded_longitude = Math.round(the_map_center.lng * 100000) / 100000;
-        var the_map_zoom = map.getZoom();
-        Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
-        Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
-        Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
+	save_map_status_inside_cookies(map);
 	window.location.href = "../_/index.html";
 });
 $('#DescripteurModal').on("hidden.bs.modal", function (e) {
@@ -960,8 +956,10 @@ function switch_to_en() {
     // clear search input
     $(".searchinput").val('');
     // change map
-    map.addLayer(tol_en);
-    map.removeLayer(tol_fr);
+    if ($("#map").length) {
+        map.addLayer(tol_en);
+        map.removeLayer(tol_fr);
+    };
     //change page title only for the main page
     if (document.title ==  "ScenTree - Classification innovante des ingrédients parfum") document.title = "ScenTree - The new collaborative perfumery raw materials classification";
 };
@@ -982,8 +980,10 @@ function switch_to_fr() {
     // clear search input
     $(".searchinput").val('');  
     // change map
-    map.addLayer(tol_fr);
-    map.removeLayer(tol_en);
+    if ($("#map").length) {
+        map.addLayer(tol_fr);
+        map.removeLayer(tol_en);
+    };
     //change page title only for the main page
     if (document.title ==  "ScenTree - The new collaborative perfumery raw materials classification") document.title = "ScenTree - Classification innovante des ingrédients parfum";
 };
@@ -1021,6 +1021,16 @@ $("#partenaireCinquiemeSens").on("show.bs.modal", function() {
     $("#lesCollaborateurs").modal("hide");
 });
 
+$(".save_map_status_on_leaving").on("click", function() {
+    if ($("#map").length) {
+	save_map_status_inside_cookies(map);
+    };
+});
+$("#lesSources").modal("show"); // will actually work only for the source.html page 
+$("#lesSources").on("hide.bs.modal", function() {
+    window.location.href = "../_/index.html";
+});
+	
 /*suppression du copier-coller*/
 function addLink() {
     var body_element = document.getElementsByTagName('body')[0];
