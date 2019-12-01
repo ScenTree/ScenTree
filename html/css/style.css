@@ -380,6 +380,7 @@ th, .table th {
     text-align: center;
     height: 50%;
     font-style: large;
+    background-color: blue;
 }
 td, .table td {
     border: 1px solid black;
@@ -387,11 +388,8 @@ td, .table td {
     vertical-align: middle;
 }
 tr:nth-child(even) {
- 
   background-color: #FBE5D6FF;
-  opacity: 0.6;
-  color:#121212;
- 
+  color:#121212; 
 }
 .caption {
     color : grey;
