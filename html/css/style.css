@@ -825,6 +825,18 @@ h1 {
 .modal-title {
     font-size: 15px; 
 }
+.modalheader-type2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+}
 .onglets {
     font-size: 12px;
 }
