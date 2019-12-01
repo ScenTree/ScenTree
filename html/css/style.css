@@ -718,6 +718,23 @@ h1 {
     cursor:pointer;
     display: inline;
 }
+/*.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 0.8vw;
+    padding-top: 2%;
+}*/
+/*
+.modal-body {
+    text-align: justify;
+    overflow-y: auto;
+    max-height: calc(100vh - 220px);
+}
+.modal-title {
+    min-width: 100%;
+    font-size: 22px;####################
+    font-weight: bold;
+}*/
 .modalheader-type {
     font-style: 18px;
     text-transform: uppercase;
@@ -781,7 +798,7 @@ h1 {
 
 @media screen and (min-width: 768px) and (max-width: 990px) {
 h1 {
-   width: 100%;
+    width: 100%;
    font-style: bold;
    font-size: 1.3vw;
    margin-top: 0%;
@@ -818,6 +835,22 @@ h1 {
     cursor:pointer;
     display: inline;
 }
+/*.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 1.3vw;
+}*/
+/*
+.modal-body {
+    text-align: justify;
+    overflow-y: auto;
+    max-height: calc(100vh - 220px);
+}
+.modal-title {
+    min-width: 100%;
+    font-size: 22px;
+    font-weight: bold;
+}*/
 .modalheader-type {
     font-style: 18px;
     text-transform: uppercase;
@@ -882,14 +915,6 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
-h1 {
-   width: 100%;
-   font-style: bold;
-   font-size: 1.1vw;
-   margin-top: 0%;
-   margin-bottom: 0%;
-   display: none;
-}
 .onglets {
     font-size: 12px;
 }
