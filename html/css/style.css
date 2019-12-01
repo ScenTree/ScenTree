@@ -856,6 +856,10 @@ h1 {
 }
 .textitem-footer{
     font-size:x-small;
+    margin-bottom: 0;
+    text-align: justify;
+
+
 }
 }
 
