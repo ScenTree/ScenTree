@@ -134,7 +134,7 @@ html, body {
    height: 45px;
 }
 .h-80pc-md-100pc {
-    height: calc(100vh - 45px);
+    height: calc(80vh - 45px);
 }
 .h-100-with-padding-60px-before-md {
    height: 100%;
