@@ -134,7 +134,7 @@ html, body {
    height: 45px;
 }
 .h-80pc-md-100pc {
-    height: calc(80vh - 45px);
+    height: calc(100vh - 45px);
 }
 .h-100-with-padding-60px-before-md {
    height: 100%;
@@ -823,7 +823,8 @@ h1 {
 
 @media screen and (max-width: 768px) {
 .modal-title {
-    font-size: 15px; 
+    font-size: 15px;
+    margin-bottom: 0;  
 }
 .modalheader-type2 {
     font-size: 13px;
