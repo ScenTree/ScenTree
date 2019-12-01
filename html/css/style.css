@@ -916,12 +916,12 @@ h1 {
 
 @media screen and (max-width: 768px) {
 .modalheader-type {
-    font-style: 14px;
+    font-style: 5px;
     text-transform: uppercase;
     text-align: center;
 }
 .modalheader-type2 {
-    font-style: 14px;
+    font-style: 5px;
     text-transform: uppercase;
     text-align: center;
 }
