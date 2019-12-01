@@ -947,7 +947,7 @@ h1 {
 #you_can_zoom {
     /*display: none;*/
     position: absolute;
-    width: 260px;
+    width: 220px;
     top: 3%;
     right: 3%;
     z-index: 999;
