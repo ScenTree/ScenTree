@@ -388,7 +388,7 @@ td, .table td {
     vertical-align: middle;
 }
 tr:nth-child(even) {
-  background-color: #D8D8D8;
+  background-color: #F1F0F0;
   color:#121212; 
 }
 .caption {
