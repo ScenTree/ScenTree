@@ -90,13 +90,13 @@ module.exports = {
 		    var the_ingredients_synthetiques = new Array();
 		    for (var i = 0, len = the_objects.length; i < len; i++) {
 			var the_current_object = the_objects[i];
-			if (is_a_famille_principale(the_current_object)) {
+			if (this.is_a_famille_principale(the_current_object)) {
 			    the_familles_principales.push(the_current_object);
-			} else if (is_a_descripteur(the_current_object)) {
+			} else if (this.is_a_descripteur(the_current_object)) {
 			    the_autres_descripteurs.push(the_current_object);
 			} else {
 			    the_ingredients.push(the_current_object);
-			    if (is_natural(the_current_object)) {
+			    if (this.is_natural(the_current_object)) {
 				    the_ingredients_naturels.push(the_current_object);
 			    } else {
 				the_ingredients_synthetiques.push(the_current_object);
@@ -105,37 +105,37 @@ module.exports = {
 		    };
     
 		    // remove the duplicated elements (same "sci_name") + remove one element : "Matières Premières Parfumerie" ("sci_name")
-		    var the_familles_principales_2 = remove_duplicated_elements(the_familles_principales, "sci_name", new Set(["Matières Premières Parfumerie"]));
-		    var the_autres_descripteurs_2 = remove_duplicated_elements(the_autres_descripteurs, "sci_name");
-		    var the_ingredients_2 = remove_duplicated_elements(the_ingredients, "sci_name");
-		    var the_ingredients_naturels = remove_duplicated_elements(the_ingredients_naturels, "sci_name");
-		    var the_ingredients_synthetiques = remove_duplicated_elements(the_ingredients_synthetiques, "sci_name");
+		    var the_familles_principales_2 = this.remove_duplicated_elements(the_familles_principales, "sci_name", new Set(["Matières Premières Parfumerie"]));
+		    var the_autres_descripteurs_2 = this.remove_duplicated_elements(the_autres_descripteurs, "sci_name");
+		    var the_ingredients_2 = this.remove_duplicated_elements(the_ingredients, "sci_name");
+		    var the_ingredients_naturels = this.remove_duplicated_elements(the_ingredients_naturels, "sci_name");
+		    var the_ingredients_synthetiques = this.remove_duplicated_elements(the_ingredients_synthetiques, "sci_name");
 		   
 		    if ((the_familles_principales_2.length != (the_familles_principales.length -1)) || (the_ingredients_2.length != the_ingredients.length)) {
 			console.log("ATTENTION : il y a des ingrédients ET/OU des familles principales ayant le même nom");
 		    };
 		    console.log("------");
 		    console.log(the_familles_principales.length + " -> " + the_familles_principales_2.length);
-		    console.log(from_an_array_to_a_string(prepare_an_array_to_be_printed(the_familles_principales, "sci_name")));
+		    console.log(this.from_an_array_to_a_string(this.prepare_an_array_to_be_printed(the_familles_principales, "sci_name")));
 		    console.log(" -> ");
-		    console.log(from_an_array_to_a_string(prepare_an_array_to_be_printed(the_familles_principales_2, "sci_name")));
+		    console.log(this.from_an_array_to_a_string(this.prepare_an_array_to_be_printed(the_familles_principales_2, "sci_name")));
 		    console.log("------");
 		    console.log(the_autres_descripteurs.length + " -> " + the_autres_descripteurs_2.length);
-		    console.log(from_an_array_to_a_string(prepare_an_array_to_be_printed(the_autres_descripteurs, "sci_name")));
+		    console.log(this.from_an_array_to_a_string(this.prepare_an_array_to_be_printed(the_autres_descripteurs, "sci_name")));
 		    console.log(" -> ");
-		    console.log(from_an_array_to_a_string(prepare_an_array_to_be_printed(the_autres_descripteurs_2, "sci_name")));
+		    console.log(this.from_an_array_to_a_string(this.prepare_an_array_to_be_printed(the_autres_descripteurs_2, "sci_name")));
 		    console.log("------");
 		    console.log(the_ingredients.length + " -> " + the_ingredients_2.length);
-		    console.log(from_an_array_to_a_string(prepare_an_array_to_be_printed(the_ingredients, "sci_name")));
+		    console.log(this.from_an_array_to_a_string(this.prepare_an_array_to_be_printed(the_ingredients, "sci_name")));
 		    console.log(" -> ");
-		    console.log(from_an_array_to_a_string(prepare_an_array_to_be_printed(the_ingredients_2, "sci_name")));
+		    console.log(this.from_an_array_to_a_string(this.prepare_an_array_to_be_printed(the_ingredients_2, "sci_name")));
 		    console.log("------");
                     
-		   the_familles_principales_2.sort_a_list_of_scentree_objects();
-		   the_autres_descripteurs_2.sort_a_list_of_scentree_objects();
-		   the_ingredients_2.sort_a_list_of_scentree_objects();
-		   the_ingredients_naturels.sort_a_list_of_scentree_objects();
-		   the_ingredients_synthetiques.sort_a_list_of_scentree_objects();
+		   this.sort_a_list_of_scentree_objects(the_familles_principales_2);
+		   this.sort_a_list_of_scentree_objects(the_autres_descripteurs_2);
+		   this.sort_a_list_of_scentree_objects(the_ingredients_2);
+		   this.sort_a_list_of_scentree_objects(the_ingredients_naturels);
+		   this.sort_a_list_of_scentree_objects(the_ingredients_synthetiques);
 		  
 		   return { "Familles principales" : the_familles_principales_2, 
 		         	"Autres descripteurs" : the_autres_descripteurs_2, 
