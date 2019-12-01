@@ -823,8 +823,7 @@ h1 {
 
 @media screen and (max-width: 768px) {
 .modal-title {
-    font-size: 15px;
-    margin-bottom: 0;  
+    font-size: 15px; 
 }
 .modalheader-type2 {
     font-size: 13px;
@@ -838,6 +837,11 @@ h1 {
     font-size: 13px;
     font-style: italic;
 }
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(90vh - 45px);
+}
+
 .onglets {
     font-size: 12px;
 }
