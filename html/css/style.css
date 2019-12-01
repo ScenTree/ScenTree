@@ -822,7 +822,9 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
-
+.modal-title {
+    font-size: 15px; 
+}
 .onglets {
     font-size: 12px;
 }
