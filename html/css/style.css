@@ -839,7 +839,7 @@ h1 {
 }
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(50vh - 45px);
+  max-height: calc(55vh - 45px);
 }
 
 .onglets {
