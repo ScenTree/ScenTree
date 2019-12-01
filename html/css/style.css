@@ -75,14 +75,6 @@ html, body {
     color : grey;
 }
 
-tr:nth-child(even) {
- 
-  background-color: #FBE5D6FF;
-  opacity: 0.6;
-  color:#121212;
- 
-}
-
 @media screen and (max-width: 767px) {
 .font-italic-before-md {
   font-style: italic;
@@ -384,7 +376,7 @@ table {
   width: 100%;
 }
 th, .table th {
-    border: 1px solid black;
+    border: 1.5px solid black;
     text-align: center;
     height: 50%;
     font-style: large;
@@ -393,6 +385,13 @@ td, .table td {
     border: 1px solid black;
     text-align: center;  
     vertical-align: middle;
+}
+tr:nth-child(even) {
+ 
+  background-color: #FBE5D6FF;
+  opacity: 0.6;
+  color:#121212;
+ 
 }
 .caption {
     color : grey;
