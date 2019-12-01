@@ -915,66 +915,9 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
-.modalheader-type {
-    font-style: 5px;
-    text-transform: uppercase;
-    text-align: center;
-}
-.modalheader-type2 {
-    font-style: 5px;
-    text-transform: uppercase;
-    text-align: center;
-}
-.close {
-    float: right;
-    size: 120%;
-    padding-right: 5%;
-}
-.Filiation{
-    height: 10%;
-    width: 100%;
-    text-align: center;
-    font-size: 15px;
-    font-style: italic;
-}
-.panelcontent {
-    max-width: 100%;
-    max-height: 100%;
-}
+
 .onglets {
     font-size: 12px;
-}
-.iconetab {
-    size:small;
-    color: #C6BABA;
-}
-.item {
-    font-size: 14px;
-}
-.textitem {
-    padding: 5px;
-    font-size:small;
-}
-.textitem2 {
-    padding: 5px;
-    font-size:small;
-}
-.textitem3 {
-    padding: 5px;
-    font-size:small;
-    font-style: italic;
-}
-.textitem-footer{
-    font-size:small;
-}
-.imgmp {
-    max-width: 180px;
-    max-height: 180px;
-    padding-left: 35%;
-    margin-bottom: 5%;
-}
-.blockdonnees {
-    width: 55%;
 }
 .panel-footer{
     font-size:12px;
