@@ -143,5 +143,12 @@ module.exports = {
 			       "Ingrédients naturels" : the_ingredients_naturels, 
 			       "Ingrédients synthétiques" : the_ingredients_synthetiques
 		};
+	}, 
+
+	empty_a_html_element : function (the_html_element) {
+  		  while(the_html_element.firstChild){
+  		      the_html_element.removeChild(the_html_element.firstChild);
+ 		   };
 	}
+
 };
