@@ -51,19 +51,28 @@ function populate_the_html_file_with_scentree_objects(the_dom, the_scentree_obje
 
 async function complete_the_html_file(the_json_file, the_file) {
     var the_objects = jsonfile.readFileSync(the_json_file);
-   
-    var the_arrays_of_scentree_objects = scentree_objects.compute_the_three_arrays(the_objects);
-    var the_array_of_naturals = the_arrays_of_scentree_objects["Ingrédients naturels"];
-    var the_array_of_synthetics = the_arrays_of_scentree_objects["Ingrédients synthétiques"];
+
+    var the_array_of_naturals_FR = scentree_objects.compute_one_array(the_objects, scentree_objects.is_natural, "from_csv FR Nom");
+    var the_array_of_naturals_EN = scentree_objects.compute_one_array(the_objects, scentree_objects.is_natural, "from_csv EN Nom");
+    
+    var the_array_of_synthetics_FR = scentree_objects.compute_one_array(the_objects, scentree_objects.is_synthetic, "from_csv FR Nom");
+    var the_array_of_synthetics_EN = scentree_objects.compute_one_array(the_objects, scentree_objects.is_synthetic, "from_csv EN Nom");
+    
+    //var the_arrays_of_scentree_objects = scentree_objects.compute_the_three_arrays(the_objects);
+    //var the_array_of_naturals = the_arrays_of_scentree_objects["Ingrédients naturels"];
+    //var the_array_of_synthetics = the_arrays_of_scentree_objects["Ingrédients synthétiques"];
     	
-    console.log("Ingrédients naturels : " + the_array_of_naturals.length);
-    console.log("Ingrédients synthétiques : " + the_array_of_synthetics.length);
+    console.log("Ingrédients naturels : " + the_array_of_naturals_EN.length);
+    console.log("Ingrédients synthétiques : " + the_array_of_synthetics_EN.length);
 
    if (the_file) {
     var the_dom = await get_the_dom_from_the_html_file(the_file);
     
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_naturals, the_dom.window.document.getElementById("listeMP-Ingredients-naturels"), "ingredients/");
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_synthetics, the_dom.window.document.getElementById("listeMP-Ingredients-synthetiques"), "ingredients/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_naturals_EN, the_dom.window.document.getElementById("listeMP-Ingredients-naturels-EN"), "ingredients/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_naturals_FR, the_dom.window.document.getElementById("listeMP-Ingredients-naturels-FR"), "ingredients/");
+
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_synthetics_EN, the_dom.window.document.getElementById("listeMP-Ingredients-synthetiques-EN"), "ingredients/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_synthetics_FR, the_dom.window.document.getElementById("listeMP-Ingredients-synthetiques-FR"), "ingredients/");
 
     console.log("------");
     //console.log(dom);

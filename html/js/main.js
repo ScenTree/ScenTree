@@ -5,11 +5,11 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_1 = "dev-"; // dev- ,  pre_prod- ,  or empty for production
     var DEV_PREFIX_2 = "dev_"; // dev_ ,  pre_prod__ ,   or empty for production
 } else if (KIND_OF_ENVIRONMENT == "prod2") {
-    var DEV_ENVIRONMENT = "false";
+    var DEV_ENVIRONMENT = false;
     var DEV_PREFIX_1 = "prod2-";
     var DEV_PREFIX_2 = "prod2_";
 } else {
-    var DEV_ENVIRONMENT = "false";
+    var DEV_ENVIRONMENT = false;
     var DEV_PREFIX_1 = "";
     var DEV_PREFIX_2 = "";
 };
