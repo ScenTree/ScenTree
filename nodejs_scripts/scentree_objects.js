@@ -23,11 +23,13 @@ module.exports = {
 	}, 
 
         is_a_main_descriptor : function (the_object) {
-                return (this.is_a_descripteur() && this.is_a_famille_principale());
-        },
+		//return ((this.is_a_descripteur(the_object)) && (this.is_a_famille_principale(the_object)));
+                return ((the_object["from_csv FR Type"] == "Descripteur") && (the_object["from_csv FR id"].length == 3));
+	},
         is_a_secondary_descriptor : function (the_object) {
-                return (this.is_a_descripteur() && (! this.is_a_famille_principale()));
-        },
+                //return (this.is_a_descripteur(the_object) && (! this.is_a_famille_principale(the_object)));
+		return ((the_object["from_csv FR Type"] == "Descripteur") && (the_object["from_csv FR id"].length != 3));
+	},
 	
 	compute_the_html_name : function (the_object) {   // bilingual name
 		return the_object["from_csv EN Nom"].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("[\\s\/]", "gi"), "_");
@@ -94,6 +96,7 @@ module.exports = {
 		};
 		the_new_array = this.remove_duplicated_elements(the_new_array, "sci_name", new Set(["Matières Premières Parfumerie"]));
 		this.sort_a_list_of_scentree_objects(the_new_array, the_sorting_key);
+	        return the_new_array;
 	}, 
 
 	compute_the_three_arrays : function (the_objects) {
