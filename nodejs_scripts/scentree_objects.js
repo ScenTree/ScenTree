@@ -22,6 +22,13 @@ module.exports = {
 		return (the_object["from_csv FR Type"] == "Synthétique");
 	}, 
 
+        is_a_main_descriptor : function (the_object) {
+                return (this.is_a_descripteur() && this.is_a_famille_principale());
+        },
+        is_a_secondary_descriptor : function (the_object) {
+                return (this.is_a_descripteur() && (! this.is_a_famille_principale()));
+        },
+	
 	compute_the_html_name : function (the_object) {   // bilingual name
 		return the_object["from_csv EN Nom"].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("[\\s\/]", "gi"), "_");
 	},
@@ -65,16 +72,28 @@ module.exports = {
 	}, 
    
    	 // sort the objects in alphabetical order (the_object["sci_name"])
-  	sort_a_list_of_scentree_objects : function (the_scentree_objects) {
+  	sort_a_list_of_scentree_objects : function (the_scentree_objects, the_sorting_key) {
 		the_scentree_objects.sort(function (a, b) {
-        		if (a["sci_name"] < b["sci_name"]) {
+        		if (a[the_sorting_key] < b[the_sorting_key]) {
        			     return -1;
-   		     } else if (a["sci_name"] > b["sci_name"]) {
+   		     } else if (a[the_sorting_key] > b[the_sorting_key]) {
   		          return 1;
  		       } else {
 		            return 0;
 		        };
 		    });
+	}, 
+
+	compute_one_array : function(the_objects, the_filtering_function, the_sorting_key) {
+		var the_new_array = new Array();
+		for (var i = 0, len = the_objects.length; i < len; i++) {
+			var the_current_object = the_objects[i];
+			if (the_filtering_function(the_current_object)) {
+				the_new_array.push(the_current_object);
+			};
+		};
+		the_new_array = this.remove_duplicated_elements(the_new_array, "sci_name", new Set(["Matières Premières Parfumerie"]));
+		this.sort_a_list_of_scentree_objects(the_new_array, the_sorting_key);
 	}, 
 
 	compute_the_three_arrays : function (the_objects) {
@@ -135,11 +154,11 @@ module.exports = {
 		    console.log(this.from_an_array_to_a_string(this.prepare_an_array_to_be_printed(the_ingredients_2, "sci_name")));
 		    console.log("------");
                     
-		   this.sort_a_list_of_scentree_objects(the_familles_principales_2);
-		   this.sort_a_list_of_scentree_objects(the_autres_descripteurs_2);
-		   this.sort_a_list_of_scentree_objects(the_ingredients_2);
-		   this.sort_a_list_of_scentree_objects(the_ingredients_naturels);
-		   this.sort_a_list_of_scentree_objects(the_ingredients_synthetiques);
+		   this.sort_a_list_of_scentree_objects(the_familles_principales_2, "sci_name");
+		   this.sort_a_list_of_scentree_objects(the_autres_descripteurs_2, "sci_name");
+		   this.sort_a_list_of_scentree_objects(the_ingredients_2, "sci_name");
+		   this.sort_a_list_of_scentree_objects(the_ingredients_naturels, "sci_name");
+		   this.sort_a_list_of_scentree_objects(the_ingredients_synthetiques, "sci_name");
 		  
 		   return { "Familles principales" : the_familles_principales_2, 
 		         	"Autres descripteurs" : the_autres_descripteurs_2, 
