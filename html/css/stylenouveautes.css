@@ -92,7 +92,7 @@ html, body {
 .timeline:before{
 	content:'';
 	position:absolute;
-	left:70%;
+	left:55%;
 	width:2px;
 	height:100%;
 	background-color:#D64E26;
