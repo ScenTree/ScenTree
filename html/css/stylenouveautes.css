@@ -68,13 +68,13 @@ html, body {
 	z-index:1
 }
 
-/*position the circle icons on the timeline
+/*position the circle icons on the timeline*/
 .timeline ul li:nth-child(even):before{
 	left:-20px;
 }
 .timeline ul li:nth-child(odd):before{
 	right:-20px;
-}*/
+}
 
 /*styling the numbering. Can't position at the moment */
 .timeline ul li:before{
