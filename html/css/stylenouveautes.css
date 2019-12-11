@@ -113,6 +113,7 @@ html, body {
 	width:1%;
 	height:90%;
 	background-color:#D64E26;
+	z-index:1;
 }
 
 /*styling the size of each step/content */
