@@ -161,7 +161,7 @@ html, body {
 }
 
 .content p{
-	font-size:0.9em;
+	font-size:14px;
 	line-height:1.7em;
 }
 @media  (max-width: 1000px){
