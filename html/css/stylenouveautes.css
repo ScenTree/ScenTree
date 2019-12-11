@@ -919,6 +919,9 @@ h1 {
 	padding-left:50px;
 	padding-bottom:50px;
 }
+.timeline ul li:nth-child(odd):before, 	.timeline ul li:nth-child(even):before{
+	left:14px;
+}
 }
 
 @media screen and (max-width: 768px) {
