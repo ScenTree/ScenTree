@@ -134,6 +134,7 @@ html, body {
 .timeline ul li:nth-child(even){
 	text-align:left;
 	float:right;
+	list-style-type: none;
 	clear:both; /*each step doesn't overlap the other vertically */
 }
 
