@@ -152,7 +152,7 @@ html, body {
 	font-size:1.2m;
 	color:white;
 	text-align:center;
- 	padding-top:1.5%;
+ 	padding-top:2%;
 }
 
 .content h3{
@@ -166,7 +166,7 @@ html, body {
 }
 @media  (max-width: 1000px){
 	.timeline{
-		width:100%;
+	width:100%;
 	}
 	.content h3{
 		font-size:1.8em;
