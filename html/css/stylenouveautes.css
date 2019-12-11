@@ -119,7 +119,7 @@ html, body {
 .timeline ul li{
 	line-height:normal;
 	position:relative;
-	width:90%;
+	width:50%;
 	padding:5px 35px;
 	background-color: Red;
 }
