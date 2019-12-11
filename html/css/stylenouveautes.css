@@ -113,7 +113,7 @@ html, body {
 	width:1%;
 	height:90%;
 	background-color:#D64E26;
-	z-index:1;
+	z-index:2;
 }
 
 /*styling the size of each step/content */
@@ -123,6 +123,7 @@ html, body {
 	width:50%;
 	padding:5px 35px;
 	background-color: #98FB98;
+	z-index:3;
 }
 
 /*for every odd numbered bullet point, align to the left*/
@@ -148,6 +149,7 @@ html, body {
 	background-color:#F7B88E;
 	border-radius:60%;
 	box-shadow: 0 0 0 6px rgba(251, 229, 214);
+	z-index:1
 }
 
 /*position the circle icons on the timeline*/
