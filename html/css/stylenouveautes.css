@@ -129,7 +129,7 @@ html, body {
 .timeline ul li:nth-child(odd){
 	text-align:right;
 	float:left;
-	clear:both; /*each step doesn't overlap the other vertically */
+	/*clear:both; each step doesn't overlap the other vertically */
 }
 
 /* for every even numbered bullet point, align to the right */
