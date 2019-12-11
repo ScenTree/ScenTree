@@ -10,6 +10,96 @@ html, body {
 #mapblock {
   z-index: 1;
 }
+
+*/*********************************
+***********TIMELINE****************
+**********************************/
+
+/*set up size of the whole timeline */
+.timeline{
+	position: relative;
+	margin: 0px auto;
+	width:100%;
+}
+
+/*drawing the line itself */
+.timeline:before{
+	content:'';
+	position:absolute;
+	left:52%;
+	width:1%;
+	height:90%;
+	background-color:#D64E26;
+	z-index:2;
+}
+
+/*styling the size of each step/content */
+.timeline ul li{
+	position:relative;
+	width:50%;
+	padding:5px 35px;
+	background-color: #98FB98;
+	z-index:99;
+}
+
+/*for every odd numbered bullet point, align to the left*/
+.timeline ul li:nth-child(odd){
+	text-align:right;
+	float:left;
+	clear:both; /*each step doesn't overlap the other vertically */
+}
+
+/* for every even numbered bullet point, align to the right */
+.timeline ul li:nth-child(even){
+	text-align:left;
+	float:right;
+	clear:both; /*each step doesn't overlap the other vertically */
+}
+
+/*create circle icon on the timeline from the left (odd) */
+.timeline ul li:before {
+	content:'';
+	position:absolute;
+	width:40px;
+	height:40px;
+	background-color:#F7B88E;
+	border-radius:60%;
+	box-shadow: 0 0 0 6px rgba(251, 229, 214);
+	z-index:1
+}
+
+/*position the circle icons on the timeline
+.timeline ul li:nth-child(even):before{
+	left:-20px;
+}
+.timeline ul li:nth-child(odd):before{
+	right:-20px;
+}*/
+
+/*styling the numbering. Can't position at the moment */
+.timeline ul li:before{
+	font-weight:900;
+	font-size:1.2m;
+	color:white;
+	text-align:center;
+ 	padding-top:2.5%;
+}
+
+.content h3{
+	font-weight:900;
+	color:#D64E26;
+	font-size:1.3em;
+	padding-top: 2.5%;
+}
+
+.content p{
+	padding-top:0;
+	width: 100%;
+	font-size:0.9em;
+	line-height:1.7em;
+	back-groundcolor: grey;
+}
+
 /* assign numbering*/
 .timeline ul li:nth-child(1):before{content:'398';}
 .timeline ul li:nth-child(2):before{content:'391';}
@@ -93,96 +183,6 @@ html, body {
     color : grey;
 }
 
-*/*********************************
-***********TIMELINE****************
-**********************************/
-
-/*set up size of the whole timeline */
-.timeline{
-	position: relative;
-	margin: 0px auto;
-	width:100%;
-
-}
-
-/*drawing the line itself */
-.timeline:before{
-	content:'';
-	position:absolute;
-	left:52%;
-	width:1%;
-	height:90%;
-	background-color:#D64E26;
-	z-index:2;
-}
-
-/*styling the size of each step/content */
-.timeline ul li{
-	position:relative;
-	width:50%;
-	padding:5px 35px;
-	background-color: #98FB98;
-	z-index:99;
-}
-
-/*for every odd numbered bullet point, align to the left*/
-.timeline ul li:nth-child(odd){
-	text-align:right;
-	float:left;
-	clear:both; /*each step doesn't overlap the other vertically */
-}
-
-/* for every even numbered bullet point, align to the right */
-.timeline ul li:nth-child(even){
-	text-align:left;
-	float:right;
-	clear:both; /*each step doesn't overlap the other vertically */
-}
-
-/*create circle icon on the timeline from the left (odd) */
-.timeline ul li:before {
-	content:'';
-	position:absolute;
-	width:40px;
-	height:40px;
-	background-color:#F7B88E;
-	border-radius:60%;
-	box-shadow: 0 0 0 6px rgba(251, 229, 214);
-	z-index:1
-}
-
-/*position the circle icons on the timeline*/
-.timeline ul li:nth-child(even):before{
-	left:-20px;
-}
-
-.timeline ul li:nth-child(odd):before{
-	right:-20px;
-}
-
-/*styling the numbering. Can't position at the moment */
-.timeline ul li:before{
-	font-weight:900;
-	font-size:1.2m;
-	color:white;
-	text-align:center;
- 	padding-top:2.5%;
-}
-
-.content h3{
-	font-weight:900;
-	color:#D64E26;
-	font-size:1.3em;
-	padding-top: 2.5%;
-}
-
-.content p{
-	padding-top:0;
-	width: 100%;
-	font-size:0.9em;
-	line-height:1.7em;
-	back-groundcolor: grey;
-}
 
 
 
