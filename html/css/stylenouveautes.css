@@ -10,6 +10,11 @@ html, body {
 #mapblock {
   z-index: 1;
 }
+/* assign numbering*/
+.timeline ul li:nth-child(1):before{content:'398';}
+.timeline ul li:nth-child(2):before{content:'391';}
+.timeline ul li:nth-child(3):before{content:'385';}
+.timeline ul li:nth-child(4):before{content:'380';}
 
 .max-height-200px {
   max-height: 200px;
@@ -138,13 +143,6 @@ html, body {
 .timeline ul li:nth-child(odd):before{
 	right:-20px;
 }
-
-/* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'398';}
-.timeline ul li:nth-child(2):before{content:'391';}
-.timeline ul li:nth-child(3):before{content:'385';}
-.timeline ul li:nth-child(4):before{content:'380';}
-
 
 /*styling the numbering. Can't position at the moment */
 .timeline ul li:before{
