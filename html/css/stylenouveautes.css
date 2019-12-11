@@ -198,7 +198,7 @@ html, body {
 .timeline:before{
 	content:'';
 	position:absolute;
-	left:15%;
+	left:17%;
 	width:2px;
 	height:100%;
 	background-color:#D64E26;
