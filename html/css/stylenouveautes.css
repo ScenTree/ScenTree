@@ -121,7 +121,7 @@ html, body {
 	line-height:normal;
 	position:relative;
 	width:50%;
-	/*padding:5px 35px;*/
+	padding:5px 5px;
 	background-color: #98FB98;
 	z-index:99;
 }
