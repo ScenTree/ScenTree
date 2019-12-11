@@ -121,7 +121,7 @@ html, body {
 	position:relative;
 	width:90%;
 	padding:5px 35px;
-	background color: Red;
+	background-color: Red;
 }
 
 /*for every odd numbered bullet point, align to the left*/
