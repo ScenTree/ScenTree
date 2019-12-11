@@ -170,98 +170,10 @@ html, body {
 	font-size:0.9em;
 	line-height:1.7em;
 }
-@media  (max-width: 1000px){
-.timeline{
-	width:100%;
-}
-.content h3{
-	font-size:1.8em;
-}
-.content p {
-	font-size:1.2em;
-}
-}
-@media  (max-width: 767px){
-.timeline{
-	width:100%;
-	padding-bottom:0;
-}
-.timeline:before{
-	left:30px;
-}
-.content h3{
-	font-size:1.3em;
-}
-.content p {
-	font-size:0.9em;
-}
-.timeline:before{
-	content:'';
-	position:absolute;
-	left:16.5%;
-	width:2px;
-	height:100%;
-	background-color:#D64E26;
-}
-.timeline li:nth-child(even), .timeline li:nth-child(odd) {
-	width:100%;
-}
-.timeline ul li{
-	line-height:normal;
-	position:relative;
-	width:50%;
-	padding:0px 35px;
-}
-.content {
-	top:20px;
-	text-align:left;
-	padding-left:50px;
-	padding-bottom:50px;
-}
-.timeline ul li:nth-child(odd):before, 	.timeline ul li:nth-child(even):before{
-	left:14px;
-}
-}
 
 
 
 
-
-
-
-@media screen and (max-width: 767px) {
-.font-italic-before-md {
-  font-style: italic;
-}
-.text-center-before-md {
-  text-align: center;
-}
-}
-
-@media screen and (min-width: 768px) {
-.text-align-left-strictly-after-md {
-  text-align: left;
-}
-.text-align-right-strictly-after-md {
-  text-align: right;
-}
-}
-
-
-/*#########################
-#######PAGE ENTIERE########
-#########################*/
-@media screen and (max-width: 767px) {
-.PageEntiere {
-    background-color: white;
-    padding-top: 60px;
-}
-}
-@media screen and (min-width: 768px) {
-.PageEntiere {
-    background-color: white;
-}
-}
 
 /*#########################
 ###########MAP#############
@@ -968,6 +880,45 @@ h1 {
 .blockdonnees {
     width: 55%;
 }
+	
+/*TIMELINE*/
+	
+.timeline{
+	width:100%;
+	padding-bottom:0;
+}
+.timeline:before{
+	left:30px;
+}
+.content h3{
+	font-size:1.3em;
+}
+.content p {
+	font-size:0.9em;
+}
+.timeline:before{
+	content:'';
+	position:absolute;
+	left:16.5%;
+	width:2px;
+	height:100%;
+	background-color:#D64E26;
+}
+.timeline li:nth-child(even), .timeline li:nth-child(odd) {
+	width:100%;
+}
+.timeline ul li{
+	line-height:normal;
+	position:relative;
+	width:50%;
+	padding:0px 35px;
+}
+.content {
+	top:20px;
+	text-align:left;
+	padding-left:50px;
+	padding-bottom:50px;
+}
 }
 
 @media screen and (max-width: 768px) {
@@ -1007,8 +958,45 @@ h1 {
     font-size:x-small;
     margin-bottom: 0;
     text-align: justify;
-
-
+}
+.timeline{
+	width:100%;
+	padding-bottom:0;
+}
+.timeline:before{
+	left:30px;
+}
+.content h3{
+	font-size:1.3em;
+}
+.content p {
+	font-size:0.9em;
+}
+.timeline:before{
+	content:'';
+	position:absolute;
+	left:16.5%;
+	width:2px;
+	height:100%;
+	background-color:#D64E26;
+}
+.timeline li:nth-child(even), .timeline li:nth-child(odd) {
+	width:100%;
+}
+.timeline ul li{
+	line-height:normal;
+	position:relative;
+	width:50%;
+	padding:0px 35px;
+}
+.content {
+	top:20px;
+	text-align:left;
+	padding-left:50px;
+	padding-bottom:50px;
+}
+.timeline ul li:nth-child(odd):before, 	.timeline ul li:nth-child(even):before{
+	left:14px;
 }
 }
 
@@ -1049,4 +1037,37 @@ p.#you_can_zoom {
     display: inline-block;
     max-width: 10px;
     max-height: 10px;
+}
+@media screen and (max-width: 767px) {
+.font-italic-before-md {
+  font-style: italic;
+}
+.text-center-before-md {
+  text-align: center;
+}
+}
+
+@media screen and (min-width: 768px) {
+.text-align-left-strictly-after-md {
+  text-align: left;
+}
+.text-align-right-strictly-after-md {
+  text-align: right;
+}
+}
+
+
+/*#########################
+#######PAGE ENTIERE########
+#########################*/
+@media screen and (max-width: 767px) {
+.PageEntiere {
+    background-color: white;
+    padding-top: 60px;
+}
+}
+@media screen and (min-width: 768px) {
+.PageEntiere {
+    background-color: white;
+}
 }
