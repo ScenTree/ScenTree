@@ -102,7 +102,7 @@ html, body {
 	position: relative;
 	margin: 0px auto;
 	width:100%;
-	padding:0px 0;
+
 }
 
 /*drawing the line itself */
@@ -110,8 +110,8 @@ html, body {
 	content:'';
 	position:absolute;
 	left:52.5%;
-	width:2px;
-	height:100%;
+	width:2%;
+	height:90%;
 	background-color:#D64E26;
 }
 
@@ -121,7 +121,7 @@ html, body {
 	position:relative;
 	width:50%;
 	padding:5px 35px;
-	background-color: Red;
+	background-color: grey;
 }
 
 /*for every odd numbered bullet point, align to the left*/
