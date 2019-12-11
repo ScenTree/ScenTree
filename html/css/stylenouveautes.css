@@ -206,6 +206,12 @@ html, body {
 .timeline li:nth-child(even), .timeline li:nth-child(odd) {
 	width:100%;
 }
+.timeline ul li{
+	line-height:normal;
+	position:relative;
+	width:50%;
+	padding:0px 35px;
+}
 .content {
 	top:20px;
 	text-align:left;
