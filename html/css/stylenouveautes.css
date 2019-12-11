@@ -84,6 +84,11 @@ html, body {
 .text-my-grey {
     color : grey;
 }
+
+*/*********************************
+***********TIMELINE****************
+**********************************/
+
 /*set up size of the whole timeline */
 .timeline{
 	position: relative;
@@ -166,37 +171,49 @@ html, body {
 	line-height:1.7em;
 }
 @media  (max-width: 1000px){
-	.timeline{
+.timeline{
 	width:100%;
-	}
-	.content h3{
-		font-size:1.8em;
-	}
-	.content p {
-		font-size:1.2em;
-	}
+}
+.content h3{
+	font-size:1.8em;
+}
+.content p {
+	font-size:1.2em;
+}
 }
 @media  (max-width: 767px){
-	.timeline{
-		width:100%;
-		padding-bottom:0;
-	}
-	.timeline:before{
-		left:30px;
-	}
-	.timeline li:nth-child(even), .timeline li:nth-child(odd) {
-		width:100%;
-	}
-	.content {
-		top:20px;
-		text-align:left;
-		padding-left:50px;
-		padding-bottom:50px;
-	}
-	.timeline ul li:nth-child(odd):before, 	.timeline ul li:nth-child(even):before{
-		left:14px;
-	}
+.timeline{
+	width:100%;
+	padding-bottom:0;
 }
+.timeline:before{
+	left:30px;
+}
+.content h3{
+	font-size:1.3em;
+}
+.content p {
+	font-size:0.7em;
+}
+.timeline li:nth-child(even), .timeline li:nth-child(odd) {
+	width:100%;
+}
+.content {
+	top:20px;
+	text-align:left;
+	padding-left:50px;
+	padding-bottom:50px;
+}
+.timeline ul li:nth-child(odd):before, 	.timeline ul li:nth-child(even):before{
+	left:14px;
+}
+}
+
+
+
+
+
+
 
 @media screen and (max-width: 767px) {
 .font-italic-before-md {
