@@ -163,6 +163,8 @@ html, body {
 }
 
 .content p{
+	padding-top:0;
+	background-color:blue;
 	font-size:14px;
 	line-height:1.7em;
 }
