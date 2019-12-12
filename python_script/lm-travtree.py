@@ -11,30 +11,76 @@ import numpy as np
 from ete3 import Tree
 import psycopg2 ##for postgresql connection
 
-MY_SCENTREE_ENVIRONMENT = os.environ.get('MY_SCENTREE_ENVIRONMENT', "dev")
+PLEASE_QUIT = False
+THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT = ("dev", "prod", "prod2")
+if len(sys.argv) == 3:
+    MY_SCENTREE_ENVIRONMENT = sys.argv[1]
+    THE_PATH_OF_THE_BDD_FOLDER = sys.argv[2]
+    if MY_SCENTREE_ENVIRONMENT not in THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT:
+        print("MY_SCENTREE_ENVIRONMENT not in THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT = ", MY_SCENTREE_ENVIRONMENT, "not in", THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT)
+        PLEASE_QUIT = True
+else:
+    print("There should be 2 arguments, but only %s argument(s) detected" % (len(sys.argv) -1))
+    PLEASE_QUIT = True
+
+if "THE_SECRET_PSWRD" not in os.environ:
+    print("The environment variable 'THE_SECRET_PSWRD' must be set")
+    PLEASE_QUIT = True
+
+if not PLEASE_QUIT and not os.path.isdir(THE_PATH_OF_THE_BDD_FOLDER):
+    print("THE_PATH_OF_THE_BDD_FOLDER", THE_PATH_OF_THE_BDD_FOLDER, " does not exists or is not a folder")
+    PLEASE_QUIT = True
+
+
+if PLEASE_QUIT:
+    sys.exit(1)
+
+print("arguments are corrects, MY_SCENTREE_ENVIRONMENT = ", MY_SCENTREE_ENVIRONMENT, "and THE_PATH_OF_THE_BDD_FOLDER = ", THE_PATH_OF_THE_BDD_FOLDER)
+
+
 if MY_SCENTREE_ENVIRONMENT == "prod":
     THE_NAME_OF_THE_DATABASE = "gis"
-    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/prod_BDD/BDD/"
 elif MY_SCENTREE_ENVIRONMENT == "prod2":
     THE_NAME_OF_THE_DATABASE = "prod2_gis"
-    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/prod2_BDD/BDD/"
 else:
     THE_NAME_OF_THE_DATABASE = "dev_gis"
-    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/dev_BDD/BDD/"
 
 THE_USER_OF_THE_DATABASE = "maxime"
 THE_SECRET_PSWRD = os.environ.get('THE_SECRET_PSWRD')
 THE_URL_TO_THE_DATABASE = "localhost"
 
 
-THE_PATH_OF_THE_TRE_FILE = THE_PATH_OF_THE_BDD_FOLDER + "tree.tre"
-THE_PATH_OF_THE_CSV_FR_FILE = THE_PATH_OF_THE_BDD_FOLDER + "csv_FR.csv"
-THE_PATH_OF_THE_CSV_EN_FILE = THE_PATH_OF_THE_BDD_FOLDER + "csv_EN.csv"
-THE_PATH_OF_THE_LOG_FILE = THE_PATH_OF_THE_BDD_FOLDER + "result.json"
+THE_PATH_OF_THE_TRE_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "tree.tre"
+THE_PATH_OF_THE_CSV_FR_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "csv_FR.csv"
+THE_PATH_OF_THE_CSV_EN_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "csv_EN.csv"
+THE_PATH_OF_THE_LOG_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "result.json"
  # JSON files to populate solr database (taxoEN and taxoFR)
-THE_PATH_OF_THE_EN_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "TreeFeaturesNEW_EN.json"
-THE_PATH_OF_THE_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "TreeFeaturesNEW_FR.json"
-THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "TreeFeaturesNEW_EN_and_FR.json"
+THE_PATH_OF_THE_EN_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_EN.json"
+THE_PATH_OF_THE_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_FR.json"
+THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_EN_and_FR.json"
+
+if not os.path.isfile(THE_PATH_OF_THE_TRE_FILE):
+    print("The tree.tre file is not there, I've looked in : ", THE_PATH_OF_THE_TRE_FILE)
+    PLEASE_QUIT = True
+if not os.path.isfile(THE_PATH_OF_THE_CSV_FR_FILE):
+    print("The csv_FR.csv file is not there, I've looked in : ", THE_PATH_OF_THE_CSV_FR_FILE)
+    PLEASE_QUIT = True
+if not os.path.isfile(THE_PATH_OF_THE_CSV_EN_FILE):
+    print("The csv_EN.csv file is not there, I've looked in : ", THE_PATH_OF_THE_CSV_EN_FILE)
+    PLEASE_QUIT = True
+
+if PLEASE_QUIT:
+    sys.exit(1)
+
+
+print("The tree.tre file = ", THE_PATH_OF_THE_TRE_FILE)
+print("The csv_FR.csv file = ", THE_PATH_OF_THE_CSV_FR_FILE)
+print("The csv_EN.csv file = ", THE_PATH_OF_THE_CSV_EN_FILE)
+
+
+
+# end of the introduction
+# start of the main part
 
 
 prg = open(THE_PATH_OF_THE_LOG_FILE, "w"); ##this will contain the progress made by the code.
