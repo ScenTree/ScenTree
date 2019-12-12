@@ -1,10 +1,16 @@
 #!/bin/sh 
 
 THE_SECRET_DATA_FOLDER="$1"
+THE_SOLR_CORES_PREFIX="$2"
 
-THE_EN_SOLR_CORE="dev_taxoEN"
-THE_FR_SOLR_CORE="dev_taxoFR"
-THE_EN_and_FR_SOLR_CORE="dev_taxoENandFR"
+if [ "$THE_SOLR_CORES_PREFIX" != "" ]
+then
+	THE_SOLR_CORES_PREFIX="${THE_SOLR_CORES_PREFIX}_"
+fi	
+
+THE_EN_SOLR_CORE="${THE_SOLR_CORES_PREFIX}taxoEN"
+THE_FR_SOLR_CORE="${THE_SOLR_CORES_PREFIX}taxoFR"
+THE_EN_and_FR_SOLR_CORE="${THE_SOLR_CORES_PREFIX}taxoENandFR"
 
 THE_JSON_DATA__EN="$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN.json"
 THE_JSON_DATA__FR="$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_FR.json"
@@ -12,6 +18,13 @@ THE_JSON_DATA__EN_and_FR="$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN_and_FR.json
 
 THE_SOLR_PATH="/home/scentree/src/solr-8.1.1"
 THE_SOLR_SERVER_PATH="$THE_SOLR_PATH/server/solr"
+
+
+echo "The secret folder : "
+ls -l "$THE_SECRET_DATA_FOLDER"
+echo ""
+echo "The solr cores = '$THE_EN_SOLR_CORE' ; '$THE_FR_SOLR_CORE' ; '$THE_EN_and_FR_SOLR_CORE'"
+echo "-------------------------------------------------"
 
 
 does_the_folder_exist () {
