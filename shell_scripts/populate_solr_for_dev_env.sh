@@ -40,9 +40,9 @@ does_the_file_exist "$THE_JSON_DATA__EN_and_FR" "THE_JSON_DATA__EN_and_FR"
 
 
 # does the cores exists ?
-does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_EN_SOLR_CORE"
-does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_FR_SOLR_CORE"
-does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_EN_and_FR_SOLR_CORE"
+does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_EN_SOLR_CORE" "the EN solr core"
+does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_FR_SOLR_CORE" "the FR solr core"
+does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_EN_and_FR_SOLR_CORE" "the EN and FR solr core"
 
 
 
