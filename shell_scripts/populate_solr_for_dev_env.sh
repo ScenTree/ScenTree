@@ -1,10 +1,6 @@
 #!/bin/sh 
 
-THE_CURRENT_PATH=$(dirname $(readlink -f $0))
-
-THE_DEV_PATH=/home/maxime/dev_BDD
-THE_TARGET_PATH="$THE_DEV_PATH"
-THE_SECRET_DATA_FOLDER="$THE_TARGET_PATH/BDD"
+THE_SECRET_DATA_FOLDER="$1"
 
 THE_EN_SOLR_CORE="dev_taxoEN"
 THE_FR_SOLR_CORE="dev_taxoFR"
@@ -33,7 +29,6 @@ does_the_file_exist () {
         fi
 }
 
-does_the_folder_exist "$THE_TARGET_PATH" "THE_TARGET_PATH"
 does_the_folder_exist "$THE_SECRET_DATA_FOLDER" "THE_SECRET_DATA_FOLDER":
 
 does_the_folder_exist "$THE_SOLR_PATH" "THE_SOLR_PATH"
@@ -42,6 +37,13 @@ does_the_folder_exist "$THE_SOLR_SERVER_PATH" "THE_SOLR_SERVER_PATH"
 does_the_file_exist "$THE_JSON_DATA__EN" "THE_JSON_DATA__EN"
 does_the_file_exist "$THE_JSON_DATA__FR" "THE_JSON_DATA__FR"
 does_the_file_exist "$THE_JSON_DATA__EN_and_FR" "THE_JSON_DATA__EN_and_FR"
+
+
+# does the cores exists ?
+does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_EN_SOLR_CORE"
+does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_FR_SOLR_CORE"
+does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_EN_and_FR_SOLR_CORE"
+
 
 
 if [ ! -z "$ABORT_PLEASE" ]
