@@ -85,6 +85,6 @@ then
 	exit 1;
 fi
 
-echo "scentree user part (populate solr for the dev env) : done :-)"
+echo "scentree user part (populate solr for the '$THE_SOLR_CORES_PREFIX' env) : done :-)"
 exit 0;
 
