@@ -20,7 +20,7 @@ if len(sys.argv) == 3:
         print("MY_SCENTREE_ENVIRONMENT not in THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT = ", MY_SCENTREE_ENVIRONMENT, "not in", THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT)
         PLEASE_QUIT = True
 else:
-    print("There should be 2 arguments, but only %s argument(s) detected" % (len(sys.argv) -1))
+    print("There should be 2 arguments (scentree environment = ", THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT, ", then the path of the folder containing .tre, and two .csv), but only %s argument(s) detected" % (len(sys.argv) -1))
     PLEASE_QUIT = True
 
 if "THE_SECRET_PSWRD" not in os.environ:
