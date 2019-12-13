@@ -245,7 +245,9 @@ html, body {
 ##################################################*/
 .logomenu:hover{
     transform: scale(1.1);
-    size: 50%;
+}
+.logomenu {
+  max-height: 60px;
 }
 @media screen and (max-width: 767px) {
 .logomenu{
