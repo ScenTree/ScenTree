@@ -246,9 +246,7 @@ html, body {
 .logomenu:hover{
     transform: scale(1.1);
 }
-.logo-image{
-  background-color: blue;
-}
+
 @media screen and (max-width: 767px) {
 .logomenu{
     max-height: 40px;
