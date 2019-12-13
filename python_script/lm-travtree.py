@@ -296,6 +296,13 @@ def create_an_opened_json_file(the_path_of_the_json_file):
     json.write("[\n");
     return json
 
+def compute_the_webpage_adress(the_scentree_object):
+    """
+    compute_the_html_name : function (the_object) {   // bilingual name
+             return the_object["from_csv EN Nom"].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("[\\s\/]", "gi"), "_");
+    """
+    return "../ingredients/%s__%s.html" % (getNodeNameForTheJSON(the_scentree_object, 'EN').replace(" ", "_").replace("/", "_"), getNodeNameForTheJSON(the_scentree_object, 'FR').replace(" ", "_").replace("/", "_"))
+
 def do_inter_links(the_text, the_current_scentree_object, the_language_in_two_chars, the_nodes):
     #print("do_inter_links, ", the_text, the_current_scentree_object)
     for a_node in sorted(the_nodes, key = lambda n : len(getNodeNameForTheJSON(n, the_language_in_two_chars)), reverse=True):
@@ -304,7 +311,7 @@ def do_inter_links(the_text, the_current_scentree_object, the_language_in_two_ch
         #print("replacing = ", getNodeNameForTheJSON(a_node, the_language_in_two_chars))
         the_node_name = getNodeNameForTheJSON(a_node, the_language_in_two_chars)
         the_text_to_be_replaced = the_node_name
-        the_text_to_replace_with = "<a class='interpop' href='#'>%s</a>" % the_node_name
+        the_text_to_replace_with = "<a class='interpop' href='%s'>%s</a>" % (compute_the_webpage_adress(a_node), the_node_name)
         
         p = re.compile(r'\b(%s)\b' % the_text_to_be_replaced, flags=re.IGNORECASE)
         the_text = p.sub(the_text_to_replace_with, the_text,)
