@@ -10,6 +10,7 @@ import time
 import numpy as np
 from ete3 import Tree
 import psycopg2 ##for postgresql connection
+import re
 
 PLEASE_QUIT = False
 THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT = ("dev", "prod", "prod2")
@@ -301,12 +302,16 @@ def do_inter_links(the_text, the_current_scentree_object, the_language_in_two_ch
         if not hasattr(a_node, "the_properties_from_the_csv") or not bool(a_node.the_properties_from_the_csv) or a_node == the_current_scentree_object or len( str(a_node.the_properties_from_the_csv['id'][the_language_in_two_chars]) ) != 5: # is not an ingredient
             continue
         #print("replacing = ", getNodeNameForTheJSON(a_node, the_language_in_two_chars))
-        the_text = the_text.replace(getNodeNameForTheJSON(a_node, the_language_in_two_chars), "<a href='#'>%s</a>" % getNodeNameForTheJSON(a_node, the_language_in_two_chars)) 
+        the_node_name = getNodeNameForTheJSON(a_node, the_language_in_two_chars)
+        the_text_to_be_replaced = the_node_name
+        the_text_to_replace_with = "<a class='interpop' href='#'>%s</a>" % the_node_name
+        
+        p = re.compile(r'\b(%s)\b' % the_text_to_be_replaced, flags=re.IGNORECASE)
+        the_text = p.sub(the_text_to_replace_with, the_text,)
     return the_text
 
 def writejsonNode(the_json, node, the_language_in_two_chars, the_nodes):
     sci_name = getNodeNameForTheJSON(node, 'FR')
-    print(sci_name)
     if bool(sci_name):
         the_json.write("  {\n")
         the_json.write("    \"id\":\"%d\",\n" % (node.id))
@@ -320,12 +325,13 @@ def writejsonNode(the_json, node, the_language_in_two_chars, the_nodes):
         if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value[the_language_in_two_chars]):
-                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, do_inter_links(a_value[the_language_in_two_chars].replace("\n", "\\n"), node, the_language_in_two_chars, the_nodes)))
+                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, do_inter_links(a_value[the_language_in_two_chars], node, the_language_in_two_chars, the_nodes).replace("\n", "\\n")))
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
         the_json.write("  },\n")
 
 def writejsonNodeBothLanguages(the_json, node, the_nodes):
     sci_name = getNodeNameForTheJSON(node, 'FR')
+    print(sci_name)
     if bool(sci_name):
         the_json.write("  {\n")
         the_json.write("    \"id\":\"%d\",\n" % (node.id))
@@ -339,11 +345,11 @@ def writejsonNodeBothLanguages(the_json, node, the_nodes):
         if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value['EN']):
-                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, do_inter_links(a_value['EN'].replace("\n", "\\n"), node, "EN", the_nodes)))
+                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, do_inter_links(a_value['EN'], node, "EN", the_nodes).replace("\n", "\\n")))
         if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value['FR']):
-                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, do_inter_links(a_value['FR'].replace("\n", "\\n"), node, "FR", the_nodes)))
+                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, do_inter_links(a_value['FR'], node, "FR", the_nodes).replace("\n", "\\n")))
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
         the_json.write("  },\n")
 
