@@ -11,6 +11,10 @@ html, body {
   z-index: 1;
 }
 
+.notif {
+  vertical-align: super;
+  font-size: large;
+}
 
 .max-height-200px {
   max-height: 200px;
