@@ -10,11 +10,13 @@ html, body {
 #mapblock {
   z-index: 1;
 }
-
+.fab {
+  font-size: 150%;
+  color: black;
+}
 .notif {
   position:absolute;
-  top:23%;
-  left:78%;
+  top:20%;
   font-size: large;
   color: red;
 
