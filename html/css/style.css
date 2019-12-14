@@ -14,6 +14,7 @@ html, body {
 .notif {
   position:absolute;
   top:23%;
+  left:2%;
   font-size: large;
   color: red;
 
