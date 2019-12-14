@@ -11,8 +11,8 @@ html, body {
   z-index: 1;
 }
 .fab {
-  font-size: 150%;
-  color: black;
+  font-size: 120%;
+  color: #494747;
 }
 .notif {
   position:absolute;
