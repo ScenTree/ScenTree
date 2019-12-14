@@ -12,8 +12,9 @@ html, body {
 }
 
 .notif {
-  vertical-align: super;
+  vertical-align: top;
   font-size: large;
+  color: red;
 }
 
 .max-height-200px {
