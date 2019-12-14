@@ -12,9 +12,11 @@ html, body {
 }
 
 .notif {
-  margin-top:20px;
+  position:absolute;
+  top:20%;
   font-size: large;
   color: red;
+
 }
 
 .max-height-200px {
