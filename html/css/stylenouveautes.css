@@ -70,8 +70,8 @@ html, body {
 .timeline ul li{
   list-style: none;
   position:relative;
-  width:60%;
-  padding:5px;
+  width:50%;
+  padding:5px 35px;
   background-color: green;
 }
 
