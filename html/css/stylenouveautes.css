@@ -213,7 +213,7 @@ h1 {
   font-size: 14px;
   font-weight: bold;
 }
-/*drawing the line itself OK */
+/*drawing the line itself */
 .timeline:before{
   content:'';
   position:absolute;
@@ -233,11 +233,11 @@ h1 {
 
 /*for every odd numbered bullet point, align to the left OK*/
 .timeline ul li:nth-child(odd){
-  text-align:right;
-  float:left;
+  text-align:left;
+  float:right;
   clear:both;
   right: 8%;
-  width: 55.5%;
+  width: 100%;
 }
 
 /* for every even numbered bullet point, align to the right OK*/
@@ -246,7 +246,7 @@ h1 {
   float:right;
   clear:both;
   left: 2%;
-  width: 54.5%;
+  width: 100%;
 }
 
 /*create circle icon on the timeline from the left (odd) OK */
