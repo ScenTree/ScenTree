@@ -10,31 +10,78 @@ import time
 import numpy as np
 from ete3 import Tree
 import psycopg2 ##for postgresql connection
+import re
 
-MY_SCENTREE_ENVIRONMENT = os.environ.get('MY_SCENTREE_ENVIRONMENT', "dev")
+PLEASE_QUIT = False
+THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT = ("dev", "prod", "prod2")
+if len(sys.argv) == 3:
+    MY_SCENTREE_ENVIRONMENT = sys.argv[1]
+    THE_PATH_OF_THE_BDD_FOLDER = sys.argv[2]
+    if MY_SCENTREE_ENVIRONMENT not in THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT:
+        print("MY_SCENTREE_ENVIRONMENT not in THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT = ", MY_SCENTREE_ENVIRONMENT, "not in", THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT)
+        PLEASE_QUIT = True
+else:
+    print("There should be 2 arguments (scentree environment = ", THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT, ", then the path of the folder containing .tre, and two .csv), but only %s argument(s) detected" % (len(sys.argv) -1))
+    PLEASE_QUIT = True
+
+if "THE_SECRET_PSWRD" not in os.environ:
+    print("The environment variable 'THE_SECRET_PSWRD' must be set")
+    PLEASE_QUIT = True
+
+if not PLEASE_QUIT and not os.path.isdir(THE_PATH_OF_THE_BDD_FOLDER):
+    print("THE_PATH_OF_THE_BDD_FOLDER", THE_PATH_OF_THE_BDD_FOLDER, " does not exists or is not a folder")
+    PLEASE_QUIT = True
+
+
+if PLEASE_QUIT:
+    sys.exit(1)
+
+print("arguments are corrects, MY_SCENTREE_ENVIRONMENT = ", MY_SCENTREE_ENVIRONMENT, "and THE_PATH_OF_THE_BDD_FOLDER = ", THE_PATH_OF_THE_BDD_FOLDER)
+
+
 if MY_SCENTREE_ENVIRONMENT == "prod":
     THE_NAME_OF_THE_DATABASE = "gis"
-    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/prod_BDD/BDD/"
 elif MY_SCENTREE_ENVIRONMENT == "prod2":
     THE_NAME_OF_THE_DATABASE = "prod2_gis"
-    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/prod2_BDD/BDD/"
 else:
     THE_NAME_OF_THE_DATABASE = "dev_gis"
-    THE_PATH_OF_THE_BDD_FOLDER = "/home/maxime/dev_BDD/BDD/"
 
 THE_USER_OF_THE_DATABASE = "maxime"
 THE_SECRET_PSWRD = os.environ.get('THE_SECRET_PSWRD')
 THE_URL_TO_THE_DATABASE = "localhost"
 
 
-THE_PATH_OF_THE_TRE_FILE = THE_PATH_OF_THE_BDD_FOLDER + "tree.tre"
-THE_PATH_OF_THE_CSV_FR_FILE = THE_PATH_OF_THE_BDD_FOLDER + "csv_FR.csv"
-THE_PATH_OF_THE_CSV_EN_FILE = THE_PATH_OF_THE_BDD_FOLDER + "csv_EN.csv"
-THE_PATH_OF_THE_LOG_FILE = THE_PATH_OF_THE_BDD_FOLDER + "result.json"
+THE_PATH_OF_THE_TRE_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "tree.tre"
+THE_PATH_OF_THE_CSV_FR_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "csv_FR.csv"
+THE_PATH_OF_THE_CSV_EN_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "csv_EN.csv"
+THE_PATH_OF_THE_LOG_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "result.json"
  # JSON files to populate solr database (taxoEN and taxoFR)
-THE_PATH_OF_THE_EN_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "TreeFeaturesNEW_EN.json"
-THE_PATH_OF_THE_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "TreeFeaturesNEW_FR.json"
-THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "TreeFeaturesNEW_EN_and_FR.json"
+THE_PATH_OF_THE_EN_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_EN.json"
+THE_PATH_OF_THE_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_FR.json"
+THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_EN_and_FR.json"
+
+if not os.path.isfile(THE_PATH_OF_THE_TRE_FILE):
+    print("The tree.tre file is not there, I've looked in : ", THE_PATH_OF_THE_TRE_FILE)
+    PLEASE_QUIT = True
+if not os.path.isfile(THE_PATH_OF_THE_CSV_FR_FILE):
+    print("The csv_FR.csv file is not there, I've looked in : ", THE_PATH_OF_THE_CSV_FR_FILE)
+    PLEASE_QUIT = True
+if not os.path.isfile(THE_PATH_OF_THE_CSV_EN_FILE):
+    print("The csv_EN.csv file is not there, I've looked in : ", THE_PATH_OF_THE_CSV_EN_FILE)
+    PLEASE_QUIT = True
+
+if PLEASE_QUIT:
+    sys.exit(1)
+
+
+print("The tree.tre file = ", THE_PATH_OF_THE_TRE_FILE)
+print("The csv_FR.csv file = ", THE_PATH_OF_THE_CSV_FR_FILE)
+print("The csv_EN.csv file = ", THE_PATH_OF_THE_CSV_EN_FILE)
+
+
+
+# end of the introduction
+# start of the main part
 
 
 prg = open(THE_PATH_OF_THE_LOG_FILE, "w"); ##this will contain the progress made by the code.
@@ -249,7 +296,29 @@ def create_an_opened_json_file(the_path_of_the_json_file):
     json.write("[\n");
     return json
 
-def writejsonNode(the_json, node, the_language_in_two_chars):
+def compute_the_webpage_adress(the_scentree_object):
+    """
+    compute_the_html_name : function (the_object) {   // bilingual name
+             return the_object["from_csv EN Nom"].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("[\\s\/]", "gi"), "_");
+    """
+    return "../ingredients/%s__%s.html" % (getNodeNameForTheJSON(the_scentree_object, 'EN').replace(" ", "_").replace("/", "_"), getNodeNameForTheJSON(the_scentree_object, 'FR').replace(" ", "_").replace("/", "_"))
+
+def do_inter_links(the_key, the_text, the_current_scentree_object, the_language_in_two_chars, the_nodes):
+    if the_key not in ("Origine geographique, Extractions, Utilisation, Allergenes, composantsmajoritaires, autresremarques, Stabilite, chemotype, medecine, Precurseurs, Isomerie, Presencenat"):
+        return the_text
+    for a_node in sorted(the_nodes, key = lambda n : len(getNodeNameForTheJSON(n, the_language_in_two_chars)), reverse=True):
+        if not hasattr(a_node, "the_properties_from_the_csv") or not bool(a_node.the_properties_from_the_csv) or a_node == the_current_scentree_object or len( str(a_node.the_properties_from_the_csv['id'][the_language_in_two_chars]) ) != 5: # is not an ingredient
+            continue
+        #print("replacing = ", getNodeNameForTheJSON(a_node, the_language_in_two_chars))
+        the_node_name = getNodeNameForTheJSON(a_node, the_language_in_two_chars)
+        the_text_to_be_replaced = the_node_name
+        the_text_to_replace_with = "<a class='interpop' href='%s'>%s</a>" % (compute_the_webpage_adress(a_node), the_node_name)
+        
+        p = re.compile(r'\b(%s)\b' % the_text_to_be_replaced, flags=re.IGNORECASE)
+        the_text = p.sub(the_text_to_replace_with, the_text,)
+    return the_text
+
+def writejsonNode(the_json, node, the_language_in_two_chars, the_nodes):
     sci_name = getNodeNameForTheJSON(node, 'FR')
     if bool(sci_name):
         the_json.write("  {\n")
@@ -261,17 +330,16 @@ def writejsonNode(the_json, node, the_language_in_two_chars):
         the_json.write("    \"lat\": \"%.20f\",\n" % (node.y))
         if len( str(node.the_properties_from_the_csv['id'][the_language_in_two_chars]) ) == 5:
             the_json.write("    \"ingredient\": \"%s\",\n" % ("yes"))
-        try:
+        if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value[the_language_in_two_chars]):
-                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, a_value[the_language_in_two_chars].replace("\n", "\\n")))
-        except AttributeError:
-            pass
+                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, do_inter_links(a_key, a_value[the_language_in_two_chars], node, the_language_in_two_chars, the_nodes).replace("\n", "\\n")))
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
         the_json.write("  },\n")
 
-def writejsonNodeBothLanguages(the_json, node):
+def writejsonNodeBothLanguages(the_json, node, the_nodes):
     sci_name = getNodeNameForTheJSON(node, 'FR')
+    print(sci_name)
     if bool(sci_name):
         the_json.write("  {\n")
         the_json.write("    \"id\":\"%d\",\n" % (node.id))
@@ -282,18 +350,14 @@ def writejsonNodeBothLanguages(the_json, node):
         the_json.write("    \"lat\": \"%.20f\",\n" % (node.y))
         if len( str(node.the_properties_from_the_csv['id']['FR']) ) == 5:
             the_json.write("    \"ingredient\": \"%s\",\n" % ("yes"))
-        try:
+        if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value['EN']):
-                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, a_value['EN'].replace("\n", "\\n")))
-        except AttributeError:
-            pass
-        try:
+                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, do_inter_links(a_key, a_value['EN'], node, "EN", the_nodes).replace("\n", "\\n")))
+        if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value['FR']):
-                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, a_value['FR'].replace("\n", "\\n")))
-        except AttributeError:
-            pass        
+                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, do_inter_links(a_key, a_value['FR'], node, "FR", the_nodes).replace("\n", "\\n")))
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
         the_json.write("  },\n")
 
@@ -361,7 +425,8 @@ for n in t.traverse():
 
 
 ##LAST LOOP TO write coords of polygs and JSON file
-for n in t.traverse():
+the_nodes = list(t.traverse())
+for n in the_nodes:
     #save all trees to disk
 #    out="../out/trees/a.tre";
 #    n.write(outfile=out);
@@ -373,12 +438,12 @@ for n in t.traverse():
         indexes = np.linspace(ndid + 1,ndid+63,num=63)
         writeosmpolyg(n, indexes)
         ndid = ndid+63
-    try:
-        writejsonNode(the_opened_json_EN_file, n, 'EN')
-        writejsonNode(the_opened_json_FR_file, n, 'FR')
-        writejsonNodeBothLanguages(the_opened_json_EN_and_FR_file, n)
-    except KeyError:
-        pass
+    #try:
+    writejsonNode(the_opened_json_EN_file, n, 'EN', the_nodes)
+    writejsonNode(the_opened_json_FR_file, n, 'FR', the_nodes)
+    writejsonNodeBothLanguages(the_opened_json_EN_and_FR_file, n, the_nodes)
+    #except KeyError:
+    #    pass
 
 
 the_opened_json_EN_file.close()
