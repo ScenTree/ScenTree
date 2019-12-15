@@ -234,9 +234,7 @@ h1 {
 /*for every odd numbered bullet point, align to the left OK*/
 .timeline ul li:nth-child(odd){
   text-align:left;
-  float:right;
   clear:both;
-  right: 8%;
   width: 100%;
   background-color: pink;
 }
