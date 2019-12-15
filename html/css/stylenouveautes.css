@@ -263,7 +263,7 @@ h1 {
   z-index:1
 }
 
-/*position the circle icons on the timeline OK*/
+/*position the circle icons on the timeline OK
 .timeline ul li:nth-child(even):before{
   left:-20px;
 }
