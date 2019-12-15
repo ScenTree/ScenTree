@@ -48,6 +48,7 @@ html, body {
   position: relative;
   margin: 0px auto;
   width:100%;
+  background-color: grey;
 }
 /*Style du texte sous la date OK*/
 .ajoutMP{
