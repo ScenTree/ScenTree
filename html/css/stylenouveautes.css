@@ -3,7 +3,7 @@ html, body {
 }
 
 
-*/*********************************
+/**********************************
 ***********TIMELINE****************
 **********************************/
 
@@ -109,118 +109,13 @@ html, body {
 .timeline ul li:nth-child(11):before{content:'365';}
 .timeline ul li:nth-child(12):before{content:'365';}
 
-.max-height-200px {
-  max-height: 200px;
-}
-
-.max-height-100px {
-  max-height: 100px;
-}
-
-.max-height-70px {
-  max-height: 70px;
-}
-
-.max-height-30px {
-  max-height: 30px;
-}
-
-.max-height-25px {
-  max-height: 25px;
-}
-
-.max-height-20px {
-  max-height: 20px;
-}
-.max-height-15px {
-  max-height: 15px;
-}
-.max-height-10px {
-  max-height: 10px;
-}
-
-.text-underline {
-  text-decoration: underline;
-}
-
-.scrollbar-inside {
-  overflow-y: auto;
-  max-height: calc(110vh - 320px);
-}
-
 .scrollbar-inside2 {
   overflow-y: auto;
   max-height: calc(125vh - 320px);
 }
 
-.text-size-20px {
-  font-size: 20px;
-}
-.text-size-18px {
-  font-size: 18px;
-}
-.text-size-16px {
-  font-size: 16px;
-}
 .text-size-14px {
   font-size: 14px;
-}
-.text-size-11px {
-  font-size: 11px;
-}
-
-.text-size-1-5vw {
- font-size: 1.2vw; 
-}
-
-/*#########################
-## MES STYLES RESPONSIVES #
-#########################*/
-@media screen and (max-width: 767px) {
-.h-md-85 {
-    height: 90%;
-    position: absolute;
-    bottom: 0px;
-}
-.h-60px-md-100pc {
-   height: 45px;
-}
-.h-80pc-md-100pc {
-    height: calc(100vh - 45px);
-}
-.h-100-with-padding-60px-before-md {
-   height: 100%;
-   padding-top: 60px;
-}
-}
-@media screen and (min-width: 768px) {
-.h-md-85 {
-    height: 100%;
-}
-.h-60px-md-100pc {
-    height: 100%;
-}
-.h-80pc-md-100pc {
-    height: 100%;
-}
-.h-100-with-padding-60px-before-md {
-   height: 100%;
-}
-}
-
-.m-top-40 {
-    margin-top: 20vh;
-}
-.m-top-90 {
-    margin-top: 90%;
-}
-
-.text-in-color-brown {
-  color: #D64E26;
-}
-
-.with-my-border {
-  border: 2px solid #D64E26;
 }
 
 /*#########################
