@@ -126,12 +126,12 @@ html, body {
   font-size:1.3em;
   padding-top: 2.5%;
 }
-
-.content p {
+.timeline ul p:nth-child(even){
   padding-top:0;
-  width: 110%;
+  width: 100%;
   font-size:0.9em;
   line-height:1.7em;
+  background-color: grey;
 }
 
 
