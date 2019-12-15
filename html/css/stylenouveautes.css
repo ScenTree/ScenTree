@@ -80,6 +80,7 @@ html, body {
   text-align:right;
   float:left;
   clear:both; /*each step doesn't overlap the other vertically */
+  background-color: blue;
 }
 
 /* for every even numbered bullet point, align to the right */
