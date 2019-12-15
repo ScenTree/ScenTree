@@ -43,13 +43,13 @@ html, body {
 ***********TIMELINE****************
 **********************************/
 
-/*set up size of the whole timeline */
+/*set up size of the whole timeline OK */
 .timeline{
   position: relative;
   margin: 0px auto;
   width:100%;
-  background-color: green;
 }
+/*Style du texte sous la date OK*/
 .ajoutMP{
   color:black;
   font-size: 14px;
@@ -61,7 +61,7 @@ html, body {
   position:absolute;
   left:52%;
   width:1%;
-  height:90%;
+  height:100%;
   background-color:#D64E26;
   z-index:2;
 }
