@@ -1,6 +1,13 @@
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+/* LANGUAGES */
+*:lang(fr) {
+    display: initial;
+}
+*:lang(en) {
+    display: initial;
+}
 /* assign numbering*/
 .timeline ul li:nth-child(1):before{content:'398';}
 .timeline ul li:nth-child(2):before{content:'391';}
@@ -41,6 +48,7 @@ html, body {
   position: relative;
   margin: 0px auto;
   width:100%;
+  background-color: green;
 }
 .ajoutMP{
   color:black;
@@ -275,10 +283,3 @@ h1 {
 }
 }
 
-/* LANGUAGES */
-*:lang(fr) {
-    display: initial;
-}
-*:lang(en) {
-    display: initial;
-}
