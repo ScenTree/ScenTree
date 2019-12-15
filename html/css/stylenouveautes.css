@@ -90,6 +90,9 @@ html, body {
   text-align:left;
   float:right;
   clear:both; /*each step doesn't overlap the other vertically */
+  background-color: yellow;
+  left: 8%;
+  width: 58%;
 }
 
 /*create circle icon on the timeline from the left (odd) */
