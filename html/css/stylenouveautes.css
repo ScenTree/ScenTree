@@ -211,7 +211,11 @@ h1 {
   .timeline:before{
     left:30px;
   }
-  .timeline li:nth-child(even), .timeline li:nth-child(odd) {
+  .timeline li:nth-child(even){
+    background-color: black;
+  } 
+
+  .timeline li:nth-child(odd) {
     width:100%;
     background-color: white;
   }
