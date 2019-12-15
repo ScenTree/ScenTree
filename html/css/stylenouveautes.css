@@ -1,6 +1,36 @@
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+/* assign numbering*/
+.timeline ul li:nth-child(1):before{content:'398';}
+.timeline ul li:nth-child(2):before{content:'391';}
+.timeline ul li:nth-child(3):before{content:'391';}
+.timeline ul li:nth-child(4):before{content:'384';}
+.timeline ul li:nth-child(5):before{content:'379';}
+.timeline ul li:nth-child(6):before{content:'372';}
+.timeline ul li:nth-child(7):before{content:'372';}
+.timeline ul li:nth-child(8):before{content:'365';}
+.timeline ul li:nth-child(9):before{content:'365';}
+.timeline ul li:nth-child(10):before{content:'365';}
+.timeline ul li:nth-child(11):before{content:'365';}
+.timeline ul li:nth-child(12):before{content:'365';}
+
+.modal-title1 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration:underline;
+}
+.my-modal {
+  background-color: #F2F2F2FF;
+}
+.scrollbar-inside2 {
+  overflow-y: auto;
+  max-height: calc(125vh - 320px);
+}
+.text-size-14px {
+  font-size: 14px;
+}
 
 
 /**********************************
@@ -92,45 +122,10 @@ html, body {
   width: 100%;
   font-size:0.9em;
   line-height:1.7em;
-  back-groundcolor: grey;
+  background-color: grey;
 }
 
-/* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'398';}
-.timeline ul li:nth-child(2):before{content:'391';}
-.timeline ul li:nth-child(3):before{content:'391';}
-.timeline ul li:nth-child(4):before{content:'384';}
-.timeline ul li:nth-child(5):before{content:'379';}
-.timeline ul li:nth-child(6):before{content:'372';}
-.timeline ul li:nth-child(7):before{content:'372';}
-.timeline ul li:nth-child(8):before{content:'365';}
-.timeline ul li:nth-child(9):before{content:'365';}
-.timeline ul li:nth-child(10):before{content:'365';}
-.timeline ul li:nth-child(11):before{content:'365';}
-.timeline ul li:nth-child(12):before{content:'365';}
 
-.scrollbar-inside2 {
-  overflow-y: auto;
-  max-height: calc(125vh - 320px);
-}
-
-.text-size-14px {
-  font-size: 14px;
-}
-
-/*#########################
-###########MODAL###########
-#########################*/
-.modal-title1 {
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-    text-decoration:underline;
-}
-
-.my-modal {
-  background-color: #F2F2F2FF;
-}
 
 @media screen and (min-width: 1400px) {
 h1 {
@@ -282,26 +277,9 @@ h1 {
 }
 
 /* LANGUAGES */
-
 *:lang(fr) {
     display: initial;
 }
 *:lang(en) {
     display: initial;
-}
-
-
-/*#########################
-#######PAGE ENTIERE########
-#########################*/
-@media screen and (max-width: 767px) {
-.PageEntiere {
-    background-color: white;
-    padding-top: 60px;
-}
-}
-@media screen and (min-width: 768px) {
-.PageEntiere {
-    background-color: white;
-}
 }
