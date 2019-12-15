@@ -185,7 +185,7 @@ h1 {
 */
 @media screen and (min-width: 768px) and (max-width: 990px) {
 h1 {
-    width: 100%;
+   width: 100%;
    font-style: bold;
    font-size: 1.3vw;
    margin-top: 0%;
@@ -206,6 +206,7 @@ h1 {
 .timeline{
     width:100%;
     padding-bottom:0;
+    background-color: blue;
   }
   .timeline:before{
     left:30px;
