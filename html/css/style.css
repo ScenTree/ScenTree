@@ -19,9 +19,10 @@ html, body {
   top:20%;
   font-size: large;
   color: red;
-
 }
-
+.interpop{
+  color:yellow;
+}
 .max-height-200px {
   max-height: 200px;
 }
