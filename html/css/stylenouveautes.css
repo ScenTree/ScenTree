@@ -2,14 +2,6 @@ html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#menu-block {
-  z-index: 2;
-  min-height: 500px;
-}
-
-#mapblock {
-  z-index: 1;
-}
 
 */*********************************
 ***********TIMELINE****************
@@ -17,87 +9,87 @@ html, body {
 
 /*set up size of the whole timeline */
 .timeline{
-	position: relative;
-	margin: 0px auto;
-	width:100%;
+  position: relative;
+  margin: 0px auto;
+  width:100%;
 }
 
 /*drawing the line itself */
 .timeline:before{
-	content:'';
-	position:absolute;
-	left:52%;
-	width:1%;
-	height:90%;
-	background-color:#D64E26;
-	z-index:2;
+  content:'';
+  position:absolute;
+  left:52%;
+  width:1%;
+  height:90%;
+  background-color:#D64E26;
+  z-index:2;
 }
 
 /*styling the size of each step/content */
 .timeline ul li{
-	position:relative;
-	width:50%;
-	padding:5px 35px;
-	background-color: #98FB98;
-	z-index:99;
+  position:relative;
+  width:50%;
+  padding:5px 35px;
+  background-color: #98FB98;
+  z-index:99;
 }
 
 /*for every odd numbered bullet point, align to the left*/
 .timeline ul li:nth-child(odd){
-	text-align:right;
-	float:left;
-	clear:both; /*each step doesn't overlap the other vertically */
+  text-align:right;
+  float:left;
+  clear:both; /*each step doesn't overlap the other vertically */
 }
 
 /* for every even numbered bullet point, align to the right */
 .timeline ul li:nth-child(even){
-	text-align:left;
-	float:right;
-	clear:both; /*each step doesn't overlap the other vertically */
+  text-align:left;
+  float:right;
+  clear:both; /*each step doesn't overlap the other vertically */
 }
 
 /*create circle icon on the timeline from the left (odd) */
 .timeline ul li:before {
-	content:'';
-	position:absolute;
-	width:40px;
-	height:40px;
-	background-color:#F7B88E;
-	border-radius:60%;
-	box-shadow: 0 0 0 6px rgba(251, 229, 214);
-	z-index:1
+  content:'';
+  position:absolute;
+  width:40px;
+  height:40px;
+  background-color:#F7B88E;
+  border-radius:60%;
+  box-shadow: 0 0 0 6px rgba(251, 229, 214);
+  z-index:1
 }
 
 /*position the circle icons on the timeline*/
 .timeline ul li:nth-child(even):before{
-	left:-20px;
+  left:-20px;
 }
 .timeline ul li:nth-child(odd):before{
-	right:-20px;
+  right:-20px;
 }
 
 /*styling the numbering. Can't position at the moment */
 .timeline ul li:before{
-	font-weight:900;
-	font-size:1.2m;
-	color:white;
-	text-align:center;
- 	padding-top:2.5%;
+  font-weight:900;
+  font-size:1.2m;
+  color:white;
+  text-align:center;
+  padding-top:2.5%;
 }
 
 .content h3{
-	font-weight:900;
-	color:#D64E26;
-	font-size:1.3em;
-	padding-top: 2.5%;
+  font-weight:900;
+  color:#D64E26;
+  font-size:1.3em;
+  padding-top: 2.5%;
 }
 
 .content p{
-	padding-top:0;
-	width: 100%;
-	font-size:0.9em;
-	line-height:1.7em;
-	back-groundcolor: grey;
+  padding-top:0;
+  width: 100%;
+  font-size:0.9em;
+  line-height:1.7em;
+  back-groundcolor: grey;
 }
 
 /* assign numbering*/
@@ -148,7 +140,6 @@ html, body {
   text-decoration: underline;
 }
 
-
 .scrollbar-inside {
   overflow-y: auto;
   max-height: calc(110vh - 320px);
@@ -177,27 +168,6 @@ html, body {
 
 .text-size-1-5vw {
  font-size: 1.2vw; 
-}
-
-.text-my-grey {
-    color : grey;
-}
-
-
-
-
-
-
-/*#########################
-###########MAP#############
-#########################*/
-#map {
-    min-height: 500px;
-    min-width: 200px;
-}
-.fill2{
-    /*z-index: 5;*/
-    background-color: white;
 }
 
 /*#########################
@@ -893,47 +863,47 @@ h1 {
 .blockdonnees {
     width: 55%;
 }
-	
+  
 /*TIMELINE*/
-	
+  
 .timeline{
-	width:100%;
-	padding-bottom:0;
+  width:100%;
+  padding-bottom:0;
 }
 .timeline:before{
-	left:30px;
+  left:30px;
 }
 .content h3{
-	font-size:1.3em;
+  font-size:1.3em;
 }
 .content p {
-	font-size:0.9em;
+  font-size:0.9em;
 }
 .timeline:before{
-	content:'';
-	position:absolute;
-	left:16.5%;
-	width:2px;
-	height:100%;
-	background-color:#D64E26;
+  content:'';
+  position:absolute;
+  left:16.5%;
+  width:2px;
+  height:100%;
+  background-color:#D64E26;
 }
 .timeline li:nth-child(even), .timeline li:nth-child(odd) {
-	width:100%;
+  width:100%;
 }
 .timeline ul li{
-	line-height:normal;
-	position:relative;
-	width:50%;
-	padding:0px 35px;
+  line-height:normal;
+  position:relative;
+  width:50%;
+  padding:0px 35px;
 }
 .content {
-	top:20px;
-	text-align:left;
-	padding-left:50px;
-	padding-bottom:50px;
+  top:20px;
+  text-align:left;
+  padding-left:50px;
+  padding-bottom:50px;
 }
-.timeline ul li:nth-child(odd):before, 	.timeline ul li:nth-child(even):before{
-	left:14px;
+.timeline ul li:nth-child(odd):before,  .timeline ul li:nth-child(even):before{
+  left:14px;
 }
 }
 
@@ -976,43 +946,43 @@ h1 {
     text-align: justify;
 }
 .timeline{
-	width:100%;
-	padding-bottom:0;
+  width:100%;
+  padding-bottom:0;
 }
 .timeline:before{
-	left:30px;
+  left:30px;
 }
 .content h3{
-	font-size:1.3em;
+  font-size:1.3em;
 }
 .content p {
-	font-size:0.9em;
+  font-size:0.9em;
 }
 .timeline:before{
-	content:'';
-	position:absolute;
-	left:16.5%;
-	width:2px;
-	height:100%;
-	background-color:#D64E26;
+  content:'';
+  position:absolute;
+  left:16.5%;
+  width:2px;
+  height:100%;
+  background-color:#D64E26;
 }
 .timeline li:nth-child(even), .timeline li:nth-child(odd) {
-	width:100%;
+  width:100%;
 }
 .timeline ul li{
-	line-height:normal;
-	position:relative;
-	width:50%;
-	padding:0px 35px;
+  line-height:normal;
+  position:relative;
+  width:50%;
+  padding:0px 35px;
 }
 .content {
-	top:20px;
-	text-align:left;
-	padding-left:50px;
-	padding-bottom:50px;
+  top:20px;
+  text-align:left;
+  padding-left:50px;
+  padding-bottom:50px;
 }
-.timeline ul li:nth-child(odd):before, 	.timeline ul li:nth-child(even):before{
-	left:14px;
+.timeline ul li:nth-child(odd):before,  .timeline ul li:nth-child(even):before{
+  left:14px;
 }
 }
 
