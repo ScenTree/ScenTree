@@ -66,7 +66,7 @@ html, body {
   background-color:#D64E26;
 }
 
-/*styling the size of each step/content */
+/*styling the size of each step/content OK */
 .timeline ul li{
   list-style: none;
   position:relative;
@@ -75,27 +75,27 @@ html, body {
   background-color: green;
 }
 
-/*for every odd numbered bullet point, align to the left*/
+/*for every odd numbered bullet point, align to the left OK*/
 .timeline ul li:nth-child(odd){
   text-align:right;
   float:left;
-  clear:both; /*each step doesn't overlap the other vertically */
+  clear:both;
   background-color: blue;
   right: 8%;
   width: 55.5%;
 }
 
-/* for every even numbered bullet point, align to the right */
+/* for every even numbered bullet point, align to the right OK*/
 .timeline ul li:nth-child(even){
   text-align:left;
   float:right;
-  clear:both; /*each step doesn't overlap the other vertically */
+  clear:both;
   background-color: yellow;
   left: 2%;
   width: 54.5%;
 }
 
-/*create circle icon on the timeline from the left (odd) */
+/*create circle icon on the timeline from the left (odd) OK */
 .timeline ul li:before {
   content:'';
   position:absolute;
@@ -107,7 +107,7 @@ html, body {
   z-index:1
 }
 
-/*position the circle icons on the timeline*/
+/*position the circle icons on the timeline OK*/
 .timeline ul li:nth-child(even):before{
   left:-20px;
 }
@@ -115,7 +115,7 @@ html, body {
   right:-20px;
 }
 
-/*styling the numbering. Can't position at the moment */
+/*styling the numbering. OK */
 .timeline ul li:before{
   font-weight:900;
   font-size:1.2m;
@@ -133,7 +133,7 @@ html, body {
 
 .content p{
   padding-top:0;
-  width: 100%;
+  width: 120%;
   font-size:0.9em;
   line-height:1.7em;
   background-color: grey;
