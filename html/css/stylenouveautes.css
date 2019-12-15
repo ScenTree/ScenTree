@@ -217,7 +217,6 @@ h1 {
 .timeline:before{
   content:'';
   position:absolute;
-  right:50%;
   width:0.7%;
   height:100%;
   background-color:#D64E26;
@@ -228,7 +227,7 @@ h1 {
   list-style: none;
   position:relative;
   width:50%;
-  padding:5px ;
+  padding:5px 35px;
 }
 
 /*for every odd numbered bullet point, align to the left OK*/
