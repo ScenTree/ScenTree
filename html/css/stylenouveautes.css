@@ -14,7 +14,8 @@ html, body {
   width:100%;
 }
 .ajoutMP{
-  color:yellow;
+  color:black;
+  font-size: 1.2vw;
 }
 /*drawing the line itself */
 .timeline:before{
@@ -32,7 +33,6 @@ html, body {
   position:relative;
   width:50%;
   padding:5px 35px;
-  background-color: #98FB98;
   z-index:99;
 }
 
