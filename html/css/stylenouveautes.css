@@ -182,7 +182,7 @@ h1 {
     padding-right: 5%;
 }
 }
-
+*/
 @media screen and (min-width: 768px) and (max-width: 990px) {
 h1 {
     width: 100%;
@@ -197,7 +197,6 @@ h1 {
     size: 120%;
     padding-right: 5%;
 }
-/*TIMELINE 
 .timeline{
   width:100%;
   padding-bottom:0;
