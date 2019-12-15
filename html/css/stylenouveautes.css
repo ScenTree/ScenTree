@@ -205,7 +205,7 @@ h1 {
   position: relative;
   margin: 0px auto;
   width:100%;
-  background-color: grey;
+  
 }
 /*Style du texte sous la date OK*/
 .ajoutMP{
@@ -238,6 +238,7 @@ h1 {
   clear:both;
   right: 8%;
   width: 100%;
+  background-color: blue;
 }
 
 /* for every even numbered bullet point, align to the right OK*/
@@ -247,6 +248,7 @@ h1 {
   clear:both;
   left: 2%;
   width: 100%;
+  background-color: green;
 }
 
 /*create circle icon on the timeline from the left (odd) OK */
