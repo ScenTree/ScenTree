@@ -55,12 +55,12 @@ html, body {
   font-size: 14px;
   font-weight: bold;
 }
-/*drawing the line itself */
+/*drawing the line itself OK */
 .timeline:before{
   content:'';
   position:absolute;
   left:52%;
-  width:1%;
+  width:0.7%;
   height:100%;
   background-color:#D64E26;
   z-index:2;
