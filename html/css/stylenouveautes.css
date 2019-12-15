@@ -91,7 +91,7 @@ html, body {
   float:right;
   clear:both; /*each step doesn't overlap the other vertically */
   background-color: yellow;
-  left: 3%;
+  left: 2.5%;
   width: 54.5%;
 }
 
