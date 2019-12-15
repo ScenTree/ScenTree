@@ -217,9 +217,10 @@ h1 {
 .timeline:before{
   content:'';
   position:absolute;
+  right:50%;
   width:0.7%;
   height:100%;
-  background-color:black;
+  background-color:#D64E26;
 }
 
 /*styling the size of each step/content OK */
