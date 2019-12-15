@@ -200,49 +200,96 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
-.modal-title {
-    font-size: 15px; 
-}
+/*set up size of the whole timeline OK */
 .timeline{
-    width:100%;
-    padding-bottom:0;
-    background-color: grey;
-  }
+  position: relative;
+  margin: 0px auto;
+  width:100%;
+  background-color: grey;
+}
+/*Style du texte sous la date OK*/
+.ajoutMP{
+  color:black;
+  font-size: 14px;
+  font-weight: bold;
+}
+/*drawing the line itself OK */
+.timeline:before{
+  content:'';
+  position:absolute;
+  left:50%;
+  width:0.7%;
+  height:100%;
+  background-color:#D64E26;
+}
+
+/*styling the size of each step/content OK */
 .timeline ul li{
   list-style: none;
   position:relative;
-  width:100%;
+  width:50%;
   padding:5px 35px;
 }
-  .timeline:before{
-    left:30px;
-  }
-  .timeline li:nth-child(even){
-    background-color: black;
-    width:100%;
-  } 
 
-  .timeline li:nth-child(odd) {
-    width:100%;
-    background-color: white;
-  }
-  .content {
-    top:20px;
-    text-align:left;
-    padding-left:50px;
-    padding-bottom:50px;
-    background-color: yellow;
-  }
-  .timeline ul li:nth-child(odd):before,  .timeline ul li:nth-child(even):before{
-    left:14px;
-  }
+/*for every odd numbered bullet point, align to the left OK*/
+.timeline ul li:nth-child(odd){
+  text-align:right;
+  float:left;
+  clear:both;
+  right: 8%;
+  width: 55.5%;
+}
 
-  .timeline ul li:nth-child(odd) .next, .timeline ul li:nth-child(even) .next{
-    left:90px;
-    top:-30px;
-    
-    /* not sure why this works */
-    right:inherit;
-  }
+/* for every even numbered bullet point, align to the right OK*/
+.timeline ul li:nth-child(even){
+  text-align:left;
+  float:right;
+  clear:both;
+  left: 2%;
+  width: 54.5%;
+}
+
+/*create circle icon on the timeline from the left (odd) OK */
+.timeline ul li:before {
+  content:'';
+  position:absolute;
+  width:40px;
+  height:40px;
+  background-color:#F7B88E;
+  border-radius:60%;
+  box-shadow: 0 0 0 6px rgba(251, 229, 214);
+  z-index:1
+}
+
+/*position the circle icons on the timeline OK*/
+.timeline ul li:nth-child(even):before{
+  left:-20px;
+}
+.timeline ul li:nth-child(odd):before{
+  right:-20px;
+}
+
+/*styling the numbering. OK */
+.timeline ul li:before{
+  font-weight:900;
+  font-size:1.2m;
+  color:white;
+  text-align:center;
+  padding-top:2.5%;
+}
+/* Titre des parties OK*/
+.content h3{
+  font-weight:900;
+  color:#D64E26;
+  font-size:1.3em;
+  padding-top: 2.5%;
+}
+/*Listing des MP et des infos OK*/
+.timeline ul p:nth-child(even){
+  padding-top:0;
+  width: 100%;
+  font-size:0.9em;
+  line-height:1.7em;
+}
 }
 
