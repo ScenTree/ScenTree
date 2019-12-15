@@ -68,6 +68,7 @@ html, body {
 
 /*styling the size of each step/content */
 .timeline ul li{
+  list-style: none;
   position:relative;
   width:50%;
   padding:5px 35px;
