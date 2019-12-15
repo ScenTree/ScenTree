@@ -48,7 +48,6 @@ html, body {
   position: relative;
   margin: 0px auto;
   width:100%;
-  background-color: grey;
 }
 /*Style du texte sous la date OK*/
 .ajoutMP{
@@ -72,7 +71,6 @@ html, body {
   position:relative;
   width:50%;
   padding:5px 35px;
-  background-color: green;
 }
 
 /*for every odd numbered bullet point, align to the left OK*/
@@ -80,7 +78,6 @@ html, body {
   text-align:right;
   float:left;
   clear:both;
-  background-color: blue;
   right: 8%;
   width: 55.5%;
 }
@@ -90,7 +87,6 @@ html, body {
   text-align:left;
   float:right;
   clear:both;
-  background-color: yellow;
   left: 2%;
   width: 54.5%;
 }
@@ -131,12 +127,11 @@ html, body {
   padding-top: 2.5%;
 }
 
-.content p li:nth-child(even){
+.content p {
   padding-top:0;
   width: 110%;
   font-size:0.9em;
   line-height:1.7em;
-  background-color: grey;
 }
 
 
