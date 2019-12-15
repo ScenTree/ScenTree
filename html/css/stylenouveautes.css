@@ -183,8 +183,24 @@ h1 {
 }
 }
 */
-@media screen (max-width: 990px) {
+@media screen and (min-width: 768px) and (max-width: 990px) {
+h1 {
+    width: 100%;
+   font-style: bold;
+   font-size: 1.3vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+   display: none;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
 
+}
+
+@media screen and (max-width: 768px) {
 .modal-title {
     font-size: 15px; 
 }
