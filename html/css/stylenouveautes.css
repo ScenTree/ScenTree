@@ -16,7 +16,7 @@ html, body {
 .ajoutMP{
   color:black;
   font-size: 1vw;
-  font-weight: normal;
+  font-weight: bold;
 }
 /*drawing the line itself */
 .timeline:before{
