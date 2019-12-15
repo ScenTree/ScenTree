@@ -131,7 +131,7 @@ html, body {
   padding-top: 2.5%;
 }
 
-.content p{
+.content p li:nth-child(even){
   padding-top:0;
   width: 110%;
   font-size:0.9em;
