@@ -303,8 +303,9 @@ def compute_the_webpage_adress(the_scentree_object):
     """
     return "../ingredients/%s__%s.html" % (getNodeNameForTheJSON(the_scentree_object, 'EN').replace(" ", "_").replace("/", "_"), getNodeNameForTheJSON(the_scentree_object, 'FR').replace(" ", "_").replace("/", "_"))
 
-def do_inter_links(the_text, the_current_scentree_object, the_language_in_two_chars, the_nodes):
-    #print("do_inter_links, ", the_text, the_current_scentree_object)
+def do_inter_links(the_key, the_text, the_current_scentree_object, the_language_in_two_chars, the_nodes):
+    if the_key not in ("Origine geographique, Extractions, Utilisation, Allergenes, composantsmajoritaires, autresremarques, Stabilite, chemotype, medecine, Precurseurs, Isomerie, Presencenat"):
+        return the_text
     for a_node in sorted(the_nodes, key = lambda n : len(getNodeNameForTheJSON(n, the_language_in_two_chars)), reverse=True):
         if not hasattr(a_node, "the_properties_from_the_csv") or not bool(a_node.the_properties_from_the_csv) or a_node == the_current_scentree_object or len( str(a_node.the_properties_from_the_csv['id'][the_language_in_two_chars]) ) != 5: # is not an ingredient
             continue
@@ -332,7 +333,7 @@ def writejsonNode(the_json, node, the_language_in_two_chars, the_nodes):
         if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value[the_language_in_two_chars]):
-                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, do_inter_links(a_value[the_language_in_two_chars], node, the_language_in_two_chars, the_nodes).replace("\n", "\\n")))
+                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, do_inter_links(a_key, a_value[the_language_in_two_chars], node, the_language_in_two_chars, the_nodes).replace("\n", "\\n")))
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
         the_json.write("  },\n")
 
@@ -352,11 +353,11 @@ def writejsonNodeBothLanguages(the_json, node, the_nodes):
         if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value['EN']):
-                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, do_inter_links(a_value['EN'], node, "EN", the_nodes).replace("\n", "\\n")))
+                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, do_inter_links(a_key, a_value['EN'], node, "EN", the_nodes).replace("\n", "\\n")))
         if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value['FR']):
-                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, do_inter_links(a_value['FR'], node, "FR", the_nodes).replace("\n", "\\n")))
+                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, do_inter_links(a_key, a_value['FR'], node, "FR", the_nodes).replace("\n", "\\n")))
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
         the_json.write("  },\n")
 
