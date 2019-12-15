@@ -92,7 +92,7 @@ html, body {
   clear:both; /*each step doesn't overlap the other vertically */
   background-color: yellow;
   left: 3%;
-  width: 55.5%;
+  width: 55%;
 }
 
 /*create circle icon on the timeline from the left (odd) */
