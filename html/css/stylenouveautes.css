@@ -206,19 +206,21 @@ h1 {
 .timeline{
     width:100%;
     padding-bottom:0;
-    background-color: blue;
+    background-color: grey;
   }
   .timeline:before{
     left:30px;
   }
   .timeline li:nth-child(even), .timeline li:nth-child(odd) {
     width:100%;
+    background-color: white;
   }
   .content {
     top:20px;
     text-align:left;
     padding-left:50px;
     padding-bottom:50px;
+    background-color: yellow;
   }
   .timeline ul li:nth-child(odd):before,  .timeline ul li:nth-child(even):before{
     left:14px;
