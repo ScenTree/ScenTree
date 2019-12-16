@@ -135,55 +135,7 @@ html, body {
   line-height:1.7em;
 }
 }
-/*
-@media screen and (min-width: 1400px) {
-h1 {
-   width: 100%;
-   font-style: bold;
-   font-size: 0.9vw;
-   margin-top: 0%;
-   margin-bottom: 0%;
-}
 
-.close {
-    float: right;
-    size: 120%;
-    padding-right: 5%;
-}
-}
-
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-h1 {
-   width: 100%;
-   font-style: bold;
-   font-size: 1.1vw;
-   margin-top: 0%;
-   margin-bottom: 0%;
-}
-.close {
-    float: right;
-    size: 120%;
-    padding-right: 5%;
-}
-}
-
-
-
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-h1 {
-   width: 100%;
-   font-style: bold;
-   font-size: 1.1vw;
-   margin-top: 0%;
-   margin-bottom: 0%;
-}
-.close {
-    float: right;
-    size: 120%;
-    padding-right: 5%;
-}
-}
-*/
 @media screen and (min-width: 760px) and (max-width: 990px) {
 h1 {
    width: 100%;
@@ -202,7 +154,6 @@ h1 {
   position: relative;
   margin: 0px auto;
   width:100%;
-  background-color: blue;
 }
 /*Style du texte sous la date OK*/
 .ajoutMP{
@@ -256,7 +207,7 @@ h1 {
   z-index:1
 }
 
-/*position the circle icons on the timeline OK
+/*position the circle icons on the timeline OK*/
 .timeline ul li:nth-child(even):before{
   left:-20px;
 }
