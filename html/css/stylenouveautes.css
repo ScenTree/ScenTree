@@ -169,6 +169,7 @@ h1 {
 /*drawing the line itself */
 .timeline:before{
   content:'';
+  position:absolute;
   left: 50%;
   width:0.7%;
   height:100%;
