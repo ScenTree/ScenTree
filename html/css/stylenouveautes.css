@@ -48,6 +48,7 @@ html, body {
   position: relative;
   margin: 0px auto;
   width:100%;
+  background-color: green;
 }
 /*Style du texte sous la date OK*/
 .ajoutMP{
@@ -201,6 +202,7 @@ h1 {
   position: relative;
   margin: 0px auto;
   width:100%;
+  background-color: blue;
  
 }
 /*Style du texte sous la date OK*/
