@@ -136,7 +136,7 @@ html, body {
 }
 }
 
-@media screen and (min-width: 760px) and (max-width: 990px) {
+@media screen and (max-width: 990px) {
 h1 {
    width: 100%;
    font-style: bold;
