@@ -48,7 +48,6 @@ html, body {
   position: relative;
   margin: 0px auto;
   width:100%;
-  background-color: green;
 }
 /*Style du texte sous la date OK*/
 .ajoutMP{
@@ -136,6 +135,12 @@ html, body {
 }
 }
 
+
+/************************************************
+*******************PETIT ECRAN*******************
+************************************************/
+
+
 @media screen and (max-width: 990px) {
 h1 {
    width: 100%;
@@ -168,6 +173,7 @@ h1 {
   width:0.7%;
   height:100%;
   background-color:#D64E26;
+  z-index:1;
 }
 
 /*styling the size of each step/content OK */
