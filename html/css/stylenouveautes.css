@@ -184,6 +184,7 @@ h1 {
 }
 }
 */
+@media screen and (min-width: 760px) and (max-width: 990px) {
 h1 {
    width: 100%;
    font-style: bold;
@@ -202,7 +203,6 @@ h1 {
   margin: 0px auto;
   width:100%;
   background-color: blue;
- 
 }
 /*Style du texte sous la date OK*/
 .ajoutMP{
@@ -286,5 +286,5 @@ h1 {
   font-size:0.9em;
   line-height:1.7em;
 }
-
+}
 
