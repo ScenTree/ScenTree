@@ -209,10 +209,10 @@ h1 {
 
 /*position the circle icons on the timeline OK*/
 .timeline ul li:nth-child(even):before{
-  right:-20px;
+  left:-20px;
 }
 .timeline ul li:nth-child(odd):before{
-  right:-20px;
+  left:-20px;
 }
 
 /*styling the numbering. OK */
