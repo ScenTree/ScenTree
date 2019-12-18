@@ -29,12 +29,12 @@ if (! fs.existsSync(the_fourth_arg)) {
 
 
 const the_json_file = the_third_arg;
-const the_html_file = the_fourth_arg;
+const the_html_file_as_a_path = the_fourth_arg;
 const the_min = the_fifth_arg;
 const the_max = the_sixth_arg;
 
 // folders path
-let the_folder_path = path.dirname(the_html_file);
+let the_folder_path = path.dirname(the_html_file_as_a_path);
 let ingredients_folder_path = the_folder_path + "/../ingredients/";
 let descripteurs_principaux_folder_path = the_folder_path + "/../descripteurs_principaux/";
 let descripteurs_secondaires_folder_path = the_folder_path + "/../descripteurs_secondaires/";
@@ -55,7 +55,7 @@ if (! fs.existsSync(descripteurs_secondaires_folder_path)) {
 var the_objects = jsonfile.readFileSync(the_json_file);
 console.log(the_objects.length);
 
-async function get_the_dom_from_the_net() {
+async function get_the_dom_from_the_net(the_html_file) {
   var dom = await JSDOM.fromFile(the_html_file, { runScripts: "dangerously", resources: "usable", beforeParse(window) {window.document.jsdom_reader = 1; } });
   //var dom = await JSDOM.fromFile(the_index_html_path, { resources: "usable" });
   // wait for the url to be loaded
@@ -101,17 +101,20 @@ async function generate_one_file(dom, the_current_object) {
     });
 };
 
-async function generate_files(the_object, the_min, the_max) {
-  var dom = await get_the_dom_from_the_net();
+async function generate_files(the_scentree_objects, the_html_file, the_min, the_max) {
+  console.log("loading the dom …");
+  var dom = await get_the_dom_from_the_net(the_html_file);
+  console.log("dom loaded ! :-)");
   if (!the_min) the_min = 0;
-  if (!the_max) the_max = the_object.length;
-  for (var i = the_min, len = the_objects.length; i < the_max; i++) {
-    console.log(i + "/" + the_objects.length);
-    var the_current_object = the_objects[i];
-    //console.log(the_current_object);
+  if (!the_max) the_max = the_scentree_objects.length;
+  console.log("min = ", the_min, " to max = ", the_max);
+  for (var i = the_min; i < the_max; i++) {
+    console.log(i + "/" + the_scentree_objects.length);
+    var the_current_object = the_scentree_objects[i];
+    console.log(the_current_object);
     await generate_one_file(dom, the_current_object);
   };
 };
 
-generate_files(the_objects, the_min, the_max);
+generate_files(the_objects, the_html_file_as_a_path, parseInt(the_min, 10), parseInt(the_max, 10));
 
