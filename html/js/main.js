@@ -1,4 +1,21 @@
-var in30Minutes = 1/48;
+var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
+
+if (KIND_OF_ENVIRONMENT == "dev") {
+    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
+    var DEV_PREFIX_1 = "dev-"; // dev- ,  pre_prod- ,  or empty for production
+    var DEV_PREFIX_2 = "dev_"; // dev_ ,  pre_prod__ ,   or empty for production
+} else if (KIND_OF_ENVIRONMENT == "prod2") {
+    var DEV_ENVIRONMENT = false;
+    var DEV_PREFIX_1 = "prod2-";
+    var DEV_PREFIX_2 = "prod2_";
+} else {
+    var DEV_ENVIRONMENT = false;
+    var DEV_PREFIX_1 = "";
+    var DEV_PREFIX_2 = "";
+};
+
+
+var in30Minutes = 1/96; // in 15 minutes
 
 // cookies part, with "js-cookie" (https://github.com/js-cookie/js-cookie)
 var RGPD_warning_has_been_done = Cookies.get('RGPD_warning'); // RGPD_warning unset means this is the first visit
@@ -8,6 +25,7 @@ if (! window.document.jsdom_reader) {
 	    Cookies.set('RGPD_warning', '1', { expires: 365 });
 	    $("#RGPD_warning").css({'display' : 'block'});
 	    //$("#modal_video").modal("show");
+	    $("#you_can_zoom").css({'display' : 'block'});
 	} else {
 	    if ((! RGPD_choice_has_been_done) || ((RGPD_choice_has_been_done != 1) && (RGPD_choice_has_been_done != -1))) {
 	        $("#RGPD_warning").css({'display' : 'block'});
@@ -120,21 +138,21 @@ $.extend( proto, {
 	},
 
 	_renderItem: function( ul, item) {
-	    var newText = "<span class='nom_de_l_ingredient'>" + String(item.label.sci_name).replace(
+	    var newText = "<span class='nom_de_l_ingredient p-0'>" + String(item.label.sci_name).replace(
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
 	    if (item.label["from_csv AutresNoms"]) {
-		newText = newText + "<br /><span class='synonymes'>(" + String(item.label["from_csv AutresNoms"]).replace(
+		newText = newText + "<br /><span class='synonymes p-0' style='margin: 0px;' >(" + String(item.label["from_csv AutresNoms"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
 	    };
 	    if (item.label["from_csv Botanique"]) {
-		newText = newText + "<br /><span class='synonymes'>(" + String(item.label["from_csv Botanique"]).replace(
+		newText = newText + "<br /><span class='synonymes p-0'>(" + String(item.label["from_csv Botanique"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
 	    };
 	    if (item.label["from_csv NCas"]) {
-		newText = newText + "<br /><span class='numero_cas'>N° CAS : " + String(item.label["from_csv NCas"]).replace(
+		newText = newText + "<br /><span class='numero_cas p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
                     "<span class='ui-state-highlight'>$&</span>") + "</span>";
 	    };
@@ -149,10 +167,12 @@ $.extend( proto, {
 /* end of jQuery UI Autocomplete HTML Extension */
 
 /* Définissions de la map*/
-var map = L.map('map', {zoomControl: true, attributionControl: false});
+if ($("#map").length) {
+    var map = L.map('map', {zoomControl: true, attributionControl: false});
+};
 /* Dire que la map est disponible dans le cache du serveur à l'adresse suivante */
-var tolUrl_fr = '/scentree-map-fr/{z}/{x}/{y}.png';
-var tolUrl_en = '/scentree-map-en/{z}/{x}/{y}.png';
+var tolUrl_fr = '/' + DEV_PREFIX_1 + 'scentree-map-fr/{z}/{x}/{y}.png';
+var tolUrl_en = '/' + DEV_PREFIX_1 + 'scentree-map-en/{z}/{x}/{y}.png';
 /* Zoom initial = zoom 5 décalé de 2 sur la gauche et 0 sur la droite*/
 the_width_of_the_window = $(window).width();
 if (the_width_of_the_window <= 800) {
@@ -174,8 +194,9 @@ var the_previous_map__longitude = Cookies.get('the_previous_map__longitude');
 /* Définir la taille de la carte */
 //map.addLayer(tol_fr);
 //map.addLayer(tol_en);
-map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, ], the_previous_map__zoom || zoom_initial);
-
+if ($("#map").length) {
+	map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, ], the_previous_map__zoom || zoom_initial);
+};
 /* Définission de l'icone qui pointe les MP recherchées*/
 var mark = L.icon({
     iconUrl: '../img/mark.png',
@@ -207,7 +228,7 @@ function CreatePopUps() {
     var lat1 = bb._southWest.lat;
     var lat2 = bb._northEast.lat;
     //Utilisation des données géographiques dans l'URL de requête Solr
-    var URL2 = "/select_EN_and_FR/?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000"; 
+    var URL2 = "/" + DEV_PREFIX_2 + "select_EN_and_FR/?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000"; 
     // 
     $.ajax({
 	//
@@ -220,20 +241,13 @@ function CreatePopUps() {
 		//positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
 		var marker = L.marker(latlong,{icon: mark});
 		// non-ingredient -> basic modal
-		//if ( ! is_an_ingredient(ok[index]) ) {
-		if (true) {
+		if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
 			marker.on("click", function() {
 		    		markofun(ok[index]);
 			});
                 } else {  // else : ingredient -> link to a new html page
                         marker.on("click", function() {
-				var the_map_center = map.getCenter();
-				var rounded_latitude = Math.round(the_map_center.lat * 100000) / 100000;
-				var rounded_longitude = Math.round(the_map_center.lng * 100000) / 100000;
-				var the_map_zoom = map.getZoom();
-				Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
-				Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
-				Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
+				save_map_status_inside_cookies(map);
                                 window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + ".html";
                         });
 		};
@@ -288,9 +302,11 @@ $("#source").click(function() {
 });*/
 
 //pop-up
-map.on("moveend", function() {
-    CreatePopUps();
-});
+if ($("#map").length) {
+	map.on("moveend", function() {
+	    CreatePopUps();
+	});
+};
 
 // définition du pointeur valable, celui jaune de google maps
 var SPfocus;
@@ -313,9 +329,9 @@ jQuery.ui.autocomplete.prototype._resizeMenu = function () {
 $(function() {
     var str;
     //définitions des URL de la requete de solr//
-    var URL_PREFIX_SUGGESTER = "/suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
+    //var URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
     //var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
-    var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/select_EN_and_FR/?q=id%3A";
+    var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/" + DEV_PREFIX_2 + "select_EN_and_FR/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
     
     $(".my-search-bar").autocomplete({
@@ -459,7 +475,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
     var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
     var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
-    var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -606,178 +622,178 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //EMPTY - partie synthétique
     $('#modalheader-type1').empty();
     $('#modaltitle1').empty();
-    $('#modaltitle1-fili').empty();
-    $('#modalbody-pict1').empty();
-    $('#modalbody-remarques1').empty();
-    $('#modalbody-densite1').empty();
-    $('#modalbody-price1').empty();
-    $('#modalbody-ncas1').empty();
-    $('#modalbody-aspect1').empty();
-    $('#modalbody-autresd1').empty();
-    $('#modalbody-ifra1').empty();
-    $('#modalbody-allergenes1').empty();
-    $('#modalbody-fp1').empty();
-    $('#modalbody-logp').empty();
-    $('#modalbody-tenue1').empty();
-    $('#modalbody-bp1').empty();
-    $('#modalbody-decouverte1').empty();
-    $('#modalbody-synthèse').empty();
-    $('#modalbody-précurseur').empty();
-    $('#modalbody-isomérie').empty();
-    $('#modalbody-présencenat').empty();
-    $('#modalbody-parole1').empty();
-    $('#modalbody-utilisation1').empty();
-    $('#modalbody-mmolaire1').empty();
-    $('#modalbody-fbrute1').empty();
-    $('#modalbody-fusionp1').empty();
-    $('#modalbody-stab1').empty();
+	$('#modaltitle1-fili').empty();
+	$('#modalbody-pict1').empty();
+	$('#modalbody-remarques1').empty();
+	$('#modalbody-densite1').empty();
+	$('#modalbody-price1').empty();
+	$('#modalbody-ncas1').empty();
+	$('#modalbody-aspect1').empty();
+	$('#modalbody-autresd1').empty();
+	$('#modalbody-ifra1').empty();
+	$('#modalbody-allergenes1').empty();
+	$('#modalbody-fp1').empty();
+	$('#modalbody-logp').empty();
+	$('#modalbody-tenue1').empty();
+	$('#modalbody-bp1').empty();
+	$('#modalbody-decouverte1').empty();
+	$('#modalbody-synthèse').empty();
+	$('#modalbody-précurseur').empty();
+	$('#modalbody-isomérie').empty();
+	$('#modalbody-présencenat').empty();
+	$('#modalbody-parole1').empty();
+	$('#modalbody-utilisation1').empty();
+	$('#modalbody-mmolaire1').empty();
+	$('#modalbody-fbrute1').empty();
+	$('#modalbody-fusionp1').empty();
+	$('#modalbody-stab1').empty();
 
-    //EMPTY - Descripteurs
-    $('#modalheader-type2').empty();
-    $('#modaltitle2').empty();
-    $('#modalbody-comment2').empty();
-   
-    //EMPTY - IFRA 
-    //nat
-    $('#modalbody-amendment').empty();
-    $('#modalbody-cat1').empty();
-    $('#modalbody-cat2').empty();
-    $('#modalbody-cat3').empty();
-    $('#modalbody-cat4').empty();
-    $('#modalbody-cat5').empty();
-    $('#modalbody-cat6').empty();
-    $('#modalbody-cat7').empty();
-    $('#modalbody-cat8').empty();
-    $('#modalbody-cat9').empty();
-    $('#modalbody-cat10').empty();
-    $('#modalbody-cat11').empty();
-    $('#modalbody-commentifra').empty();
-    $('#modalbody-leaveon').empty();
-    //synth
-    $('#modalbody-amendments').empty();
-    $('#modalbody-cat1s').empty();
-    $('#modalbody-cat2s').empty();
-    $('#modalbody-cat3s').empty();
-    $('#modalbody-cat4s').empty();
-    $('#modalbody-cat5s').empty();
-    $('#modalbody-cat6s').empty();
-    $('#modalbody-cat7s').empty();
-    $('#modalbody-cat8s').empty();
-    $('#modalbody-cat9s').empty();
-    $('#modalbody-cat10s').empty();
-    $('#modalbody-cat11s').empty();
-    $('#modalbody-commentifras').empty();
-    $('#modalbody-leaveons').empty();
-    $('#modalbody-finef').empty();
-    $('#modalbody-edt').empty();
-    $('#modalbody-fcream').empty();
-    $('#modalbody-otherleaveon').empty();
-    $('#modalbody-rinseoff').empty();
-    $('#modalbody-noskin').empty();
+	//EMPTY - Descripteurs
+	$('#modalheader-type2').empty();
+	$('#modaltitle2').empty();
+	$('#modalbody-comment2').empty();
 
-    //APPEND - Partie Naturelles
-    $('#modalheader-type').append(the_type);
-    $('#modaltitle').append(the_title); 
-    $('#modaltitle-fili').append(the_filiation);
-    $('#modalbody-nbota').append(the_nbota); 
-    $('#modalbody-bota').append(the_bota);
-    $('#modalbody-allergenes').append(the_allergenes);
-    $('#modalbody-autresd').append(the_autresd);
-    $('#modalbody-tenue').append(the_tenue);
-    $('#modalbody-cas').append(the_cas);
-    $('#modalbody-origine').append(the_origine);
-    $('#modalbody-aspect').append(the_aspect);
-    $('#modalbody-methode').append(the_methode);
-    $('#modalbody-remarques').append(the_remarques);
-    $('#modalbody-ifra').append(the_ifra);
-    $('#modalbody-price').append(the_price);
-    $('#modalbody-componat').append(the_componat);
-    $('#modalbody-pemblem').append(the_pemblem);
-    $('#modalbody-parole').append(the_parole);
-    $('#modalbody-chemotype').append(the_chemotype);
-    $('#modalbody-medecine').append(the_medecine);
-    $('#modalbody-stab').append(the_stab);
-    $('#modalbody-utilisation').append(the_utilisation);
-    //APPEND - Partie Synthétique
-    $('#modalheader-type1').append(the_type);
-    $('#modaltitle1').append(the_title);
-    $('#modaltitle1-fili').append(the_filiation); 
-    $('#modalbody-allergenes1').append(the_allergenes);
-    $('#modalbody-autresd1').append(the_autresd);
-    $('#modalbody-tenue1').append(the_tenue);
-    $('#modalbody-ncas1').append(the_cas);
-    $('#modalbody-densite1').append(the_densite);
-    $('#modalbody-logp').append(the_logp);
-    $('#modalbody-aspect1').append(the_aspect);
-    $('#modalbody-fp1').append(the_fp);
-    $('#modalbody-remarques1').append(the_remarques);
-    $('#modalbody-ifra1').append(the_ifra);
-    $('#modalbody-price1').append(the_price);
-    $('#modalbody-bp1').append(the_bp);
-    $('#modalbody-decouverte1').append(the_decouverte);
-    $('#modalbody-synthèse').append(the_synthese);
-    $('#modalbody-précurseur').append(the_precurseur);
-    $('#modalbody-isomérie').append(the_isomerie);
-    $('#modalbody-présencenat').append(the_presencenat);
-    $('#modalbody-parole1').append(the_parole);
-    $('#modalbody-utilisation1').append(the_utilisation);
-    $('#modalbody-mmolaire1').append(the_molaire);
-    $('#modalbody-fbrute1').append(the_fbrute);
-    $('#modalbody-fusionp1').append(the_fusionp);
-    $('#modalbody-stab1').append(the_stab);
-    
-    //APPEND - Partie Descripteurs
-    $('#modaltitle2').append(the_title);
-    $('#modalheader-type2').append(the_type);
-    $('#modalbody-comment2').append(the_use);
+	//EMPTY - IFRA 
+	//nat
+	$('#modalbody-amendment').empty();
+	$('#modalbody-cat1').empty();
+	$('#modalbody-cat2').empty();
+	$('#modalbody-cat3').empty();
+	$('#modalbody-cat4').empty();
+	$('#modalbody-cat5').empty();
+	$('#modalbody-cat6').empty();
+	$('#modalbody-cat7').empty();
+	$('#modalbody-cat8').empty();
+	$('#modalbody-cat9').empty();
+	$('#modalbody-cat10').empty();
+	$('#modalbody-cat11').empty();
+	$('#modalbody-commentifra').empty();
+	$('#modalbody-leaveon').empty();
+	//synth
+	$('#modalbody-amendments').empty();
+	$('#modalbody-cat1s').empty();
+	$('#modalbody-cat2s').empty();
+	$('#modalbody-cat3s').empty();
+	$('#modalbody-cat4s').empty();
+	$('#modalbody-cat5s').empty();
+	$('#modalbody-cat6s').empty();
+	$('#modalbody-cat7s').empty();
+	$('#modalbody-cat8s').empty();
+	$('#modalbody-cat9s').empty();
+	$('#modalbody-cat10s').empty();
+	$('#modalbody-cat11s').empty();
+	$('#modalbody-commentifras').empty();
+	$('#modalbody-leaveons').empty();
+	$('#modalbody-finef').empty();
+	$('#modalbody-edt').empty();
+	$('#modalbody-fcream').empty();
+	$('#modalbody-otherleaveon').empty();
+	$('#modalbody-rinseoff').empty();
+	$('#modalbody-noskin').empty();
 
-    //APPEND - IFRA nat
-    $('#modalbody-amendment').append(the_amendment);
-    $('#modalbody-cat1').append(the_cat1);
-    $('#modalbody-cat2').append(the_cat2);
-    $('#modalbody-cat3').append(the_cat3);
-    $('#modalbody-cat4').append(the_cat4);
-    $('#modalbody-cat5').append(the_cat5);
-    $('#modalbody-cat6').append(the_cat6);
-    $('#modalbody-cat7').append(the_cat7);
-    $('#modalbody-cat8').append(the_cat8);
-    $('#modalbody-cat9').append(the_cat9);
-    $('#modalbody-cat10').append(the_cat10);
-    $('#modalbody-cat11').append(the_cat11);
-    $('#modalbody-commentifra').append(the_commentifra);
-    $('#modalbody-leaveon').append(the_leaveon);
-    //APPEND - IFRA synth:w
-    $('#modalbody-amendments').append(the_amendment);
-    $('#modalbody-cat1s').append(the_cat1);
-    $('#modalbody-cat2s').append(the_cat2);
-    $('#modalbody-cat3s').append(the_cat3);
-    $('#modalbody-cat4s').append(the_cat4);
-    $('#modalbody-cat5s').append(the_cat5);
-    $('#modalbody-cat6s').append(the_cat6);
-    $('#modalbody-cat7s').append(the_cat7);
-    $('#modalbody-cat8s').append(the_cat8);
-    $('#modalbody-cat9s').append(the_cat9);
-    $('#modalbody-cat10s').append(the_cat10);
-    $('#modalbody-cat11s').append(the_cat11);
-    $('#modalbody-commentifras').append(the_commentifra);
-    $('#modalbody-leaveons').append(the_leaveon);
-    $('#modalbody-finef').append(the_finef);
-    $('#modalbody-edt').append(the_edt);
-    $('#modalbody-fcream').append(the_fcream);
-    $('#modalbody-otherleaveon').append(the_otherleaveon);
-    $('#modalbody-rinseoff').append(the_rinseoff);
-    $('#modalbody-noskin').append(the_noskin);
+	//APPEND - Partie Naturelles
+	$('#modalheader-type').append(the_type);
+	$('#modaltitle').append(the_title); 
+	$('#modaltitle-fili').append(the_filiation);
+	$('#modalbody-nbota').append(the_nbota); 
+	$('#modalbody-bota').append(the_bota);
+	$('#modalbody-allergenes').append(the_allergenes);
+	$('#modalbody-autresd').append(the_autresd);
+	$('#modalbody-tenue').append(the_tenue);
+	$('#modalbody-cas').append(the_cas);
+	$('#modalbody-origine').append(the_origine);
+	$('#modalbody-aspect').append(the_aspect);
+	$('#modalbody-methode').append(the_methode);
+	$('#modalbody-remarques').append(the_remarques);
+	$('#modalbody-ifra').append(the_ifra);
+	$('#modalbody-price').append(the_price);
+	$('#modalbody-componat').append(the_componat);
+	$('#modalbody-pemblem').append(the_pemblem);
+	$('#modalbody-parole').append(the_parole);
+	$('#modalbody-chemotype').append(the_chemotype);
+	$('#modalbody-medecine').append(the_medecine);
+	$('#modalbody-stab').append(the_stab);
+	$('#modalbody-utilisation').append(the_utilisation);
+	//APPEND - Partie Synthétique
+	$('#modalheader-type1').append(the_type);
+	$('#modaltitle1').append(the_title);
+	$('#modaltitle1-fili').append(the_filiation); 
+	$('#modalbody-allergenes1').append(the_allergenes);
+	$('#modalbody-autresd1').append(the_autresd);
+	$('#modalbody-tenue1').append(the_tenue);
+	$('#modalbody-ncas1').append(the_cas);
+	$('#modalbody-densite1').append(the_densite);
+	$('#modalbody-logp').append(the_logp);
+	$('#modalbody-aspect1').append(the_aspect);
+	$('#modalbody-fp1').append(the_fp);
+	$('#modalbody-remarques1').append(the_remarques);
+	$('#modalbody-ifra1').append(the_ifra);
+	$('#modalbody-price1').append(the_price);
+	$('#modalbody-bp1').append(the_bp);
+	$('#modalbody-decouverte1').append(the_decouverte);
+	$('#modalbody-synthèse').append(the_synthese);
+	$('#modalbody-précurseur').append(the_precurseur);
+	$('#modalbody-isomérie').append(the_isomerie);
+	$('#modalbody-présencenat').append(the_presencenat);
+	$('#modalbody-parole1').append(the_parole);
+	$('#modalbody-utilisation1').append(the_utilisation);
+	$('#modalbody-mmolaire1').append(the_molaire);
+	$('#modalbody-fbrute1').append(the_fbrute);
+	$('#modalbody-fusionp1').append(the_fusionp);
+	$('#modalbody-stab1').append(the_stab);
 
-    //Apparition des images pour les Naturelles et les Synthétiques
-    if (is_an_ingredient) {
-    $('#modalbody-pict').empty();
-    $('#modalbody-pictA').empty();
-    $('#modalbody-pict1').empty();
-    $('#modalbody-pict1A').empty();
-	$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='' />");
-    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='' />");
-    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='' />");
-    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='' />");
+	//APPEND - Partie Descripteurs
+	$('#modaltitle2').append(the_title);
+	$('#modalheader-type2').append(the_type);
+	$('#modalbody-comment2').append(the_use);
+
+	//APPEND - IFRA nat
+	$('#modalbody-amendment').append(the_amendment);
+	$('#modalbody-cat1').append(the_cat1);
+	$('#modalbody-cat2').append(the_cat2);
+	$('#modalbody-cat3').append(the_cat3);
+	$('#modalbody-cat4').append(the_cat4);
+	$('#modalbody-cat5').append(the_cat5);
+	$('#modalbody-cat6').append(the_cat6);
+	$('#modalbody-cat7').append(the_cat7);
+	$('#modalbody-cat8').append(the_cat8);
+	$('#modalbody-cat9').append(the_cat9);
+	$('#modalbody-cat10').append(the_cat10);
+	$('#modalbody-cat11').append(the_cat11);
+	$('#modalbody-commentifra').append(the_commentifra);
+	$('#modalbody-leaveon').append(the_leaveon);
+	//APPEND - IFRA synth:w
+	$('#modalbody-amendments').append(the_amendment);
+	$('#modalbody-cat1s').append(the_cat1);
+	$('#modalbody-cat2s').append(the_cat2);
+	$('#modalbody-cat3s').append(the_cat3);
+	$('#modalbody-cat4s').append(the_cat4);
+	$('#modalbody-cat5s').append(the_cat5);
+	$('#modalbody-cat6s').append(the_cat6);
+	$('#modalbody-cat7s').append(the_cat7);
+	$('#modalbody-cat8s').append(the_cat8);
+	$('#modalbody-cat9s').append(the_cat9);
+	$('#modalbody-cat10s').append(the_cat10);
+	$('#modalbody-cat11s').append(the_cat11);
+	$('#modalbody-commentifras').append(the_commentifra);
+	$('#modalbody-leaveons').append(the_leaveon);
+	$('#modalbody-finef').append(the_finef);
+	$('#modalbody-edt').append(the_edt);
+	$('#modalbody-fcream').append(the_fcream);
+	$('#modalbody-otherleaveon').append(the_otherleaveon);
+	$('#modalbody-rinseoff').append(the_rinseoff);
+	$('#modalbody-noskin').append(the_noskin);
+
+	//Apparition des images pour les Naturelles et les Synthétiques
+	if (is_an_ingredient) {
+		$('#modalbody-pict').empty();
+		$('#modalbody-pictA').empty();
+		$('#modalbody-pict1').empty();
+		$('#modalbody-pict1A').empty();
+		$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
     };  
     
     if (is_an_naturelle) {
@@ -886,6 +902,15 @@ $('#DescripteurModal').on("show.bs.modal", function (e) {
     };
 });
 
+function save_map_status_inside_cookies(the_map) {
+        var the_map_center = the_map.getCenter();
+        var rounded_latitude = Math.round(the_map_center.lat * 100000) / 100000;
+        var rounded_longitude = Math.round(the_map_center.lng * 100000) / 100000;
+        var the_map_zoom = the_map.getZoom();
+        Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
+        Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
+        Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
+};
 
 $("#SynthetiqueModal").on("hide.bs.modal", function (e) {
 	$(".table1").hide();
@@ -895,14 +920,8 @@ $("#SynthetiqueModal").on("hide.bs.modal", function (e) {
 	$(".amendment").hide();
 	$(".commentaires").hide();
 	$('title').html("ScenTree - Classification innovante des ingrédients parfum");
-        var the_map_center = map.getCenter();
-        var rounded_latitude = Math.round(the_map_center.lat * 100000) / 100000;
-        var rounded_longitude = Math.round(the_map_center.lng * 100000) / 100000;
-        var the_map_zoom = map.getZoom();
-        Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
-        Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
-        Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
-        window.location.href = "../_/index.html";
+        save_map_status_inside_cookies(map);
+	window.location.href = "../_/index.html";
 });
 $("#naturelleModal").on("hide.bs.modal", function (e) {
 	$(".table1").hide();
@@ -912,13 +931,7 @@ $("#naturelleModal").on("hide.bs.modal", function (e) {
 	$(".amendment").hide();
 	$(".commentaires").hide();
 	$('title').html("ScenTree - Classification innovante des ingrédients parfum");
-        var the_map_center = map.getCenter();
-        var rounded_latitude = Math.round(the_map_center.lat * 100000) / 100000;
-        var rounded_longitude = Math.round(the_map_center.lng * 100000) / 100000;
-        var the_map_zoom = map.getZoom();
-        Cookies.set('the_previous_map__zoom', the_map_zoom, { expires: in30Minutes });
-        Cookies.set('the_previous_map__latitude', rounded_latitude, { expires: in30Minutes });
-        Cookies.set('the_previous_map__longitude', rounded_longitude, { expires: in30Minutes });
+	save_map_status_inside_cookies(map);
 	window.location.href = "../_/index.html";
 });
 $('#DescripteurModal').on("hidden.bs.modal", function (e) {
@@ -926,6 +939,7 @@ $('#DescripteurModal').on("hidden.bs.modal", function (e) {
 });
 
 var URL_PREFIX_SELECTER;
+var URL_PREFIX_SUGGESTER;
 function switch_to_en() {
     // emphasize the EN button
     $('.to_french_button').css("font-weight","normal");
@@ -938,12 +952,15 @@ function switch_to_en() {
     $("*:lang(fr)").css({'display' : 'none'});
     $("*:lang(en)").css({'display' : 'initial'});
     // change search
-    URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
+    URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
+    URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_EN/?q=id%3A";
     // clear search input
     $(".searchinput").val('');
     // change map
-    map.addLayer(tol_en);
-    map.removeLayer(tol_fr);
+    if ($("#map").length) {
+        map.addLayer(tol_en);
+        map.removeLayer(tol_fr);
+    };
     //change page title only for the main page
     if (document.title ==  "ScenTree - Classification innovante des ingrédients parfum") document.title = "ScenTree - The new collaborative perfumery raw materials classification";
 };
@@ -959,12 +976,15 @@ function switch_to_fr() {
     $("*:lang(en)").css({'display' : 'none'});
     $("*:lang(fr)").css({'display' : 'initial'});
     // change search
-    URL_PREFIX_SELECTER = "/select_FR/?q=id%3A";
+    URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_FR/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
+    URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_FR/?q=id%3A";
     // clear search input
     $(".searchinput").val('');  
     // change map
-    map.addLayer(tol_fr);
-    map.removeLayer(tol_en);
+    if ($("#map").length) {
+        map.addLayer(tol_fr);
+        map.removeLayer(tol_en);
+    };
     //change page title only for the main page
     if (document.title ==  "ScenTree - The new collaborative perfumery raw materials classification") document.title = "ScenTree - Classification innovante des ingrédients parfum";
 };
@@ -1002,6 +1022,20 @@ $("#partenaireCinquiemeSens").on("show.bs.modal", function() {
     $("#lesCollaborateurs").modal("hide");
 });
 
+$("#close_you_can_zoom").on('click', function() {
+    $('#you_can_zoom').css({"display" : "none"});
+});
+
+$(".save_map_status_on_leaving").on("click", function() {
+    if ($("#map").length) {
+	save_map_status_inside_cookies(map);
+    };
+});
+$(".show_modal_at_start").modal("show"); 
+$(".go_to_main_page_after_closing_modal").on("hide.bs.modal", function() {
+    window.location.href = "../_/index.html";
+});
+	
 /*suppression du copier-coller*/
 function addLink() {
     var body_element = document.getElementsByTagName('body')[0];
