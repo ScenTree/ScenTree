@@ -50,9 +50,9 @@ the_json_file.close()
 for an_ingredient in the_ingredients:
     for a_pro in the_pros:
         if int(a_pro["id"]) == int(an_ingredient["from_csv EN id"]):
-            print("---------------")
-            print(a_pro)
-            print("<->")
-            print(an_ingredient)
-            print("----------------")
+            try:
+                an_ingredient["PRO"].append(a_pro)
+            except KeyError:
+                an_ingredient["PRO"] = [a_pro]
+
 
