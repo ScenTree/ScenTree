@@ -38,11 +38,21 @@ else:
 
 # reading the CSV
 the_csv_file = open(THE_PATH_OF_THE_CSV_FILE, 'r')
-the_pros = [d for d in csv.DictReader(the_csv_file, delimiter=',')] # list of dicts with the keys = the header of the csv
+the_pros = [d for d in csv.DictReader(the_csv_file, delimiter=';')] # list of dicts with the keys = the header of the csv
 the_csv_file.close()
 
 # reading the JSON
 the_json_file = open(THE_PATH_OF_THE_JSONFILE, 'r')
 the_ingredients = json.load(the_json_file)
 the_json_file.close()
+
+# updating the JSON ingredients with CSV infos
+for an_ingredient in the_ingredients:
+    for a_pro in the_pros:
+        if int(a_pro["id"]) == int(an_ingredient["from_csv EN id"]):
+            print("---------------")
+            print(a_pro)
+            print("<->")
+            print(an_ingredient)
+            print("----------------")
 
