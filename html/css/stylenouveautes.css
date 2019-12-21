@@ -170,7 +170,7 @@ h1 {
 .timeline:before{
   content:'';
   position:absolute;
-  left: 12%;
+  left: 15%;
   width:0.7%;
   height:100%;
   background-color:#D64E26;
