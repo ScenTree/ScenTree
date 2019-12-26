@@ -16,6 +16,7 @@ html, body {
 }
 .notifi1 .notifi2 {
   color: red;
+  display: none;
 }
 .interpop{
   color: #6586B4;
