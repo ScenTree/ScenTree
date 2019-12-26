@@ -14,10 +14,7 @@ html, body {
   font-size: 120%;
   color: #494747;
 }
-.notif {
-  position:absolute;
-  top:20%;
-  font-size: large;
+.notifi1 .notifi2 {
   color: red;
 }
 .interpop{
