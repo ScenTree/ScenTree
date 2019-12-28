@@ -22,6 +22,8 @@ html, body {
 }
 .notifi3 {
   color: blue;
+  position: absolute;
+  z-index: 1;
 }
 
 .dropdown-toggle:after { 
