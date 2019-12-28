@@ -21,7 +21,7 @@ html, body {
   color: red;
 }
 .notifi3 {
-  color: blue;
+  color: red;
   position: absolute;
   z-index: 1;
   right: 10%;
