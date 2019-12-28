@@ -20,6 +20,10 @@ html, body {
 .notifi2 {
   color: red;
 }
+.notifi3 {
+  color: blue;
+}
+
 .dropdown-toggle:after { 
   content: none 
 }
