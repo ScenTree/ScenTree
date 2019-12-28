@@ -16,8 +16,7 @@ html, body {
 }
 .notifi1 {
   color: red;
-  top: 5%;
-  
+  position: absolute;  
 }
 .interpop{
   color: #6586B4;
