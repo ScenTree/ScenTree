@@ -20,7 +20,9 @@ html, body {
 .notifi2 {
   color: red;
 }
-
+.dropdown-toggle:after { 
+  content: none 
+}
 .interpop{
   color: #6586B4;
 }
