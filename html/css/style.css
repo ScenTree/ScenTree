@@ -24,6 +24,7 @@ html, body {
   color: blue;
   position: absolute;
   z-index: 1;
+  right: 10%;
 }
 
 .dropdown-toggle:after { 
