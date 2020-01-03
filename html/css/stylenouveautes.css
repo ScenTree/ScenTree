@@ -8,6 +8,9 @@ html, body {
 *:lang(en) {
     display: initial;
 }
+.interpop{
+  color: #6586B4;
+}
 /* assign numbering*/
 .timeline ul li:nth-child(1):before{content:'406';}
 .timeline ul li:nth-child(2):before{content:'398';}
