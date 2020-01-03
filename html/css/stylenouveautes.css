@@ -43,7 +43,7 @@ html, body {
 /**********************************
 ***********TIMELINE****************
 **********************************/
-@media screen and (min-width: 990px) and (max-width: 1600px) {
+@media screen and (min-width: 990px) {
 /*set up size of the whole timeline OK */
 .timeline{
   position: relative;
