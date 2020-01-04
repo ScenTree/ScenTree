@@ -36,6 +36,18 @@ if (! window.document.jsdom_reader) {
 	};
 };
 
+var show_the_notifications = false;
+var last_update_from_the_cookie = Cookies.get('Updated_on');
+if (! window.document.jsdom_reader) {
+	if (! last_update_from_the_cookie) {
+		show_the_notifications = true;
+	} else {
+		if (parseInt(last_update_from_the_cookie, 10) < UPDATED_ON) {
+			show_the_notifications = true;
+		};
+	};
+};
+
 $("#no_cookie").click(function(){
 	$("#RGPD_warning").css({'display' : 'None'});
 	Cookies.set('RGPD_no_cookie', '1', { expires: 365 });
@@ -49,6 +61,16 @@ $("#cookie_please").click(function(){
 	gtag('js', new Date());
 	gtag('config', 'UA-140166656-1');
 });
+
+if (show_the_notifications) {
+	$("notifi1").css({'display' : 'inline-block'});
+	$("notifi2").css({'display' : 'inline-block'});
+	$("notifi3").css({'display' : 'inline-block'});
+} else {
+        $("notifi1").css({'display' : 'none'});
+        $("notifi2").css({'display' : 'none'});
+        $("notifi3").css({'display' : 'none'});
+};
 
 function put_all_digits_into_sub(the_string) {
     // sub = <sub>12</sub>, for indices
