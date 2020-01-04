@@ -14,6 +14,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 };
 
+var UPDATED_ON = 20191215;
 
 var in30Minutes = 1/96; // in 15 minutes
 
