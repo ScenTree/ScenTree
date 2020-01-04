@@ -14,7 +14,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 };
 
-var UPDATED_ON = {"they support us" : 20191215, "the news" : 20191215};
+var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215"};
 
 var in30Minutes = 1/96; // in 15 minutes
 
@@ -42,7 +42,7 @@ if (! window.document.jsdom_reader) {
 	if (! last_update_of_the_support_us_from_the_cookie) {
 		show_the_notifications_for_they_support_us = true;
 	} else {
-		if (parseInt(last_update_of_the_support_us_from_the_cookie, 10) < UPDATED_ON["they support us"]) {
+		if (parseInt(last_update_of_the_support_us_from_the_cookie, 10) < parseInt(UPDATED_ON["they support us"], 10)) {
 			show_the_notifications_for_they_support_us = true;
 		};
 	};
@@ -54,7 +54,7 @@ if (! window.document.jsdom_reader) {
         if (! last_update_of_the_news_from_the_cookie) {
                 show_the_notifications_for_the_news = true;
         } else {
-                if (parseInt(last_update_of_the_news_from_the_cookie, 10) < UPDATED_ON["the news"]) {
+                if (parseInt(last_update_of_the_news_from_the_cookie, 10) < parseInt(UPDATED_ON["the news"], 10)) {
                         show_the_notifications_for_the_news = true;
                 };
         };
@@ -76,19 +76,19 @@ $("#cookie_please").click(function(){
 });
 
 if (show_the_notifications_for_they_support_us) {
-	$("notifi1").css({'display' : 'inline-block'});
+	$(".notifi1").css({'display' : 'inline-block'});
 } else {
-        $("notifi1").css({'display' : 'none'});
+        $(".notifi1").css({'display' : 'none'});
 };
 if (show_the_notifications_for_the_news) {
-        $("notifi2").css({'display' : 'inline-block'});
+        $(".notifi2").css({'display' : 'inline-block'});
 } else {
-        $("notifi2").css({'display' : 'none'});
+        $(".notifi2").css({'display' : 'none'});
 };
 if (show_the_notifications_for_they_support_us || show_the_notifications_for_the_news) {
-        $("notifi3").css({'display' : 'inline-block'});
+        $(".notifi3").css({'display' : 'inline-block'});
 } else {
-        $("notifi3").css({'display' : 'none'});
+        $(".notifi3").css({'display' : 'none'});
 };
 
 
