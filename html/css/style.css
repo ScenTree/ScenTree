@@ -10,7 +10,27 @@ html, body {
 #mapblock {
   z-index: 1;
 }
+.fab {
+  font-size: 120%;
+  color: #494747;
+}
+.notifi1 {
+  color: red;
+}
+.notifi2 {
+  color: red;
+}
+.notifi3 {
+  color: red;
+  position: absolute;
+  z-index: 1;
+  right: 7%;
+  top: 5%;
+}
 
+.dropdown-toggle:after { 
+  content: none 
+}
 .interpop{
   color: #6586B4;
 }
@@ -37,6 +57,12 @@ html, body {
 
 .max-height-20px {
   max-height: 20px;
+}
+.max-height-15px {
+  max-height: 15px;
+}
+.max-height-10px {
+  max-height: 10px;
 }
 
 .text-underline {
@@ -70,10 +96,12 @@ html, body {
   font-size: 11px;
 }
 
-.text-size-1-5vw {
- font-size: 1.2vw; 
+.text-size-1-1vw {
+ font-size: 1.1vw; 
 }
-
+.text-size-1-3vw {
+ font-size: 1.3vw; 
+}
 .text-my-grey {
     color : grey;
 }
@@ -243,6 +271,7 @@ html, body {
 .logomenu:hover{
     transform: scale(1.1);
 }
+
 @media screen and (max-width: 767px) {
 .logomenu{
     max-height: 40px;
