@@ -1,14 +1,16 @@
 #!/bin/sh 
 
-THE_CURRENT_PATH=$(dirname $(readlink -f $0))
+THE_SECRET_DATA_FOLDER="$1"
+THE_SOLR_CORES_PREFIX="$2"
 
-THE_DEV_PATH=/home/maxime/dev_BDD
-THE_TARGET_PATH="$THE_DEV_PATH"
-THE_SECRET_DATA_FOLDER="$THE_TARGET_PATH/BDD"
+if [ "$THE_SOLR_CORES_PREFIX" != "" ]
+then
+	THE_SOLR_CORES_PREFIX="${THE_SOLR_CORES_PREFIX}_"
+fi	
 
-THE_EN_SOLR_CORE="dev_taxoEN"
-THE_FR_SOLR_CORE="dev_taxoFR"
-THE_EN_and_FR_SOLR_CORE="dev_taxoENandFR"
+THE_EN_SOLR_CORE="${THE_SOLR_CORES_PREFIX}taxoEN"
+THE_FR_SOLR_CORE="${THE_SOLR_CORES_PREFIX}taxoFR"
+THE_EN_and_FR_SOLR_CORE="${THE_SOLR_CORES_PREFIX}taxoENandFR"
 
 THE_JSON_DATA__EN="$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN.json"
 THE_JSON_DATA__FR="$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_FR.json"
@@ -16,6 +18,13 @@ THE_JSON_DATA__EN_and_FR="$THE_SECRET_DATA_FOLDER/TreeFeaturesNEW_EN_and_FR.json
 
 THE_SOLR_PATH="/home/scentree/src/solr-8.1.1"
 THE_SOLR_SERVER_PATH="$THE_SOLR_PATH/server/solr"
+
+
+echo "The secret folder : "
+ls -l "$THE_SECRET_DATA_FOLDER"
+echo ""
+echo "The solr cores = '$THE_EN_SOLR_CORE' ; '$THE_FR_SOLR_CORE' ; '$THE_EN_and_FR_SOLR_CORE'"
+echo "-------------------------------------------------"
 
 
 does_the_folder_exist () {
@@ -33,7 +42,6 @@ does_the_file_exist () {
         fi
 }
 
-does_the_folder_exist "$THE_TARGET_PATH" "THE_TARGET_PATH"
 does_the_folder_exist "$THE_SECRET_DATA_FOLDER" "THE_SECRET_DATA_FOLDER":
 
 does_the_folder_exist "$THE_SOLR_PATH" "THE_SOLR_PATH"
@@ -42,6 +50,13 @@ does_the_folder_exist "$THE_SOLR_SERVER_PATH" "THE_SOLR_SERVER_PATH"
 does_the_file_exist "$THE_JSON_DATA__EN" "THE_JSON_DATA__EN"
 does_the_file_exist "$THE_JSON_DATA__FR" "THE_JSON_DATA__FR"
 does_the_file_exist "$THE_JSON_DATA__EN_and_FR" "THE_JSON_DATA__EN_and_FR"
+
+
+# does the cores exists ?
+does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_EN_SOLR_CORE" "the EN solr core"
+does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_FR_SOLR_CORE" "the FR solr core"
+does_the_folder_exist "$THE_SOLR_SERVER_PATH/$THE_EN_and_FR_SOLR_CORE" "the EN and FR solr core"
+
 
 
 if [ ! -z "$ABORT_PLEASE" ]
@@ -70,6 +85,6 @@ then
 	exit 1;
 fi
 
-echo "scentree user part (populate solr for the dev env) : done :-)"
+echo "scentree user part (populate solr for the '$THE_SOLR_CORES_PREFIX' env) : done :-)"
 exit 0;
 
