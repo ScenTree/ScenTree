@@ -10,7 +10,7 @@
 <link rel="icon" type="image/png" href="../img/logotfav.png" />
 <!-- Titre de la page -->   
 <title lang="fr">ScenTree - Classification innovante des ingrédients parfum</title>
-<title lang="en">ScenTree - The new collaborative perfumery raw materials classification</title>
+<title lang="en">ScenTree - The new collaborative perfumery ingredients classification</title>
 <!--Description Google-->
 <meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
 <!-- Bootstrap -->
@@ -33,7 +33,7 @@ crossorigin=""/>
 <header class="d-md-none">
 <!-- fixed navbar -->
 <nav class="navbar  fixed-top  fillright">
-  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logonoel.png" alt="le logo de Scentree"></a>
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
 <div class="dropdown">
   <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
@@ -42,23 +42,28 @@ crossorigin=""/>
     <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
   </form>
 </div>
-<div class="dropdown pl-1">
+<div class="dropdown pl-2">
   <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="fas fa-bars"></i>
   </button>
   <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
-    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
-    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr">Ils nous soutiennent</span><span lang="en">They support us</span></a>
-    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
-    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
       <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
       <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
     </div>
-
-    <button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesMentionsLegales"><span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span></button>
-    <a class="linkedIn_button" href="https://www.linkedin.com/company/scentree/"><img src="../img/LI-In-Bug.png" alt="vers notre linkedIn" class="img-fluid max-height-20px" /></a> <a class="instagram_button" href="https://www.instagram.com/scentree.co/"><img src="../img/Instagram_AppIcon_Aug2017.png" alt="vers notre Instagram" class="img-fluid max-height-20px" /></a> <a class="twitter_button" href="https://www.twitter.com/Scentree1"><img src="../img/Twitter_Logo_Blue.png" alt="vers notre Twitter" class="img-fluid max-height-20px" /></a>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <!--<a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/newletter.html"><span lang="fr">Newletter</span><span lang="en">Newletter</span></a>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/mentionslegales.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
   </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
 </div>
 </nav>
 </header>
@@ -72,25 +77,27 @@ crossorigin=""/>
 
 <!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
 
-<div id="menu-block" class="d-none d-md-flex  col-md-3  h-100 fillright">
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
 <div class="container-fluid">
 
-<div class="row h-25 align-items-start">
+<div class="row align-items-start">
   <div class="clearfix w-100">
     <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
     </button>
     <button class="btn text-in-color-brown float-right px-0">/</button>
     <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
   </div>
-  <a class="btn  save_map_status_on_leaving" role="button" href="../_/scentree.html"><img id="logo-image" class="img-fluid logomenu boutonclickable" src="../img/logonoel.png" alt="le logo de Scentree"></a>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logonoel.png" alt="le logo de Scentree"></a>
+  </div>
 </div>
 
-<div class="row h-25 align-items-start">
-  <div class="col-12 align-self-end">
-    <div class="text-underline font-weight-bold text-size-1-5vw  mt-5 mb-2  d-none d-sm-none d-md-block"><span lang="fr">Trouver une matière première&nbsp;:&nbsp;</span><span lang="en">Find a raw material&nbsp;:&nbsp</span></div>
+<div class="row align-items-start">
+  <div class="col-12 align-items-center m-0">
+    <div class="font-weight-bold text-size-1-1vw pb-1 d-none d-sm-none d-md-block"><span lang="fr">Trouver une matière première&nbsp;:&nbsp;</span><span lang="en">Find a raw material&nbsp;:&nbsp</span></div>
   </div>
-  <div class="col-12 text-center align-self-start">
   <!--Recherche -->
+  <div class="col-12 text-center align-items-start">
   <form class="" action="" autocomplete="off" id="searchForm">
     <input lang="fr" type="search" class="searchinput  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." />
     <input lang="en" type="search" class="searchinput  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." />
@@ -98,48 +105,40 @@ crossorigin=""/>
   </div>
 </div>
 
-<div class="row h-25 align-items-center  text-center">
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
   <div class="col">
-<!--<div class="col-12"><button class="btn btn text-underline" type="button" data-toggle="modal" data-target="#lesNouveautes">Découvrez les nouveautés !</button></div>-->
-  <a class="btn  text-underline font-weight-bold  mt-5 mb-5 px-0  text-in-color-brown text-in-size-16px  save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr">Ils nous soutiennent</span><span lang="en">They support us</span></a>
-</div>
-</div>
-<div class="row h-25 align-items-end">
-<div class="container-fluid  text-center">
-<div class="row">
-<div class="col-12 col-md-6 p-0">
-  <a class="btn btn-sm  text-underline save_map_status_on_leaving" role="button" href="../_/sources.html">
-    <span lang="fr">Sources</span><span lang="en">Sources</span>
-  </a>
-</div>
-<div class="col-12 col-md-6 p-0">
-  <a class="btn btn-sm  text-underline  save_map_status_on_leaving" role="button" href="../_/contacts.html">
-  <span lang="fr">Contacts</span><span lang="en">Contacts</span>
-  </a>
-</div>
-<div class="col-12 col-md-6 p-0">
-  <button class="btn btn-sm  text-underline" type="button" data-toggle="modal" data-target="#lesMentionsLegales">
-   <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
-  </button>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-5 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
 </div>
 
-<div class="col-12 col-md-6 p-0 pl-2">
-<div class="container-fluid">
-<div class="row">
-<div class="col-4 p-0" ><a class="linkedIn_button" href="https://www.linkedin.com/company/scentree/" target="_blank"><img src="../img/LI-In-Bug.png" alt="vers notre linkedIn" class="img-fluid max-height-25px" /></a></div>
-<div class="col-4 p-0"><a class="instagram_button" href="https://www.instagram.com/scentree.co/" target="_blank"><img src="../img/Instagram_AppIcon_Aug2017.png" alt="vers notre Instagram" class="img-fluid max-height-25px" /></a></div>
-<div class="col-4 p-0"><a class="twitter_button" href="https://www.twitter.com/Scentree1" target="_blank"><img src="../img/Twitter_Logo_Blue.png" alt="vers notre Twitter" class="img-fluid max-height-25px" /></a></div>
-</div>
-</div>
-</div>
-
-</div>
-
-<div class="copyright m-top-15-percent mb-3  row  d-none d-sm-none d-md-block">
-  <sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |
-</div>
-
-</div>
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <!--<a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/newletter.html">
+          <span lang="fr">Newletter</span><span lang="en">Newletter</span>
+        </a>-->
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/mentionslegales.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 mt-2 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |
+   </div>
+  </div>
 </div>
 
 </div>
@@ -767,7 +766,7 @@ crossorigin=""/>
   </table></div>
   <p class="logoifra text-size-11px text-center text-my-grey"><span lang="fr">ScenTree engage sa pleine responsabilité dans la véracité des données fournies ici, L’IFRA ne saurait donc être responsable en cas d'erreur.</span><span lang="en">ScenTree assumes full responsibility for the accuracy of the data provided here, IFRA cannot be held responsible for any errors.</span> </p>
 
-  <p class="logoifra text-size-11px" style="margin-bottom: 0;><span lang="fr">Pour en savoir plus sur les standards de l'IFRA : <a href="https://ifrafragrance.org/self-regulation/understanding-the-standards" target="_blank">https://ifrafragrance.org/self-regulation/understanding-the-standards</a></span><span lang="en">To learn more about IFRA's standards : <a href="https://ifrafragrance.org/self-regulation/understanding-the-standards" target="_blank">https://ifrafragrance.org/self-regulation/understanding-the-standards</a></span>
+  <p class="logoifra text-size-11px" style="margin-bottom: 0;"><span lang="fr">Pour en savoir plus sur les standards de l'IFRA : <a href="https://ifrafragrance.org/self-regulation/understanding-the-standards" target="_blank">https://ifrafragrance.org/self-regulation/understanding-the-standards</a></span><span lang="en">To learn more about IFRA's standards : <a href="https://ifrafragrance.org/self-regulation/understanding-the-standards" target="_blank">https://ifrafragrance.org/self-regulation/understanding-the-standards</a></span>
   <br>
   <span lang="fr">Pour connaitre les spécificités de chaque catégorie et les ingrédients interdits par l'IFRA, cliquez <a role="button" data-toggle="modal" data-target="#ifra_modal" href="#">ici</a></span><span lang="en">To find out the specificities of each category and the ingredients prohibited by IFRA, click <a role="button" data-toggle="modal" data-target="#ifra_modal" href="#">here</a></span></p>
 </div>
@@ -806,11 +805,13 @@ crossorigin=""/>
 </div> <!--fin modal-body-->
 
 <div class="modal-footer">
-  <div class="container-fluid col-12">
+  <div class="container-fluid">
+    <div class="col-12 text-center">
   <p class="textitem-footer">
     <span lang="fr">Vous <u>commercialisez</u> des matières premières présentes dans la classification ScenTree et vous souhaitez que nos utilisateurs le sachent ? <br>Merci de rentrer en contact avec l'adresse mail suivante : <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
-    <span lang="en">You are <u>commercializing</u> some of the raw materials present in <i><b>ScenTree</b></i> classification and you would like our users to know it? Please contact this email address: <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span></p>
-  </div>
+    <span lang="en">You are <u>commercializing</u> some of the raw materials present in <i><b>ScenTree</b></i> classification and you would like our users to know it? Please contact this email address: <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
+  </p>
+</div>
 </div> <!--fin footer-->
 </div> <!-- fin content -->
 </div> <!-- fin container -->
