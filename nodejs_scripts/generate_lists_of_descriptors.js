@@ -46,7 +46,9 @@ function populate_the_html_file_with_scentree_objects(the_dom, the_scentree_obje
 	the_link_to_the_html_of_the_element.href = "../" + the_name_of_the_html_of_the_element;
 	the_link_to_the_html_of_the_element.rel = "nofollow";
 	the_link_to_the_html_of_the_element.innerHTML = scentree_objects.compute_the_html_elements(the_current_object);
-	
+
+	the_list_element.classList.add("d-block");
+
 	the_list_element.appendChild(the_link_to_the_html_of_the_element);
 	the_html_element.appendChild(the_list_element);
     };

@@ -14,6 +14,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 };
 
+var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215"};
 
 var in30Minutes = 1/96; // in 15 minutes
 
@@ -35,6 +36,31 @@ if (! window.document.jsdom_reader) {
 	};
 };
 
+var show_the_notifications_for_they_support_us = false;
+var last_update_of_the_support_us_from_the_cookie = Cookies.get('Updated_on__they_support_us');
+if (! window.document.jsdom_reader) {
+	if (! last_update_of_the_support_us_from_the_cookie) {
+		show_the_notifications_for_they_support_us = true;
+	} else {
+		if (parseInt(last_update_of_the_support_us_from_the_cookie, 10) < parseInt(UPDATED_ON["they support us"], 10)) {
+			show_the_notifications_for_they_support_us = true;
+		};
+	};
+};
+
+var show_the_notifications_for_the_news = false;
+var last_update_of_the_news_from_the_cookie = Cookies.get('Updated_on__the_news');
+if (! window.document.jsdom_reader) {
+        if (! last_update_of_the_news_from_the_cookie) {
+                show_the_notifications_for_the_news = true;
+        } else {
+                if (parseInt(last_update_of_the_news_from_the_cookie, 10) < parseInt(UPDATED_ON["the news"], 10)) {
+                        show_the_notifications_for_the_news = true;
+                };
+        };
+};
+
+
 $("#no_cookie").click(function(){
 	$("#RGPD_warning").css({'display' : 'None'});
 	Cookies.set('RGPD_no_cookie', '1', { expires: 365 });
@@ -48,6 +74,23 @@ $("#cookie_please").click(function(){
 	gtag('js', new Date());
 	gtag('config', 'UA-140166656-1');
 });
+
+if (show_the_notifications_for_they_support_us) {
+	$(".notifi1").css({'display' : 'inline-block'});
+} else {
+        $(".notifi1").css({'display' : 'none'});
+};
+if (show_the_notifications_for_the_news) {
+        $(".notifi2").css({'display' : 'inline-block'});
+} else {
+        $(".notifi2").css({'display' : 'none'});
+};
+if (show_the_notifications_for_they_support_us || show_the_notifications_for_the_news) {
+        $(".notifi3").css({'display' : 'inline-block'});
+} else {
+        $(".notifi3").css({'display' : 'none'});
+};
+
 
 function put_all_digits_into_sub(the_string) {
     // sub = <sub>12</sub>, for indices
