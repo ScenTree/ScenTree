@@ -35,6 +35,9 @@ html, body {
   color: #6586B4;
 }
 
+nav-pills {
+  color: red;
+}
 .max-height-200px {
   max-height: 200px;
 }
