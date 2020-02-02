@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - Legal - Mentions Légales</title>
+<title lang="en">ScenTree - Legal - Mentions Légales</title>
+<!--Description Google-->
+<meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Fichier Style CSS -->
+<link href="../css/stylesansmap.css" rel="stylesheet" />
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
+
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
+  </button>
+  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
+    <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
+  </form>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/newletter.html"><span lang="fr">Newletter</span><span lang="en">Newletter</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/mentionslegales.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
+
+
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
+
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
+
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+<div class="container-fluid">
+
+<div class="row align-items-start">
+  <div class="clearfix w-100">
+    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
+    </button>
+    <button class="btn text-in-color-brown float-right px-0">/</button>
+    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
+  </div>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
+  </div>
+</div>
+
+<!--Désactivation de la recherche 
+<div class="row align-items-start">
+  <div class="col-12 align-items-center m-0">
+    <div class="font-weight-bold text-size-1-1vw pb-1 d-none d-sm-none d-md-block"><span lang="fr">Trouver une matière première&nbsp;:&nbsp;</span><span lang="en">Find a raw material&nbsp;:&nbsp</span></div>
+  </div>
+  Recherche 
+  <div class="col-12 text-center align-items-start">
+  <form class="" action="" autocomplete="off" id="searchForm">
+    <input lang="fr" type="search" class="searchinput  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." />
+    <input lang="en" type="search" class="searchinput  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." />
+  </form>
+  </div>
+</div>
+-->
+
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
+  <div class="col">
+    <a class="btn mt-4 text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
+    <br>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-5 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
+</div>
+
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/newletter.html">
+          <span lang="fr">Newletter</span><span lang="en">Newletter</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/mentionslegales.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |
+   </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+<div id="blanc1" class="row blockrgpd"></div>
+<div id="contenant" class="row">
+<div class=" col-offset-1 col-9 textRGPD" >
+  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
+  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
+</div> 
+<div class=" col-offset-2 col-3 boutonRGPD">
+  <button class="btn btn-success" id="cookie_please">
+    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
+  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
+    <span lang="fr">Non</span><span lang="en">No</span>
+  </button>
+</div>
+</div>
+<div id="blanc1" class="row blockrgpd"></div>
+</div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center gros_titre">
+  <h1 class="gros_titre text-in-color-brown">MENTIONS LEGALES</h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+
+<p class="mt-3">
+  <span lang="fr">En vertu du règlement (EU-RGPD) 2016/679 du Parlement Européen et du Conseil du 27 avril 2016 relatif à la protection des personnes physiques à l’égard du traitement des données à caractère personnel et à la libre circulation de ces données, et abrogeant la directive 95/46/CE (Règlement Général sur la Protection des Données) et conformément aux dispositions des articles 6-III et 19 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique, nous portons à la connaissance des utilisateurs et visiteurs du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> les informations suivantes.</span>
+  <span lang="en">Pursuant to Regulation (EU-RGPD) 2016/679 of the European Parliament and of the Council of 27<sup>th</sup> of April 2016 on the protection of individuals with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC (General Regulation on Data Protection) and in accordance with the provisions of Articles 6-III and 19 of Law No. 2004-575 of 21 June 2004 on confidence in the digital economy, we bring the following information to the attention of users and visitors of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website.</span>
+</p>
+
+<ol>
+<li class="Titre1"><span lang="fr">Informations générales</span><span lang="en">General Information</span></li>
+  <ul class="row col-12 mt-3 mb-3">
+    <li class="col-6"><span lang="fr" class="Soustitre1">Propriétaire du site internet :</span><span lang="en" class="Soustitre1">Website owner :</span>
+      <br>ScenTree SAS
+      <br>76 Av. des Champs Elysées
+      <br>Bureau 562
+      <br>75008 Paris - France
+      <br>RCS Paris 880 567 524 00017
+      <br>Code APE 6311Z
+      <br>Capital Social : 8 000 €
+      <br><a class="interpop" href="mailto:maxime@scentree.co">contact@scentree.co </a>
+    </li>
+    <li class="col-6"><span lang="fr" class="Soustitre1">Hébergement web :</span><span lang="en" class="Soustitre1">Web hosting : </span>
+      <br>SAS OVH
+      <br>2 rue Kellermann
+      <br>59100 ROUBAIX - France
+      <br>RCS Lille Métropole 424 761 419 00045
+      <br>Code APE 2620Z
+      <br>Capital Social : 10 069 020 €
+      <br><a class="interpop" href="www.ovh.com" target="_BLANK"> www.ovh.com </a>
+      <br><a class="interpop" href="mailto:contact@ovh.com"> contact@ovh.com </a>
+    </li>
+  </ul>   
+
+<li class="Titre1"><span lang="fr">Conditions générales d’utilisation du site internet et description des services fournis</span><span lang="en">General website usage conditions and description of services provided</span></li>
+
+  <p class="paragraphe">
+    <span lang="fr">L’utilisation du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> implique l’acceptation pleine et entière des conditions générales d’utilisation ci-après décrites. Ces conditions d’utilisation sont susceptibles d’être modifiées ou complétées à tout moment, les utilisateurs du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> sont donc invités à les consulter de manière régulière.</span>
+    <span lang="en">The use of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website implies the full and complete acceptance of the general conditions of use described below. These conditions of use are likely to be modified or completed at any time, the users of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website are thus invited to consult them regularly.</span>
+  <br>
+    <span lang="fr">Est désigné ci-après comme « utilisateur », tout internaute se connectant et utilisant le site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>.</span>
+    <span lang="en">Any Internet user connecting to and using the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website is hereinafter referred to as a "user".</span>
+  <br>
+    <span lang="fr">Le site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> est par principe accessible aux utilisateurs 24/24h, 7/7j, sauf interruption, programmée ou non, pour les besoins de sa maintenance technique ou en cas de force majeure. En cas d’impossibilité d’accès au service, l'équipe de ScenTree SAS s’engage à faire leur maximum afin de rétablir l’accès au service et s’efforceront alors de communiquer préalablement aux utilisateurs les dates et heures de l’intervention. N’étant soumis qu’à une obligation de moyen, ils ne sauraient être tenus pour responsables de tout dommage, quelle qu’en soit la nature, résultant d’une indisponibilité du service.</span>
+    <span lang="en">The <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website is in principle accessible to users 24 hours a day, 7 days a week, except in the event of an interruption, scheduled or unscheduled, for the purposes of technical maintenance or in the case of force majeure. In the event of impossibility of access to the service, ScenTree SAS team undertake to do their utmost to re-establish access to the service and will then endeavour to inform the users in advance of the dates and times of the intervention. Being subject only to an obligation of means, they cannot be held responsible for any damage, whatever its nature, resulting from the unavailability of the service.</span>
+  <br>
+    <span lang="fr">Le site <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> est mis à jour régulièrement par l'équipe de ScenTree SAS qui s’efforce de fournir des informations les plus précises possibles (sous réserve de modifications apportées depuis leur mise en ligne), mais ils ne sauraient garantir l’exactitude, la complétude et l’actualité des informations diffusées sur leur site, qu’elles soient de leur fait ou du fait des tiers partenaires qui leur fournissent ces informations. En conséquence, l’utilisateur reconnaît utiliser ces informations données (à titre indicatif, non exhaustives et susceptibles d’évoluer) sous sa responsabilité exclusive.</span>
+    <span lang="en">The <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website is regularly updated by ScenTree SAS team, who make every effort to provide the most accurate information possible (subject to modifications made since they were put on line), but they cannot guarantee the accuracy, completeness and topicality of the information disseminated on their site, whether it is due to their own fault or that of the third party partners who provide them with this information. Consequently, the user acknowledges that he or she uses this information (for information purposes only, non-exhaustive and subject to change) under his or her exclusive responsibility.</span>
+  <br>
+    <span lang="fr">De la même manière, les mentions légales peuvent être modifiées à tout moment : elles s’imposent à l’utilisateur qui est invité à s’y référer le plus souvent possible afin d’en prendre connaissance.</span>
+    <span lang="en">In the same way, the legal mentions may be modified at any time: they are binding on the user, who is invited to refer to them as often as possible in order to take note of them.</span>
+  </p>
+
+<li class="Titre1"><span lang="fr">Propriété intellectuelle</span><span lang="en">Intellectual property</li>
+
+  <p class="paragraphe">
+    <span lang="fr">La société ScenTree SAS est propriétaire des droits de propriété intellectuelle ou détient les droits d’usage sur tous les éléments accessibles sur le site, tant sur la structure que sur les textes, images, graphismes, logo, icônes, sons et logiciels.</span>
+    <span lang="en">ScenTree SAS is the owner of the intellectual property rights or hold the rights of use on all the elements accessible on the site, as much on the structure as on the texts, images, graphics, logo, icons, sounds and software.</span>
+  <br>
+    <span lang="fr">Toute reproduction totale ou partielle du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>, représentation, modification, publication, traduction, exploitation, adaptation totale ou partielle de l’un quelconque de ces éléments, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de l'équipe de ScenTree SAS, propriétaire du site, obtenue par contact aux adresses mail suivantes : <a class="interpop" href="mailto:maxime@scentree.co"> contact@scentree.co </a>.</span>
+    <span lang="en">Any total or partial reproduction of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website, representation, modification, publication, translation, exploitation, total or partial adaptation of any of these elements, regardless of the means or process used, is prohibited without the prior written authorisation of ScenTree SAS team, owner of the site, obtained by contacting the following e-mail addresses: <a class="interpop" href="mailto:maxime@scentree.co"> contact@scentree.co </a>.</span>
+  <br>
+    <span lang="fr">Toute exploitation non autorisée du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> ou de l’un quelconque des éléments qu’il contient sera considérée comme constitutive d’une contrefaçon et passible de poursuites, conformément aux dispositions des articles L. 335-2 et suivants du Code de Propriété Intellectuelle.</span>
+    <span lang="en">Any unauthorized use of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website or any of the elements it contains will be considered as constituting an infringement and liable to prosecution, in accordance with the provisions of Articles L. 335-2 and following of the Intellectual Property Code.</span>
+  </p>
+
+<li class="Titre1"><span lang="fr">Limitations de responsabilité</span><span lang="en">Responsability limits</span></li>
+  <p class="paragraphe">
+    <span lang="fr">La société ScenTree SAS ne saura être tenue responsable de dommages matériels liés à l’utilisation du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>. De plus, l’utilisateur du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> s’engage à accéder à ce dernier en utilisant un matériel récent, ne contenant pas de virus et avec un navigateur de dernière génération mis à jour.</span>
+    <span lang="en">ScenTree SAS cannot be held responsible for any material damage related to the use of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website. Moreover, the user of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website undertakes to access the latter using recent equipment, free of viruses and with a latest-generation browser that has been updated.</span>
+  <br>
+    <span lang="fr">La société ScenTree SAS ne saura être tenue responsable des dommages directs et indirects causés au matériel de l’utilisateur, lors de l’accès au site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>, et résultant soit de l’utilisation d’un matériel ne répondant pas aux spécifications indiquées à l’alinéa précédent, soit de l’apparition d’un bug ou d’une incompatibilité.</span>
+    <span lang="en">ScenTree SAS cannot be held responsible for any direct or indirect damage caused to the user's equipment when accessing the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>o website, and resulting either from the use of equipment that does not meet the specifications indicated in the previous paragraph, or from the appearance of a bug or incompatibility.</span>
+  <br>
+    <span lang="fr">La société ScenTree SAS ne saura être tenue responsable des dommages indirects (tels par exemple qu’une perte de marché ou perte d’une chance) consécutifs à l’utilisation du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>.</span>
+    <span lang="en">Neither ScenTree SAS can be held responsible for indirect damages (such as loss of business or loss of opportunity) resulting from the use of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website.</span>
+  </p>
+
+  <li class="Titre1"><span lang="fr">Gestion des données personnelles</span><span lang="en">Personal data management</span></li>
+    <ol type="A">
+      <li class="Titre2"><span lang="fr">Avant-propos :</span><span lang="en">Foreword : </span></li>
+        <p class="paragraphe">
+          <span lang="fr">Dans l’Union Européenne, les données personnelles sont notamment protégées par le règlement général sur la protection des données par le règlement (EU-RGPD) 2016/676 du 27 avril 2016.</span>
+          <span lang="en">In the European Union, personal data is notably protected by the General Data Protection Regulation (EU-RGPD) 2016/676 of the 27<sup>th</sup> of April 2016.</span>
+          <br>
+          <span lang="fr">Une « donnée personnelle » s’entend de « toute information se rapportant à une personne physique identifiée ou identifiable ».</span>
+          <span lang="en">"Personal data" means "any information relating to an identified or identifiable natural person".</span>
+        </p>
+
+      <li class="Titre2"><span lang="fr">Données récoltées :</span><span lang="en">Collected data : </span></li>
+        <p class="paragraphe">
+          <span lang="fr">A l’occasion de l’utilisation du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>, peuvent être recueillies des données personnelles de l’utilisateur, notamment : </span>
+          <span lang="en">During the use of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website, personal data of the user may be collected, in particular :</span>
+            <ul class="miniliste">
+              <li>
+                <span lang="fr">URLs des liens visités du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>.</span>
+                <span lang="en">URLs of the visited links of <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website.</span>
+              </li>
+              <li>
+                <span lang="fr">Fournisseur d’accès internet.</span>
+                <span lang="en">Internet provider.</span> 
+              </li>
+              <li>
+                <span lang="fr">Adresse de Protocole Internet (IP).</span>
+                <span lang="en">Internet protocol adress (IP)</span>
+              </li>
+            </ul>
+        </p>
+
+      <li class="Titre2"><span lang="fr">Finalité des données personnelles récoltées :</span><span lang="en">Purpose of collected personal data : </span></li>
+        <p class="paragraphe">
+          <span lang="fr">A ce titre, et conformément à l’article 5 du règlement (EU-RGPD) 2016/679 du 27 avril 2016, les informations personnelles recueillies, le cas échéant, via les formulaires font l’objet d’un traitement informatique uniquement destiné à ce que la société ScenTree SAS, seule destinataire de ces données, puisse répondre aux utilisateurs de la manière la plus appropriée : elles ne seront jamais utilisées à des fins non prévues, ni transmises à des partenaires ou des tiers.</span>
+          <span lang="en">In this respect, and in accordance with Article 5 of Regulation (EU-RGPD) 2016/679 of the 27<sup>th</sup> of April 2016, the personal information collected, where applicable, via the forms is subject to computer processing solely so that ScenTree SAS, the sole recipients of this data, can respond to users in the most appropriate way: it will never be used for unintended purposes, nor transmitted to partners or third parties.</span>
+        <br>
+          <span lang="fr">L’utilisateur fournit ces informations en toute connaissance de cause, notamment lorsqu’il procède par lui-même à leur saisie, ainsi que par la validation des champs référant à ces mentions légales. Il est alors précisé à l’utilisateur du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> l’obligation ou non, de fournir ces informations. Aucune information personnelle autre que celles demandées dans ce cadre n’est collectée à son insu.</span>
+          <span lang="en">The user provides this information with full knowledge of the facts, in particular when he or she enters it himself or herself, as well as by validating the fields referring to this legal notice. It is then specified to the user of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website the obligation or not to provide this information. No personal information other than those requested in this context is collected without his knowledge.</span>
+        </p>
+
+      <li class="Titre2"><span lang="fr">Sécurisation des données personnelles : </span><span lang="en">Securing of personal data : </span></li>
+        <p class="paragraphe">
+          <span lang="fr">Aucune donnée personnelle de l’utilisateur du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> n’est publiée à l’insu de l’utilisateur, échangée, transférée, cédée ou vendue sur un support quelconque à des tiers. Seule l’hypothèse du rachat de <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> et de ses droits permettrait la transmission desdites informations à l’éventuel acquéreur qui serait à son tour tenu de la même obligation de conservation et de modification des données vis-à-vis de l’utilisateur du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>.</span>
+          <span lang="en">No personal data of the user of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website is published without the user's knowledge, exchanged, transferred, assigned or sold on any medium whatsoever to third parties. Only in the event of the purchase of <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> and its rights would allow the transmission of this information to the eventual purchaser who would in turn be bound by the same obligation of conservation and modification of the data towards the user of the scentree.co website.</span>
+        <br>
+          <span lang="fr">La société ScenTree SAS s’interdit de traiter, héberger ou transférer les informations collectées vers un pays situé en dehors de l’Union Européenne ou reconnu comme « non adéquat » par la Commission Européenne sans en informer préalablement l’utilisateur. La société ScenTree SAS reste libre du choix de leurs sous-traitants techniques et commerciaux, à la condition qu’ils présentent les garanties suffisantes au regard des exigences du règlement (EU-RGPD) 2016/679 du 27 avril 2016.</span>
+          <span lang="en">ScenTree SAS will not process, host or transfer the information collected to a country outside the European Union or recognised as "unsuitable" by the European Commission without informing the user beforehand. ScenTree SAS remain free to choose their technical and commercial subcontractors, provided that they present sufficient guarantees with regard to the requirements of the regulation (EU-RGPD) 2016/679 of the 27<sup>th</sup> of April 2016.</span>
+        <br>
+          <span lang="fr">La société ScenTree SAS s’engage à prendre toutes les précautions nécessaires afin de préserver la sécurité des informations, notamment quant au fait qu’elles ne soient pas communiquées à des personnes non autorisées. Cependant, si un incident impactant l’intégrité ou la confidentialité des données de l’utilisateur était porté à la connaissance de la société ScenTree SAS, celle-ci devra en informer les utilisateurs dans les meilleurs délais et leur communiquer les mesures correctives prises.</span>
+          <span lang="en">ScenTree SAS are undertaking all necessary precautions to preserve the security of the information, in particular regarding the fact that it is not communicated to unauthorised people. However, if an incident impacting the integrity or confidentiality of the user's data were to be brought to the attention of ScenTree SAS, it must inform the users as soon as possible and inform them of the corrective measures taken.</span>
+        <br>
+          <span lang="fr">Les données personnelles sont stockées et sécurisées sur les serveurs de SAS OVH, 2 rue Kellermann, 59100 ROUBAIX, France, RCS Lille Métropole 424 761 419 00045, Code APE 2620Z, <a class="interpop" href="www.ovh.com" target="_BLANK"> www.ovh.com </a>, <a class="interpop" href="mailto:contact@ovh.com"> contact@ovh.com </a>.</span>
+          <span lang="en">Personal data is stored and secured on the servers of SAS OVH, 2 rue Kellermann, 59100 ROUBAIX, France, RCS Lille Métropole 424 761 419 00045, Code APE 2620Z, <a class="interpop" href="www.ovh.com" target="_BLANK"> www.ovh.com </a>, <a class="interpop" href="mailto:contact@ovh.com"> contact@ovh.com </a>.</span>
+        </p>
+
+      <li class="Titre2"><span lang="fr">Vos droits sur vos données personnelles :</span><span lang="en">Your rights on personal data : </span></li>
+        <p class="paragraphe">
+          <span lang="fr">Conformément aux dispositions des articles du « Chapitre III - Droits de la personne concernée » du règlement (EU-RGPD) 2016/679 du 27 avril 2016, l’utilisateur dispose :</span>
+          <span lang="en">In accordance with the provisions of the articles of "Chapter III - Rights of the data subject" of the Regulation (EU-RGPD) 2016/679 of the 27<sup>th</sup> of April 2016, the user has :</span>
+          <ul class="miniliste">
+            <li>
+              <span lang="fr">D’un droit d’accès et d’information aux données personnelles le concernant. </span>
+              <span lang="en">A right to access and to be informed about his personal data. </span>
+            </li>
+            <li>
+              <span lang="fr">D’un droit de rectification aux données personnelles le concernant. </span>
+              <span lang="en">A right to rectify his personal data. </span>
+            </li>
+            <li>
+              <span lang="fr">D’un droit à l’effacement aux données personnelles le concernant. </span>
+              <span lang="en">A right to delete his personal data. </span>
+            </li>
+            <li>
+              <span lang="fr">D’un droit d’opposition aux données personnelles le concernant. </span>
+              <span lang="en">A right of opposition to his personal data. </span>
+            </li>
+          </ul>
+        </p>
+        <p  class="paragraphe">
+          <span lang="fr">La société ScenTree SAS est responsable du traitement des données, <a class="interpop" href="mailto:maxime@scentree.co"> contact@scentree.co </a>.</span>
+          <span lang="en">The data controller is ScenTree SAS, <a class="interpop" href="mailto:maxime@scentree.co"> contact@scentree.co </a></span>
+        <br>
+          <span lang="fr">L’utilisateur peut, à tout moment, manifester ses droits en contactant le responsable du traitement de données. Le temps de traitement peut durer jusqu’à 30 jours.</span>
+          <span lang="en">The user may, at any time, manifest his rights by contesting the data controller. The processing time may last up to 30 days.</span>
+        </p>
+
+      <li class="Titre2"><span lang="fr">Durée de conservation de vos données personnelles :</span><span lang="en">Data conservation duration :</span></li>
+        <p class="paragraphe">
+          <span lang="fr">A compter de la date de la collecte de vos données, celle-ci peuvent être conservés jusqu’a 26 mois.</span>
+          <span lang="en">From the date of collection, your data may be retained for up to 26 months.</span>
+        </p>
+    </ol>  
+
+  <li class="Titre1"><span lang="fr">Liens hypertextes</span><span lang="en">Hypertext links</li>
+      <p class="paragraphe">
+        <span lang="fr">La mise en place de liens hypertextes vers le site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> n’est conditionnée à aucun accord préalable, seule la mention explicite du site internet concerné dans l’intitulé du lien est souhaitée.</span>
+        <span lang="en">The setting up of hypertext links to the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website is not subject to any prior agreement, only the explicit mention of the website concerned in the title of the link is desired.</span>
+      <br>
+        <span lang="fr">Le site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> contient un certain nombre de liens hypertextes vers d’autres sites internet externes, mis en place avec l’autorisation de la société ScenTree SAS. Cependant, l'équipe de la société ScenTree SAS n’a pas la possibilité de vérifier le contenu des sites ainsi visités, et n’assumeront en conséquence aucune responsabilité de ce fait.</span>
+        <span lang="en">The <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website contains a certain number of hyperlinks to other external websites, set up with the authorisation of ScenTree SAS team. However, ScenTree SAS team have no possibility of verifying the content of the sites thus visited, and therefore do not assume any responsibility for it.</span>
+      </p>
+
+  <li class="Titre1"><span lang="fr">Cookies</span><span lang="en">Cookies</span></li>
+    <p class="paragraphe">
+      <span lang="fr">La navigation sur le site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> est susceptible de provoquer l’installation de cookie(s) sur l’ordinateur de l’utilisateur. Un cookie est un fichier de petite taille, qui ne permet pas l’identification de l’utilisateur, mais qui enregistre des informations relatives à la navigation d’un ordinateur sur un site. Les données ainsi obtenues visent à faciliter la navigation ultérieure sur le site internet et ont également vocation à permettre diverses mesures de fréquentation.</span>
+      <span lang="en">Browsing on <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website may cause the installation of cookie(s) on the user's computer. A cookie is a small file, which does not allow the identification of the user, but which records information relating to the navigation of a computer on a site. The data obtained in this way is intended to facilitate subsequent navigation on the website and is also intended to allow various measures of frequentation.</span>
+    <br>
+      <span lang="fr">Le refus d’installation d’un cookie peut entraîner l’impossibilité d’accéder à certains services du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>.</span>
+      <span lang="en">Refusal to install a cookie may result in the inability to access certain services on the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website.</span>
+    </p>
+    <p class="paragraphe">
+      <ol type="A">
+        <li class="Titre2">
+          <span lang="fr">Utilité des cookies : </span>
+          <span lang="en">Usage of cookies : </span>
+        </li>
+              <p class="paragraphe">
+                <span lang="fr">Trois types de cookies, répondant aux finalités décrites ci-dessous, peuvent être enregistrés dans votre terminal à l’occasion d’une visite du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>.</span>
+                <span lang="en">Three types of cookies, meeting the purposes described below, may be stored in your terminal when you visit the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website.</span>
+                <ul>
+                  <li class="miniliste2">
+                    <span lang="fr">Les cookies techniques</span>
+                    <span lang="en">Technical cookies</span>
+                  </li>
+                      <p class="paragraphe">
+                        <span lang="fr">Les cookies techniques sont nécessaires à la navigation sur <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>.</span>
+                        <span lang="en">Technical cookies are necessary for navigation on <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>.</span>
+                      <br>
+                        <span lang="fr">Les cookies techniques permettent en particulier d’améliorer le confort de navigation, notamment adaptation de la présentation du site internet aux préférences d’affichage du terminal utilisé (langue utilisée, résolution d’affichage).</span>
+                        <span lang="en">In particular, technical cookies make it possible to improve browsing comfort, in particular by adapting the presentation of the website to the display preferences of the terminal used (language used, display resolution).</span>
+                      <br>                     
+                        <span lang="fr">Les cookies techniques permettent également de mettre en œuvre des mesures de sécurité.</span>
+                        <span lang="en">Technical cookies also make it possible to implement security measures.</span>
+                      <br>
+                        <span lang="fr">Ces cookies techniques ne peuvent pas être désactivés ou paramétrés sous peine de ne plus pouvoir accéder au site internet et/ou aux services du site.</span>
+                        <span lang="en">These technical cookies cannot be deactivated or parameterized under penalty of no longer being able to access the website and/or the services of the site.</span>
+                      </p>
+
+                  <li class="miniliste2">
+                    <span lang="fr">Les cookies de mesure d’audience</span>
+                    <span lang="en">Audience measuring cookies</span>
+                  </li>
+                      <p class="paragraphe">
+                        <span lang="fr">Les cookies de mesure d’audience sont émis par Google ou par nos prestataires techniques afin de mesurer l’audience des différents contenus et rubriques du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>, afin de les évaluer et de mieux les organiser.</span>
+                        <span lang="en">Audience measurement cookies are issued by Google or our technical service providers in order to measure the audience of the various contents and sections of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website, in order to evaluate them and to better organize them.</span>
+                      <br>
+                        <span lang="fr">Ces cookies de mesure d’audience permettent également, le cas échéant, de détecter des problèmes de navigation et par conséquent d’améliorer l’ergonomie de nos services.</span>
+                        <span lang="en">These audience measurement cookies also make it possible, if necessary, to detect navigation problems and consequently to improve the ergonomics of our services.</span>
+                      <br>
+                        <span lang="fr">Ces cookies de mesure d’audience ne produisent que des statistiques anonymes et des volumes de fréquentation, à l’exclusion de toute information individuelle.</span>
+                        <span lang="en">These audience measurement cookies only produce anonymous statistics and traffic volumes, except any individual information.</span>
+                      <br>                      
+                        <span lang="fr">La durée de vie de ces cookies de mesure d’audience n’excède pas 26 mois.</span>
+                        <span lang="en">The lifespan of these audience measurement cookies does not exceed 26 months.</span>
+                      </p>
+
+                  <li class="miniliste2">
+                    <span lang="fr">Les cookies « réseaux sociaux »</span>
+                    <span lang="en">« Social Network » cookies</span>
+                  </li>
+                      <p class="paragraphe">
+                        <span lang="fr">Les cookies « réseaux sociaux » permettent de partager des contenus de <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> avec d’autres personnes ou de faire connaître à ces autres personnes votre consultation ou votre opinion concernant un contenu du site.</span>
+                        <span lang="en">"Social network" cookies allow you to share <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> content with others or to let other people know about your visit or opinion about content on the site.</span>
+                      <br>
+                        <span lang="fr">Tel est notamment le cas des boutons « partager », « j’aime », issus de réseaux sociaux.</span>
+                        <span lang="en">This is particularly the case for the "share" and "like" buttons on social networks.</span>
+                      <br>
+                        <span lang="fr">Le réseau social fournissant un tel bouton applicatif est susceptible de vous identifier grâce à ce bouton, même si vous ne l’avez pas utilisé lors de la consultation du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>.</span>
+                        <span lang="en">The social network providing such an application button is likely to identify you through this button, even if you have not used it while viewing the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website.</span>
+                      <br>
+                        <span lang="fr">Nous vous invitons à consulter les politiques de protection de la vie privée de ces réseaux sociaux afin de prendre connaissance des finalités d’utilisation, notamment publicitaires, des informations de navigation qu’ils peuvent recueillir grâce à ces boutons applicatifs.</span>
+                        <span lang="en">We invite you to consult the privacy protection policies of these social networks in order to be aware of the purposes of use, including advertising, of the browsing information they may collect through these application buttons.</span>
+                      <br>
+                        <span lang="fr">La durée de vie de ces cookies « réseaux sociaux » n’excède pas 26 mois.</span>
+                        <span lang="en">The lifetime of these "social network" cookies does not exceed 26 months.</span>
+                      </p>
+
+                </ul> 
+              </p>
+
+        <li class="Titre2">
+          <span lang="fr">Vos choix concernant les cookies : </span>
+          <span lang="en">Your choice concerning cookies :</span>
+        </li>
+              <p class="paragraphe">
+                <span lang="fr">En utilisant <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>, vous consentez à l’utilisation des cookies précités. Vous pouvez toutefois choisir, à tout moment, de désactiver tout ou une partie de ces cookies, à l’exception des cookies techniques nécessaires au fonctionnement du site internet, tel qu’indiqué ci-avant.</span>
+                <span lang="en">By using <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>, you consent to the use of the aforementioned cookies. However, you can choose, at any time, to deactivate all or part of these cookies, except for the technical cookies necessary for the functioning of the website, as indicated above.</span>
+              <br>
+                <span lang="fr">Votre navigateur internet peut également être paramétré pour vous signaler les cookies qui sont déposés dans votre terminal et vous demander de les accepter ou pas.</span>
+                <span lang="en">Your web browser can also be set to notify cookies that are deposited in your terminal and ask you to accept them or not</span>
+                <ul>
+                  <li class="miniliste2">
+                    <span lang="fr">Refuser un cookie de mesure d’audience</span>
+                    <span lang="en">Deny an audience measuring cookie</span>
+                  </li>
+                      <p class="paragraphe">
+                        <span lang="fr">Sur <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>, les cookies de mesure d’audience sont déposés par la société Google. Si vous ne souhaitez pas que <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> enregistre des cookies de mesure d’audience dans votre navigateur à des fins de mesure d’audience, vous pouvez cliquer sur le lien de désactivation suivant qui enregistrera au sein de votre navigateur un cookie de mesure d’audience ayant pour unique objet de les désactiver.</span>
+                        <span lang="en">On <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>, the audience measurement cookies are deposited by the Google company. If you do not want <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> to store audience measurement cookies in your browser for audience measurement purposes, you can click on the following opt-out link which will store an audience measurement cookie in your browser with the sole purpose of disabling them..</span>
+                      <br>
+                        <span lang="fr">Attention, ces cookies permettent de mesurer le trafic et l’audience associés au site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>, aux pages visitées et aux interactions réalisées sur <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> lors de votre visite.</span>
+                        <span lang="en">Please note that these cookies are used to measure the traffic and audience associated with the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website, the pages visited and the interactions on <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> during your visit.</span>
+                      <br>
+                        <span lang="fr">Les désactiver empêche toute collecte d’informations relative à votre navigation sur <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> et donc la proposition de contenus éditoriaux adaptés en fonction de votre navigation.</span>
+                        <span lang="en">Deactivating them prevents any collection of information relating to your navigation on <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> and therefore the proposal of editorial content adapted according to your navigation.</span>
+                      </p>
+
+
+                  <li class="miniliste2">
+                    <span lang="fr">Refuser un cookie émis par un réseau social</span>
+                    <span lang="en">Deny a « Social Network » cookie</span>
+                  </li>
+                      <p class="paragraphe">
+                        <span lang="fr">Si vous ne souhaitez pas qu’un site internet « réseau social » enregistre des cookies dans votre navigateur à cette fin, vous pouvez vous rendre sur sa page internet pour vous informer et neutraliser l’utilisation des autres cookies provenant d’un tiers émetteur. Désactiver ces cookies empêchera donc toute interaction avec le ou les réseaux sociaux concernés</span>
+                        <span lang="en">If you do not want a "social network" website to save cookies in your browser for this purpose, you can visit its web page to inform yourself and neutralize the use of other cookies from a third party issuer. Deactivating these cookies will therefore prevent any interaction with the social network(s) concerned.</span>
+                      </p>
+
+                  <li class="miniliste2">
+                    <span lang="fr">Remarques générales</span>
+                    <span lang="en">General remarks</span>
+                  </li>
+                      <p class="paragraphe">
+                        <span lang="fr">Attention, la prise en compte de vos différents souhaits repose sur un cookie ou plusieurs cookies déterminés. Si vous supprimez tous les cookies enregistrés au sein de votre terminal concernant notre site, nous ne saurons plus quel consentement ou quel refus vous avez émis.</span>
+                        <span lang="en">Please note that the taking into account of your different wishes is based on one or more specific cookies. If you delete all the cookies stored in your terminal concerning our site, we will no longer know which consent or refusal you have given.</span>
+                      <br>
+                        <span lang="fr">Cela reviendra donc à réinitialiser votre consentement et vous devrez donc à nouveau refuser le ou les cookies que vous ne souhaitez pas conserver.</span>
+                        <span lang="en">This will therefore amount to resetting your consent and you will again have to refuse the cookie(s) you do not wish to keep.</span>
+                      <br>
+                        <span lang="fr">De même, si vous utilisez un autre navigateur internet, vous devrez à nouveau refuser ces cookies car vos choix, comme les cookies auxquels ils se rapportent, dépendent du navigateur et du terminal (ordinateur, tablette, smartphone, etc.) que vous utilisez pour consulter le site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a>..</span>
+                        <span lang="en">Similarly, if you use another internet browser, you will again have to refuse these cookies because your choices, like the cookies to which they relate, depend on the browser and the device (computer, tablet, smartphone, etc.) you are using to visit the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website.</span>
+                      </p>
+                </ul>
+              </p>
+      </ol>
+    </p>
+
+  <li class="Titre1"><span lang="fr">Droit applicable et attribution de juridiction</span><span lang="en">Applicable law and jurisdiction</li>
+    <p class="paragraphe">
+      <span lang="fr">Tout litige en relation avec l’utilisation du site internet <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> est soumis au droit français. Il est fait attribution exclusive de juridiction aux tribunaux compétents de PARIS.</span>
+      <span lang="en">Any dispute related with the use of the <a class="interpop" href="https://www.scentree.co/" target="_BLANK">scentree.co</a> website is subjected to French law. The courts of PARIS have exclusive jurisdiction.</span>
+    </p>
+
+</ol>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+</main>
+
+
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>
