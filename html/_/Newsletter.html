@@ -231,23 +231,34 @@ crossorigin=""/>
     </div>
   <!-- Prénom-->  
     <div class="form-group row">
-      <label for="inputfirstname" class="col-2 col-form-label"><span lang="fr">Prénom :</span><span lang="en">First name :</span></label>
+      <label for="inputfirstname" class="col-2 col-form-label">
+        <span lang="fr">Prénom :</span>
+        <span lang="en">First name :</span>
+      </label>
       <div class="col-10">
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Saisir votre prénom ici..">
+        <input type="text" class="form-control" id="inputfirstname" lang="fr" placeholder="Saisir votre prénom ici..">
+        <input type="text" class="form-control" id="inputfirstname" lang="en" placeholder="Write your first name here..">
       </div>  
     </div>
   <!--emails -->
     <div class="form-group row">
-      <label for="inputmail" class="col-2 col-form-label"><span lang="fr">Adresse mail :</span><span lang="en">Email adress :</span></label>
-    <div class="col-10">
-        <input type="email" class="form-control" id="inputmail" placeholder="name@example.com"> 
+      <label for="inputmail" class="col-2 col-form-label">
+        <span lang="fr">Adresse mail :</span>
+        <span lang="en">Email adress :</span>
+      </label>
+      <div class="col-10">
+        <input type="email" class="form-control" id="inputmail" lang="fr" placeholder="adressemail@example.com">
+        <input type="email" class="form-control" id="inputmail" lang="en" placeholder="emailadress@example.com"> 
       </div>  
     </div>
   <!-- date de naissance-->
     <div class="form-group row">
-      <label for="inputbirthday" class="col-2 col-form-label"><span lang="fr">Date de naissance :</span><span lang="en">Birth date :</span></label>
-      <div class="col">
-        <input class="form-control" type="date" value="2011-08-19" id="example-datetime-local-input">
+      <label for="inputbirthday" class="col-3 col-form-label">
+        <span lang="fr">Date de naissance :</span>
+        <span lang="en">Birth date :</span>
+      </label>
+      <div class="col-9">
+        <input type="date" class="form-control" id="inputbirthdate" value="2011-08-19" >
       </div>  
     </div>
 
