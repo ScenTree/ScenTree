@@ -168,7 +168,7 @@ b{
 .card-img-top {
   max-width: 90%;
   max-height: 90%;
-  text-align: center;
+  align-items: center;
 }
 /*#########################
 ########COPYRIGHT##########
