@@ -14,7 +14,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 };
 
-var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215", "survey" : "20191215"};
+var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215", "the survey" : "20191215"};
 
 var in30Minutes = 1/96; // in 15 minutes
 
@@ -61,7 +61,7 @@ if (! window.document.jsdom_reader) {
 };
 
 var show_the_notifications_for_the_survey = false;
-var last_update_of_the_survey_from_the_cookie = Cookies.get('Updated_on__survey');
+var last_update_of_the_survey_from_the_cookie = Cookies.get('Updated_on__the_survey');
 if (! window.document.jsdom_reader) {
         if (! last_update_of_the_survey_from_the_cookie) {
                 show_the_notifications_for_the_survey = true;
