@@ -72,6 +72,11 @@ if (! window.document.jsdom_reader) {
         };
 };
 
+$(".survey_link").click(function(){
+  Cookies.set('Updated_on__the_survey', UPDATED_ON["the survey"], { expires: 365 });
+  $(".notifi4").css({'display' : 'none'});
+});
+
 $("#no_cookie").click(function(){
   $("#RGPD_warning").css({'display' : 'None'});
   Cookies.set('RGPD_no_cookie', '1', { expires: 365 });
