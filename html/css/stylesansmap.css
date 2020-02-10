@@ -1,0 +1,530 @@
+html, body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#mapblock {
+  z-index: 1;
+}
+.gros_titre {
+  margin-top: 1%;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+hr {
+  margin: 0;
+}
+b{
+  color: #D64E26;
+}
+.pagederoulante {
+  height: 91.5%;
+  overflow-y: scroll;
+}
+#menu-block {
+  z-index: 2;
+  min-height: 500px;
+}
+.fab {
+  font-size: 120%;
+  color: #494747;
+}
+.notifi1 {
+  color: red;
+}
+.notifi2 {
+  color: red;
+}
+.notifi3 {
+  color: red;
+  position: absolute;
+  z-index: 1;
+  right: 7%;
+  top: 5%;
+}
+.dropdown-toggle:after { 
+  content: none 
+}
+.interpop{
+  color: #6586B4;
+}
+
+.blanccorrectionmisenepage{
+  height: 5%;
+}
+/*POLICES */
+.text-in-color-brown {
+  color: #D64E26;
+}
+.exemple {
+  font-size: 0.7em; 
+  color: #494747;
+}
+.with-my-border {
+  border: 2px solid #D64E26;
+}
+.max-height-120px {
+  max-height: 120px;
+}
+.max-height-30px {
+  max-height: 30px;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.catégories{
+  color: #087625;
+}
+.catégories2 {
+  font-weight: bold;
+  text-decoration: underline;
+}
+/*#########################
+#####MENTIONS LEGALES######
+#########################*/
+.Titre1 {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: underline;
+  size: 1.2em;
+  margin-bottom: 0.5em;
+}
+.Titre2 {
+  text-transform: uppercase;
+  text-decoration: underline;
+  size: 1.2em;
+  margin-bottom: 0.5em;
+}
+.Soustitre1 {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.miniliste2{
+  font-weight: bold;
+  size: 0.8em;
+  margin: 0em;
+}
+/*#########################
+#########IMAGES############
+#########################*/
+.img1allergene{
+  float: right;
+  margin: 1%;
+  height: 15%;
+  width: 15%;
+}
+.img2allergene { 
+  height: 20%;
+  width: 50%;
+  margin-left: 25%;
+  margin-bottom: 2%; 
+}
+.img3allergene { 
+  float: left;
+  margin: 1%;
+  margin-bottom: 0%; 
+  height: 15%; 
+  width: 20%;
+}
+.img1creationparfum {
+  align-items: center;
+  height: 40%;
+  width: 40%;
+}
+.img2creationparfum {
+  float: right;
+  margin-bottom: 1%;
+  margin-right: 0%;
+  margin-left: 2%;
+  height: 15%;
+  width: 15%;
+}
+.img3creationparfum {
+  float: left;
+  margin: 1%;
+  height: 15%;
+  width: 15%;
+}
+.img4creationparfum {
+  float: right;
+  margin: 1%;
+  height: 15%;
+  width: 15%;
+}
+.img5creationparfum {
+  float: left;
+  margin-top: 2%;
+  margin-right: 3%;
+  margin-bottom: 2%;
+  height: 30%;
+  width: 30%;
+}
+.img6creationparfum {
+  float: right;
+  margin-bottom: 1%;
+  margin-right: 0%;
+  margin-left: 2%;
+  height: 20%;
+  width: 20%;
+}
+.card-img-top {
+  max-width: 100%;
+  max-height: 100%;
+}
+/*#########################
+########COPYRIGHT##########
+#########################*/
+.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 10px;
+}
+
+/*#########################
+###########RGPD############
+#########################*/
+
+.textRGPD {
+   text-align: justify 
+}
+.boutonRGPD {
+    text-align: center;
+}
+.NONRGPD {
+    font-style: 50%;
+}
+@keyframes RGPD_animation {
+  0%   {bottom: -100px;}
+  100% {bottom: 40%;}
+}
+#RGPD_warning {
+    display: none;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+    z-index: 999;
+    background-color: #FFF8C2;
+    animation-name: RGPD_animation;
+    animation-duration: 2s;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+#closevideo {
+  position:absolute;
+  right:-20px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  opacity:1;
+}
+
+/*#########################
+#######RUBAN DROITE########
+#########################*/
+.logomenu {
+    color:black;
+    font-size: 0.9vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+
+.fillright{
+    background-color:#FBE5D6FF;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+.fillright2{
+    background-color:#FBE5D6FF;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+/*##################################################
+############ZONE DU MENU ET LOGO####################
+##################################################*/
+.logomenu:hover{
+    transform: scale(1.1);
+}
+
+/*#########################
+#########LANGUAGE##########
+#########################*/
+
+*:lang(fr) {
+    display: initial;
+}
+*:lang(en) {
+    display: initial;
+}
+
+#imgen #imgfr {
+    display: inline-block;
+    max-width: 10px;
+    max-height: 10px;
+}
+/*#########################
+###########LISTE###########
+#########################*/
+ol {
+  padding-left: 1em;
+}
+li::before {
+  font-weight: bold; 
+}
+/*#########################
+###########TABLE############
+#########################*/
+table {
+  border: 1px solid black;
+  width: 100%;
+  margin-bottom: 2%; 
+}
+th, .table th {
+    border: 1.5px solid black;
+    text-align: center;
+    font-style: large;
+    background-color: #FBE5D6FF;
+}
+td, .table td {
+    border: 1px solid black;
+    text-align: center;  
+    vertical-align: middle;
+    white-space: normal;
+}
+
+tr:nth-child(even) {
+  background-color: #F1F0F0;
+  color:#121212; 
+}
+caption {
+    color: #D64E26;
+    text-align: center;
+    font-style: italic;
+    caption-side: top;
+}
+.tableauallergenes {
+
+}
+/*#########################
+#######RESPONSIVE##########
+#########################*/
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+.img1allergene{
+  float: right;
+  margin-left: 1%; 
+  margin-right: 1%;
+  margin-top: 2%;
+  margin-bottom: 0;
+  height: 25%;
+  width: 25%;
+}
+.img2allergene { 
+  height: 25%;
+  width: 60%;
+  margin-left: 20%;
+  margin-bottom: 2%; 
+}
+.img3allergene { 
+  float: left;
+  margin: 3%;
+  margin-top: 5%;
+  margin-bottom: 5%; 
+  height: 15%; 
+  width: 20%;
+}
+.pagederoulante {
+  height: 92%;
+  overflow-y: scroll;
+}
+.img1creationparfum {
+  align-items: center;
+  height: 50%;
+  width: 50%;
+}
+.img2creationparfum {
+  float: right;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  margin-right: 0%;
+  margin-left: 2%;
+  height: 20%;
+  width: 20%;
+}
+.img3creationparfum {
+  float: left;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-right: 1%;
+  margin-left: 0%;
+  height: 20%;
+  width: 20%;
+}
+.img4creationparfum {
+  float: right;
+  margin: 1%;
+  height: 20%;
+  width: 20%;
+}
+.img5creationparfum {
+  float: left;
+  margin-top: 2%;
+  margin-right: 3%;
+  margin-bottom: 2%;
+  height: 30%;
+  width: 30%;
+}
+.img6creationparfum {
+  float: right;
+  margin-bottom: 1%;
+  margin-right: 0%;
+  margin-left: 2%;
+  height: 25%;
+  width: 25%;
+}
+table {
+min-width: 100%;
+}
+.blanccorrectionmisenepage{
+  height: 0%;
+}
+}
+
+@media screen and (min-width: 990px) and (max-width: 1200px) {
+table {
+min-width: 100%;
+overflow-x: auto;
+}
+.pagederoulante {
+  height: 86%;
+  overflow-y: scroll;
+}
+.blanccorrectionmisenepage{
+  height: 0%;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 990px) {
+table {
+min-width: 100%;
+overflow-x: auto;
+}
+}
+
+@media screen and (max-width: 768px) {
+.PageEntiere {
+    background-color: white;
+    padding-top: 60px;
+}
+.pagederoulante {
+  height: 100%;
+  overflow-y: visible;
+}
+.logomenu{
+    max-height: 40px;
+}
+.gros_titre {
+  padding-top: 2%;
+  font-weight: bold;
+  font-size: 1em;
+}
+ul {
+  padding-left: 1.5em;
+}
+.solvemobilepadding {
+  margin-top:85%; 
+}
+.img1allergene {
+  align-items: center;
+  margin-bottom: 5%;
+  height: 90%;
+  width: 90%;
+}
+.img2allergene { 
+  align-items: center;
+  height: 15%;
+  width: 90%; 
+  margin: 0;
+  margin-top:2%; 
+  margin-bottom: 4%;
+}
+.img3allergene { 
+  align-items: center;
+  height: 30%;
+  width: 90%; 
+  margin:0;
+  margin-top:2%; 
+  margin-bottom: 2%;
+}
+.img1creationparfum {
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.img2creationparfum {
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  margin-left:10%;
+  margin-right: 10%;
+  margin-top:2%; 
+  margin-bottom: 5%;
+}
+.img3creationparfum {
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.img4creationparfum {
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.img5creationparfum {
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.img6creationparfum {
+  align-items: center;
+  height: 80%;
+  width: 80%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.blanccorrectionmisenepage{
+  height: 0%;
+}
+table {
+min-width: 100%;
+font-size: 10px;
+}
+}
+
+@media screen and (min-width: 768px) {
+.PageEntiere {
+    background-color: white;
+}
+}
+
+
+
