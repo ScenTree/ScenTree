@@ -14,7 +14,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 };
 
-var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215"};
+var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215", "survey" : "20191215"};
 
 var in30Minutes = 1/96; // in 15 minutes
 
@@ -22,30 +22,30 @@ var in30Minutes = 1/96; // in 15 minutes
 var RGPD_warning_has_been_done = Cookies.get('RGPD_warning'); // RGPD_warning unset means this is the first visit
 var RGPD_choice_has_been_done = Cookies.get('RGPD_no_cookie');
 if (! window.document.jsdom_reader) {
-	if (! RGPD_warning_has_been_done) {
-	    Cookies.set('RGPD_warning', '1', { expires: 365 });
-	    $("#RGPD_warning").css({'display' : 'block'});
-	    //$("#modal_video").modal("show");
-	    $("#you_can_zoom").css({'display' : 'block'});
-	} else {
-	    if ((! RGPD_choice_has_been_done) || ((RGPD_choice_has_been_done != 1) && (RGPD_choice_has_been_done != -1))) {
-	        $("#RGPD_warning").css({'display' : 'block'});
-	    } else {
-	        $("#RGPD_warning").css({'display' : 'None'});
-	    };
-	};
+  if (! RGPD_warning_has_been_done) {
+      Cookies.set('RGPD_warning', '1', { expires: 365 });
+      $("#RGPD_warning").css({'display' : 'block'});
+      //$("#modal_video").modal("show");
+      $("#you_can_zoom").css({'display' : 'block'});
+  } else {
+      if ((! RGPD_choice_has_been_done) || ((RGPD_choice_has_been_done != 1) && (RGPD_choice_has_been_done != -1))) {
+          $("#RGPD_warning").css({'display' : 'block'});
+      } else {
+          $("#RGPD_warning").css({'display' : 'None'});
+      };
+  };
 };
 
 var show_the_notifications_for_they_support_us = false;
 var last_update_of_the_support_us_from_the_cookie = Cookies.get('Updated_on__they_support_us');
 if (! window.document.jsdom_reader) {
-	if (! last_update_of_the_support_us_from_the_cookie) {
-		show_the_notifications_for_they_support_us = true;
-	} else {
-		if (parseInt(last_update_of_the_support_us_from_the_cookie, 10) < parseInt(UPDATED_ON["they support us"], 10)) {
-			show_the_notifications_for_they_support_us = true;
-		};
-	};
+  if (! last_update_of_the_support_us_from_the_cookie) {
+    show_the_notifications_for_they_support_us = true;
+  } else {
+    if (parseInt(last_update_of_the_support_us_from_the_cookie, 10) < parseInt(UPDATED_ON["they support us"], 10)) {
+      show_the_notifications_for_they_support_us = true;
+    };
+  };
 };
 
 var show_the_notifications_for_the_news = false;
@@ -60,23 +60,34 @@ if (! window.document.jsdom_reader) {
         };
 };
 
+var show_the_notifications_for_the_survey = false;
+var last_update_of_the_survey_from_the_cookie = Cookies.get('Updated_on__survey');
+if (! window.document.jsdom_reader) {
+        if (! last_update_of_the_survey_from_the_cookie) {
+                show_the_notifications_for_the_survey = true;
+        } else {
+                if (parseInt(last_update_of_the_survey_from_the_cookie, 10) < parseInt(UPDATED_ON["the survey"], 10)) {
+                        show_the_notifications_for_the_survey = true;
+                };
+        };
+};
 
 $("#no_cookie").click(function(){
-	$("#RGPD_warning").css({'display' : 'None'});
-	Cookies.set('RGPD_no_cookie', '1', { expires: 365 });
+  $("#RGPD_warning").css({'display' : 'None'});
+  Cookies.set('RGPD_no_cookie', '1', { expires: 365 });
 });
 
 $("#cookie_please").click(function(){
-	$("#RGPD_warning").css({'display' : 'None'});
-	Cookies.set('RGPD_no_cookie', '-1', { expires: 365 });
-     	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'UA-140166656-1');
+  $("#RGPD_warning").css({'display' : 'None'});
+  Cookies.set('RGPD_no_cookie', '-1', { expires: 365 });
+      window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
 });
 
 if (show_the_notifications_for_they_support_us) {
-	$(".notifi1").css({'display' : 'inline-block'});
+  $(".notifi1").css({'display' : 'inline-block'});
 } else {
         $(".notifi1").css({'display' : 'none'});
 };
@@ -85,7 +96,13 @@ if (show_the_notifications_for_the_news) {
 } else {
         $(".notifi2").css({'display' : 'none'});
 };
-if (show_the_notifications_for_they_support_us || show_the_notifications_for_the_news) {
+if (show_the_notifications_for_the_survey) {
+        $(".notifi4").css({'display' : 'inline-block'});
+} else {
+        $(".notifi4").css({'display' : 'none'});
+};
+
+if (show_the_notifications_for_they_support_us || show_the_notifications_for_the_news || show_the_notifications_for_the_survey) {
         $(".notifi3").css({'display' : 'inline-block'});
 } else {
         $(".notifi3").css({'display' : 'none'});
@@ -107,44 +124,44 @@ function get_all_accents_in_a_regexp(the_string) {
     var the_lowered_string = the_string.toLowerCase();
     var the_string_with_accented_regexp = "";
     for (var i = 0; i < the_lowered_string.length; i++) {
-	var the_char = the_lowered_string.charAt(i);
-	switch(the_char) {
-	case "a":
-	case "à":
-	case "â":
-	case "ä":
-	    the_string_with_accented_regexp = the_string_with_accented_regexp + "[aàâä]";
-	    break;
-	case "e":
-	case "é":
-	case "è":
-	case "ë":
-	case "ê":
-	    the_string_with_accented_regexp = the_string_with_accented_regexp + "[eéèëê]";
-	    break;
-	case "i":
-	case "î":
-	case "ï":
-	    the_string_with_accented_regexp = the_string_with_accented_regexp + "[iîï]";
-	    break;
-	case "o":
-	case "ô":
-	case "ö":
-	    the_string_with_accented_regexp = the_string_with_accented_regexp + "[oôö]";
-	    break;
-	case "u":
-	case "ù":
-	case "ü":
-	case "û":
-	    the_string_with_accented_regexp = the_string_with_accented_regexp + "[uùüû]";
-	    break;
-	case "y":
-	case "ÿ":
-	    the_string_with_accented_regexp = the_string_with_accented_regexp + "[yÿ]"; // l'Haÿ-les-Roses
-	    break;
-	default:
-	    the_string_with_accented_regexp = the_string_with_accented_regexp + the_char;
-	};
+  var the_char = the_lowered_string.charAt(i);
+  switch(the_char) {
+  case "a":
+  case "à":
+  case "â":
+  case "ä":
+      the_string_with_accented_regexp = the_string_with_accented_regexp + "[aàâä]";
+      break;
+  case "e":
+  case "é":
+  case "è":
+  case "ë":
+  case "ê":
+      the_string_with_accented_regexp = the_string_with_accented_regexp + "[eéèëê]";
+      break;
+  case "i":
+  case "î":
+  case "ï":
+      the_string_with_accented_regexp = the_string_with_accented_regexp + "[iîï]";
+      break;
+  case "o":
+  case "ô":
+  case "ö":
+      the_string_with_accented_regexp = the_string_with_accented_regexp + "[oôö]";
+      break;
+  case "u":
+  case "ù":
+  case "ü":
+  case "û":
+      the_string_with_accented_regexp = the_string_with_accented_regexp + "[uùüû]";
+      break;
+  case "y":
+  case "ÿ":
+      the_string_with_accented_regexp = the_string_with_accented_regexp + "[yÿ]"; // l'Haÿ-les-Roses
+      break;
+  default:
+      the_string_with_accented_regexp = the_string_with_accented_regexp + the_char;
+  };
     };
     return the_string_with_accented_regexp;
 };
@@ -160,50 +177,50 @@ function get_all_accents_in_a_regexp(the_string) {
 (function( $ ) {
 
 var proto = $.ui.autocomplete.prototype,
-	initSource = proto._initSource;
+  initSource = proto._initSource;
 
 function filter( array, term ) {
-	var matcher = new RegExp( $.ui.autocomplete.escapeRegex(term), "i" );
-	return $.grep( array, function(value) {
-		return matcher.test( $( "<div>" ).html( value.label || value.value || value ).text() );
-	});
+  var matcher = new RegExp( $.ui.autocomplete.escapeRegex(term), "i" );
+  return $.grep( array, function(value) {
+    return matcher.test( $( "<div>" ).html( value.label || value.value || value ).text() );
+  });
 }
 
 $.extend( proto, {
-	_initSource: function() {
-		if ( this.options.html && $.isArray(this.options.source) ) {
-			this.source = function( request, response ) {
-				response( filter( this.options.source, request.term ) );
-			};
-		} else {
-			initSource.call( this );
-		}
-	},
+  _initSource: function() {
+    if ( this.options.html && $.isArray(this.options.source) ) {
+      this.source = function( request, response ) {
+        response( filter( this.options.source, request.term ) );
+      };
+    } else {
+      initSource.call( this );
+    }
+  },
 
-	_renderItem: function( ul, item) {
-	    var newText = "<span class='nom_de_l_ingredient p-0'>" + String(item.label.sci_name).replace(
+  _renderItem: function( ul, item) {
+      var newText = "<span class='nom_de_l_ingredient p-0'>" + String(item.label.sci_name).replace(
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
-	    if (item.label["from_csv AutresNoms"]) {
-		newText = newText + "<br /><span class='synonymes p-0' style='margin: 0px;' >(" + String(item.label["from_csv AutresNoms"]).replace(
+      if (item.label["from_csv AutresNoms"]) {
+    newText = newText + "<br /><span class='synonymes p-0' style='margin: 0px;' >(" + String(item.label["from_csv AutresNoms"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
-	    };
-	    if (item.label["from_csv Botanique"]) {
-		newText = newText + "<br /><span class='synonymes p-0'>(" + String(item.label["from_csv Botanique"]).replace(
+      };
+      if (item.label["from_csv Botanique"]) {
+    newText = newText + "<br /><span class='synonymes p-0'>(" + String(item.label["from_csv Botanique"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
-	    };
-	    if (item.label["from_csv NCas"]) {
-		newText = newText + "<br /><span class='numero_cas p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
+      };
+      if (item.label["from_csv NCas"]) {
+    newText = newText + "<br /><span class='numero_cas p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
                     "<span class='ui-state-highlight'>$&</span>") + "</span>";
-	    };
-	    return $( "<li></li>" )
-		.data( "item.autocomplete", item )
-		.append( $( "<p></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
-		.appendTo( ul );
-	}
+      };
+      return $( "<li></li>" )
+    .data( "item.autocomplete", item )
+    .append( $( "<p></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
+    .appendTo( ul );
+  }
 });
 
 })( jQuery );
@@ -238,7 +255,7 @@ var the_previous_map__longitude = Cookies.get('the_previous_map__longitude');
 //map.addLayer(tol_fr);
 //map.addLayer(tol_en);
 if ($("#map").length) {
-	map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, ], the_previous_map__zoom || zoom_initial);
+  map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, ], the_previous_map__zoom || zoom_initial);
 };
 /* Définission de l'icone qui pointe les MP recherchées*/
 var mark = L.icon({
@@ -252,7 +269,7 @@ var mark = L.icon({
 /////////////////////////////
 
 function is_an_ingredient(the_object) {
-	return (the_object['ingredient'] == 'yes');
+  return (the_object['ingredient'] == 'yes');
 };
 
 //We create here the function that will build popups (modals).
@@ -274,31 +291,31 @@ function CreatePopUps() {
     var URL2 = "/" + DEV_PREFIX_2 + "select_EN_and_FR/?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000"; 
     // 
     $.ajax({
-	//
-	url : URL2,
+  //
+  url : URL2,
 
-	success : function(data) {
-	    var ok = data.response.docs;
-	    $.each(ok, function( index, value ) {
-		var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
-		//positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
-		var marker = L.marker(latlong,{icon: mark});
-		// non-ingredient -> basic modal
-		if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
-			marker.on("click", function() {
-		    		markofun(ok[index]);
-			});
+  success : function(data) {
+      var ok = data.response.docs;
+      $.each(ok, function( index, value ) {
+    var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
+    //positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
+    var marker = L.marker(latlong,{icon: mark});
+    // non-ingredient -> basic modal
+    if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
+      marker.on("click", function() {
+            markofun(ok[index]);
+      });
                 } else {  // else : ingredient -> link to a new html page
                         marker.on("click", function() {
-				save_map_status_inside_cookies(map);
+        save_map_status_inside_cookies(map);
                                 window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + ".html";
                         });
-		};
-		markers.addLayer(marker);
-	    });
-	},
-	dataType : 'jsonp',
-	jsonp : 'json.wrf'
+    };
+    markers.addLayer(marker);
+      });
+  },
+  dataType : 'jsonp',
+  jsonp : 'json.wrf'
     });
     markers.addTo(map);
     markers.bringToFront();
@@ -312,7 +329,7 @@ var markers = new L.FeatureGroup();
 $(".my-search-bar").on("input", function(){
     if ((! this.value) || (this.value == "")) {
       if (SPfocus) {
-   	 map.removeLayer(SPfocus);
+     map.removeLayer(SPfocus);
       };
     }
 });
@@ -346,9 +363,9 @@ $("#source").click(function() {
 
 //pop-up
 if ($("#map").length) {
-	map.on("moveend", function() {
-	    CreatePopUps();
-	});
+  map.on("moveend", function() {
+      CreatePopUps();
+  });
 };
 
 // définition du pointeur valable, celui jaune de google maps
@@ -378,110 +395,110 @@ $(function() {
     var URL_SUFFIX = "&wt=json";
     
     $(".my-search-bar").autocomplete({
-	source : function(request, response) {
-	    //envoi de la requête à searchinput, la classe HTML définie dans l'index.html
-	    let the_value_from_the_search_input = this.element.val();
- 	    var URL_SUGGESTER = URL_PREFIX_SUGGESTER + the_value_from_the_search_input + URL_SUFFIX;
+  source : function(request, response) {
+      //envoi de la requête à searchinput, la classe HTML définie dans l'index.html
+      let the_value_from_the_search_input = this.element.val();
+      var URL_SUGGESTER = URL_PREFIX_SUGGESTER + the_value_from_the_search_input + URL_SUFFIX;
             console.log(URL_SUGGESTER);
-	    $.ajax({
-		url : URL_SUGGESTER,
-		
-		success : function(data) {
-		    var step1 = data.suggest.mySuggester[the_value_from_the_search_input.toString()];
-		    if (! step1.suggestions) {
-			    return;
-		    };
-		    var docs = JSON.stringify(step1.suggestions);
-		    var jsonData = JSON.parse(docs);
-		    jsonData.sort(function(a,b) {
-			a1 = a.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
-			b1 = b.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
-			return(a1.length-b1.length);
-		    });
-		    var ids_as_an_array = [];
-		    $.map(jsonData, function(value, key) {
-			object_id = value.payload;
-			ids_as_an_array.push(object_id);
-		    });
-		    
-		    if (! ids_as_an_array.length) { // no id no ajax request (otherwise : error in the javascript script)
-			response();
-			return;
-		    };
-		    
-		    ids_as_a_string = ids_as_an_array.join("%20");
-		    var URL_SELECTER = URL_PREFIX_SELECTER + "(" + ids_as_a_string + ")" + URL_SUFFIX;
-		    console.log(URL_SELECTER);
-		    
-		    $.ajax({
-			url : URL_SELECTER,
-			
-			success : function(data_from_selecter) {
-			    var the_infos_from_the_selecter = data_from_selecter.response.docs;
-			    response($.map(the_infos_from_the_selecter, function(value, key) {
-				var sci_name = value.sci_name;
-				var NCas = value["from_csv NCas"];
-				return {
-				    label : value,
-				    value : sci_name + " " + NCas
-				};
-			    }));
-			},
-			
-			error : function() {
-			    response();
-			}, 
-			
-			dataType : 'jsonp',
-			jsonp : 'json.wrf'
-			
-		    });
-		},
-		
-		dataType : 'jsonp',
-		jsonp : 'json.wrf'
-	    });
-	},
-	minLength : '1',
-	autoFocus: true,
-	html: true,
-	focus: function() {
-	    // prevent value inserted on focus
-	    return false;
-	},
-	select: function(e, ui) {
-	    $(".my-search-bar").blur();						
-	    var URL = URL_PREFIX_SELECTER_BOTH_LANGUAGES + "\"" + ui.item.label.id + "\"" + URL_SUFFIX;
-	    console.log(URL);
-	    $.ajax({
-		url : URL,
-		success : function(data) {
-		    var docs = JSON.stringify(data.response.docs);
-		    var jsonData = JSON.parse(docs);
-		    //C'est ici qu'est géré le niveau d'apparition des zooms. Problème pour zoomviews < 5 car apparaissent trop loin 
-		    if (true) {
-		    	jsonData[0].zoom < 5
-		    } else {
-		    	jsonData[0].zoom = 5
-		    }
-		    map.setView(jsonData[0].coordinates, jsonData[0].zoom);
-		    	
-		    
-		    // virer les marqueurs précédents et réinitier la variable en la redéfinissant 
-		    searchMarker.remove();
-		    searchMarker = new L.FeatureGroup();
-		    
+      $.ajax({
+    url : URL_SUGGESTER,
+    
+    success : function(data) {
+        var step1 = data.suggest.mySuggester[the_value_from_the_search_input.toString()];
+        if (! step1.suggestions) {
+          return;
+        };
+        var docs = JSON.stringify(step1.suggestions);
+        var jsonData = JSON.parse(docs);
+        jsonData.sort(function(a,b) {
+      a1 = a.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+      b1 = b.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+      return(a1.length-b1.length);
+        });
+        var ids_as_an_array = [];
+        $.map(jsonData, function(value, key) {
+      object_id = value.payload;
+      ids_as_an_array.push(object_id);
+        });
+        
+        if (! ids_as_an_array.length) { // no id no ajax request (otherwise : error in the javascript script)
+      response();
+      return;
+        };
+        
+        ids_as_a_string = ids_as_an_array.join("%20");
+        var URL_SELECTER = URL_PREFIX_SELECTER + "(" + ids_as_a_string + ")" + URL_SUFFIX;
+        console.log(URL_SELECTER);
+        
+        $.ajax({
+      url : URL_SELECTER,
+      
+      success : function(data_from_selecter) {
+          var the_infos_from_the_selecter = data_from_selecter.response.docs;
+          response($.map(the_infos_from_the_selecter, function(value, key) {
+        var sci_name = value.sci_name;
+        var NCas = value["from_csv NCas"];
+        return {
+            label : value,
+            value : sci_name + " " + NCas
+        };
+          }));
+      },
+      
+      error : function() {
+          response();
+      }, 
+      
+      dataType : 'jsonp',
+      jsonp : 'json.wrf'
+      
+        });
+    },
+    
+    dataType : 'jsonp',
+    jsonp : 'json.wrf'
+      });
+  },
+  minLength : '1',
+  autoFocus: true,
+  html: true,
+  focus: function() {
+      // prevent value inserted on focus
+      return false;
+  },
+  select: function(e, ui) {
+      $(".my-search-bar").blur();           
+      var URL = URL_PREFIX_SELECTER_BOTH_LANGUAGES + "\"" + ui.item.label.id + "\"" + URL_SUFFIX;
+      console.log(URL);
+      $.ajax({
+    url : URL,
+    success : function(data) {
+        var docs = JSON.stringify(data.response.docs);
+        var jsonData = JSON.parse(docs);
+        //C'est ici qu'est géré le niveau d'apparition des zooms. Problème pour zoomviews < 5 car apparaissent trop loin 
+        if (true) {
+          jsonData[0].zoom < 5
+        } else {
+          jsonData[0].zoom = 5
+        }
+        map.setView(jsonData[0].coordinates, jsonData[0].zoom);
+          
+        
+        // virer les marqueurs précédents et réinitier la variable en la redéfinissant 
+        searchMarker.remove();
+        searchMarker = new L.FeatureGroup();
+        
 
-		    SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
- 		    SPfocus.on("click", function() {
- 			markofun(jsonData[0]);
- 		    });
+        SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
+        SPfocus.on("click", function() {
+      markofun(jsonData[0]);
+        });
                     searchMarker.addTo(map);
-		},
-		dataType : 'jsonp',
-		jsonp : 'json.wrf'
-	    });
-	}
+    },
+    dataType : 'jsonp',
+    jsonp : 'json.wrf'
+      });
+  }
     })
 });
 ////////////////////////////////
@@ -607,31 +624,31 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var displayblocktable = (true);
 
     if (IFRAQRA) {
-    	displaytable1 = true;
-    	displayamendment = true;
-    	displaycommentaires = true;
-	displaylogo = true;
+      displaytable1 = true;
+      displayamendment = true;
+      displaycommentaires = true;
+  displaylogo = true;
     };
     if (IFRAnonQRA) {
-    	displaytable2 = true;
-    	displayamendment = true;
-    	displaycommentaires = true;
-	displaylogo = true;
+      displaytable2 = true;
+      displayamendment = true;
+      displaycommentaires = true;
+  displaylogo = true;
     };
     if (IFRAnonQRAspe) {
-    	displaytable2 = false;
-    	displaytable3 = true;
-    	displayamendment = true;
-    	displaycommentaires = true;
-	displaylogo = true;
+      displaytable2 = false;
+      displaytable3 = true;
+      displayamendment = true;
+      displaycommentaires = true;
+  displaylogo = true;
     };
     if (IFRAspécification) {
-    	displaycommentaires = true;
-	displaylogo = true;
+      displaycommentaires = true;
+  displaylogo = true;
     };
     if (nonIFRA) {
-     	displayblockifra1 = false;
-     	displayblocktable = false;
+      displayblockifra1 = false;
+      displayblocktable = false;
      };
 
 
@@ -665,175 +682,175 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //EMPTY - partie synthétique
     $('#modalheader-type1').empty();
     $('#modaltitle1').empty();
-	$('#modaltitle1-fili').empty();
-	$('#modalbody-pict1').empty();
-	$('#modalbody-remarques1').empty();
-	$('#modalbody-densite1').empty();
-	$('#modalbody-price1').empty();
-	$('#modalbody-ncas1').empty();
-	$('#modalbody-aspect1').empty();
-	$('#modalbody-autresd1').empty();
-	$('#modalbody-ifra1').empty();
-	$('#modalbody-allergenes1').empty();
-	$('#modalbody-fp1').empty();
-	$('#modalbody-logp').empty();
-	$('#modalbody-tenue1').empty();
-	$('#modalbody-bp1').empty();
-	$('#modalbody-decouverte1').empty();
-	$('#modalbody-synthèse').empty();
-	$('#modalbody-précurseur').empty();
-	$('#modalbody-isomérie').empty();
-	$('#modalbody-présencenat').empty();
-	$('#modalbody-parole1').empty();
-	$('#modalbody-utilisation1').empty();
-	$('#modalbody-mmolaire1').empty();
-	$('#modalbody-fbrute1').empty();
-	$('#modalbody-fusionp1').empty();
-	$('#modalbody-stab1').empty();
+  $('#modaltitle1-fili').empty();
+  $('#modalbody-pict1').empty();
+  $('#modalbody-remarques1').empty();
+  $('#modalbody-densite1').empty();
+  $('#modalbody-price1').empty();
+  $('#modalbody-ncas1').empty();
+  $('#modalbody-aspect1').empty();
+  $('#modalbody-autresd1').empty();
+  $('#modalbody-ifra1').empty();
+  $('#modalbody-allergenes1').empty();
+  $('#modalbody-fp1').empty();
+  $('#modalbody-logp').empty();
+  $('#modalbody-tenue1').empty();
+  $('#modalbody-bp1').empty();
+  $('#modalbody-decouverte1').empty();
+  $('#modalbody-synthèse').empty();
+  $('#modalbody-précurseur').empty();
+  $('#modalbody-isomérie').empty();
+  $('#modalbody-présencenat').empty();
+  $('#modalbody-parole1').empty();
+  $('#modalbody-utilisation1').empty();
+  $('#modalbody-mmolaire1').empty();
+  $('#modalbody-fbrute1').empty();
+  $('#modalbody-fusionp1').empty();
+  $('#modalbody-stab1').empty();
 
-	//EMPTY - Descripteurs
-	$('#modalheader-type2').empty();
-	$('#modaltitle2').empty();
-	$('#modalbody-comment2').empty();
+  //EMPTY - Descripteurs
+  $('#modalheader-type2').empty();
+  $('#modaltitle2').empty();
+  $('#modalbody-comment2').empty();
 
-	//EMPTY - IFRA 
-	//nat
-	$('#modalbody-amendment').empty();
-	$('#modalbody-cat1').empty();
-	$('#modalbody-cat2').empty();
-	$('#modalbody-cat3').empty();
-	$('#modalbody-cat4').empty();
-	$('#modalbody-cat5').empty();
-	$('#modalbody-cat6').empty();
-	$('#modalbody-cat7').empty();
-	$('#modalbody-cat8').empty();
-	$('#modalbody-cat9').empty();
-	$('#modalbody-cat10').empty();
-	$('#modalbody-cat11').empty();
-	$('#modalbody-commentifra').empty();
-	$('#modalbody-leaveon').empty();
-	//synth
-	$('#modalbody-amendments').empty();
-	$('#modalbody-cat1s').empty();
-	$('#modalbody-cat2s').empty();
-	$('#modalbody-cat3s').empty();
-	$('#modalbody-cat4s').empty();
-	$('#modalbody-cat5s').empty();
-	$('#modalbody-cat6s').empty();
-	$('#modalbody-cat7s').empty();
-	$('#modalbody-cat8s').empty();
-	$('#modalbody-cat9s').empty();
-	$('#modalbody-cat10s').empty();
-	$('#modalbody-cat11s').empty();
-	$('#modalbody-commentifras').empty();
-	$('#modalbody-leaveons').empty();
-	$('#modalbody-finef').empty();
-	$('#modalbody-edt').empty();
-	$('#modalbody-fcream').empty();
-	$('#modalbody-otherleaveon').empty();
-	$('#modalbody-rinseoff').empty();
-	$('#modalbody-noskin').empty();
+  //EMPTY - IFRA 
+  //nat
+  $('#modalbody-amendment').empty();
+  $('#modalbody-cat1').empty();
+  $('#modalbody-cat2').empty();
+  $('#modalbody-cat3').empty();
+  $('#modalbody-cat4').empty();
+  $('#modalbody-cat5').empty();
+  $('#modalbody-cat6').empty();
+  $('#modalbody-cat7').empty();
+  $('#modalbody-cat8').empty();
+  $('#modalbody-cat9').empty();
+  $('#modalbody-cat10').empty();
+  $('#modalbody-cat11').empty();
+  $('#modalbody-commentifra').empty();
+  $('#modalbody-leaveon').empty();
+  //synth
+  $('#modalbody-amendments').empty();
+  $('#modalbody-cat1s').empty();
+  $('#modalbody-cat2s').empty();
+  $('#modalbody-cat3s').empty();
+  $('#modalbody-cat4s').empty();
+  $('#modalbody-cat5s').empty();
+  $('#modalbody-cat6s').empty();
+  $('#modalbody-cat7s').empty();
+  $('#modalbody-cat8s').empty();
+  $('#modalbody-cat9s').empty();
+  $('#modalbody-cat10s').empty();
+  $('#modalbody-cat11s').empty();
+  $('#modalbody-commentifras').empty();
+  $('#modalbody-leaveons').empty();
+  $('#modalbody-finef').empty();
+  $('#modalbody-edt').empty();
+  $('#modalbody-fcream').empty();
+  $('#modalbody-otherleaveon').empty();
+  $('#modalbody-rinseoff').empty();
+  $('#modalbody-noskin').empty();
 
-	//APPEND - Partie Naturelles
-	$('#modalheader-type').append(the_type);
-	$('#modaltitle').append(the_title); 
-	$('#modaltitle-fili').append(the_filiation);
-	$('#modalbody-nbota').append(the_nbota); 
-	$('#modalbody-bota').append(the_bota);
-	$('#modalbody-allergenes').append(the_allergenes);
-	$('#modalbody-autresd').append(the_autresd);
-	$('#modalbody-tenue').append(the_tenue);
-	$('#modalbody-cas').append(the_cas);
-	$('#modalbody-origine').append(the_origine);
-	$('#modalbody-aspect').append(the_aspect);
-	$('#modalbody-methode').append(the_methode);
-	$('#modalbody-remarques').append(the_remarques);
-	$('#modalbody-ifra').append(the_ifra);
-	$('#modalbody-price').append(the_price);
-	$('#modalbody-componat').append(the_componat);
-	$('#modalbody-pemblem').append(the_pemblem);
-	$('#modalbody-parole').append(the_parole);
-	$('#modalbody-chemotype').append(the_chemotype);
-	$('#modalbody-medecine').append(the_medecine);
-	$('#modalbody-stab').append(the_stab);
-	$('#modalbody-utilisation').append(the_utilisation);
-	//APPEND - Partie Synthétique
-	$('#modalheader-type1').append(the_type);
-	$('#modaltitle1').append(the_title);
-	$('#modaltitle1-fili').append(the_filiation); 
-	$('#modalbody-allergenes1').append(the_allergenes);
-	$('#modalbody-autresd1').append(the_autresd);
-	$('#modalbody-tenue1').append(the_tenue);
-	$('#modalbody-ncas1').append(the_cas);
-	$('#modalbody-densite1').append(the_densite);
-	$('#modalbody-logp').append(the_logp);
-	$('#modalbody-aspect1').append(the_aspect);
-	$('#modalbody-fp1').append(the_fp);
-	$('#modalbody-remarques1').append(the_remarques);
-	$('#modalbody-ifra1').append(the_ifra);
-	$('#modalbody-price1').append(the_price);
-	$('#modalbody-bp1').append(the_bp);
-	$('#modalbody-decouverte1').append(the_decouverte);
-	$('#modalbody-synthèse').append(the_synthese);
-	$('#modalbody-précurseur').append(the_precurseur);
-	$('#modalbody-isomérie').append(the_isomerie);
-	$('#modalbody-présencenat').append(the_presencenat);
-	$('#modalbody-parole1').append(the_parole);
-	$('#modalbody-utilisation1').append(the_utilisation);
-	$('#modalbody-mmolaire1').append(the_molaire);
-	$('#modalbody-fbrute1').append(the_fbrute);
-	$('#modalbody-fusionp1').append(the_fusionp);
-	$('#modalbody-stab1').append(the_stab);
+  //APPEND - Partie Naturelles
+  $('#modalheader-type').append(the_type);
+  $('#modaltitle').append(the_title); 
+  $('#modaltitle-fili').append(the_filiation);
+  $('#modalbody-nbota').append(the_nbota); 
+  $('#modalbody-bota').append(the_bota);
+  $('#modalbody-allergenes').append(the_allergenes);
+  $('#modalbody-autresd').append(the_autresd);
+  $('#modalbody-tenue').append(the_tenue);
+  $('#modalbody-cas').append(the_cas);
+  $('#modalbody-origine').append(the_origine);
+  $('#modalbody-aspect').append(the_aspect);
+  $('#modalbody-methode').append(the_methode);
+  $('#modalbody-remarques').append(the_remarques);
+  $('#modalbody-ifra').append(the_ifra);
+  $('#modalbody-price').append(the_price);
+  $('#modalbody-componat').append(the_componat);
+  $('#modalbody-pemblem').append(the_pemblem);
+  $('#modalbody-parole').append(the_parole);
+  $('#modalbody-chemotype').append(the_chemotype);
+  $('#modalbody-medecine').append(the_medecine);
+  $('#modalbody-stab').append(the_stab);
+  $('#modalbody-utilisation').append(the_utilisation);
+  //APPEND - Partie Synthétique
+  $('#modalheader-type1').append(the_type);
+  $('#modaltitle1').append(the_title);
+  $('#modaltitle1-fili').append(the_filiation); 
+  $('#modalbody-allergenes1').append(the_allergenes);
+  $('#modalbody-autresd1').append(the_autresd);
+  $('#modalbody-tenue1').append(the_tenue);
+  $('#modalbody-ncas1').append(the_cas);
+  $('#modalbody-densite1').append(the_densite);
+  $('#modalbody-logp').append(the_logp);
+  $('#modalbody-aspect1').append(the_aspect);
+  $('#modalbody-fp1').append(the_fp);
+  $('#modalbody-remarques1').append(the_remarques);
+  $('#modalbody-ifra1').append(the_ifra);
+  $('#modalbody-price1').append(the_price);
+  $('#modalbody-bp1').append(the_bp);
+  $('#modalbody-decouverte1').append(the_decouverte);
+  $('#modalbody-synthèse').append(the_synthese);
+  $('#modalbody-précurseur').append(the_precurseur);
+  $('#modalbody-isomérie').append(the_isomerie);
+  $('#modalbody-présencenat').append(the_presencenat);
+  $('#modalbody-parole1').append(the_parole);
+  $('#modalbody-utilisation1').append(the_utilisation);
+  $('#modalbody-mmolaire1').append(the_molaire);
+  $('#modalbody-fbrute1').append(the_fbrute);
+  $('#modalbody-fusionp1').append(the_fusionp);
+  $('#modalbody-stab1').append(the_stab);
 
-	//APPEND - Partie Descripteurs
-	$('#modaltitle2').append(the_title);
-	$('#modalheader-type2').append(the_type);
-	$('#modalbody-comment2').append(the_use);
+  //APPEND - Partie Descripteurs
+  $('#modaltitle2').append(the_title);
+  $('#modalheader-type2').append(the_type);
+  $('#modalbody-comment2').append(the_use);
 
-	//APPEND - IFRA nat
-	$('#modalbody-amendment').append(the_amendment);
-	$('#modalbody-cat1').append(the_cat1);
-	$('#modalbody-cat2').append(the_cat2);
-	$('#modalbody-cat3').append(the_cat3);
-	$('#modalbody-cat4').append(the_cat4);
-	$('#modalbody-cat5').append(the_cat5);
-	$('#modalbody-cat6').append(the_cat6);
-	$('#modalbody-cat7').append(the_cat7);
-	$('#modalbody-cat8').append(the_cat8);
-	$('#modalbody-cat9').append(the_cat9);
-	$('#modalbody-cat10').append(the_cat10);
-	$('#modalbody-cat11').append(the_cat11);
-	$('#modalbody-commentifra').append(the_commentifra);
-	$('#modalbody-leaveon').append(the_leaveon);
-	//APPEND - IFRA synth:w
-	$('#modalbody-amendments').append(the_amendment);
-	$('#modalbody-cat1s').append(the_cat1);
-	$('#modalbody-cat2s').append(the_cat2);
-	$('#modalbody-cat3s').append(the_cat3);
-	$('#modalbody-cat4s').append(the_cat4);
-	$('#modalbody-cat5s').append(the_cat5);
-	$('#modalbody-cat6s').append(the_cat6);
-	$('#modalbody-cat7s').append(the_cat7);
-	$('#modalbody-cat8s').append(the_cat8);
-	$('#modalbody-cat9s').append(the_cat9);
-	$('#modalbody-cat10s').append(the_cat10);
-	$('#modalbody-cat11s').append(the_cat11);
-	$('#modalbody-commentifras').append(the_commentifra);
-	$('#modalbody-leaveons').append(the_leaveon);
-	$('#modalbody-finef').append(the_finef);
-	$('#modalbody-edt').append(the_edt);
-	$('#modalbody-fcream').append(the_fcream);
-	$('#modalbody-otherleaveon').append(the_otherleaveon);
-	$('#modalbody-rinseoff').append(the_rinseoff);
-	$('#modalbody-noskin').append(the_noskin);
+  //APPEND - IFRA nat
+  $('#modalbody-amendment').append(the_amendment);
+  $('#modalbody-cat1').append(the_cat1);
+  $('#modalbody-cat2').append(the_cat2);
+  $('#modalbody-cat3').append(the_cat3);
+  $('#modalbody-cat4').append(the_cat4);
+  $('#modalbody-cat5').append(the_cat5);
+  $('#modalbody-cat6').append(the_cat6);
+  $('#modalbody-cat7').append(the_cat7);
+  $('#modalbody-cat8').append(the_cat8);
+  $('#modalbody-cat9').append(the_cat9);
+  $('#modalbody-cat10').append(the_cat10);
+  $('#modalbody-cat11').append(the_cat11);
+  $('#modalbody-commentifra').append(the_commentifra);
+  $('#modalbody-leaveon').append(the_leaveon);
+  //APPEND - IFRA synth:w
+  $('#modalbody-amendments').append(the_amendment);
+  $('#modalbody-cat1s').append(the_cat1);
+  $('#modalbody-cat2s').append(the_cat2);
+  $('#modalbody-cat3s').append(the_cat3);
+  $('#modalbody-cat4s').append(the_cat4);
+  $('#modalbody-cat5s').append(the_cat5);
+  $('#modalbody-cat6s').append(the_cat6);
+  $('#modalbody-cat7s').append(the_cat7);
+  $('#modalbody-cat8s').append(the_cat8);
+  $('#modalbody-cat9s').append(the_cat9);
+  $('#modalbody-cat10s').append(the_cat10);
+  $('#modalbody-cat11s').append(the_cat11);
+  $('#modalbody-commentifras').append(the_commentifra);
+  $('#modalbody-leaveons').append(the_leaveon);
+  $('#modalbody-finef').append(the_finef);
+  $('#modalbody-edt').append(the_edt);
+  $('#modalbody-fcream').append(the_fcream);
+  $('#modalbody-otherleaveon').append(the_otherleaveon);
+  $('#modalbody-rinseoff').append(the_rinseoff);
+  $('#modalbody-noskin').append(the_noskin);
 
-	//Apparition des images pour les Naturelles et les Synthétiques
-	if (is_an_ingredient) {
-		$('#modalbody-pict').empty();
-		$('#modalbody-pictA').empty();
-		$('#modalbody-pict1').empty();
-		$('#modalbody-pict1A').empty();
-		$('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+  //Apparition des images pour les Naturelles et les Synthétiques
+  if (is_an_ingredient) {
+    $('#modalbody-pict').empty();
+    $('#modalbody-pictA').empty();
+    $('#modalbody-pict1').empty();
+    $('#modalbody-pict1A').empty();
+    $('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
     $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
     $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
     $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
@@ -856,55 +873,55 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
    $('title').html('ScenTree - ' + the_webpage_title);
 
    if (displaytable1) {
-   		$(".table1").css('display', 'inline-table');
-   		$(".table1").show();
+      $(".table1").css('display', 'inline-table');
+      $(".table1").show();
    }
    else {
-	$(".table1").css('display', 'none');	   
+  $(".table1").css('display', 'none');     
    };
    if (displaytable2) {
-	   $(".table2").css('display', 'inline-table');
-   	    $(".table2").show();
+     $(".table2").css('display', 'inline-table');
+        $(".table2").show();
    }
    else {
         $(".table2").css('display', 'none');
    };
    if (displaytable3) {
-	   $(".table3").css('display', 'inline-table');
-   	    $(".table3").show();
+     $(".table3").css('display', 'inline-table');
+        $(".table3").show();
    }
    else {
         $(".table3").css('display', 'none');        
    };
    if (displaylogo) {
-    		$(".logoifra").css('display', 'block');
-    	    $(".logoifra").show();
+        $(".logoifra").css('display', 'block');
+          $(".logoifra").show();
     }
    else {
         $(".logoifra").css('display', 'none');
    };
    if (displayamendment) {
-   	   $(".amendment").css('display', 'block');
-	   $(".amendment").show();
+       $(".amendment").css('display', 'block');
+     $(".amendment").show();
    }
    else {
       $(".amendment").css('display', 'none');  
    };
    if (displaycommentaires) {
-   	    $(".commentaires").css('display', 'block');
-	    $(".commentaires").show();
+        $(".commentaires").css('display', 'block');
+      $(".commentaires").show();
    }
    else {
         $(".commentaires").css('display', 'none');
    };
     if (displayblocktable) {
-    		$(".blocktable").css('display', 'block');
+        $(".blocktable").css('display', 'block');
     }
     else {
          $(".blocktable").css('display', 'none');
     };
     if (displayblockifra1 ) {
-    		$(".blockifra1").css('display', 'block');
+        $(".blockifra1").css('display', 'block');
     }
     else {
          $(".blockifra1").css('display', 'none');
@@ -918,7 +935,7 @@ $("#SynthetiqueModal").on("show.bs.modal", function (e) {
         $("*:lang(en)").css({'display' : 'none'});
         $("*:lang(fr)").css({'display' : 'initial'});
     } else {
-	$("*:lang(fr)").css({'display' : 'none'});
+  $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
 });
@@ -956,26 +973,26 @@ function save_map_status_inside_cookies(the_map) {
 };
 
 $("#SynthetiqueModal").on("hide.bs.modal", function (e) {
-	$(".table1").hide();
-	$(".table2").hide();
-	$(".table3").hide();
-	$(".logoifra").hide();
-	$(".amendment").hide();
-	$(".commentaires").hide();
-	$('title').html("ScenTree - Classification innovante des ingrédients parfum");
+  $(".table1").hide();
+  $(".table2").hide();
+  $(".table3").hide();
+  $(".logoifra").hide();
+  $(".amendment").hide();
+  $(".commentaires").hide();
+  $('title').html("ScenTree - Classification innovante des ingrédients parfum");
         save_map_status_inside_cookies(map);
-	window.location.href = "../_/index.html";
+  window.location.href = "../_/index.html";
 });
 $("#naturelleModal").on("hide.bs.modal", function (e) {
-	$(".table1").hide();
-	$(".table2").hide();
-	$(".table3").hide();
-	$(".logoifra").hide();
-	$(".amendment").hide();
-	$(".commentaires").hide();
-	$('title').html("ScenTree - Classification innovante des ingrédients parfum");
-	save_map_status_inside_cookies(map);
-	window.location.href = "../_/index.html";
+  $(".table1").hide();
+  $(".table2").hide();
+  $(".table3").hide();
+  $(".logoifra").hide();
+  $(".amendment").hide();
+  $(".commentaires").hide();
+  $('title').html("ScenTree - Classification innovante des ingrédients parfum");
+  save_map_status_inside_cookies(map);
+  window.location.href = "../_/index.html";
 });
 $('#DescripteurModal').on("hidden.bs.modal", function (e) {
         $('title').html("ScenTree - Classification innovante des ingrédients parfum");
@@ -1071,14 +1088,14 @@ $("#close_you_can_zoom").on('click', function() {
 
 $(".save_map_status_on_leaving").on("click", function() {
     if ($("#map").length) {
-	save_map_status_inside_cookies(map);
+  save_map_status_inside_cookies(map);
     };
 });
 $(".show_modal_at_start").modal("show"); 
 $(".go_to_main_page_after_closing_modal").on("hide.bs.modal", function() {
     window.location.href = "../_/index.html";
 });
-	
+  
 /*suppression du copier-coller*/
 function addLink() {
     var body_element = document.getElementsByTagName('body')[0];
