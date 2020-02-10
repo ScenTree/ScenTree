@@ -74,6 +74,7 @@ if (! window.document.jsdom_reader) {
 
 $(".survey_link").click(function(){
   Cookies.set('Updated_on__the_survey', UPDATED_ON["the survey"], { expires: 365 });
+  $(".notifi4").css({'display' : 'none'});
 });
 
 $("#no_cookie").click(function(){
