@@ -60,7 +60,7 @@ if (! window.document.jsdom_reader) {
         };
 };
 
-var show_the_notifications_for_survey = false;
+var show_the_notifications_for_the_survey = false;
 var last_update_of_the_survey_from_the_cookie = Cookies.get('Updated_on__survey');
 if (! window.document.jsdom_reader) {
         if (! last_update_of_the_survey_from_the_cookie) {
