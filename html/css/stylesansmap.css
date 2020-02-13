@@ -50,6 +50,8 @@ b{
   font-weight: bold;
 }
 .sources {
+  border: 1px solid;
+  padding: 10px;
   box-shadow: 17px 23px 22px 0px rgba(251,229,214,1);
 }
 .blanccorrectionmisenepage{
