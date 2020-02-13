@@ -1013,9 +1013,9 @@ function switch_to_en() {
     $('.to_french_radio_input').removeClass("active");
     // cookie
     Cookies.set('display_french_language', -1, { expires: 365});
-    // CSS
-    $("*:lang(fr)").css({'display' : 'none'});
-    $("*:lang(en)").css({'display' : 'initial'});
+    // DOM
+    $("*:lang(fr)").remove();
+    //$("*:lang(en)").css({'display' : 'initial'});
     // change search
     URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
     URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_EN/?q=id%3A";
@@ -1037,9 +1037,9 @@ function switch_to_fr() {
     $('.to_english_radio_input').removeClass("active");
     // cookie
     Cookies.set('display_french_language', 1, { expires: 365});
-    // CSS
-    $("*:lang(en)").css({'display' : 'none'});
-    $("*:lang(fr)").css({'display' : 'initial'});
+    // DOM
+    $("*:lang(en)").remove();
+    //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
     URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_FR/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
     URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_FR/?q=id%3A";
@@ -1056,15 +1056,19 @@ function switch_to_fr() {
 
 $(".to_english_button").click(function() {
     switch_to_en();
+    location.reload();
 });
 $(".to_french_button").click(function() {
     switch_to_fr();
+    location.reload();
 });
 $(".to_english_radio_input").click(function() {
     switch_to_en();
+    location.reload();
 });
 $(".to_french_radio_input").click(function() {
     switch_to_fr();
+    location.reload();
 });
 
 var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
