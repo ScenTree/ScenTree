@@ -1,539 +1,294 @@
-html, body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-#mapblock {
-  z-index: 1;
-}
-.gros_titre {
-  margin-top: 1%;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-hr {
-  margin: 0;
-}
-b{
-  color: #D64E26;
-}
-.pagederoulante {
-  height: 91.5%;
-  overflow-y: scroll;
-}
-#menu-block {
-  z-index: 2;
-  min-height: 500px;
-}
-.fab {
-  font-size: 120%;
-  color: #494747;
-}
-.notifi1 {
-  color: red;
-}
-.notifi2 {
-  color: red;
-}
-.notifi3 {
-  color: red;
-  position: absolute;
-  z-index: 1;
-  right: 7%;
-  top: 5%;
-}
-.dropdown-toggle:after { 
-  content: none 
-}
-.interpop{
-  color: #6586B4;
-}
-.sources ul {
-  padding: 0.3em;
-}
-.sources li {
-  font-size: 0.85em;
-}
-.sources {
-  border: 1px solid #D64E26;
-  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
-.blanccorrectionmisenepage{
-  height: 5%;
-}
-/*POLICES */
-.text-in-color-brown {
-  color: #D64E26;
-}
-.exemple {
-  font-size: 0.7em; 
-  color: #494747;
-}
-.with-my-border {
-  border: 2px solid #D64E26;
-}
-.max-height-120px {
-  max-height: 120px;
-}
-.max-height-30px {
-  max-height: 30px;
-}
-.text-underline {
-  text-decoration: underline;
-}
-.catégories{
-  color: #087625;
-}
-.catégories2 {
-  font-weight: bold;
-  text-decoration: underline;
-}
-/*#########################
-#####MENTIONS LEGALES######
-#########################*/
-.Titre1 {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Titre2 {
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Soustitre1 {
-  font-weight: bold;
-  text-decoration: underline;
-}
-.miniliste2{
-  font-weight: bold;
-  size: 0.8em;
-  margin: 0em;
-}
-/*#########################
-#########IMAGES############
-#########################*/
-.img1allergene{
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img2allergene { 
-  height: 20%;
-  width: 50%;
-  margin-left: 25%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 1%;
-  margin-bottom: 0%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 40%;
-  width: 40%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 15%;
-  width: 15%;
-}
-.img3creationparfum {
-  float: left;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 20%;
-  width: 20%;
-}
-.card-img-top {
-  max-width: 100%;
-  max-height: 100%;
-}
-/*#########################
-########COPYRIGHT##########
-#########################*/
-.copyright {
-    text-align: center;
-    color: #D64E26;
-    font-size: 10px;
-}
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-/*#########################
-###########RGPD############
-#########################*/
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - Sources</title>
+<title lang="en">ScenTree - Sources</title>
+<!--Description Google-->
+<meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-.textRGPD {
-   text-align: justify 
-}
-.boutonRGPD {
-    text-align: center;
-}
-.NONRGPD {
-    font-style: 50%;
-}
-@keyframes RGPD_animation {
-  0%   {bottom: -100px;}
-  100% {bottom: 40%;}
-}
-#RGPD_warning {
-    display: none;
-    position: absolute;
-    bottom: 40%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, 0);
-    z-index: 999;
-    background-color: #FFF8C2;
-    animation-name: RGPD_animation;
-    animation-duration: 2s;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-#closevideo {
-  position:absolute;
-  right:-20px;
-  top:0;
-  z-index:999;
-  font-size:2rem;
-  font-weight: normal;
-  opacity:1;
-}
+<!-- Fichier Style CSS -->
+<link href="../css/stylesansmap.css" rel="stylesheet" />
 
-/*#########################
-#######RUBAN DROITE########
-#########################*/
-.logomenu {
-    color:black;
-    font-size: 0.9vw;
-    text-decoration:underline;
-    cursor:pointer;
-    display: inline;
-}
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-.fillright{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
-.fillright2{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
 
-/*##################################################
-############ZONE DU MENU ET LOGO####################
-##################################################*/
-.logomenu:hover{
-    transform: scale(1.1);
-}
-
-/*#########################
-#########LANGUAGE##########
-#########################*/
-
-*:lang(fr) {
-    display: initial;
-}
-*:lang(en) {
-    display: initial;
-}
-
-#imgen #imgfr {
-    display: inline-block;
-    max-width: 10px;
-    max-height: 10px;
-}
-/*#########################
-###########LISTE###########
-#########################*/
-ol {
-  padding-left: 1em;
-}
-li::before {
-  font-weight: bold; 
-}
-/*#########################
-###########TABLE############
-#########################*/
-table {
-  border: 1px solid black;
-  width: 100%;
-  margin-bottom: 2%; 
-}
-th, .table th {
-    border: 1.5px solid black;
-    text-align: center;
-    font-style: large;
-    background-color: #FBE5D6FF;
-}
-td, .table td {
-    border: 1px solid black;
-    text-align: center;  
-    vertical-align: middle;
-    white-space: normal;
-}
-
-tr:nth-child(even) {
-  background-color: #F1F0F0;
-  color:#121212; 
-}
-caption {
-    color: #D64E26;
-    text-align: center;
-    font-style: italic;
-    caption-side: top;
-}
-.tableauallergenes {
-
-}
-/*#########################
-#######RESPONSIVE##########
-#########################*/
-
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-.img1allergene{
-  float: right;
-  margin-left: 1%; 
-  margin-right: 1%;
-  margin-top: 2%;
-  margin-bottom: 0;
-  height: 25%;
-  width: 25%;
-}
-.img2allergene { 
-  height: 25%;
-  width: 60%;
-  margin-left: 20%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 3%;
-  margin-top: 5%;
-  margin-bottom: 5%; 
-  height: 15%; 
-  width: 20%;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 50%;
-  width: 50%;
-}
-.img2creationparfum {
-  float: right;
-  margin-top: 2%;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 20%;
-  width: 20%;
-}
-.img3creationparfum {
-  float: left;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-right: 1%;
-  margin-left: 0%;
-  height: 20%;
-  width: 20%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 20%;
-  width: 20%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 25%;
-  width: 25%;
-}
-table {
-min-width: 100%;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-}
-
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-.pagederoulante {
-  height: 86%;
-  overflow-y: scroll;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-}
-
-@media screen and (min-width: 768px) and (max-width: 990px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-}
-
-@media screen and (max-width: 768px) {
-.PageEntiere {
-    background-color: white;
-    padding-top: 60px;
-}
-.pagederoulante {
-  height: 100%;
-  overflow-y: visible;
-}
-.logomenu{
-    max-height: 40px;
-}
-.gros_titre {
-  padding-top: 2%;
-  font-weight: bold;
-  font-size: 1em;
-}
-ul {
-  padding-left: 1.5em;
-}
-.solvemobilepadding {
-  margin-top:85%; 
-}
-.img1allergene {
-  align-items: center;
-  margin-bottom: 5%;
-  height: 90%;
-  width: 90%;
-}
-.img2allergene { 
-  align-items: center;
-  height: 15%;
-  width: 90%; 
-  margin: 0;
-  margin-top:2%; 
-  margin-bottom: 4%;
-}
-.img3allergene { 
-  align-items: center;
-  height: 30%;
-  width: 90%; 
-  margin:0;
-  margin-top:2%; 
-  margin-bottom: 2%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-.img2creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-left:10%;
-  margin-right: 10%;
-  margin-top:2%; 
-  margin-bottom: 5%;
-}
-.img3creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img4creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img5creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img6creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-table {
-min-width: 100%;
-font-size: 10px;
-}
-}
-
-@media screen and (min-width: 768px) {
-.PageEntiere {
-    background-color: white;
-}
-}
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
+  </button>
+  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
+    <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
+  </form>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/newletter.html"><span lang="fr">Newletter</span><span lang="en">Newletter</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/mentionslegales.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
 
 
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
+
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
+
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+<div class="container-fluid">
+
+<div class="row align-items-start">
+  <div class="clearfix w-100">
+    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
+    </button>
+    <button class="btn text-in-color-brown float-right px-0">/</button>
+    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
+  </div>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
+  </div>
+</div>
+
+<!--Désactivation de la recherche 
+<div class="row align-items-start">
+  <div class="col-12 align-items-center m-0">
+    <div class="font-weight-bold text-size-1-1vw pb-1 d-none d-sm-none d-md-block"><span lang="fr">Trouver une matière première&nbsp;:&nbsp;</span><span lang="en">Find a raw material&nbsp;:&nbsp</span></div>
+  </div>
+  Recherche 
+  <div class="col-12 text-center align-items-start">
+  <form class="" action="" autocomplete="off" id="searchForm">
+    <input lang="fr" type="search" class="searchinput  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." />
+    <input lang="en" type="search" class="searchinput  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." />
+  </form>
+  </div>
+</div>
+-->
+
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
+  <div class="col">
+    <a class="btn mt-4 text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
+    <br>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-5 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
+</div>
+
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/newletter.html">
+          <span lang="fr">Newletter</span><span lang="en">Newletter</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/mentionslegales.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |
+   </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+<div id="blanc1" class="row blockrgpd"></div>
+<div id="contenant" class="row">
+<div class=" col-offset-1 col-9 textRGPD" >
+  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
+  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
+</div> 
+<div class=" col-offset-2 col-3 boutonRGPD">
+  <button class="btn btn-success" id="cookie_please">
+    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
+  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
+    <span lang="fr">Non</span><span lang="en">No</span>
+  </button>
+</div>
+</div>
+<div id="blanc1" class="row blockrgpd"></div>
+</div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center gros_titre">
+  <h1 class="gros_titre text-in-color-brown"><span lang="fr">LES SOURCES DE SCENTREE</span><span lang="en">SCENTREE'S SOURCES & REFERENCES</span></h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+
+<p class="mt-3">
+  <span lang="fr">Afin de donner naissance à la classification <i>ScenTree</i> il a été nécessaire d'approfondir nos connaissances en parfumerie en utilisant de nombreux ouvrages traitant des matières premières. La liste ci-dessous constitue la bibligraphie du projet : </span>
+  <span lang="en">To create <i>ScenTree</i> classification, it has been necessary to deepen our perfumery knowledge by using diverse works about raw materials. The following list is the project bibliography: </span>
+</p>
+
+<div class="sources col-12 mt-3">
+  <b><span lang="fr">Sources Généralistes</span><span lang="en">General Sources</span></b>
+  <br>
+    <ul>
+      <li>Nez Edition, “Nez, la revue olfactive”, #1, #2, #3, #4, #5, #6, #7, #8, 2016-2019.</li>
+      <li><a class="interpop" href="https://www.perfumerflavorist.com/" target ="_BLANK"> https://www.perfumerflavorist.com </a></li>
+      <li><a class="interpop" href="https://www.thegoodscentscompany.com" target ="_BLANK"> https://www.thegoodscentscompany.com </a></li>
+      <li><a class="interpop" href="https://www.givaudan.com" target ="_BLANK"> https://www.givaudan.com </a></li>
+      <li><a class="interpop" href="https://www.firmenich.com" target ="_BLANK"> https://www.firmenich.com </a></li>
+      <li><a class="interpop" href="https://www.iff.com" target ="_BLANK"> https://www.iff.com </a></li>
+      <li><a class="interpop" href="https://www.mane.com" target ="_BLANK"> https://www.mane.com </a></li>
+      <li><a class="interpop" href="https://www.fragrantica.com/notes/" target ="_BLANK"> https://www.fragrantica.com/</a></li>
+      <li><a class="interpop" href="https://commons.wikimedia.org/" target ="_BLANK"> https://commons.wikimedia.org/</a></li>
+    </ul>
+</div>
+
+  <div class="row justify-content-around">
+    <div class="sources col-5 mt-3">
+      <b><span lang="fr">Sources "Naturels"</span><span lang="en">"Naturals" Sources</span></b>
+      <br>
+        <ul>
+          <li>K.V. Peter. WP Woodhead Publishing. "Handbook of herbs and spices - Volume 1". 2nd Edition, 2012. 634 pages. ISBN 978-0-85709-039-3</li>
+          <li>K.V. Peter. WP Woodhead Publishing. "Handbook of herbs and spices - Volume 2". 2nd Edition, 2012. 634 pages. ISBN 978-0-85709-040-9</li>
+          <li>P.Franchomme, R.Jollois, D.Péonël. Editions Roger Jollois. "L'aromathérapie exactement" 2001. 510 pages. ISBN: 2-87819-001-7</li>
+          <li>P.Franchomme. Edition TREDANIEL LA MAISNIE. "La science des huiles essentielles médicinales." 2015. 580 pages. ISBN : 978-2813207630 </li>
+          <li>A.O. Tucker, T. Debaggio. Edited by Francesco DeBaggio. "The encyclopedia of herbs - a comprehensive reference to herbs of flavor and fragrance" 2009. 605 pages. ISBN-13: 978-0-88192-994-2 </li>
+          <li>“A list of cultivated plants yielding aroma substances”, 4 pages.</li>
+          <li>Nawal Saïchi, Philippe Durand, Institut Klorane, Edititons Pierre Fabre, “Guide des conifères et espèces apparentées”, 2009, 67 pages. Code 458 125</li>
+          <li>Asja Sarkic, Iris Stappen, Department of Pharmaceutical Chemistry, University of Vienna, “Essential Oils ans Their Single Compounds in Cosmetics”, 2018, 21 pages.</li>
+          <li>United Nations Industrial Development Organization, K. Tuley De Silva, “A Manual on The Essential Oil Industry”, 1995, 231 pages, ISBN : 978-9-2110-6437-7</li>
+          <li>Dr Robert P. Adams, Baylor University, “Identification Of Essential Oil Components By Gas Chromatography Mass Spectrometry”, Edition 4.1, 2017, 809 pages. ISBN : 978-1-932633-21-4</li>
+          <li><a class="interpop" href="https://www.albertvieille.com" target ="_BLANK"> https://www.albertvieille.com </a></li>
+          <li><a class="interpop" href="http://ultranl.com/market/" target ="_BLANK"> http://ultranl.com/market/</a></li>
+        </ul>
+    </div>
+
+    <div class="sources col-5 mt-3">
+      <b><span lang="fr">Sources "Synthétiques"</span><span lang="en">"Synthetics" Sources</span></b>
+      <br>
+        <ul>
+          <li>Horst Surburg, Johannes Panten, “Common Fragrance and Flavor Materials”, 5th edition, completely revised and enlarged edition 2006. 325 pages. ISBN: 3-527-31315-X.</li>
+          <li>Michael and Irene Ash, Synapse Information Resources, Inc., “Handbook of Flavors and Fragrances”, 2006, 1790 pages. ISBN: 1-934764-28-0</li>
+          <li>Charles Sell Quest International, Ashford, Kent, “The Chemistry of Fragrances, From Perfumer to Consumer 2nd Edition”, 2006, 348 pages. ISBN-10: 0-85404-824-3</li>
+          <li>David H. Pybus, Charles Sell, Sales and Promotion Department, The Royal Society of Chemistry, “The Chemistry of Fragrances”, 1999, 297 pages. ISBN 0-85404-528-7</li>
+          <li>Günther Ohloff, Wilhelm Pickenhagen, Philip Kraft, NHCA, Verlag Helvetica Chimica Acta, Zürich (Switzerland), “Scent and Chemistry, The Molecular World of Odors”, 2012, 418 pages. ISBN-10: 3906390667</li>
+          <li>Sue Clarke, Elseiver Limited, “Essential Chemistry for Aromatherapy”, First Edition 2002, 302 pages. ISBN : 978-0-4431-0403-9</li>
+          <li>Charles S. Sell, Wiley Edition, “Chemistry and Sense of Smell”, 2014, 471 pages. ISBN : 978-0-470-55130-1</li>
+          <li>Ernst T. Theimer, Academic Press Inc. (London), “Fragrance Chemistry The Science of the Sense of Smell”, United Kingdom Edition, 1982, 631 pages. ISBN : 978-1-2993-6448-6</li>
+          <li><a class="interpop" href="https://www.sigmaaldrich.com" target ="_BLANK"> https://www.sigmaaldrich.com </a></li>
+        </ul>
+    </div>
+  </div>
+
+<div class="sources col-12 mt-3 mb-3">
+  <b><span lang="fr">Réglementation</span><span lang="en">Regulatory</span></b>
+  <br>
+    <ul>
+      <li>American Herbal Products Association, Zoë Gardner, Michael Mc Guffin, “Botanical Safety Handbook”, Second Edition, 2013, 1029 pages. ISBN : 978-1-4665-1695-3</li>
+      <li><a class="interpop" href="https://ifrafragrance.org/safe-use/standards-guidance" target ="_BLANK"> https://ifrafragrance.org/safe-use/standards-guidance </a></li>
+      <li><a class="interpop" href="https://eur-lex.europa.eu/legal-content/fr/ALL/?uri=CELEX%3A32009R1223" target ="_BLANK"><span lang="fr"> Règlement (CE) N<sup>o</sup> 1223/2009 du Parlement européen et du Conseil du 30 novembre 2009 relatif aux produits cosmétiques </span><span lang="en"> Regulation (EC) N<sup>o</sup> 1223/2009 of the european parliament and of the council of 30<sup>th</sup> November 2019 on cosmetic products</span></a></li>
+    </ul>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+</div>
+</main>
+
+
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>
 
