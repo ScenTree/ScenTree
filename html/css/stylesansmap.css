@@ -46,9 +46,11 @@ b{
 .interpop{
   color: #6586B4;
 }
-.sources li {
+.sources ul {
   padding: 0;
-  margin:0;
+  margin: 0;
+}
+.sources li {
   font-size: 0.85em;
 }
 .sources {
