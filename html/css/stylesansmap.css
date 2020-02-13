@@ -46,7 +46,9 @@ b{
 .interpop{
   color: #6586B4;
 }
-
+.sources .li {
+  font-weight: bold;
+}
 .blanccorrectionmisenepage{
   height: 5%;
 }
