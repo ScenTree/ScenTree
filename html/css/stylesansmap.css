@@ -612,3 +612,7 @@ font-size: 10px;
   box-shadow: 0 0 0 6px rgba(251, 229, 214);
   z-index:1
 }
+/*position the circle icons on the timeline OK*/
+.timeline ul li:nth-child(even):before{
+  left:-20px;
+}
