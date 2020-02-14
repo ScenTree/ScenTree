@@ -27,6 +27,9 @@ html, body {
   right: 7%;
   top: 5%;
 }
+.notifi4 {
+  color: red;
+}
 
 .dropdown-toggle:after { 
   content: none 

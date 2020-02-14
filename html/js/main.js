@@ -14,7 +14,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 };
 
-var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215"};
+var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215", "the survey" : "20191215"};
 
 var in30Minutes = 1/96; // in 15 minutes
 
@@ -60,6 +60,22 @@ if (! window.document.jsdom_reader) {
         };
 };
 
+var show_the_notifications_for_the_survey = false;
+var last_update_of_the_survey_from_the_cookie = Cookies.get('Updated_on__the_survey');
+if (! window.document.jsdom_reader) {
+        if (! last_update_of_the_survey_from_the_cookie) {
+                show_the_notifications_for_the_survey = true;
+        } else {
+                if (parseInt(last_update_of_the_survey_from_the_cookie, 10) < parseInt(UPDATED_ON["the survey"], 10)) {
+                        show_the_notifications_for_the_survey = true;
+                };
+        };
+};
+
+$(".survey_link").click(function(){
+  Cookies.set('Updated_on__the_survey', UPDATED_ON["the survey"], { expires: 365 });
+  $(".notifi4").css({'display' : 'none'});
+});
 
 $("#no_cookie").click(function(){
   $("#RGPD_warning").css({'display' : 'None'});
@@ -85,7 +101,13 @@ if (show_the_notifications_for_the_news) {
 } else {
         $(".notifi2").css({'display' : 'none'});
 };
-if (show_the_notifications_for_they_support_us || show_the_notifications_for_the_news) {
+if (show_the_notifications_for_the_survey) {
+        $(".notifi4").css({'display' : 'inline-block'});
+} else {
+        $(".notifi4").css({'display' : 'none'});
+};
+
+if (show_the_notifications_for_they_support_us || show_the_notifications_for_the_news || show_the_notifications_for_the_survey) {
         $(".notifi3").css({'display' : 'inline-block'});
 } else {
         $(".notifi3").css({'display' : 'none'});
@@ -675,6 +697,12 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       $(".blockifra1").css('display', 'none');
     };
 
+    // IFRA
+    the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
+    for (let an_infra_info of the_ifra_infos) {
+	var the_ifra_info = JSON.parse(an_infra_info);
+	console.log(the_ifra_info);
+    };
 
     //EMPTY - partie naturelle
     $('#modalheader-type').empty();
@@ -895,8 +923,60 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
    $('title').html('ScenTree - ' + the_webpage_title);
 
-   
-
+   if (displaytable1) {
+      $(".table1").css('display', 'inline-table');
+      $(".table1").show();
+   }
+   else {
+  $(".table1").css('display', 'none');     
+   };
+   if (displaytable2) {
+     $(".table2").css('display', 'inline-table');
+        $(".table2").show();
+   }
+   else {
+        $(".table2").css('display', 'none');
+   };
+   if (displaytable3) {
+     $(".table3").css('display', 'inline-table');
+        $(".table3").show();
+   }
+   else {
+        $(".table3").css('display', 'none');        
+   };
+   if (displaylogo) {
+        $(".logoifra").css('display', 'block');
+          $(".logoifra").show();
+    }
+   else {
+        $(".logoifra").css('display', 'none');
+   };
+   if (displayamendment) {
+       $(".amendment").css('display', 'block');
+     $(".amendment").show();
+   }
+   else {
+      $(".amendment").css('display', 'none');  
+   };
+   if (displaycommentaires) {
+        $(".commentaires").css('display', 'block');
+      $(".commentaires").show();
+   }
+   else {
+        $(".commentaires").css('display', 'none');
+   };
+    if (displayblocktable) {
+        $(".blocktable").css('display', 'block');
+    }
+    else {
+         $(".blocktable").css('display', 'none');
+    };
+    if (displayblockifra1 ) {
+        $(".blockifra1").css('display', 'block');
+    }
+    else {
+         $(".blockifra1").css('display', 'none');
+    };
 };
 
 $("#SynthetiqueModal").on("show.bs.modal", function (e) {
@@ -978,9 +1058,9 @@ function switch_to_en() {
     $('.to_french_radio_input').removeClass("active");
     // cookie
     Cookies.set('display_french_language', -1, { expires: 365});
-    // CSS
-    $("*:lang(fr)").css({'display' : 'none'});
-    $("*:lang(en)").css({'display' : 'initial'});
+    // DOM
+    $("*:lang(fr)").remove();
+    //$("*:lang(en)").css({'display' : 'initial'});
     // change search
     URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
     URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_EN/?q=id%3A";
@@ -1002,9 +1082,9 @@ function switch_to_fr() {
     $('.to_english_radio_input').removeClass("active");
     // cookie
     Cookies.set('display_french_language', 1, { expires: 365});
-    // CSS
-    $("*:lang(en)").css({'display' : 'none'});
-    $("*:lang(fr)").css({'display' : 'initial'});
+    // DOM
+    $("*:lang(en)").remove();
+    //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
     URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_FR/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
     URL_PREFIX_SELECTER = "/" + DEV_PREFIX_2 + "select_FR/?q=id%3A";
@@ -1021,15 +1101,19 @@ function switch_to_fr() {
 
 $(".to_english_button").click(function() {
     switch_to_en();
+    location.reload();
 });
 $(".to_french_button").click(function() {
     switch_to_fr();
+    location.reload();
 });
 $(".to_english_radio_input").click(function() {
     switch_to_en();
+    location.reload();
 });
 $(".to_french_radio_input").click(function() {
     switch_to_fr();
+    location.reload();
 });
 
 var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
