@@ -42,6 +42,10 @@ the_csv_file = open(THE_PATH_OF_THE_CSV_FILE, 'r')
 the_pros = [d for d in csv.DictReader(the_csv_file, delimiter=';')] # list of dicts with the keys = the header of the csv
 the_csv_file.close()
 
+# remove 'empty line' from the csv (=empty value inside the resulting dict)
+the_pros = [{a_key : a_value for a_key, a_value in a_pro.items() if bool(a_value)} for a_pro in the_pros]
+
+
 # reading the JSON
 the_json_file = open(THE_PATH_OF_THE_JSONFILE, 'r')
 the_ingredients = json.load(the_json_file)
