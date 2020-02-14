@@ -132,7 +132,7 @@ b{
 }
 @media screen and (max-width: 990px) {
 .entreprise {
-  min-width: 120%;
+  min-width: 100%;
 }
 }
 /*#########################
