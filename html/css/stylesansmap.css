@@ -422,6 +422,10 @@ table {
 min-width: 100%;
 overflow-x: auto;
 }
+.pagederoulante {
+  height: 92%;
+  overflow-y: scroll;
+}
 }
 
 @media screen and (max-width: 768px) {
