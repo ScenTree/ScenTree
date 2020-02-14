@@ -550,11 +550,11 @@ font-size: 10px;
   position: relative;
   margin: 0px auto;
   width:100%;
-  background-color: grey;
+  background-color: #E1E5DC
 }
 /*Style du texte sous la date OK*/
 .ajoutMP{
   color:black;
-  font-size: 14px;
+  font-size: 1.1em;
   font-weight: bold;
 }
