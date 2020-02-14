@@ -719,6 +719,6 @@ font-size: 10px;
 /*styling the numbering. OK */
 .timeline ul li:before{
   font-size:0.9em;
-  padding-top:5%;
+  padding-top:3%;
 }
 }
