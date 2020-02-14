@@ -137,6 +137,9 @@ b{
 .particulier {
   min-width: 100%;
 }
+.logosupporter{
+  min-height: 200%;
+}
 .logomenu {
   min-width: 100%;
   min-height: 100%;
