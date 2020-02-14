@@ -614,5 +614,5 @@ font-size: 10px;
 }
 /*position the circle icons on the timeline OK*/
 .timeline ul li:nth-child(even):before{
-  left: -3%;
+  left: -3.5%;
 }
