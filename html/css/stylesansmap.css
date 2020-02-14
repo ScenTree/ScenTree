@@ -691,7 +691,7 @@ font-size: 10px;
   text-align:left;
   float:right;
   clear:both;
-  right: -1%;
+  left: -5%;
   width: 110%;
   background-color: white;
 }
