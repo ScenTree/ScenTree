@@ -657,6 +657,12 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
      };
 
 
+    // IFRA
+    the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
+    for (let an_infra_info of the_ifra_infos) {
+	var the_ifra_info = JSON.parse(an_infra_info);
+	console.log(the_ifra_info);
+    };
 
     //EMPTY - partie naturelle
     $('#modalheader-type').empty();
