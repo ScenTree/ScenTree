@@ -663,21 +663,12 @@ font-size: 10px;
   .timeline ul li:nth-child(even):before{left: -8%;}
 }
 @media screen and (max-width: 990px) {
-.timeline{background-color: blue;}
 /* Titre des parties OK*/
 .content h3{font-size:1em; padding-top: 2.5%; }
 /*Style du texte sous la date OK*/
 .ajoutMP{font-size: 0.9em;}
 /*drawing the line itself OK*/
 .timeline:before{left:6%; width:0.3em;}
-
-/*styling the size of each step/content OK
-.timeline ul li{
-  list-style: none;
-  position:relative;
-  width:50%;
-  padding:5px 35px;
-}
 /*for every odd numbered bullet point, align to the left OK*/
 .timeline ul li:nth-child(odd){
   text-align:left;
@@ -693,14 +684,11 @@ font-size: 10px;
   clear:both;
   left: 5%;
   width: 110%;
-  background-color: white;
 }
 /*create circle icon on the timeline from the left (odd) OK */
 .timeline ul li:before { width:35px; height:35px;}
 /*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{
-  left: -6%;
-}
+.timeline ul li:nth-child(even):before{left: -6%;}
 .timeline ul li:nth-child(odd):before{left: -6%;}
 /*styling the numbering. OK */
 .timeline ul li:before{font-size:0.9em; padding-top:3%;}
