@@ -669,7 +669,7 @@ font-size: 10px;
   /*set up size of the whole timeline OK */
   .timeline{background-color: yellow;}
   /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){right: 6.3%; width: 53.5%; background-color: #D9DE96;}
+  .timeline ul li:nth-child(odd){right: 6.7%; width: 53.5%; background-color: #D9DE96;}
   .timeline ul li:nth-child(odd):before{right:-6%;}
   /* for every even numbered bullet point, align to the right OK*/
   .timeline ul li:nth-child(even){left:1.1%; width: 52.5%; background-color: #D9DE96;}
