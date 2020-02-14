@@ -555,14 +555,14 @@ font-size: 10px;
 /* Titre des parties OK*/
 .content h3{
   color:#D64E26;
-  font-size:1.2em;
+  font-size:1.3em;
   font-weight: bold;
   padding-top: 2.5%;
 }
 /*Style du texte sous la date OK*/
 .ajoutMP{
   color:black;
-  font-size: 0.6em;
+  font-size: 0.8em;
   font-weight: bold;
 }
 /*drawing the line itself OK */
