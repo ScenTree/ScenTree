@@ -558,3 +558,12 @@ font-size: 10px;
   font-size: 0.6em;
   font-weight: bold;
 }
+/*drawing the line itself OK */
+.timeline:before{
+  content:'';
+  position:absolute;
+  left:50%;
+  width:0.7%;
+  height:100%;
+  background-color:#D64E26;
+}
