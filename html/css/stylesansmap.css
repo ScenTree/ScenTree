@@ -669,7 +669,7 @@ font-size: 10px;
 /*Style du texte sous la date OK*/
 .ajoutMP{font-size: 0.9em;}
 /*drawing the line itself OK*/
-.timeline:before{left:10%; width:0.3em;}
+.timeline:before{left:8%; width:0.3em;}
 
 /*styling the size of each step/content OK
 .timeline ul li{
