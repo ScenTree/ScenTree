@@ -663,23 +663,14 @@ font-size: 10px;
   .timeline ul li:nth-child(even):before{left: -8%;}
 }
 @media screen and (max-width: 990px) {
-.timeline{
-  background-color: blue;
-}
+.timeline{background-color: blue;}
 /* Titre des parties OK*/
-.content h3{
-  font-size:1em;
-  padding-top: 2.5%;
-}
+.content h3{ font-size:1em; padding-top: 2.5%; }
 /*Style du texte sous la date OK*/
-.ajoutMP{
-  font-size: 0.9em;
-}
+.ajoutMP{font-size: 0.9em;}
 /*drawing the line itself OK*/
-.timeline:before{
-  left:10%;
-  width:0.3em;
-}
+.timeline:before{left:10%; width:0.3em;}
+
 /*styling the size of each step/content OK
 .timeline ul li{
   list-style: none;
@@ -694,6 +685,7 @@ font-size: 10px;
   clear:both;
   right: 4%;
   width: 100%;
+  background-color: white;
 }
 /* for every even numbered bullet point, align to the right OK*/
 .timeline ul li:nth-child(even){
@@ -704,10 +696,7 @@ font-size: 10px;
   width: 100%;
 }
 /*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before {
-  width:35px;
-  height:35px;
-}
+.timeline ul li:before { width:35px; height:35px;}
 /*position the circle icons on the timeline OK
 .timeline ul li:nth-child(even):before{
   left: -3.6%;
@@ -715,10 +704,6 @@ font-size: 10px;
 .timeline ul li:nth-child(odd):before{
   right:-3.6%;
 }
-
 /*styling the numbering. OK */
-.timeline ul li:before{
-  font-size:0.9em;
-  padding-top:3%;
-}
+.timeline ul li:before{font-size:0.9em; padding-top:3%;}
 }
