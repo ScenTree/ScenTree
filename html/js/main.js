@@ -341,30 +341,14 @@ $(".my-search-bar").on("input", function(){
 $(".my-search-bar").focus(function() {
     $(this).autocomplete('search', $(this).val())
 });
-/*$(".logomenu").click(function() {
-     $(".modalmenu").modal("toggle");
- });*/
+
 $("#ListeMP").click(function() {
     $("#listeMP").modal("show");
 });
 $("#Listefamilles").click(function() {
     $("#listefamilles").modal("show");
 });
-/*$("#modal_video").click(function() {
-    $("#vidéo").modal("show");
-});
-$("#credit").click(function() {
-    $("#Crédits").modal("toggle");
-});
-$("#contact").click(function() {
-    $("#Contacts").modal("toggle");
-});
-$("#confidentialite").click(function() {
-    $("#Confidentialite").modal("toggle");
-});
-$("#source").click(function() {
-    $("#Source").modal("toggle");
-});*/
+
 
 //pop-up
 if ($("#map").length) {
@@ -613,6 +597,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var is_an_naturelle = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Naturelle");
     var is_an_synthetique = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Synthétique");
     var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
+
+
     
     var nonIFRA = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Ingrédient non réglementé");
     var IFRAQRA = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Restrictions QRA");
@@ -632,30 +618,84 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       displaytable1 = true;
       displayamendment = true;
       displaycommentaires = true;
-  displaylogo = true;
+      displaylogo = true;
     };
     if (IFRAnonQRA) {
       displaytable2 = true;
       displayamendment = true;
       displaycommentaires = true;
-  displaylogo = true;
+      displaylogo = true;
     };
     if (IFRAnonQRAspe) {
       displaytable2 = false;
       displaytable3 = true;
       displayamendment = true;
       displaycommentaires = true;
-  displaylogo = true;
+      displaylogo = true;
     };
     if (IFRAspécification) {
       displaycommentaires = true;
-  displaylogo = true;
+      displaylogo = true;
     };
     if (nonIFRA) {
       displayblockifra1 = false;
       displayblocktable = false;
      };
 
+     if (displaytable1) {
+      $(".table1").css('display', 'inline-table');
+      $(".table1").show();
+    }
+    else {
+      $(".table1").css('display', 'none');     
+    };
+    if (displaytable2) {
+      $(".table2").css('display', 'inline-table');
+      $(".table2").show();
+    }
+    else {
+     $(".table2").css('display', 'none');
+    };
+    if (displaytable3) {
+      $(".table3").css('display', 'inline-table');
+      $(".table3").show();
+    }
+    else {
+      $(".table3").css('display', 'none');        
+    };
+    if (displaylogo) {
+      $(".logoifra").css('display', 'block');
+      $(".logoifra").show();
+    }
+    else {
+      $(".logoifra").css('display', 'none');
+    };
+    if (displayamendment) {
+      $(".amendment").css('display', 'block');
+      $(".amendment").show();
+    }
+    else {
+      $(".amendment").css('display', 'none');  
+    };
+    if (displaycommentaires) {
+      $(".commentaires").css('display', 'block');
+      $(".commentaires").show();
+    }
+    else {
+      $(".commentaires").css('display', 'none');
+    };
+    if (displayblocktable) {
+      $(".blocktable").css('display', 'block');
+    }
+    else {
+      $(".blocktable").css('display', 'none');
+    };
+    if (displayblockifra1 ) {
+      $(".blockifra1").css('display', 'block');
+    }
+    else {
+      $(".blockifra1").css('display', 'none');
+    };
 
     // IFRA
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
@@ -937,7 +977,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     else {
          $(".blockifra1").css('display', 'none');
     };
-
 };
 
 $("#SynthetiqueModal").on("show.bs.modal", function (e) {
