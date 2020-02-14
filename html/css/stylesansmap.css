@@ -660,7 +660,7 @@ font-size: 10px;
   width: 53.5%;
 }
 .timeline ul li:nth-child(odd):before{
-  right:-4.8%;
+  right:-5%;
 }
 /* for every even numbered bullet point, align to the right OK*/
 .timeline ul li:nth-child(even){
