@@ -648,7 +648,6 @@ font-size: 10px;
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
-
   /*for every odd numbered bullet point, align to the left OK*/
   .timeline ul li:nth-child(odd){right: 5.7%; width: 53.5%;}
   .timeline ul li:nth-child(odd):before{right:-5%;}
@@ -657,23 +656,23 @@ font-size: 10px;
   /*position the circle icons on the timeline OK*/
   .timeline ul li:nth-child(even):before{left: -5%;}
 }
-
 @media screen and (min-width: 990px) and (max-width: 1200px) {
+  /*for every odd numbered bullet point, align to the left OK*/
+  .timeline ul li:nth-child(odd){right: 6%; width: 53.5%;}
+  .timeline ul li:nth-child(odd):before{right:-5.5%;}
+  /* for every even numbered bullet point, align to the right OK*/
+  .timeline ul li:nth-child(even){left:1.1%; width: 52.5%;}
+  /*position the circle icons on the timeline OK*/
+  .timeline ul li:nth-child(even):before{left: -6.5%;}
+}
+@media screen and (min-width: 768px) and (max-width: 990px) {
   /*set up size of the whole timeline OK */
   .timeline{background-color: yellow;}
   /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){
-    right: 6%; 
-    width: 53.5%;
-    background-color: #D9DE96;
-  }
+  .timeline ul li:nth-child(odd){right: 6%; width: 53.5%; background-color: #D9DE96;}
   .timeline ul li:nth-child(odd):before{right:-5.5%;}
   /* for every even numbered bullet point, align to the right OK*/
-  .timeline ul li:nth-child(even){
-    left:1.1%;
-    width: 52.5%;
-    background-color: #D9DE96;
-  }
+  .timeline ul li:nth-child(even){left:1.1%; width: 52.5%; background-color: #D9DE96;}
   /*position the circle icons on the timeline OK*/
   .timeline ul li:nth-child(even):before{left: -6.5%;}
 }
