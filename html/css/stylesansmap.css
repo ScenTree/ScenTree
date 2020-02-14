@@ -121,6 +121,9 @@ b{
 .profession {
   font-style: italic;
   font-size: 0.8em;
+}
+.nouveausupporter {
+  font-weight: bold;
   color: red;
 }
 /*#########################
