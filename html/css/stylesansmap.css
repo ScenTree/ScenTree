@@ -665,7 +665,7 @@ font-size: 10px;
 @media screen and (max-width: 990px) {
 .timeline{background-color: blue;}
 /* Titre des parties OK*/
-.content h3{ font-size:1em; padding-top: 2.5%; }
+.content h3{font-size:1em; padding-top: 2.5%; }
 /*Style du texte sous la date OK*/
 .ajoutMP{font-size: 0.9em;}
 /*drawing the line itself OK*/
@@ -683,7 +683,7 @@ font-size: 10px;
   text-align:left;
   float:right;
   clear:both;
-  right: 4%;
+  right: 0%;
   width: 100%;
   background-color: white;
 }
