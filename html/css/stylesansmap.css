@@ -545,9 +545,16 @@ font-size: 10px;
 /*#########################
 ########NOUVEAUTES#########
 #########################*/
+/*set up size of the whole timeline OK */
 .timeline{
   position: relative;
   margin: 0px auto;
   width:100%;
   background-color: grey;
+}
+/*Style du texte sous la date OK*/
+.ajoutMP{
+  color:black;
+  font-size: 14px;
+  font-weight: bold;
 }
