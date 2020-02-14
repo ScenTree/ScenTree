@@ -130,6 +130,11 @@ b{
    border: 1px solid #FBE5D6FF;
   box-shadow: 2px 2px 22px 0px rgba(251,229,214,1);
 }
+@media screen and (max-width: 990px) {
+.entreprise {
+  width: 120%;
+}
+}
 /*#########################
 #####MENTIONS LEGALES######
 #########################*/
