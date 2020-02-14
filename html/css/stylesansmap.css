@@ -119,9 +119,9 @@ b{
   list-style-type: none;
 }
 .profession {
-  text-decoration: underline;
+  font-style: italic;
   font-size: 0.8em;
-  color:; red;
+  color: red;
 }
 /*#########################
 #####MENTIONS LEGALES######
