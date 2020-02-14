@@ -692,4 +692,8 @@ font-size: 10px;
 .timeline ul li:nth-child(odd):before{left: -6%;}
 /*styling the numbering. OK */
 .timeline ul li:before{font-size:0.9em; padding-top:3%;}
+
+.content p {
+  color: red;
+}
 }
