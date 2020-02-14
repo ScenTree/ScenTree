@@ -679,7 +679,14 @@ font-size: 10px;
   padding:5px 35px;
 }
 /*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){right: -5%;  width: 110%;  background-color: white; }
+.timeline ul li:nth-child(odd){
+  text-align:left;
+  float:right;
+  clear:both;
+  right: -5%;
+  width: 110%;
+  background-color: white;
+}
 /* for every even numbered bullet point, align to the right OK*/
 .timeline ul li:nth-child(even){
   text-align:left;
@@ -695,7 +702,7 @@ font-size: 10px;
   left: -3.6%;
 }*/
 .timeline ul li:nth-child(odd):before{
-  left: 10%;
+  left: 20%;
 }
 /*styling the numbering. OK */
 .timeline ul li:before{font-size:0.9em; padding-top:3%;}
