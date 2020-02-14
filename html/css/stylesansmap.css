@@ -563,7 +563,7 @@ font-size: 10px;
   content:'';
   position:absolute;
   left:50%;
-  width:0.7%;
+  width:0.1em;
   height:100%;
   background-color:#D64E26;
 }
