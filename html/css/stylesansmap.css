@@ -694,6 +694,6 @@ font-size: 10px;
 .timeline ul li:before{font-size:0.9em; padding-top:3%;}
 
 .content p {
-  color: red;
+  font-size: 0.8em;
 }
 }
