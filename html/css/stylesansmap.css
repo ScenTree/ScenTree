@@ -571,6 +571,7 @@ font-size: 10px;
   position: relative;
   margin: 0px auto;
   width:100%;
+  background-color: #E1E5DC
 }
 /* Titre des parties OK*/
 .content h3{
@@ -609,6 +610,7 @@ font-size: 10px;
   clear:both;
   right: 4%;
   width: 52.5%;
+  background-color: #D9DE96;
 }
 /* for every even numbered bullet point, align to the right OK*/
 .timeline ul li:nth-child(even){
@@ -617,6 +619,7 @@ font-size: 10px;
   clear:both;
   left:1.1%;
   width: 52%;
+  background-color: #D9DE96;
 }
 
 /*create circle icon on the timeline from the left (odd) OK */
