@@ -702,7 +702,7 @@ font-size: 10px;
   left: -3.6%;
 }*/
 .timeline ul li:nth-child(odd):before{
-  left: -7%;
+  left: -6.5%;
 }
 /*styling the numbering. OK */
 .timeline ul li:before{font-size:0.9em; padding-top:3%;}
