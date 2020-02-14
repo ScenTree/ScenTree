@@ -567,6 +567,7 @@ font-size: 10px;
 }
 /*drawing the line itself OK */
 .timeline:before{
+  content: '';
   position:absolute;
   left:50%;
   width:0.5em;
@@ -579,7 +580,6 @@ font-size: 10px;
   position:relative;
   width:50%;
   padding:5px 35px;
-
 }
 
 /*for every odd numbered bullet point, align to the left OK*/
