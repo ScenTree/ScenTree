@@ -56,9 +56,9 @@ for an_ingredient in the_ingredients:
     for a_pro in the_pros:
         if int(a_pro["id"]) == int(an_ingredient["from_csv EN id"]):
             try:
-                an_ingredient[THE_DICT_KEY].append(repr(a_pro))
+                an_ingredient[THE_DICT_KEY].append(json.dumps(a_pro))
             except KeyError:
-                an_ingredient[THE_DICT_KEY] = [repr(a_pro)]
+                an_ingredient[THE_DICT_KEY] = [json.dumps(a_pro)]
 
 
 # echoing a JSON
