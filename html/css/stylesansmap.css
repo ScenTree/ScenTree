@@ -683,8 +683,8 @@ font-size: 10px;
   text-align:left;
   float:right;
   clear:both;
-  right: 0%;
-  width: 100%;
+  right: 5%;
+  width: 120%;
   background-color: white;
 }
 /* for every even numbered bullet point, align to the right OK*/
