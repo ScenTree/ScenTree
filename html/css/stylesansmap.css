@@ -665,7 +665,7 @@ font-size: 10px;
 /* for every even numbered bullet point, align to the right OK*/
 .timeline ul li:nth-child(even){
   left:1.1%;
-  width: 53.5%;
+  width: 52.5%;
 }
 /*position the circle icons on the timeline OK*/
 .timeline ul li:nth-child(even):before{
