@@ -118,6 +118,9 @@
   
   <field name="ingredient" type="string"/>
 
+  <field name="PRO" type="string" multiValued="true" stored="true" indexed="false" />
+  <field name="IFRA" type="string" multiValued="true" stored="true" indexed="false" />
+
   <field name="infos_concatenees" type="suggestType" indexed="true" stored="true" multiValued="true" />
   <copyField source="sci_name" dest="infos_concatenees"/>
   <copyField source="from_csv NCas" dest="infos_concatenees" />
