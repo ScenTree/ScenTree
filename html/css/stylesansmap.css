@@ -650,10 +650,32 @@ font-size: 10px;
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
-  .timeline{
-  position: relative;
-  margin: 0px auto;
-  width:100%;
+.timeline{
   background-color: yellow;
 }
-  }
+/*for every odd numbered bullet point, align to the left OK*/
+.timeline ul li:nth-child(odd){
+  text-align:right;
+  float:left;
+  clear:both;
+  right: 4%;
+  width: 52.5%;
+  background-color: #D9DE96;
+}
+/* for every even numbered bullet point, align to the right OK*/
+.timeline ul li:nth-child(even){
+  text-align:left;
+  float:right;
+  clear:both;
+  left:1.1%;
+  width: 52%;
+  background-color: #D9DE96;
+}
+/*position the circle icons on the timeline OK*/
+.timeline ul li:nth-child(even):before{
+  left: -4%;
+}
+.timeline ul li:nth-child(odd):before{
+  right:-4%;
+}
+}
