@@ -46,16 +46,7 @@ b{
 .interpop{
   color: #6586B4;
 }
-.sources ul {
-  padding: 0.3em;
-}
-.sources li {
-  font-size: 0.85em;
-}
-.sources {
-  border: 1px solid #D64E26;
-  box-shadow: 1.5px 1.5px 22px 0px rgba(251,229,214,1);
-}
+
 .blanccorrectionmisenepage{
   height: 5%;
 }
@@ -85,6 +76,19 @@ b{
 .catégories2 {
   font-weight: bold;
   text-decoration: underline;
+}
+/*#########################
+##########SOURCES##########
+#########################*/
+.sources ul {
+  padding: 0.3em;
+}
+.sources li {
+  font-size: 0.85em;
+}
+.sources {
+  border: 1px solid #D64E26;
+  box-shadow: 1.5px 1.5px 22px 0px rgba(251,229,214,1);
 }
 /*#########################
 #####MENTIONS LEGALES######
@@ -315,9 +319,7 @@ caption {
     font-style: italic;
     caption-side: top;
 }
-.tableauallergenes {
 
-}
 /*#########################
 #######RESPONSIVE##########
 #########################*/
@@ -540,4 +542,12 @@ font-size: 10px;
 }
 
 
-
+/*#########################
+########NOUVEAUTES#########
+#########################*/
+.timeline{
+  position: relative;
+  margin: 0px auto;
+  width:100%;
+  background-color: grey;
+}
