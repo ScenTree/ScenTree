@@ -485,6 +485,10 @@ overflow-x: auto;
     height: 0em;
     background-color: yellow;
 }
+.particulier ul {
+  margin: 0;
+  padding:0;
+}
 }
 
 @media screen and (min-width: 768px) and (max-width: 990px) {
@@ -499,6 +503,10 @@ overflow-x: auto;
 .correctspacebug {
     height: 0em;
     background-color: red;
+}
+.particulier ul {
+  margin: 0;
+  padding:0;
 }
 }
 
