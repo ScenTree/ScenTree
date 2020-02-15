@@ -114,6 +114,14 @@ if (show_the_notifications_for_they_support_us || show_the_notifications_for_the
 };
 
 
+function from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(the_dd_mm_yyyy_as_string) {
+    if (!the_dd_mm_yyyy_as_string) {
+	    the_dd_mm_yyyy_as_string = "";
+    };
+    var the_yyyy_mm__dd_as_string = the_dd_mm_yyyy_as_string.replace( new RegExp("(\\d+)/(\\d+)/(\\d+)", "gi"), "$3$2$1" );
+    return parseInt(the_yyyy_mm__dd_as_string, 10);
+};
+
 function put_all_digits_into_sub(the_string) {
     // sub = <sub>12</sub>, for indices
     // put_all_digits_into_sub("C43H4O2") -> "C<sub>43</sub>H<sub>4</sub>O<sub>2</sub>"
@@ -659,10 +667,30 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
     // IFRA
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
+    if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
 	var the_ifra_info = JSON.parse(an_infra_info);
-	console.log(the_ifra_info);
+	//console.log(the_ifra_info);
     };
+    };
+
+    
+    // PRO 
+    the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
+    the_new_pro_infos = new Array();
+    if (the_pro_infos) {
+        // built the JSON array from an aray of strings
+	for (let an_pro_info of the_pro_infos) {
+		var the_pro_info = JSON.parse(an_pro_info);
+		the_new_pro_infos.push(the_pro_info);
+	};
+    };
+    
+    the_new_pro_infos.sort((a,b) => from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(a["Dateajout"]) - from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(b["Dateajout"]));
+    for (let a_pro_info of the_new_pro_infos) {
+        console.log(a_pro_info);
+    };
+
 
     //EMPTY - partie naturelle
     $('#modalheader-type').empty();
