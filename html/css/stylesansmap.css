@@ -310,7 +310,10 @@ b{
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
 }
-
+.correctspacebug {
+    height: 1.1em;
+    background-color: blue;
+}
 /*##################################################
 ############ZONE DU MENU ET LOGO####################
 ##################################################*/
@@ -458,6 +461,10 @@ min-width: 100%;
 .blanccorrectionmisenepage{
   height: 0%;
 }
+.correctspacebug {
+    height: 1.1em;
+    background-color: blue;
+}
 }
 
 @media screen and (min-width: 990px) and (max-width: 1200px) {
@@ -471,6 +478,10 @@ overflow-x: auto;
 }
 .blanccorrectionmisenepage{
   height: 0%;
+}
+.correctspacebug {
+    height: 1.1em;
+    background-color: blue;
 }
 }
 
