@@ -688,8 +688,18 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     
     the_new_pro_infos.sort((a,b) => from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(a["Dateajout"]) - from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(b["Dateajout"]));
     for (let a_pro_info of the_new_pro_infos) {
+        //console.log(a_pro_info);
+	
+    };
+    // the premium PROs only, already sorted by date
+    for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
+	console.log(a_pro_info);
+    };
+    // the standard PROs only, already sorted by date
+    for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
         console.log(a_pro_info);
     };
+
 
 
     //EMPTY - partie naturelle
