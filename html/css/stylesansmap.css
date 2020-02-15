@@ -479,7 +479,7 @@ overflow-x: auto;
   height: 0%;
 }
 .correctspacebug {
-    height: 0.4em;
+    height: 0em;
     background-color: yellow;
 }
 }
@@ -494,7 +494,7 @@ overflow-x: auto;
   overflow-y: scroll;
 }
 .correctspacebug {
-    height: 0.4em;
+    height: 0em;
     background-color: red;
 }
 }
