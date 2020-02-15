@@ -463,7 +463,10 @@ min-width: 100%;
 .correctspacebug {
     height: 1.1em;
 }
-
+.particulier ul {
+  margin: 0;
+  padding:0;
+}
 }
 
 @media screen and (min-width: 990px) and (max-width: 1200px) {
