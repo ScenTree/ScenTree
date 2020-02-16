@@ -248,6 +248,10 @@ b{
 .envoiRGPD {
   align-items: center;
 }
+.textRGPD {
+  font-size: 0.5em;
+
+}
 /*#########################
 ########COPYRIGHT##########
 #########################*/
