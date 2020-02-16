@@ -312,6 +312,7 @@ b{
 }
 .correctspacebug {
     height: 20em;
+    background-color: blue;
 }
 /*##################################################
 ############ZONE DU MENU ET LOGO####################
@@ -462,6 +463,7 @@ min-width: 100%;
 }
 .correctspacebug {
     height: 1.1em;
+    background-color: red;
 }
 .particulier ul {
   margin: 0;
