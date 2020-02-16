@@ -407,10 +407,7 @@ td, .table td {
     text-align: center;  
     vertical-align: middle;
 }
-tr:nth-child(even) {
-  background-color: #F1F0F0;
-  color:#121212; 
-}
+
 .caption {
     color : grey;
     text-align: center;
