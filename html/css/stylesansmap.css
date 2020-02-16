@@ -242,6 +242,7 @@ b{
 }
 .card {
   text-align: center;
+  align-items: center;
   border: 1px solid #E99A1F;
   box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
 }
