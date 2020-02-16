@@ -491,6 +491,11 @@ overflow-x: auto;
   margin: 0;
   padding:0;
 }
+.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 8px;
+}
 }
 
 @media screen and (min-width: 768px) and (max-width: 990px) {
