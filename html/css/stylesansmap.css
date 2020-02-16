@@ -233,6 +233,9 @@ b{
   height: 20%;
   width: 20%;
 }
+/*#########################
+########NEWSLETTER#########
+#########################*/
 .card-img-top {
   margin-top: 5%;
   min-width: 120px;
@@ -250,7 +253,11 @@ b{
 }
 .texteRGPD {
   font-size: 0.8em;
-
+}
+.btnenvoi {
+  background-color: #FBE5D6FF; 
+  border: 1px solid #E99A1F;
+  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
 }
 /*#########################
 ########COPYRIGHT##########
@@ -397,6 +404,10 @@ caption {
 #########################*/
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
+.pagederoulante {
+  height: 92%;
+  overflow-y: scroll;
+}
 .img1allergene{
   float: right;
   margin-left: 1%; 
@@ -419,10 +430,6 @@ caption {
   margin-bottom: 5%; 
   height: 15%; 
   width: 20%;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
 }
 .img1creationparfum {
   align-items: center;
