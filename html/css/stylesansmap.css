@@ -3,24 +3,25 @@ html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'426';}
+.timeline ul li:nth-child(1):before{content:'434';}
 .timeline ul li:nth-child(2):before{content:'426';}
-.timeline ul li:nth-child(3):before{content:'419';}
-.timeline ul li:nth-child(4):before{content:'413';}
+.timeline ul li:nth-child(3):before{content:'426';}
+.timeline ul li:nth-child(4):before{content:'419';}
 .timeline ul li:nth-child(5):before{content:'413';}
-.timeline ul li:nth-child(6):before{content:'406';}
-.timeline ul li:nth-child(7):before{content:'398';}
-.timeline ul li:nth-child(8):before{content:'391';}
+.timeline ul li:nth-child(6):before{content:'413';}
+.timeline ul li:nth-child(7):before{content:'406';}
+.timeline ul li:nth-child(8):before{content:'398';}
 .timeline ul li:nth-child(9):before{content:'391';}
-.timeline ul li:nth-child(10):before{content:'384';}
-.timeline ul li:nth-child(11):before{content:'379';}
-.timeline ul li:nth-child(12):before{content:'372';}
+.timeline ul li:nth-child(10):before{content:'391';}
+.timeline ul li:nth-child(11):before{content:'384';}
+.timeline ul li:nth-child(12):before{content:'379';}
 .timeline ul li:nth-child(13):before{content:'372';}
-.timeline ul li:nth-child(14):before{content:'365';}
+.timeline ul li:nth-child(14):before{content:'372';}
 .timeline ul li:nth-child(15):before{content:'365';}
 .timeline ul li:nth-child(16):before{content:'365';}
 .timeline ul li:nth-child(17):before{content:'365';}
 .timeline ul li:nth-child(18):before{content:'365';}
+.timeline ul li:nth-child(19):before{content:'365';}
 
 #mapblock {
   z-index: 1;
@@ -112,6 +113,39 @@ b{
   box-shadow: 1.5px 1.5px 22px 0px rgba(251,229,214,1);
 }
 /*#########################
+#########SUPPORT###########
+#########################*/
+.particulier ul {
+  list-style-type: none;
+}
+.profession {
+  font-style: italic;
+  font-size: 0.8em;
+}
+.nouveausupporter {
+  font-weight: bold;
+  color: red;
+}
+.logosupporter {
+  border: 1px solid #FBE5D6FF;
+  box-shadow: 2px 2px 22px 0px rgba(251,229,214,1);
+}
+@media screen and (max-width: 990px) {
+.entreprise {
+  min-width: 100%;
+}
+.particulier {
+  min-width: 100%;
+}
+.logosupporter{
+  min-height: 200%;
+}
+.logomenu {
+  min-width: 100%;
+  min-height: 100%;
+}
+}
+/*#########################
 #####MENTIONS LEGALES######
 #########################*/
 .Titre1 {
@@ -199,9 +233,38 @@ b{
   height: 20%;
   width: 20%;
 }
+/*#########################
+########NEWSLETTER#########
+#########################*/
 .card-img-top {
-  max-width: 100%;
-  max-height: 100%;
+  margin-top: 5%;
+  min-width: 120px;
+  min-height: 120px;
+  max-width: 120px;
+  max-height: 120px;
+}
+.card {
+  align-items: center;
+  border: 1px solid #E99A1F;
+  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
+}
+.envoiRGPD {
+  align-items: center;
+  text-align: center;
+}
+.titreRGPD {
+  font-size: 0.9em;
+}
+.texteRGPD {
+  font-size: 0.75em;
+  text-align: justify;
+}
+.btnenvoi {
+  align-items: center;
+  text-align: center;
+  background-color: #FBE5D6FF; 
+  border: 1px solid #E99A1F;
+  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
 }
 /*#########################
 ########COPYRIGHT##########
@@ -276,7 +339,9 @@ b{
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
 }
-
+.correctspacebug {
+    height: 20em;
+}
 /*##################################################
 ############ZONE DU MENU ET LOGO####################
 ##################################################*/
@@ -346,6 +411,10 @@ caption {
 #########################*/
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
+.pagederoulante {
+  height: 92%;
+  overflow-y: scroll;
+}
 .img1allergene{
   float: right;
   margin-left: 1%; 
@@ -368,10 +437,6 @@ caption {
   margin-bottom: 5%; 
   height: 15%; 
   width: 20%;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
 }
 .img1creationparfum {
   align-items: center;
@@ -424,6 +489,13 @@ min-width: 100%;
 .blanccorrectionmisenepage{
   height: 0%;
 }
+.correctspacebug {
+    height: 1.1em;
+}
+.particulier ul {
+  margin: 0;
+  padding:0;
+}
 }
 
 @media screen and (min-width: 990px) and (max-width: 1200px) {
@@ -438,6 +510,16 @@ overflow-x: auto;
 .blanccorrectionmisenepage{
   height: 0%;
 }
+.correctspacebug {
+    height: 2em;
+}
+.particulier ul {
+  margin: 0;
+  padding:0;
+}
+.copyright {
+    font-size: 8px;
+}
 }
 
 @media screen and (min-width: 768px) and (max-width: 990px) {
@@ -448,6 +530,20 @@ overflow-x: auto;
 .pagederoulante {
   height: 92%;
   overflow-y: scroll;
+}
+.correctspacebug {
+    height: 2em;
+}
+.particulier ul {
+  margin: 0;
+  padding:0;
+}
+.copyright {
+    font-size: 8px;
+}
+.text-in-color-brown {
+  color: #D64E26;
+  font-size: 0.9em;
 }
 }
 
@@ -554,6 +650,12 @@ table {
 min-width: 100%;
 font-size: 10px;
 }
+.formulaire {
+  min-width: 100%;
+}
+.envoiRGPD {
+  min-width: 100%;
+}
 }
 
 @media screen and (min-width: 768px) {
@@ -566,13 +668,11 @@ font-size: 10px;
 /*#########################
 ########NOUVEAUTES#########
 #########################*/
-
 /*set up size of the whole timeline OK */
 .timeline{
   position: relative;
   margin: 0px auto;
   width:100%;
-  background-color: #E1E5DC
 }
 /* Titre des parties OK*/
 .content h3{
@@ -603,7 +703,6 @@ font-size: 10px;
   width:50%;
   padding:5px 35px;
 }
-
 /*for every odd numbered bullet point, align to the left OK*/
 .timeline ul li:nth-child(odd){
   text-align:right;
@@ -611,7 +710,6 @@ font-size: 10px;
   clear:both;
   right: 4%;
   width: 52.5%;
-  background-color: #D9DE96;
 }
 /* for every even numbered bullet point, align to the right OK*/
 .timeline ul li:nth-child(even){
@@ -620,9 +718,7 @@ font-size: 10px;
   clear:both;
   left:1.1%;
   width: 52%;
-  background-color: #D9DE96;
 }
-
 /*create circle icon on the timeline from the left (odd) OK */
 .timeline ul li:before {
   content:'';
@@ -651,25 +747,55 @@ font-size: 10px;
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
-.timeline{
-  background-color: yellow;
+  /*for every odd numbered bullet point, align to the left OK*/
+  .timeline ul li:nth-child(odd){right: 5.7%; width: 53.5%;}
+  .timeline ul li:nth-child(odd):before{right:-5%;}
+  /* for every even numbered bullet point, align to the right OK*/
+  .timeline ul li:nth-child(even){left:1.1%;width: 52.5%;}
+  /*position the circle icons on the timeline OK*/
+  .timeline ul li:nth-child(even):before{left: -5%;}
 }
+@media screen and (min-width: 990px) and (max-width: 1200px) {
+  /*for every odd numbered bullet point, align to the left OK*/
+  .timeline ul li:nth-child(odd){right: 6%; width: 53.5%;}
+  .timeline ul li:nth-child(odd):before{right:-5.5%;}
+  /* for every even numbered bullet point, align to the right OK*/
+  .timeline ul li:nth-child(even){left:1.1%; width: 52.5%;}
+  /*position the circle icons on the timeline OK*/
+  .timeline ul li:nth-child(even):before{left: -8%;}
+}
+@media screen and (max-width: 990px) {
+/* Titre des parties OK*/
+.content h3{font-size:1em; padding-top: 2.5%; }
+/*Style du texte sous la date OK*/
+.ajoutMP{font-size: 0.9em;}
+/*drawing the line itself OK*/
+.timeline:before{left:6%; width:0.3em;}
 /*for every odd numbered bullet point, align to the left OK*/
 .timeline ul li:nth-child(odd){
-  right: 5.7%;
-  width: 53.5%;
-}
-.timeline ul li:nth-child(odd):before{
-  right:-4.7%;
+  text-align:left;
+  float:right;
+  clear:both;
+  right: -5%;
+  width: 110%;
 }
 /* for every even numbered bullet point, align to the right OK*/
 .timeline ul li:nth-child(even){
-  left:1.1%;
-  width: 52%;
+  text-align:left;
+  float:right;
+  clear:both;
+  left: 5%;
+  width: 110%;
 }
+/*create circle icon on the timeline from the left (odd) OK */
+.timeline ul li:before { width:35px; height:35px;}
 /*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{
-  left: -4%;
-}
+.timeline ul li:nth-child(even):before{left: -6%;}
+.timeline ul li:nth-child(odd):before{left: -6%;}
+/*styling the numbering. OK */
+.timeline ul li:before{font-size:0.9em; padding-top:3%;}
 
+.content p {
+  font-size: 0.8em;
+}
 }
