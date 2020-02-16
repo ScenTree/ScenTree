@@ -650,6 +650,9 @@ table {
 min-width: 100%;
 font-size: 10px;
 }
+.formulaire {
+  min-width: 100%;
+}
 .envoiRGPD {
   min-width: 100%;
 }
