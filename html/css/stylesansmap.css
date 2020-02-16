@@ -516,6 +516,10 @@ overflow-x: auto;
 .copyright {
     font-size: 8px;
 }
+.text-in-color-brown {
+  color: #D64E26;
+  font-size: 1em;
+}
 }
 
 @media screen and (max-width: 768px) {
