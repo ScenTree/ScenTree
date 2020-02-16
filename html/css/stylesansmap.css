@@ -234,7 +234,6 @@ b{
   width: 20%;
 }
 .card-img-top {
-  align-items: center;
   margin-top: 5%;
   min-width: 120px;
   min-height: 120px;
@@ -242,6 +241,7 @@ b{
   max-height: 120px;
 }
 .card {
+  text-align: center;
   border: 1px solid #E99A1F;
   box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
 }
