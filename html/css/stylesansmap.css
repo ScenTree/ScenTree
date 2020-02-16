@@ -506,7 +506,7 @@ overflow-x: auto;
   overflow-y: scroll;
 }
 .correctspacebug {
-    height: 0em;
+    height: 0.5em;
     background-color: red;
 }
 .particulier ul {
