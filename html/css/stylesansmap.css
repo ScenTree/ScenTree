@@ -237,6 +237,11 @@ b{
   max-width: 100%;
   max-height: 100%;
 }
+.card {
+  background-color: #FBE5D6FF; 
+  border: 1px solid #D64E26;
+  box-shadow: 2px 2px 22px 0px rgba(251,229,214,1);
+}
 /*#########################
 ########COPYRIGHT##########
 #########################*/
