@@ -250,11 +250,14 @@ b{
 }
 .envoiRGPD {
   align-items: center;
+  text-align: center;
 }
 .texteRGPD {
   font-size: 0.8em;
 }
 .btnenvoi {
+  align-items: center;
+  text-align: center;
   background-color: #FBE5D6FF; 
   border: 1px solid #E99A1F;
   box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
