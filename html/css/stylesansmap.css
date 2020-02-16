@@ -484,7 +484,7 @@ overflow-x: auto;
   height: 0%;
 }
 .correctspacebug {
-    height: 0.2em;
+    height: 1em;
     background-color: yellow;
 }
 .particulier ul {
