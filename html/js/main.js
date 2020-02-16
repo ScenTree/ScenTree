@@ -72,6 +72,14 @@ if (! window.document.jsdom_reader) {
         };
 };
 
+$(".they_support_us__link").click(function(){
+  Cookies.set('Updated_on__they_support_us', UPDATED_ON["they support us"], { expires: 365 });
+  $(".notifi1").css({'display' : 'none'});
+});
+$(".the_news__link").click(function(){
+  Cookies.set('Updated_on__the_news', UPDATED_ON["the news"], { expires: 365 });
+  $(".notifi2").css({'display' : 'none'});
+});
 $(".survey_link").click(function(){
   Cookies.set('Updated_on__the_survey', UPDATED_ON["the survey"], { expires: 365 });
   $(".notifi4").css({'display' : 'none'});
