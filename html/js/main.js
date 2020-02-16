@@ -1105,7 +1105,9 @@ function switch_to_en() {
     // cookie
     Cookies.set('display_french_language', -1, { expires: 365});
     // DOM
-    $("*:lang(fr)").remove();
+    if (! window.document.jsdom_reader) {
+        $("*:lang(fr)").remove();
+    };
     //$("*:lang(en)").css({'display' : 'initial'});
     // change search
     URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
@@ -1129,7 +1131,9 @@ function switch_to_fr() {
     // cookie
     Cookies.set('display_french_language', 1, { expires: 365});
     // DOM
-    $("*:lang(en)").remove();
+    if (! window.document.jsdom_reader) {
+	$("*:lang(en)").remove();
+    };
     //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
     URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_FR/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
