@@ -216,14 +216,14 @@ crossorigin=""/>
           <span lang="fr">Nom :</span>
           <span lang="en">Name :</span>
         </label>
-          <input type="text" class="form-control col-4" id="inputname" lang="fr" placeholder="Saisir votre nom ici..">
-          <input type="text" class="form-control col-4" id="inputname" lang="en" placeholder="Write your name here..">
+          <input type="text" name="last_name" class="form-control col-4" id="inputname" lang="fr" placeholder="Saisir votre nom ici.." required>
+          <!--<input type="text" class="form-control col-4" id="inputname" lang="en" placeholder="Write your name here..">-->
         <label for="inputfirstname" class="col-2 col-form-label">
           <span lang="fr">Prénom :</span>
           <span lang="en">First name :</span>
         </label>
-          <input type="text" class="form-control col-4" id="inputfirstname" lang="fr" placeholder="Saisir votre prénom ici..">
-          <input type="text" class="form-control col-4" id="inputfirstname" lang="en" placeholder="Write your first name here..">  
+          <input type="text" name="first_name" class="form-control col-4" id="inputfirstname" lang="fr" placeholder="Saisir votre prénom ici.." required>
+          <!--<input type="text" class="form-control col-4" id="inputfirstname" lang="en" placeholder="Write your first name here..">  -->
       </div>
     <!--emails -->
       <div class="form-group row">
@@ -231,8 +231,8 @@ crossorigin=""/>
           <span lang="fr">Adresse mail :</span>
           <span lang="en">Email adress :</span>
         </label>
-          <input type="email" class="form-control col-8" id="inputmail" lang="fr" placeholder="adressemail@example.com">
-          <input type="email" class="form-control col-8" id="inputmail" lang="en" placeholder="emailadress@example.com"> 
+          <input type="email"  name="email" class="form-control col-8" id="inputmail" lang="fr" placeholder="adressemail@example.com" required>
+          <!--<input type="email" class="form-control col-8" id="inputmail" lang="en" placeholder="emailadress@example.com">--> 
       </div>
     <!-- date de naissance-->
       <div class="form-group row">
@@ -240,15 +240,15 @@ crossorigin=""/>
           <span lang="fr">Date de naissance :</span>
           <span lang="en">Birth date :</span>
         </label>
-          <input type="date" class="form-control col-8" id="inputbirthdate" lang="fr">
-          <input type="date" class="form-control col-8" id="inputbirthdate" lang="en">
+          <input type="date" name="birth_date__day" class="form-control col-8" id="inputbirthdate" lang="fr"/>
+          <!--<input type="date" class="form-control col-8" id="inputbirthdate" lang="en">-->
       </div>
     </form>
   </div>
 
   <div class="envoiRGPD col-4">
     <!-- bouton d'envoi du formulaire-->
-    <button class="btn text-center btnenvoi" type="submit" >
+    <button class="btn text-center btnenvoi" type="submit" value="Subscribe">
       <span lang="fr">M'inscrire à la newsletter</span>
       <span lang="en">Suscribe to newsletter</span>
     </button>
