@@ -252,8 +252,11 @@ b{
   align-items: center;
   text-align: center;
 }
+.titreRGPD {
+  font-size: 0.9em;
+}
 .texteRGPD {
-  font-size: 0.8em;
+  font-size: 0.75em;
 }
 .btnenvoi {
   align-items: center;
