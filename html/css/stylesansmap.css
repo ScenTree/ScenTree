@@ -3,7 +3,7 @@ html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'434';}
+.timeline ul li:nth-child(1):before{content:'432';}
 .timeline ul li:nth-child(2):before{content:'426';}
 .timeline ul li:nth-child(3):before{content:'426';}
 .timeline ul li:nth-child(4):before{content:'419';}
