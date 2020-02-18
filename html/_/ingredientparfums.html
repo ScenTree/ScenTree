@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - Les ingrédients parfumées</title>
+<title lang="en">ScenTree - Perfume ingredients</title>
+<!--Description Google-->
+<meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Fichier Style CSS -->
+<link href="../css/stylesansmap.css" rel="stylesheet" />
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
+
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
+  </button>
+  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
+    <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
+  </form>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/newletter.html"><span lang="fr">Newletter</span><span lang="en">Newletter</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/mentionslegales.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
+
+
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
+
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
+
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+<div class="container-fluid">
+
+<div class="row align-items-start">
+  <div class="clearfix w-100">
+    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
+    </button>
+    <button class="btn text-in-color-brown float-right px-0">/</button>
+    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
+  </div>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
+  </div>
+</div>
+
+<!--Désactivation de la recherche 
+<div class="row align-items-start">
+  <div class="col-12 align-items-center m-0">
+    <div class="font-weight-bold text-size-1-1vw pb-1 d-none d-sm-none d-md-block"><span lang="fr">Trouver une matière première&nbsp;:&nbsp;</span><span lang="en">Find a raw material&nbsp;:&nbsp</span></div>
+  </div>
+  Recherche 
+  <div class="col-12 text-center align-items-start">
+  <form class="" action="" autocomplete="off" id="searchForm">
+    <input lang="fr" type="search" class="searchinput  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." />
+    <input lang="en" type="search" class="searchinput  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." />
+  </form>
+  </div>
+</div>
+-->
+
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
+  <div class="col">
+    <a class="btn mt-4 text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
+    <br>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-5 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
+</div>
+
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/newletter.html">
+          <span lang="fr">Newletter</span><span lang="en">Newletter</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/mentionslegales.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |
+   </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+<div id="blanc1" class="row blockrgpd"></div>
+<div id="contenant" class="row">
+<div class=" col-offset-1 col-9 textRGPD" >
+  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
+  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
+</div> 
+<div class=" col-offset-2 col-3 boutonRGPD">
+  <button class="btn btn-success" id="cookie_please">
+    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
+  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
+    <span lang="fr">Non</span><span lang="en">No</span>
+  </button>
+</div>
+</div>
+<div id="blanc1" class="row blockrgpd"></div>
+</div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center gros_titre">
+  <h1 class="gros_titre text-in-color-brown">DECOUVRIR LES TYPES D'INGREDIENTS EN PARFUMERIE</h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+
+<p class="mt-3">Dans la composition d’un parfum, il est possible d’utiliser environ <b>3000 ingrédients différents</b>. La connaissance scientifique autour des essences et des molécules odorantes en recense cependant bien plus. Toutes constituent la <u>palette du parfumeur</u> : cet alphabet qu’il utilise pour raconter des histoires à travers ses parfums.
+<br>Quelles sont ces matières premières ? Comment les obtient-on ? Quels en sont les particularités et comment cela influe leur utilisation ? Entrez dans l’univers passionnant des odeurs !
+Pour commencer, il existe trois types de matières premières utilisées dans les parfums :
+<ul>
+  <li><b>Les ingrédients naturels</b>: Elles résultent de l’extraction d’un végétal ou, anciennement, d’une matière animale.</li>
+  <li><b>Les ingrédients synthétiques</b>: Elles sont obtenues grâce à la (bio)chimie organique.</li>
+  <li><b>Les bases</b>: Ce sont des compositions parfumées, un ingrédient crée préalablement par un parfumeur et qui contient, lui aussi, plusieurs ingrédients.</li>
+</ul>
+</p>  
+<p>Etudions plus en détails l'ensemble de ces catégories et leurs spécificités :</p>
+<ol type="I">
+  <li><u><b>LES INGREDIENTS NATURELS</b></u>: 
+    <p>Ce types d'ingrédient a toujours eu la cote dans les parfums. Néanmoins, bien qu’ils soient très prisés des parfumeurs et des consommateurs, ils présentent plusieurs désavantages. 
+    <br>La grande majorité des matières premières naturelles sont issues de <b>végétaux</b>. Il était autrefois possible d’utiliser des matières premières <b>animales</b>, mais elles sont aujourd’hui <u>disparues pour des raisons d’éthique et de réglementation</u>. 
+    <p class="exemple"><u>Exemple:</u> L’ambre gris est une déjection sécrétée par le cachalot, et rejetée dans son habitat, puis retrouvée sur certaines plages. Son odeur en séchant est très sensuelle, ambrée et particulièrement appréciée des parfumeurs pour construire les notres de fond de leur parfum. Aujourd'hui, cette matière emblématique est remplacée par des molécules dites « ambrées » (<a class="interpop" href="../ingredients/Ambroxan®__Ambroxan®.html"><span lang="en">Ambroxan®</span><span lang="fr">Ambroxan®</span></a>, <a class="interpop" href="../ingredients/Iso_E_Super®__Iso_E_Super®.html"><span lang="en">Iso E Super®</span><span lang="fr">Iso E Super®</span></a>, <a class="interpop" href="../ingredients/Grisalva®__Grisalva®.html"><span lang="en">Grisalva®</span><span lang="fr">Grisalva®</span></a>…). De même, le <a class="interpop" href="../ingredients/Castoreum_Resinoid__Castoréum_Résinoïde.html"><span lang="en">castoreum</span><span lang="fr">castoréum</span></a> est un baume sécrété par le castor (trouvable au Canada ou en Sibérie), dans une poche sous son anus. L’extraction de l'odeur de cette poche permettait d’obtenir une résine, très odorante. Aujourd’hui, cette matière première est remplacée par des bases imitatrices de son odeur.</p>
+    </p>
+    <p>Les matières premières issues de végétaux se distinguent en plusieurs catégories :</p>
+    <ul>
+      <li><span class="catégories">Les huiles essentielles :</span>
+        <ol>
+          <li><span class="catégories2">Les distillations :</span>
+            <br>Obtenues par entrainement à la vapeur d’eau des composés odorants de la plante. La vapeur d’eau possède effectivement la faculté de se mélanger aux composés odorants, pour s’en séparer par décantation à l’état liquide après condensation des vapeurs.
+          </li>
+          <li><span class="catégories2">Les distillations sèches : </span>
+            <br>Pour la cade (un conifère) et le bouleau (un bois), l’huile essentielle est obtenue par distillation sèche. Cela consiste en une pyrogénation du bois sous une très forte température (800°C environ) dans un four, puis une distillation du goudron récupéré, pour n’obtenir que les composés odorants issus de ce procédé.
+          </li>
+          <li><span class="catégories2">Les expressions :</span>
+            <br>Pour les agrumes, leur huile essentielle est obtenue par expression à froid : le zeste est exprimé, puis l’huile est séparée de l’eau résultante par centrifugation.
+          </li>
+        </ol>
+      </li>    
+      <li><span class="catégories">Les concrètes et absolues : </span>
+        <ol>
+          <li><span class="catégories2">Les concrêtes :</span>
+              <br>Les <b>absolues</b> résultent de l’extraction d’une <b>plante fraiche</b>. Il peut s’agir d’une fleur (Rose de Mai Absolue), d’une fève (Fève Tonka Absolue), d’une graine (Fenugrec Absolue)… Cette extraction se déroule en plusieurs étapes. La première consiste à plonger le végétal dans un solvant organique tel que l’hexane ou l’éther de pétrole. Après extraction, retrait des plantes (on dit alors qu’elles sont « épuisées ») et évaporation du solvant, on obtient une <b>concrète</b>. C’est une pâte, car elle comprend les cires de la plante, qui ont aussi été extraites par le solvant utilisé. Pour rendre la concrète utilisable en parfumerie, il faut la diluer dans l’alcool, puis refroidir le mélange pour précipiter les cires, et les filtrer. Après évaporation du solvant, le produit obtenu est liquide, parfois visqueux, et limpide : c’est l’absolue.
+          </li>
+          <li><span class="catégories2">Les absolues :</span> 
+          </li>
+        </ol>     
+      </li>
+      <li><span class="catégories">Les baumes et les résinoïdes : </span>
+        <ol>
+          <li><span class="catégories2">Les résinoïdes :</span>
+            <br>Les résinoïdes résultent de l’extraction d’un produit sec. Il s’agit souvent de résines d’arbres (Benjoin Siam Résinoïde). Leur extraction consiste à solubiliser les composés odorants de la résine dans de l’alcool, de refroidir le mélange pour précipiter les cires, puis de filtrer et d’évaporer le solvant. Le produit obtenu est liquide, parfois très visqueux. Ces résines sont souvent aussi extractibles à la vapeur d’eau, pour obtenir une huile essentielle (Encens HE).
+          </li>
+          <li><span class="catégories2">Les baumes :</span>
+          </li>
+        </ol>  
+      </li>
+      <li><span class="catégories">Les extraits CO<sub>2</sub> supercritique : </span>
+          <br>Ces ingrédients résultent de la mise en contact d’un végétal quelconque (il peut même s’agir de certains fruits, habituellement non extraits) avec du dioxyde de carbone à plus de 31°C et sous 74 bar de pression. Mettre le CO2 sous cette forme est coûteux, mais ce type d’extraction fourni un résultat olfactif sans égal, et offre à la palette du parfumeur des extraits d’une grande qualité.        
+      </li>
+    </ul>
+    <br>
+    <p>Il existe beaucoup d’autres méthodes d’extraction aboutissant sur d'autres catégories d'ingrédients, que nous ne détaillerons pas ici car leur présence n'est pas très courante (hydrolats, exhudats, tintures, infusions, terpene-less, paumades et autres produits issues de distillations moléculaires ou encore les produits modifiés chimiquement après extraction.).</p>
+
+    <p>Ainsi, les matières premières naturelles forment environ un tiers de la palette du parfumeur (sans compter les bases). Elles servent souvent de point de départ d’une création de parfum. Le parfumeur choisi en effet souvent plusieurs matières premières naturelles pour son parfum, autour de laquelle il fait graviter des matières premières synthétiques, pour leur donner les nuances souhaitées.
+    <br>Les ingrédients naturels sont olfactivement très complexes, compte tenu de la diversité de molécules qu’ils contiennent. Cela ne facilite donc pas la création. Par ailleurs, bien qu’ils apportent de la beauté à une création, ils lui apportent de l’instabilité, toujours compte tenu des molécules qui peuvent y être présentes. Enfin, leur coût d’obtention n’est pas négligeable. C’est aussi ce paramètre qui a été bouleversé par l’arrivé de la synthèse organique, à la fin du XIXème siècle…</p>
+  </li> 
+  <p>
+    <li><u><b>LES INGREDIENTS SYNTHETIQUES</b></u>: 
+      <br>Ces ingrédients sont issus de procédés de synthèse, c’est-à-dire de <b>réactions successives entre plusieurs molécules</b>. Souvent, de petites molécules sont utilisées comme point de départ, pour en fabriquer de plus grandes, en les assemblant. De grandes molécules bon marché peuvent aussi être utilisées pour en modifier la structure, et les propriétés olfactives. Il existe une infinité de réactions possibles, pour une infinité de molécules. Or, seules quelques-unes d’entre elles forment <b>les deux tiers de la palette du parfumeur</b>.
+      <br>Il est aussi possible d’<u>obtenir des molécules par voie naturelle</u>, en les extirpant d’extraits de plantes diverses. Certaines molécules sont en effet souvent plus faciles d’obtention par voie naturelle, car elles sont abondantes dans un extrait végétal bon marché (exemple du Pinène-Alpha, présent dans la Térébenthine HE). D’autres conviennent pour une formulation dite « 100% naturelle » : plusieurs créateurs y sont spécialisés et souhaitent formuler leurs parfums en utilisant exclusivement des ingrédients d’origine naturelle. Les molécules issues du naturel atteignent rarement une pureté absolue, ce qui leur confère une complexité olfactive intéressante (exemple du Géraniol ou du Linalol naturels), dépendant de la plante dont ils sont extraits. Enfin, des extraits végétaux peuvent subir une réaction, par administration d’une molécule tel que l’anhydride acétique. C’est le cas de l’Acétate de Gaiyle ou l’Acétate de Vétivéryl. Si une Lavande HE subit une telle réaction, son taux d’Acétate de Linalyle augmente fortement, et peut en être extrait : c’est de l’Acétate de Linalyle hémisynthétique, considéré d’origine naturelle.
+    </li>
+  </p>  
+  <p>
+    <li><u><b>LES BASES</b></u>: 
+      <br>Les bases sont des compositions parfumantes, reproduisant une odeur connue, mais souvent non extractible. Elles servent à diversifier la palette du parfumeur, en proposant un plus large choix de matières premières, et en imitant l’odeur d’ingrédients existant ou non, à moindre coût.
+      <p>On distingue les bases imitatrices et les bases créatives :</p>
+        <ul>
+          <li><span class="catégories">Les bases imitatrices : </span>
+              <br>Ces bases reproduisent l’odeur d’un extrait naturel, à un coût moindre, et avec une originalité olfactive. Bien souvent, il s’agit de bases internes aux sociétés de création, classées confidentielles. Elles sont créées par les parfumeurs, en utilisant des ingrédients naturels comme synthétiques. Elles sont créées comme des parfums.
+          </li>
+          <li><span class="catégories">Les bases créatives : </span>
+              <br> Ce sont celles qui innovent. Elles ont pour objectif de représenter un thème olfactif ou une l’odeur d’un produit de consommation, non extractible. La base Chocovan®, la Cassis Base 345 F® ou encore le Nectarol® ont cette visée.
+          </li>
+        </ul>  
+    </li>
+  </p>
+</ol>
+<br>
+<p>Chaque matière première peut faire partie de la palette du parfumeur, constituée généralement de 200 à 1500 matières premières. Le créateur connait toutes les matières premières de sa palette, et sait les utiliser à bon escient. Leur utilisation est en effet régulée par plusieurs paramètres : </p>
+  <ul>
+      <li><span class="catégories">La réglementation : </span>
+        <ol>
+          <li><span class="catégories2">L'IFRA : </span>
+            <br>L’IFRA est l’association agissant notamment pour la réglementation des matières premières présentant un danger, possède une grande influence sur la restriction de l’utilisation de certains ingrédients.
+          </li>
+          <li><span class="catégories2">Les allergènes : </span>  
+            <br> A FAIRE
+          </li>
+        </ol>
+      </li>  
+      <li><span class="catégories">La stabilité : </span> 
+          <br>Les matières premières naturelles sont souvent instables, et certaines molécules sont parfois très réactives.
+      </li>
+      <li><span class="catégories">Le coût : </span>
+          <br>Certains ingrédients sont difficiles à obtenir, car leur préparation peut être longue, demander une main d’œuvre, des molécules ou des procédés coûteux, ne permettre de les obtenir qu’avec un faible rendement…
+      </li>
+      <li><span class="catégories">Les demandes et contraintes clients : </span> 
+          <br>Certaines demandes de création peuvent imposer par exemple de formuler exclusivement avec des matières premières naturelles, sans allergène, à bas coût de production, avec une certaine ténacité du parfum, avec certaines matières premières définies…
+      </li>
+  </ul>
+<p>L’art de créer un parfum réside dans la faculté de son créateur à respecter les différents enjeux qui lui sont imposés, tout en racontant l’histoire qu’il souhaite transmettre à travers les odeurs.</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>
