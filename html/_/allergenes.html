@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - The allergens_Les allergènes</title>
+<title lang="en">ScenTree - The allergens_Les allergènes</title>
+<!--Description Google-->
+<meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Fichier Style CSS -->
+<link href="../css/stylesansmap.css" rel="stylesheet" />
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
+
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
+  </button>
+  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
+    <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
+  </form>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/newletter.html"><span lang="fr">Newletter</span><span lang="en">Newletter</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/mentionslegales.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
+
+
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
+
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
+
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+<div class="container-fluid">
+
+<div class="row align-items-start">
+  <div class="clearfix w-100">
+    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
+    </button>
+    <button class="btn text-in-color-brown float-right px-0">/</button>
+    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
+  </div>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
+  </div>
+</div>
+
+<!--Désactivation de la recherche 
+<div class="row align-items-start">
+  <div class="col-12 align-items-center m-0">
+    <div class="font-weight-bold text-size-1-1vw pb-1 d-none d-sm-none d-md-block"><span lang="fr">Trouver une matière première&nbsp;:&nbsp;</span><span lang="en">Find a raw material&nbsp;:&nbsp</span></div>
+  </div>
+  Recherche 
+  <div class="col-12 text-center align-items-start">
+  <form class="" action="" autocomplete="off" id="searchForm">
+    <input lang="fr" type="search" class="searchinput  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." />
+    <input lang="en" type="search" class="searchinput  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." />
+  </form>
+  </div>
+</div>
+-->
+
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
+  <div class="col">
+    <a class="btn mt-4 text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
+    <br>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-5 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
+</div>
+
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/newletter.html">
+          <span lang="fr">Newletter</span><span lang="en">Newletter</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/mentionslegales.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |
+   </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+<div id="blanc1" class="row blockrgpd"></div>
+<div id="contenant" class="row">
+<div class=" col-offset-1 col-9 textRGPD" >
+  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
+  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
+</div> 
+<div class=" col-offset-2 col-3 boutonRGPD">
+  <button class="btn btn-success" id="cookie_please">
+    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
+  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
+    <span lang="fr">Non</span><span lang="en">No</span>
+  </button>
+</div>
+</div>
+<div id="blanc1" class="row blockrgpd"></div>
+</div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center gros_titre">
+  <h1 class="gros_titre text-in-color-brown">LES ALLERGENES EN PARFUMERIE : <br> UNE PEUR JUSTIFIEE ?</h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+
+  <p><img class="img1allergene" src="../img/loupeallergens.jpg" alt="Etiquettage des allergènes" title="Etiquettage des allergènes"></p>
+   
+  <p><i>Linalol, Limonène, Eugénol, Salicylate de Benzyl</i>… Vous avez sans doute déjà remarqué le nom de ces molécules sur le packaging de vos produits cosmétiques. Elles sont partout ! Il s’agit de molécules qualifiées « d’allergènes ». Comme souvent, les ingrédients d'origines chimiques et notamment les allergènes, font peur. Certaines marques créent même des parfums « sans allergènes » afin d'attirer une clientèle soucieuse de sa santé et effrayée par la présence de tant d'ingrédient inconnus. Ces allégations sont surtout mises en place pour rassurer les consommateurs, or nous allons voir ici que certains de ces ingrédients ne sont pas nécessairement "dangereux" et que leurs impacts sont souvent dramatisés. Nous verrons également que ces ingrédients se retrouvent également dans de nombreux aliments que nous consommons chaque jour et pour lesquelles nous ne constatons aucuns effets secondaires.  </p>
+
+  <p>Dans la composition de nos parfums portés et utilisés chaque jour, <b>26 allergènes</b> réputés peuvent exister. Cette liste de 26 molécules et extraits est dictée par l’ <a href="https://eur-lex.europa.eu/legal-content/fr/ALL/?uri=CELEX%3A32009R1223" target="_blank">annexe III du règlement cosmétique européen 1223/2009</a>. Il s’agit de molécules qui, lorsqu'elle sont présentes en quantités importantes, peuvent avoir la faculté de se fixer à une protéine présente dans notre peau. Cela peut entrainer une réaction (cf. schéma ci-dessous) fassant réagir notre système immunitaire et provoquant ainsi une réaction allergique. 
+  <br> A noter également que certaines substances réputées allergènes le sont uniquement lorsqu'un facteur annexe s'installe et induit une transformation chimique. C'est le cas notamment de certains ingrédients qui, au contact du soleil, peuvent s'oxyder et devenir de puissants allergènes. 
+  <br> Les réactions allergiques peuvent alors se manifester sous la forme de plaques rouges, de picotements etc. Le comité scientifique pour la sécurité des consommateurs a répertorié 54 molécules et 28 extraits naturels pouvant provoquer une réaction allergique chez l’Homme. Cette dernière liste n’est pas exploitée dans le milieu de la parfumerie.</p>
+
+  <p><img class="img2allergene" src="../img/impactallergens.png" alt="Mode d'action des allergènes"></p>
+
+  <p><b>En Europe, ces réactions allergiques concernent seulement 1 à 3% de la population.</b> Cela signifie que vous avez une à trois chances sur cent d’être sensible à l'une des 26 substances listées par la réglementation cosmétique.</p>
+  <p>Alors, la réglementation cosmétique impose plusieurs mesures. <b>Ces mesures sont prises pour que chaque personne, allergique ou non, puisse consommer les produits parfumés du marché.</b> Si vous n’êtes allergique à aucune des substances, ces mesures n’ont pas d’utilité pour vous.</p>
+
+  <p><img class="img3allergene" src="../img/rincevsnonrince.png" alt="Différences entre un produit rincé et un non-rincé" > </p>
+  <p>La première intervient lors de la création d’un parfum. Dans le cas où ce parfum entrera en contact avec la peau, il existe deux types de produits : 
+  <ul>
+    <li>Les produits dits « <b>rincés</b> » (shampoings, gels douche…). Ces produits ne sont pas destinés à rester en contact avec la peau après leur utilisation. </li> 
+    <li>Les produits dits « <b>non-rincés</b> » (parfums alcooliques, crèmes…). Pour ces produits, le contact avec la peau entraine une exposition continue s'arretant lorsque l'utilisateur du produit se lave et donc, rince le produit contenant les molécules. </li>
+  </ul>
+  </p>
+  
+
+  <p>Dans les produits rincés, la présence d’un allergène ne doit pas excéder 100 ppm (soit 0,01%) dans le produit fini. Dans les produits non-rincés, cette présence ne doit pas excéder 10 ppm (0,001%).
+  Par ailleurs, tout allergène présent à un taux supérieur à celui recommandé entraine sa mention sur le packaging du produit. </p>
+
+  <p>Par exemple, dans le cas où votre produit contient sur son packaging la mention de quatre molécules allergènes, sans savoir à quel(s) allergène(s) vous pourriez être allergique, cela signifie que vous avez tout au plus 0,5% de chance de contracter une allergie en utilisant ce produit. Faible, non ?</p>
+
+  <p class="text-underline">Voici la liste des 26 allergènes dits « probables », répertoriés par la réglementation cosmétique et utilisables en parfumerie :</p>
+
+  <div class="tableauallergenes col-12">
+    <table class="col-8">
+    <caption>Les 26 allergènes en parfumerie</caption>
+      <thead> <!-- En-tête du tableau -->
+       <tr>
+           <th>Nom</th>
+           <th>N° CAS</th>
+           <th>Nom</th>
+           <th>N° CAS</th>
+       </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Isométhyl Ionone-Alpha </td>
+        <td>127-51-5</td>
+        <td>Coumarine</td>
+        <td>91-64-5</td>
+      </tr> 
+      <tr>
+        <td>Aldéhyde Amyl Cinnamique </td>
+        <td>122-40-7</td>
+        <td>Eugénol</td>
+        <td>97-53-0</td>
+      </tr> 
+      <tr>
+        <td>Alcool Amyl Cinnamique</td>
+        <td>101-85-9</td>
+        <td>Farnésol</td>
+        <td>4602-84-0</td>
+      </tr>
+      <tr>
+        <td>Alcool Anisique</td>
+        <td>105-13-5</td>
+        <td>Géraniol</td>
+        <td>106-24-1</td>
+      </tr>
+      <tr>
+        <td>Alcool Benzylique</td>
+        <td>100-51-6</td>
+        <td>Hexyl Cinnamique Aldéhyde</td>
+        <td>101-86-0</td>
+      </tr>
+      <tr>
+        <td>Benzoate de Benzyl</td>
+        <td>120-51-4</td>
+        <td>Hydroxycitronellal</td>
+        <td>107-75-5</td>
+      </tr>
+      <tr>
+        <td>Cinnamate de Benzyl</td>
+        <td>103-41-3</td>
+        <td>Hydroxyisohexyl 3-Cyclohexene Carboxaldéhyde </td>
+        <td>31906-04-4</td>
+      </tr>
+      <tr>
+        <td>Salicylate de Benzyl</td>
+        <td>118-58-1</td>
+        <td>Iso Eugénol</td>
+        <td>97-54-1</td>
+      </tr>
+      <tr>
+        <td>Butylphenyl Methylpropional</td>
+        <td>80-54-6</td>
+        <td>Limonène-D</td>
+        <td>5989-27-5</td>
+      </tr>
+      <tr>
+        <td>Aldéhyde Cinnamique</td>
+        <td>104-55-2</td>
+        <td>Linalol</td>
+        <td>78-70-6</td>
+      </tr>
+      <tr>
+        <td>Alcool Cinnamique</td>
+        <td>104-54-1</td>
+        <td>2-Octynoate de Méthyle</td>
+        <td>111-12-6</td>
+      </tr>
+      <tr>
+        <td>Citral</td>
+        <td>5392-40-5</td>
+        <td>Extraits de Mousse de Chêne </td>
+        <td>90028-68-5</td>
+      </tr>
+      <tr>
+        <td>Citronellol</td>
+        <td>106-22-9</td>
+        <td>Extraits de Mousse d’Arbre </td>
+        <td>90028-67-4</td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+  <p>
+    <u><b>Sources:</b></u>
+    <br>
+    <ul>
+      <li style="overflow-wrap: break-word;"><a href="https://ec.europa.eu/health/scientific_committees/opinions_layman/perfume-allergies/fr/index.htm#3" target="_blank">https://ec.europa.eu/health/scientific_committees/opinions_layman/perfume-allergies/fr/index.htm#3</a></li>
+      <li style="overflow-wrap: break-word;"><a href="https://www.ecomundo.eu/fr/blog/allergenes-cosmetique-conformite" target="_blank">https://www.ecomundo.eu/fr/blog/allergenes-cosmetique-conformite</a></li>
+    </ul>
+  </p>
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>
