@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - Comment sont crées les parfums ?</title>
+<title lang="en">ScenTree - How perfumes are created ?</title>
+<!--Description Google-->
+<meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Fichier Style CSS -->
+<link href="../css/stylesansmap.css" rel="stylesheet" />
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
+
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
+  </button>
+  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
+    <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
+  </form>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/newletter.html"><span lang="fr">Newletter</span><span lang="en">Newletter</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/mentionslegales.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
+
+
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
+
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
+
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+<div class="container-fluid">
+
+<div class="row align-items-start">
+  <div class="clearfix w-100">
+    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
+    </button>
+    <button class="btn text-in-color-brown float-right px-0">/</button>
+    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
+  </div>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
+  </div>
+</div>
+
+<!--Désactivation de la recherche 
+<div class="row align-items-start">
+  <div class="col-12 align-items-center m-0">
+    <div class="font-weight-bold text-size-1-1vw pb-1 d-none d-sm-none d-md-block"><span lang="fr">Trouver une matière première&nbsp;:&nbsp;</span><span lang="en">Find a raw material&nbsp;:&nbsp</span></div>
+  </div>
+  Recherche 
+  <div class="col-12 text-center align-items-start">
+  <form class="" action="" autocomplete="off" id="searchForm">
+    <input lang="fr" type="search" class="searchinput  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." />
+    <input lang="en" type="search" class="searchinput  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." />
+  </form>
+  </div>
+</div>
+-->
+
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
+  <div class="col">
+    <a class="btn mt-4 text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
+    <br>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/supporters.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-5 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
+</div>
+
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/newletter.html">
+          <span lang="fr">Newletter</span><span lang="en">Newletter</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/mentionslegales.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |
+   </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+<div id="blanc1" class="row blockrgpd"></div>
+<div id="contenant" class="row">
+<div class=" col-offset-1 col-9 textRGPD" >
+  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
+  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
+</div> 
+<div class=" col-offset-2 col-3 boutonRGPD">
+  <button class="btn btn-success" id="cookie_please">
+    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
+  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
+    <span lang="fr">Non</span><span lang="en">No</span>
+  </button>
+</div>
+</div>
+<div id="blanc1" class="row blockrgpd"></div>
+</div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center gros_titre">
+  <h1 class="gros_titre text-in-color-brown">COMMENT NOS PARFUMS SONT-ILS CRÉÉS ?</h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+
+  <p class="mt-3">Les matières premières détaillées dans <a href="www.scentree.co" target="_blank">ScenTree</a> constituent l’alphabet du parfumeur. Un alphabet est utilisé pour écrire des mots. Les mots sont utilisés pour raconter une histoire. Cette histoire est couramment appelée « parfum ».
+  Le parfum résulte donc de l’expression de la société qui le commercialise et de celle du créateur – le parfumeur – utilisant cet alphabet, dans le but de raconter une histoire. Le parfumeur doit maîtriser son alphabet avant toute création.
+  Un parfum est le résultat du travail d’une équipe. De l’idée au produit fini, du client au consommateur, détaillons chronologiquement tous les aspects de la création d’un parfum.</p>
+
+  <p style="text-align: center;"><img class="img1creationparfum" src="../img/cycleparfum.png" alt="Cycle de création d'un parfum" title="Cycle de création d'un parfum"></p>
+
+<ol>
+  <li><p>Tout commence par le besoin d’un consommateur. Le client souhaite acheter un parfum qui lui correspond, qui lui plait. Il peut vouloir respecter les tendances, ou s’affirmer à travers une originalité olfactive. <b>Ce sont les envies du consommateur que les marques souhaitent cibler.</b></p></li>
+
+  <li><p>Lorsqu’une marque souhaite sortir un nouveau parfum, plusieurs choix s’offre à elle. Il est ainsi très important de prendre en compte qu'il existe plusieurs types de processus de création, ces derniers étant principalement dépendants du type de parfum que le consommateur recherche. La liste suivante détaille les 5 types de parfums existant à ce jour sur le marché : 
+    <ul>
+      <li><u class="text-in-color-brown">Les parfums dits de "<b>grande distribution</b>"</u> : <br>Ce sont des parfums respectant la tendance, vendu mondialement et en très grande quantité. Ces parfums se retrouvent dans les grandes enseignes de distribution spécialisées que nous connaissons tous. Appuyés par de grosses campagnes publicitaires, ces flacons sont généralement les plus portés et c'est la voie de distribution la plus courante. La concurrence y est très rude et les enjeux très important.</li>
+      <li><u class="text-in-color-brown">Les parfums dits de "<b>mass market</b>"</u> : <br>Ce sont des parfums crées dans des volumes très importants, possédant très peu, voir pas de marketing, un flacon standard, un packaging généralement sobre. Ces produits se retrouvent généralement dans les rayons de nos supermarchés. Leurs prix sont généralement bas, mais la qualité est cependant présente au rendez-vous. </li>
+      <li><u class="text-in-color-brown">Les parfums dits de "<b>niche</b>" ou "<b>parfums confidentiels</b>"</u> : <br>Ces parfums sont généralement vendu en plus faible quantité, sont très peu soutenu par le marketing mais ils témoignent souvent d’une volonté artistique particulière. Le prix de ces flacons sont généralement supérieurs aux catégories précèdentes car les marques se positionnant ainsi sont généralement indépendantes, produissent peu de volume et se concentre sur le contenu du flacon, pas sur le contenant ou le marketing. C'est généralement dans cette catégorie que se situent les parfums les plus originaux. </li>
+      <li><u class="text-in-color-brown">Les parfums dits "<b>exclusifs</b>"</u> : <br>Ces parfums sont généralement crées par les sociétés qui commercialise des parfums dans la première catégorie listée. En parralèle des grandes productions, ces sociétés créent généralement une gamme plus confidentielle, se rapprochant du modèle de niche afin de toucher une clientèle différentes. Leur positionnement sont généralement très haut de gamme. </li>
+      <li><u class="text-in-color-brown">Les parfums dits "<b>sur-mesure</b>"</u> : <br>Ces parfums sont généralement créés en un nombre extrèmement limité de produit. Ils sont créés pour une seule personne ou pour une société souhaitant se créer une identité olfactive. La création et les prix de vente de ces produits fluctuent énormément en fonction du nombre d'exemplaire, de la demande, du flacon etc.. et peuvent atteindre des sommes records.</li>
+    </ul>  
+  <br><img class="img2creationparfum" src="../img/evaluatrice.jpg" alt="Evaluation d'un parfum" title="Evaluation d'un parfum">
+  Quel que soit l’objectif de la marque, l’idée du thème du parfum résulte d’une étude de marché. Cette étude peut être réalisée dans le but de cibler les notes olfactives, les plus tendance, celles qui n’ont encore jamais été senties, ou encore celles qui vont toucher une cible précise. <b>L’idée résulte de l’interaction entre une marque et un consommateur.</b>
+  <br>Une fois l’idée formulée, elle est mise en forme dans un cahier des charges, aussi appelé « brief », dont l’objectif est d’énoncer clairement, ou de suggérer le thème du parfum. Le « brief » peut alors prendre plusieurs formes. Il peut être exprimé avec un ou plusieurs mots, images, musiques, vidéos, œuvres d’art, avec un degré de subjectivité voulu par le service marketing de la marque. <b>C’est le « brief » qui va orienter et inspirer le parfumeur</b>.</p>
+  <p><img class="img3creationparfum" src="../img/idée.jpg" alt="Le parfum, une idée avant tout" title="Le parfum, une idée avant tout">Ce cahier des charges peut être soumis à différents types de créateurs. Il peut s’agir d’une société regroupant plusieurs parfumeurs, auquel cas les marques ont pour habitude de soumettre un même « brief » à plusieurs sociétés, les mettant ainsi en concurrence pour le même parfum. Le cahier des charges peut aussi être attribué à une société indépendante, comportant le plus souvent un seul parfumeur, qui travaille sans concurrence sur cette création. Il peut enfin être soumis à un parfumeur dit « maison », ne travaillant que pour la marque en question, et créant tous les parfums de cette marque. Seuls quelques grandes marques disposent d’un parfumeur « maison », souvent synonyme de prestige. On note enfin de nombreux parfumeurs indépendants, créant eux-mêmes leurs parfums selon leurs inspirations, sans cahier des charges extérieur. </p></li>
+
+  <li><p>Prenons le cas d’un parfum sorti par une grande marque, dont le « brief » est soumis à plusieurs sociétés de création de parfum. Ces sociétés peuvent inclure plusieurs dizaines de parfumeurs. <b>Le cahier des charges est réceptionné par le service commercial de la société</b>, chargé d’entretenir une relation avec la marque, et d’en traiter la demande. Il est transmis au service d’évaluation de l’entreprise. Ce service, composé d’évaluateurs, est chargé de faire correspondre le travail du parfumeur, en ciblant la demande olfactive du client. </p></li>
+
+  <p><img class="img4creationparfum" src="../img/parfeval.png" alt="Le lien parfumeur-évaluateur est indispensable" title="Le lien parfumeur-évaluateur est indispensable"></p>
+  <li class="solvemobilepadding"><b>L’évaluateur a un rôle d’interprétation du « brief » et de conseil lors de la création du parfum</b>. Parfumeurs (ils peuvent être plusieurs à travailler en équipe ou en concurrence sur un même parfum, au sein d’une même société) et évaluateurs (un ou plusieurs là aussi) travaillent d’un commun accord autour d’un cahier des charges donné, et se lancent alors dans la création et l’évaluation du parfum demandé par le client.</p></li>
+
+  <li><p>Il n’existe pas de méthode de création type. Chaque parfumeur crée à sa manière. Certains travaillent autour de matières premières naturelles, en faisant graviter des matières premières synthétiques pour leur donner des facettes précises ; d’autres traduisent directement leur interprétation du « brief » en matières premières. <b>Le choix des matières premières résulte d’une conviction intime du parfumeur, guidée par l’évaluateur.</b>
+  La création d’un parfum résulte alors d’échanges successifs. Le parfumeur entre sur un logiciel une formule utilisant plusieurs matières premières aux dilutions et proportions souhaitées. Lors de la formulation, une contrainte de réglementation doit être respectée. Selon le type de produit dans lequel le parfum sera appliqué, les allergènes et les composés réglementés par l’IFRA ne doit pas dépasser certains taux d’utilisation (voir notre <a href="./allergenes.html" target="_blank">article sur les allergènes en parfumerie</a>).</p></li>
+
+  <p><img class="img5creationparfum" src="../img/assistantparf.jpg" alt="La pesée d'un parfum" title="La pesée d'un parfum"></p>
+  <li class="solvemobilepadding"><p><b>Cette formule est reçue par un assistant de parfumeur, chargé de peser une à une les matières premières souhaitées en laboratoire</b>. L’échantillon est apporté au parfumeur, évalué par ce dernier, puis la formule est modifiée et pesée à nouveau. Lorsque le parfumeur souhaite avoir un avis de l’évaluateur, ceux-ci se réunissent et décident ensemble des modifications à apporter.
+  <br>Lorsqu’un ou plusieurs échantillons sont jugés satisfaisants par le parfumeur et l’évaluateur, ils sont soumis au client lors d’une réunion ayant lieu dans les locaux de l’entreprise créatrice. Une telle soumission peut intervenir au bout de quelques essais seulement, ou après des centaines, voire milliers d’essais réalisés. <b>Tout dépend également de la limite de temps fixée par le client pour cette création. Le client donne son avis sur la fragrance, en validant un essai, ou en demandant un « retravail » de la formule</b>. Dans le cas d’un retravail, les échanges successifs entre création, pesée et évaluation continuent.</p></li>
+
+  <li><p>Lorsqu’un essai est validé par le client, <b>la formule est soumise à un ensemble de tests de stabilité</b>. Ceux-ci consistent à soumettre le parfum à diverses conditions de température, de lumière, dans sa base ou non, pour y détecter d’éventuels changements de couleur, d’odeur ou d’apparence. Dans le cas d’une instabilité jugée inacceptable, le parfum est « retravaillé », en traitant le problème à la racine : en remplaçant la (ou les) matière(s) première(s) à l’origine de l’instabilité. Une fois la formule corrigée, de nouveaux tests sont réalisés et le parfum est validé pour envoi au client. Ce dernier peut demander des dernières modifications dans le cas où une instabilité est détectée en interne de sa société.</p></li>
+
+  <li><p>Après réception de chaque essai créé par chaque société de création, <b>le client choisi le parfum qui deviendra celui trouvé dans les rayons de nos parfumeries</b>. </p></li>
+
+  <li><p>La société ayant créé le parfum sélectionné est en charge de lancer le « concentré de parfum » (correspondant au parfum pur, non dilué dans sa base) en production. La <b>production d’un concentré de parfum</b> se fait en y mélangeant les matières premières. </p></li>
+  <li><img class="img6creationparfum" src="../img/prodparfum.jpg" alt="Usine de production de parfum" title="Usine de production de parfum">Il s’en suit l’envoi du concentré dans l’usine de production, appartenant à la marque, une période de « maturation » de ce concentré (et de « macération » dans le cas d’un parfum alcoolique), et la <b>production du produit fini</b> sur les chaînes de production de l’usine de la marque. Le parfum est conditionné dans son packaging, préalablement conçu en interne de la société, ou par un sous-traitant, et envoyé dans les points de vente dédiés.</p></li>
+
+  <li><p>Tout se termine par l’achat du parfum par le consommateur. La boucle est bouclée.</p></li>
+</ol>
+  
+  <p class="blanccorrectionmisenepage"></p>
+  <p>En somme, la création d’un parfum résulte de plusieurs étapes, et demande de nombreuses compétences, pour lesquels le travail d’équipe est primordial. Tournant autour du consommateur, le parfum est au départ une idée, sublimée par la vision artistique d’un parfumeur, lui-même guidé par l’évaluateur, et aidé par l’assistant de parfumeur. La création d’un parfum est l’alliance d’une volonté marketing et artistique, tout en respectant les contraintes de stabilité, de réglementation, de coût et de temps imposées. L’art de la parfumerie réside donc dans la commercialisation d’une œuvre harmonieuse, contournant toute contrainte. Ainsi, le parfum est plus que jamais un produit de luxe, de raffinement et d’excellence. </p>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>
