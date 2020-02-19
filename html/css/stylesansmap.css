@@ -1,6 +1,7 @@
 
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.8em;
 }
 /* assign numbering*/
 .timeline ul li:nth-child(1):before{content:'432';}
