@@ -35,6 +35,10 @@ html, body {
   font-weight: bold;
   font-size: 1em;
 }
+.listetypeparfum {
+  text-decoration: underline;
+  color: #D64E26;
+}
 hr {
   margin: 0;
 }
@@ -72,7 +76,6 @@ b{
 .interpop{
   color: #6586B4;
 }
-
 .blanccorrectionmisenepage{
   height: 5%;
 }
