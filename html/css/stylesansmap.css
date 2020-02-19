@@ -1,7 +1,6 @@
 
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1em;
 }
 /* assign numbering*/
 .timeline ul li:nth-child(1):before{content:'432';}
@@ -24,6 +23,9 @@ html, body {
 .timeline ul li:nth-child(18):before{content:'365';}
 .timeline ul li:nth-child(19):before{content:'365';}
 
+p {
+  font-size: 0.8em;
+}
 #mapblock {
   z-index: 1;
 }
