@@ -50,7 +50,7 @@ p {
 }
 .categorieparfum li {
   margin: 0;
-  background-color: blue;
+  line-height: 1.2;
 }
 hr {
   margin: 0;
