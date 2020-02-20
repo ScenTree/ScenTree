@@ -207,8 +207,8 @@ b{
 }
 .img1creationparfum {
   vertical-align: middle;
-  height: 40%;
-  width: 40%;
+  height: 30%;
+  width: 30%;
 }
 .img2creationparfum {
   float: right;
@@ -452,9 +452,9 @@ caption {
   width: 20%;
 }
 .img1creationparfum {
-  align-items: center;
-  height: 50%;
-  width: 50%;
+  float: right;
+  height: 40%;
+  width: 40%;
 }
 .img2creationparfum {
   float: right;
