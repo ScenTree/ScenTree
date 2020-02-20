@@ -1,811 +1,454 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-html, body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-/* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'432';}
-.timeline ul li:nth-child(2):before{content:'426';}
-.timeline ul li:nth-child(3):before{content:'426';}
-.timeline ul li:nth-child(4):before{content:'419';}
-.timeline ul li:nth-child(5):before{content:'413';}
-.timeline ul li:nth-child(6):before{content:'413';}
-.timeline ul li:nth-child(7):before{content:'406';}
-.timeline ul li:nth-child(8):before{content:'398';}
-.timeline ul li:nth-child(9):before{content:'391';}
-.timeline ul li:nth-child(10):before{content:'391';}
-.timeline ul li:nth-child(11):before{content:'384';}
-.timeline ul li:nth-child(12):before{content:'379';}
-.timeline ul li:nth-child(13):before{content:'372';}
-.timeline ul li:nth-child(14):before{content:'372';}
-.timeline ul li:nth-child(15):before{content:'365';}
-.timeline ul li:nth-child(16):before{content:'365';}
-.timeline ul li:nth-child(17):before{content:'365';}
-.timeline ul li:nth-child(18):before{content:'365';}
-.timeline ul li:nth-child(19):before{content:'365';}
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - Perfume process - Process Parfum </title>
+<title lang="en">ScenTree - Perfume process - Process Parfum </title>
+<!--Description Google-->
+<meta name="description" lang="fr" content="Découvrez comment sont faits les parfums que nous achetons chaque jour, de l’idée marketing à la vente, en passant par la création et la fabrication." />
+<meta name="description" lang="en" content="Découvrez comment sont faits les parfums que nous achetons chaque jour, de l’idée marketing à la vente, en passant par la création et la fabrication." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-p {
-  font-size: 0.8em;
-}
-#mapblock {
-  z-index: 1;
-}
-.gros_titre {
-  margin-top: 1%;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-.sous_titre {
-  font-weight: bold;
-  font-size: 1em;
-}
-.listetypeparfum {
-  text-decoration: underline;
-  color: #D64E26;
-  font-size: 0.8em;
-  margin-bottom: 0;
-  margin-top: 0; 
-}
-hr {
-  margin: 0;
-}
-.pagederoulante {
-  height: 94.5%;
-  overflow-y: scroll;
-}
-#menu-block {
-  z-index: 2;
-  min-height: 500px;
-}
-.fab {
-  font-size: 120%;
-  color: #494747;
-}
-.notifi1 {
-  color: red;
-}
-.notifi2 {
-  color: red;
-}
-.notifi3 {
-  color: red;
-  position: absolute;
-  z-index: 1;
-  right: 7%;
-  top: 5%;
-}
-.dropdown-toggle:after { 
-  content: none 
-}
-.interpop{
-  color: #6586B4;
-}
-.blanccorrectionmisenepage{
-  height: 5%;
-}
-/*POLICES */
-.text-in-color-brown {
-  color: #D64E26;
-}
-.exemple {
-  font-size: 0.7em; 
-  color: #494747;
-}
-.with-my-border {
-  border: 2px solid #D64E26;
-}
-.max-height-120px {
-  max-height: 120px;
-}
-.max-height-30px {
-  max-height: 30px;
-}
-.text-underline {
-  text-decoration: underline;
-}
-.catégories{
-  color: #087625;
-}
-.catégories2 {
-  font-weight: bold;
-  text-decoration: underline;
-}
-/*#########################
-##########SOURCES##########
-#########################*/
-.sources ul {
-  padding: 0.3em;
-}
-.sources li {
-  font-size: 0.85em;
-}
-.sources {
-  border: 1px solid #D64E26;
-  box-shadow: 1.5px 1.5px 22px 0px rgba(251,229,214,1);
-}
-/*#########################
-#########SUPPORT###########
-#########################*/
-.particulier ul {
-  list-style-type: none;
-}
-.profession {
-  font-style: italic;
-  font-size: 0.8em;
-}
-.nouveausupporter {
-  font-weight: bold;
-  color: red;
-}
-.logosupporter {
-  border: 1px solid #FBE5D6FF;
-  box-shadow: 2px 2px 22px 0px rgba(251,229,214,1);
-}
-@media screen and (max-width: 990px) {
-.entreprise {
-  min-width: 100%;
-}
-.particulier {
-  min-width: 100%;
-}
-.logosupporter{
-  min-height: 200%;
-}
-.logomenu {
-  min-width: 100%;
-  min-height: 100%;
-}
-}
-/*#########################
-#####MENTIONS LEGALES######
-#########################*/
-.Titre1 {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Titre2 {
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Soustitre1 {
-  font-weight: bold;
-  text-decoration: underline;
-}
-.miniliste2{
-  font-weight: bold;
-  size: 0.8em;
-  margin: 0em;
-}
-/*#########################
-#########IMAGES############
-#########################*/
-.img1allergene{
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img2allergene { 
-  height: 20%;
-  width: 50%;
-  margin-left: 25%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 1%;
-  margin-bottom: 0%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  vertical-align: middle;
-  height: 30%;
-  width: 30%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 15%;
-  width: 15%;
-}
-.img3creationparfum {
-  float: left;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 20%;
-  width: 20%;
-}
-/*#########################
-########NEWSLETTER#########
-#########################*/
-.card-img-top {
-  margin-top: 5%;
-  min-width: 120px;
-  min-height: 120px;
-  max-width: 120px;
-  max-height: 120px;
-}
-.card {
-  align-items: center;
-  border: 1px solid #E99A1F;
-  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
-.envoiRGPD {
-  align-items: center;
-  text-align: center;
-}
-.titreRGPD {
-  font-size: 0.9em;
-}
-.texteRGPD {
-  font-size: 0.75em;
-  text-align: justify;
-}
-.btnenvoi {
-  align-items: center;
-  text-align: center;
-  background-color: #FBE5D6FF; 
-  border: 1px solid #E99A1F;
-  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
-/*#########################
-########COPYRIGHT##########
-#########################*/
-.copyright {
-    text-align: center;
-    color: #D64E26;
-    font-size: 10px;
-}
+<!-- Fichier Style CSS -->
+<link href="../css/stylesansmap.css" rel="stylesheet" />
 
-/*#########################
-###########RGPD############
-#########################*/
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-.textRGPD {
-   text-align: justify 
-}
-.boutonRGPD {
-    text-align: center;
-}
-.NONRGPD {
-    font-style: 50%;
-}
-@keyframes RGPD_animation {
-  0%   {bottom: -100px;}
-  100% {bottom: 40%;}
-}
-#RGPD_warning {
-    display: none;
-    position: absolute;
-    bottom: 40%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, 0);
-    z-index: 999;
-    background-color: #FFF8C2;
-    animation-name: RGPD_animation;
-    animation-duration: 2s;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-#closevideo {
-  position:absolute;
-  right:-20px;
-  top:0;
-  z-index:999;
-  font-size:2rem;
-  font-weight: normal;
-  opacity:1;
-}
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
 
-/*#########################
-#######RUBAN DROITE########
-#########################*/
-.logomenu {
-    color:black;
-    font-size: 0.9vw;
-    text-decoration:underline;
-    cursor:pointer;
-    display: inline;
-}
-
-.fillright{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
-.fillright2{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
-.correctspacebug {
-    height: 20em;
-}
-/*##################################################
-############ZONE DU MENU ET LOGO####################
-##################################################*/
-.logomenu:hover{
-    transform: scale(1.1);
-}
-
-/*#########################
-#########LANGUAGE##########
-#########################*/
-
-*:lang(fr) {
-    display: initial;
-}
-*:lang(en) {
-    display: initial;
-}
-
-#imgen #imgfr {
-    display: inline-block;
-    max-width: 10px;
-    max-height: 10px;
-}
-/*#########################
-###########LISTE###########
-#########################*/
-ol {
-  padding-left: 1em;
-}
-li::before {
-  font-weight: bold; 
-}
-/*#########################
-###########TABLE############
-#########################*/
-table {
-  border: 1px solid black;
-  width: 100%;
-  margin-bottom: 2%; 
-}
-th, .table th {
-    border: 1.5px solid black;
-    text-align: center;
-    font-style: large;
-    background-color: #FBE5D6FF;
-}
-td, .table td {
-    border: 1px solid black;
-    text-align: center;  
-    vertical-align: middle;
-    white-space: normal;
-}
-
-tr:nth-child(even) {
-  background-color: #F1F0F0;
-  color:#121212; 
-}
-caption {
-    color: #D64E26;
-    text-align: center;
-    font-style: italic;
-    caption-side: top;
-}
-
-/*#########################
-#######RESPONSIVE##########
-#########################*/
-
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.img1allergene{
-  float: right;
-  margin-left: 1%; 
-  margin-right: 1%;
-  margin-top: 2%;
-  margin-bottom: 0;
-  height: 25%;
-  width: 25%;
-}
-.img2allergene { 
-  height: 25%;
-  width: 60%;
-  margin-left: 20%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 3%;
-  margin-top: 5%;
-  margin-bottom: 5%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 70%;
-  width: 70%;
-}
-.img2creationparfum {
-  float: right;
-  margin-top: 2%;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 20%;
-  width: 20%;
-}
-.img3creationparfum {
-  float: left;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-right: 1%;
-  margin-left: 0%;
-  height: 20%;
-  width: 20%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 20%;
-  width: 20%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 25%;
-  width: 25%;
-}
-table {
-min-width: 100%;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-.correctspacebug {
-    height: 1.1em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-}
-
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-.correctspacebug {
-    height: 2em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-.copyright {
-    font-size: 8px;
-}
-}
-
-@media screen and (min-width: 768px) and (max-width: 990px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.correctspacebug {
-    height: 2em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-.copyright {
-    font-size: 8px;
-}
-.text-in-color-brown {
-  color: #D64E26;
-  font-size: 0.9em;
-}
-}
-
-@media screen and (max-width: 768px) {
-.PageEntiere {
-    background-color: white;
-    padding-top: 60px;
-}
-.pagederoulante {
-  height: 100%;
-  overflow-y: visible;
-}
-.logomenu{
-    max-height: 40px;
-}
-.gros_titre {
-  padding-top: 2%;
-  font-weight: bold;
-  font-size: 1em;
-}
-ul {
-  padding-left: 1.5em;
-}
-.solvemobilepadding {
-  margin-top:85%; 
-}
-.img1allergene {
-  align-items: center;
-  margin-bottom: 5%;
-  height: 90%;
-  width: 90%;
-}
-.img2allergene { 
-  align-items: center;
-  height: 15%;
-  width: 90%; 
-  margin: 0;
-  margin-top:2%; 
-  margin-bottom: 4%;
-}
-.img3allergene { 
-  align-items: center;
-  height: 30%;
-  width: 90%; 
-  margin:0;
-  margin-top:2%; 
-  margin-bottom: 2%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-.img2creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-left:10%;
-  margin-right: 10%;
-  margin-top:2%; 
-  margin-bottom: 5%;
-}
-.img3creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img4creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img5creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img6creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-table {
-min-width: 100%;
-font-size: 10px;
-}
-.formulaire {
-  min-width: 100%;
-}
-.envoiRGPD {
-  min-width: 100%;
-}
-}
-
-@media screen and (min-width: 768px) {
-.PageEntiere {
-    background-color: white;
-}
-}
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
+  </button>
+  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
+    <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
+  </form>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/support.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="/newsletter/newsletter/subscribe"><span lang="fr">Newsletter</span><span lang="en">Newsletter</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/mentionslegales.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
 
 
-/*#########################
-########NOUVEAUTES#########
-#########################*/
-/*set up size of the whole timeline OK */
-.timeline{
-  position: relative;
-  margin: 0px auto;
-  width:100%;
-}
-/* Titre des parties OK*/
-.content h3{
-  color:#D64E26;
-  font-size:1.3em;
-  font-weight: bold;
-  padding-top: 2.5%;
-}
-/*Style du texte sous la date OK*/
-.ajoutMP{
-  color:black;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-/*drawing the line itself OK */
-.timeline:before{
-  content: '';
-  position:absolute;
-  left:50%;
-  width:0.5em;
-  height:100%;
-  background-color:#D64E26;
-}
-/*styling the size of each step/content OK */
-.timeline ul li{
-  list-style: none;
-  position:relative;
-  width:50%;
-  padding:5px 35px;
-}
-/*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:right;
-  float:left;
-  clear:both;
-  right: 4%;
-  width: 52.5%;
-}
-/* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left:1.1%;
-  width: 52%;
-}
-/*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before {
-  content:'';
-  position:absolute;
-  width:40px;
-  height:40px;
-  background-color:#F7B88E;
-  border-radius:60%;
-  box-shadow: 0 0 0 6px rgba(251, 229, 214);
-  z-index:1
-}
-/*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{
-  left: -3.6%;
-}
-.timeline ul li:nth-child(odd):before{
-  right:-3.6%;
-}
-/*styling the numbering. OK */
-.timeline ul li:before{
-  font-weight:bold;
-  font-size:1.2em;
-  color:white;
-  text-align:center;
-  padding-top:1%;
-}
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
 
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-  /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){right: 5.7%; width: 53.5%;}
-  .timeline ul li:nth-child(odd):before{right:-5%;}
-  /* for every even numbered bullet point, align to the right OK*/
-  .timeline ul li:nth-child(even){left:1.1%;width: 52.5%;}
-  /*position the circle icons on the timeline OK*/
-  .timeline ul li:nth-child(even):before{left: -5%;}
-}
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-  /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){right: 6%; width: 53.5%;}
-  .timeline ul li:nth-child(odd):before{right:-5.5%;}
-  /* for every even numbered bullet point, align to the right OK*/
-  .timeline ul li:nth-child(even){left:1.1%; width: 52.5%;}
-  /*position the circle icons on the timeline OK*/
-  .timeline ul li:nth-child(even):before{left: -8%;}
-}
-@media screen and (max-width: 990px) {
-/* Titre des parties OK*/
-.content h3{font-size:1em; padding-top: 2.5%; }
-/*Style du texte sous la date OK*/
-.ajoutMP{font-size: 0.9em;}
-/*drawing the line itself OK*/
-.timeline:before{left:6%; width:0.3em;}
-/*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:left;
-  float:right;
-  clear:both;
-  right: -5%;
-  width: 110%;
-}
-/* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left: 5%;
-  width: 110%;
-}
-/*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before { width:35px; height:35px;}
-/*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{left: -6%;}
-.timeline ul li:nth-child(odd):before{left: -6%;}
-/*styling the numbering. OK */
-.timeline ul li:before{font-size:0.9em; padding-top:3%;}
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
 
-.content p {
-  font-size: 0.8em;
-}
-}
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+<div class="container-fluid">
+
+<div class="row align-items-start">
+  <div class="clearfix w-100">
+    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
+    </button>
+    <button class="btn text-in-color-brown float-right px-0">/</button>
+    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
+  </div>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
+  </div>
+</div>
+
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
+  <div class="col">
+    <a class="btn mt-4 text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
+    <br>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/support.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveaute.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
+</div>
+
+<div class="row correctspacebug"></div>
+
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="/newsletter/newsletter/subscribe">
+          <span lang="fr">Newsletter</span><span lang="en">Newsletter</span>
+        </a>
+        <span class="col-12  m-0 p-0">
+          <a class="btn btn-sm save_map_status_on_leaving text-center" role="button" lang="fr" href="https://docs.google.com/forms/d/e/1FAIpQLSc0Lsx5k5lzFJ3p7YJn04Pn0KbyXCDnl52cTit8hxhf4YYQJA/viewform" target="_BLANK">Enquête de satisfaction  </a>
+          <a class="btn btn-sm save_map_status_on_leaving text-center" role="button" lang="en" href="https://docs.google.com/forms/d/e/1FAIpQLSeQljdzyC8Lkzqs2k97ZJDeC59lIV_ws2axSNfLa_0-yOezcQ/viewform" target="_BLANK">Satisfaction survey  </a>
+        </span>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/Sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/legal.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 mb-1 p-0 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019-2020 |  ScenTree SAS  | All Rights Reserved |
+   </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+<div id="blanc1" class="row blockrgpd"></div>
+<div id="contenant" class="row">
+<div class=" col-offset-1 col-9 textRGPD" >
+  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
+  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
+</div> 
+<div class=" col-offset-2 col-3 boutonRGPD">
+  <button class="btn btn-success" id="cookie_please">
+    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
+  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
+    <span lang="fr">Non</span><span lang="en">No</span>
+  </button>
+</div>
+</div>
+<div id="blanc1" class="row blockrgpd"></div>
+</div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center">
+  <h1 class="gros_titre text-in-color-brown">
+    <span lang="fr"> COMMENT NOS PARFUMS SONT-ILS CRÉÉS ?</span>
+    <span lang="en"> HOW PERFUMES ARE MADE ?</span>
+  </h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+
+  <h2 class="sous_titre mt-3">
+    <span lang="fr">Découvrez comment sont faits les parfums que nous achetons chaque jour, de l’idée marketing à la vente, en passant par la création et la fabrication.</span>
+    <span lang="en">Discover how our everyday perfumes are made, from the marketing idea to the selling, passing by creation and production.</span>
+  </h2>
+  <p class="mt-3">
+    <span lang ="fr">
+      Les matières premières détaillées dans <a href="www.scentree.co" target="_blank">ScenTree</a> constituent l’alphabet du parfumeur. Un alphabet est utilisé pour écrire des mots. Les mots sont utilisés pour raconter une histoire. Cette histoire est couramment appelée « parfum ». Le parfum résulte donc de l’expression de la société qui le commercialise et de celle du créateur – le parfumeur – utilisant cet alphabet, dans le but de raconter une histoire. Le parfumeur doit maîtriser son alphabet avant toute création. Un parfum est le résultat du travail d’une équipe. 
+      <br>
+      De l’idée au produit fini, du client au consommateur, détaillons chronologiquement tous les aspects de la création d’un parfum.
+    </span>
+    <span lang="en">
+      The raw materials detailed in <a href="www.scentree.co" target="_blank">ScenTree</a> make up the perfumer's alphabet. An alphabet is used to write words. Words are used to tell a story. This story is commonly called "perfume". The perfume is the result of the expression of the company that markets it and the expression of the creator - the perfumer - using this alphabet to tell a story. The perfumer must master his alphabet before any creation. A perfume is the result of the work of a team. 
+      <br>From the idea to the finished product, from the client to the consumer, let's chronologically detail every aspect of the creation of a perfume.
+    </span>
+  </p>
+
+  <p><img class="img1creationparfum" lang="fr" src="../img/cycleparfumFR.png" alt="Cycle de création d'un parfum" title="Cycle de création d'un parfum">
+  <img class="img1creationparfum" lang="en" src="../img/cycleparfumEN.png" alt="Cycle de création d'un parfum" title="Cycle de création d'un parfum"></p>
+  
+
+<ol>
+  <li>
+    <h2 class="sous_titre">
+      <span lang="fr">Le consommateur au cœur des projets</span>
+      <span lang="en">The customer as a target</span>
+    </h2>
+    <p>
+      <span lang="fr">Tout commence par le besoin d’un consommateur. Le client souhaite acheter un parfum qui lui correspond, qui lui plait. Il peut vouloir respecter les tendances, ou s’affirmer à travers une originalité olfactive. <b>Ce sont les envies du consommateur que les marques souhaitent cibler.</b></span>
+      <span lang="en">It all starts with the consumer’s need. The customer wants to buy a perfume that suits him, that he likes. He may want to respect trends, or assert himself through olfactory originality. <b>It is the consumer's desires that the brands wish to target.</b></span>
+    </p>
+  </li>
+
+  <li>
+    <h2 class="sous_titre">
+      <span lang="fr">Une idée, un type de parfum et un brief pour orienter la création</span>
+      <span lang="en">One idea, one type of perfume and one brief to guide creation</span>
+    </h2>
+    <p>
+      <span lang="fr">Lorsqu’une marque souhaite sortir un nouveau parfum, plusieurs choix s’offre à elle. Il est ainsi très important de prendre en compte qu'il existe plusieurs types de processus de création, ces derniers étant principalement dépendants du type de parfum que le consommateur recherche. La liste suivante détaille les 5 types de parfums existant à ce jour sur le marché :</span>
+      <span lang="en">When a brand wants to release a new fragrance, there are several choices. It is therefore very important to take into account that there are several types of creation process, which are mainly depending on the type of perfume that the consumer is looking for. The following list details the 5 types of perfume existing on the market today:</span>
+    </p>
+      <ul>
+        <li>
+          <h3 class="listetypeparfum">
+            <span lang="fr">Les parfums dits de "<b>grande distribution</b>": </span>
+            <span lang="en">"<b>Mass distribution</b>" perfumes :</span>
+          </h3>
+          <p>
+            <span lang="fr">Ce sont des parfums respectant la tendance, vendu mondialement et en très grande quantité. Ces parfums se retrouvent dans les grandes enseignes de distribution spécialisées que nous connaissons tous. Appuyés par de grosses campagnes publicitaires, ces flacons sont généralement les plus portés et c'est la voie de distribution la plus courante. La concurrence y est très rude et les enjeux très important.</span>
+            <span lang="en">They are trendy perfumes, sold worldwide and in very large quantities. These fragrances can be found in the large specialized distribution chains that we all know. Supported by large advertising campaigns, these bottles are generally the most worn and it is the most common way of distribution. The competition is very tough and the stakes are very high.</span>
+          </p>
+        </li>
+        <li>
+          <h3 class="listetypeparfum">
+            <span lang="fr">Les parfums dits de "<b>mass market</b>": </span>
+            <span lang="en">"<b>Mass market</b>" perfumes :</span>
+          </h3>
+          <p>
+            <span lang="fr">Ce sont des parfums crées dans des volumes très importants, possédant très peu, voir pas de marketing, un flacon standard, un packaging généralement sobre. Ces produits se retrouvent généralement dans les rayons de nos supermarchés. Leurs prix sont généralement bas, mais la qualité est cependant présente au rendez-vous. </span>
+            <span lang="en">These are perfumes created in very large quantities, with very poor, if any marketing, a classical bottle and generally sober packaging. These products are generally found on the shelves of our supermarkets. Their prices are generally low, but quality is there.</span>
+          </p>
+        </li>
+        <li>
+          <h3 class="listetypeparfum">
+            <span lang="fr">Les parfums dits de "<b>niche</b>" ou "<b>parfums confidentiels</b>": </span>
+            <span lang="en">"<b>Niche</b>" or "<b>confidential</b>" perfumes :</span>
+          </h3>
+          <p>
+            <span lang="fr">Ces parfums sont généralement vendu en plus faible quantité, sont très peu soutenu par le marketing mais ils témoignent souvent d’une volonté artistique particulière. Le prix de ces flacons sont généralement supérieurs aux catégories précèdentes car les marques se positionnant ainsi sont généralement indépendantes, produissent peu de volume et se concentre sur le contenu du flacon, pas sur le contenant ou le marketing. C'est généralement dans cette catégorie que se situent les parfums les plus originaux. </span>
+            <span lang="en">These fragrances are generally sold in smaller quantities, have very poor marketing support, but they often show a particular artistic will. The price of these bottles is generally higher than the previous categories because the brands positioning themselves in this way are generally independent, producing poor volumes and focus on the content of the perfume, and not on the packaging or marketing. It is generally in this category that the most original fragrances are found.</span>
+          </p>
+        </li>
+        <li>
+          <h3 class="listetypeparfum">
+            <span lang="fr">Les parfums dits "<b>exclusifs</b>" : </span>
+            <span lang="en">"<b>Exclusive</b>" perfumes : </span>
+          </h3>
+          <p>
+            <span lang="fr">Ces parfums sont généralement crées par les sociétés qui commercialise des parfums dans la première catégorie listée. En parralèle des grandes productions, ces sociétés créent généralement une gamme plus confidentielle, se rapprochant du modèle de niche afin de toucher une clientèle différentes. Leur positionnement sont généralement très haut de gamme. </span>
+            <span lang="en">These fragrances are generally created by companies that market fragrances in the first category listed. Alongside large productions, these companies generally create a more confidential product range, approaching the niche model in order to reach different clients. Their positioning is generally very high-end.</span>
+          </p>  
+        </li>
+        <li>
+          <h3 class="listetypeparfum">
+            <span lang="fr">Les parfums dits "<b>sur-mesure</b>" :</span>
+            <span lang="en">"<b>Customed</b>" perfumes : </span>
+          </h3>
+          <p>
+            <span lang="fr">Ces parfums sont généralement créés en un nombre extrèmement limité de produit. Ils sont créés pour une seule personne ou pour une société souhaitant se créer une identité olfactive. La création et les prix de vente de ces produits fluctuent énormément en fonction du nombre d'exemplaire, de la demande, du flacon etc.. et peuvent atteindre des sommes records.</span>
+            <span lang="en">These fragrances production is usually very limited. They are created for a single person or for a company wishing to create an olfactory identity for itself. Creation and prices can highly fluctuate, according to the number of copies produced, the demand, the bottle etc., and can reach very high amounts.</span>
+        </li>
+      </ul>  
+
+        <br><img class="img2creationparfum" src="../img/evaluatrice.jpg" alt="Evaluation d'un parfum" title="Evaluation d'un parfum">
+      <p>
+        <span lang="fr">Quel que soit l’objectif de la marque, l’idée du thème du parfum résulte d’une étude de marché. Cette étude peut être réalisée dans le but de cibler les notes olfactives, les plus tendance, celles qui n’ont encore jamais été senties, ou encore celles qui vont toucher une cible précise. <b>L’idée résulte de l’interaction entre une marque et un consommateur.</b>
+        <br>
+        Une fois l’idée formulée, elle est mise en forme dans un cahier des charges, aussi appelé « brief », dont l’objectif est d’énoncer clairement, ou de suggérer le thème du parfum. Le « brief » peut alors prendre plusieurs formes. Il peut être exprimé avec un ou plusieurs mots, images, musiques, vidéos, œuvres d’art, avec un degré de subjectivité voulu par le service marketing de la marque. <b>C’est le « brief » qui va orienter et inspirer le parfumeur.</b></span>
+
+        <span lang="en">Whatever the brand's objective, the idea for the theme of the fragrance is the result of market study. This study can be carried out with the aim of targeting olfactory notes, the trendiest ones, those that have never been smelled before, or those that are going to hit a specific target. <b>The idea results from the interaction between a brand and a consumer.</b>
+        <br>
+        Once the idea has been formulated, it is put into shape in a specification, also called 'brief', whose purpose is to clearly state, or suggest, the theme of the fragrance. The "brief" can then take several forms. It can be expressed with one or more words, images, music, videos, artwork, with a degree of subjectivity desired by the brand's marketing department. <b>The "brief" will guide and inspire the perfumer.</b></span>
+      </p>
+
+      <p>
+        <img class="img3creationparfum" src="../img/idée.jpg" alt="Le parfum, une idée avant tout" title="Le parfum, une idée avant tout">
+        <span lang="fr">Ce cahier des charges peut être soumis à différents types de créateurs. Il peut s’agir d’une société regroupant plusieurs parfumeurs, auquel cas les marques ont pour habitude de soumettre un même « brief » à plusieurs sociétés, les mettant ainsi en concurrence pour le même parfum. Le cahier des charges peut aussi être attribué à une société indépendante, comportant le plus souvent un seul parfumeur, qui travaille sans concurrence sur cette création. Il peut enfin être soumis à un parfumeur dit « maison », ne travaillant que pour la marque en question, et créant tous les parfums de cette marque. Seuls quelques grandes marques disposent d’un parfumeur « maison », souvent synonyme de prestige. On note enfin de nombreux parfumeurs indépendants, créant eux-mêmes leurs parfums selon leurs inspirations, sans cahier des charges extérieur. </span>
+        <span lang="en">These specifications can be submitted to different types of creators. It can be a company with several perfumers, in which case the brands usually submit the same brief to several companies, putting them in competition for the same fragrance. The brief can also be awarded to an independent company, usually with only one perfumer, who works without competition on the creation. Finally, it can be submitted to a so-called "in-house" perfumer, working only for the brand, and creating all the fragrances of that brand. Only a few major brands have an "in-house" perfumer, often synonymous with prestige. Finally, there are many independent perfumers, creating their own fragrances according to their own inspiration, without any outside specifications.</span>
+      </p>
+    </li>
+
+    <li>
+      <h2 class="sous_titre">
+        <span lang="fr">La réception du brief par la société de création</span>
+        <span lang="en">Reception of the brief by the creation company</span>
+      </h2>
+      <p>
+        <span lang="fr">Prenons le cas d’un parfum sorti par une grande marque, dont le « brief » est soumis à plusieurs sociétés de création de parfum. Ces sociétés peuvent inclure plusieurs dizaines de parfumeurs. Le cahier des charges est réceptionné par le service commercial de la société, chargé d’entretenir une relation avec la marque, et d’en traiter la demande. Il est transmis au service d’évaluation de l’entreprise. Ce service, composé d’évaluateurs, est chargé de faire correspondre le travail du parfumeur, en ciblant la demande olfactive du client.</span>
+        <span lang="en">Let's take the case of a perfume released by a major brand, whose "brief" is submitted to several perfume creation companies. These companies may include several dozen perfumers. The specifications are received by the company's sales department, in charge of maintaining a relationship with the brand and processing the application. It is forwarded to the company's evaluation department. This department, made up of evaluators, is in charge of matching the perfumer's work, targeting the client's olfactory demand.</span>
+      </p>
+    </li>
+
+    <p><img class="img4creationparfum" src="../img/parfeval.png" alt="Le lien parfumeur-évaluateur est indispensable" title="Le lien parfumeur-évaluateur est indispensable"></p>
+
+    <li>
+      <h2 class="sous_titre">
+        <span lang="fr">L’évaluateur, l’intermédiaire entre client et création</span>
+        <span lang="en">The evaluator, between customer and creation</span>
+      </h2>
+      <p>
+        <span lang="fr">L’évaluateur a un rôle d’interprétation du « brief » et de conseil lors de la création du parfum. Parfumeurs (ils peuvent être plusieurs à travailler en équipe ou en concurrence sur un même parfum, au sein d’une même société) et évaluateurs (un ou plusieurs là aussi) travaillent en équipe d’un commun accord autour d’un cahier des charges donné, et se lancent alors dans la création et l’évaluation du parfum demandé par le client.</span>
+        <span lang="en">The evaluator's role is to interpret the "brief" and provide advice during the creation of the perfume.. Perfumers (there may be several of them working as a team or in competition on the same perfume, within the same company) and evaluators (one or more of them too) work as a team by mutual agreement around a given brief, and then start the creation and evaluation of the perfume requested by the client.</span>
+      </p>
+    </li>
+  
+    <li>
+        <h2 class="sous_titre">
+          <span lang="fr">Le parfumeur, le créateur</span>
+          <span lang="en">The perfumer, the creator</span>
+        </h2>
+        <p>
+          <span lang="fr">Il n’existe pas de méthode de création type. Chaque parfumeur crée à sa manière. Certains travaillent autour de matières premières naturelles, en faisant graviter des matières premières synthétiques autour d’elles pour leur donner des facettes précises ; d’autres traduisent directement leur interprétation du « brief » en matières premières. Le choix des matières premières résulte d’une conviction intime du parfumeur, guidée par l’évaluateur. La création d’un parfum résulte alors d’échanges successifs. Le parfumeur entre sur un logiciel une formule utilisant plusieurs matières premières aux dilutions et proportions souhaitées. Lors de la formulation, une contrainte de réglementation doit être respectée. Selon le type de produit dans lequel le parfum sera appliqué, les allergènes et les composés réglementés par l’IFRA ne doivent pas dépasser certains taux d’utilisation (voir notre article sur les allergènes en parfumerie).</span>
+          <span lang="en">There is no standard creation method. Each perfumer creates in his own way. Some work around natural raw materials, adding synthetic raw materials to give them precise facets; others translate their interpretation of the "brief" directly into raw materials. The choice of raw materials is the result of an intimate conviction on the part of the perfumer, guided by the evaluator. The creation of a perfume is then the result of successive exchanges. The perfumer enters on a software program a formula using several raw materials in the desired dilutions and proportions. During formulation, a regulatory constraint must be respected. Depending on the type of product in which the perfume will be applied, the allergens and compounds regulated by the IFRA must not exceed certain amounts of use (see article about perfume allergens).</span>
+        </p>
+    </li>
+  
+  <p><img class="img5creationparfum" src="../img/assistantparf.jpg" alt="La pesée d'un parfum" title="La pesée d'un parfum"></p>
+
+    <li>
+        <h2 class="sous_titre">
+          <span lang="fr">L’assistant de parfumeur et l’évaluation du parfum</span>
+          <span lang="en">The perfumer assistant and the perfume evaluation</span>
+        </h2>
+        <p>
+          <span lang="fr">Cette formule est reçue par un assistant de parfumeur, chargé de peser une à une les matières premières souhaitées en laboratoire. L’échantillon est apporté au parfumeur, évalué par ce dernier, puis la formule est modifiée et pesée à nouveau. Lorsque le parfumeur souhaite avoir un avis de l’évaluateur, ceux-ci se réunissent et décident ensemble des modifications à apporter.
+          Lorsqu’un ou plusieurs échantillons sont jugés satisfaisants par le parfumeur et l’évaluateur, ils sont soumis au client lors d’une réunion ayant lieu dans les locaux de l’entreprise créatrice. Une telle soumission peut intervenir au bout de quelques essais seulement, ou après des centaines, voire milliers d’essais réalisés. Tout dépend également de la limite de temps fixée par le client pour cette création. Le client donne son avis sur la fragrance, en validant un essai, ou en demandant un « retravail » de la formule. Dans le cas d’un retravail, les échanges successifs entre création, pesée et évaluation continuent.</span>
+          <span lang="en">This formula is received by a perfumer assistant, in charge of weighing the desired raw materials one by one in the laboratory. The sample is taken to the perfumer, evaluated by the perfumer, then the formula is modified and weighed again. When the perfumer wishes to have an opinion from the evaluator, they meet and decide together on the modifications to be made.
+          When one or more samples are deemed satisfactory by the perfumer and the evaluator, they are submitted to the client at a meeting held in the creative company. Such a submission may occur after only a few tests, or after hundreds or even thousands of tests have been carried out. Tout dépend également de la limite de temps fixée par le client pour cette création. Le client donne son avis sur la fragrance, en validant un essai, ou en demandant un « retravail » de la formule. In the case of reworking, the successive exchanges between creation, weighing and evaluation continue.
+          </span>
+        </p>
+    </li>
+
+    <li>
+        <h2 class="sous_titre">
+          <span lang="fr">La stabilité du parfum, un enjeu essentiel</span>
+          <span lang="en">Perfume stability, a crucial issue</span>
+        </h2>
+        <p>
+          <span lang="fr">Lorsqu’un essai est validé par le client, la formule est soumise à un ensemble de tests de stabilité. Ceux-ci consistent à soumettre le parfum à diverses conditions de température, de lumière, dans sa base ou non, pour y détecter d’éventuels changements de couleur, d’odeur ou d’apparence. Dans le cas d’une instabilité jugée inacceptable, le parfum est « retravaillé », en traitant le problème à la racine : en remplaçant la (ou les) matière(s) première(s) à l’origine de l’instabilité. Une fois la formule corrigée, de nouveaux tests sont réalisés et le parfum est validé pour envoi au client. Ce dernier peut demander des dernières modifications dans le cas où une instabilité est détectée en interne de sa société.</span>
+          <span lang="en">When a trial is validated by the client, the formula is submitted to a pool of stability tests. These consist in submitting the perfume to various conditions of temperature, light, in its base or not, to detect possible changes in color, odor or appearance. In the case of instability that is found as unacceptable, the fragrance is "reworked", treating the problem at its root: replacing the raw material(s) causing the instability. Once the formula has been corrected, new tests are carried out and the fragrance is validated for sending to the client. The latter may request final modifications in the event that instability is detected within his company.</span>
+        </p>
+    </li>
+
+    <li>
+        <h2 class="sous_titre">
+          <span lang="fr">La validation par le client</span>
+          <span lang="en">Validation by the customer</span>
+        </h2>
+        <p>
+          <span lang="fr">Après réception de chaque essai créé par chaque société de création, le client choisi le parfum qui deviendra celui trouvé dans les rayons de nos parfumeries.</span>
+          <span lang="en">After receiving every trial, created by each creation companies, the client chooses the one that will be found in the shelves of our perfume shops.</span>
+        </p>
+    </li>
+    
+    <li>
+        <h2 class="sous_titre">
+          <span lang="fr">Production du concentré de parfum</span>
+          <span lang="en">Production of the perfume concentrate</span>
+        </h2>
+        <p>
+          <span lang="fr">La société ayant créé le parfum sélectionné est en charge de lancer le « concentré de parfum » (correspondant au parfum pur, non dilué dans sa base) en production. La production d’un concentré de parfum se fait en y mélangeant les matières premières.</span>
+          <span lang="en">The creation company is in charge of launching the "perfume concentrate" (corresponding to the pure perfume, undiluted in its base) in production. The production of a perfue concentrate is done by mixing the raw materials.</span>
+        </p>
+    </li>
+    
+    <li>
+        <h2 class="sous_titre">
+          <span lang="fr">Production du parfum</span>
+          <span lang="en">Perfume production</span>
+        </h2>
+        <img class="img6creationparfum" src="../img/prodparfum.jpg" alt="Usine de production de parfum" title="Usine de production de parfum">
+        <p>
+          <span lang="fr">Il s’en suit l’envoi du concentré dans l’usine de production, appartenant à la marque, une période de « maturation » de ce concentré (et de « macération » dans le cas d’un parfum alcoolique), et la production du produit fini sur les chaînes de production de l’usine de la marque. Le parfum est conditionné dans son packaging, préalablement conçu en interne de la société, ou par un sous-traitant, et envoyé dans les points de vente dédiés.</span>
+          <span lang="en">This is followed by the sending of the concentrate to the production plant, belonging to the brand, a period of "maturation" of this concentrate (and "maceration" in the case of an alcoholic perfume), and the production of the finished product on the brand’s production lines. The perfume is packaged in its packaging, previously designed in-house or by a subcontractor, and sent to dedicated sales outlets.</span>
+        </p>
+    </li>
+ 
+    <li>
+        <h2 class="sous_titre">
+          <span lang="fr">L’achat du parfum</span>
+          <span lang="en">Perfume production</span>
+        </h2>
+        <p>
+          <span lang="fr">Tout se termine par l’achat du parfum par le consommateur. La boucle est bouclée.</span>
+          <span lang="en">It all ends with the client, buying the product. It’s come full circle.</span>
+        </p>
+    </li>
+</ol>
+
+<p>
+    <span lang="fr">En somme, la création d’un parfum résulte de plusieurs étapes, et demande de nombreuses compétences, pour lesquelles le travail d’équipe est primordial. Tournant autour du consommateur, le parfum est au départ une idée, sublimée par la vision artistique d’un parfumeur, lui-même guidé par l’évaluateur, et aidé par l’assistant de parfumeur. La création d’un parfum est l’alliance d’une volonté marketing et artistique, tout en respectant les contraintes de stabilité, de réglementation, de coût et de temps imposées. L’art de la parfumerie réside donc dans la commercialisation d’une œuvre harmonieuse, contournant toute contrainte. Ainsi, le parfum est plus que jamais un produit de luxe, de raffinement et d’excellence.</span>
+    <span lang="en">In short, the creation of a perfume is the result of several stages, and requires many skills, for which teamwork is essential. Revolving around the consumer, the perfume is initially an idea, sublimated by the artistic vision of a perfumer, himself guided by the evaluator, and helped by the perfumer assistant. The creation of a perfume is the alliance of a marketing and artistic will, while respecting the constraints of stability, regulation, cost and time imposed. The art of perfumery therefore lies in the marketing of a harmonious work, bypassing all constraints. Thus, more than ever, perfume is a product of luxury, refinement and excellence.</span>
+</p>
+
+<div>
+  <p>
+    <span lang="fr">Lire nos autres articles :</span>
+    <span lang="en">Get to read our other articles :</span>
+  </p>
+    <ol>
+      <li></li>
+      <li></li>
+    </ol>
+</div>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>
