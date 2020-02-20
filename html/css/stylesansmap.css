@@ -624,10 +624,13 @@ ul {
   align-items: center;
   height: 80%;
   width: 80%;
-
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 .img4creationparfum {
-display: none;
+  display: none;
 }
 .img5creationparfum {
   align-items: center;
