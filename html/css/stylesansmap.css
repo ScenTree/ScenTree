@@ -29,6 +29,9 @@ p {
 #mapblock {
   z-index: 1;
 }
+.b+{
+  color: #D64E26;
+}
 .gros_titre {
   margin-top: 1%;
   font-weight: bold;
