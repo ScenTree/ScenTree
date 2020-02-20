@@ -452,10 +452,11 @@ caption {
   width: 20%;
 }
 .img1creationparfum {
-  float: right;
-  height: 40%;
-  width: 40%;
-  margin-left: 1%;
+  align-items: center;
+  height: 50%;
+  width: 50%;
+  margin-top: 3%;
+  margin-bottom: 3%;
 }
 .img2creationparfum {
   float: right;
