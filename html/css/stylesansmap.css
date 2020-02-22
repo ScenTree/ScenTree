@@ -129,10 +129,12 @@ hr {
   font-size: 1em;
   text-decoration: underline;
   text-transform: uppercase;
+  margin-bottom: 1em;
 }
 .catégories2 {
   font-weight: bold;
   text-decoration: underline;
+  margin-bottom: 0.8em;
   background-color: grey; 
 }
 .sous_texte{
