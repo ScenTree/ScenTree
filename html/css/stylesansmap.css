@@ -522,6 +522,7 @@ caption {
 }
 .imgMP1{
   float: right;
+  top: -10%;
   margin-left: 2%;
   min-width: 30%;
   max-width: 30%; 
