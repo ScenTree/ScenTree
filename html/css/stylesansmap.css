@@ -121,9 +121,11 @@ hr {
 }
 .catégories{
   color: #087625;
+  font-weight: bold;
   font-size: 1em;
   text-decoration: underline;
   text-transform: uppercase;
+  padding-left: 2em;
 }
 .catégories2 {
   font-weight: bold;
