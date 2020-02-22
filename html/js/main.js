@@ -739,13 +739,18 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         //console.log(a_pro_info);
 	
     };
+    if (the_new_pro_infos) {
+	    $(".pro_informations").append($("<ul></ul>").addClass("premium_and_standard_pros").addClass("list-inline"));
+    };
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
-	console.log(a_pro_info);
+	//console.log(a_pro_info);
+	$(".pro_informations ul").append($("<li></li>").addClass("premium_pros").addClass("list-inline-item").addClass("btn btn-lg btn-warning").text(a_pro_info["Nom Tiers"]));
     };
     // the standard PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
-        console.log(a_pro_info);
+         $(".pro_informations ul").append($("<li></li>").addClass("standard_pros").addClass("list-inline-item").addClass("btn btn-light").text(a_pro_info["Nom Tiers"]));
+	//console.log(a_pro_info);
     };
 
 
