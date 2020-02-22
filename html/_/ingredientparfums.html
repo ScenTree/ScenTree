@@ -1,847 +1,477 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-html, body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-/* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'432';}
-.timeline ul li:nth-child(2):before{content:'426';}
-.timeline ul li:nth-child(3):before{content:'426';}
-.timeline ul li:nth-child(4):before{content:'419';}
-.timeline ul li:nth-child(5):before{content:'413';}
-.timeline ul li:nth-child(6):before{content:'413';}
-.timeline ul li:nth-child(7):before{content:'406';}
-.timeline ul li:nth-child(8):before{content:'398';}
-.timeline ul li:nth-child(9):before{content:'391';}
-.timeline ul li:nth-child(10):before{content:'391';}
-.timeline ul li:nth-child(11):before{content:'384';}
-.timeline ul li:nth-child(12):before{content:'379';}
-.timeline ul li:nth-child(13):before{content:'372';}
-.timeline ul li:nth-child(14):before{content:'372';}
-.timeline ul li:nth-child(15):before{content:'365';}
-.timeline ul li:nth-child(16):before{content:'365';}
-.timeline ul li:nth-child(17):before{content:'365';}
-.timeline ul li:nth-child(18):before{content:'365';}
-.timeline ul li:nth-child(19):before{content:'365';}
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - Les ingrédients parfumées</title>
+<title lang="en">ScenTree - Perfume ingredients</title>
+<!--Description Google-->
+<meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-p {
-  font-size: 0.8em;
-}
-#mapblock {
-  z-index: 1;
-}
-.bplus{
-  color: #D64E26;
-}
-.gros_titre {
-  margin-top: 1%;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-.sous_titre {
-  font-weight: bold;
-  font-size: 1em;
-}
-hr {
-  margin: 0;
-}
-.pagederoulante {
-  height: 94.5%;
-  overflow-y: scroll;
-}
-#menu-block {
-  z-index: 2;
-  min-height: 500px;
-}
-.fab {
-  font-size: 120%;
-  color: #494747;
-}
-.notifi1 {
-  color: red;
-}
-.notifi2 {
-  color: red;
-}
-.notifi3 {
-  color: red;
-  position: absolute;
-  z-index: 1;
-  right: 7%;
-  top: 5%;
-}
-.dropdown-toggle:after { 
-  content: none 
-}
-.interpop{
-  color: #6586B4;
-}
-.blanccorrectionmisenepage{
-  height: 5%;
-}
-/*POLICES */
-.text-in-color-brown {
-  color: #D64E26;
-}
-.with-my-border {
-  border: 2px solid #D64E26;
-}
-.max-height-120px {
-  max-height: 120px;
-}
-.max-height-30px {
-  max-height: 30px;
-}
-.text-underline {
-  text-decoration: underline;
-}
-/*#########################
-######CREATION PARFUM######
-#########################*/
-.listetypeparfum {
-  text-decoration: underline;
-  color: #D64E26;
-  font-size: 0.8em;
-  margin-bottom: 0;
-  margin-top: 0; 
-}
-.categorieparfum li {
-  margin: 0;
-  line-height: 1.2;
-}
-/*#########################
-########INGREDIENTS########
-#########################*/
-.titreMP {
-  font-weight: bold;
-  color: #D64E26;
-}
-.exemple {
-  font-size: 0.7em; 
-  color: #616161;
-}
-.ingredientnat {
-  font-size: 0.8em;
-}
-.catégories{
-  background-color: yellow;
-  color: #087625;
-  font-weight: bold;
-  font-size: 1em;
-  text-decoration: underline;
-  text-transform: uppercase;
-  margin-bottom: 1em;
-  margin-top: 0.5em;
-}
-.catégories2 {
-  font-weight: bold;
-  text-decoration: underline;
-  margin-top: 0.8em;
-  background-color: grey; 
-}
-.sous_texte{
-  font-weight: normal;
-  text-decoration: none;
-}
-.imgMP1{
-  float: right;
-  margin-left: 2%;
-  max-height: 20%;
-  max-height: 20%;
-}
-/*#########################
-##########SOURCES##########
-#########################*/
-.sources ul {
-  padding: 0.3em;
-}
-.sources li {
-  font-size: 0.85em;
-}
-.sources {
-  border: 1px solid #D64E26;
-  box-shadow: 1.5px 1.5px 22px 0px rgba(251,229,214,1);
-}
-/*#########################
-#########SUPPORT###########
-#########################*/
-.particulier ul {
-  list-style-type: none;
-}
-.profession {
-  font-style: italic;
-  font-size: 0.8em;
-}
-.nouveausupporter {
-  font-weight: bold;
-  color: red;
-}
-.logosupporter {
-  border: 1px solid #FBE5D6FF;
-  box-shadow: 2px 2px 22px 0px rgba(251,229,214,1);
-}
-@media screen and (max-width: 990px) {
-.entreprise {
-  min-width: 100%;
-}
-.particulier {
-  min-width: 100%;
-}
-.logosupporter{
-  min-height: 200%;
-}
-.logomenu {
-  min-width: 100%;
-  min-height: 100%;
-}
-}
-/*#########################
-#####MENTIONS LEGALES######
-#########################*/
-.Titre1 {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Titre2 {
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Soustitre1 {
-  font-weight: bold;
-  text-decoration: underline;
-}
-.miniliste2{
-  font-weight: bold;
-  size: 0.8em;
-  margin: 0em;
-}
-/*#########################
-#########IMAGES############
-#########################*/
-.img1allergene{
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img2allergene { 
-  height: 20%;
-  width: 50%;
-  margin-left: 25%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 1%;
-  margin-bottom: 0%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 30%;
-  width: 30%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 15%;
-  width: 15%;
-}
-.img3creationparfum {
-  float: left;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 20%;
-  width: 20%;
-}
-/*#########################
-########NEWSLETTER#########
-#########################*/
-.card-img-top {
-  margin-top: 5%;
-  min-width: 120px;
-  min-height: 120px;
-  max-width: 120px;
-  max-height: 120px;
-}
-.card {
-  align-items: center;
-  border: 1px solid #E99A1F;
-  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
-.envoiRGPD {
-  align-items: center;
-  text-align: center;
-}
-.titreRGPD {
-  font-size: 0.9em;
-}
-.texteRGPD {
-  font-size: 0.75em;
-  text-align: justify;
-}
-.btnenvoi {
-  align-items: center;
-  text-align: center;
-  background-color: #FBE5D6FF; 
-  border: 1px solid #E99A1F;
-  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
-/*#########################
-########COPYRIGHT##########
-#########################*/
-.copyright {
-    text-align: center;
-    color: #D64E26;
-    font-size: 10px;
-}
+<!-- Fichier Style CSS -->
+<link href="../css/stylesansmap.css" rel="stylesheet" />
 
-/*#########################
-###########RGPD############
-#########################*/
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-.textRGPD {
-   text-align: justify 
-}
-.boutonRGPD {
-    text-align: center;
-}
-.NONRGPD {
-    font-style: 50%;
-}
-@keyframes RGPD_animation {
-  0%   {bottom: -100px;}
-  100% {bottom: 40%;}
-}
-#RGPD_warning {
-    display: none;
-    position: absolute;
-    bottom: 40%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, 0);
-    z-index: 999;
-    background-color: #FFF8C2;
-    animation-name: RGPD_animation;
-    animation-duration: 2s;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-#closevideo {
-  position:absolute;
-  right:-20px;
-  top:0;
-  z-index:999;
-  font-size:2rem;
-  font-weight: normal;
-  opacity:1;
-}
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
 
-/*#########################
-#######RUBAN DROITE########
-#########################*/
-.logomenu {
-    color:black;
-    font-size: 0.9vw;
-    text-decoration:underline;
-    cursor:pointer;
-    display: inline;
-}
-.fillright{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
-.fillright2{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
-.correctspacebug {
-    height: 20em;
-}
-.logomenu:hover{
-    transform: scale(1.1);
-}
-
-/*#########################
-#########LANGUAGE##########
-#########################*/
-
-*:lang(fr) {
-    display: initial;
-}
-*:lang(en) {
-    display: initial;
-}
-
-#imgen #imgfr {
-    display: inline-block;
-    max-width: 10px;
-    max-height: 10px;
-}
-/*#########################
-###########LISTE###########
-#########################*/
-ol {
-  padding-left: 1em;
-}
-li::before {
-  font-weight: bold; 
-}
-/*#########################
-###########TABLE############
-#########################*/
-table {
-  border: 1px solid black;
-  width: 100%;
-  margin-bottom: 2%; 
-}
-th, .table th {
-    border: 1.5px solid black;
-    text-align: center;
-    font-style: large;
-    background-color: #FBE5D6FF;
-}
-td, .table td {
-    border: 1px solid black;
-    text-align: center;  
-    vertical-align: middle;
-    white-space: normal;
-}
-
-tr:nth-child(even) {
-  background-color: #F1F0F0;
-  color:#121212; 
-}
-caption {
-    color: #D64E26;
-    text-align: center;
-    font-style: italic;
-    caption-side: top;
-}
-
-/*#########################
-#######RESPONSIVE##########
-#########################*/
-
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.img1allergene{
-  float: right;
-  margin-left: 2%; 
-  margin-bottom: 0;
-  height: 20%;
-  width: 20%;
-}
-.img2allergene { 
-  height: 25%;
-  width: 60%;
-  margin-left: 20%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 3%;
-  margin-top: 5%;
-  margin-bottom: 5%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 60%;
-  width: 60%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 18%;
-  width: 18%;
-}
-.img3creationparfum {
-  float: left;
-  margin-right: 1%;
-  margin-left: 0%;
-  height: 20%;
-  width: 20%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 20%;
-  width: 20%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 25%;
-  width: 25%;
-}
-.imgMP1{
-  float: right;
-  top: 10%;
-  margin-left: 2%;
-  min-width: 20%;
-  max-width: 20%; 
-  min-height: 20%;
-  max-height: 20%;
-}
-table {
-min-width: 100%;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-.correctspacebug {
-    height: 1.1em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-}
-
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-.correctspacebug {
-    height: 2em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-.copyright {
-    font-size: 8px;
-}
-}
-
-@media screen and (min-width: 768px) and (max-width: 990px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.correctspacebug {
-    height: 2em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-.copyright {
-    font-size: 8px;
-}
-.text-in-color-brown {
-  color: #D64E26;
-  font-size: 0.9em;
-}
-}
-
-@media screen and (max-width: 768px) {
-.PageEntiere {
-    background-color: white;
-    padding-top: 60px;
-}
-.pagederoulante {
-  height: 100%;
-  overflow-y: visible;
-}
-.logomenu{
-    max-height: 40px;
-}
-.gros_titre {
-  padding-top: 2%;
-  font-weight: bold;
-  font-size: 1em;
-}
-ul {
-  padding-left: 1.5em;
-}
-.solvemobilepadding {
-  margin-top:85%; 
-}
-.img1allergene {
-  align-items: center;
-  margin-bottom: 5%;
-  height: 90%;
-  width: 90%;
-}
-.img2allergene { 
-  align-items: center;
-  height: 15%;
-  width: 90%; 
-  margin: 0;
-  margin-top:2%; 
-  margin-bottom: 4%;
-}
-.img3allergene { 
-  align-items: center;
-  height: 30%;
-  width: 90%; 
-  margin:0;
-  margin-top:2%; 
-  margin-bottom: 2%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-.img2creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-left:10%;
-  margin-right: 10%;
-  margin-top:2%; 
-  margin-bottom: 5%;
-}
-.img3creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img4creationparfum {
-  display: none;
-}
-.img5creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img6creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-table {
-min-width: 100%;
-font-size: 10px;
-}
-.formulaire {
-  min-width: 100%;
-}
-.envoiRGPD {
-  min-width: 100%;
-}
-}
-
-@media screen and (min-width: 768px) {
-.PageEntiere {
-    background-color: white;
-}
-.img4creationparfum {
-  display: none;
-}
-}
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
+  </button>
+  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
+    <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
+  </form>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/support.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveautes.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="/newsletter/newsletter/subscribe"><span lang="fr">Newsletter</span><span lang="en">Newsletter</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/mentionslegales.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
 
 
-/*#########################
-########NOUVEAUTES#########
-#########################*/
-/*set up size of the whole timeline OK */
-.timeline{
-  position: relative;
-  margin: 0px auto;
-  width:100%;
-}
-/* Titre des parties OK*/
-.content h3{
-  color:#D64E26;
-  font-size:1.3em;
-  font-weight: bold;
-  padding-top: 2.5%;
-}
-/*Style du texte sous la date OK*/
-.ajoutMP{
-  color:black;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-/*drawing the line itself OK */
-.timeline:before{
-  content: '';
-  position:absolute;
-  left:50%;
-  width:0.5em;
-  height:100%;
-  background-color:#D64E26;
-}
-/*styling the size of each step/content OK */
-.timeline ul li{
-  list-style: none;
-  position:relative;
-  width:50%;
-  padding:5px 35px;
-}
-/*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:right;
-  float:left;
-  clear:both;
-  right: 4%;
-  width: 52.5%;
-}
-/* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left:1.1%;
-  width: 52%;
-}
-/*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before {
-  content:'';
-  position:absolute;
-  width:40px;
-  height:40px;
-  background-color:#F7B88E;
-  border-radius:60%;
-  box-shadow: 0 0 0 6px rgba(251, 229, 214);
-  z-index:1
-}
-/*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{
-  left: -3.6%;
-}
-.timeline ul li:nth-child(odd):before{
-  right:-3.6%;
-}
-/*styling the numbering. OK */
-.timeline ul li:before{
-  font-weight:bold;
-  font-size:1.2em;
-  color:white;
-  text-align:center;
-  padding-top:1%;
-}
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
 
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-  /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){right: 5.7%; width: 53.5%;}
-  .timeline ul li:nth-child(odd):before{right:-5%;}
-  /* for every even numbered bullet point, align to the right OK*/
-  .timeline ul li:nth-child(even){left:1.1%;width: 52.5%;}
-  /*position the circle icons on the timeline OK*/
-  .timeline ul li:nth-child(even):before{left: -5%;}
-}
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-  /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){right: 6%; width: 53.5%;}
-  .timeline ul li:nth-child(odd):before{right:-5.5%;}
-  /* for every even numbered bullet point, align to the right OK*/
-  .timeline ul li:nth-child(even){left:1.1%; width: 52.5%;}
-  /*position the circle icons on the timeline OK*/
-  .timeline ul li:nth-child(even):before{left: -8%;}
-}
-@media screen and (max-width: 990px) {
-/* Titre des parties OK*/
-.content h3{font-size:1em; padding-top: 2.5%; }
-/*Style du texte sous la date OK*/
-.ajoutMP{font-size: 0.9em;}
-/*drawing the line itself OK*/
-.timeline:before{left:6%; width:0.3em;}
-/*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:left;
-  float:right;
-  clear:both;
-  right: -5%;
-  width: 110%;
-}
-/* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left: 5%;
-  width: 110%;
-}
-/*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before { width:35px; height:35px;}
-/*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{left: -6%;}
-.timeline ul li:nth-child(odd):before{left: -6%;}
-/*styling the numbering. OK */
-.timeline ul li:before{font-size:0.9em; padding-top:3%;}
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
 
-.content p {
-  font-size: 0.8em;
-}
-}
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+<div class="container-fluid">
+
+<div class="row align-items-start">
+  <div class="clearfix w-100">
+    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
+    </button>
+    <button class="btn text-in-color-brown float-right px-0">/</button>
+    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
+  </div>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
+  </div>
+</div>
+
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
+  <div class="col">
+    <a class="btn mt-4 text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
+    <br>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/support.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveaute.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
+</div>
+
+<div class="row correctspacebug"></div>
+
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="/newsletter/newsletter/subscribe">
+          <span lang="fr">Newsletter</span><span lang="en">Newsletter</span>
+        </a>
+        <span class="col-12  m-0 p-0">
+          <a class="btn btn-sm save_map_status_on_leaving text-center" role="button" lang="fr" href="https://docs.google.com/forms/d/e/1FAIpQLSc0Lsx5k5lzFJ3p7YJn04Pn0KbyXCDnl52cTit8hxhf4YYQJA/viewform" target="_BLANK">Enquête de satisfaction  </a>
+          <a class="btn btn-sm save_map_status_on_leaving text-center" role="button" lang="en" href="https://docs.google.com/forms/d/e/1FAIpQLSeQljdzyC8Lkzqs2k97ZJDeC59lIV_ws2axSNfLa_0-yOezcQ/viewform" target="_BLANK">Satisfaction survey  </a>
+        </span>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/Sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/legal.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 mb-1 p-0 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019-2020 |  ScenTree SAS  | All Rights Reserved |
+   </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+<div id="blanc1" class="row blockrgpd"></div>
+<div id="contenant" class="row">
+<div class=" col-offset-1 col-9 textRGPD" >
+  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
+  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
+</div> 
+<div class=" col-offset-2 col-3 boutonRGPD">
+  <button class="btn btn-success" id="cookie_please">
+    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
+  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
+    <span lang="fr">Non</span><span lang="en">No</span>
+  </button>
+</div>
+</div>
+<div id="blanc1" class="row blockrgpd"></div>
+</div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center gros_titre">
+  <h1 class="gros_titre text-in-color-brown">
+    <span lang="fr">LES INGREDIENTS DE NOS PARFUMS</span>
+    <span lang="en">PERFUME INGREDIENTS</span></h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+
+  <h2 class="sous_titre mt-3">
+    <span lang="fr">Comment sont fabriqués les ingrédients qui composent nos parfums ? Du naturel au synthétique, découvrez comment sont faits vos parfums.</span>
+    <span lang="en">How are perfume ingredients made ? From natural to synthetic ingredients, discover how perfumes are made.</span>
+  </h2>
+
+
+<p>
+  <span lang="fr">Dans la composition d’un parfum, il est possible d’utiliser environ <b class="bplus">3000 ingrédients différents</b>. La connaissance scientifique autour des essences et des molécules odorantes en recense cependant bien plus. Toutes constituent la <u>palette du parfumeur</u> : cet alphabet qu’il utilise pour raconter des histoires à travers ses parfums.
+  <br>Quelles sont ces matières premières ? Comment les obtient-on ? Quels en sont les particularités et comment cela influe sur leur utilisation ? Entrez dans l’univers passionnant des odeurs ! 
+  <br class="mt-2">Pour commencer, il existe <b class="bplus">trois types de matières premières</b> utilisées dans les parfums :</span>
+
+  <span lang="en">In a perfume composition, it is possible to use around <b class="bplus">3000 different ingredients</b>. However, the scientific knowledge of essences and odorant molecules contains many more ingredients. They all make up the <u>perfumer's palette</u>: the alphabet he uses to tell stories through his fragrances.
+  <br>What are these raw materials? How are they obtained? What are their particularities and how does that influence their use? Enter the exciting world of scents !
+  <br class="mt-2">First, their are <b class="bplus">three types of raw materials</b> used in perfumes</span>
+
+<div class="row card-deck text-center mb-1">
+    <div class="card">
+      <img class="card-img-top" src="../img/ingredientsnaturels.PNG" title="Les ingrédients naturels proviennent de la flore des 4 coins du monde" alt="Les ingrédients naturels proviennent de la flore des 4 coins du monde">
+      <div class="card-body" >
+        <p class="card-title">
+          <span lang="fr"><b class="bplus">LES INGREDIENTS NATURELS</b></span>
+          <span lang="en"><b class="bplus">NATURAL INGREDIENTS</b></span>
+        </p>
+        <p class="card-text">
+          <span lang="fr">Résultent de l’extraction d’un végétal ou, anciennement, d’une matière animale.</span>
+          <span lang="en">They result from the extraction of a plant or, formerly, an animal material.</span>
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="../img/synth.PNG" title="Nos sponsors et leurs actualités" alt="Nos sponsors et leurs actualités">
+      <div class="card-body">
+        <p class="card-title">
+          <span lang="fr"><b class="bplus">LES INGREDIENTS SYNTHETIQUES</b></span>
+          <span lang="en"><b class="bplus">SYNTHETICS INGREDIENTS</b></span>
+        </p>
+        <p class="card-text ">
+          <span lang="fr">Obtenus grâce à la (bio)chimie organique.</span>
+          <span lang="en">Obtained through organic (bio)chemistry</span>
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="../img/synthétiques1.png" title="Les ingrédients parfums" alt="Les ingrédients parfums">
+      <div class="card-body">
+        <p class="card-title">
+          <span lang="fr"><b class="bplus">LES BASES</b></span>
+          <span lang="en"><b class="bplus">BASES</b></span>
+        </p>
+        <p class="card-text">
+          <span lang="fr">Compositions parfumées, ingrédient crée préalablement par un parfumeur et qui contient, lui même, plusieurs ingrédients.</span>
+          <span lang="en">Perfumed compositions, an ingredient created by a perfumer and which also contains several ingredients.</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</p>
+
+<p>
+  <span lang="fr">Etudions plus en détails l'ensemble de ces catégories et leurs spécificités :</span>
+  <span lang="en">Let's take a closer look at all of these categories and their specificities:</span>
+
+  <ol type="I">
+    <li>
+        <span class="titreMP" lang="fr">LES INGREDIENTS NATURELS:</span>
+        <span class="titreMP" lang="en">NATURAL INGREDIENTS:</span> 
+
+      <p class="mt-2 mb-2">
+        <img class="imgMP1" src="../img/ingredientsnaturels.PNG" alt="Les ingrédients naturels proviennent de la flore des 4 coins du monde" title="Les ingrédients naturels proviennent de la flore des 4 coins du monde">
+        <span lang="fr">Ce type d'ingrédient a toujours eu la cote dans les parfums. Néanmoins, bien qu’ils soient très prisés des parfumeurs et des consommateurs, ils présentent plusieurs désavantages. La grande majorité des matières premières naturelles sont issues de <b>végétaux</b>. Il était autrefois possible d’utiliser des matières premières <b>animales</b>, mais elles sont aujourd’hui <u>disparues pour des raisons d’éthique et de réglementation</u>. </span>
+        <span lang="en">This type of ingredient has always been popular in perfumes. Nevertheless, although they are cherished by perfumers and consumers, they have several disadvantages.The vast majority of natural raw materials are derived from <b>plants</b>. It was once possible to use <b>animal</b>-sourced raw materials, but they have <u>now disappeared for ethical and regulatory reasons.</u></span>
+
+        <p class="exemple">
+          <span lang="fr"><u>Exemple:</u> L’ambre gris est une déjection sécrétée par le cachalot, et rejetée dans son habitat, puis retrouvée sur certaines plages. Son odeur en séchant est très sensuelle, ambrée et particulièrement appréciée des parfumeurs pour construire les notres de fond de leur parfum. Aujourd'hui, cette matière emblématique est remplacée par des molécules dites « ambrées » (<a class="interpop" href="../ingredients/Ambroxan®__Ambroxan®.html" target="_blank">Ambroxan®</a>, <a class="interpop" href="../ingredients/Iso_E_Super®__Iso_E_Super®.html" target="_blank">Iso E Super®</a>, <a class="interpop" href="../ingredients/Grisalva®__Grisalva®.html" target="_blank">Grisalva®</a>…). De même, le <a class="interpop" href="../ingredients/Castoreum_Resinoid__Castoréum_Résinoïde.html" target="_blank">castoréum</a> est un baume sécrété par le castor (trouvable au Canada ou en Sibérie), dans une poche sous son anus. L’extraction de l'odeur de cette poche permettait d’obtenir une résine, très odorante. Aujourd’hui, cette matière première est remplacée par des bases imitatrices de son odeur.</span>
+          <span lang="en"><u>Example:</u> Ambergris is a dejecta secreted by the sperm whale, which is released into its habitat and then found on certain beaches. Its scent when drying is very sensual and particularly appreciated by perfumers to build the base notes of their perfumes. Today, this emblematic material is replaced by so-called "amber" molecules (<a class="interpop" href="../ingredients/Ambroxan®__Ambroxan®.html" target="_blank">Ambroxan®</a>, <a class="interpop" href="../ingredients/Iso_E_Super®__Iso_E_Super®.html" target="_blank">Iso E Super®</a>, <a class="interpop" href="../ingredients/Grisalva®__Grisalva®.html" target="_blank">Grisalva®</a>…). Similarly, <a class="interpop" href="../ingredients/Castoreum_Resinoid__Castoréum_Résinoïde.html" target="_blank">castoreum</a> is a balm secreted by the beaver (found in Canada or Siberia), in a pouch under its anus. The extraction of this pouch allows to obtain a very fragrant resin. Today, this raw material is replaced by bases that imitate its smell.</span>
+        </p>
+      </p>
+      <p>
+        <span lang="fr">Les matières premières issues de végétaux se distinguent en plusieurs catégories :</span>
+        <span lang="en">Plant-sourced raw materials are divided in a few categories :</span>
+
+        <ol class="ingredientnat" type="A">
+          <li class="catégories">
+            <span lang="fr">Les huiles essentielles :</span>
+            <span lang="en">Essential oils :</span>
+          </li>
+            <ol>
+              <li class="catégories2">
+                <span lang="fr">Les distillations :</span>
+                <span lang="en">Steam distillation :</span>
+              </li>
+                <span lang="fr">Obtenues par entrainement à la vapeur d’eau des composés odorants de la plante. La vapeur d’eau possède effectivement la faculté de se mélanger aux composés odorants, pour s’en séparer par décantation à l’état liquide après condensation des vapeurs.</span>
+                <span lang="en">Obtained by hydrodistillation of the plant's odorous compounds. Steam has the ability to mix with the odorous compounds, to be separated from them by decantation in a liquid state, after condensation of the vapours.</span>
+              <li class="catégories2">
+                <span lang="fr">Les distillations sèches : </span>
+                <span lang="en">Dry distillation :</span>
+              </li>
+                <span lang="fr">Pour la cade (un conifère) et le bouleau (un bois), l’huile essentielle est obtenue par distillation sèche. Cela consiste en une pyrogénation du bois sous une très forte température (800°C environ) dans un four, puis une distillation du goudron récupéré, pour n’obtenir que les composés odorants issus de ce procédé.</span>
+                <span lang="en">For cade (a conifer) and birch (a wood), the essential oil is obtained by dry distillation. This consists in a pyrogenation of the wood under a very high temperature (about 800°C) in an oven, followed by a distillation of the tar recovered, to obtain only the odorous compounds resulting from this process.</span>
+              <li class="catégories2">
+                <span lang="fr">Les expressions :</span>
+                <span lang="en">Cold pression :</span>
+              </li>
+                <span lang="fr">Pour les agrumes, leur huile essentielle est obtenue par expression à froid : le zeste est exprimé, puis l’huile est séparée de l’eau résultante par centrifugation.</span>
+                <span lang="en">For citrus fruits, the essential oil is obtained by cold pression: the peel is expressed, then the oil is separated from the resulting water by centrifugation.</span>
+            </ol>
+          <li class="catégories">
+            <span lang="fr">Les concrètes, absolues et résinoïdes: </span>
+            <span lang="en">Concretes, absolutes and resinoids :</span>
+          </li>
+            <ol>
+              <li class="catégories2">
+                <span lang="fr">Les concrêtes :</span>
+                <span lang="en">Concretes :</span>
+              </li>
+                <span lang="fr">Les <b>absolues</b> résultent de l’extraction d’une <b>plante fraiche</b>. Il peut s’agir d’une fleur (Rose de Mai Absolue), d’une fève (Fève Tonka Absolue), d’une graine (Fenugrec Absolue)… Cette extraction se déroule en plusieurs étapes. La première consiste à plonger le végétal dans un solvant organique tel que l’hexane ou l’éther de pétrole. Après extraction, retrait des plantes (on dit alors qu’elles sont « épuisées ») et évaporation du solvant, on obtient une <b>concrète</b>. C’est une pâte, car elle comprend les cires de la plante, qui ont aussi été extraites par le solvant utilisé. Pour rendre la concrète utilisable en parfumerie, il faut la diluer dans l’alcool, puis refroidir le mélange pour précipiter les cires, et les filtrer. Après évaporation du solvant, le produit obtenu est liquide, parfois visqueux, et limpide : c’est l’absolue.</span>
+                <span lang="en"><b>Concretes</b> are the result of the extraction of a <b>fresh plant</b>. It can be a flower (Rose de Mai Absolute), a bean (Tonka Bean Absolute), a seed (Fenugreek Absolute)... This extraction is carried out in several stages. The first consists in plunging the plant in an organic solvent such as hexane or petroleum ether. After extraction, removal of the plants and evaporation of the solvent, a concrete is obtained. It is a paste because it includes the waxes of the plant, which have also been extracted by the solvent used.</span>
+              <li class="catégories2" >
+                <span lang="fr">Les absolues :</span>
+                <span lang="en">Absolutes :</span>
+              </li>
+                <span lang="fr">Pour rendre la concrète utilisable en parfumerie, il faut la diluer dans l’alcool, puis refroidir le mélange pour précipiter les cires, et les filtrer. Après évaporation du solvant, le produit obtenu est liquide, parfois visqueux, et limpide : c’est l’absolue.</span>
+                <span lang="en">To make the concrete usable in perfumery, it must be diluted in alcohol, then cooled to precipitate the waxes, and filtered. After evaporation of the solvent, the product obtained is liquid, sometimes viscous, and limpid: it is the absolute.</span>  
+              <li class="catégories2" >
+                <span lang="fr">Les résinoïdes :</span>
+                <span lang="en">Resinoids :</span>
+              </li>
+                <span lang="fr">Les résinoïdes résultent de l’extraction d’un produit sec. Il s’agit souvent de résines d’arbres (Benjoin Siam Résinoïde). Leur extraction consiste à solubiliser les composés odorants de la résine dans de l’alcool, de refroidir le mélange pour précipiter les cires, puis de filtrer et d’évaporer le solvant. Le produit obtenu est liquide, parfois très visqueux. Ces résines sont souvent aussi extractibles à la vapeur d’eau, pour obtenir une huile essentielle (Encens HE).</span>
+                <span lang="en">Resinoids result from the extraction of a dry product. They are often tree resins (Siam Benzoin Resinoid). Their extraction consists in solubilizing the resin's odorous compounds in alcohol, cooling the mixture to precipitate the waxes, then filtering and evaporating the solvent. The product obtained is liquid, sometimes highly viscous. These resins are often also extractable by steam distillation, to obtain an essential oil (Frankincense EO).</span>
+            </ol>  
+          <li class="catégories">
+            <span lang="fr">Les extraits CO<sub>2</sub> supercritique : </span>
+            <span lang="en">Supercritical CO<sub>2</sub> extracts : </span>
+          </li>
+            <span lang="fr">Ces ingrédients résultent de la mise en contact d’un végétal quelconque (il peut même s’agir de certains fruits, habituellement non extraits) avec du dioxyde de carbone à plus de 31°C et sous 74 bar de pression. Mettre le CO<sub>2</sub> sous cette forme est coûteux, mais ce type d’extraction fourni un résultat olfactif sans égal, et offre à la palette du parfumeur des extraits d’une grande qualité.</span>
+            <span lang="en">These ingredients result from the contact of any plant (it can even be some fruits, usually not extracted) with carbon dioxide at over 31°C and 74 bar of pressure. Putting CO<sub>2</sub> in this form is expensive, but this type of extraction provides an awesome olfactory result, and offers to the perfumer's palette high quality extracts</span>    
+        </ol>
+      </p>
+      <p>
+        <span lang="fr">Il existe beaucoup d’autres méthodes d’extraction aboutissant sur d'autres catégories d'ingrédients, que nous ne détaillerons pas ici car leur présence n'est pas très courante (hydrolats, exhudats, teintures, infusions, terpene-less, pommades et autres produits issues de distillations moléculaires ou encore les produits modifiés chimiquement après extraction.).</span>
+        <span lang="en">There are many other extraction methods leading to other categories of ingredients, which we will not detail here because their usage is not very common (hydrosols, exhudates, tinctures, infusions, terpene-less, ointments and other products resulting from molecular distillation or chemically modified products after extraction).</span>
+      </p>
+      <p>
+        <span lang="fr">Ainsi, les matières premières naturelles forment environ un tiers de la palette du parfumeur (sans compter les bases). Elles servent souvent de point de départ d’une création de parfum. Le parfumeur choisi en effet souvent plusieurs matières premières naturelles pour son parfum, autour de laquelle il fait graviter des matières premières synthétiques, pour leur donner les nuances souhaitées.
+        <br>Les ingrédients naturels sont olfactivement très complexes, compte tenu de la diversité de molécules qu’ils contiennent. Cela ne facilite donc pas la création. Par ailleurs, bien qu’ils apportent de la beauté à une création, ils lui apportent de l’instabilité, toujours compte tenu des molécules qui peuvent y être présentes. Enfin, leur coût d’obtention n’est pas négligeable. C’est aussi ce paramètre qui a été bouleversé par l’arrivée de la synthèse organique, à la fin du XIXème siècle…</span>
+        <span lang="en">Thus, natural raw materials represent about a third of the perfumer's palette (not counting bases). They are often used as the starting point for a perfume creation. Perfumers often choose several natural raw materials for their perfumes, around which synthetic raw materials gravitate to give them the desired nuances.
+        <br>Natural ingredients are olfactively very complex, given the diversity of molecules they contain. They do not make creation any easier. Moreover, although they bring beauty to a creation, they also bring instability to it, always taking into account the diversity of molecules that may be present. Eventually, the cost of obtaining them is not negligible. This parameter was also upset by the arrival of organic synthesis at the end of the 19th century...</span>
+      </p>
+    </li> 
+    <p>
+      <li>
+          <span class="titreMP" lang="fr">LES INGREDIENTS SYNTHETIQUES:</span>
+          <span class="titreMP" lang="en">SYNTHETIC INGREDIENTS:</span>
+        <p>
+          <span lang="fr">Ces ingrédients sont issus de procédés de synthèse, c’est-à-dire de <b>réactions successives entre plusieurs molécules</b>. Souvent, de petites molécules sont utilisées comme point de départ, pour en fabriquer de plus grandes, en les assemblant. De grandes molécules bon marché peuvent aussi être utilisées pour en modifier la structure, et les propriétés olfactives. Il existe une infinité de réactions possibles, pour une infinité de molécules. Or, seules quelques-unes d’entre elles forment <b>les deux tiers de la palette du parfumeur</b>.
+          <br>Il est aussi possible d’<u>obtenir des molécules par voie naturelle</u>, en les extirpant d’extraits de plantes diverses. Certaines molécules sont en effet souvent plus faciles d’obtention par voie naturelle, car elles sont abondantes dans un extrait végétal bon marché (exemple du Pinène-Alpha, présent dans la Térébenthine HE). D’autres conviennent pour une formulation dite « 100% naturelle » : plusieurs créateurs y sont spécialisés et souhaitent formuler leurs parfums en utilisant exclusivement des ingrédients d’origine naturelle. Les molécules issues du naturel atteignent rarement une pureté absolue, ce qui leur confère une complexité olfactive intéressante (exemple du Géraniol ou du Linalol naturels), dépendant de la plante dont ils sont extraits. Enfin, des extraits végétaux peuvent subir une réaction, par administration d’une molécule tel que l’anhydride acétique. C’est le cas de l’Acétate de Gaiyle ou l’Acétate de Vétivéryl. Si une Lavande HE subit une telle réaction, son taux d’Acétate de Linalyle augmente fortement, et peut en être extrait : c’est de l’Acétate de Linalyle hémisynthétique, considéré d’origine naturelle.</span>
+          <span lang="en">These ingredients are the result of synthesis processes, meaning successive reactions between several molecules. Small molecules are often used as a starting point, to make larger ones by assembling them. Large and cheap molecules can also be used to modify their structure and olfactory properties. There is an infinite number of possible reactions for an infinite number of molecules. But only a few of them make up around two-thirds of the perfumer's palette.
+          <br>It is also possible to obtain molecules naturally, by extracting them from various plant extracts. Some molecules are often easier to obtain naturally, because they are abundant in a cheap plant extract (example of Alpha-Pinene, present in Turpentine EO). Others are suitable for a so-called "100% natural" formulation: several creators are specialized in this and wish to formulate their fragrances using only ingredients of natural origin. Molecules of natural origin rarely reach absolute purity, which gives them an interesting olfactory complexity (example of natural Geraniol or Linalool), depending on the plant from which they are extracted. Finally, plant extracts can undergo a reaction by administration of a molecule such as acetic anhydride. This is the case of Gaiyl Acetate or Vetiveryl Acetate. If a Lavender EO undergoes such a reaction, its level of Linalyl Acetate increases sharply, and can be extracted from it: it is hemisynthetic Linalyl Acetate, considered as natural.</span>
+        </p>
+      </li>
+    </p>  
+    <p>
+      <li>
+          <span class="titreMP" lang="fr">LES BASES:</span>
+          <span class="titreMP" lang="en">BASES:</span>
+        <p>
+          <span lang="fr">Les bases sont des compositions parfumantes, reproduisant une odeur connue, mais souvent non extractible. Elles servent à diversifier la palette du parfumeur, en proposant un plus large choix de matières premières, et en imitant l’odeur d’ingrédients existant ou non, à moindre coût.</span>
+          <span lang="en">The bases are perfume compositions, reproducing a known smell, but often not extractable. They make it possible to diversify the perfumer's palette by offering a wider choice of raw materials, and by imitating the smell of existing or non-existing ingredients, at a lower cost.</span>
+        <p>
+          <span lang="fr">On distingue les bases imitatrices et les bases créatives :</span>
+          <span lang="en">Imitative and creative bases can be distinguished :</span>
+
+          <ol style="font-size: 0.8em;" type="A">
+            <li class="catégories">
+              <span lang="fr">Les bases imitatrices : </span>
+              <span lang="en">Imitative bases : </span>
+            </li>
+              <span lang="fr">Ces bases reproduisent l’odeur d’un extrait naturel, à un coût moindre, et avec une originalité olfactive. Bien souvent, il s’agit de bases internes aux sociétés de création, classées confidentielles. Elles sont créées par les parfumeurs, en utilisant des ingrédients naturels comme synthétiques. Elles sont créées comme des parfums.</span>
+              <span lang="en">These bases reproduce the smell of a natural extract, at a lower cost, and with an olfactory originality. Very often, they are internal bases, exclusively used by some creative companies, and thus classified as confidential. They are created by perfumers, using both natural and synthetic ingredients. They are created like perfumes.</span>
+
+            <li class="catégories">
+              <span lang="fr">Les bases créatives : </span>
+              <span lang="en">Creatives bases : </span>
+            </li>
+              <span lang="fr">Ce sont celles qui innovent. Elles ont pour objectif de représenter un thème olfactif ou l’odeur d’un produit de consommation, non extractible. La base Chocovan®, la Cassis Base 345 F® ou encore le Nectarol® ont cette visée.</span>
+              <span lang="en">These are the ones which innovate. They aim to represent an olfactory theme, or the smell of a consumer product, not extractable. Chocovan®, Cassis Base 345 F® or Nectarol® have this aim.</span>
+          </ol>
+        </p>  
+      </li>
+    </p>
+  </ol>
+</p>
+
+<p>
+  <span lang="fr">Chaque matière première peut faire partie de la palette du parfumeur, constituée généralement de 200 à 1500 matières premières. Le créateur connait toutes les matières premières de sa palette, et sait les utiliser à bon escient. Leur utilisation est en effet régulée par plusieurs paramètres : </span>
+  <span lang="en">Each raw material can be part of the perfumer's palette, generally containing 200 to 1500 raw materials. The perfumer knows all its raw materials, and knows how to use them properly. Their use is in fact regulated by several parameters:</span>
+  <ol style="font-size: 0.8em;" type="A">
+      <li class="catégories">
+        <span lang="fr">La réglementation : </span>
+        <span lang="en">Regulation : </span>
+      </li>
+        <ol>
+          <li class="catégories2">
+            <span>IFRA : </span>
+          </li>
+            <span lang="fr">L’IFRA est l’association agissant notamment pour la réglementation des matières premières présentant un danger, possède une grande influence sur la restriction de l’utilisation de certains ingrédients.</span>
+            <span lang="en">The IFRA is the association acting in particular for the regulation of hazardous raw materials. It has a great influence on the restriction of use of certain ingredients. Its goal is to guide raw materials usage, after safety and toxicology studies. Thus, a formula that complies with IFRA standards is known as safe to use.</span>
+          <li class="catégories2">
+            <span lang="fr">Les allergènes : </span> 
+            <span lang="en">Allergens : </span>  
+          </li>
+            <span lang="fr">L’Union Européenne compte 26 molécules et extraits allergènes. Leur utilisation ne doit pas dépasser 100 ppm (0,01%) dans un produit fini rincé, et 10 ppm (0,001%) dans un produit fini non-rincé. Dans le cas d’une surutilisation, le nom de ces ingrédients doit figurer sur l’étiquette du produit concerné. Néanmoins, très peu de consommateurs sont allergiques aux produits parfumés. Pour en savoir plus, rendez-vous sur notre <a href="../allergenes.html" target="_BLANK">article sur le sujet</a>.</span>
+            <span lang="en">There are 26 allergenic molecules and extracts in the European Union. Their use must not exceed 100 ppm (0.01%) in rinsed products and 10 ppm (0.001%) in non-rinsed products. In the case of overuse, the name of these ingredients must appear on the label of the concerned product. Nevertheless, very few consumers are allergic to perfumed products. Read more in our <a href="../allergenes.html" target="_BLANK"> article about this topic</a>.</span>
+        </ol>   
+      <li class="catégories">
+        <span lang="fr">La stabilité : </span>
+        <span lang="en">Stability : </span> 
+      </li>
+        <span lang="fr">Les matières premières naturelles sont souvent instables, et certaines molécules sont parfois très réactives.</span>
+        <span lang="en">Natural raw materials are often unstable, and some molecules are sometimes very reactive.</span>
+      <li  class="catégories">
+        <span lang="fr">Le coût : </span>
+        <span lang="en">Cost : </span>
+      </li>
+        <span lang="fr">Certains ingrédients sont difficiles à obtenir, car leur préparation peut être longue, demander une main d’œuvre, des molécules ou des procédés coûteux, ne permettre de les obtenir qu’avec un faible rendement…</span>
+        <span lang="en">Some ingredients are difficult to obtain because their preparation can be time-consuming, require labour, expensive molecules or processes, or can only be obtained with a low yield...</span>
+      <li class="catégories">
+        <span lang="fr">Les demandes et contraintes clients : </span>
+        <span lang="en">Client’s demand and constraint : </span>
+      </li>
+        <span lang="fr">Certaines demandes de création peuvent imposer par exemple de formuler exclusivement avec des matières premières naturelles, sans allergène, à bas coût de production, avec une certaine ténacité du parfum, avec certaines matières premières définies…</span>
+        <span lang="en">Some creation requests may require, for example, to formulate exclusively with natural raw materials, without allergens, with low production costs, with a certain tenacity of the perfume, with certain defined raw materials...</span>
+  </ol>
+</p>
+
+<p>
+  <span lang="fr">L’art de créer un parfum réside dans la faculté de son créateur à respecter les différents enjeux qui lui sont imposés, tout en racontant l’histoire qu’il souhaite transmettre à travers les odeurs.</span>
+  <span lang="en">The art of creating a perfume lies in the ability of its creator to respect the different challenges imposed, while telling the story he/she wishes to convey through scents.</span>
+</p>
+
+<hr>
+
+<div class="mt-3">
+    <span lang="fr"><u>Découvrez nos autres articles :</u></span>
+    <span lang="en"><u>Get to read our other articles :</u></span>
+    <ul class="particulier">
+      <li>
+        <a href="../_/allergnes.html">
+          <span lang="fr"> Les parfums sont-ils si dangereux ?</span> 
+          <span lang="en"> Are perfumes dangereous ? </span>
+        </a>
+      </li>
+      <li>
+        <a href="../_/creationparfum.html">
+          <span lang="fr"> Découvrez comment vos parfums sont fabriqués </span> 
+          <span lang="en"> Discover more about how your perfume are made </span>
+        </a>
+      </li>
+    </ul>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>
