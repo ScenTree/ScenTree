@@ -117,6 +117,8 @@ hr {
 }
 .catégories{
   color: #087625;
+  font-size: 0.9em;
+  text-decoration: underline;
 }
 .catégories2 {
   font-weight: bold;
