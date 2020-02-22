@@ -124,7 +124,8 @@ hr {
   padding: 0;
 }
 .catégories{
-  background-color: yellow; 
+  background-color: yellow;
+  margin-bottom: 2em;
   color: #087625;
   font-weight: bold;
   font-size: 1em;
