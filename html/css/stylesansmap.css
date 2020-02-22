@@ -111,6 +111,10 @@ hr {
 /*#########################
 ########INGREDIENTS########
 #########################*/
+.titreMP {
+  font-weight: bold;
+  color: #D64E26;
+}
 .exemple {
   font-size: 0.65em; 
   color: #494747;
