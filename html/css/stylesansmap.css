@@ -123,7 +123,6 @@ hr {
   font-size: 0.8em;
 }
 .catégories{
-  background-color: yellow;
   color: #087625;
   font-weight: bold;
   font-size: 1em;
@@ -135,7 +134,6 @@ hr {
   font-weight: bold;
   text-decoration: underline;
   margin-top: 0.8em;
-  background-color: grey; 
 }
 .sous_texte{
   font-weight: normal;
