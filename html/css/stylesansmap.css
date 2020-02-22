@@ -122,7 +122,6 @@ hr {
 .ingredientnat {
   font-size: 0.8em;
   padding: 0;
-  background-color: blue;
 }
 .catégories{
   background-color: yellow; 
@@ -133,6 +132,8 @@ hr {
   text-transform: uppercase;
 }
 .catégories2 {
+  margin-top: 1%;
+  margin-bottom: 1%;
   padding-left: 3%;
   font-weight: bold;
   text-decoration: underline;
