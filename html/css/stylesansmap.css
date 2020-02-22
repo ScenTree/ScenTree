@@ -522,12 +522,12 @@ caption {
 }
 .imgMP1{
   float: right;
-  top: -10%;
+  top: 10%;
   margin-left: 2%;
-  min-width: 30%;
-  max-width: 30%; 
-  min-height: 30%;
-  max-height: 30%;
+  min-width: 20%;
+  max-width: 20%; 
+  min-height: 20%;
+  max-height: 20%;
 }
 table {
 min-width: 100%;
