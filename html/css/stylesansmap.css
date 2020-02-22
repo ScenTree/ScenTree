@@ -514,6 +514,14 @@ caption {
   height: 25%;
   width: 25%;
 }
+.imgMP1{
+  float: right;
+  margin-left: 2%;
+  min-width: 20%;
+  max-width: 20%; 
+  min-height: 20%;
+  max-height: 20%;
+}
 table {
 min-width: 100%;
 }
