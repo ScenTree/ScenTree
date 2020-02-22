@@ -115,9 +115,6 @@ hr {
   font-size: 0.65em; 
   color: #494747;
 }
-.ingredientnat ul {
-  font-size: 0.8em; 
-}
 .catégories{
   color: #087625;
   font-size: 1em;
@@ -127,6 +124,10 @@ hr {
 .catégories2 {
   font-weight: bold;
   text-decoration: underline;
+}
+.sous_texte{
+  font-weight: normal;
+  text-decoration: none;
 }
 /*#########################
 ##########SOURCES##########
