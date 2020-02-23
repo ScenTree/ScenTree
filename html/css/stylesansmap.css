@@ -690,10 +690,10 @@ ul {
 }
 .imgMP1{
   align-items: center;
-  min-height: 10%;
-  max-height: 10%;
-  min-width: 10%;
-  max-width: 10%;
+  min-height: 30%;
+  max-height: 30%;
+  min-width: 30%;
+  max-width: 30%;
 }
 .imgingredient {
   min-height: 20%;
