@@ -689,11 +689,10 @@ ul {
   margin-bottom: 5%;
 }
 .imgMP1{
-  align-items: center;
-  min-height: 50%;
-  max-height: 50%;
-  min-width: 50%;
-  max-width: 50%;
+  min-height: 60%;
+  max-height: 60%;
+  min-width: 60%;
+  max-width: 60%;
 }
 .imgingredient {
   min-height: 50%;
