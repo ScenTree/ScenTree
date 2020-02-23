@@ -150,6 +150,7 @@ hr {
   max-height: 20%;
   min-width: 20%;
   max-width: 20%;
+  box-shadow: 1.5px 1.5px 22px 0px rgba(251,229,214,1);
 }
 /*#########################
 ##########SOURCES##########
