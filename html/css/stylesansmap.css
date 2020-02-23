@@ -689,6 +689,7 @@ ul {
   margin-bottom: 5%;
 }
 .imgMP1{
+  float: none;
   min-height: 60%;
   max-height: 60%;
   min-width: 60%;
