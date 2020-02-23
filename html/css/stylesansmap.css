@@ -146,10 +146,10 @@ hr {
   max-height: 20%;
 }
 .imgingredient {
-  min-height: 5em;
-  max-height: 5em;
-  min-width: 5em;
-  max-width: 5em;
+  min-height: 50%;
+  max-height: 50%;
+  min-width: 50%;
+  max-width: 50%;
 }
 /*#########################
 ##########SOURCES##########
