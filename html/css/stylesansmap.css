@@ -688,7 +688,17 @@ ul {
   margin-top: 5%;
   margin-bottom: 5%;
 }
-
+.imgMP1{
+  align-items: center;
+  max-height: 10%;
+  max-height: 10%;
+}
+.imgingredient {
+  min-height: 20%;
+  max-height: 20%;
+  min-width: 20%;
+  max-width: 20%;
+}
 .blanccorrectionmisenepage{
   height: 0%;
 }
