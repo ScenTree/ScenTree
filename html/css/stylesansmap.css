@@ -696,10 +696,10 @@ ul {
   max-width: 60%;
 }
 .imgingredient {
-  min-height: 5%;
-  max-height: 5%;
-  min-width: 5%;
-  max-width: 5%;
+  min-height: 10%;
+  max-height: 10%;
+  min-width: 10%;
+  max-width: 10%;
 }
 .blanccorrectionmisenepage{
   height: 0%;
