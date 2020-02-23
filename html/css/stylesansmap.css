@@ -232,6 +232,12 @@ hr {
 /*#########################
 #########IMAGES############
 #########################*/
+.hierarchie {
+  min-width: 50%;
+  min-height: 50%;
+  max-width: 50%;
+  max-height: 50%;
+}
 .img1allergene{
   float: right;
   margin: 1%;
