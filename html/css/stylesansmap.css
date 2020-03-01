@@ -27,6 +27,9 @@ html, body {
 p {
   font-size: 0.8em;
 }
+h4 {
+  font-size: 1em;
+}
 #mapblock {
   z-index: 1;
 }
