@@ -149,8 +149,8 @@ hr {
 .imgMP1{
   float: right;
   margin-left: 2%;
-  max-height: 20%;
-  max-height: 20%;
+  max-height: 10%;
+  max-height: 10%;
 }
 .imgingredient {
   min-height: 20%;
@@ -548,10 +548,10 @@ caption {
   float: right;
   top: 10%;
   margin-left: 2%;
-  min-width: 10%;
-  max-width: 10%; 
-  min-height: 10%;
-  max-height: 10%;
+  min-width: 20%;
+  max-width: 20%; 
+  min-height: 20%;
+  max-height: 20%;
 }
 table {
 min-width: 100%;
