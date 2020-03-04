@@ -149,14 +149,14 @@ hr {
 .imgMP1{
   float: right;
   margin-left: 2%;
-  max-height: 15%;
-  max-width: 15%;
+  max-height: 20%;
+  max-width: 20%;
 }
 .imgingredient {
-  min-height: 20%;
-  max-height: 20%;
-  min-width: 20%;
-  max-width: 20%;
+  min-height: 15%;
+  max-height: 15%;
+  min-width: 15%;
+  max-width: 15%;
 }
 .resumenat{
   align-items: center;
