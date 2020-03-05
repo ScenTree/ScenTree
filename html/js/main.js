@@ -723,23 +723,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     };
 
-    function initTableauIFRA() {
-    const tbody = document.querySelector( '#49THtableannexeI' ).querySelector( 'tbody');
-    for ( let i = 0; i < the_new_ifra_infos.length; i++ )
-    {
-      const ligne = tbody.insertRow();
-     // cellules activités
-    let cellIngredientName = ligne.insertCell();
-    cellIngredientName.innerHTML = the_ifra_infos[ i ].IngredientName;
-     // cellules cotisations
-    let cellCAS = ligne.insertCell();
-    cellCAS.innerHTML = the_ifra_infos[ i ].CAS;
-     // cellules choix
-    let cellConcentration = ligne.insertCell();
-    cellConcentration = the_ifra_infos[ i ].concentration;
-     
-      }
-    }
 
     // PRO 
     the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
