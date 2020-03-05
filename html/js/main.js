@@ -715,6 +715,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
     // IFRA
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
+    the_new_ifra_infos = new Array();
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
       var the_ifra_info = JSON.parse(an_infra_info);
@@ -723,6 +724,23 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     };
 
+    function initTableauIFRA() {
+    const tbody = document.querySelector( '#49THtableannexeI' ).querySelector( 'tbody');
+    for ( let i = 0; i < the_new_ifra_infos.length; i++ )
+    {
+      const ligne = tbody.insertRow();
+     // cellules activités
+    let cellIngredientName = ligne.insertCell();
+    cellIngredientName.innerHTML = the_ifra_infos[ i ].IngredientName;
+     // cellules cotisations
+    let cellCAS = ligne.insertCell();
+    cellCAS.innerHTML = the_ifra_infos[ i ].CAS;
+     // cellules choix
+    let cellConcentration = ligne.insertCell();
+    cellConcentration = the_ifra_infos[ i ].concentration;
+     
+      }
+    }
 
     // PRO 
     the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
