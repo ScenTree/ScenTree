@@ -72,6 +72,14 @@ if (! window.document.jsdom_reader) {
         };
 };
 
+$(".they_support_us__link").click(function(){
+  Cookies.set('Updated_on__they_support_us', UPDATED_ON["they support us"], { expires: 365 });
+  $(".notifi1").css({'display' : 'none'});
+});
+$(".the_news__link").click(function(){
+  Cookies.set('Updated_on__the_news', UPDATED_ON["the news"], { expires: 365 });
+  $(".notifi2").css({'display' : 'none'});
+});
 $(".survey_link").click(function(){
   Cookies.set('Updated_on__the_survey', UPDATED_ON["the survey"], { expires: 365 });
   $(".notifi4").css({'display' : 'none'});
@@ -113,6 +121,14 @@ if (show_the_notifications_for_they_support_us || show_the_notifications_for_the
         $(".notifi3").css({'display' : 'none'});
 };
 
+
+function from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(the_dd_mm_yyyy_as_string) {
+    if (!the_dd_mm_yyyy_as_string) {
+	    the_dd_mm_yyyy_as_string = "";
+    };
+    var the_yyyy_mm__dd_as_string = the_dd_mm_yyyy_as_string.replace( new RegExp("(\\d+)/(\\d+)/(\\d+)", "gi"), "$3$2$1" );
+    return parseInt(the_yyyy_mm__dd_as_string, 10);
+};
 
 function put_all_digits_into_sub(the_string) {
     // sub = <sub>12</sub>, for indices
@@ -699,10 +715,45 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
     // IFRA
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
+    if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
 	var the_ifra_info = JSON.parse(an_infra_info);
-	console.log(the_ifra_info);
+	//console.log(the_ifra_info);
     };
+    };
+
+    
+    // PRO 
+    the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
+    the_new_pro_infos = new Array();
+    if (the_pro_infos) {
+        // built the JSON array from an aray of strings
+	for (let an_pro_info of the_pro_infos) {
+		var the_pro_info = JSON.parse(an_pro_info);
+		the_new_pro_infos.push(the_pro_info);
+	};
+    };
+    
+    the_new_pro_infos.sort((a,b) => from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(a["Dateajout"]) - from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(b["Dateajout"]));
+    for (let a_pro_info of the_new_pro_infos) {
+        //console.log(a_pro_info);
+	
+    };
+    if (the_new_pro_infos) {
+	    $(".pro_informations").append($("<ul></ul>").addClass("premium_and_standard_pros").addClass("list-inline"));
+    };
+    // the premium PROs only, already sorted by date
+    for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
+	//console.log(a_pro_info);
+	$(".pro_informations ul").append($("<li></li>").addClass("premium_pros").addClass("list-inline-item").addClass("btn btn-lg btn-warning").text(a_pro_info["Nom Tiers"]));
+    };
+    // the standard PROs only, already sorted by date
+    for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
+         $(".pro_informations ul").append($("<li></li>").addClass("standard_pros").addClass("list-inline-item").addClass("btn btn-light").text(a_pro_info["Nom Tiers"]));
+	//console.log(a_pro_info);
+    };
+
+
 
     //EMPTY - partie naturelle
     $('#modalheader-type').empty();
@@ -1059,7 +1110,9 @@ function switch_to_en() {
     // cookie
     Cookies.set('display_french_language', -1, { expires: 365});
     // DOM
-    $("*:lang(fr)").remove();
+    if (! window.document.jsdom_reader) {
+        $("*:lang(fr)").remove();
+    };
     //$("*:lang(en)").css({'display' : 'initial'});
     // change search
     URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_EN/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
@@ -1083,7 +1136,9 @@ function switch_to_fr() {
     // cookie
     Cookies.set('display_french_language', 1, { expires: 365});
     // DOM
-    $("*:lang(en)").remove();
+    if (! window.document.jsdom_reader) {
+	$("*:lang(en)").remove();
+    };
     //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
     URL_PREFIX_SUGGESTER = "/" + DEV_PREFIX_2 + "suggesthandler_FR/?suggest.dictionary=mySuggester&suggest.cfq=yes&suggest.q=";
