@@ -124,7 +124,7 @@ if (show_the_notifications_for_they_support_us || show_the_notifications_for_the
 
 function from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(the_dd_mm_yyyy_as_string) {
     if (!the_dd_mm_yyyy_as_string) {
-	    the_dd_mm_yyyy_as_string = "";
+      the_dd_mm_yyyy_as_string = "";
     };
     var the_yyyy_mm__dd_as_string = the_dd_mm_yyyy_as_string.replace( new RegExp("(\\d+)/(\\d+)/(\\d+)", "gi"), "$3$2$1" );
     return parseInt(the_yyyy_mm__dd_as_string, 10);
@@ -717,40 +717,58 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
-	var the_ifra_info = JSON.parse(an_infra_info);
-	//console.log(the_ifra_info);
+      var the_ifra_info = JSON.parse(an_infra_info);
+      the_new_ifra_infos.push(the_ifra_info);
+      //console.log(the_ifra_info);
     };
     };
 
-    
+    function initTableauIFRA() {
+    const tbody = document.querySelector( '#49THtableannexeI' ).querySelector( 'tbody');
+    for ( let i = 0; i < the_new_ifra_infos.length; i++ )
+    {
+      const ligne = tbody.insertRow();
+     // cellules activités
+    let cellIngredientName = ligne.insertCell();
+    cellIngredientName.innerHTML = the_ifra_infos[ i ].IngredientName;
+     // cellules cotisations
+    let cellCAS = ligne.insertCell();
+    cellCAS.innerHTML = the_ifra_infos[ i ].CAS;
+     // cellules choix
+    let cellConcentration = ligne.insertCell();
+    cellConcentration = the_ifra_infos[ i ].concentration;
+     
+      }
+    }
+
     // PRO 
     the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
     the_new_pro_infos = new Array();
+
     if (the_pro_infos) {
-        // built the JSON array from an aray of strings
-	for (let an_pro_info of the_pro_infos) {
-		var the_pro_info = JSON.parse(an_pro_info);
-		the_new_pro_infos.push(the_pro_info);
-	};
+      // built the JSON array from an aray of strings
+      for (let an_pro_info of the_pro_infos) {
+        var the_pro_info = JSON.parse(an_pro_info);
+        the_new_pro_infos.push(the_pro_info);
+      };
     };
     
     the_new_pro_infos.sort((a,b) => from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(a["Dateajout"]) - from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(b["Dateajout"]));
-    for (let a_pro_info of the_new_pro_infos) {
-        //console.log(a_pro_info);
-	
-    };
+      for (let a_pro_info of the_new_pro_infos) {
+          //console.log(a_pro_info);
+      };
     if (the_new_pro_infos) {
-	    $(".pro_informations").append($("<ul></ul>").addClass("premium_and_standard_pros").addClass("list-inline"));
+      $(".pro_informations").append($("<ul></ul>").addClass("premium_and_standard_pros").addClass("list-inline"));
     };
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
-	//console.log(a_pro_info);
-	$(".pro_informations ul").append($("<li></li>").addClass("premium_pros").addClass("list-inline-item").addClass("btn btn-lg btn-warning").text(a_pro_info["Nom Tiers"]));
+      //console.log(a_pro_info);
+      $(".pro_informations ul").append($("<li></li>").addClass("premium_pros").addClass("list-inline-item").addClass("btn btn-lg btn-warning").text(a_pro_info["Nom Tiers"]));
     };
     // the standard PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
          $(".pro_informations ul").append($("<li></li>").addClass("standard_pros").addClass("list-inline-item").addClass("btn btn-light").text(a_pro_info["Nom Tiers"]));
-	//console.log(a_pro_info);
+  //console.log(a_pro_info);
     };
 
 
@@ -1137,7 +1155,7 @@ function switch_to_fr() {
     Cookies.set('display_french_language', 1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-	$("*:lang(en)").remove();
+  $("*:lang(en)").remove();
     };
     //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
