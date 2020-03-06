@@ -479,7 +479,12 @@ caption {
     font-style: italic;
     caption-side: top;
 }
-
+.categorieifra tr:nth-child(even) {
+  background-color: none;
+}
+.categorieifra tr:nth-child(odd) {
+  background-color: none;
+}
 /*#########################
 #######RESPONSIVE##########
 #########################*/
