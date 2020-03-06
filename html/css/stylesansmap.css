@@ -57,7 +57,7 @@ hr {
 }
 .scrollbar-inside2 {
   overflow-y: auto;
-  height: 80%;
+  height: calc(100vh - 320px);
 }
 #menu-block {
   z-index: 2;
