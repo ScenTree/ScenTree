@@ -569,6 +569,13 @@ caption {
   min-height: 20%;
   max-height: 20%;
 }
+.timelineifra {
+  align-items: center;
+  min-height: 70%;
+  max-height: 70%;
+  min-width: 70%;
+  max-width: 70%;
+}
 table {
 min-width: 100%;
 }
