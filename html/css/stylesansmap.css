@@ -479,8 +479,9 @@ caption {
     font-style: italic;
     caption-side: top;
 }
-.categorieifra tr {
+.categorieifra table {
   background-color: none;
+  text-align: right;
 }
 
 /*#########################
