@@ -485,11 +485,11 @@ caption {
     caption-side: top;
 }
 .categorieifra table {
-  background-color: white;
+  background-color: #F1F0F0;
   text-align: right;
 }
 .categorieifra tr:nth-child(even) {
-  background-color: white;
+  background-color: #F1F0F0;
   color:#121212; 
 }
 .categorieifra td, .table td {
