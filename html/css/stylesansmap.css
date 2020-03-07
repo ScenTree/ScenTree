@@ -1,920 +1,939 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<link rel="canonical" href="https://www.scentree.co/_/IFRA.html" />
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title>ScenTree - IFRA</title>
+<!--Description Google-->
+<meta name="description" lang="fr" content="Linalol, Limonène, Eugénol, Salicylate de Benzyl, tant de molécules chimiques dans vos parfums ? .. Venez découvrir les secrets de ces ingrédients souvent diabolisés. " />
+<meta name="description" lang="en" content="Linalool, Limonene, Eugenol, Benzyl Salicylate, so many chemical molecules in your perfumes ? ... Come and discover the secrets of these demonized ingredients." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-html, body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-/* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'440';}
-.timeline ul li:nth-child(2):before{content:'432';}
-.timeline ul li:nth-child(3):before{content:'426';}
-.timeline ul li:nth-child(4):before{content:'426';}
-.timeline ul li:nth-child(5):before{content:'419';}
-.timeline ul li:nth-child(6):before{content:'413';}
-.timeline ul li:nth-child(7):before{content:'413';}
-.timeline ul li:nth-child(8):before{content:'406';}
-.timeline ul li:nth-child(9):before{content:'398';}
-.timeline ul li:nth-child(10):before{content:'391';}
-.timeline ul li:nth-child(11):before{content:'391';}
-.timeline ul li:nth-child(12):before{content:'384';}
-.timeline ul li:nth-child(13):before{content:'379';}
-.timeline ul li:nth-child(14):before{content:'372';}
-.timeline ul li:nth-child(15):before{content:'372';}
-.timeline ul li:nth-child(16):before{content:'365';}
-.timeline ul li:nth-child(17):before{content:'365';}
-.timeline ul li:nth-child(18):before{content:'365';}
-.timeline ul li:nth-child(19):before{content:'365';}
-.timeline ul li:nth-child(20):before{content:'365';}
+<!-- Fichier Style CSS -->
+<link href="../css/stylesansmap.css" rel="stylesheet" />
 
-p {
-  font-size: 0.8em;
-}
-.maskedtitle {
-  font-size: 1em;
-}
-h4 {
-  font-size: 1em;
-}
-#mapblock {
-  z-index: 1;
-}
-.bplus{
-  color: #D64E26;
-}
-.gros_titre {
-  margin-top: 1%;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-.sous_titre {
-  font-weight: bold;
-  font-size: 1em;
-}
-hr {
-  margin: 0;
-}
-.pagederoulante {
-  height: 94.5%;
-  overflow-y: scroll;
-}
-.scrollbar-inside2 {
-  overflow-y: auto;
-  height: calc(110vh - 320px);
-}
-#menu-block {
-  z-index: 2;
-  min-height: 500px;
-}
-.fab {
-  font-size: 120%;
-  color: #494747;
-}
-.notifi1 {
-  color: red;
-}
-.notifi2 {
-  color: red;
-}
-.notifi3 {
-  color: red;
-  position: absolute;
-  z-index: 1;
-  right: 7%;
-  top: 5%;
-}
-.dropdown-toggle:after { 
-  content: none 
-}
-.interpop{
-  color: #6586B4;
-}
-.blanccorrectionmisenepage{
-  height: 5%;
-}
-/*POLICES */
-.text-in-color-brown {
-  color: #D64E26;
-}
-.with-my-border {
-  border: 2px solid #D64E26;
-}
-.max-height-120px {
-  max-height: 120px;
-}
-.max-height-30px {
-  max-height: 30px;
-}
-.text-underline {
-  text-decoration: underline;
-}
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-/*#########################
-######CREATION PARFUM######
-#########################*/
-.listetypeparfum {
-  text-decoration: underline;
-  color: #D64E26;
-  font-size: 0.8em;
-  margin-bottom: 0;
-  margin-top: 0; 
-}
-.categorieparfum li {
-  margin: 0;
-  line-height: 1.2;
-}
-/*#########################
-########INGREDIENTS########
-#########################*/
-.titreMP {
-  font-weight: bold;
-  color: #D64E26;
-}
-.exemple {
-  font-size: 0.75em; 
-  color: #616161;
-}
-.ingredientnat {
-  font-size: 0.8em;
-}
-.catégories{
-  color: #087625;
-  font-weight: bold;
-  font-size: 1em;
-  text-decoration: underline;
-  text-transform: uppercase;
-  margin-top: 0.5em;
-}
-.catégories2 {
-  font-weight: bold;
-  text-decoration: underline;
-  margin-top: 0.8em;
-}
-.sous_texte{
-  font-weight: normal;
-  text-decoration: none;
-}
-.imgMP1{
-  float: right;
-  margin-left: 2%;
-  max-height: 20%;
-  max-width: 20%;
-}
-.imgingredient {
-  min-height: 15%;
-  max-height: 15%;
-  min-width: 15%;
-  max-width: 15%;
-}
-.resumenat{
-  align-items: center;
-  min-height: 70%;
-  max-height: 70%;
-  min-width: 70%;
-  max-width: 70%;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 50%;
-  max-height: 50%;
-  min-width: 50%;
-  max-width: 50%;
-}
-/*#########################
-##########SOURCES##########
-#########################*/
-.sources ul {
-  padding: 0.3em;
-}
-.sources li {
-  font-size: 0.85em;
-}
-.sources {
-  border: 1px solid #D64E26;
-  box-shadow: 1.5px 1.5px 22px 0px rgba(251,229,214,1);
-}
-/*#########################
-#########SUPPORT###########
-#########################*/
-.particulier ul {
-  list-style-type: none;
-}
-.profession {
-  font-style: italic;
-  font-size: 1em;
-}
-.nouveausupporter {
-  font-weight: bold;
-  color: red;
-}
-.logosupporter {
-  border: 1px solid #FBE5D6FF;
-  box-shadow: 2px 2px 22px 0px rgba(251,229,214,1);
-}
-@media screen and (max-width: 990px) {
-.entreprise {
-  min-width: 100%;
-}
-.particulier {
-  min-width: 100%;
-}
-.logosupporter{
-  min-height: 200%;
-}
-.logomenu {
-  min-width: 100%;
-  min-height: 100%;
-}
-}
-/*#########################
-#####MENTIONS LEGALES######
-#########################*/
-.Titre1 {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Titre2 {
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Soustitre1 {
-  font-weight: bold;
-  text-decoration: underline;
-}
-.miniliste2{
-  font-weight: bold;
-  size: 0.8em;
-  margin: 0em;
-}
-/*#########################
-#########IMAGES############
-#########################*/
-.hierarchie {
-  min-width: 70%;
-  min-height: 70%;
-  max-width: 70%;
-  max-height: 70%;
-}
-.img1allergene{
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img2allergene { 
-  height: 20%;
-  width: 50%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 1%;
-  margin-bottom: 0%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 30%;
-  width: 30%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 15%;
-  width: 15%;
-}
-.img3creationparfum {
-  float: left;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 20%;
-  width: 20%;
-}
-/*#########################
-########NEWSLETTER#########
-#########################*/
-.card-img-top {
-  margin-top: 5%;
-  min-width: 120px;
-  min-height: 120px;
-  max-width: 120px;
-  max-height: 120px;
-}
-.card {
-  align-items: center;
-  border: 1px solid #E99A1F;
-  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
-.envoiRGPD {
-  align-items: center;
-  text-align: center;
-}
-.titreRGPD {
-  font-size: 0.9em;
-}
-.texteRGPD {
-  font-size: 0.75em;
-  text-align: justify;
-}
-.btnenvoi {
-  align-items: center;
-  text-align: center;
-  background-color: #FBE5D6FF; 
-  border: 1px solid #E99A1F;
-  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
-/*#########################
-########COPYRIGHT##########
-#########################*/
-.copyright {
-    text-align: center;
-    color: #D64E26;
-    font-size: 10px;
-}
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
 
-/*#########################
-###########RGPD############
-#########################*/
-
-.textRGPD {
-   text-align: justify 
-}
-.boutonRGPD {
-    text-align: center;
-}
-.NONRGPD {
-    font-style: 50%;
-}
-@keyframes RGPD_animation {
-  0%   {bottom: -100px;}
-  100% {bottom: 40%;}
-}
-#RGPD_warning {
-    display: none;
-    position: absolute;
-    bottom: 40%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, 0);
-    z-index: 999;
-    background-color: #FFF8C2;
-    animation-name: RGPD_animation;
-    animation-duration: 2s;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-#closevideo {
-  position:absolute;
-  right:-20px;
-  top:0;
-  z-index:999;
-  font-size:2rem;
-  font-weight: normal;
-  opacity:1;
-}
-
-/*#########################
-#######RUBAN DROITE########
-#########################*/
-.logomenu {
-    color:black;
-    font-size: 0.9vw;
-    text-decoration:underline;
-    cursor:pointer;
-    display: inline;
-}
-.fillright{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
-.fillright2{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
-.correctspacebug {
-    height: 20em;
-}
-.logomenu:hover{
-    transform: scale(1.1);
-}
-
-/*#########################
-#########LANGUAGE##########
-#########################*/
-
-*:lang(fr) {
-    display: initial;
-}
-*:lang(en) {
-    display: initial;
-}
-
-#imgen #imgfr {
-    display: inline-block;
-    max-width: 10px;
-    max-height: 10px;
-}
-/*#########################
-###########LISTE###########
-#########################*/
-ol {
-  padding-left: 1em;
-}
-li::before {
-  font-weight: bold; 
-}
-/*#########################
-###########TABLE############
-#########################*/
-table {
-  border: 1px solid black;
-  width: 100%;
-  margin-bottom: 2%; 
-}
-th, .table th {
-    border: 1.5px solid black;
-    text-align: center;
-    font-style: large;
-    background-color: #FBE5D6FF;
-}
-td, .table td {
-    border: 1px solid black;
-    text-align: center;  
-    vertical-align: middle;
-    white-space: normal;
-}
-
-tr:nth-child(even) {
-  background-color: #F1F0F0;
-  color:#121212; 
-}
-caption {
-    color: #D64E26;
-    text-align: center;
-    font-style: italic;
-    caption-side: top;
-}
-.categorieifra table {
-  background-color: #F1F0F0;
-  text-align: right;
-}
-.categorieifra td, .table td {
-    border: 1px solid black;
-    text-align: left;  
-    vertical-align: middle;
-    white-space: normal;
-}
-/*#########################
-#######RESPONSIVE##########
-#########################*/
-
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.img1allergene{
-  float: right;
-  margin-left: 2%; 
-  margin-bottom: 0;
-  height: 20%;
-  width: 20%;
-}
-.img2allergene { 
-  height: 25%;
-  width: 60%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 3%;
-  margin-top: 5%;
-  margin-bottom: 5%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 60%;
-  width: 60%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 18%;
-  width: 18%;
-}
-.img3creationparfum {
-  float: left;
-  margin-right: 1%;
-  margin-left: 0%;
-  height: 20%;
-  width: 20%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 20%;
-  width: 20%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 25%;
-  width: 25%;
-}
-.imgMP1{
-  float: right;
-  top: 10%;
-  margin-left: 2%;
-  min-width: 20%;
-  max-width: 20%; 
-  min-height: 20%;
-  max-height: 20%;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 70%;
-  max-height: 70%;
-  min-width: 70%;
-  max-width: 70%;
-}
-table {
-min-width: 100%;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-.correctspacebug {
-    height: 1.1em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-}
-
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-.correctspacebug {
-    height: 2em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-.copyright {
-    font-size: 8px;
-}
-}
-
-@media screen and (min-width: 768px) and (max-width: 990px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.correctspacebug {
-    height: 2em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-.copyright {
-    font-size: 8px;
-}
-.text-in-color-brown {
-  color: #D64E26;
-  font-size: 0.9em;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 85%;
-  max-height: 85%;
-  min-width: 85%;
-  max-width: 85%;
-}
-}
-
-@media screen and (max-width: 768px) {
-.PageEntiere {
-    background-color: white;
-    padding-top: 60px;
-}
-.pagederoulante {
-  height: 100%;
-  overflow-y: visible;
-}
-.logomenu{
-    max-height: 40px;
-}
-.gros_titre {
-  padding-top: 2%;
-  font-weight: bold;
-  font-size: 1em;
-}
-ul {
-  padding-left: 1.5em;
-}
-.solvemobilepadding {
-  margin-top:85%; 
-}
-.hierarchie {
-  min-width: 90%;
-  min-height: 90%;
-  max-width: 90%;
-  max-height: 90%;
-}
-.img1allergene {
-  text-align: center;
-  margin-bottom: 5%;
-  height: 90%;
-  width: 90%;
-}
-.img2allergene { 
-  text-align: center;
-  height: 15%;
-  width: 90%; 
-  margin: 0;
-  margin-top:2%; 
-  margin-bottom: 4%;
-}
-.img3allergene { 
-  text-align: center;
-  height: 30%;
-  width: 90%; 
-  margin:0;
-  margin-top:2%; 
-  margin-bottom: 2%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-.img2creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-left:10%;
-  margin-right: 10%;
-  margin-top:2%; 
-  margin-bottom: 5%;
-}
-.img3creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img4creationparfum {
-  display: none;
-}
-.img5creationparfum {
-  display: none;
-}
-.img6creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.imgMP1{
-  float: none;
-  min-height: 60%;
-  max-height: 60%;
-  min-width: 60%;
-  max-width: 60%;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 100%;
-  max-height: 100%;
-  min-width: 100%;
-  max-width: 100%;
-}
-
-.imgingredientblock {
-  display: none;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-table {
-min-width: 100%;
-font-size: 10px;
-}
-.formulaire {
-  min-width: 100%;
-}
-.envoiRGPD {
-  min-width: 100%;
-}
-}
-
-@media screen and (min-width: 768px) {
-.PageEntiere {
-    background-color: white;
-}
-.img4creationparfum {
-  display: none;
-}
-}
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
+<div class="dropdown">
+  <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
+  </button>
+  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
+    <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
+  </form>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/support.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveaute.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="/newsletter/newsletter/subscribe"><span lang="fr">Newsletter</span><span lang="en">Newsletter</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/Sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/legal.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
 
 
-/*#########################
-########NOUVEAUTES#########
-#########################*/
-/*set up size of the whole timeline OK */
-.timeline{
-  position: relative;
-  margin: 0px auto;
-  width:100%;
-}
-/* Titre des parties OK*/
-.content h3{
-  color:#D64E26;
-  font-size:1.3em;
-  font-weight: bold;
-  padding-top: 2.5%;
-}
-/*Style du texte sous la date OK*/
-.ajoutMP{
-  color:black;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-/*drawing the line itself OK */
-.timeline:before{
-  content: '';
-  position:absolute;
-  left:50%;
-  width:0.5em;
-  height:100%;
-  background-color:#D64E26;
-}
-/*styling the size of each step/content OK */
-.timeline ul li{
-  list-style: none;
-  position:relative;
-  width:50%;
-  padding:5px 35px;
-}
-/*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:right;
-  float:left;
-  clear:both;
-  right: 4%;
-  width: 52.5%;
-}
-/* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left:1.1%;
-  width: 52%;
-}
-/*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before {
-  content:'';
-  position:absolute;
-  width:40px;
-  height:40px;
-  background-color:#F7B88E;
-  border-radius:60%;
-  box-shadow: 0 0 0 6px rgba(251, 229, 214);
-  z-index:1
-}
-/*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{
-  left: -3.6%;
-}
-.timeline ul li:nth-child(odd):before{
-  right:-3.6%;
-}
-/*styling the numbering. OK */
-.timeline ul li:before{
-  font-weight:bold;
-  font-size:1.2em;
-  color:white;
-  text-align:center;
-  padding-top:1%;
-}
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
 
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-  /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){right: 5.7%; width: 53.5%;}
-  .timeline ul li:nth-child(odd):before{right:-5%;}
-  /* for every even numbered bullet point, align to the right OK*/
-  .timeline ul li:nth-child(even){left:1.1%;width: 52.5%;}
-  /*position the circle icons on the timeline OK*/
-  .timeline ul li:nth-child(even):before{left: -5%;}
-}
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-  /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){right: 6%; width: 53.5%;}
-  .timeline ul li:nth-child(odd):before{right:-5.5%;}
-  /* for every even numbered bullet point, align to the right OK*/
-  .timeline ul li:nth-child(even){left:1.1%; width: 52.5%;}
-  /*position the circle icons on the timeline OK*/
-  .timeline ul li:nth-child(even):before{left: -8%;}
-}
-@media screen and (max-width: 990px) {
-/* Titre des parties OK*/
-.content h3{font-size:1em; padding-top: 2.5%; }
-/*Style du texte sous la date OK*/
-.ajoutMP{font-size: 0.9em;}
-/*drawing the line itself OK*/
-.timeline:before{left:6%; width:0.3em;}
-/*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:left;
-  float:right;
-  clear:both;
-  right: -5%;
-  width: 110%;
-}
-/* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left: 5%;
-  width: 110%;
-}
-/*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before { width:35px; height:35px;}
-/*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{left: -6%;}
-.timeline ul li:nth-child(odd):before{left: -6%;}
-/*styling the numbering. OK */
-.timeline ul li:before{font-size:0.9em; padding-top:3%;}
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
 
-.content p {
-  font-size: 0.8em;
-}
-}
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+<div class="container-fluid">
+
+<div class="row align-items-start">
+  <div class="clearfix w-100">
+    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
+    </button>
+    <button class="btn text-in-color-brown float-right px-0">/</button>
+    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
+  </div>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
+  </div>
+</div>
+
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
+  <div class="col">
+    <a class="btn mt-4 text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
+    <br>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/support.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveaute.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
+</div>
+
+<div class="row correctspacebug"></div>
+
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="/newsletter/newsletter/subscribe">
+          <span lang="fr">Newsletter</span><span lang="en">Newsletter</span>
+        </a>
+        <span class="col-12  m-0 p-0">
+          <a class="btn btn-sm save_map_status_on_leaving text-center" role="button" lang="fr" href="https://docs.google.com/forms/d/e/1FAIpQLSc0Lsx5k5lzFJ3p7YJn04Pn0KbyXCDnl52cTit8hxhf4YYQJA/viewform" target="_BLANK">Enquête de satisfaction  </a>
+          <a class="btn btn-sm save_map_status_on_leaving text-center" role="button" lang="en" href="https://docs.google.com/forms/d/e/1FAIpQLSeQljdzyC8Lkzqs2k97ZJDeC59lIV_ws2axSNfLa_0-yOezcQ/viewform" target="_BLANK">Satisfaction survey  </a>
+        </span>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/Sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/legal.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 mb-1 p-0 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019-2020 |  ScenTree SAS  | All Rights Reserved |
+   </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+<div id="blanc1" class="row blockrgpd"></div>
+<div id="contenant" class="row">
+<div class=" col-offset-1 col-9 textRGPD" >
+  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
+  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
+</div> 
+<div class=" col-offset-2 col-3 boutonRGPD">
+  <button class="btn btn-success" id="cookie_please">
+    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
+  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
+    <span lang="fr">Non</span><span lang="en">No</span>
+  </button>
+</div>
+</div>
+<div id="blanc1" class="row blockrgpd"></div>
+</div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center gros_titre">
+  <h1 class="gros_titre text-in-color-brown">
+    <span lang="fr">TOUT SAVOIR SUR L'IFRA</span>
+    <span lang="en">ALL YOU NEED TO KNOW ABOUT THE IFRA</span>
+  </h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+
+	<h2 class="sous_titre mt-3">
+		<span lang="fr">Qu’est-ce que l’IFRA et quel est son rôle ?</span>
+	    <span lang="en">What is the IFRA and what is its aim ?</span>
+	</h2>
+
+	<p>
+		<span lang="fr">Crée en 1973 l’IFRA (<a class="interpop" href="https://ifrafragrance.org/" target="_BLANK">International Fragrance Association</a>) a pour objectif principal de <b>représenter les intérêts et la voix de l’industrie des parfums à travers le monde</b>. Ainsi, au niveau mondial, cette organisation promeut la sécurité et les avantages des produits de l'industrie des parfums par le biais d'un dialogue entre les différentes parties prenantes de l’industrie.</span>
+		<span lang="en">Created in 1973, the IFRA (<a class="interpop" href="https://ifrafragrance.org/" target="_BLANK">International Fragrance Association</a>) wants to represent the interests and the voice of the perfume industry throughout the world. Then, this organization promotes perfume products security and advantages on a global scale, by making the link between the different entities of the perfume industry.</span>
+	</p>
+	<p>
+		<span lang="fr">L’IFRA travaille en lien avec l’RIFM (Research Institute for Fragrance Materials) afin de garantir la sécurité des produits de l’industrie. En effet, lorsqu’à la suite de nombreuses études, l’RIFM déclare qu’un ingrédient est susceptible d’être dangereux pour l’Homme, l’IFRA édite un <b class="bplus">standard</b> pour cet ingrédient. Ce standard sera publié au sein d’un <b class="bplus">amendement</b>.</span>
+		<span lang="en">The IFRA works closely to the RIFM (Research Institute for Fragrance Materials) to guarantee safe perfume products. In fact, after numerous studies, if the RIFM declares that one ingredient may be dangerous if used, the IFRA is editing a <b class="bplus">standard</b> for this ingredient. This standard will be published in an <b class="bplus">amendment</b>.</span>
+	</p>
+	<p>
+		<span lang="fr">A ce jour, nous sommes dans une <b>année de transition entre le 48th et le 49th amendement</b> (c’est pour cette raison que les ingrédients réglementés de ScenTree possèdent 2 onglets dans leur partie « IFRA »). A travers ces évolutions, c'est l'intégralité de l'industrie de la parfumerie qui doit donc s'adapter afin de <b>garantir toujours plus de sécurité à ses consommateurs</b>. </span>
+		<span lang="en">Today, the <b>transition between the 48th and the 49th amendements is being made</b> (this is why regulated ingredients found on ScenTree have two tabs, for each amendement). This means that regulation is evolving throughout the years, and perfumes on <b>the market have to adapt…</b></span>
+	</p>
+		
+	<h2 class="sous_titre">
+	    <span lang="fr">En savoir plus sur les standards : </span>
+	    <span lang="en">Improve your knowledge around standard</span>
+	</h2>
+
+	<p>
+		<span lang="fr">Les standards de l’IFRA peuvent être de 3 types : </span>
+		<span lang="en">3 types of standards are distinguished : </span>
+
+		<ol class="ingredientnat" type="1">
+			<li class="catégories2">
+				<span lang="fr">Standard Restrictif : </span>
+				<span lang="en">Restrictive Standards : </span>
+			</li>
+			<span lang="fr">Ce type de standard définit des concentrations limites à ne pas dépasser dans un produit fini. Ces concentrations dépendent majoritairement du type de produit fini, comme nous le verrons dans le point suivant. </span>
+			<span lang="en">This type of standards defines limits of use for some ingredients, not to overpass in the finished product. These concentrations mostly depend on the type of finished product.</span>
+
+			<li class="catégories2">
+				<span lang="fr">Standard Prohibitif : </span>
+				<span lang="en">Prohibitive Standards : </span>
+			</li>
+			<span lang="fr">Ce type de standard interdit l’utilisation d’un produit car le cadre d’une composition parfumée. A ce jour, prêt de <a role="button" data-toggle="modal" data-target="#ifra_modal" href="#">66 ingrédients ou groupes d’ingrédients interdits</a>. </span>
+			<span lang="en">This type of standard prohibits the use of an ingredient in a perfume product. Today, <a role="button" data-toggle="modal" data-target="#ifra_modal" href="#">66 ingredients or groups of ingredients are prohibited</a>.</span>
+
+			<li class="catégories2">
+				<span lang="fr">Standard Spécificatif :  </span>
+				<span lang="en">Specificative Standards :  </span>
+			</li>
+			<span lang="fr">Ce type de standard apporte des précisions sur la qualité (pureté, processus d’extraction ou de production etc etc)</span>
+			<span lang="en">This type of standard gives precisions over quality (purity, extraction or production process etc.)</span>
+		</ol>
+
+		<p class="m-0 p-0">
+			<span lang="fr">A noter que tous les produits de consommation parfumés entrent dans le champ d'application des normes IFRA, à l'exception des produits qui ne sont manifestement pas couverts par les évaluations de sécurité RIFM, tels que les dispositifs médicaux, les médicaments prescrits, les applications de l'aromathérapie ou encore les produits de consommation utilisés dans le cadre professionnel (par exemple, les shampoings appliqués dans les salons de coiffure, les désinfectants pour les mains appliqués dans les hôpitaux, etc.)</span>
+			<span lang="en">It is to be notes that every single type of perfumed products is registered by the IFRA, except some of them that are not covered by the RIFM safety assessments, as medical products, prescribed medication, aromatherapy application or products used in a professional environment (for example, shampoos to the hairdressers, hand disinfectants applied at hospitals, etc.)</span>
+		</p>
+	</p>
+
+	<h2 class="sous_titre">
+	    <span lang="fr">Qu’elles sont les nouveautés de l’amendement 49th ? </span>
+	    <span lang="en">What is new about the 49th amendment ? </span>
+	</h2>
+
+	<p>
+		<span lang="fr">Les principales nouveautés de cet amendement par rapport au précédent concernent l'introduction de plusieurs <b class="bplus">améliorations de la méthodologie d'évaluation des risques</b>. (Révision de la méthodologie de l'<b>évaluation quantitative des risques</b> pour les ingrédients de parfumerie – QRA2). Cette amélioration s’appuie sur une nouvelle façon d'évaluer la toxicité systémique basée sur un modèle d'exposition globale. </span>
+		<span lang="en">The main news from this amendment, compared to the previous one are concerning many <b class="bplus">improvements of the risk assessment methodology</b> : modification of the <b>quantitative risk assessment</b> methodology for perfume ingredients – QRA2 (Quantitative Risk Assessment). This improvement concerns a new method for evaluating the systemic toxicity, based on global exposure to an ingredient.</span>
+	</p>
+	<p class="exemple">
+		<span lang="fr">Pour plus de détails sur ce point, veuillez consulter le site web de l'IDEA (<a class="interpop" href="http://ideaproject.info/" target="_blank">http://ideaproject.info/</a> ) et les publications concernant le QRA2 (www.fragrancematerialsafetyresource.elsevier.com/).</span>
+		<span lang="en">For more details, please go on the IDEA website (<a class="interpop" href="http://ideaproject.info/" target="_blank">http://ideaproject.info/</a>) and read publications concerning the QRA2 (www.fragrancematerialsafetyresource.elsevier.com/).</span>
+	</p>
+	<p>
+		<span lang="fr">Cela a donc eu pour conséquence : </span>
+		<span lang="en">As a consequence : </span>
+		
+		<ol class="ingredientnat">
+			<li>
+				<span lang="fr">L'établissement de catégories différentes par rapport au QRA1 (48th). Ainsi, toutes les normes, nouvelles et existantes, comprennent maintenant 12 catégories EQR2 au lieu de 11 auparavant.</span>
+				<span lang="en">Different product categories were established, regarding the QRA1 (48th amendment). Then, every new or existing standards are mentioning 12 QRA2 categories, instead of 11.</span>
+			</li>
+			<br>
+			<li>
+				<span lang="fr">[POINT NON TRADUIT EN FR]</span>
+				<span lang="en">In the new amendment, categories previously based on an ingredient’s systemic toxicity have been renewed, this time according to combined exposures. Previous categories (QRA1) have been harmonized with the new ones (QRA2). Moreover, new concentration limits have been tested with the previous methodology, using systemic toxicity. Eventually, the limit of use defined in the 49th amendment corresponds to the weakest concentration obtained for one assessment, and the other.</span>
+			</li>
+		</ol>
+	</p>
+	<div class="row col-12" style="font-size: 0.8em;">
+		<table class="col-7 categorieifra" style="align-items: right;">
+	   	<caption class="caption"><span lang="fr">Liste des produits finis regroupés par catégories</span><span lang="en">List of finished products grouped by category</span></caption> 
+		   <thead>
+		        <tr style="text-transform: uppercase;">
+		            <th>
+			            <span lang="fr">Catégorie</span>
+			        	<span lang="en">Category</span>
+			        </th>
+		            <th>
+		            	<span lang="fr">Type de produits</span>
+			        	<span lang="en">Product type</span>
+			        </th>
+		        </tr>
+		   </thead>     
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>1</td>
+	            <td>
+	            	<span lang="fr">Produit pour les lèvres</span>
+	            	<span lang="en">Products applied to the lips</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>2</td>
+	            <td>
+	            	<span lang="fr">Produits pour les aisselles</span>
+	            	<span lang="en">Products applied to the axillae</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>3</td>
+	            <td>
+	            	<span lang="fr">Produits appliqués sur le visage et le coprs en utilisant le bout des doigts</span>
+	            	<span lang="en">Products applied to the face/body using fingertips</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>4</td>
+	            <td>
+	            	<span lang="fr">Produits de Fine Fragrance</span>
+	            	<span lang="en">Products related to Fine Fragrance</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>5</td>
+	            <td>
+	            	<span lang="fr">Produits appliqués sur le visage et le corps en utilisant la paume de la main, (produits sans rinçage)</span>
+	            	<span lang="en">Products applied to the face and body using the hands (palms), primarily leave-on</span>
+	            </td> 
+	        </tr>
+	          <tr style="background-color: white;">
+	            <td style="text-align: center;">5A</td>
+	            <td>
+	            	<span lang="fr">Lotion pour le corps appliquée en utilisant la paume de la main, (produits sans rinçage)</span>
+	            	<span lang="en">Body lotion products applied to the body using the hands (palms), primarily leave on</span>
+	            </td> 
+	        </tr>
+	          <tr style="background-color: white;">
+	            <td style="text-align: center;">5B</td>
+	            <td>
+	            	<span lang="fr">Produits hydratants pour le visage appliqués sur le visage en utilisant la paume de la main, (produits sans rinçage)</span>
+	            	<span lang="en">Face moisturizer products applied to the face using the hands (palms), primarily leave on</span>
+	            </td> 
+	        </tr>
+	          <tr style="background-color: white;">
+	            <td style="text-align: center;">5C</td>
+	            <td>
+	            	<span lang="fr">Crèmes pour les mains appliqués sur les mains en utilisant la paume de la main, (produits sans rinçage)</span>
+	            	<span lang="en">Hand cream products applied to the hands using the hands (palms), primarily leave on</span>
+	            </td> 
+	        </tr>
+	          <tr style="background-color: white;">
+	            <td style="text-align: center;">5D</td>
+	            <td>
+	            	<span lang="fr">Crèmes pour bébés, huiles pour bébés et talc pour bébés</span>
+	            	<span lang="en">Baby Creams, baby Oils and baby talc</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>6</td>
+	            <td>
+	            	<span lang="fr">Produits avec exposition orale et labiale</span>
+	            	<span lang="en">Products with oral and lip exposure</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>7</td>
+	            <td>
+	            	<span lang="fr">Produits appliqués sur les cheveux avec contact des mains</span>
+	            	<span lang="en">Products applied to the hair with some hand contact</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: white;">
+	            <td style="text-align: center;">7A</td>
+	            <td>
+	            	<span lang="fr">Produits rincés appliqués sur les cheveux avec contact des mains</span>
+	            	<span lang="en">Rinse-off Products applied to the hair with some hand contact</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: white;">
+	            <td style="text-align: center;">7B</td>
+	            <td>
+	            	<span lang="fr">Produits non-rincés appliqués sur les cheveux avec contact des mains</span>
+	            	<span lang="en">Leave-on products applied to the hair with some hand contact</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>8</td>
+	            <td>
+	            	<span lang="fr">Produits présentant une exposition anogénitale significative</span>
+	            	<span lang="en">Products with significant anogenital exposure</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>9</td>
+	            <td>
+	            	<span lang="fr">Produits appliqués sur le visage ou le corps (produits rinçés)</span>
+	            	<span lang="en">Products with body and hand exposure, primarily rinse off</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>10</td>
+	            <td>
+	            	<span lang="fr">Produits d'entretien ménager avec un contact main eventuel</span>
+	            	<span lang="en">Household care products with mostly hand contact</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: white;">
+	            <td style="text-align: center;">10A</td>
+	            <td>
+	            	<span lang="fr">Produits d'entretien ménager à l'exclusion des produits en aérosol (à l'exclusion des produits en aérosol/pulvérisation)</span>
+	            	<span lang="en">Household care excluding aerosol products (excluding aerosol/spray products)</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: white;">
+	            <td style="text-align: center;">10B</td>
+	            <td>
+	            	<span lang="fr">Produits de sprays et aérosols ménager</span>
+	            	<span lang="en">Household aerosol/spray products</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>11</td>
+	            <td>
+	            	<span lang="fr">Produits destinés à entrer en contact avec la peau, mais avec un transfert minimal de parfum sur la peau à partir d'un substrat inerte</span>
+	            	<span lang="en">Products with intended skin contact but minimal transfer of fragrance to skin from inert substrate</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: white;">
+	            <td style="text-align: center;">11A</td>
+	            <td>
+	            	<span lang="fr">Produits destinés à entrer en contact avec la peau, mais avec un transfert minimal de parfum sur la peau à partir d'un substrat inerte sans exposition UV</span>
+	            	<span lang="en">Products with intended skin contact but minimal transfer of fragrance to skin from inert substrate without UV exposure</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: white;">
+	            <td style="text-align: center;">11B</td>
+	            <td>
+	            	<span lang="fr">Produits destinés à entrer en contact avec la peau, mais avec un transfert minimal de parfum sur la peau à partir d'un substrat inerte avec exposition UV</span>
+	            	<span lang="en">Products with intended skin contact but minimal transfer of fragrance to skin from inert substrate with potential UV exposure</span>
+	            </td> 
+	        </tr>
+	        <tr style="background-color: #F1F0F0; font-weight: bold;">
+	            <td>12</td>
+	            <td>
+	            	<span lang="fr">Produits non destinés à un contact direct avec la peau, transfert minimal ou insignifiant sur la peau</span>
+	            	<span lang="en">Products not intended for direct skin contact, minimal or insignificant transfer to skin</span>
+	            </td> 
+	        </tr>
+	  	</table> 
+	</div>
+	<p>
+		<span lang="fr">Pour en savoir d’avantage sur les spécificités de chacunes de ces categories, nous vous invitons à vous référer aux <a class="interpop" href="https://ifrafragrance.org/docs/default-source/ifra-code-of-practice-and-standards/49th-amendment/ifra-49th-amendment-(att-01)---guidance-for-the-use-of-ifra-standards.pdf?sfvrsn=f83d57c7_3 " target="_blank">Guidance for the use of Ifra Standard</a></span>
+		<span lang="en">To get to know more about these categories, please refer to the <a class="interpop" href="https://ifrafragrance.org/docs/default-source/ifra-code-of-practice-and-standards/49th-amendment/ifra-49th-amendment-(att-01)---guidance-for-the-use-of-ifra-standards.pdf?sfvrsn=f83d57c7_3 " target="_blank">Guidance for the use of IFRA Standards</a></span>
+	</p>
+	<p>
+		<span lang="fr">Afin que l’ensemble de l’industrie soit en mesure d’assurer la transition avec le nouvel amendement, l’IFRA a également défini une timeline permettant à chacun de travailler sereinement :</span>
+		<span lang="en">So that the industry gets the time to make the transition between the oldest and the newest amendments, the IFRA delivered a time line to able every company to work serenely :</span>
+	</p>
+	<p style="text-align: center;">
+        <img class="timelineifra" lang="fr" src="../img/IFRATimeline.png" alt="Calendrier d'implentation du 49ème amendement" title="Calendrier d'implentation du 49ème amendement">
+        <img class="timelineifra" lang="en" src="../img/IFRATimeline.png" alt="Timetable for implementation of the 49th amendment" title="Timetable for implementation of the 49th amendment">
+    </p>
+    <p>
+		<span lang="fr">Pour en savoir d'avantage sur l'impact de l'IFRA et sur les changements du 49ème amendement sur vos produits, nous vous invitons à vous rapprocher de votre service réglementaire ou de la société de compositons de vos parfums </span>
+		<span lang="en">To find out more about the impact of IFRA and the changes of the 49th amendment on your products, we invite you to contact your regulatory department or your fragrance creation company.</span>
+	</p>
+
+
+</div><!--Fin scroll-->
+
+</div>
+
+
+<!--MODAL IFRA -->
+<div class="modal" tabindex="-1" role="dialog" id="ifra_modal">
+<div class="modal-dialog modal-xl" role="document">
+<div class="modal-content">
+
+<div class="modal-header d-block">
+  <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="gros_titre text-in-color-brown text-center">
+  	<span lang="fr">IFRA - Les ingrédients interdits</span>
+  	<span lang="en">IFRA - Prohibited ingredients</span>
+  </h4>
+</div>
+
+<div class="modal-body text-justify scrollbar-inside2">
+
+ <p class="mt-5" lang="fr">Une partie du travail de l’association est également d’interdire l’utilisation d’ingrédients dangereux pour le consommateur. Ne pouvant donc pas les insérer dans notre classification, nous vous présentons la liste de ces substances ci-dessous : </p>
+ <p class="mt-5" lang="en">Part of the association's work is also to ban the use of ingredients that are dangerous for the consumer. Therefore, since they cannot be included in our classification, we present the list of these substances below:</p>
+
+<div class="table-responsive col-12" style="font-size: 0.8em;">
+  <table class="col-12 align-items-center" style="width:100%">
+    <caption class="caption"><span lang="fr">Liste des produits interdits d'utilisation par l'IFRA</span><span lang="en">List of products prohibited for use by IFRA</span></caption> 
+      <thead>
+          <tr>
+            <th>Ingredient</th>
+            <th>N° CAS</th>
+            <th>Spécifications</th>
+          </tr>
+      </thead>
+          <tr>
+            <td width="35%">Acetyl ethyl tetramethyl tetralin (AETT, Versalide)</td>
+            <td width="15%">88&#8209;29&#8209;9</td>
+            <td width="50%"></td>
+          </tr>
+          <tr>
+             <td>Acetyl isovaleryl (5-Methyl-2,3-hexanedione)</td>
+             <td>13706&#8209;86&#8209;0</td>
+             <td></td> 
+          </tr>
+          <tr>
+              <td>Alantroot oil (Elecampane oil)</td>
+              <td>97676&#8209;35&#8209;2</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Allyl heptine carbonate</td>
+              <td>73157&#8209;43-4</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Allyl isothiocyanate</td>
+              <td>57&#8209;06&#8209;7</td>
+              <td><span></span></td> 
+          </tr>
+          <tr>
+              <td>Amylcyclopentenone</td>
+              <td>25564&#8209;22&#8209;1</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Anisylidene acetone (4-(p-methoxyphenyl)-3-butene-2-one)</td>
+              <td>943&#8209;88&#8209;4</td>
+              <td></td> 
+          </tr> 
+          <tr>
+              <td>cis and trans Asarone ((E) and(Z) 2,4,5 Trimethoxypropen-1-yl benzene)</td>
+              <td>2883-98-9 <br> 5273-86-9</td>
+              <td>The total level of cis- and trans-asarone resulting from natural presence in essential oils (e.g. calamus oil) should not exceeds 0,01% in the finished product.</td> 
+          </tr> 
+          <tr>
+              <td>Benzene</td>
+              <td>71-43-2</td>
+              <td>The level of benzene has to be kept as low as practicable and should never exceed 1ppm in the fragrance compound.</td> 
+          </tr>
+           <tr>
+              <td>Benzyl cyanide</td>
+              <td>140-29-4</td>
+              <td>On the basis of established maximum levels of this substance in commercially available natural sources (like essential oils and extracts), exposure to this substance from the use of these oils and extracts is not significant and the use of these oils authorized as long as the level of benzyl cyanide in the finished product does not exceed 100ppm.</td> 
+          </tr>
+          <tr>
+              <td>Benzylidene acetone (4-Phenyl-3-buten-2-one)</td>
+              <td>122-57-6</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Birch wood pyrolysate (Crude)</td>
+              <td>8001-88-5 <br>84012-15-7<br>85940-29-0<br>68917-50-0</td>
+              <td>The rectified (purified) birch tar oils can be used insofar the below requirement is respected:<br>
+              Limit content of polynuclear aromatic hydrocarbons (PAH) resulting from the use of rectified oils according to Good Manufacturing Practice.<br>
+              Benzopyrene and 1,2-Benzanthracene are to be used as markers for PAH. If used alone or in combination with rectified Cade oil, rectified Styrax oil or rectified Opoponax oil, the total concentration of both of the markers should not exceed 1 ppb in the final product.</td> 
+          </tr>
+          <tr>
+              <td>Boldo oil</td>
+              <td>8022-81-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>3-Bromo-1,7,7-trimethylbicyclo[2.2.1]heptane-2-one</td>
+              <td>76-29-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Bromostyrene</td>
+              <td>103-64-0</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>p-tert-Butylphenol</td>
+              <td>98-54-4</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Cade oil - Juniperus oxycedrus L. (Crude)</td>
+              <td>8013-10-3<br>90046-02-9</td>
+              <td>The rectified (purified) cade oils can be used insofar the below requirement is respected:<br>Limit content of polynuclear aromatic hydrocarbons (PAH) resulting from the use of rectified oils according to Good Manufacturing Practice.<br>Benzopyrene and 1,2-Benzanthracene are to be used as markers for PAH. If used alone or in combination with rectified Birch tar oils, rectified Opoponax oil or rectified Styrax oil, the total concentration of both of the markers should not exceed 1 ppb in the final product.</td> 
+          </tr>
+          <tr>
+              <td>Carvone oxide</td>
+              <td>33204-74-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Chenopodium oil</td>
+              <td>8006-99-3</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Cinnamylidene acetone</td>
+              <td>4173-44-8</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Colophony</td>
+              <td>8050-09-7</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Costus root oil, absolute and concrete</td>
+              <td>8023-88-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Cyclamen alcohol (3-(4-Isopropylphenyl)-2-methylpropanol)</td>
+              <td>4756-19-8</td>
+              <td>Cyclamen alcohol should not be used as a fragrance ingredient as such, but to accept a level of up to 1,5% in cyclamen aldehyde.</td> 
+          </tr>
+          <tr>
+              <td>1,3-Dibromo-2-methoxy-4-nitro-5-(1,1-dimethylethyl)-6-methyl-benzene (Musk alpha)</td>
+              <td>63697-53-0</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>1,3-Dibromo-2-methoxy-4-methyl-5-nitrobenzene (Musk KS)</td>
+              <td>62265-99-0</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>2,2-Dichloro-1-methylcyclopropylbenzene</td>
+              <td>3591-42-2</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>2,4-Dienals</td>
+              <td>764-40-9<br>142-83-6<br>80466-34-8<br>5910-85-0<br>30361-28-5<br>6750-03-4<br>2363-88-4<br>13162-46-4<br>21662-16-8<br>25152-84-5<br>30361-29-6<br>4313-03-5</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Diethyl maleate</td>
+              <td>141-05-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>2,4-Dihydroxy-3-methylbenzaldehyde</td>
+              <td>6248-20-0</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>4,6-Dimethyl-8-tert-butylcoumarin (Butolia)</td>
+              <td>17874-34-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>3,7-Dimethyl-2-octen-1-ol</td>
+              <td>40607-48-5</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Dimethyl citraconate</td>
+              <td>617-54-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Diphenylamine</td>
+              <td>122-39-4</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>2,4-Dodecadien-1-ol</td>
+              <td>18485-38-6</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Esters of 2-octynoic acid (Except Methyl heptine carbonate which is IFRA Restricted)</td>
+              <td>10484-32-9<br>10519-20-7</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Esters of 2-nonynoic acid, (Except Methyl octine carbonate)</td>
+              <td>10031-92-2</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Ethyl acrylate</td>
+              <td>140-88-5</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Ethylene glycol monoethyl ether and its Acetate</td>
+              <td>110-80-5<br>111-15-9<br>(acetate)</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Ethylene glycol monomethyl ether and its Acetate</td>
+              <td>109-86-4<br>110-49-6<br>(acetate)</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Fig leaf absolute</td>
+              <td>68916-52-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Furfuryl alcohol</td>
+              <td>98-00-0</td>
+              <td>Contributions from other sources like Coffee extracts or certain types of Cade oil have been evaluated. On the basis of the established maximum level of Furfuryl alcohol in these commercially available natural sources, exposure to this substance from the use of these oils and extracts is not significant and not regarded of concern from a consumer safety point of view.<br>See also the note on contributions from other sources in the Introduction to the IFRA Standards.</td> 
+          </tr>
+          <tr>
+              <td>Furfurylidene acetone</td>
+              <td>623-15-4</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Geranyl nitrile</td>
+              <td>5146-66-7<br>5585-39-7<br>31983-27-4<br></td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>trans-2-Heptenal</td>
+              <td>18829-55-5</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>2,4-Hexadien-1-ol</td>
+              <td>111-28-4<br>17102-64-6</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Hexahydrocoumarin</td>
+              <td>700-82-3</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>trans-2-Hexenal diethyl acetal</td>
+              <td>67746-30-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>trans-2-Hexenal dimethyl acetal</td>
+              <td>18318-83-7</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Hydroabietyl alcohol, dihydroabietyl alcohol</td>
+              <td>13393-93-6<br>26266-77-3<br>1333-89-7</td>
+              <td></td>
+          </tr>
+          <tr>
+              <td>Hydroquinone monoethyl ether (4-ethoxy-Phenol)</td>
+              <td>622-62-8</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Hydroquinone monomethyl ether (4-methoxy-Phenol)</td>
+              <td>150-76-5</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Isophorone</td>
+              <td>78-59-1</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>6-Isopropyl-2-decalol (Decatol)</td>
+              <td>34131-99-2</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Massoia bark oil</td>
+              <td>85085-26-3</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Massoia lactone</td>
+              <td>54814-64-1<br>51154-96-2</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>7-Methoxycoumarin</td>
+              <td>531-59-9</td>
+              <td>The material as such should not be used as a fragrance ingredient for any application.On the basis of established maximum levels of this substance in commercially available natural sources (like essential oils, extracts and absolutes), exposure to this substance from the use of these oils and extracts is regarded acceptable as long as the level of 7-methoxycoumarin in the finished product does not exceed 100ppm.</td> 
+          </tr>
+          <tr>
+              <td>alpha-Methyl anisylidene acetone (1-(4-Methoxyphenyl)-1-penten-3-one)</td>
+              <td>104-27-8</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>6-Methylcoumarin (Toncarine)</td>
+              <td>92-48-8</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>7-Methylcoumarin</td>
+              <td>2445-83-2</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Methyl crotonate</td>
+              <td>623-43-8</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>4-Methyl-7-ethoxycoumarin (Maraniol)</td>
+              <td>87-05-8</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>p-Methylhydrocinnamic aldehyde</td>
+              <td>5406-12-2</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Methyl methacrylate </td>
+              <td>80-62-6</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>3-Methyl-2(3)-nonenenitrile (Citgrenile)</td>
+              <td>53153-66-5</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Moskene (1,1,3,3,5-Pentamethyl-4,6-dinitroindane)</td>
+              <td>116-66-5</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Musk ambrette</td>
+              <td>83-66-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Musk tibetene (1-tert-Butyl-2,6-dinitro-3,4,5-trimethylbenzene)</td>
+              <td>145-39-1</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Musk Xylene</td>
+              <td>81-15-2</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Nitrobenzene</td>
+              <td>98-95-3</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>2-Pentylidene cyclohexanone</td>
+              <td>25677-40-1</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Peru balsam crude </td>
+              <td>8007-00-9</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Phenyl acetone (Methyl benzyl ketone)</td>
+              <td>103-79-7</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Phenyl benzoate</td>
+              <td>93-99-2</td> 
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Pseudoionone (2,6-Dimethylundeca-2,6,8-trien-10-one)</td>
+              <td>141-10-6</td>
+              <td>Pseudoionone should not be used as fragrance ingredient as such, but a level of up to 2% as an impurity in ionones is accepted.</td> 
+          </tr>
+          <tr>
+              <td>Pseudo Methylionones</td>
+              <td>26651-96-7<br>72968-25-3<br>1117-41-5</td>
+              <td>Pseudo methylionone should not be used as fragrance ingredient as such, but a level of up to 2% as an impurity in methylionones is accepted.</td> 
+          </tr>
+          <tr>
+              <td>Quinoline</td>
+              <td>91-22-5</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Safrole, Isosafrole, Dihydrosafrole</td>
+              <td>94-59-7</td>
+              <td>Safrole as such should not be used as a fragrance ingredient; essential oils containing safrole should not be used at a level such that the total concentration of safrole exceeds 0,01% in the finished product. The total concentration of safrole, isosafrole and dihydrosafrole should not exceed 0,01% in the finished product.</td> 
+          </tr>
+          <tr>
+              <td>Santolina oil</td>
+              <td>84961-58-0</td>
+              <td></td> 
+          </tr>
+          <tr>
+              <td>Savin oil (Juniperus Sabina L.)</td>
+              <td>8024-00-8</td>
+              <td>Savin oil should not be used as a fragrance ingredient if prepared from Juniperus Sabina L. Only oils obtained from Juniperus phoenicea L. should be used.</td> 
+          </tr>
+          <tr>
+              <td>Styrax (Crude)</td>
+              <td>8024-01-9<br>8046-19-3</td>
+              <td>Crude gums of American and Asian styrax should not be used as fragrance ingredients. Only extracts or distillates (resinoids, absolutes and oils), prepared from exudations of Liquidambar styraciflua L. var. macrophylla or Liquidambar orientalis Mill., can be used and should not exceed a level of 0.6% in the finished product.</td> 
+          </tr>
+          <tr>
+              <td>Toluene</td>
+              <td>108-88-3</td>
+              <td>The level of toluene has to be kept as low as practicable and should never exceed 100ppm in the fragrance compound.</td> 
+          </tr>
+          <tr>
+              <td>Verbena oil</td>
+              <td>8024-12-2</td>
+              <td></td> 
+          </tr>
+  </table>
+</div>
+
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-secondary mx-auto" data-dismiss="modal">Fermer</button>
+</div> <!-- fin footer -->
+
+</div>
+</div>
+</div>
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>
