@@ -438,7 +438,9 @@ td, .table td {
   border: 2px solid rgba(41,161,239,0.33);
   border-radius: 10px 10px 10px 10px;
 }
-
+.nav-link:active {
+  background-color: red;
+}
 
 
 @media screen and (min-width: 1400px) {
