@@ -1,12 +1,10 @@
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 #menu-block {
   z-index: 2;
   min-height: 500px;
 }
-
 #mapblock {
   z-index: 1;
 }
@@ -37,7 +35,10 @@ html, body {
 .interpop{
   color: #6586B4;
 }
-
+.hr {
+  margin: 0;
+  padding: 0;
+}
 .max-height-200px {
   max-height: 200px;
 }
