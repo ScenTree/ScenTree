@@ -70,10 +70,9 @@ html, body {
   text-decoration: underline;
 }
 
-
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(110vh - 320px);
+  max-height: calc(100vh - 320px);
 }
 
 .scrollbar-inside2 {
