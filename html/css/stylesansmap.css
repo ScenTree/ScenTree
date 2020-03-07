@@ -488,7 +488,10 @@ caption {
   background-color: white;
   text-align: right;
 }
-
+.categorieifra tr:nth-child(even) {
+  background-color: white;
+  color:#121212; 
+}
 /*#########################
 #######RESPONSIVE##########
 #########################*/
