@@ -485,7 +485,7 @@ caption {
     caption-side: top;
 }
 .categorieifra table {
-  background-color: none;
+  background-color: red;
   text-align: right;
 }
 
