@@ -443,7 +443,9 @@ nav{
   font-weight: bold;
   text-align: justify;
 }
-
+.panel-bidy p {
+  background-color: blue;
+}
 
 
 @media screen and (min-width: 1400px) {
