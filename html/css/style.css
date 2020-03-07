@@ -438,7 +438,7 @@ td, .table td {
   border: 2px solid rgba(41,161,239,0.33);
   border-radius: 10px 10px 10px 10px;
 }
-.active{
+.nav-item:active{
     color: orange;
     background-color: red;
 }
