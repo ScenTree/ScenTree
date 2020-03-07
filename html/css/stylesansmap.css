@@ -492,6 +492,12 @@ caption {
   background-color: white;
   color:#121212; 
 }
+.categorieifra td, .table td {
+    border: 1px solid black;
+    text-align: right;  
+    vertical-align: middle;
+    white-space: normal;
+}
 /*#########################
 #######RESPONSIVE##########
 #########################*/
