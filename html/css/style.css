@@ -433,6 +433,9 @@ td, .table td {
   font-size: small;
   padding-top: 10px;
 }
+.navbar {
+  background-color: blue;
+}
 .nav-item {
   white-space: nowrap;
   font-weight: bold;
