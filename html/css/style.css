@@ -435,8 +435,8 @@ td, .table td {
 }
 .nav-item {
   white-space: nowrap;
-  display:inline-block;
-  vertical-align:middle;
+  border: 3px solid #29A1EF;
+  border-radius: 25px 25px 25px 25px;
 }
 
 
