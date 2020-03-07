@@ -492,6 +492,10 @@ caption {
   background-color: #F1F0F0;
   color:#121212; 
 }
+.categorieifra tr:nth-child(odd) {
+  background-color: #F1F0F0;
+  color:#121212; 
+}
 .categorieifra td, .table td {
     border: 1px solid black;
     text-align: left;  
