@@ -1,891 +1,892 @@
-<!DOCTYPE html>
-<html class="h-100">
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-<!--ADD FAVICON -->
-<link rel="icon" type="image/png" href="../img/logotfav.png" />
-<!-- Titre de la page -->   
-<title lang="fr">ScenTree - Classification innovante des ingrédients parfum</title>
-<title lang="en">ScenTree - The new collaborative perfumery ingredients classification</title>
-<!--Description Google-->
-<meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
-<!-- Bootstrap -->
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-<!-- Fichier Style CSS -->
-<link href="../css/style.css" rel="stylesheet" />
-
-<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-<!-- leaflet -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-crossorigin=""/>
-</head>
-
-<body class="d-flex flex-column h-100">
-<header class="d-md-none">
-<!-- fixed navbar -->
-<nav class="navbar  fixed-top  fillright">
-  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="scentree.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de Scentree"></a>
-<div class="dropdown">
-  <button class="btn dropdown-toggle" type="button" id="dropdownSarchButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <img src="../img/search1.png" class="max-height-30px" alt="Rechercher …" />
-  </button>
-  <form action="" autocomplete="off"  class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="dropdownSearchButton-sm">
-    <div class=""><input lang="fr" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." /><input lang="en" type="search" class="searchinput-sm  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." /></div>
-  </form>
-</div>
-<div class="dropdown pl-2">
-  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fas fa-bars"></i>
-  </button>
-  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
-      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
-    </div>
-    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
-    <a class="dropdown-item btn  save_map_status_on_leaving  they_support_us__link" role="button" href="../_/support.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
-    <a class="dropdown-item btn  save_map_status_on_leaving  the_news__link" role="button" href="../_/nouveaute.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
-    <span class="dropdown-item btn"><a class="survey_link  save_map_status_on_leaving" role="button" lang="fr" href="https://docs.google.com/forms/d/e/1FAIpQLSc0Lsx5k5lzFJ3p7YJn04Pn0KbyXCDnl52cTit8hxhf4YYQJA/viewform" target="_BLANK">Enquête de satisfaction  </a><a class="survey_link  save_map_status_on_leaving" role="button" lang="en" href="https://docs.google.com/forms/d/e/1FAIpQLSeQljdzyC8Lkzqs2k97ZJDeC59lIV_ws2axSNfLa_0-yOezcQ/viewform" target="_BLANK">Satisfaction survey  </a><i class="fas fa-info-circle notifi4"></i></span>
-    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="/newsletter/newsletter/subscribe"><span lang="fr">Newsletter</span><span lang="en">Newsletter</span></a>
-    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
-    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/Sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
-    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/legal.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
-    <div class="dropdown-divider"></div>
-    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
-    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
-  <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
-  </div>
-  <span><i class="fas fa-info-circle notifi3"></i></span>
-</div>
-</nav>
-</header>
-
-
-<!-- Class container corresponds à l'ensemble de la page-->
-<main role="main" class="flex-shrink-0 h-100">
-
-<div class="container-fluid h-100 PageEntiere">
-<div class="row h-100">
-
-<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
-
-<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
-<div class="container-fluid">
-
-<div class="row align-items-start">
-  <div class="clearfix w-100">
-    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
-    </button>
-    <button class="btn text-in-color-brown float-right px-0">/</button>
-    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
-  </div>
-  <div class="col-12 text-center">
-    <a class="btn save_map_status_on_leaving" role="button" href="../_/scentree.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
-  </div>
-</div>
-
-<div class="row align-items-start">
-  <div class="col-12 align-items-center m-0">
-    <div class="font-weight-bold text-size-1-1vw pb-1 d-none d-sm-none d-md-block"><span lang="fr">Trouver une matière première&nbsp;:&nbsp;</span><span lang="en">Find a raw material&nbsp;:&nbsp</span></div>
-  </div>
-  <!--Recherche -->
-  <div class="col-12 text-center align-items-start">
-  <form class="" action="" autocomplete="off" id="searchForm">
-    <input lang="fr" type="search" class="searchinput  my-search-bar  form-control" placeholder="Nom (botanique) ou N°CAS..." />
-    <input lang="en" type="search" class="searchinput  my-search-bar  form-control" placeholder="Name (botanical) or CAS N°..." />
-  </form>
-  </div>
-</div>
-
-<div class="row align-items-start text-center">
-  <!--Boutons support et news -->
-  <div class="col">
-    <a class="btn mt-4 mb-3 text-in-color-brown  save_map_status_on_leaving they_support_us__link" role="button" href="../_/support.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
-    <br>
-    <a class="btn mt-1 mb-1 text-in-color-brown  save_map_status_on_leaving  the_news__link" role="button" href="../_/nouveaute.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
-    <br>
-    <span class="btn mt-3 mb-1"><a class="survey_link  text-in-color-brown save_map_status_on_leaving" role="button" lang="fr" href="https://docs.google.com/forms/d/e/1FAIpQLSc0Lsx5k5lzFJ3p7YJn04Pn0KbyXCDnl52cTit8hxhf4YYQJA/viewform" target="_BLANK"><b>Enquête de satisfaction  </b></a><a class="survey_link  text-in-color-brown save_map_status_on_leaving" role="button" lang="en" href="https://docs.google.com/forms/d/e/1FAIpQLSeQljdzyC8Lkzqs2k97ZJDeC59lIV_ws2axSNfLa_0-yOezcQ/viewform" target="_BLANK"><b>Satisfaction survey  </b></a><i class="fas fa-info-circle notifi4"></i></span>
-  </div>    
-</div>
-
-<div class="row h-15 align-items-end">
-  <div class="container-fluid text-center">
-  <div class="col-12 p-0 mt-5 mb-1">
-        <a class="col-12  mt-2 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="/newsletter/newsletter/subscribe">
-          <span lang="fr">Newsletter</span><span lang="en">Newsletter</span>
-        </a>
-        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/Sources.html">
-          <span lang="fr">Sources</span><span lang="en">Sources</span>
-        </a>
-        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
-        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
-        </a>
-        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/legal.html">
-         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
-        </a>
-      <div class="col-12 mt-1 text-center">
-          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
-          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
-          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
-      </div>
-    </div>
-   <div class="copyright row mt-2 d-none d-sm-none d-md-block">
-        <sup>©</sup> Copyright 2019-2020 |  ScenTree SAS  | All Rights Reserved |
-   </div>
-  </div>
-</div>
-
-</div>
-
-</div>
-
-
-<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
-
-<div id="you_can_zoom">
-        <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close" id="close_you_can_zoom" style="margin:2%;"><span aria-hidden="true">&times;</span></button>
-  <p lang="fr">Zoomez et cliquez sur les descripteurs ou les ingrédients souhaités</p>
-  <p lang="en">Zoom and click on the wanted descriptor or ingredient</p>
-</div>
-
-<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
-<div id="blanc1" class="row blockrgpd"></div>
-<div id="contenant" class="row">
-<div class=" col-offset-1 col-9 textRGPD" >
-  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
-  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
-</div> 
-<div class=" col-offset-2 col-3 boutonRGPD">
-  <button class="btn btn-success" id="cookie_please">
-    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
-  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
-    <span lang="fr">Non</span><span lang="en">No</span>
-  </button>
-</div>
-</div>
-<div id="blanc1" class="row blockrgpd"></div>
-</div>
-
-<div id="map" class="h-100-with-padding-60px-before-md"></div>
-</div>
-
-</div>
-</div>
-
-
-
-
-<!-- MODAL DESCRIPTEURS -->
-<div class="modal fade" tabindex="-1" role="dialog" id="DescripteurModal">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="container-fluid  d-inline-block">
-          <div class="row">
-            <h1 class="col-12 col-md-6  font-weight-bold text-size-20px text-center-before-md text-align-left-strictly-after-md">
-              <span id="modaltitle2" class="modal-title modal-title1"></span>
-            </h1>
-            <h3 class="col-12 col-md-6  text-size-18px font-italic-before-md text-center-before-md text-align-right-strictly-after-md">
-              <span id="modalheader-type2" class="modalheader-type"></span>
-            </h3>
-          </div>
-        </div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      </div>
-
-    <div class="modal-body">
-      <div class="container-fluid">
-        <div class="row">         
-          <div class="col-sm-12">
-            <p><span class="Commentaires"><span id="modalbody-comment2" class="textdescripteurs"></span></span></p>
-          </div>
-        </div> 
-      </div> <!-- fin container -->
-    </div> <!-- fin body -->
-
-    <div class="modal-footer">
-      <button class="btn btn-secondary mx-auto" data-dismiss="modal"><span lang="fr">Fermer</span><span lang="en">Close</span></button>
-    </div> <!-- fin footer -->
-
-    </div> <!-- fin content -->
-  </div> <!-- fin container -->
-</div> <!-- fin Descripteurs --> 
-
-
-<!-- MODAL NATURELLES -->    
-<div id="naturelleModal" tabindex="-1" class="modal fade" role="dialog">
-<div class="modal-dialog modal-xl" role="document">
-<div class="modal-content">
-  
-  <!--modal header-->
-<div class="modal-header">
-  <div class="container-fluid  d-inline-block">
-  <div class="row">
-    <h1 class="col-12 col-md-6 font-weight-bold text-size-20px   text-center-before-md text-align-left-strictly-after-md">
-        <span id="modaltitle" class="modal-title "></span>
-      </h1>
-      <h3 class="col-12 col-md-6 text-size-18px font-italic-before-md text-center-before-md text-align-right-strictly-after-md">
-        <span id="modalheader-type" class="modalheader-type2"></span>
-      </h3>
-      <div id="modaltitle-fili" class="col-12  Filiation text-size-16px text-center"></div>
-  </div>
-  </div>
-  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-</div>
-
-<div class="modal-body m-0 p-0 text-size-14px text-justify"> 
-  <!-- définissions des onglets -->
-<div class="panel-heading m-0 p-0">
-  <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-    <!--mobile version-->
-    <button class="navbar-toggler  mx-auto" type="button" data-toggle="collapse" data-target="#navbarForNaturelles" aria-controls="navbarForNaturelles" aria-expanded="false" aria-label="Toggle navigation">
-      <span lang="fr">Veuillez sélectionner une catégorie..</span>
-      <span lang="en">Please select a category..</span>
-    </button>
-      <!--Desktop version-->
-    <h3 class="collapse navbar-collapse text-size-16px m-0 p-0" id="navbarForNaturelles">
-      <ul id="ongletsnat" class="navbar-nav nav nav-tabs nav-fill mx-auto " role="tablist">
-        <li class="nav-item">
-          <a href="#tab1info" data-toggle="pill" aria-controls="tab1info" aria-selected="true" class="nav-link active" id="pills-tab1">
-            <span lang="fr">Présentation Générale</span>
-            <span lang="en">General Presentation</span>
-          </a>
-        </li>
-        <li class="nav-item" >
-          <a href="#tab2info" data-toggle="pill" aria-controls="tab2info" aria-selected="false" class="nav-link" id="pills-tab2">
-            <span lang="fr">Botanique Origine Extraction</span>
-            <span lang="en">Origins & Botany</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#tab3info" data-toggle="pill" aria-controls="tab3info" aria-selected="false" class="nav-link" id="pills-tab3">
-            <span lang="fr">Réglementation</span>
-            <span lang="en">Regulations</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="#tab4info" data-toggle="pill" aria-controls="tab4info" aria-selected="false" class="nav-link" id="pills-tab4">
-            <span lang="fr">Autres Remarques</span>
-            <span lang="en">Other Comments</span>
-          </a>
-        </li>
-      </ul>
-    </h3>
-  </nav>
-</div>
-<!--contenu des onglets-->
-<div class="panel-body scrollbar-inside" style="background-color: yellow;">
-<div class="tab-content">
-  
-  <!--Onglet présentation générale-->
-<div class="tab-pane fade show active" id="tab1info" role="tabpanel" aria-labelledby="pills-tab1">
-  <div class="container-fluid">
-    <div class="row">
-      <!--1ère colonne-->
-    <div class="col-xs-12 col-sm-12 col-lg-4 panelcontent" >
-      <p>
-        <h2 class="item d-inline text-size-16px">
-          <span lang="fr"><b>Tenue <sup class="fas fa-question-circle iconetab" title="Indice sur la ténacité de la matière première (Tête : quelques minutes; Coeur : quelques heures; Fond : jusqu'à plusieurs jours)."></sup> :</b></span>
-          <span lang="en"><b>Volatility <sup class="fas fa-question-circle iconetab" title="Indication of the tenacity of the raw material (Head : a few minutes; Heart : a few hours; Base : sometimes a few days)."></sup> :</b></span>
-        </h2>
-        <span id="modalbody-tenue" class="textitem"></span>
-      </p>
-      <p>
-        <h2 class="item d-inline text-size-16px">
-          <span lang="fr"><b>Prix <sup class="fas fa-question-circle iconetab" title="€ : 0 à 15 €/kg; €€ : 15 à 50 €/kg; €€€ : 50 à 200 €/kg; €€€€ : 200 à 1000 €/kg; €€€€€ : 1000 €/kg et plus. Le prix des matières premières peut grandement évoluer selon différents facteurs qui leurs sont propres."></sup> : </b></span>
-          <span lang="en"><b>Price <sup class="fas fa-question-circle iconetab" title="€ : 0 to 15 €/kg ; €€ : 15 to 50 €/kg; €€€ : 50 to 200 €/kg; €€€€ : 200 to 1000 €/kg; €€€€€ : 1000 €/kg and more. 1 € ≈ 1,1 USD. Raw materials cost can evolve according to various factors of their own."></sup> : </b></span>
-        </h2>
-        <span id="modalbody-price" class="textitem"></span>
-      </p>
-      <p>
-        <h2 class="item d-inline text-size-16px">
-          <span lang="fr"><b>Composants principaux <sup class="fas fa-question-circle iconetab" title="Molécules majoritairement présentes dans la matière première. Les pourcentages donnés sont ici présents à titre indicatif et ne peuvent être généralisés à l'ensemble des chémotypes et des millésimes de la matière première. "></sup> :</b></span>
-          <span lang="en"><b>Major components <sup class="fas fa-question-circle iconetab" title="Majoritary components of the raw material. The given purcentages are for illustrative purposes and cannot be generalized to the whole chemotypes and vintages of the raw material. "></sup> :</b></span>
-        </h2>
-        <br>
-        <span id="modalbody-componat" class="textitem2"></span>
-      </p>
-    </div>
-      <!--2ème colonne-->
-    <div class="col-xs-12 col-sm-12 col-lg-5 panelcontent">
-      <p>
-        <h1 class="item d-inline text-size-16px">
-          <span lang="fr"><b>N° CAS <sup class="fas fa-question-circle iconetab" title="Numéro d'identification universel de la matière première."></sup> :</b></span>
-          <span lang="en"><b>CAS number <sup class="fas fa-question-circle iconetab" title="Universal identification number of the raw material."></sup> :</b></span>
-        </h1>
-        <span id="modalbody-cas" class="textitem"></span>
-      </p>
-      <p>
-        <h2 class="item d-inline text-size-16px">
-          <span lang="fr"><b>Aspect <sup class="fas fa-question-circle iconetab" title="Couleur et état physique de la matière première."></sup> :</b></span>
-          <span lang="en"><b>Aspect <sup class="fas fa-question-circle iconetab" title="Color and physical state of the raw material."></sup> :</b></span>
-        </h2>
-        <span id="modalbody-aspect" class="textitem"></span>
-      </p>
-      <p>
-        <h2 class="item d-inline text-size-16px">
-          <span lang="fr"><b>Stabilité <sup class="fas fa-question-circle iconetab" title="Comportement de la matière première sous des conditions de haute température, de lumière, et en bases fonctionnelles diverses."></sup> :</b></span>
-          <span lang="en"><b>Stability <sup class="fas fa-question-circle iconetab" title="Aspect, color, odor and molecular changes according to the conditions imposed to the raw material."></sup> :</b></span>
-        </h2>
-      <span id="modalbody-stab" class="textitem"></span>
-      </p>
-    </div>
-    <!-- Colonne Image-->
-    <div id="modalbody-pict" class="imgmp  col-xs-12 col-sm-12 col-lg-3  order-first order-sm-first order-lg-last"></div>
-
-    </div>
-  </div>
-</div>
-
-<!--Onglet Botanique-->
-<div class="tab-pane fade" id="tab2info"  role="tabpanel" aria-labelledby="pills-tab2">
-  <div class="container-fluid">
-  <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 panelcontent">
-    
-    <p>
-      <h2 class="item  d-inline text-size-16px">
-        <span lang="fr"><b>Nom botanique <sup class="fas fa-question-circle iconetab" title="Nom de la plante ou de l'animal selon le Code International de Nomenclature Botanique."></sup> :</b></span>
-        <span lang="en"><b>Botanical name <sup class="fas fa-question-circle iconetab" title="Name of the plant or the animal, according to the International Code of Nomenclature for Plants."></sup> :</b></span>
-      </h2>
-      <span id="modalbody-nbota" class="textitem3" ></span>
-    </p>
-    <p>
-      <h2 class="item  d-inline text-size-16px">
-        <span lang="fr"><b>Botanique <sup class="fas fa-question-circle iconetab" title="Famille et/ou genre botanique à laquelle la matière première est ratachée."></sup> :</b></span>
-        <span lang="en"><b>Botanical filiation <sup class="fas fa-question-circle iconetab" title="Botanical family and genus to which the raw material is linked."></sup> :</b></span>
-      </h2>
-      <span id="modalbody-bota"  class="textitem"></span>
-    </p>
-    <p>
-      <h2 class="item  d-inline text-size-16px">
-        <span lang="fr"><b>Origine(s) géographique(s) <sup class="fas fa-question-circle iconetab" title="Pays et régions de culture de la matière première."></sup> :</b></span>
-        <span lang="en"><b>Geographic origin <sup class="fas fa-question-circle iconetab" title="Country and region of cultivation of the raw material."></sup> :</b></span>
-      </h2>
-      <span id="modalbody-origine" class="textitem"></span>
-    </p>        
-    <p>
-      <h2 class="item  d-inline text-size-16px">
-        <span lang="fr"><b>Méthode d'obtention <sup class="fas fa-question-circle iconetab" title="Méthode de culture et d'extraction de la matière première."></sup> :</b></span>
-        <span lang="en"><b>Extraction process <sup class="fas fa-question-circle iconetab" title="Harvesting and extraction methods of the raw material."></sup> :</b></span>
-      </h2>
-      <span id="modalbody-methode" class="textitem"></span>
-    </p>
-    <p>
-      <h2 class="item  d-inline text-size-16px">
-        <span lang="fr"><b>Influence et répartition des chémotypes <sup class="fas fa-question-circle iconetab" title="Caractéristiques des autres variétés et/ou espèces de la plante étudiée."></sup> :</b></span>
-        <span lang="en"><b>Chemotypes <sup class="fas fa-question-circle iconetab" title="Other species and varieties characteristics for the studied plant."></sup> :</b></span>
-      </h2>
-      <span id="modalbody-chemotype" class="textitem"></span>
-    </p>
-    <p>
-      <h2 class="item d-inline text-size-16px">
-        <span lang="fr"><b>Médecine alternative <sup class="fas fa-question-circle iconetab" title="Usages en aromathérapie, phytothérapie ou olfactothérapie."></sup> :</b></span>
-        <span lang="en"><b>Aromatherapy <sup class="fas fa-question-circle iconetab" title="Aromatherapy, phytotherapy and olfactotherapy usage."></sup> :</b></span>
-      </h2>
-      <span id="modalbody-medecine" class="textitem"></span>
-    </p>
-  </div>
-    <!-- Colonne Image-->
-  <div id="modalbody-pictA" class="imgmp  col-xs-12 col-sm-12 col-md-12 col-lg-3  order-first order-sm-first order-lg-last"></div>
-
-  </div>
-  </div>
-</div>
-
-<!--Onglet Reglementation-->
-<div class="tab-pane fade" id="tab3info"   role="tabpanel" aria-labelledby="pills-tab3">
-<div class="container-fluid"> 
-<div class="row">
-<div class="col-12">
-
-<p class="mb-0">
-  <h1 class="item d-inline text-size-16px">
-    <span lang="fr"><b>Allergènes <sup class="fas fa-question-circle iconetab" title="Il existe 26 allergènes en parfumerie. Leur utilisation est limitée à 10 ppm dans le produit fini pour les produits non rincés (eaux de toilette par exemple), contre 100 ppm pour les produits rincés (gels douche par exemple). Une réaction allergique à un allergène de parfumerie et cosmétiques n'apparaît que pour 1 à 3% de la population européenne (source : CSSC). Il est donc rare d'être allergique à l'une de ces substances. Quoi qu'il en soit, les allergènes ont une utilisation limitée dans les produits parfumés, pour éviter toute réaction à ces produits."></sup> :</b></span>
-    <span lang="en"><b>Allergens <sup class="fas fa-question-circle iconetab" title="26 allergens are known in perfumery. Their use is limited to 10 ppm in finished products for non-rinced products (eaux de toilette for example), and 100 ppm for rinced products (shower gels for example)."></sup> :</b></span>
-  </h1>
-  <span id="modalbody-allergenes" class="textitem"></span>
-  <br>
-  <span lang="fr" class="text-size-11px">Pour en savoir plus sur les ingrédients allergènes, cliquez <a href="../_/allergenes.html" target="_blank">ici</a></span>
-  <span lang="en" class="text-size-11px">You want to learn more about allergens ? Click <a href="../_/allergenes.html" target="_blank">here</a></span>
-</p>
-
-<p>
-  <h2 class="d-inline item text-size-16px">
-    <span lang="fr"><b>IFRA <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) recommande des utilisations maximales pour certaines matières premières dans leur produit fini. L'avis donné par cette association possède une grande valeur dans le milieu du parfum. Respecter les normes IFRA est gage de qualité et de sécurité à l'emploi du parfum."></sup> :</b></span>
-    <span lang="en"><b lang="en">IFRA <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides maximum uses for some raw materials in finished products. The notices given by this association have a great value in the perfume industry. Respecting IFRA standards is a guarantee of quality and security when using the perfume."></sup> :</b></span>
-  </h2>
-  <span id="modalbody-ifra" class="textitem"></span>
-  <br>
-
-  <div class="container-fluid">
-  <div class="row">
-  <div class="col-12">
-    <div class="blockifra1">
-      <h2 class="amendment d-inline text-size-14px">
-        <span lang="fr"><b>Amendement <sup class="fas fa-question-circle iconetab" title="Numéro du premier amendement dans lequel l'ingrédient à été ajouté. A ce jour, nous en sommes au 49ème. "></sup> :</b></span>
-        <span lang="en"><b>Amendment <sup class="fas fa-question-circle iconetab" title="Number of the first amendment in which the ingredient was added. Today, we have reached the 49th. "></sup> :</b></span>
-      </h2>
-      <span id="modalbody-amendment" class="textitem"></span>
-      <br>
-      <h2 class="commentaires d-inline text-size-14px">
-        <span lang="fr"><b>Commentaires <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) fourni un certain nombre de recommandations ou de spécifications justifiants les restrictions des ingrédients. Les mentions suivantes sont valables pour une utilisation à forte dose de la matière première, ou en cas de sensibilité particulièrement élevée à cette matière première. Son utilisation en parfumerie étant restreinte, ces risques sont évités dans le cas des parfums."></sup> :</b></span>
-        <span lang="en"><b>Comments <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides a certain amount of recommandations or specifications to explain the ingredients restrictions. The following mentions are valid for a high use of the raw material, or in case of hish sensitiveness for the raw material. Its use in perfumery being restricted, these risks are avoided in perfumes."></sup> :</b></span>
-      </h2>
-        <span id="modalbody-commentifra" class="textitem"></span>
-    </div>
-
-    <div class="blocktable">
-      <div class="table-responsive text-center"><table class="table1">
-        <!-- TITRE DU TABLEAU-->
-        <caption class="caption"> <span lang="fr">Dose maximale autorisée en fonction de la catégorie de l'ingrédient :</span><span lang="en">Maximum usage according to the product category :</span></caption> 
-        <!-- EN-TETE DU TABLEAU-->
-        <tr>
-          <th>Cat.1</th>
-          <th>Cat.2</th>
-          <th>Cat.3</th>
-          <th>Cat.4</th>
-          <th>Cat.5</th>
-          <th>Cat.6</th>
-          <th>Cat.7</th>
-          <th>Cat.8</th>
-          <th>Cat.9</th>
-          <th>Cat.10</th>
-          <th>Cat.11</th>
-        </tr>
-        <!-- CORPS DU TABLEAU-->
-        <tr>
-          <td><span id="modalbody-cat1"></span> %</td>
-          <td><span id="modalbody-cat2"></span> %</td>
-          <td><span id="modalbody-cat3"></span> %</td>
-          <td><span id="modalbody-cat4"></span> %</td>
-          <td><span id="modalbody-cat5"></span> %</td>
-          <td><span id="modalbody-cat6"></span> %</td>
-          <td><span id="modalbody-cat7"></span> %</td>
-          <td><span id="modalbody-cat8"></span> %</td>
-          <td><span id="modalbody-cat9"></span> %</td>
-          <td><span id="modalbody-cat10"></span> %</td>
-          <td><span lang="fr">Non restreint</span><span lang="en">Not Restricted</span></td>
-        </tr>
-      </table>
-      
-      <table class="table2">
-        <!-- TITRE DU TABLEAU-->
-        <caption class="caption"> <span lang="fr">Dose maximale autorisée en fonction de la catégorie de l'ingrédient :</span><span lang="en">Maximum usage according to the product category :</span></caption> 
-        <!-- EN-TETE DU TABLEAU-->
-        <tr>
-          <th colspan="2"><span lang="fr">En contact avec la peau</span><span lang="en">Skin contact products </span></th>
-          <th rowspan="2"><span lang="fr">Sans contact avec la peau</span><span lang="en">Non skin contact products </span></th>
-        </tr>
-        <!-- CORPS DU TABLEAU-->
-        <tr>
-          <th><span lang="fr">Produits non rincés</span><span lang="en">Leave on products</span></th>
-          <th><span lang="fr">Produits rincés</span><span lang="en">Rinse off products</span></th>
-        </tr>
-        <tr>
-          <td><span id="modalbody-leaveon"></span> %</td>
-          <td>X</td>
-          <td>X</td>
-        </tr>
-      </table>
-      
-      <table class="table3">
-        <!-- TITRE DU TABLEAU-->
-        <caption class="caption"> <span lang="fr">Dose maximale autorisée en fonction de la catégorie de l'ingrédient :</span><span lang="en">Maximum usage according to the product category :</span></caption> 
-        <!-- EN-TETE DU TABLEAU-->
-        <tr>
-          <th><span lang="fr">Fine fragrance</span><span lang="en">Fine fragrance</span></th>
-          <th><span lang="fr">Eau de toilette</span><span lang="en">Eau de toilette</span></th>
-          <th><span lang="fr">Crème parfumée</span><span lang="en">Fragrancing cream</span></th>
-          <th><span lang="fr">Produits non rincés</span><span lang="en">Leave on products</span></th>
-          <th><span lang="fr">Produits rincés</span><span lang="en">Rinse off products</span></th>
-          <th><span lang="fr">Possible contact dermique accidentel</span><span lang="en">Non-skin, incidental skin contact </span></th> 
-        </tr>
-        <!-- CORPS DU TABLEAU-->
-        <tr>
-          <td>%</td>
-          <td>%</td>
-          <td>%</td>
-          <td>%</td>
-          <td>%</td>
-          <td>%</td>
-        </tr>
-      </table></div>
-      <p class="logoifra text-size-11px text-center text-my-grey"><span lang="fr">ScenTree engage sa pleine responsabilité dans la véracité des données fournies ici, L’IFRA ne saurait donc être responsable en cas d'erreur.</span><span lang="en">ScenTree assumes full responsibility for the accuracy of the data provided here, IFRA cannot be held responsible for any errors.</span> </p>
-
-      <p class="logoifra mb-0 text-size-11px">
-        <span lang="fr">Pour en savoir plus sur les standards de l'IFRA : <a href="https://ifrafragrance.org/safe-use/understanding-the-ifra-standards" target="_blank">https://ifrafragrance.org/safe-use/understanding-the-ifra-standards</a></span>
-        <span lang="en">To learn more about IFRA's standards : <a href="https://ifrafragrance.org/safe-use/understanding-the-ifra-standards" target="_blank">https://ifrafragrance.org/safe-use/understanding-the-ifra-standards</a></span>
-        <br>
-        <span lang="fr">Pour en savoir plus sur l'IFRA, ses objectifs et ses actions, cliquez <a href="../_/IFRA.html" target="_blank">ici</a></span>
-      <span lang="en">To find out the specificities of each category and the ingredients prohibited by IFRA, click <a href="../_/IFRA.html" target="_blank">here</a></span>
-      </p>
-    </div>
-  </div>
-  </div>
-  </div>
-</p>
-
-</div>    
-</div>   
-</div>
-</div>
-
-<!-- Onglet Commentaires-->
-<div class="tab-pane fade" id="tab4info"  role="tabpanel" aria-labelledby="pills-tab4">
-<div class="container-fluid">
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 panelcontent">
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Utilisation <sup class="fas fa-question-circle iconetab" title="Types de parfums et d'accords auxquels la matière première peux être associée."></sup> :</b><b lang="en">Uses in perfumery <sup class="fas fa-question-circle iconetab" title="Type of accords and perfumes the raw material can be associated with."></sup> :</b></h2>
-    <span id="modalbody-utilisation" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Commentaires et anecdotes <sup class="fas fa-question-circle iconetab" title="Autres commentaires sur la matière première"></sup> :</b><b lang="en">Other comments <sup class="fas fa-question-circle iconetab" title="Additional remarks concerning the raw material."></sup> : </b></h2>
-    <span id="modalbody-remarques" class="textitem"></span></span></p>
-</div>
-</div> 
-</div>
-</div>
-
-
-
-</div>
-</div> <!--fin panel-body-->
-</div>  <!--fin body-->
-
-<div class="modal-footer">
-  <div class="container-fluid">
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-  <p class="textitem-footer">
-    <span lang="fr">Vous <u>commercialisez</u> des matières premières présentes dans la classification ScenTree et vous souhaitez que nos utilisateurs le sachent ? <br>Merci de rentrer en contact avec l'adresse mail suivante : <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
-    <span lang="en">You are <u>commercializing</u> some of the raw materials present in <i><b>ScenTree</b></i> classification and you would like our users to know it? Please contact this email address: <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
-  </p>
-</div>
-</div>
-</div> <!--fin footer-->
-
-</div> <!--fin content-->
-</div> <!--fin modal-dialog-->
-</div> <!--fin modal-->
-
-
-
-<!--MODAL SYNTHETIQUES-->
-<div id="SynthetiqueModal" class="modal fade" tabindex="-1" role="dialog">
-<div class="modal-dialog modal-xl" role="document">
-  <!-- Modal content -->
-<div class="modal-content">
-  
-  <!-- En-tête du modal -->
-<div class="modal-header">
-<div class="container-fluid  d-inline-block">
-<div class="row">
-  <h1 class="col-12 col-md-6  font-weight-bold text-size-20px text-center-before-md text-align-left-strictly-after-md">
-    <span id="modaltitle1" class="modal-title"></span>
-  </h1>
-  <h3 class="col-12 col-md-6  text-size-18px font-italic-before-md text-center-before-md text-align-right-strictly-after-md">
-    <span id="modalheader-type1" class="modalheader-type2"></span>
-  </h3>
-  <div id="modaltitle1-fili" class="col-12  Filiation  text-size-16px text-center"></div>
-</div>
-</div>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-</div>
-
-<div class="modal-body text-size-14px text-justify scrollbar-inside">
-  
-  <!-- définissions des onglets -->
-<div class="panel-heading">
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-  <button class="navbar-toggler  mx-auto" type="button" data-toggle="collapse" data-target="#navbarForSynthetiques" aria-controls="navbarForSynthetiques" aria-expanded="false" aria-label="Toggle navigation"><span lang="fr">Veuillez sélectionner une catégorie..</span><span lang="en">Please select a category..</span>
-  </button>
-  
-  <h3 class="collapse navbar-collapse text-size-16px" id="navbarForSynthetiques">
-  <ul id="ongletssynth" class="navbar-nav nav nav-pills nav-justified  mx-auto" role="tablist">
-    <li class="nav-item">
-      <a href="#tab12info" data-toggle="pill" aria-controls="tab12info" aria-selected="true" class="nav-link active" id="pills-tab1"><span lang="fr">Présentation Générale</span><span lang="en">General Presentation</span></a></li>
-    <li class="nav-item"><a href="#tab7info" data-toggle="pill" aria-controls="tab7info" aria-selected="false" class="nav-link" id="pills-tab7"><span lang="fr">Chimie</span><span lang="en">Synthesis</span></a></li>
-    <li class="nav-item"><a href="#tab8info" data-toggle="pill" aria-controls="tab8info" aria-selected="false" class="nav-link" id="pills-tab8"><span lang="fr">Réglementation</span><span lang="en">Regulations</span></a></li>
-    <li class="nav-item"><a href="#tab10info" data-toggle="pill" aria-controls="tab10info" aria-selected="false" class="nav-link" id="pills-tab10"><span lang="fr">Autres Remarques</span><span lang="en">Other Comments</span></a></li>
-  </ul>
-  </h3>
-</nav>
-</div>
-<!--contenu des onglets-->
-<div class="panel-body">
-<div class="tab-content">
-  
-  <!--Onglet présentation générale-->
-<div class="tab-pane fade show active" id="tab12info" role="tabpanel" aria-labelledby="pills-tab-synthetiques-1">
-<div class="container-fluid panelcontent">
-<div class="row">
-<div class="col-12 col-sm-12 col-lg-5 blockdonnees">
-  <p><h1 class="item d-inline text-size-16px"><span><b lang="fr">N° CAS <sup class="fas fa-question-circle iconetab" title="Numéro d'identification universel de la matière première."></sup> :</b><b lang="en">CAS number <sup class="fas fa-question-circle iconetab" title="Universal identification number of the raw material."></sup> :</b></h1>
-    <span id="modalbody-ncas1" class="textitem"></span></span></p> 
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Tenue <sup class="fas fa-question-circle iconetab" title="Indice sur la ténacité de la matière première (Tête : quelques minutes; Coeur : quelques heures; Fond : jusqu'à plusieurs jours)."></sup> :</b><b lang="en">Volatility <sup class="fas fa-question-circle iconetab" title="Indication of the tenacity of the raw material (Head : a few minutes; Heart : a few hours; Base : sometimes a few days)."></sup> :</b></h2>
-    <span id="modalbody-tenue1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Aspect <sup class="fas fa-question-circle iconetab" title="Couleur et état physique de la matière première."></sup> :</b><b lang="en">Aspect <sup class="fas fa-question-circle iconetab" title="Color and physical state of the raw material."></sup> :</b></h2>
-    <span id="modalbody-aspect1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Densité <sup class="fas fa-question-circle iconetab" title="Donnée, sans unité, mettant en relation la masse pour un volume donné de matière première (d = 1,5 veut dire que 1 mL = 1,5 g)."></sup> :</b><b lang="en">Density <sup class="fas fa-question-circle icone" title="A no-unit data giving the mass of raw material for a given volume (d = 1,5 means 1 mL = 1,5g)."></sup> :</b></h2>
-    <span id="modalbody-densite1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr"> Prix <sup class="fas fa-question-circle iconetab" title="€ : 0 à 15 €/kg; €€ : 15 à 50 €/kg; €€€ : 50 à 200 €/kg; €€€€ : 200 à 1000 €/kg; €€€€€ : 1000 €/kg et plus. Le prix des matières premières peut grandement évoluer selon différents facteurs qui leurs sont propres."></sup> : </b><b lang="en"> Price <sup class="fas fa-question-circle iconetab" title="€ : 0 to 15 €/kg ; €€ : 15 to 50 €/kg; €€€ : 50 to 200 €/kg; €€€€ : 200 to 1000 €/kg; €€€€€ : 1000 €/kg and more. 1 € ≈ 1,1 USD. Raw materials cost can evolve according to various factors of their own."></sup> : </b></h2>
-    <span id="modalbody-price1" class="textitem"></span></span></p>
-
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Stabilité <sup class="fas fa-question-circle iconetab" title="Comportement de la matière première sous des conditions de haute température, de lumière, et en bases fonctionnelles diverses."></sup> :</b><b lang="en">Stability <sup class="fas fa-question-circle iconetab" title="Aspect, color, odor and molecular changes according to the conditions imposed to the raw material."></sup> :</b></h2>
-<span id="modalbody-stab1" class="textitem"></span></span></p>
-      
-</div>
-<div class="col-12 col-sm-12 col-lg-4 blockdonnees">
-
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Formule Brute <sup class="fas fa-question-circle iconetab" title="Formule répertoriant les atomes composant la molécule étudiée."></sup> :</b><b lang="en">Molecular formula <sup class="fas fa-question-circle icone" title="Formula giving the atoms of the studies molecules."></sup> :</b></h2>
-    <span id="modalbody-fbrute1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><b lang="fr">Masse Molaire <sup class="fas fa-question-circle iconetab" title="Indice sur la taille de la molécule (et souvent sa volatilité), donné en g/mol."></sup> :</b><b lang="en">Molecular Weight <sup class="fas fa-question-circle icone" title="Indication on the size of the molecule (and its volatility), given in g/mol."></sup> :</b></h2>
-    <span id="modalbody-mmolaire1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Point Eclair <sup class="fas fa-question-circle iconetab" title="Donne, en degrés, un indice sur la volatilité de la matière première. Il s'agit de la température à laquelle la matière première forme un mélange inflammable avec l'air en surface."></sup> :</b><b lang="en">Flash Point <sup class="fas fa-question-circle icone" title="Gives, in degrees, an indication on the volatility of the raw material. It is the temperature at which the raw materials form a flammable mix with surface air."></sup> :</b></h2>
-    <span id="modalbody-fp1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Log P <sup class="fas fa-question-circle iconetab" title="Donne un indice sur la miscibilité du composé dans l'eau. Il s'agit du logarithme en base 10 du rapport entre les concentrations en matière première réparties entre l'octanol et l'eau, dans un mélange hétérogène de ces trois composés."></sup> :</b><b lang="en">Log P <sup class="fas fa-question-circle icone" title="Gives an indication on the water-solubility of the molecule. It is the logarithm to the basis 10 of the ratio between the raw material's concentration in octanol and water, in a heterogeneous mix of those three compounds."></sup> :</b></h2>
-    <span id="modalbody-logp"  class="textitem"></span></span></p>
-
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Point de Fusion <sup class="fas fa-question-circle iconetab" title="Température à une pression donnée, à laquelle un composé chimique fond, c'est-à-dire passe de l'état solide à l'état liquide."></sup> :</b><b lang="en">Fusion Point <sup class="fas fa-question-circle icone" title="Temperature at a given pressure at which a chemical compound melts, i.e. changes from solid to liquid state."></sup> :</b></h2>
-    <span id="modalbody-fusionp1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Point d'ébullition <sup class="fas fa-question-circle iconetab" title="Indice, en degré, sur la volatilité de la matière première. Température à laquelle la matière première passe de l'état liquide à gazeux."></sup> :</b><b lang="en" >Boiling Point <sup class="fas fa-question-circle icone" title="Indication, in degrees, on the volatility of the raw material. Temperature at which the raw material swiches from a liquid to a gas."></sup> :</b></h2>
-    <span id="modalbody-bp1"  class="textitem"></span></span></p>
-
-</div>
-<div id="modalbody-pict1" class="imgmp col-12 col-sm-12 col-lg-3 order-first order-sm-first order-lg-last"></div>
-</div>
-</div>
-</div>
-
-<!--Onglet chimie -->    
-<div class="tab-pane fade" id="tab7info" role="tabpanel" aria-labelledby="pills-tab-synthetiques-2">
-<div class="container-fluid">
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 panelcontent">
-<p><h2 class="item d-inline text-size-16px"><span class=decouverte><b lang="fr">Découverte <sup class="fas fa-question-circle iconetab"  title="Date, lieu et/ou contexte de la découverte de la matière première."></sup> :</b><b lang="en">Discovery <sup class="fas fa-question-circle iconetab"  title="Date, place and context of the discovery of the raw material."></sup> :</b></h2>
-  <span id="modalbody-decouverte1" class="textitem"></span></span></p>
-
-<p><h2 class="item d-inline text-size-16px"><span class=synthèse><b lang="fr">Voies de synthèse <sup class="fas fa-question-circle iconetab"  title="Réactions successives permettant d'obtenir la matière première par voie synthétique."></sup> :</b><b lang="en">Synthesis route <sup class="fas fa-question-circle iconetab"  title="Successive reactions leading to the synthesis of the raw material."></sup> :</b></h2>
-  <span id="modalbody-synthèse" class="textitem"></span></span></p>
-
-<p><h2 class="item d-inline text-size-16px"><span class=précurseurs><b lang="fr">Précurseurs de synthèse <sup class="fas fa-question-circle iconetab"  title="Matières premières de parfumerie pouvant être synthétisées à partir de cet ingrédient."></sup> :</b><b lang="en">Synthesis precursor <sup class="fas fa-question-circle iconetab"  title="Perfumery raw materials that can be synthetized thanks to this ingredient."></sup> :</b></h2>
-  <span id="modalbody-précurseur" class="textitem"></span></span></p>
-
-<p><h2 class="item d-inline text-size-16px"><span class=isomerie><b lang="fr">Isoméries <sup class="fas fa-question-circle iconetab"  title="Molécules ayant la même formule brute que la matière première étudiée. Isomérie de constution : même formule brute (Acétate de Gaiyl et de Cédryl); isomérie de configuration : molécules différentes dans leur représentation dans l'espace (D et L-Limonène); isomérie de position : molécules différentes par la position d'un ou plusieurs de leurs groupements caractéristiques (Verdox et Vertenex)."></sup> :</b><b lang="en">Isomerism <sup class="fas fa-question-circle iconetab"  title="Molecules having the same empirical formula than the studied raw material. Constitutional isomers : same empirical formula (Gaiyl and Cedryl Acetate); Configuration isomers : different molecules according to their space representation (D and L-Limonene); Position isomers : different molecules according to the position of one or more of their characteristic groups (Verdox and Vertenex)."></sup> :</b></h2>
-  <span id="modalbody-isomérie" class="textitem"></span></span></p>
-
-<p><h2 class="item d-inline text-size-16px"><span class=isomerie><b lang="fr">Présence dans la nature <sup class="fas fa-question-circle iconetab"  title="Matières premières naturelles dans lesquels la molécule peut être trouvée."></sup> :</b><b lang="en">Natural availability <sup class="fas fa-question-circle iconetab"  title="Natural raw materials in which the molecule can be found."></sup> :</b></h2>
-  <span id="modalbody-présencenat" class="textitem"></span></span></p>
-</div>
-
-<div id="modalbody-pict1A" class="imgmp  col-12 col-sm-12 col-md-12 col-lg-4  order-first order-sm-first order-lg-last"></div>
-
-</div>
-</div>
-</div>
-
-<!--Onglet Reglementation-->
-<div class="tab-pane fade" id="tab8info" role="tabpanel" aria-labelledby="pills-tab-synthetiques-3">
-<div class="container-fluid">
-<div class="row">
-<div class="col-12">
-
-  <p><h1 class="item d-inline text-size-16px" ><span><b lang="fr">Allergènes <sup class="fas fa-question-circle iconetab" title="Il existe 26 allergènes en parfumerie. Leur utilisation est limitée à 10 ppm dans le produit fini pour les produits non rincés (eaux de toilette par exemple), contre 100 ppm pour les produits rincés (gels douche par exemple). Une réaction allergique à un allergène de parfumerie et cosmétiques n'apparaît que pour 1 à 3% de la population européenne (source : CSSC). Il est donc rare d'être allergique à l'une de ces substances. Quoi qu'il en soit, les allergènes ont une utilisation limitée dans les produits parfumés, pour éviter toute réaction à ces produits."></sup> :</b><b lang="en">Allergens <sup class="fas fa-question-circle iconetab" title="26 allergens are known in perfumery. Their use is limited to 10 ppm in finished products for non-rinced products (eaux de toilette for example), and 100 ppm for rinced products (shower gels for example)."></sup> :</b></h1><span id="modalbody-allergenes1" class="textitem"></span></span></p>
-
-<p class="logoifra text-size-11px" style="margin-top:0;"><span lang="fr">Pour en savoir plus sur les ingrédients allergènes, cliquez <a href="../_/allergenes.html" target="_blank">ici</a></span><span lang="en">You want to learn more about allergens ? Click <a href="../_/allergenes.html" target="_blank">here</a></p>
-
-
-  <h2 class="item d-inline text-size-16px"><span class=IFRA><b lang="fr">IFRA <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) recommande des utilisations maximales pour certaines matières premières dans leur produit fini. L'avis donné par cette association possède une grande valeur dans le milieu du parfum. Respecter les normes IFRA est gage de qualité et de sécurité à l'emploi du parfum."></sup> :</b><b lang="en">IFRA <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides maximum uses for some raw materials in finished products. The notices given by this association have a great value in the perfume industry. Respecting IFRA standards is a guarantee of quality and security when using the perfume."></sup> :</b></h2>
-    <span id="modalbody-ifra1"  class="textitem"></span></span>
-<br>
-<div class="container-fluid">
-<div class="row">
-<div class="col-12">
-<div class="blockifra1">
-  <h2 class="amendment d-inline text-size-14px"><span><b lang="fr">Amendement <sup class="fas fa-question-circle iconetab" title="Numéro du premier amendement dans lequel l'ingrédient à été ajouté. A ce jour, nous en sommes au 49ème. "></sup> :</b><b lang="en">Amendment <sup class="fas fa-question-circle iconetab" title="Number of the first amendment in which the ingredient was added. Today, we have reached the 49th. "></sup> :</b></h2>
-  <span id="modalbody-amendments" class="textitem"></span></span>
-  <br>
-  <h2 class="commentaires d-inline text-size-14px"><span><b lang="fr">Commentaires <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) fourni un certain nombre de recommandations ou de spécifications justifiants les restrictions des ingrédients. Les mentions suivantes sont valables pour une utilisation à forte dose de la matière première, ou en cas de sensibilité particulièrement élevée à cette matière première. Son utilisation en parfumerie étant restreinte, ces risques sont évités dans le cas des parfums."></sup> :</b><b lang="en">Comments <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides a certain amount of recommandations or specifications to explain the ingredients restrictions. The following mentions are valid for a high use of the raw material, or in case of hish sensitiveness for the raw material. Its use in perfumery being restricted, these risks are avoided in perfumes."></sup> :</b></h2>
-    <span id="modalbody-commentifras" class="textitem"></span></span>
-
-</div>
-<div class="blocktable">
-<div class="table-responsive text-center"><table class="table1">
-    <!-- TITRE DU TABLEAU-->
-    <caption class="caption"> <span lang="fr">Dose maximale autorisée en fonction de la catégorie de l'ingrédient :</span><span lang="en">Maximum usage according to the product category :</span></caption>
-    <!-- EN-TETE DU TABLEAU-->
-    <tr>
-      <th>Cat.1</th>
-      <th>Cat.2</th>
-      <th>Cat.3</th>
-      <th>Cat.4</th>
-      <th>Cat.5</th>
-      <th>Cat.6</th>
-      <th>Cat.7</th>
-      <th>Cat.8</th>
-      <th>Cat.9</th>
-      <th>Cat.10</th>
-      <th>Cat.11</th>
-    </tr>
-    <!-- CORPS DU TABLEAU-->
-    <tr>
-      <td><span id="modalbody-cat1s"></span> %</td>
-      <td><span id="modalbody-cat2s"></span> %</td>
-      <td><span id="modalbody-cat3s"></span> %</td>
-      <td><span id="modalbody-cat4s"></span> %</td>
-      <td><span id="modalbody-cat5s"></span> %</td>
-      <td><span id="modalbody-cat6s"></span> %</td>
-      <td><span id="modalbody-cat7s"></span> %</td>
-      <td><span id="modalbody-cat8s"></span> %</td>
-      <td><span id="modalbody-cat9s"></span> %</td>
-      <td><span id="modalbody-cat10s"></span> %</td>
-      <td><span lang="fr">Non restreint</span><span lang="en">Not Restricted</span></td>
-    </tr>
-  </table>
-  
-  <table class="table2">
-    <!-- TITRE DU TABLEAU-->
-    <caption class="caption"> <span lang="fr">Dose maximale autorisée en fonction de la catégorie de l'ingrédient :</span><span lang="en">Maximum usage according to the product category :</span></caption>
-    <!-- EN-TETE DU TABLEAU-->
-    <tr>
-      <th colspan="2"><span lang="fr">En contact avec la peau</span><span lang="en">Skin contact products </span></th>
-      <th rowspan="2"><span lang="fr">Sans contact avec la peau</span><span lang="en">Non skin contact products </span></th>
-    </tr>
-    <!-- CORPS DU TABLEAU-->
-    <tr>
-      <th><span lang="fr">Produits non rincés</span><span lang="en">Leave on products</span></th>
-      <th><span lang="fr">Produits rincés</span><span lang="en">Rinse off products</span></th>
-    </tr>
-    <tr>
-      <td><span id="modalbody-leaveons"></span> %</td>
-      <td>X</td>
-      <td>X</td>
-    </tr>
-  </table>
-  
-  <table class="table3">
-    <!-- TITRE DU TABLEAU-->
-   <caption class="caption"> <span lang="fr">Dose maximale autorisée en fonction de la catégorie de l'ingrédient :</span><span lang="en">Maximum usage according to the product category :</span></caption>
-    <!-- EN-TETE DU TABLEAU-->
-    <tr>
-      <th><span lang="fr">Fine fragrance</span><span lang="en">Fine fragrance</span></th>
-      <th><span lang="fr">Eau de toilette</span><span lang="en">Eau de toilette</span></th>
-      <th><span lang="fr">Crème parfumée</span><span lang="en">Fragrancing cream</span></th>
-      <th><span lang="fr">Produits non rincés</span><span lang="en">Leave on products</span></th>
-      <th><span lang="fr">Produits rincés</span><span lang="en">Rinse off products</span></th>
-      <th><span lang="fr">Possible contact dermique accidentel</span><span lang="en"> Non-skin, incidental skin contact </span></th> 
-    </tr>
-    <!-- CORPS DU TABLEAU-->
-    <tr>
-      <td><span id="modalbody-finef"></span> %</td>
-      <td><span id="modalbody-edt"></span> %</td>
-      <td><span id="modalbody-fcream"></span> %</td>
-      <td><span id="modalbody-otherleaveon"></span> %</td>
-      <td><span id="modalbody-rinseoff"></span> %</td>
-      <td><span id="modalbody-noskin"></span> %</td>
-    </tr>
-  </table></div>
-  <p class="logoifra text-size-11px text-center text-my-grey"><span lang="fr">ScenTree engage sa pleine responsabilité dans la véracité des données fournies ici, L’IFRA ne saurait donc être responsable en cas d'erreur.</span><span lang="en">ScenTree assumes full responsibility for the accuracy of the data provided here, IFRA cannot be held responsible for any errors.</span> </p>
-
-    <p class="logoifra text-size-11px" style="margin-bottom: 0;">
-      <span lang="fr">Pour en savoir plus sur les standards de l'IFRA : <a href="https://ifrafragrance.org/safe-use/understanding-the-ifra-standards" target="_blank">https://ifrafragrance.org/safe-use/understanding-the-ifra-standards</a></span>
-      <span lang="en">To learn more about IFRA's standards : <a href="https://ifrafragrance.org/safe-use/understanding-the-ifra-standards" target="_blank">https://ifrafragrance.org/safe-use/understanding-the-ifra-standards</a></span>
-      <br>
-      <span lang="fr">Pour en savoir plus sur l'IFRA, ses objectifs et ses actions, cliquez <a href="../_/IFRA.html" target="_blank">ici</a></span>
-      <span lang="en">To find out the specificities of each category and the ingredients prohibited by IFRA, click <a href="../_/IFRA.html" target="_blank">here</a></span>
-  </p>
-</div>
-</div>
-</div>
-</div>
-
-<br>
-</div>    
-</div>
-</div>
-</div>
-
-<!--onglet Commentaires-->
-<div class="tab-pane fade" id="tab10info" role="tabpanel" aria-labelledby="pills-tab-synthetiques-4">
-<div class="container-fluid">
-<div class="row">
-<div class="col-lg-12">
-  <p><h2 class="item d-inline text-size-16px"><span class="utilisation"><b lang="fr">Utilisation <sup class="fas fa-question-circle iconetab" title="Types de parfums et d'accords auxquels la matière première peux être associée."></sup> :</b><b lang="en">Uses in perfumery <sup class="fas fa-question-circle iconetab" title="Type of accords and perfumes the raw material can be associated with."></sup> :</b></h2>
-    <span id="modalbody-utilisation1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span class="Commentaires"> <b lang="fr">Commentaires et anecdotes <sup class="fas fa-question-circle iconetab" title="Autres commentaires sur la matière première"></sup> :</b><b lang="en">Other comments <sup class="fas fa-question-circle iconetab" title="Additional remarks concerning the raw material."></sup> : </b></h2>
-    <span id="modalbody-remarques1" class="textitem"></span></span></p>
-</div>
-</div> 
-</div>
-</div>
-
-
-</div><!--fin content -->
-</div><!--fin panel-body-->
-
-</div> <!--fin modal-body-->
-
-<div class="modal-footer">
-  <div class="container-fluid">
-    <div class="col-12 text-center">
-  <p class="textitem-footer">
-    <span lang="fr">Vous <u>commercialisez</u> des matières premières présentes dans la classification ScenTree et vous souhaitez que nos utilisateurs le sachent ? <br>Merci de rentrer en contact avec l'adresse mail suivante : <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
-    <span lang="en">You are <u>commercializing</u> some of the raw materials present in <i><b>ScenTree</b></i> classification and you would like our users to know it? Please contact this email address: <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
-  </p>
-</div>
-</div> <!--fin footer-->
-</div> <!-- fin content -->
-</div> <!-- fin container -->
-</div> 
-</div> <!-- fin synthetique -->
-
-
-
-
-<!--############################################### -->
-<!--############## PARTIE JAVASCRIPT ############## --> 
-<!--############################################### -->
-
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
-<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
-<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-crossorigin=""></script>
-
-
-<script src="../js/main.js" type="text/javascript"></script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
-<script>
-if (Cookies.get('RGPD_no_cookie') == -1) {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-140166656-1');
-};
-</script>
-</body>
-</html>
+html, body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#menu-block {
+  z-index: 2;
+  min-height: 500px;
+}
+#mapblock {
+  z-index: 1;
+}
+.fab {
+  font-size: 120%;
+  color: #494747;
+}
+.notifi1 {
+  color: red;
+}
+.notifi2 {
+  color: red;
+}
+.notifi3 {
+  color: red;
+  position: absolute;
+  z-index: 1;
+  right: 7%;
+  top: 5%;
+}
+.notifi4 {
+  color: red;
+}
+
+.dropdown-toggle:after { 
+  content: none 
+}
+.interpop{
+  color: #6586B4;
+}
+
+.max-height-200px {
+  max-height: 200px;
+}
+
+.max-height-100px {
+  max-height: 100px;
+}
+
+.max-height-70px {
+  max-height: 70px;
+}
+
+.max-height-30px {
+  max-height: 30px;
+}
+
+.max-height-25px {
+  max-height: 25px;
+}
+
+.max-height-20px {
+  max-height: 20px;
+}
+.max-height-15px {
+  max-height: 15px;
+}
+.max-height-10px {
+  max-height: 10px;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(95vh - 320px);
+}
+
+.scrollbar-inside2 {
+  overflow-y: auto;
+  max-height: calc(125vh - 320px);
+}
+
+.text-size-20px {
+  font-size: 20px;
+}
+.text-size-18px {
+  font-size: 18px;
+}
+.text-size-16px {
+  font-size: 16px;
+}
+.text-size-14px {
+  font-size: 14px;
+}
+.text-size-11px {
+  font-size: 11px;
+}
+
+.text-size-1-1vw {
+ font-size: 1.1vw; 
+}
+.text-size-1-3vw {
+ font-size: 1.3vw; 
+}
+.text-my-grey {
+    color : grey;
+}
+
+@media screen and (max-width: 767px) {
+.font-italic-before-md {
+  font-style: italic;
+}
+.text-center-before-md {
+  text-align: center;
+}
+}
+
+@media screen and (min-width: 768px) {
+.text-align-left-strictly-after-md {
+  text-align: left;
+}
+.text-align-right-strictly-after-md {
+  text-align: right;
+}
+}
+
+
+/*#########################
+#######PAGE ENTIERE########
+#########################*/
+@media screen and (max-width: 767px) {
+.PageEntiere {
+    background-color: white;
+    padding-top: 60px;
+}
+}
+@media screen and (min-width: 768px) {
+.PageEntiere {
+    background-color: white;
+}
+}
+
+/*#########################
+###########MAP#############
+#########################*/
+#map {
+    min-height: 500px;
+    min-width: 200px;
+}
+.fill2{
+    /*z-index: 5;*/
+    background-color: white;
+}
+
+/*#########################
+## MES STYLES RESPONSIVES #
+#########################*/
+@media screen and (max-width: 767px) {
+.h-md-85 {
+    height: 90%;
+    position: absolute;
+    bottom: 0px;
+}
+.h-60px-md-100pc {
+   height: 45px;
+}
+.h-80pc-md-100pc {
+    height: calc(100vh - 45px);
+}
+.h-100-with-padding-60px-before-md {
+   height: 100%;
+   padding-top: 60px;
+}
+}
+@media screen and (min-width: 768px) {
+.h-md-85 {
+    height: 100%;
+}
+.h-60px-md-100pc {
+    height: 100%;
+}
+.h-80pc-md-100pc {
+    height: 100%;
+}
+.h-100-with-padding-60px-before-md {
+   height: 100%;
+}
+}
+
+.m-top-40 {
+    margin-top: 20vh;
+}
+.m-top-90 {
+    margin-top: 90%;
+}
+.m-top-15-percent {
+    margin-top: 15%;
+}
+
+.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 10px;
+}
+
+
+/*#########################
+###########RGPD############
+#########################*/
+
+.textRGPD {
+   text-align: justify 
+}
+
+.boutonRGPD {
+    text-align: center;
+}
+
+.NONRGPD {
+    font-style: 50%;
+}
+@keyframes RGPD_animation {
+  0%   {bottom: -100px;}
+  100% {bottom: 40%;}
+}
+
+#RGPD_warning {
+    display: none;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+    z-index: 999;
+    background-color: #FFF8C2;
+    animation-name: RGPD_animation;
+    animation-duration: 2s;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+#closevideo {
+  position:absolute;
+  right:-20px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  opacity:1;
+}
+
+
+/*#########################
+#######RUBAN DROITE########
+#########################*/
+.boutonclickable {
+    cursor:pointer;
+}
+.fillright{
+    background-color:#FBE5D6FF;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+
+/*##################################################
+############ZONE DU MENU ET LOGO####################
+##################################################*/
+.logomenu:hover{
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 767px) {
+.logomenu{
+    max-height: 40px;
+}
+}
+
+#menu-block-sm {
+   height: 60px;
+   float: top;
+}
+
+.text-in-color-brown {
+  color: #D64E26;
+}
+
+.text-in-size-16px {
+  font-size: 18px
+}
+
+.with-my-border {
+  border: 2px solid #D64E26;
+}
+/*##################################################
+############ZONE DE LA RECHERCHE####################
+##################################################*/
+
+.searchinput-sm {
+  width: 300px;
+  border: none;
+}
+
+.titrerecherche {
+    height:4%;
+    width: 100%;
+    text-decoration:underline;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.searchinput::placeholder {
+  font-size: 1vw; 
+}
+.ui-autocomplete {
+    max-height:40%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position:absolute;
+} 
+.nom_de_l_ingredient {
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 85%;
+    color: black;
+}
+.synonymes {
+    font-size: 70%;
+    color: grey;
+}
+.numero_cas {
+    font-style: italic;
+    font-size: 65%;
+    color: black;
+}
+.ui-state-highlight { 
+    background: #FAE8BE !important;
+}
+.ui-state-active { 
+    background: #FFF7E4 !important;
+    border-color: #FAE8BE !important;
+}
+
+
+/*#########################
+########MODAL MENU#########
+#########################*/
+.papernote {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:10px; 
+    font-style: x-small;            
+}
+.icone {
+    color:grey;
+}
+.license {
+    font-size: small;
+    text-align: center;
+}
+
+/*##################################################
+############ZONE VIDE AVANT BTNS####################
+##################################################*/
+
+
+/*###############################################
+############ZONE DES BOUTONS ####################
+###############################################*/
+.boutons {
+    height: 10%; 
+}
+/*CONTACT*/
+.mail2 {
+    padding-top: 8%;
+}
+/*CREDITS*/
+.profession {
+    font-size: 12px;
+}
+
+
+/*#########################
+###########IFRA############
+#########################*/
+table {
+  border: 1px solid black;
+  width: 100%;
+}
+th, .table th {
+    border: 1.5px solid black;
+    text-align: center;
+    height: 50%;
+    font-style: large;
+    background-color: #FBE5D6FF;
+}
+td, .table td {
+    border: 1px solid black;
+    text-align: center;  
+    vertical-align: middle;
+}
+
+.caption {
+    color : grey;
+    text-align: center;
+    font-style: italic;
+    caption-side: top;
+}
+.width-100-px {
+  width: 100px;
+}
+
+
+/*#########################
+###########MODAL###########
+#########################*/
+.modal-title1 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.my-modal {
+  background-color: #F2F2F2FF;
+}
+
+.my-modal-body {
+  font-size: small;
+  padding-top: 10px;
+}
+.nav-item {
+  white-space: nowrap;
+  border: 2px solid rgba(41,161,239,0.33);
+  border-radius: 10px 10px 10px 10px;
+}
+
+
+
+@media screen and (min-width: 1400px) {
+h1 {
+    width: 100%;
+   font-style: bold;
+   font-size: 0.9vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+}
+.blanc2 {
+  height: 44%;
+}
+.block{
+    height: 100%;
+    text-align: center;
+    padding-top: 2%;
+}
+.space{
+    height:30%;
+}
+.boutonclickable {
+    color:black;
+    font-size: 0.9vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
+.item {
+    font-size: 14px;
+}
+.textdescripteurs {
+    font-size:small;
+}
+.textitem {
+    padding: 5px;
+    font-size:small;
+
+}
+.textitem2 {
+    font-size:small;
+}
+.textitem3 {
+    padding: 5px;
+    font-size:small;
+    font-style: italic;
+}
+.textitem-footer{
+    font-size:small;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    float: right;
+}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+h1 {
+   width: 100%;
+   font-style: bold;
+   font-size: 1.1vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+}
+.blanc2 {
+   height: 42%;
+}
+.block{
+    height: 72%;
+    text-align: center;
+}
+.space{
+    height:20%;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.1vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
+.item {
+    font-size: 14px;
+}
+.textdescripteurs {
+    font-size:small;
+}
+.textitem {
+    padding: 5px;
+    font-size:small;
+}
+.textitem2 {
+    font-size:small;
+}
+.textitem3 {
+    padding: 5px;
+    font-size:small;
+    font-style: italic;
+}
+.textitem-footer{
+    font-size:small;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    float: right;
+}
+}
+
+
+
+@media screen and (min-width: 990px) and (max-width: 1200px) {
+h1 {
+   width: 100%;
+   font-style: bold;
+   font-size: 1.1vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+}
+.blanc2 {
+   height: 42%;
+}
+#block{
+    height: 70%;
+    width: 40%;
+    text-align: center;
+}
+#block2{
+    height: 70%;
+    width: 60%;
+    text-align: center;
+}
+.boutons {
+    height: 10%;
+}
+.space{
+    height:20%;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.1vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
+.item {
+    font-size: 14px;
+}
+.textdescripteurs {
+    font-size:small;
+}
+.textitem {
+    padding: 5px;
+    font-size:small;
+}
+.textitem2 {
+    font-size:small;
+}
+.textitem3 {
+    padding: 5px;
+    font-size:small;
+    font-style: italic;
+}
+.textitem-footer{
+    font-size:small;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    float: right;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 990px) {
+h1 {
+    width: 100%;
+   font-style: bold;
+   font-size: 1.3vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+   display: none;
+}
+.blanc2 {
+    height: 30%;
+}
+.space{
+    height: 10%;
+}
+.boutons {
+    height: 20%;
+}
+.block{
+    height: 70%;
+    text-align: center;
+}
+#searchclear {
+    display: none;
+}
+.searchinput {
+    border-radius: 7px;
+}
+.block{
+    height: 40%;
+    text-align: center;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.3vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.onglets {
+    font-size: 12px;
+}
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
+.item {
+    font-size: 14px;
+}
+.textitem {
+    padding: 5px;
+    font-size:small;
+}
+.textitem2 {
+    font-size:small;
+}
+.textitem3 {
+    padding: 5px;
+    font-size:small;
+    font-style: italic;
+}
+.textitem-footer{
+    font-size:small;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    padding-left: 35%;
+    margin-bottom: 5%;
+}
+.blockdonnees {
+    width: 55%;
+}
+}
+
+@media screen and (max-width: 768px) {
+.modal-title {
+    font-size: 15px; 
+}
+.modalheader-type2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+}
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(55vh - 45px);
+}
+
+.onglets {
+    font-size: 12px;
+}
+.panel-footer{
+    font-size:12px;
+}
+.imgmp {
+    max-width: 180px;
+    max-height: 180px;
+    padding-left: 35%;
+    margin-bottom: 5%;
+}
+.textitem-footer{
+    font-size:x-small;
+    margin-bottom: 0;
+    text-align: justify;
+
+
+}
+}
+
+
+
+/* LANGUAGES */
+
+*:lang(fr) {
+    display: initial;
+}
+*:lang(en) {
+    display: initial;
+}
+
+/* YOU CAN ZOOM */
+#you_can_zoom {
+    display: none;
+    position: absolute;
+    width: 220px;
+    top: 3%;
+    right: 3%;
+    z-index: 999;
+    font-size: small;
+    color: #D64E26;
+    text-align: justify; 
+    border: 0.25rem solid;
+    border-color: #F0BEB0;
+    border-radius: 10px;
+}
+p.#you_can_zoom {
+    margin: 5%;
+}
+#close_you_can_zoom {
+    color: #D64E26;
+}
+
+#imgen #imgfr {
+    display: inline-block;
+    max-width: 10px;
+    max-height: 10px;
+}
