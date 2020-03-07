@@ -619,89 +619,184 @@ crossorigin=""/>
   
   <!-- En-tête du modal -->
 <div class="modal-header">
-<div class="container-fluid  d-inline-block">
-<div class="row">
-  <h1 class="col-12 col-md-6  font-weight-bold text-size-20px text-center-before-md text-align-left-strictly-after-md">
-    <span id="modaltitle1" class="modal-title"></span>
-  </h1>
-  <h3 class="col-12 col-md-6  text-size-18px font-italic-before-md text-center-before-md text-align-right-strictly-after-md">
-    <span id="modalheader-type1" class="modalheader-type2"></span>
-  </h3>
-  <div id="modaltitle1-fili" class="col-12  Filiation  text-size-16px text-center"></div>
-</div>
-</div>
-<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <div class="container-fluid  d-inline-block">
+    <div class="row">
+        <h1 class="col-12 col-md-6  font-weight-bold text-size-20px text-center-before-md text-align-left-strictly-after-md">
+          <span id="modaltitle1" class="modal-title"></span>
+        </h1>
+        <h3 class="col-12 col-md-6  text-size-18px font-italic-before-md text-center-before-md text-align-right-strictly-after-md">
+          <span id="modalheader-type1" class="modalheader-type2"></span>
+        </h3>
+        <div id="modaltitle1-fili" class="col-12  Filiation  text-size-16px text-center"></div>
+    </div>
+  </div>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 </div>
 
-<div class="modal-body text-size-14px text-justify scrollbar-inside">
+<div class="modal-body m-0 p-0 text-size-14px text-justify">
   
   <!-- définissions des onglets -->
-<div class="panel-heading">
-<nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-  <button class="navbar-toggler  mx-auto" type="button" data-toggle="collapse" data-target="#navbarForSynthetiques" aria-controls="navbarForSynthetiques" aria-expanded="false" aria-label="Toggle navigation"><span lang="fr">Veuillez sélectionner une catégorie..</span><span lang="en">Please select a category..</span>
-  </button>
-  
-  <h3 class="collapse navbar-collapse text-size-16px" id="navbarForSynthetiques">
-  <ul id="ongletssynth" class="navbar-nav nav nav-pills nav-justified  mx-auto" role="tablist">
-    <li class="nav-item">
-      <a href="#tab12info" data-toggle="pill" aria-controls="tab12info" aria-selected="true" class="nav-link active" id="pills-tab1"><span lang="fr">Présentation Générale</span><span lang="en">General Presentation</span></a></li>
-    <li class="nav-item"><a href="#tab7info" data-toggle="pill" aria-controls="tab7info" aria-selected="false" class="nav-link" id="pills-tab7"><span lang="fr">Chimie</span><span lang="en">Synthesis</span></a></li>
-    <li class="nav-item"><a href="#tab8info" data-toggle="pill" aria-controls="tab8info" aria-selected="false" class="nav-link" id="pills-tab8"><span lang="fr">Réglementation</span><span lang="en">Regulations</span></a></li>
-    <li class="nav-item"><a href="#tab10info" data-toggle="pill" aria-controls="tab10info" aria-selected="false" class="nav-link" id="pills-tab10"><span lang="fr">Autres Remarques</span><span lang="en">Other Comments</span></a></li>
-  </ul>
-  </h3>
-</nav>
+<div class="panel-heading  m-0 p-0">
+  <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+    <!--mobile version-->
+    <button class="navbar-toggler  mx-auto" type="button" data-toggle="collapse" data-target="#navbarForSynthetiques" aria-controls="navbarForSynthetiques" aria-expanded="false" aria-label="Toggle navigation">
+      <span lang="fr">Veuillez sélectionner une catégorie..</span>
+      <span lang="en">Please select a category..</span>
+    </button>
+  <!--Desktop version-->
+    <h3 class="collapse navbar-collapse text-size-16px m-0 p-0" id="navbarForSynthetiques">
+      <ul id="ongletssynth" class="navbar-nav nav nav-tabs mx-auto" role="tablist">
+        <li class="nav-item">
+          <a href="#tab12info" data-toggle="pill" aria-controls="tab12info" aria-selected="true" class="nav-link active" id="pills-tab1">
+            <span lang="fr">Présentation Générale</span>
+            <span lang="en">General Presentation</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#tab7info" data-toggle="pill" aria-controls="tab7info" aria-selected="false" class="nav-link" id="pills-tab7">
+            <span lang="fr">Chimie</span>
+            <span lang="en">Synthesis</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#tab8info" data-toggle="pill" aria-controls="tab8info" aria-selected="false" class="nav-link" id="pills-tab8">
+            <span lang="fr">Réglementation</span>
+            <span lang="en">Regulations</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#tab10info" data-toggle="pill" aria-controls="tab10info" aria-selected="false" class="nav-link" id="pills-tab10">
+            <span lang="fr">Autres Remarques</span>
+            <span lang="en">Other Comments</span>
+          </a>
+        </li>
+      </ul>
+    </h3>
+  </nav>
 </div>
 <!--contenu des onglets-->
-<div class="panel-body">
+<div class="panel-body scrollbar-inside">
 <div class="tab-content">
   
   <!--Onglet présentation générale-->
 <div class="tab-pane fade show active" id="tab12info" role="tabpanel" aria-labelledby="pills-tab-synthetiques-1">
-<div class="container-fluid panelcontent">
+<div class="container-fluid">
 <div class="row">
-<div class="col-12 col-sm-12 col-lg-5 blockdonnees">
-  <p><h1 class="item d-inline text-size-16px"><span><b lang="fr">N° CAS <sup class="fas fa-question-circle iconetab" title="Numéro d'identification universel de la matière première."></sup> :</b><b lang="en">CAS number <sup class="fas fa-question-circle iconetab" title="Universal identification number of the raw material."></sup> :</b></h1>
-    <span id="modalbody-ncas1" class="textitem"></span></span></p> 
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Tenue <sup class="fas fa-question-circle iconetab" title="Indice sur la ténacité de la matière première (Tête : quelques minutes; Coeur : quelques heures; Fond : jusqu'à plusieurs jours)."></sup> :</b><b lang="en">Volatility <sup class="fas fa-question-circle iconetab" title="Indication of the tenacity of the raw material (Head : a few minutes; Heart : a few hours; Base : sometimes a few days)."></sup> :</b></h2>
-    <span id="modalbody-tenue1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Aspect <sup class="fas fa-question-circle iconetab" title="Couleur et état physique de la matière première."></sup> :</b><b lang="en">Aspect <sup class="fas fa-question-circle iconetab" title="Color and physical state of the raw material."></sup> :</b></h2>
-    <span id="modalbody-aspect1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Densité <sup class="fas fa-question-circle iconetab" title="Donnée, sans unité, mettant en relation la masse pour un volume donné de matière première (d = 1,5 veut dire que 1 mL = 1,5 g)."></sup> :</b><b lang="en">Density <sup class="fas fa-question-circle icone" title="A no-unit data giving the mass of raw material for a given volume (d = 1,5 means 1 mL = 1,5g)."></sup> :</b></h2>
-    <span id="modalbody-densite1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr"> Prix <sup class="fas fa-question-circle iconetab" title="€ : 0 à 15 €/kg; €€ : 15 à 50 €/kg; €€€ : 50 à 200 €/kg; €€€€ : 200 à 1000 €/kg; €€€€€ : 1000 €/kg et plus. Le prix des matières premières peut grandement évoluer selon différents facteurs qui leurs sont propres."></sup> : </b><b lang="en"> Price <sup class="fas fa-question-circle iconetab" title="€ : 0 to 15 €/kg ; €€ : 15 to 50 €/kg; €€€ : 50 to 200 €/kg; €€€€ : 200 to 1000 €/kg; €€€€€ : 1000 €/kg and more. 1 € ≈ 1,1 USD. Raw materials cost can evolve according to various factors of their own."></sup> : </b></h2>
-    <span id="modalbody-price1" class="textitem"></span></span></p>
 
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Stabilité <sup class="fas fa-question-circle iconetab" title="Comportement de la matière première sous des conditions de haute température, de lumière, et en bases fonctionnelles diverses."></sup> :</b><b lang="en">Stability <sup class="fas fa-question-circle iconetab" title="Aspect, color, odor and molecular changes according to the conditions imposed to the raw material."></sup> :</b></h2>
-<span id="modalbody-stab1" class="textitem"></span></span></p>
-      
-</div>
-<div class="col-12 col-sm-12 col-lg-4 blockdonnees">
-
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Formule Brute <sup class="fas fa-question-circle iconetab" title="Formule répertoriant les atomes composant la molécule étudiée."></sup> :</b><b lang="en">Molecular formula <sup class="fas fa-question-circle icone" title="Formula giving the atoms of the studies molecules."></sup> :</b></h2>
-    <span id="modalbody-fbrute1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><b lang="fr">Masse Molaire <sup class="fas fa-question-circle iconetab" title="Indice sur la taille de la molécule (et souvent sa volatilité), donné en g/mol."></sup> :</b><b lang="en">Molecular Weight <sup class="fas fa-question-circle icone" title="Indication on the size of the molecule (and its volatility), given in g/mol."></sup> :</b></h2>
-    <span id="modalbody-mmolaire1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Point Eclair <sup class="fas fa-question-circle iconetab" title="Donne, en degrés, un indice sur la volatilité de la matière première. Il s'agit de la température à laquelle la matière première forme un mélange inflammable avec l'air en surface."></sup> :</b><b lang="en">Flash Point <sup class="fas fa-question-circle icone" title="Gives, in degrees, an indication on the volatility of the raw material. It is the temperature at which the raw materials form a flammable mix with surface air."></sup> :</b></h2>
-    <span id="modalbody-fp1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Log P <sup class="fas fa-question-circle iconetab" title="Donne un indice sur la miscibilité du composé dans l'eau. Il s'agit du logarithme en base 10 du rapport entre les concentrations en matière première réparties entre l'octanol et l'eau, dans un mélange hétérogène de ces trois composés."></sup> :</b><b lang="en">Log P <sup class="fas fa-question-circle icone" title="Gives an indication on the water-solubility of the molecule. It is the logarithm to the basis 10 of the ratio between the raw material's concentration in octanol and water, in a heterogeneous mix of those three compounds."></sup> :</b></h2>
-    <span id="modalbody-logp"  class="textitem"></span></span></p>
-
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Point de Fusion <sup class="fas fa-question-circle iconetab" title="Température à une pression donnée, à laquelle un composé chimique fond, c'est-à-dire passe de l'état solide à l'état liquide."></sup> :</b><b lang="en">Fusion Point <sup class="fas fa-question-circle icone" title="Temperature at a given pressure at which a chemical compound melts, i.e. changes from solid to liquid state."></sup> :</b></h2>
-    <span id="modalbody-fusionp1" class="textitem"></span></span></p>
-  
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Point d'ébullition <sup class="fas fa-question-circle iconetab" title="Indice, en degré, sur la volatilité de la matière première. Température à laquelle la matière première passe de l'état liquide à gazeux."></sup> :</b><b lang="en" >Boiling Point <sup class="fas fa-question-circle icone" title="Indication, in degrees, on the volatility of the raw material. Temperature at which the raw material swiches from a liquid to a gas."></sup> :</b></h2>
-    <span id="modalbody-bp1"  class="textitem"></span></span></p>
-
-</div>
-<div id="modalbody-pict1" class="imgmp col-12 col-sm-12 col-lg-3 order-first order-sm-first order-lg-last"></div>
+  <div class="col-12 col-sm-12 col-lg-5 blockdonnees panel-content">
+    <p>
+      <h1 class="item d-inline text-size-16px">
+        <span lang="fr"><b>N° CAS <sup class="fas fa-question-circle iconetab" title="Numéro d'identification universel de la matière première."></sup> :</b></span>
+        <span lang="fr"><b>CAS number <sup class="fas fa-question-circle iconetab" title="Universal identification number of the raw material."></sup> :</b></span>
+      </h1>
+      <span id="modalbody-ncas1" class="textitem"></span>
+      <br>
+      <h2 class="item d-inline text-size-16px">
+          <span lang="fr"><b>N° EINECS <sup class="fas fa-question-circle iconetab" title="Numéro d'identification de la matière première dans l'Inventaire Européen des Substances chimiques Commerciales Existantes."></sup> :</b></span>
+          <span lang="en"><b>EINECS number <sup class="fas fa-question-circle iconetab" title="Universal identification number of the raw material in the European INventory of Existing Commercial chemical Substances."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-einecs" class="textitem"></span>
+      <br>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>N° FEMA <sup class="fas fa-question-circle iconetab" title="Numéro d'identification universel de la matière première au sein de la base de données Flavor Extract Manufacturers Association"></sup> :</b></span>
+        <span lang="en"><b>FEMA number <sup class="fas fa-question-circle iconetab" title="Universal identification number of the raw material in the Flavor Extract Manufacturers Association."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-fema" class="textitem"></span>
+      <br>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>N° JECFA <sup class="fas fa-question-circle iconetab" title="Numéro d'identification universel de la matière première."></sup> :</b></span>
+        <span lang="en"><b>JECFA number <sup class="fas fa-question-circle iconetab" title="Universal identification number of the raw material."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-jecfa" class="textitem"></span>
+      <br>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>N° FLAVIS <sup class="fas fa-question-circle iconetab" title="Numéro d'identification universel de la matière première dans le EU FLAVouring Information System."></sup> :</b></span>
+        <span lang="en"><b>FLAVIS number <sup class="fas fa-question-circle iconetab" title="Universal identification number of the raw material in the EU FLAVouring Information System."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-flavis" class="textitem"></span>
+    </p> 
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Tenue <sup class="fas fa-question-circle iconetab" title="Indice sur la ténacité de la matière première (Tête : quelques minutes; Coeur : quelques heures; Fond : jusqu'à plusieurs jours)."></sup> :</b></span>
+        <span lang="en"><b>Volatility <sup class="fas fa-question-circle iconetab" title="Indication of the tenacity of the raw material (Head : a few minutes; Heart : a few hours; Base : sometimes a few days)."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-tenue1" class="textitem"></span>
+    </p>
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Aspect <sup class="fas fa-question-circle iconetab" title="Couleur et état physique de la matière première."></sup> :</b></span>
+        <span lang="en"><b>Aspect <sup class="fas fa-question-circle iconetab" title="Color and physical state of the raw material."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-aspect1" class="textitem"></span>
+    </p>
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Prix <sup class="fas fa-question-circle iconetab" title="€ : 0 à 15 €/kg; €€ : 15 à 50 €/kg; €€€ : 50 à 200 €/kg; €€€€ : 200 à 1000 €/kg; €€€€€ : 1000 €/kg et plus. Le prix des matières premières peut grandement évoluer selon différents facteurs qui leurs sont propres."></sup> : </b></span>
+        <span lang="en"><b>Price <sup class="fas fa-question-circle iconetab" title="€ : 0 to 15 €/kg ; €€ : 15 to 50 €/kg; €€€ : 50 to 200 €/kg; €€€€ : 200 to 1000 €/kg; €€€€€ : 1000 €/kg and more. 1 € ≈ 1,1 USD. Raw materials cost can evolve according to various factors of their own."></sup> : </b></span>
+      </h2>
+      <span id="modalbody-price1" class="textitem"></span>
+    </p>
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Stabilité <sup class="fas fa-question-circle iconetab" title="Comportement de la matière première sous des conditions de haute température, de lumière, et en bases fonctionnelles diverses."></sup> :</b></span>
+        <span lang="en"><b>Stability <sup class="fas fa-question-circle iconetab" title="Aspect, color, odor and molecular changes according to the conditions imposed to the raw material."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-stab1" class="textitem"></span>
+    </p>
+  </div>
+    <!--2ème colonne-->
+  <div class="col-12 col-sm-12 col-lg-4 blockdonnees">
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Densité <sup class="fas fa-question-circle iconetab" title="Donnée, sans unité, mettant en relation la masse pour un volume donné de matière première (d = 1,5 veut dire que 1 mL = 1,5 g)."></sup> :</b></span>
+        <span lang="en"><b>Density <sup class="fas fa-question-circle icone" title="A no-unit data giving the mass of raw material for a given volume (d = 1,5 means 1 mL = 1,5g)."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-densite1" class="textitem"></span>
+    </p>
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Formule Brute <sup class="fas fa-question-circle iconetab" title="Formule répertoriant les atomes composant la molécule étudiée."></sup> :</b></span>
+        <span lang="en"><b>Molecular formula <sup class="fas fa-question-circle icone" title="Formula giving the atoms of the studies molecules."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-fbrute1" class="textitem"></span>
+    </p>
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Masse Molaire <sup class="fas fa-question-circle iconetab" title="Indice sur la taille de la molécule (et souvent sa volatilité), donné en g/mol."></sup> :</b></span>
+        <span lang="en"><b>Molecular Weight <sup class="fas fa-question-circle icone" title="Indication on the size of the molecule (and its volatility), given in g/mol."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-mmolaire1" class="textitem"></span>
+    </p>
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Point Eclair <sup class="fas fa-question-circle iconetab" title="Donne, en degrés, un indice sur la volatilité de la matière première. Il s'agit de la température à laquelle la matière première forme un mélange inflammable avec l'air en surface."></sup> :</b></span>
+        <span lang="en"><b>Flash Point <sup class="fas fa-question-circle icone" title="Gives, in degrees, an indication on the volatility of the raw material. It is the temperature at which the raw materials form a flammable mix with surface air."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-fp1" class="textitem"></span>
+    </p>
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Log P <sup class="fas fa-question-circle iconetab" title="Donne un indice sur la miscibilité du composé dans l'eau. Il s'agit du logarithme en base 10 du rapport entre les concentrations en matière première réparties entre l'octanol et l'eau, dans un mélange hétérogène de ces trois composés."></sup> :</b></span>
+        <span lang="en"><b>Log P <sup class="fas fa-question-circle icone" title="Gives an indication on the water-solubility of the molecule. It is the logarithm to the basis 10 of the ratio between the raw material's concentration in octanol and water, in a heterogeneous mix of those three compounds."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-logp" class="textitem"></span>
+    </p>
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Point de Fusion <sup class="fas fa-question-circle iconetab" title="Température à une pression donnée, à laquelle un composé chimique fond, c'est-à-dire passe de l'état solide à l'état liquide."></sup> :</b></span>
+        <span lang="en"><b>Fusion Point <sup class="fas fa-question-circle icone" title="Temperature at a given pressure at which a chemical compound melts, i.e. changes from solid to liquid state."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-fusionp1" class="textitem"></span>
+    </p>
+    <p>
+      <h2 class="item d-inline text-size-16px">
+        <span lang="fr"><b>Point d'ébullition <sup class="fas fa-question-circle iconetab" title="Indice, en degré, sur la volatilité de la matière première. Température à laquelle la matière première passe de l'état liquide à gazeux."></sup> :</b></span>
+        <span lang="en"><b>Boiling Point <sup class="fas fa-question-circle icone" title="Indication, in degrees, on the volatility of the raw material. Temperature at which the raw material swiches from a liquid to a gas."></sup> :</b></span>
+      </h2>
+      <span id="modalbody-bp1"  class="textitem"></span>
+    </p>
+  </div>
+  <div id="modalbody-pict1" class="imgmp col-12 col-sm-12 col-lg-3 order-first order-sm-first order-lg-last"></div>
 </div>
 </div>
 </div>
