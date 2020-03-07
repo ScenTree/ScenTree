@@ -433,7 +433,7 @@ td, .table td {
   font-size: small;
   padding-top: 10px;
 }
-.navbar {
+.panel-heading {
   background-color: blue;
 }
 .nav-item {
