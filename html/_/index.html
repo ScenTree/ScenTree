@@ -330,33 +330,58 @@ crossorigin=""/>
 
 <!--Onglet Botanique-->
 <div class="tab-pane fade" id="tab2info"  role="tabpanel" aria-labelledby="pills-tab2">
-<div class="container-fluid">
-<div class="row">
-<div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 panelcontent">
-  
-  <p><h2 class="item  d-inline text-size-16px"><span><b lang="fr">Nom botanique <sup class="fas fa-question-circle iconetab" title="Nom de la plante ou de l'animal selon le Code International de Nomenclature Botanique."></sup> :</b><b lang="en">Botanical name <sup class="fas fa-question-circle iconetab" title="Name of the plant or the animal, according to the International Code of Nomenclature for Plants."></sup> :</b></h2>
-  <span id="modalbody-nbota" class="textitem3" ></span></span></p>
+	<div class="container-fluid">
+	<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9 panelcontent">
+	  
+	  <p>
+	  	<h2 class="item  d-inline text-size-16px">
+	  		<span lang="fr"><b>Nom botanique <sup class="fas fa-question-circle iconetab" title="Nom de la plante ou de l'animal selon le Code International de Nomenclature Botanique."></sup> :</b></span>
+	  		<<span lang="en"><b>Botanical name <sup class="fas fa-question-circle iconetab" title="Name of the plant or the animal, according to the International Code of Nomenclature for Plants."></sup> :</b></span>
+	  	</h2>
+	  	<span id="modalbody-nbota" class="textitem3" ></span>
+	  </p>
+	  <p>
+	  	<h2 class="item  d-inline text-size-16px">
+	  		<span lang="fr"><b>Botanique <sup class="fas fa-question-circle iconetab" title="Famille et/ou genre botanique à laquelle la matière première est ratachée."></sup> :</b></span>
+	  		<span lang="en"><b>Botanical filiation <sup class="fas fa-question-circle iconetab" title="Botanical family and genus to which the raw material is linked."></sup> :</b></span>
+	  	</h2>
+	  	<span id="modalbody-bota"  class="textitem"></span>
+	  </p>
+	  <p>
+	  	<h2 class="item  d-inline text-size-16px">
+	  		<span lang="fr"><b>Origine(s) géographique(s) <sup class="fas fa-question-circle iconetab" title="Pays et régions de culture de la matière première."></sup> :</b></span>
+	  		<span lang="en"><b>Geographic origin <sup class="fas fa-question-circle iconetab" title="Country and region of cultivation of the raw material."></sup> :</b></span>
+	  	</h2>
+	  	<span id="modalbody-origine" class="textitem"></span>
+	  </p>        
+	  <p>
+	  	<h2 class="item  d-inline text-size-16px">
+	  		<span lang="fr"><b>Méthode d'obtention <sup class="fas fa-question-circle iconetab" title="Méthode de culture et d'extraction de la matière première."></sup> :</b></span>
+	  		<span lang="en"><b>Extraction process <sup class="fas fa-question-circle iconetab" title="Harvesting and extraction methods of the raw material."></sup> :</b></span>
+	  	</h2>
+	  	<span id="modalbody-methode" class="textitem"></span>
+	  </p>
+	  <p>
+	  	<h2 class="item  d-inline text-size-16px">
+	  		<span lang="fr"><b>Influence et répartition des chémotypes <sup class="fas fa-question-circle iconetab" title="Caractéristiques des autres variétés et/ou espèces de la plante étudiée."></sup> :</b></span>
+	  		<span lang="en"><b>Chemotypes <sup class="fas fa-question-circle iconetab" title="Other species and varieties characteristics for the studied plant."></sup> :</b></span>
+	  	</h2>
+	  	<span id="modalbody-chemotype" class="textitem"></span>
+	  </p>
+	  <p>
+	  	<h2 class="item d-inline text-size-16px">
+	  		<span lang="fr"><b>Médecine alternative <sup class="fas fa-question-circle iconetab" title="Usages en aromathérapie, phytothérapie ou olfactothérapie."></sup> :</b></span>
+	  		<span lang="en"><b>Aromatherapy <sup class="fas fa-question-circle iconetab" title="Aromatherapy, phytotherapy and olfactotherapy usage."></sup> :</b></span>
+	  	</h2>
+	  	<span id="modalbody-medecine" class="textitem"></span>
+	  </p>
+	</div>
+		<!-- Colonne Image-->
+	<div id="modalbody-pictA" class="imgmp  col-xs-12 col-sm-12 col-md-12 col-lg-3  order-first order-sm-first order-lg-last"></div>
 
-  <p><h2 class="item  d-inline text-size-16px"><span><b lang="fr">Botanique <sup class="fas fa-question-circle iconetab" title="Famille et/ou genre botanique à laquelle la matière première est ratachée."></sup> :</b><b lang="en">Botanical filiation <sup class="fas fa-question-circle iconetab" title="Botanical family and genus to which the raw material is linked."></sup> :</b></h2>
-  <span id="modalbody-bota"  class="textitem"></span></span></p>
-
-  <p><h2 class="item  d-inline text-size-16px"><span><b lang="fr">Origine(s) géographique(s) <sup class="fas fa-question-circle iconetab" title="Pays et régions de culture de la matière première."></sup> :</b><b lang="en">Geographic origin <sup class="fas fa-question-circle iconetab" title="Country and region of cultivation of the raw material."></sup> :</b></h2>
-  <span id="modalbody-origine" class="textitem"></span></span></p>
-            
-  <p><h2 class="item  d-inline text-size-16px"><span><b lang="fr">Méthode d'obtention <sup class="fas fa-question-circle iconetab" title="Méthode de culture et d'extraction de la matière première."></sup> :</b><b lang="en">Extraction process <sup class="fas fa-question-circle iconetab" title="Harvesting and extraction methods of the raw material."></sup> :</b></h2>
-  <span id="modalbody-methode" class="textitem"></span></span></p>
-
-  <p><h2 class="item  d-inline text-size-16px"><span><b lang="fr">Influence et répartition des chémotypes <sup class="fas fa-question-circle iconetab" title="Caractéristiques des autres variétés et/ou espèces de la plante étudiée."></sup> :</b><b lang="en">Chemotypes <sup class="fas fa-question-circle iconetab" title="Other species and varieties characteristics for the studied plant."></sup> :</b></h2>
-  <span id="modalbody-chemotype" class="textitem"></span></span></p>
-
-  <p><h2 class="item d-inline text-size-16px"><span><b lang="fr">Médecine alternative <sup class="fas fa-question-circle iconetab" title="Usages en aromathérapie, phytothérapie ou olfactothérapie."></sup> :</b><b lang="en">Aromatherapy <sup class="fas fa-question-circle iconetab" title="Aromatherapy, phytotherapy and olfactotherapy usage."></sup> :</b></h2>
-  <span id="modalbody-medecine" class="textitem"></span></span></p>
-</div>
-
-<div id="modalbody-pictA" class="imgmp  col-xs-12 col-sm-12 col-md-12 col-lg-4  order-first order-sm-first order-lg-last"></div>
-
-</div>
-</div>
+	</div>
+	</div>
 </div>
 
 <!--Onglet Reglementation-->
