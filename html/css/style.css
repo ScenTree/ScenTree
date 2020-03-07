@@ -436,6 +436,7 @@ td, .table td {
 .nav-item {
   white-space: nowrap;
   font-weight: bold;
+  margin-left: 10%;
 }
 
 
