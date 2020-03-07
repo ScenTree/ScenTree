@@ -812,6 +812,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $('#modalbody-fbrute1').empty();
     $('#modalbody-fusionp1').empty();
     $('#modalbody-stab1').empty();
+    $('#modalbody-einecs1').empty();
+    $('#modalbody-fema1').empty();
+    $('#modalbody-jecfa1').empty();
+    $('#modalbody-flavis1').empty();
 
     //EMPTY - Descripteurs
     $('#modalheader-type2').empty();
@@ -910,6 +914,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $('#modalbody-fbrute1').append(the_fbrute);
     $('#modalbody-fusionp1').append(the_fusionp);
     $('#modalbody-stab1').append(the_stab);
+    $('#modalbody-einecs1').append(the_EINECS);
+    $('#modalbody-fema1').append(the_FEMA);
+    $('#modalbody-jecfa1').append(the_JECFA);
+    $('#modalbody-flavis1').append(the_FLAVIS);
 
     //APPEND - Partie Descripteurs
     $('#modaltitle2').append(the_title);
