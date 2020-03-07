@@ -415,45 +415,6 @@ td, .table td {
   width: 100px;
 }
 
-/*############################
-######MENTIONS LEGALES########
-############################*/
-
-.titre1 {
-    font-weight: bold;
-    list-style-type: upper-roman;
-}
-.titre2 {
-    list-style-type: lower-alpha;
-
-}
-.paragraphetete {
-    margin-top: 1%; 
-    margin-left: -5%;
-}
-.paragraphetete2 {
-    margin-top: 1%; 
-    margin-left: -10%;
-}
-.paragraphe {
-    margin-left: -5%;
-}
-.paragraphe2 {
-    margin-left: -10%;
-}
-.titreparagraphe {
-    margin-left: -5%;
-    text-decoration: underline;
-    font-weight: bold;
-
-}
-.miniliste{
-    padding-top: 1%;
-    padding-bottom: 1%;
-}
-.fond-blanc {
-    background-color: white;
-}
 
 /*#########################
 ###########MODAL###########
@@ -471,6 +432,9 @@ td, .table td {
 .my-modal-body {
   font-size: small;
   padding-top: 10px;
+}
+.nav-item {
+  white-space: nowrap;
 }
 
 
