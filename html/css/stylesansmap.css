@@ -488,15 +488,8 @@ caption {
   background-color: #F1F0F0;
   text-align: right;
 }
-.categorieifra tr:nth-child(even) {
-  background-color: #F1F0F0;
-  color:#121212; 
-}
-.categorieifra tr:nth-child(odd) {
-  background-color: #F1F0F0;
-  color:#121212; 
-}
 .categorieifra td, .table td {
+    background-color: #F1F0F0;
     border: 1px solid black;
     text-align: left;  
     vertical-align: middle;
