@@ -124,7 +124,7 @@ if (show_the_notifications_for_they_support_us || show_the_notifications_for_the
 
 function from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(the_dd_mm_yyyy_as_string) {
     if (!the_dd_mm_yyyy_as_string) {
-	    the_dd_mm_yyyy_as_string = "";
+      the_dd_mm_yyyy_as_string = "";
     };
     var the_yyyy_mm__dd_as_string = the_dd_mm_yyyy_as_string.replace( new RegExp("(\\d+)/(\\d+)/(\\d+)", "gi"), "$3$2$1" );
     return parseInt(the_yyyy_mm__dd_as_string, 10);
@@ -579,6 +579,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_molaire = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'mmolaire');
     var the_fusionp = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'PFusion');
     var the_fbrute = put_all_digits_into_sub(from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'formulebrute'));
+    var the_synonyme = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'AutresNoms');
     //IFRA
     var the_amendment = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Amendment');
     var the_cat1 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 1');
@@ -721,8 +722,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
-	var the_ifra_info = JSON.parse(an_infra_info);
-	//console.log(the_ifra_info);
+  var the_ifra_info = JSON.parse(an_infra_info);
+  //console.log(the_ifra_info);
     };
     };
 
@@ -732,20 +733,20 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     the_new_pro_infos = new Array();
     if (the_pro_infos) {
         // built the JSON array from an aray of strings
-	for (let an_pro_info of the_pro_infos) {
-		var the_pro_info = JSON.parse(an_pro_info);
-		the_new_pro_infos.push(the_pro_info);
-	};
+  for (let an_pro_info of the_pro_infos) {
+    var the_pro_info = JSON.parse(an_pro_info);
+    the_new_pro_infos.push(the_pro_info);
+  };
     };
     
     the_new_pro_infos.sort((a,b) => from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(a["Dateajout"]) - from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(b["Dateajout"]));
     for (let a_pro_info of the_new_pro_infos) {
         //console.log(a_pro_info);
-	
+  
     };
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
-	console.log(a_pro_info);
+  console.log(a_pro_info);
     };
     // the standard PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
@@ -816,6 +817,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $('#modalbody-fema1').empty();
     $('#modalbody-jecfa1').empty();
     $('#modalbody-flavis1').empty();
+    $('#modalbody-synonymes').empty();
 
     //EMPTY - Descripteurs
     $('#modalheader-type2').empty();
@@ -918,6 +920,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $('#modalbody-fema1').append(the_FEMA);
     $('#modalbody-jecfa1').append(the_JECFA);
     $('#modalbody-flavis1').append(the_FLAVIS);
+    $('#modalbody-synonymes').append(the_synonyme);
 
     //APPEND - Partie Descripteurs
     $('#modaltitle2').append(the_title);
@@ -1152,7 +1155,7 @@ function switch_to_fr() {
     Cookies.set('display_french_language', 1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-	$("*:lang(en)").remove();
+  $("*:lang(en)").remove();
     };
     //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
