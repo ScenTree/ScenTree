@@ -716,12 +716,12 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     // IFRA
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
     the_new_ifra_infos = new Array();
-    
+
     if (the_ifra_infos) {
       for (let an_infra_info of the_ifra_infos) {
         var the_ifra_info = JSON.parse(an_infra_info);
         the_new_ifra_infos.push(the_ifra_info);
-        console.log(the_ifra_info);
+        console.log(the_ifra_info.["ID:"]);
       };
     };
    //function afficheElement(element, index, array) {
