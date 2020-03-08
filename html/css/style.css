@@ -545,6 +545,10 @@ h1 {
     height: 72%;
     text-align: center;
 }
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(105vh - 320px);
+}
 .space{
     height:20%;
 }
