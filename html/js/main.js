@@ -728,9 +728,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
      var ligne=document.createElement("tr");
      ligne.innerHTML="<td>"+(index+1)+"/"+array.length+"</td>";
      ligne.innerHTML+="<td>"+element.id+"</td>";
+     //console.log(the_ifra_info);
 
-
-     document.querySelector("table#49THtableannexeI").appendChild(ligne);
+     //document.querySelector("table#49THtableannexeI").appendChild(ligne);
     }
 
     the_new_ifra_infos.forEach(afficheElement);
