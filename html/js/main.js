@@ -726,7 +726,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
    function afficheElement(element, index, array) {
      var ligne=document.createElement("tr");
      ligne.innerHTML="<td>"+(index+1)+"/"+array.length+"</td>";
-     ligne.innerHTML+="<td>"+element.CAS No\+"</td>";
+     ligne.innerHTML+="<td>"+element.["CAS No"]+"</td>";
 
 
      document.querySelector("table#49THtableannexeI").appendChild(ligne);
