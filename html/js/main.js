@@ -718,7 +718,19 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
 	var the_ifra_info = JSON.parse(an_infra_info);
-	//console.log(the_ifra_info);
+    
+	if (the_ifra_info["version"] == "48") {
+		if (the_ifra_info["Standard type"]) {
+			
+		};
+	} else if (the_ifra_info["version"] == "49") {
+	
+	} else if (the_ifra_info["version"] == "48 annexe type I") {
+
+	} else { // we suppose this is NonIFRA
+		
+	};
+	  
     };
     };
 
