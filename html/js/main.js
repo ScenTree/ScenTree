@@ -732,6 +732,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	};
 	  
     };
+    };
 
 
     
