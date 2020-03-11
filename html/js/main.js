@@ -718,8 +718,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
 	var the_ifra_info = JSON.parse(an_infra_info);
-    
-	if ((the_ifra_info["version"] == "48") || (the_ifra_info["version"] == "48 annexe type I") || (the_ifra_info["version"] == "48 annexe type II")) {
+        console.log("IFRA - " + an_infra_info); 
+	if ((the_ifra_info["version"] == "48") || (the_ifra_info["version"] == "48 annexe type I") || (the_ifra_info["version"] == "48 annexe type II") || (the_ifra_info["version"] == "Annexe Type I 48TH") || (the_ifra_info["version"] == "Annexe Type II 48TH")) {
+		console.log("IFRA - 48th amendment");
 		if (the_ifra_info["Standard type"]) {
 			$(".modalbody-48-cat1").text(the_ifra_info["1"]);
 			$(".modalbody-48-cat2").text(the_ifra_info["2"]);
@@ -732,7 +733,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                         $(".modalbody-48-cat9").text(the_ifra_info["9"]);
 			$(".modalbody-48-cat10").text(the_ifra_info["10"]);
 		};
-	} else if ((the_ifra_info["version"] == "49") || (the_ifra_info["version"] == "49 annexe type I") || (the_ifra_info["version"] == "49 annexe type II")) {
+	} else if ((the_ifra_info["version"] == "49") || (the_ifra_info["version"] == "49 annexe type I") || (the_ifra_info["version"] == "49 annexe type II") || (the_ifra_info["version"] == "Annexe Type I 49TH") || (the_ifra_info["version"] == "Annexe Type II 49TH")) {
+		console.log("IFRA - 49th amendment");
                 if (the_ifra_info["Standard type"]) {
                         $(".modalbody-49-cat1").text(the_ifra_info["1"]);
                         $(".modalbody-49-cat2").text(the_ifra_info["2"]);
@@ -753,10 +755,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                         $(".modalbody-49-cat11B").text(the_ifra_info["11B"]);
                         $(".modalbody-49-cat12").text(the_ifra_info["12"]);
                 };
-	} else if (the_ifra_info["version"] == "48 annexe type I") {
-
 	} else { // we suppose this is NonIFRA
-		
+		console.log("IFRA - no");
 	};
 	  
     };
