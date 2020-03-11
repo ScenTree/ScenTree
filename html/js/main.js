@@ -719,7 +719,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     for (let an_infra_info of the_ifra_infos) {
 	var the_ifra_info = JSON.parse(an_infra_info);
     
-	if (the_ifra_info["version"] == "48") {
+	if ((the_ifra_info["version"] == "48") || (the_ifra_info["version"] == "48 annexe type I") || (the_ifra_info["version"] == "48 annexe type II")) {
 		if (the_ifra_info["Standard type"]) {
 			$(".modalbody-48-cat1").text(the_ifra_info["1"]);
 			$(".modalbody-48-cat2").text(the_ifra_info["2"]);
@@ -732,7 +732,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                         $(".modalbody-48-cat9").text(the_ifra_info["9"]);
 			$(".modalbody-48-cat10").text(the_ifra_info["10"]);
 		};
-	} else if (the_ifra_info["version"] == "49") {
+	} else if ((the_ifra_info["version"] == "49") || (the_ifra_info["version"] == "49 annexe type I") || (the_ifra_info["version"] == "49 annexe type II")) {
                 if (the_ifra_info["Standard type"]) {
                         $(".modalbody-49-cat1").text(the_ifra_info["1"]);
                         $(".modalbody-49-cat2").text(the_ifra_info["2"]);
