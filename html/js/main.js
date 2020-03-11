@@ -721,10 +721,38 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     
 	if (the_ifra_info["version"] == "48") {
 		if (the_ifra_info["Standard type"]) {
-			
+			$(".modalbody-48-cat1").text(the_ifra_info["1"]);
+			$(".modalbody-48-cat2").text(the_ifra_info["2"]);
+                        $(".modalbody-48-cat3").text(the_ifra_info["3"]);
+                        $(".modalbody-48-cat4").text(the_ifra_info["4"]);
+                        $(".modalbody-48-cat5").text(the_ifra_info["5"]);
+                        $(".modalbody-48-cat6").text(the_ifra_info["6"]);
+                        $(".modalbody-48-cat7").text(the_ifra_info["7"]);
+                        $(".modalbody-48-cat8").text(the_ifra_info["8"]);
+                        $(".modalbody-48-cat9").text(the_ifra_info["9"]);
+			$(".modalbody-48-cat10").text(the_ifra_info["10"]);
 		};
 	} else if (the_ifra_info["version"] == "49") {
-	
+                if (the_ifra_info["Standard type"]) {
+                        $(".modalbody-49-cat1").text(the_ifra_info["1"]);
+                        $(".modalbody-49-cat2").text(the_ifra_info["2"]);
+                        $(".modalbody-49-cat3").text(the_ifra_info["3"]);
+                        $(".modalbody-49-cat4").text(the_ifra_info["4"]);
+                        $(".modalbody-49-cat5A").text(the_ifra_info["5A"]);
+                        $(".modalbody-49-cat5B").text(the_ifra_info["5B"]);
+                        $(".modalbody-49-cat5C").text(the_ifra_info["5C"]);
+                        $(".modalbody-49-cat5D").text(the_ifra_info["5D"]);
+                        $(".modalbody-49-cat6").text(the_ifra_info["6"]);
+                        $(".modalbody-49-cat7A").text(the_ifra_info["7A"]);
+                        $(".modalbody-49-cat7B").text(the_ifra_info["7B"]);
+                        $(".modalbody-49-cat8").text(the_ifra_info["8"]);
+                        $(".modalbody-49-cat9").text(the_ifra_info["9"]);
+                        $(".modalbody-49-cat10A").text(the_ifra_info["10A"]);
+                        $(".modalbody-49-cat10B").text(the_ifra_info["10B"]);
+                        $(".modalbody-49-cat11A").text(the_ifra_info["11A"]);
+                        $(".modalbody-49-cat11B").text(the_ifra_info["11B"]);
+                        $(".modalbody-49-cat12").text(the_ifra_info["12"]);
+                };
 	} else if (the_ifra_info["version"] == "48 annexe type I") {
 
 	} else { // we suppose this is NonIFRA
