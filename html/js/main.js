@@ -527,8 +527,8 @@ function from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_
 
 function fill_with_percentage(the_html_class_as_text, the_percentage) {
 	$(the_html_class_as_text).empty();
-	if (the_percentage == "Not Restricted") {
-        	$(the_html_class_as_text).append($("<span></span>").attr("lang", "en").text("Not Restricted"));
+	if (the_percentage.indexOf("estr") >= 0) {
+        	$(the_html_class_as_text).append($("<span></span>").attr("lang", "en").text("Not restricted"));
                 $(the_html_class_as_text).append($("<span></span>").attr("lang", "fr").text("Non restreint"));
         } else {
                 $(the_html_class_as_text).text(the_percentage + " %");
@@ -728,8 +728,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
 	var the_ifra_info = JSON.parse(an_infra_info);
-        console.log("IFRA - " + an_infra_info); 
-	if ((the_ifra_info["version"] == "48") || (the_ifra_info["version"] == "48 annexe type I") || (the_ifra_info["version"] == "48 annexe type II") || (the_ifra_info["version"] == "Annexe Type I 48TH") || (the_ifra_info["version"] == "Annexe Type II 48TH")) {
+        console.log("IFRA - " + an_infra_info);
+	if (the_ifra_info["version"].indexOf("48") >= 0) {
 		console.log("IFRA - 48th amendment");
 		if (the_ifra_info["Standard type"]) {
 			fill_with_percentage(".modalbody-48-cat1",  the_ifra_info["1"]);
@@ -744,7 +744,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 			fill_with_percentage(".modalbody-48-cat10", the_ifra_info["10A"]);
 			fill_with_percentage(".modalbody-48-cat11", the_ifra_info["11A"]);
 		};
-	} else if ((the_ifra_info["version"] == "49") || (the_ifra_info["version"] == "49 annexe type I") || (the_ifra_info["version"] == "49 annexe type II") || (the_ifra_info["version"] == "Annexe Type I 49TH") || (the_ifra_info["version"] == "Annexe Type II 49TH")) {
+	} else if (the_ifra_info["version"].indexOf("49") >= 0) {
 		console.log("IFRA - 49th amendment");
                 if (the_ifra_info["Standard type"]) {			
                         fill_with_percentage(".modalbody-49-cat1",  the_ifra_info["1"]);
