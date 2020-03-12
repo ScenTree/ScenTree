@@ -726,12 +726,13 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 			$(".modalbody-48-cat2").text(the_ifra_info["2"]);
                         $(".modalbody-48-cat3").text(the_ifra_info["3"]);
                         $(".modalbody-48-cat4").text(the_ifra_info["4"]);
-                        $(".modalbody-48-cat5").text(the_ifra_info["5"]);
+                        $(".modalbody-48-cat5").text(the_ifra_info["5A"]);
                         $(".modalbody-48-cat6").text(the_ifra_info["6"]);
-                        $(".modalbody-48-cat7").text(the_ifra_info["7"]);
+                        $(".modalbody-48-cat7").text(the_ifra_info["7A"]);
                         $(".modalbody-48-cat8").text(the_ifra_info["8"]);
                         $(".modalbody-48-cat9").text(the_ifra_info["9"]);
-			$(".modalbody-48-cat10").text(the_ifra_info["10"]);
+			$(".modalbody-48-cat10").text(the_ifra_info["10A"]);
+                        $(".modalbody-48-cat11").text(the_ifra_info["11A"]);
 		};
 	} else if ((the_ifra_info["version"] == "49") || (the_ifra_info["version"] == "49 annexe type I") || (the_ifra_info["version"] == "49 annexe type II") || (the_ifra_info["version"] == "Annexe Type I 49TH") || (the_ifra_info["version"] == "Annexe Type II 49TH")) {
 		console.log("IFRA - 49th amendment");
