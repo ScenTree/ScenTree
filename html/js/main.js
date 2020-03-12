@@ -525,6 +525,16 @@ function from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_
      return "<span lang='en'>" + the_node_as_json_EN_and_FR['from_csv EN ' + the_key_as_text] + "</span><span lang='fr'>" + the_node_as_json_EN_and_FR['from_csv FR ' + the_key_as_text] + "</span>";
 };
 
+function fill_with_percentage(the_html_class_as_text, the_percentage) {
+	$(the_html_class_as_text).empty();
+	if (the_percentage == "Not Restricted") {
+        	$(the_html_class_as_text).append($("<span></span>").attr("lang", "en").text("Not Restricted"));
+                $(the_html_class_as_text).append($("<span></span>").attr("lang", "fr").text("Non restreint"));
+        } else {
+                $(the_html_class_as_text).text(the_percentage + " %");
+        };
+};
+
 function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //convert \n to <br /> = convert 'json end of line' to 'html end of line'
     //var the_node_as_json_2 = {};
@@ -722,40 +732,40 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	if ((the_ifra_info["version"] == "48") || (the_ifra_info["version"] == "48 annexe type I") || (the_ifra_info["version"] == "48 annexe type II") || (the_ifra_info["version"] == "Annexe Type I 48TH") || (the_ifra_info["version"] == "Annexe Type II 48TH")) {
 		console.log("IFRA - 48th amendment");
 		if (the_ifra_info["Standard type"]) {
-			$(".modalbody-48-cat1").text(the_ifra_info["1"]);
-			$(".modalbody-48-cat2").text(the_ifra_info["2"]);
-                        $(".modalbody-48-cat3").text(the_ifra_info["3"]);
-                        $(".modalbody-48-cat4").text(the_ifra_info["4"]);
-                        $(".modalbody-48-cat5").text(the_ifra_info["5A"]);
-                        $(".modalbody-48-cat6").text(the_ifra_info["6"]);
-                        $(".modalbody-48-cat7").text(the_ifra_info["7A"]);
-                        $(".modalbody-48-cat8").text(the_ifra_info["8"]);
-                        $(".modalbody-48-cat9").text(the_ifra_info["9"]);
-			$(".modalbody-48-cat10").text(the_ifra_info["10A"]);
-                        $(".modalbody-48-cat11").text(the_ifra_info["11A"]);
+			fill_with_percentage(".modalbody-48-cat1",  the_ifra_info["1"]);
+			fill_with_percentage(".modalbody-48-cat2",  the_ifra_info["2"]);
+			fill_with_percentage(".modalbody-48-cat3",  the_ifra_info["3"]);
+			fill_with_percentage(".modalbody-48-cat4",  the_ifra_info["4"]);
+			fill_with_percentage(".modalbody-48-cat5",  the_ifra_info["5A"]);
+			fill_with_percentage(".modalbody-48-cat6",  the_ifra_info["6"]);
+			fill_with_percentage(".modalbody-48-cat7",  the_ifra_info["7A"]);
+			fill_with_percentage(".modalbody-48-cat8",  the_ifra_info["8"]);
+			fill_with_percentage(".modalbody-48-cat9",  the_ifra_info["9"]);
+			fill_with_percentage(".modalbody-48-cat10", the_ifra_info["10A"]);
+			fill_with_percentage(".modalbody-48-cat11", the_ifra_info["11A"]);
 		};
 	} else if ((the_ifra_info["version"] == "49") || (the_ifra_info["version"] == "49 annexe type I") || (the_ifra_info["version"] == "49 annexe type II") || (the_ifra_info["version"] == "Annexe Type I 49TH") || (the_ifra_info["version"] == "Annexe Type II 49TH")) {
 		console.log("IFRA - 49th amendment");
-                if (the_ifra_info["Standard type"]) {
-                        $(".modalbody-49-cat1").text(the_ifra_info["1"]);
-                        $(".modalbody-49-cat2").text(the_ifra_info["2"]);
-                        $(".modalbody-49-cat3").text(the_ifra_info["3"]);
-                        $(".modalbody-49-cat4").text(the_ifra_info["4"]);
-                        $(".modalbody-49-cat5A").text(the_ifra_info["5A"]);
-                        $(".modalbody-49-cat5B").text(the_ifra_info["5B"]);
-                        $(".modalbody-49-cat5C").text(the_ifra_info["5C"]);
-                        $(".modalbody-49-cat5D").text(the_ifra_info["5D"]);
-                        $(".modalbody-49-cat6").text(the_ifra_info["6"]);
-                        $(".modalbody-49-cat7A").text(the_ifra_info["7A"]);
-                        $(".modalbody-49-cat7B").text(the_ifra_info["7B"]);
-                        $(".modalbody-49-cat8").text(the_ifra_info["8"]);
-                        $(".modalbody-49-cat9").text(the_ifra_info["9"]);
-                        $(".modalbody-49-cat10A").text(the_ifra_info["10A"]);
-                        $(".modalbody-49-cat10B").text(the_ifra_info["10B"]);
-                        $(".modalbody-49-cat11A").text(the_ifra_info["11A"]);
-                        $(".modalbody-49-cat11B").text(the_ifra_info["11B"]);
-                        $(".modalbody-49-cat12").text(the_ifra_info["12"]);
-                };
+                if (the_ifra_info["Standard type"]) {			
+                        fill_with_percentage(".modalbody-49-cat1",  the_ifra_info["1"]);
+                        fill_with_percentage(".modalbody-49-cat2",  the_ifra_info["2"]);
+                        fill_with_percentage(".modalbody-49-cat3",  the_ifra_info["3"]);
+                        fill_with_percentage(".modalbody-49-cat4",  the_ifra_info["4"]);
+                        fill_with_percentage(".modalbody-49-cat5A",  the_ifra_info["5A"]);
+			fill_with_percentage(".modalbody-49-cat5B",  the_ifra_info["5B"]);
+			fill_with_percentage(".modalbody-49-cat5C",  the_ifra_info["5C"]);
+			fill_with_percentage(".modalbody-49-cat5D",  the_ifra_info["5D"]);
+                        fill_with_percentage(".modalbody-49-cat6",  the_ifra_info["6"]);
+                        fill_with_percentage(".modalbody-49-cat7A",  the_ifra_info["7A"]);
+			fill_with_percentage(".modalbody-49-cat7B",  the_ifra_info["7B"]);
+                        fill_with_percentage(".modalbody-49-cat8",  the_ifra_info["8"]);
+                        fill_with_percentage(".modalbody-49-cat9",  the_ifra_info["9"]);
+                        fill_with_percentage(".modalbody-49-cat10A", the_ifra_info["10A"]);
+                        fill_with_percentage(".modalbody-49-cat10B", the_ifra_info["10B"]);
+                        fill_with_percentage(".modalbody-49-cat11A", the_ifra_info["11A"]);
+                        fill_with_percentage(".modalbody-49-cat11B", the_ifra_info["11B"]);
+                        fill_with_percentage(".modalbody-49-cat12", the_ifra_info["12"]);
+               };
 	} else { // we suppose this is NonIFRA
 		console.log("IFRA - no");
 	};
