@@ -910,61 +910,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
    $('title').html('ScenTree - ' + the_webpage_title);
 
-   if (displaytable1) {
-      $(".table1").css('display', 'inline-table');
-      $(".table1").show();
-   }
-   else {
-  $(".table1").css('display', 'none');     
-   };
-   if (displaytable2) {
-     $(".table2").css('display', 'inline-table');
-        $(".table2").show();
-   }
-   else {
-        $(".table2").css('display', 'none');
-   };
-   if (displaytable3) {
-     $(".table3").css('display', 'inline-table');
-        $(".table3").show();
-   }
-   else {
-        $(".table3").css('display', 'none');        
-   };
-   if (displaylogo) {
-        $(".logoifra").css('display', 'block');
-          $(".logoifra").show();
-    }
-   else {
-        $(".logoifra").css('display', 'none');
-   };
-   if (displayamendment) {
-       $(".amendment").css('display', 'block');
-     $(".amendment").show();
-   }
-   else {
-      $(".amendment").css('display', 'none');  
-   };
-   if (displaycommentaires) {
-        $(".commentaires").css('display', 'block');
-      $(".commentaires").show();
-   }
-   else {
-        $(".commentaires").css('display', 'none');
-   };
-    if (displayblocktable) {
-        $(".blocktable").css('display', 'block');
-    }
-    else {
-         $(".blocktable").css('display', 'none');
-    };
-    if (displayblockifra1 ) {
-        $(".blockifra1").css('display', 'block');
-    }
-    else {
-         $(".blockifra1").css('display', 'none');
-    };
 };
+
 
 $("#SynthetiqueModal").on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
