@@ -587,29 +587,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_molaire = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'mmolaire');
     var the_fusionp = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'PFusion');
     var the_fbrute = put_all_digits_into_sub(from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'formulebrute'));
-    //IFRA
-    var the_amendment = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Amendment');
-    var the_cat1 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 1');
-    var the_cat2 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 2');
-    var the_cat3 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 3');
-    var the_cat4 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 4');
-    var the_cat5 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 5');
-    var the_cat6 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 6');
-    var the_cat7 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 7');
-    var the_cat8 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 8');
-    var the_cat9 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 9');
-    var the_cat10 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 10');
-    var the_cat11 = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Category 11');
-    var the_commentifra = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Commentaires');
-    var the_leaveon = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Leave on products');
-    var the_fcream = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Fragrancing cream');
-    var the_finef = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Fine Fragrance');
-    var the_edt = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Eau de Toilette');
-    var the_fcream = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Fragrancing cream');
-    var the_rinseoff = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Rinse off');
-    var the_otherleaveon = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Other leave on');
-    var the_noskin = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Non-skin, incidental skin contact');
-    
 
 
     var the_commentary = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Commentaires');
@@ -626,104 +603,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var is_an_synthetique = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Synthétique");
     var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
 
-
-    
-    var nonIFRA = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Ingrédient non réglementé");
-    var IFRAQRA = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Restrictions QRA");
-    var IFRAnonQRA = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Restrictions Non QRA");
-    var IFRAnonQRAspe = ((the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Restrictions Non QRA") && (the_node_as_json_EN_and_FR['from_csv FR Fine Fragrance']));
-    var IFRAspécification = (the_node_as_json_EN_and_FR['from_csv FR IFRA'] == "Spécifications");
-    var displaytable1 = (false);
-    var displaytable2 = (false);
-    var displaytable3 = (false);
-    var displaylogo = (false);
-    var displayamendment = (false);
-    var displaycommentaires = (false);
-    var displayblockifra1 = (true); 
-    var displayblocktable = (true);
-
-    if (IFRAQRA) {
-      displaytable1 = true;
-      displayamendment = true;
-      displaycommentaires = true;
-      displaylogo = true;
-    };
-    if (IFRAnonQRA) {
-      displaytable2 = true;
-      displayamendment = true;
-      displaycommentaires = true;
-      displaylogo = true;
-    };
-    if (IFRAnonQRAspe) {
-      displaytable2 = false;
-      displaytable3 = true;
-      displayamendment = true;
-      displaycommentaires = true;
-      displaylogo = true;
-    };
-    if (IFRAspécification) {
-      displaycommentaires = true;
-      displaylogo = true;
-    };
-    if (nonIFRA) {
-      displayblockifra1 = false;
-      displayblocktable = false;
-     };
-
-     if (displaytable1) {
-      $(".table1").css('display', 'inline-table');
-      $(".table1").show();
-    }
-    else {
-      $(".table1").css('display', 'none');     
-    };
-    if (displaytable2) {
-      $(".table2").css('display', 'inline-table');
-      $(".table2").show();
-    }
-    else {
-     $(".table2").css('display', 'none');
-    };
-    if (displaytable3) {
-      $(".table3").css('display', 'inline-table');
-      $(".table3").show();
-    }
-    else {
-      $(".table3").css('display', 'none');        
-    };
-    if (displaylogo) {
-      $(".logoifra").css('display', 'block');
-      $(".logoifra").show();
-    }
-    else {
-      $(".logoifra").css('display', 'none');
-    };
-    if (displayamendment) {
-      $(".amendment").css('display', 'block');
-      $(".amendment").show();
-    }
-    else {
-      $(".amendment").css('display', 'none');  
-    };
-    if (displaycommentaires) {
-      $(".commentaires").css('display', 'block');
-      $(".commentaires").show();
-    }
-    else {
-      $(".commentaires").css('display', 'none');
-    };
-    if (displayblocktable) {
-      $(".blocktable").css('display', 'block');
-    }
-    else {
-      $(".blocktable").css('display', 'none');
-    };
-    if (displayblockifra1 ) {
-      $(".blockifra1").css('display', 'block');
-    }
-    else {
-      $(".blockifra1").css('display', 'none');
-    };
 
     // IFRA
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
@@ -1002,43 +881,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modaltitle2').append(the_title);
   $('#modalheader-type2').append(the_type);
   $('#modalbody-comment2').append(the_use);
-
-  //APPEND - IFRA nat
-  $('#modalbody-amendment').append(the_amendment);
-  $('#modalbody-cat1').append(the_cat1);
-  $('#modalbody-cat2').append(the_cat2);
-  $('#modalbody-cat3').append(the_cat3);
-  $('#modalbody-cat4').append(the_cat4);
-  $('#modalbody-cat5').append(the_cat5);
-  $('#modalbody-cat6').append(the_cat6);
-  $('#modalbody-cat7').append(the_cat7);
-  $('#modalbody-cat8').append(the_cat8);
-  $('#modalbody-cat9').append(the_cat9);
-  $('#modalbody-cat10').append(the_cat10);
-  $('#modalbody-cat11').append(the_cat11);
-  $('#modalbody-commentifra').append(the_commentifra);
-  $('#modalbody-leaveon').append(the_leaveon);
-  //APPEND - IFRA synth:w
-  $('#modalbody-amendments').append(the_amendment);
-  $('#modalbody-cat1s').append(the_cat1);
-  $('#modalbody-cat2s').append(the_cat2);
-  $('#modalbody-cat3s').append(the_cat3);
-  $('#modalbody-cat4s').append(the_cat4);
-  $('#modalbody-cat5s').append(the_cat5);
-  $('#modalbody-cat6s').append(the_cat6);
-  $('#modalbody-cat7s').append(the_cat7);
-  $('#modalbody-cat8s').append(the_cat8);
-  $('#modalbody-cat9s').append(the_cat9);
-  $('#modalbody-cat10s').append(the_cat10);
-  $('#modalbody-cat11s').append(the_cat11);
-  $('#modalbody-commentifras').append(the_commentifra);
-  $('#modalbody-leaveons').append(the_leaveon);
-  $('#modalbody-finef').append(the_finef);
-  $('#modalbody-edt').append(the_edt);
-  $('#modalbody-fcream').append(the_fcream);
-  $('#modalbody-otherleaveon').append(the_otherleaveon);
-  $('#modalbody-rinseoff').append(the_rinseoff);
-  $('#modalbody-noskin').append(the_noskin);
 
   //Apparition des images pour les Naturelles et les Synthétiques
   if (is_an_ingredient) {
