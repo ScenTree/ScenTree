@@ -731,7 +731,18 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         console.log("IFRA - " + an_infra_info);
 	if (the_ifra_info["version"].indexOf("48") >= 0) {
 		console.log("IFRA - 48th amendment");
-		if (the_ifra_info["Standard type"]) {
+		if (the_ifra_info["1"] 
+			|| the_ifra_info["2"]
+			|| the_ifra_info["3"]
+			|| the_ifra_info["4"]
+			|| the_ifra_info["5A"]
+			|| the_ifra_info["6"] 
+			|| the_ifra_info["7A"]
+			|| the_ifra_info["8"]
+			|| the_ifra_info["9"]
+			|| the_ifra_info["10A"]
+			|| the_ifra_info["11A"]
+		) {
 			fill_with_percentage(".modalbody-48-cat1",  the_ifra_info["1"]);
 			fill_with_percentage(".modalbody-48-cat2",  the_ifra_info["2"]);
 			fill_with_percentage(".modalbody-48-cat3",  the_ifra_info["3"]);
@@ -746,7 +757,25 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 		};
 	} else if (the_ifra_info["version"].indexOf("49") >= 0) {
 		console.log("IFRA - 49th amendment");
-                if (the_ifra_info["Standard type"]) {			
+                if (the_ifra_info["1"] 
+                        || the_ifra_info["2"] 
+                        || the_ifra_info["3"] 
+                        || the_ifra_info["4"] 
+                        || the_ifra_info["5A"] 
+                        || the_ifra_info["5B"]                         
+                        || the_ifra_info["5C"]                         
+                        || the_ifra_info["5D"]                         
+                        || the_ifra_info["6"] 
+                        || the_ifra_info["7A"]
+                        || the_ifra_info["7B"]
+                        || the_ifra_info["8"]
+                        || the_ifra_info["9"]
+                        || the_ifra_info["10A"]
+                        || the_ifra_info["10B"]
+                        || the_ifra_info["11A"]
+                        || the_ifra_info["11B"]
+                        || the_ifra_info["12"]
+                ) {     
                         fill_with_percentage(".modalbody-49-cat1",  the_ifra_info["1"]);
                         fill_with_percentage(".modalbody-49-cat2",  the_ifra_info["2"]);
                         fill_with_percentage(".modalbody-49-cat3",  the_ifra_info["3"]);
