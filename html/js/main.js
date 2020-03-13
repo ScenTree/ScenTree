@@ -530,7 +530,9 @@ function fill_with_percentage(the_html_class_as_text, the_percentage) {
 	if (the_percentage.toLowerCase().indexOf("restr") >= 0) {
         	$(the_html_class_as_text).append($("<span></span>").attr("lang", "en").text("Not restricted"));
                 $(the_html_class_as_text).append($("<span></span>").attr("lang", "fr").text("Non restreint"));
-        } else {
+	} else if (the_percentage.toLowerCase() == "x") {
+		$(the_html_class_as_text).text(the_percentage);
+	} else {
                 $(the_html_class_as_text).text(the_percentage + " %");
         };
 };
@@ -729,6 +731,16 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     for (let an_infra_info of the_ifra_infos) {
 	var the_ifra_info = JSON.parse(an_infra_info);
         console.log("IFRA - " + an_infra_info);
+
+        if (the_ifra_info["Leave On Products"]
+                || the_ifra_info["Rinse Off Products"]
+                || the_ifra_info["Non-Skin contact products"]
+        ) {
+                fill_with_percentage(".modalbody-leave-on", the_ifra_info["Leave On Products"]);
+                fill_with_percentage(".modalbody-rinse-off", the_ifra_info["Rinse Off Products"]);
+                fill_with_percentage(".modalbody-non-skin-contact", the_ifra_info["Non-Skin contact products"]);
+	};
+
 	if (the_ifra_info["version"].indexOf("48") >= 0) {
 		console.log("IFRA - 48th amendment");
 		if (the_ifra_info["1"] 
@@ -755,6 +767,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 			fill_with_percentage(".modalbody-48-cat10", the_ifra_info["10A"]);
 			fill_with_percentage(".modalbody-48-cat11", the_ifra_info["11A"]);
 		};
+
 	} else if (the_ifra_info["version"].indexOf("49") >= 0) {
 		console.log("IFRA - 49th amendment");
                 if (the_ifra_info["1"] 
