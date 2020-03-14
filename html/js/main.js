@@ -621,7 +621,17 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	};
 
 	if (the_ifra_info["Level (%)"] && (! the_ifra_info["Botanical Binomial name"])) {
-			
+                if (the_ifra_info["version"].indexOf("48") >= 0) {
+                        the_current_row = $(".ingredients-containing-without-botanicals-48").append($("<tr></tr>"));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name2"]));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM "]).addClass("IFRA-number"));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
+                } else if (the_ifra_info["version"].indexOf("49") >= 0) {
+                        the_current_row = $(".ingredients-containing-without-botanicals-49").append($("<tr></tr>"));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name2"]));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM "]).addClass("IFRA-number"));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
+                };	
 	};
 	
 	if (the_ifra_info["Botanical Binomial name"]) {
@@ -632,7 +642,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                         the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM "]).addClass("IFRA-number"));
 			the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
 		} else if (the_ifra_info["version"].indexOf("49") >= 0) {
-			
+                        the_current_row = $(".ingredients-containing-with-botanicals-49").append($("<tr></tr>"));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name2"]));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Botanical Binomial name"]));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM "]).addClass("IFRA-number"));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));	
 		};
 	};
 
