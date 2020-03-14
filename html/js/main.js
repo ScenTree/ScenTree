@@ -605,6 +605,14 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
 
     // IFRA
+    show_the_main_48th_IFRA_table = false;
+    show_the_main_49th_IFRA_table = false;
+    show_the_skin_IFRA_table = false;
+    show_the_listy_48th_IFRA_table_without_botanicals = false;
+    show_the_listy_49th_IFRA_table_without_botanicals = false;
+    show_the_listy_48th_IFRA_table_with_botanicals = false;
+    show_the_listy_49th_IFRA_table_with_botanicals = false;
+
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
@@ -618,6 +626,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                 fill_with_percentage(".modalbody-leave-on", the_ifra_info["Leave On Products"]);
                 fill_with_percentage(".modalbody-rinse-off", the_ifra_info["Rinse Off Products"]);
                 fill_with_percentage(".modalbody-non-skin-contact", the_ifra_info["Non-Skin contact products"]);
+		show_the_skin_IFRA_table = true;
 	};
 
 	if (the_ifra_info["Level (%)"] && (! the_ifra_info["Botanical Binomial name"])) {
@@ -630,7 +639,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                                 the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM"]).addClass("IFRA-number"));
                         };
                         the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
-                } else if (the_ifra_info["version"].indexOf("49") >= 0) {
+			show_the_listy_48th_IFRA_table_without_botanicals = true;
+		} else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         the_current_row = $(".ingredients-containing-without-botanicals-49").append($("<tr></tr>"));
                         the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name2"]));
                         if (the_ifra_info["Principle CAS RIFM "]) {
@@ -639,7 +649,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                                 the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM"]).addClass("IFRA-number"));
                         };
                         the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
-                };	
+			show_the_listy_49th_IFRA_table_without_botanicals = true;
+		};	
 	};
 	
 	if (the_ifra_info["Botanical Binomial name"]) {
@@ -653,6 +664,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                                 the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM"]).addClass("IFRA-number"));
                         };
 			the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
+			show_the_listy_48th_IFRA_table_with_botanicals = true;
 		} else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         the_current_row = $(".ingredients-containing-with-botanicals-49").append($("<tr></tr>"));
                         the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name2"]));
@@ -663,6 +675,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 				the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM"]).addClass("IFRA-number"));
 			};
                         the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));	
+			show_the_listy_49th_IFRA_table_with_botanicals = true;
 		};
 	};
 
@@ -716,6 +729,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 			fill_with_percentage(".modalbody-48-cat9",  the_ifra_info["9"]);
 			fill_with_percentage(".modalbody-48-cat10", the_ifra_info["10A"]);
 			fill_with_percentage(".modalbody-48-cat11", the_ifra_info["11A"]);
+			show_the_main_48th_IFRA_table = true;
 		};
 
 	} else if (the_ifra_info["version"].indexOf("49") >= 0) {
@@ -757,7 +771,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                         fill_with_percentage(".modalbody-49-cat11A", the_ifra_info["11A"]);
                         fill_with_percentage(".modalbody-49-cat11B", the_ifra_info["11B"]);
                         fill_with_percentage(".modalbody-49-cat12", the_ifra_info["12"]);
-               };
+			show_the_main_49th_IFRA_table = true;
+		};
 	} else { // we suppose this is NonIFRA
 		console.log("IFRA - no");
 	};
@@ -765,6 +780,27 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     };
 
+    if (! show_the_main_48th_IFRA_table) {
+	    $(".main-48th-IFRA-table").remove();
+    }; 
+    if (! show_the_main_49th_IFRA_table) {
+	    $(".main-49th-IFRA-table").remove();
+    };
+    if (! show_the_skin_IFRA_table) {
+            $(".skin-IFRA-table").remove();
+    };
+    if (! show_the_listy_48th_IFRA_table_without_botanicals) {
+            $(".listy-48th-IFRA-table-without-botanicals").remove();
+    };
+    if (! show_the_listy_49th_IFRA_table_without_botanicals) {
+            $(".listy-49th-IFRA-table-without-botanicals").remove();
+    };
+    if (! show_the_listy_48th_IFRA_table_with_botanicals) {
+            $(".listy-48th-IFRA-table-with-botanicals").remove();
+    };
+    if (! show_the_listy_49th_IFRA_table_with_botanicals) {
+            $(".listy-49th-IFRA-table-with-botanicals").remove();
+    };
 
     
     // PRO 
