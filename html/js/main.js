@@ -620,6 +620,22 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                 fill_with_percentage(".modalbody-non-skin-contact", the_ifra_info["Non-Skin contact products"]);
 	};
 
+	if (the_ifra_info["Level (%)"] && (! the_ifra_info["Botanical Binomial name"])) {
+			
+	};
+	
+	if (the_ifra_info["Botanical Binomial name"]) {
+		if (the_ifra_info["version"].indexOf("48") >= 0) {
+			the_current_row = $(".ingredients-containing-with-botanicals-48").append($("<tr></tr>"));
+			the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name2"]));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Botanical Binomial name"]));
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM "]));
+			the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
+		} else if (the_ifra_info["version"].indexOf("49") >= 0) {
+			
+		};
+	};
+
 	if (the_ifra_info["version"].indexOf("48") >= 0) {
 		console.log("IFRA - 48th amendment");
 		if (the_ifra_info["1"] 
