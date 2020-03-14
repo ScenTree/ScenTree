@@ -418,6 +418,10 @@ td, .table td {
   width: 100px;
 }
 
+.IFRA-number {
+  white-space: nowrap;
+}
+
 /*############################
 ######MENTIONS LEGALES########
 ############################*/
