@@ -666,13 +666,30 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 		};
 	};
 
-	if (the_ifra_info["Commentaires"]) {
+	if (the_ifra_info["Standard type"]) {
 		if (the_ifra_info["version"].indexOf("48") >= 0) {
-			$(".modalbody-commentifra-48").text(the_ifra_info["Commentaires"]);
+			$(".modalbody-ifra-48").text(the_ifra_info["Standard type"]);
 		} else if (the_ifra_info["version"].indexOf("49") >= 0) {
-			$(".modalbody-commentifra-49").text(the_ifra_info["Commentaires"]);
+			$(".modalbody-ifra-49").text(the_ifra_info["Standard type"]);
 		};
 	};
+
+        if (the_ifra_info["Amendment number"]) {
+                if (the_ifra_info["version"].indexOf("48") >= 0) {
+                        $(".modalbody-amendment-48").text(the_ifra_info["Amendment number"]);
+                } else if (the_ifra_info["version"].indexOf("49") >= 0) {
+                        $(".modalbody-amendment-49").text(the_ifra_info["Amendment number"]);
+                };
+        };
+
+        if (the_ifra_info["Commentaires"]) {
+                if (the_ifra_info["version"].indexOf("48") >= 0) {
+                        $(".modalbody-commentifra-48").text(the_ifra_info["Commentaires"]);
+                } else if (the_ifra_info["version"].indexOf("49") >= 0) {
+                        $(".modalbody-commentifra-49").text(the_ifra_info["Commentaires"]);
+                };
+        };
+
 
 	if (the_ifra_info["version"].indexOf("48") >= 0) {
 		console.log("IFRA - 48th amendment");
