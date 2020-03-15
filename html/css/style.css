@@ -1,12 +1,10 @@
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-
 #menu-block {
   z-index: 2;
   min-height: 500px;
 }
-
 #mapblock {
   z-index: 1;
 }
@@ -72,10 +70,9 @@ html, body {
   text-decoration: underline;
 }
 
-
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(110vh - 320px);
+  max-height: calc(95vh - 320px);
 }
 
 .scrollbar-inside2 {
@@ -473,7 +470,6 @@ td, .table td {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    text-decoration:underline;
 }
 
 .my-modal {
@@ -484,8 +480,11 @@ td, .table td {
   font-size: small;
   padding-top: 10px;
 }
-
-
+.nav-item {
+  white-space: nowrap;
+  font-weight: bold;
+  text-align: justify;
+}
 
 @media screen and (min-width: 1400px) {
 h1 {
@@ -502,6 +501,10 @@ h1 {
     height: 100%;
     text-align: center;
     padding-top: 2%;
+}
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(105vh - 320px);
 }
 .space{
     height:30%;
@@ -588,6 +591,10 @@ h1 {
 .block{
     height: 72%;
     text-align: center;
+}
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(105vh - 320px);
 }
 .space{
     height:20%;

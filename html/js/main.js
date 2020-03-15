@@ -124,7 +124,7 @@ if (show_the_notifications_for_they_support_us || show_the_notifications_for_the
 
 function from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(the_dd_mm_yyyy_as_string) {
     if (!the_dd_mm_yyyy_as_string) {
-	    the_dd_mm_yyyy_as_string = "";
+      the_dd_mm_yyyy_as_string = "";
     };
     var the_yyyy_mm__dd_as_string = the_dd_mm_yyyy_as_string.replace( new RegExp("(\\d+)/(\\d+)/(\\d+)", "gi"), "$3$2$1" );
     return parseInt(the_yyyy_mm__dd_as_string, 10);
@@ -565,6 +565,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_stab = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Stabilite');
     var the_utilisation = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
     var the_cas = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'NCas');
+    var the_EINECS = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'EINECS');
+    var the_FEMA = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'FEMA');
+    var the_JECFA = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'JECFA');
+    var the_FLAVIS = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'FLAVIS');
     //Naturelles
     var the_nbota = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Botanique');
     var the_bota = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom Botanique');
@@ -587,6 +591,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_molaire = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'mmolaire');
     var the_fusionp = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'PFusion');
     var the_fbrute = put_all_digits_into_sub(from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'formulebrute'));
+    var the_synonyme = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'AutresNoms');
 
 
     var the_commentary = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Commentaires');
@@ -843,16 +848,16 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     the_new_pro_infos = new Array();
     if (the_pro_infos) {
         // built the JSON array from an aray of strings
-	for (let an_pro_info of the_pro_infos) {
-		var the_pro_info = JSON.parse(an_pro_info);
-		the_new_pro_infos.push(the_pro_info);
-	};
+  for (let an_pro_info of the_pro_infos) {
+    var the_pro_info = JSON.parse(an_pro_info);
+    the_new_pro_infos.push(the_pro_info);
+  };
     };
     
     the_new_pro_infos.sort((a,b) => from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(a["Dateajout"]) - from_dd_mm_yyyy_as_string_to_yyyy_mm__dd_as_int(b["Dateajout"]));
     for (let a_pro_info of the_new_pro_infos) {
         //console.log(a_pro_info);
-	
+  
     };
     if (the_new_pro_infos) {
 	    $(".pro_informations").append($("<ul></ul>").addClass("premium_and_standard_pros").addClass("list-inline"));
@@ -895,6 +900,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $('#modalbody-medecine').empty();
     $('#modalbody-stab').empty();
     $('#modalbody-utilisation').empty();
+    $('#modalbody-einecs').empty();
+    $('#modalbody-fema').empty();
+    $('#modalbody-jecfa').empty();
+    $('#modalbody-flavis').empty();
       
     //EMPTY - partie synthétique
     $('#modalheader-type1').empty();
@@ -1023,6 +1032,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modaltitle2').append(the_title);
   $('#modalheader-type2').append(the_type);
   $('#modalbody-comment2').append(the_use);
+
 
   //Apparition des images pour les Naturelles et les Synthétiques
   if (is_an_ingredient) {
@@ -1162,7 +1172,7 @@ function switch_to_fr() {
     Cookies.set('display_french_language', 1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-	$("*:lang(en)").remove();
+  $("*:lang(en)").remove();
     };
     //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
