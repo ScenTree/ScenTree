@@ -614,6 +614,13 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     show_the_listy_49th_IFRA_table_with_botanicals = false;
     show_nothing = true;
 
+    show_the_48th_restriction_type = false;
+    show_the_48th_amendment_number = false;
+    show_the_48th_comments = false;
+    show_the_49th_restriction_type = false;
+    show_the_49th_amendment_number = false;
+    show_the_49th_comments = false;
+
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
@@ -675,24 +682,30 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	if (the_ifra_info["Standard type"]) {
 		if (the_ifra_info["version"].indexOf("48") >= 0) {
 			$(".modalbody-ifra-48").text(the_ifra_info["Standard type"]);
+			show_the_48th_restriction_type = true;
 		} else if (the_ifra_info["version"].indexOf("49") >= 0) {
 			$(".modalbody-ifra-49").text(the_ifra_info["Standard type"]);
+			show_the_49th_restriction_type = true;
 		};
 	};
 
         if (the_ifra_info["Amendment number"]) {
                 if (the_ifra_info["version"].indexOf("48") >= 0) {
                         $(".modalbody-amendment-48").text(the_ifra_info["Amendment number"]);
+			show_the_48th_amendment_number = true;
                 } else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         $(".modalbody-amendment-49").text(the_ifra_info["Amendment number"]);
+			show_the_49th_amendment_number = true;
                 };
         };
 
         if (the_ifra_info["Commentaires"]) {
                 if (the_ifra_info["version"].indexOf("48") >= 0) {
                         $(".modalbody-commentifra-48").text(the_ifra_info["Commentaires"]);
+			show_the_48th_comments = true;
                 } else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         $(".modalbody-commentifra-49").text(the_ifra_info["Commentaires"]);
+			show_the_49th_comments = true;
                 };
         };
 
@@ -803,6 +816,25 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     if (! show_the_listy_49th_IFRA_table_with_botanicals) {
             $(".listy-49th-IFRA-table-with-botanicals").remove();
+    };
+
+    if (! show_the_48th_restriction_type) {
+	    $(".restriction").remove();
+    };
+    if (! show_the_49th_restriction_type) {
+            $(".restriction49").remove();
+    };
+    if (! show_the_48th_amendment_number) {
+            $(".amendment").remove();
+    };
+    if (! show_the_49th_amendment_number) {
+            $(".amendment49").remove();
+    };
+    if (! show_the_48th_comments) {
+            $(".commentaires").remove();
+    };
+    if (! show_the_49th_comments) {
+            $(".commentaires49").remove();
     };
 
     
