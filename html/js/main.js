@@ -612,6 +612,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     show_the_listy_49th_IFRA_table_without_botanicals = false;
     show_the_listy_48th_IFRA_table_with_botanicals = false;
     show_the_listy_49th_IFRA_table_with_botanicals = false;
+    show_nothing = false;
 
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
     if (the_ifra_infos) {
@@ -768,10 +769,20 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	} else { // we suppose this is NonIFRA
 		console.log("IFRA - no");
 	};
+	
+	if (the_ifra_info["version"] == "PasIFRA") {
+		show_nothing = true;
+	};
 	  
     };
     };
 
+    if (show_nothing) {
+	$(".IFRA .container").remove();
+	$(".IFRA .tab-content").remove();
+	$(".IFRA-show-nothing").show();
+    };
+    
     if (! show_the_main_48th_IFRA_table) {
 	    $(".main-48th-IFRA-table").remove();
     }; 

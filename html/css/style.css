@@ -422,6 +422,10 @@ td, .table td {
   white-space: nowrap;
 }
 
+.IFRA-show-nothing {
+  display: none;
+};
+
 /*############################
 ######MENTIONS LEGALES########
 ############################*/
