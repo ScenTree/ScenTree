@@ -795,51 +795,53 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     };
 
+    $(".main-48th-IFRA-table .main-48th-IFRA-table  .main-48th-IFRA-table  .listy-48th-IFRA-table-without-botanicals  .listy-49th-IFRA-table-without-botanicals  .listy-48th-IFRA-table-with-botanicals  .listy-49th-IFRA-table-with-botanicals  .restriction  .restriction49  .amendment  .amendment49  .commentaires  .commentaires49").show();
+
     if (show_nothing) {
-	$(".IFRA .container").remove();
-	$(".IFRA .tab-content").remove();
+	$(".IFRA .container").hide();
+	$(".IFRA .tab-content").hide();
 	$(".IFRA-show-nothing").show();
     };
     
     if (! show_the_main_48th_IFRA_table) {
-	    $(".main-48th-IFRA-table").remove();
+	    $(".main-48th-IFRA-table").hide();
     }; 
     if (! show_the_main_49th_IFRA_table) {
-	    $(".main-49th-IFRA-table").remove();
+	    $(".main-49th-IFRA-table").hide();
     };
     if (! show_the_skin_IFRA_table) {
-            $(".skin-IFRA-table").remove();
+            $(".skin-IFRA-table").hide();
     };
     if (! show_the_listy_48th_IFRA_table_without_botanicals) {
-            $(".listy-48th-IFRA-table-without-botanicals").remove();
+            $(".listy-48th-IFRA-table-without-botanicals").hide();
     };
     if (! show_the_listy_49th_IFRA_table_without_botanicals) {
-            $(".listy-49th-IFRA-table-without-botanicals").remove();
+            $(".listy-49th-IFRA-table-without-botanicals").hide();
     };
     if (! show_the_listy_48th_IFRA_table_with_botanicals) {
-            $(".listy-48th-IFRA-table-with-botanicals").remove();
+            $(".listy-48th-IFRA-table-with-botanicals").hide();
     };
     if (! show_the_listy_49th_IFRA_table_with_botanicals) {
-            $(".listy-49th-IFRA-table-with-botanicals").remove();
+            $(".listy-49th-IFRA-table-with-botanicals").hide();
     };
 
     if (! show_the_48th_restriction_type) {
-	    $(".restriction").remove();
+	    $(".restriction").hide();
     };
     if (! show_the_49th_restriction_type) {
-            $(".restriction49").remove();
+            $(".restriction49").hide();
     };
     if (! show_the_48th_amendment_number) {
-            $(".amendment").remove();
+            $(".amendment").hide();
     };
     if (! show_the_49th_amendment_number) {
-            $(".amendment49").remove();
+            $(".amendment49").hide();
     };
     if (! show_the_48th_comments) {
-            $(".commentaires").remove();
+            $(".commentaires").hide();
     };
     if (! show_the_49th_comments) {
-            $(".commentaires49").remove();
+            $(".commentaires49").hide();
     };
 
     
