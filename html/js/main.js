@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
+var KIND_OF_ENVIRONMENT = "prod2"; // "dev", "prod" or "prod2"
 
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
@@ -14,7 +14,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 };
 
-var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215", "the survey" : "20191215"};
+var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the survey" : "20200315"};
 
 var in30Minutes = 1/96; // in 15 minutes
 
@@ -933,6 +933,12 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-fbrute1').empty();
   $('#modalbody-fusionp1').empty();
   $('#modalbody-stab1').empty();
+  $('#modalbody-einecs1').empty();
+  $('#modalbody-fema1').empty();
+  $('#modalbody-jecfa1').empty();
+  $('#modalbody-flavis1').empty();
+  $('#modalbody-synonymes').empty();
+  
 
   //EMPTY - Descripteurs
   $('#modalheader-type2').empty();
@@ -1000,6 +1006,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-medecine').append(the_medecine);
   $('#modalbody-stab').append(the_stab);
   $('#modalbody-utilisation').append(the_utilisation);
+  $('#modalbody-einecs').append(the_EINECS);
+  $('#modalbody-fema').append(the_FEMA);
+  $('#modalbody-jecfa').append(the_JECFA);
+  $('#modalbody-flavis').append(the_FLAVIS);
+
   //APPEND - Partie Synthétique
   $('#modalheader-type1').append(the_type);
   $('#modaltitle1').append(the_title);
@@ -1027,6 +1038,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-fbrute1').append(the_fbrute);
   $('#modalbody-fusionp1').append(the_fusionp);
   $('#modalbody-stab1').append(the_stab);
+  $('#modalbody-einecs1').append(the_EINECS);
+  $('#modalbody-fema1').append(the_FEMA);
+  $('#modalbody-jecfa1').append(the_JECFA);
+  $('#modalbody-flavis1').append(the_FLAVIS);
+  $('#modalbody-synonymes').append(the_synonyme);
 
   //APPEND - Partie Descripteurs
   $('#modaltitle2').append(the_title);
