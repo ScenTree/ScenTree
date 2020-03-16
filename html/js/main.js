@@ -14,7 +14,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 };
 
-var UPDATED_ON = {"they support us" : "20191215", "the news" : "20191215", "the survey" : "20191215"};
+var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the survey" : "20200315"};
 
 var in30Minutes = 1/96; // in 15 minutes
 
@@ -526,13 +526,13 @@ function from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_
 };
 
 function fill_with_percentage(the_html_class_as_text, the_percentage) {
-	$(the_html_class_as_text).empty();
-	if (the_percentage.toLowerCase().indexOf("restr") >= 0) {
-        	$(the_html_class_as_text).append($("<span></span>").attr("lang", "en").text("Not restricted"));
+  $(the_html_class_as_text).empty();
+  if (the_percentage.toLowerCase().indexOf("restr") >= 0) {
+          $(the_html_class_as_text).append($("<span></span>").attr("lang", "en").text("Not restricted"));
                 $(the_html_class_as_text).append($("<span></span>").attr("lang", "fr").text("Non restreint"));
-	} else if (the_percentage.toLowerCase() == "x") {
-		$(the_html_class_as_text).text(the_percentage);
-	} else {
+  } else if (the_percentage.toLowerCase() == "x") {
+    $(the_html_class_as_text).text(the_percentage);
+  } else {
                 $(the_html_class_as_text).text(the_percentage + " %");
         };
 };
@@ -629,7 +629,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
-	var the_ifra_info = JSON.parse(an_infra_info);
+  var the_ifra_info = JSON.parse(an_infra_info);
         console.log("IFRA - " + an_infra_info);
 
         if (the_ifra_info["Leave On Products"]
@@ -639,112 +639,112 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                 fill_with_percentage(".modalbody-leave-on", the_ifra_info["Leave On Products"]);
                 fill_with_percentage(".modalbody-rinse-off", the_ifra_info["Rinse Off Products"]);
                 fill_with_percentage(".modalbody-non-skin-contact", the_ifra_info["Non-Skin contact products"]);
-		show_the_skin_IFRA_table = true;
-	};
+    show_the_skin_IFRA_table = true;
+  };
 
-	if (the_ifra_info["Level (%)"] && is_an_naturelle) {
+  if (the_ifra_info["Level (%)"] && is_an_naturelle) {
                 if (the_ifra_info["version"].indexOf("48") >= 0) {
                         the_current_row = $(".ingredients-containing-without-botanicals-48").append($("<tr></tr>"));
                         the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name"]));
                         the_current_row.append($("<td></td>").text(the_ifra_info["CAS No"]).addClass("IFRA-number"));
                         the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
-			show_the_listy_48th_IFRA_table_without_botanicals = true;
-		} else if (the_ifra_info["version"].indexOf("49") >= 0) {
+      show_the_listy_48th_IFRA_table_without_botanicals = true;
+    } else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         the_current_row = $(".ingredients-containing-without-botanicals-49").append($("<tr></tr>"));
                         the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name"]));
                         the_current_row.append($("<td></td>").text(the_ifra_info["CAS No"]).addClass("IFRA-number"));
-			the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
-			show_the_listy_49th_IFRA_table_without_botanicals = true;
-		};	
-	};
-	
-	if (the_ifra_info["Level (%)"] && (! is_an_naturelle)) {
-		if (the_ifra_info["version"].indexOf("48") >= 0) {
-			the_current_row = $(".ingredients-containing-with-botanicals-48").append($("<tr></tr>"));
-			the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name2"]));
+      the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
+      show_the_listy_49th_IFRA_table_without_botanicals = true;
+    };  
+  };
+  
+  if (the_ifra_info["Level (%)"] && (! is_an_naturelle)) {
+    if (the_ifra_info["version"].indexOf("48") >= 0) {
+      the_current_row = $(".ingredients-containing-with-botanicals-48").append($("<tr></tr>"));
+      the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name2"]));
                         the_current_row.append($("<td></td>").text(the_ifra_info["Botanical Binomial name"]));
                         if (the_ifra_info["Principle CAS RIFM "]) {
                                 the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM "]).addClass("IFRA-number"));
                         } else {
                                 the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM"]).addClass("IFRA-number"));
                         };
-			the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
-			show_the_listy_48th_IFRA_table_with_botanicals = true;
-		} else if (the_ifra_info["version"].indexOf("49") >= 0) {
+      the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));
+      show_the_listy_48th_IFRA_table_with_botanicals = true;
+    } else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         the_current_row = $(".ingredients-containing-with-botanicals-49").append($("<tr></tr>"));
                         the_current_row.append($("<td></td>").text(the_ifra_info["Principle Name2"]));
                         the_current_row.append($("<td></td>").text(the_ifra_info["Botanical Binomial name"]));
-			if (the_ifra_info["Principle CAS RIFM "]) {
-                        	the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM "]).addClass("IFRA-number"));
-			} else {
-				the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM"]).addClass("IFRA-number"));
-			};
-                        the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));	
-			show_the_listy_49th_IFRA_table_with_botanicals = true;
-		};
-	};
+      if (the_ifra_info["Principle CAS RIFM "]) {
+                          the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM "]).addClass("IFRA-number"));
+      } else {
+        the_current_row.append($("<td></td>").text(the_ifra_info["Principle CAS RIFM"]).addClass("IFRA-number"));
+      };
+                        the_current_row.append($("<td></td>").text(the_ifra_info["Level (%)"]));  
+      show_the_listy_49th_IFRA_table_with_botanicals = true;
+    };
+  };
 
-	if (the_ifra_info["Standard type"]) {
-		if (the_ifra_info["version"].indexOf("48") >= 0) {
-			$(".modalbody-ifra-48").text(the_ifra_info["Standard type"]);
-			show_the_48th_restriction_type = true;
-		} else if (the_ifra_info["version"].indexOf("49") >= 0) {
-			$(".modalbody-ifra-49").text(the_ifra_info["Standard type"]);
-			show_the_49th_restriction_type = true;
-		};
-	};
+  if (the_ifra_info["Standard type"]) {
+    if (the_ifra_info["version"].indexOf("48") >= 0) {
+      $(".modalbody-ifra-48").text(the_ifra_info["Standard type"]);
+      show_the_48th_restriction_type = true;
+    } else if (the_ifra_info["version"].indexOf("49") >= 0) {
+      $(".modalbody-ifra-49").text(the_ifra_info["Standard type"]);
+      show_the_49th_restriction_type = true;
+    };
+  };
 
         if (the_ifra_info["Amendment number"]) {
                 if (the_ifra_info["version"].indexOf("48") >= 0) {
                         $(".modalbody-amendment-48").text(the_ifra_info["Amendment number"]);
-			show_the_48th_amendment_number = true;
+      show_the_48th_amendment_number = true;
                 } else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         $(".modalbody-amendment-49").text(the_ifra_info["Amendment number"]);
-			show_the_49th_amendment_number = true;
+      show_the_49th_amendment_number = true;
                 };
         };
 
         if (the_ifra_info["Commentaires"]) {
                 if (the_ifra_info["version"].indexOf("48") >= 0) {
                         $(".modalbody-commentifra-48").text(the_ifra_info["Commentaires"]);
-			show_the_48th_comments = true;
+      show_the_48th_comments = true;
                 } else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         $(".modalbody-commentifra-49").text(the_ifra_info["Commentaires"]);
-			show_the_49th_comments = true;
+      show_the_49th_comments = true;
                 };
         };
 
 
-	if (the_ifra_info["version"].indexOf("48") >= 0) {
-		console.log("IFRA - 48th amendment");
-		if (the_ifra_info["1"] 
-			|| the_ifra_info["2"]
-			|| the_ifra_info["3"]
-			|| the_ifra_info["4"]
-			|| the_ifra_info["5A"]
-			|| the_ifra_info["6"] 
-			|| the_ifra_info["7A"]
-			|| the_ifra_info["8"]
-			|| the_ifra_info["9"]
-			|| the_ifra_info["10A"]
-			|| the_ifra_info["11A"]
-		) {
-			fill_with_percentage(".modalbody-48-cat1",  the_ifra_info["1"]);
-			fill_with_percentage(".modalbody-48-cat2",  the_ifra_info["2"]);
-			fill_with_percentage(".modalbody-48-cat3",  the_ifra_info["3"]);
-			fill_with_percentage(".modalbody-48-cat4",  the_ifra_info["4"]);
-			fill_with_percentage(".modalbody-48-cat5",  the_ifra_info["5A"]);
-			fill_with_percentage(".modalbody-48-cat6",  the_ifra_info["6"]);
-			fill_with_percentage(".modalbody-48-cat7",  the_ifra_info["7A"]);
-			fill_with_percentage(".modalbody-48-cat8",  the_ifra_info["8"]);
-			fill_with_percentage(".modalbody-48-cat9",  the_ifra_info["9"]);
-			fill_with_percentage(".modalbody-48-cat10", the_ifra_info["10A"]);
-			fill_with_percentage(".modalbody-48-cat11", the_ifra_info["11A"]);
-			show_the_main_48th_IFRA_table = true;
-		};
+  if (the_ifra_info["version"].indexOf("48") >= 0) {
+    console.log("IFRA - 48th amendment");
+    if (the_ifra_info["1"] 
+      || the_ifra_info["2"]
+      || the_ifra_info["3"]
+      || the_ifra_info["4"]
+      || the_ifra_info["5A"]
+      || the_ifra_info["6"] 
+      || the_ifra_info["7A"]
+      || the_ifra_info["8"]
+      || the_ifra_info["9"]
+      || the_ifra_info["10A"]
+      || the_ifra_info["11A"]
+    ) {
+      fill_with_percentage(".modalbody-48-cat1",  the_ifra_info["1"]);
+      fill_with_percentage(".modalbody-48-cat2",  the_ifra_info["2"]);
+      fill_with_percentage(".modalbody-48-cat3",  the_ifra_info["3"]);
+      fill_with_percentage(".modalbody-48-cat4",  the_ifra_info["4"]);
+      fill_with_percentage(".modalbody-48-cat5",  the_ifra_info["5A"]);
+      fill_with_percentage(".modalbody-48-cat6",  the_ifra_info["6"]);
+      fill_with_percentage(".modalbody-48-cat7",  the_ifra_info["7A"]);
+      fill_with_percentage(".modalbody-48-cat8",  the_ifra_info["8"]);
+      fill_with_percentage(".modalbody-48-cat9",  the_ifra_info["9"]);
+      fill_with_percentage(".modalbody-48-cat10", the_ifra_info["10A"]);
+      fill_with_percentage(".modalbody-48-cat11", the_ifra_info["11A"]);
+      show_the_main_48th_IFRA_table = true;
+    };
 
-	} else if (the_ifra_info["version"].indexOf("49") >= 0) {
-		console.log("IFRA - 49th amendment");
+  } else if (the_ifra_info["version"].indexOf("49") >= 0) {
+    console.log("IFRA - 49th amendment");
                 if (the_ifra_info["1"] 
                         || the_ifra_info["2"] 
                         || the_ifra_info["3"] 
@@ -769,12 +769,12 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                         fill_with_percentage(".modalbody-49-cat3",  the_ifra_info["3"]);
                         fill_with_percentage(".modalbody-49-cat4",  the_ifra_info["4"]);
                         fill_with_percentage(".modalbody-49-cat5A",  the_ifra_info["5A"]);
-			fill_with_percentage(".modalbody-49-cat5B",  the_ifra_info["5B"]);
-			fill_with_percentage(".modalbody-49-cat5C",  the_ifra_info["5C"]);
-			fill_with_percentage(".modalbody-49-cat5D",  the_ifra_info["5D"]);
+      fill_with_percentage(".modalbody-49-cat5B",  the_ifra_info["5B"]);
+      fill_with_percentage(".modalbody-49-cat5C",  the_ifra_info["5C"]);
+      fill_with_percentage(".modalbody-49-cat5D",  the_ifra_info["5D"]);
                         fill_with_percentage(".modalbody-49-cat6",  the_ifra_info["6"]);
                         fill_with_percentage(".modalbody-49-cat7A",  the_ifra_info["7A"]);
-			fill_with_percentage(".modalbody-49-cat7B",  the_ifra_info["7B"]);
+      fill_with_percentage(".modalbody-49-cat7B",  the_ifra_info["7B"]);
                         fill_with_percentage(".modalbody-49-cat8",  the_ifra_info["8"]);
                         fill_with_percentage(".modalbody-49-cat9",  the_ifra_info["9"]);
                         fill_with_percentage(".modalbody-49-cat10A", the_ifra_info["10A"]);
@@ -782,30 +782,30 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                         fill_with_percentage(".modalbody-49-cat11A", the_ifra_info["11A"]);
                         fill_with_percentage(".modalbody-49-cat11B", the_ifra_info["11B"]);
                         fill_with_percentage(".modalbody-49-cat12", the_ifra_info["12"]);
-			show_the_main_49th_IFRA_table = true;
-		};
-	} else { // we suppose this is NonIFRA
-		console.log("IFRA - no");
-	};
+      show_the_main_49th_IFRA_table = true;
+    };
+  } else { // we suppose this is NonIFRA
+    console.log("IFRA - no");
+  };
 
         if (the_ifra_info["version"] != "PasIFRA") {
-		show_nothing = false;
-	};
+    show_nothing = false;
+  };
 
     };
     };
 
     if (show_nothing) {
-	$(".IFRA .container").remove();
-	$(".IFRA .tab-content").remove();
-	$(".IFRA-show-nothing").show();
+  $(".IFRA .container").remove();
+  $(".IFRA .tab-content").remove();
+  $(".IFRA-show-nothing").show();
     };
     
     if (! show_the_main_48th_IFRA_table) {
-	    $(".main-48th-IFRA-table").remove();
+      $(".main-48th-IFRA-table").remove();
     }; 
     if (! show_the_main_49th_IFRA_table) {
-	    $(".main-49th-IFRA-table").remove();
+      $(".main-49th-IFRA-table").remove();
     };
     if (! show_the_skin_IFRA_table) {
             $(".skin-IFRA-table").remove();
@@ -824,7 +824,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
 
     if (! show_the_48th_restriction_type) {
-	    $(".restriction").remove();
+      $(".restriction").remove();
     };
     if (! show_the_49th_restriction_type) {
             $(".restriction49").remove();
@@ -860,17 +860,17 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   
     };
     if (the_new_pro_infos) {
-	    $(".pro_informations").append($("<ul></ul>").addClass("premium_and_standard_pros").addClass("list-inline"));
+      $(".pro_informations").append($("<ul></ul>").addClass("premium_and_standard_pros").addClass("list-inline"));
     };
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
-	//console.log(a_pro_info);
-	$(".pro_informations ul").append($("<li></li>").addClass("premium_pros").addClass("list-inline-item").addClass("btn btn-lg btn-warning").text(a_pro_info["Nom Tiers"]));
+  //console.log(a_pro_info);
+  $(".pro_informations ul").append($("<li></li>").addClass("premium_pros").addClass("list-inline-item").addClass("btn btn-lg btn-warning").text(a_pro_info["Nom Tiers"]));
     };
     // the standard PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
          $(".pro_informations ul").append($("<li></li>").addClass("standard_pros").addClass("list-inline-item").addClass("btn btn-light").text(a_pro_info["Nom Tiers"]));
-	//console.log(a_pro_info);
+  //console.log(a_pro_info);
     };
 
 
@@ -933,6 +933,12 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-fbrute1').empty();
   $('#modalbody-fusionp1').empty();
   $('#modalbody-stab1').empty();
+  $('#modalbody-einecs1').empty();
+  $('#modalbody-fema1').empty();
+  $('#modalbody-jecfa1').empty();
+  $('#modalbody-flavis1').empty();
+  $('#modalbody-synonymes').empty();
+  
 
   //EMPTY - Descripteurs
   $('#modalheader-type2').empty();
@@ -1000,6 +1006,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-medecine').append(the_medecine);
   $('#modalbody-stab').append(the_stab);
   $('#modalbody-utilisation').append(the_utilisation);
+  $('#modalbody-einecs').append(the_EINECS);
+  $('#modalbody-fema').append(the_FEMA);
+  $('#modalbody-jecfa').append(the_JECFA);
+  $('#modalbody-flavis').append(the_FLAVIS);
+
   //APPEND - Partie Synthétique
   $('#modalheader-type1').append(the_type);
   $('#modaltitle1').append(the_title);
@@ -1027,6 +1038,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-fbrute1').append(the_fbrute);
   $('#modalbody-fusionp1').append(the_fusionp);
   $('#modalbody-stab1').append(the_stab);
+  $('#modalbody-einecs1').append(the_EINECS);
+  $('#modalbody-fema1').append(the_FEMA);
+  $('#modalbody-jecfa1').append(the_JECFA);
+  $('#modalbody-flavis1').append(the_FLAVIS);
+  $('#modalbody-synonymes').append(the_synonyme);
 
   //APPEND - Partie Descripteurs
   $('#modaltitle2').append(the_title);
