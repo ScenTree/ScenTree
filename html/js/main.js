@@ -795,7 +795,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     };
 
-    $(".main-48th-IFRA-table .main-48th-IFRA-table  .main-48th-IFRA-table  .listy-48th-IFRA-table-without-botanicals  .listy-49th-IFRA-table-without-botanicals  .listy-48th-IFRA-table-with-botanicals  .listy-49th-IFRA-table-with-botanicals  .restriction  .restriction49  .amendment  .amendment49  .commentaires  .commentaires49").show();
+    $(".IFRA .container").show();
+    $(".IFRA .tab-content").show();
+    $(".IFRA-show-nothing").hide();
+    $(".IFRA-table").show();
+    $(".IFRA-infos").show(); 
 
     if (show_nothing) {
 	$(".IFRA .container").hide();
