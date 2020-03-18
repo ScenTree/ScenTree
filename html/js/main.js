@@ -802,16 +802,16 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     $(".IFRA-infos").show(); 
 
     if (show_nothing) {
-	$(".IFRA .container").hide();
-	$(".IFRA .tab-content").hide();
-	$(".IFRA-show-nothing").show();
+  $(".IFRA .container").hide();
+  $(".IFRA .tab-content").hide();
+  $(".IFRA-show-nothing").show();
     };
     
     if (! show_the_main_48th_IFRA_table) {
-	    $(".main-48th-IFRA-table").hide();
+      $(".main-48th-IFRA-table").hide();
     }; 
     if (! show_the_main_49th_IFRA_table) {
-	    $(".main-49th-IFRA-table").hide();
+      $(".main-49th-IFRA-table").hide();
     };
     if (! show_the_skin_IFRA_table) {
             $(".skin-IFRA-table").hide();
@@ -830,7 +830,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
 
     if (! show_the_48th_restriction_type) {
-	    $(".restriction").hide();
+      $(".restriction").hide();
     };
     if (! show_the_49th_restriction_type) {
             $(".restriction49").hide();
@@ -1056,24 +1056,21 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-comment2').append(the_use);
 
 
-  //Apparition des images pour les Naturelles et les Synthétiques
-  if (is_an_ingredient) {
-    $('#modalbody-pict').empty();
-    $('#modalbody-pictA').empty();
-    $('#modalbody-pict1').empty();
-    $('#modalbody-pict1A').empty();
-    $('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-    };  
     
     if (is_an_naturelle) {
-        $('#naturelleModal .modal-header').css('background-color', the_background_color);   
+        $('#naturelleModal .modal-header').css('background-color', the_background_color);
+        $('#modalbody-pict').empty();
+        $('#modalbody-pictA').empty();
+        $('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+        $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />"); 
         if (show_the_modal) $('#naturelleModal').modal('show');
     };
     if (is_an_synthetique) {
         $('#SynthetiqueModal .modal-header').css('background-color', the_background_color);
+        $('#modalbody-pict1').empty();
+        $('#modalbody-pict1A').empty();
+        $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+        $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
         if (show_the_modal) $('#SynthetiqueModal').modal('show');
     };
     if (is_an_descripteur) {
