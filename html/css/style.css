@@ -8,6 +8,10 @@ html, body {
 #mapblock {
   z-index: 1;
 }
+.lienarticlereglementation {
+  color: grey; 
+  font-size: 0.9em;
+}
 .fab {
   font-size: 120%;
   color: #494747;
@@ -28,7 +32,6 @@ html, body {
 .notifi4 {
   color: red;
 }
-
 .dropdown-toggle:after { 
   content: none 
 }
