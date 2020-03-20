@@ -714,6 +714,16 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                 };
         };
 
+        if (the_ifra_info["Intrinsic property"]) {
+                if (the_ifra_info["version"].indexOf("48") >= 0) {
+                        $(".modalbody-cause-48").text(the_ifra_info["Intrinsic property"]);
+      show_the_48th_amendment_number = true;
+                } else if (the_ifra_info["version"].indexOf("49") >= 0) {
+                        $(".modalbody-cause-49").text(the_ifra_info["Intrinsic property"]);
+      show_the_49th_amendment_number = true;
+                };
+        };
+
 
   if (the_ifra_info["version"].indexOf("48") >= 0) {
     console.log("IFRA - 48th amendment");
