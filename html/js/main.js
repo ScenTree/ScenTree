@@ -556,6 +556,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
     var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
     var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
+    var the_webpage_description = "Le " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") est un ingrédient utilisé dans les parfums. De son utilisation à son odeur en passant par sa réglementation, venez en découvrir tous les secrets avec ScenTree !";
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -717,6 +718,16 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                 };
         };
 
+        if (the_ifra_info["Intrinsic property"]) {
+                if (the_ifra_info["version"].indexOf("48") >= 0) {
+                        $(".modalbody-cause-48").text(the_ifra_info["Intrinsic property"]);
+      show_the_48th_amendment_number = true;
+                } else if (the_ifra_info["version"].indexOf("49") >= 0) {
+                        $(".modalbody-cause-49").text(the_ifra_info["Intrinsic property"]);
+      show_the_49th_amendment_number = true;
+                };
+        };
+
 
   if (the_ifra_info["version"].indexOf("48") >= 0) {
     console.log("IFRA - 48th amendment");
@@ -813,10 +824,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     
     if (! show_the_main_48th_IFRA_table) {
-	    $(".main-48th-IFRA-table").hide();
+      $(".main-48th-IFRA-table").hide();
     }; 
     if (! show_the_main_49th_IFRA_table) {
-	    $(".main-49th-IFRA-table").hide();
+      $(".main-49th-IFRA-table").hide();
     };
     if (! show_the_skin_IFRA_table) {
             $(".skin-IFRA-table").hide();
@@ -835,7 +846,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
 
     if (! show_the_48th_restriction_type) {
-	    $(".restriction").hide();
+      $(".restriction").hide();
     };
     if (! show_the_49th_restriction_type) {
             $(".restriction49").hide();
@@ -1060,24 +1071,21 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-comment2').append(the_use);
 
 
-  //Apparition des images pour les Naturelles et les Synthétiques
-  if (is_an_ingredient) {
-    $('#modalbody-pict').empty();
-    $('#modalbody-pictA').empty();
-    $('#modalbody-pict1').empty();
-    $('#modalbody-pict1A').empty();
-    $('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-    $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-    $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-    $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-    };  
     
     if (is_an_naturelle) {
-        $('#naturelleModal .modal-header').css('background-color', the_background_color);   
+        $('#naturelleModal .modal-header').css('background-color', the_background_color);
+        $('#modalbody-pict').empty();
+        $('#modalbody-pictA').empty();
+        $('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+        $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />"); 
         if (show_the_modal) $('#naturelleModal').modal('show');
     };
     if (is_an_synthetique) {
         $('#SynthetiqueModal .modal-header').css('background-color', the_background_color);
+        $('#modalbody-pict1').empty();
+        $('#modalbody-pict1A').empty();
+        $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+        $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
         if (show_the_modal) $('#SynthetiqueModal').modal('show');
     };
     if (is_an_descripteur) {
@@ -1087,6 +1095,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     
 
    $('title').html('ScenTree - ' + the_webpage_title);
+   $('meta[name=description]').remove();
+   $('head').append( '<meta name="description" content="' + the_webpage_description + '" />');
 
 };
 
