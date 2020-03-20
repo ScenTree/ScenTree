@@ -629,7 +629,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
-  var the_ifra_info = JSON.parse(an_infra_info);
+        var the_ifra_info = JSON.parse(an_infra_info);
         console.log("IFRA - " + an_infra_info);
 
         if (the_ifra_info["Leave On Products"]
@@ -795,16 +795,18 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     };
 
-    $(".IFRA .container").show();
-    $(".IFRA .tab-content").show();
-    $(".IFRA-show-nothing").hide();
-    $(".IFRA-table").show();
-    $(".IFRA-infos").show(); 
+    //$(".IFRA .container").show();
+    //$(".IFRA .tab-content").show();
+    //$(".IFRA-show-nothing").hide();
+    //$(".IFRA-table").show();
+    //$(".IFRA-infos").show(); 
 
     if (show_nothing) {
 	$(".IFRA .container").hide();
 	$(".IFRA .tab-content").hide();
-	$(".IFRA-show-nothing").show();
+	//$(".IFRA-show-nothing").show();
+    } else {
+	    $(".IFRA-show-nothing").hide();
     };
     
     if (! show_the_main_48th_IFRA_table) {
@@ -847,7 +849,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (! show_the_49th_comments) {
             $(".commentaires49").hide();
     };
-
     
     // PRO 
     the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
