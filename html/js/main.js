@@ -527,6 +527,9 @@ function from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_
 
 function fill_with_percentage(the_html_class_as_text, the_percentage) {
   $(the_html_class_as_text).empty();
+  if (! the_percentage) {
+	  return;
+  };
   if (the_percentage.toLowerCase().indexOf("restr") >= 0) {
           $(the_html_class_as_text).append($("<span></span>").attr("lang", "en").text("Not restricted"));
                 $(the_html_class_as_text).append($("<span></span>").attr("lang", "fr").text("Non restreint"));
