@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev";  // "dev", "prod" or "prod2"
+var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
 
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
@@ -553,6 +553,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
     var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
     var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
+    var the_webpage_description = "Le " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") est un ingrédient utilisé dans les parfums. De son utilisation à son odeur en passant par sa réglementation, venez en découvrir tous les secrets avec ScenTree !";
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -1090,6 +1091,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     
 
    $('title').html('ScenTree - ' + the_webpage_title);
+   $('meta[name=description]').remove();
+   $('head').append( '<meta name="description" content="' + the_webpage_description + '"');
 
 };
 
