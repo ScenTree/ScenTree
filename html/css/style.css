@@ -558,15 +558,17 @@ h1 {
 .textitem {
     padding: 5px;
     font-size:small;
-
+    font-weight: normal;
 }
 .textitem2 {
     font-size:small;
+    font-weight: normal;
 }
 .textitem3 {
     padding: 5px;
     font-size:small;
     font-style: italic;
+    font-weight: normal;
 }
 .textitem-footer{
     font-size:small;
@@ -648,14 +650,17 @@ h1 {
 .textitem {
     padding: 5px;
     font-size:small;
+    font-weight: normal;
 }
 .textitem2 {
     font-size:small;
+    font-weight: normal;
 }
 .textitem3 {
     padding: 5px;
     font-size:small;
     font-style: italic;
+    font-weight: normal;
 }
 .textitem-footer{
     font-size:small;
@@ -744,14 +749,17 @@ h1 {
 .textitem {
     padding: 5px;
     font-size:small;
+    font-weight: normal;
 }
 .textitem2 {
     font-size:small;
+    font-weight: normal;
 }
 .textitem3 {
     padding: 5px;
     font-size:small;
     font-style: italic;
+    font-weight: normal;
 }
 .textitem-footer{
     font-size:small;
@@ -843,17 +851,21 @@ h1 {
 .textitem {
     padding: 5px;
     font-size:small;
+    font-weight: normal;
 }
 .textitem2 {
     font-size:small;
+    font-weight: normal;
 }
 .textitem3 {
     padding: 5px;
     font-size:small;
     font-style: italic;
+    font-weight: normal;
 }
 .textitem-footer{
     font-size:small;
+    font-weight: normal;
 }
 .imgmp {
     max-width: 180px;
