@@ -792,6 +792,9 @@ font-size: 10px;
 .textepresentation{
   min-width: 100%;
 }
+.correctionsource {
+  display: none;
+}
 }
 
 @media screen and (min-width: 768px) {
