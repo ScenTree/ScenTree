@@ -1,935 +1,265 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<link rel="canonical" href="https://www.scentree.co/_/menu.html">
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - Menu</title>
+<title lang="en">ScenTree - Menu</title>
+<!--Description Google-->
+<meta name="description" content="Le projet ScenTree à été crée en 2019, il s'agit d'une plateforme de classification et d'information sur les ingrédients utilisés dans la création des parfums. De leurs odeurs à leurs utilisation en passant par leur réglementation, venez découvrir tous leurs secrets." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-html, body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-/* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'464';}
-.timeline ul li:nth-child(2):before{content:'456';}
-.timeline ul li:nth-child(3):before{content:'448';}
-.timeline ul li:nth-child(4):before{content:'440';}
-.timeline ul li:nth-child(5):before{content:'432';}
-.timeline ul li:nth-child(6):before{content:'426';}
-.timeline ul li:nth-child(7):before{content:'426';}
-.timeline ul li:nth-child(8):before{content:'419';}
-.timeline ul li:nth-child(9):before{content:'413';}
-.timeline ul li:nth-child(10):before{content:'413';}
-.timeline ul li:nth-child(11):before{content:'406';}
-.timeline ul li:nth-child(12):before{content:'398';}
-.timeline ul li:nth-child(13):before{content:'391';}
-.timeline ul li:nth-child(14):before{content:'391';}
-.timeline ul li:nth-child(15):before{content:'384';}
-.timeline ul li:nth-child(16):before{content:'379';}
-.timeline ul li:nth-child(17):before{content:'372';}
-.timeline ul li:nth-child(18):before{content:'372';}
-.timeline ul li:nth-child(19):before{content:'365';}
-.timeline ul li:nth-child(20):before{content:'365';}
-.timeline ul li:nth-child(21):before{content:'365';}
-.timeline ul li:nth-child(22):before{content:'365';}
-.timeline ul li:nth-child(23):before{content:'365';}
+<!-- Fichier Style CSS -->
+<link href="../css/stylesansmap.css" rel="stylesheet" />
 
-p {
-  font-size: 0.8em;
-}
-.maskedtitle {
-  font-size: 1em;
-}
-h4 {
-  font-size: 1em;
-}
-#mapblock {
-  z-index: 1;
-}
-.bplus{
-  color: #D64E26;
-}
-.gros_titre {
-  margin-top: 1%;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-.sous_titre {
-  font-weight: bold;
-  font-size: 1em;
-}
-hr {
-  margin: 0;
-}
-.pagederoulante {
-  height: 94.5%;
-  overflow-y: scroll;
-}
-.scrollbar-inside2 {
-  overflow-y: auto;
-  height: calc(110vh - 320px);
-}
-#menu-block {
-  z-index: 2;
-  min-height: 500px;
-}
-.fab {
-  font-size: 120%;
-  color: #494747;
-}
-.notifi1 {
-  color: red;
-}
-.notifi2 {
-  color: red;
-}
-.notifi3 {
-  color: red;
-  position: absolute;
-  z-index: 1;
-  right: 7%;
-  top: 5%;
-}
-.dropdown-toggle:after { 
-  content: none 
-}
-.interpop{
-  color: #6586B4;
-}
-.blanccorrectionmisenepage{
-  height: 5%;
-}
-/*POLICES */
-.text-in-color-brown {
-  color: #D64E26;
-}
-.with-my-border {
-  border: 2px solid #D64E26;
-}
-.max-height-120px {
-  max-height: 120px;
-}
-.max-height-30px {
-  max-height: 30px;
-}
-.text-underline {
-  text-decoration: underline;
-}
-/*#########################
-############ MENU #########
-#########################*/
-.compteur{
-  font-weight: bold;
-  font-size: 0.8em;
-  color: black;
-  text-transform: uppercase;
-  background-color: blue;
-}
-.compteur a {
-  color: #D64E26;
-  font-size: 2.5em;
-}
-/*#########################
-######CREATION PARFUM######
-#########################*/
-.listetypeparfum {
-  text-decoration: underline;
-  color: #D64E26;
-  font-size: 0.8em;
-  margin-bottom: 0;
-  margin-top: 0; 
-}
-.categorieparfum li {
-  margin: 0;
-  line-height: 1.2;
-}
-/*#########################
-########INGREDIENTS########
-#########################*/
-.titreMP {
-  font-weight: bold;
-  color: #D64E26;
-}
-.exemple {
-  font-size: 0.75em; 
-  color: #616161;
-}
-.ingredientnat {
-  font-size: 0.8em;
-}
-.catégories{
-  color: #087625;
-  font-weight: bold;
-  font-size: 1em;
-  text-decoration: underline;
-  text-transform: uppercase;
-  margin-top: 0.5em;
-}
-.catégories2 {
-  font-weight: bold;
-  text-decoration: underline;
-  margin-top: 0.8em;
-}
-.sous_texte{
-  font-weight: normal;
-  text-decoration: none;
-}
-.imgMP1{
-  float: right;
-  margin-left: 2%;
-  max-height: 20%;
-  max-width: 20%;
-}
-.imgingredient {
-  min-height: 15%;
-  max-height: 15%;
-  min-width: 15%;
-  max-width: 15%;
-}
-.resumenat{
-  align-items: center;
-  min-height: 70%;
-  max-height: 70%;
-  min-width: 70%;
-  max-width: 70%;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 50%;
-  max-height: 50%;
-  min-width: 50%;
-  max-width: 50%;
-}
-/*#########################
-##########SOURCES##########
-#########################*/
-.sources ul {
-  padding: 0.3em;
-}
-.sources li {
-  font-size: 0.85em;
-}
-.sources {
-  border: 1px solid #D64E26;
-  box-shadow: 1.5px 1.5px 22px 0px rgba(251,229,214,1);
-}
-/*#########################
-#########SUPPORT###########
-#########################*/
-.particulier ul {
-  list-style-type: none;
-}
-.profession {
-  font-style: italic;
-  font-size: 1em;
-}
-.nouveausupporter {
-  font-weight: bold;
-  color: red;
-}
-.logosupporter {
-  border: 1px solid #FBE5D6FF;
-  box-shadow: 2px 2px 22px 0px rgba(251,229,214,1);
-}
-@media screen and (max-width: 990px) {
-.entreprise {
-  min-width: 100%;
-}
-.particulier {
-  min-width: 100%;
-}
-.logosupporter{
-  min-height: 200%;
-}
-.logomenu {
-  min-width: 100%;
-  min-height: 100%;
-}
-}
-/*#########################
-#####MENTIONS LEGALES######
-#########################*/
-.Titre1 {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Titre2 {
-  text-transform: uppercase;
-  text-decoration: underline;
-  size: 1.2em;
-  margin-bottom: 0.5em;
-}
-.Soustitre1 {
-  font-weight: bold;
-  text-decoration: underline;
-}
-.miniliste2{
-  font-weight: bold;
-  size: 0.8em;
-  margin: 0em;
-}
-/*#########################
-#########IMAGES############
-#########################*/
-.hierarchie {
-  min-width: 70%;
-  min-height: 70%;
-  max-width: 70%;
-  max-height: 70%;
-}
-.img1allergene{
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img2allergene { 
-  height: 20%;
-  width: 50%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 1%;
-  margin-bottom: 0%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 30%;
-  width: 30%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 15%;
-  width: 15%;
-}
-.img3creationparfum {
-  float: left;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 20%;
-  width: 20%;
-}
-/*#########################
-########NEWSLETTER#########
-#########################*/
-.card-img-top {
-  margin-top: 5%;
-  min-width: 120px;
-  min-height: 120px;
-  max-width: 120px;
-  max-height: 120px;
-}
-.card {
-  align-items: center;
-  border: 1px solid #E99A1F;
-  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
-.envoiRGPD {
-  align-items: center;
-  text-align: center;
-}
-.titreRGPD {
-  font-size: 0.9em;
-}
-.texteRGPD {
-  font-size: 0.75em;
-  text-align: justify;
-}
-.btnenvoi {
-  align-items: center;
-  text-align: center;
-  background-color: #FBE5D6FF; 
-  border: 1px solid #E99A1F;
-  box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
-/*#########################
-########COPYRIGHT##########
-#########################*/
-.copyright {
-    text-align: center;
-    color: #D64E26;
-    font-size: 10px;
-}
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 
-/*#########################
-###########RGPD############
-#########################*/
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
 
-.textRGPD {
-   text-align: justify 
-}
-.boutonRGPD {
-    text-align: center;
-}
-.NONRGPD {
-    font-style: 50%;
-}
-@keyframes RGPD_animation {
-  0%   {bottom: -100px;}
-  100% {bottom: 40%;}
-}
-#RGPD_warning {
-    display: none;
-    position: absolute;
-    bottom: 40%;
-    left: 50%;
-    width: 100%;
-    transform: translate(-50%, 0);
-    z-index: 999;
-    background-color: #FFF8C2;
-    animation-name: RGPD_animation;
-    animation-duration: 2s;
-    border-top-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
-}
-#closevideo {
-  position:absolute;
-  right:-20px;
-  top:0;
-  z-index:999;
-  font-size:2rem;
-  font-weight: normal;
-  opacity:1;
-}
-
-/*#########################
-#######RUBAN DROITE########
-#########################*/
-.logomenu {
-    color:black;
-    font-size: 0.9vw;
-    text-decoration:underline;
-    cursor:pointer;
-    display: inline;
-}
-.fillright{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
-.fillright2{
-    background-color:#FBE5D6FF;
-    border-top-left-radius: 7px;
-    border-bottom-left-radius: 7px;
-}
-.correctspacebug {
-    height: 20em;
-}
-.logomenu:hover{
-    transform: scale(1.1);
-}
-
-/*#########################
-#########LANGUAGE##########
-#########################*/
-
-*:lang(fr) {
-    display: initial;
-}
-*:lang(en) {
-    display: initial;
-}
-
-#imgen #imgfr {
-    display: inline-block;
-    max-width: 10px;
-    max-height: 10px;
-}
-/*#########################
-###########LISTE###########
-#########################*/
-ol {
-  padding-left: 1em;
-}
-li::before {
-  font-weight: bold; 
-}
-/*#########################
-###########TABLE############
-#########################*/
-table {
-  border: 1px solid black;
-  width: 100%;
-  margin-bottom: 2%; 
-}
-th, .table th {
-    border: 1.5px solid black;
-    text-align: center;
-    font-style: large;
-    background-color: #FBE5D6FF;
-}
-td, .table td {
-    border: 1px solid black;
-    text-align: center;  
-    vertical-align: middle;
-    white-space: normal;
-}
-
-tr:nth-child(even) {
-  background-color: #F1F0F0;
-  color:#121212; 
-}
-caption {
-    color: #D64E26;
-    text-align: center;
-    font-style: italic;
-    caption-side: top;
-}
-.categorieifra table {
-  text-align: right;
-}
-.categorieifra td, .table td {
-    border: 1px solid black;
-    text-align: left;  
-    vertical-align: middle;
-    white-space: normal;
-}
-/*#########################
-#######RESPONSIVE##########
-#########################*/
-
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.img1allergene{
-  float: right;
-  margin-left: 2%; 
-  margin-bottom: 0;
-  height: 20%;
-  width: 20%;
-}
-.img2allergene { 
-  height: 25%;
-  width: 60%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 3%;
-  margin-top: 5%;
-  margin-bottom: 5%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 60%;
-  width: 60%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 18%;
-  width: 18%;
-}
-.img3creationparfum {
-  float: left;
-  margin-right: 1%;
-  margin-left: 0%;
-  height: 20%;
-  width: 20%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 20%;
-  width: 20%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 25%;
-  width: 25%;
-}
-.imgMP1{
-  float: right;
-  top: 10%;
-  margin-left: 2%;
-  min-width: 20%;
-  max-width: 20%; 
-  min-height: 20%;
-  max-height: 20%;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 70%;
-  max-height: 70%;
-  min-width: 70%;
-  max-width: 70%;
-}
-table {
-min-width: 100%;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-.correctspacebug {
-    height: 1.1em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-}
-
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-.correctspacebug {
-    height: 2em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-.copyright {
-    font-size: 8px;
-}
-}
-
-@media screen and (min-width: 768px) and (max-width: 990px) {
-table {
-min-width: 100%;
-overflow-x: auto;
-}
-.pagederoulante {
-  height: 92%;
-  overflow-y: scroll;
-}
-.correctspacebug {
-    height: 2em;
-}
-.particulier ul {
-  margin: 0;
-  padding:0;
-}
-.copyright {
-    font-size: 8px;
-}
-.text-in-color-brown {
-  color: #D64E26;
-  font-size: 0.9em;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 85%;
-  max-height: 85%;
-  min-width: 85%;
-  max-width: 85%;
-}
-}
-
-@media screen and (max-width: 768px) {
-.PageEntiere {
-    background-color: white;
-    padding-top: 60px;
-}
-.pagederoulante {
-  height: 100%;
-  overflow-y: visible;
-}
-.logomenu{
-    max-height: 40px;
-}
-.gros_titre {
-  padding-top: 2%;
-  font-weight: bold;
-  font-size: 1em;
-}
-ul {
-  padding-left: 1.5em;
-}
-.solvemobilepadding {
-  margin-top:85%; 
-}
-.hierarchie {
-  min-width: 90%;
-  min-height: 90%;
-  max-width: 90%;
-  max-height: 90%;
-}
-.img1allergene {
-  text-align: center;
-  margin-bottom: 5%;
-  height: 90%;
-  width: 90%;
-}
-.img2allergene { 
-  text-align: center;
-  height: 15%;
-  width: 90%; 
-  margin: 0;
-  margin-top:2%; 
-  margin-bottom: 4%;
-}
-.img3allergene { 
-  text-align: center;
-  height: 30%;
-  width: 90%; 
-  margin:0;
-  margin-top:2%; 
-  margin-bottom: 2%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-.img2creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-left:10%;
-  margin-right: 10%;
-  margin-top:2%; 
-  margin-bottom: 5%;
-}
-.img3creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img4creationparfum {
-  display: none;
-}
-.img5creationparfum {
-  display: none;
-}
-.img6creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.imgMP1{
-  float: none;
-  min-height: 60%;
-  max-height: 60%;
-  min-width: 60%;
-  max-width: 60%;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 100%;
-  max-height: 100%;
-  min-width: 100%;
-  max-width: 100%;
-}
-
-.imgingredientblock {
-  display: none;
-}
-.blanccorrectionmisenepage{
-  height: 0%;
-}
-table {
-min-width: 100%;
-font-size: 10px;
-}
-.formulaire {
-  min-width: 100%;
-}
-.envoiRGPD {
-  min-width: 100%;
-}
-}
-
-@media screen and (min-width: 768px) {
-.PageEntiere {
-    background-color: white;
-}
-.img4creationparfum {
-  display: none;
-}
-}
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="../_/menu.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="le logo de ScenTree"></a>
+<div class="dropdown">
+  <a href="../_/index.html"><i class="fas fa-reply" style="color: black;"></i></a>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right  text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" autocomplete="off" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" autocomplete="off" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/support.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/nouveaute.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="/newsletter/newsletter/subscribe"><span lang="fr">Newsletter</span><span lang="en">Newsletter</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/Sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving" role="button" href="../_/legal.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <div class="dropdown-divider"></div>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+    <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
 
 
-/*#########################
-########NOUVEAUTES#########
-#########################*/
-/*set up size of the whole timeline OK */
-.timeline{
-  position: relative;
-  margin: 0px auto;
-  width:100%;
-}
-/* Titre des parties OK*/
-.content h2{
-  color:#D64E26;
-  font-size:1.3em;
-  font-weight: bold;
-  padding-top: 2.5%;
-}
-/*Style du texte sous la date OK*/
-.ajoutMP{
-  color:black;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-/*drawing the line itself OK */
-.timeline:before{
-  content: '';
-  position:absolute;
-  left:50%;
-  width:0.5em;
-  height:100%;
-  background-color:#D64E26;
-}
-/*styling the size of each step/content OK */
-.timeline ul li{
-  list-style: none;
-  position:relative;
-  width:50%;
-  padding:5px 35px;
-}
-/*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:right;
-  float:left;
-  clear:both;
-  right: 4%;
-  width: 52.5%;
-}
-/* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left:1.1%;
-  width: 52%;
-}
-/*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before {
-  content:'';
-  position:absolute;
-  width:40px;
-  height:40px;
-  background-color:#F7B88E;
-  border-radius:60%;
-  box-shadow: 0 0 0 6px rgba(251, 229, 214);
-  z-index:1
-}
-/*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{
-  left: -3.6%;
-}
-.timeline ul li:nth-child(odd):before{
-  right:-3.6%;
-}
-/*styling the numbering. OK */
-.timeline ul li:before{
-  font-weight:bold;
-  font-size:1.2em;
-  color:white;
-  text-align:center;
-  padding-top:1%;
-}
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
 
-@media screen and (min-width: 1200px) and (max-width: 1400px) {
-  /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){right: 5.7%; width: 53.5%;}
-  .timeline ul li:nth-child(odd):before{right:-5%;}
-  /* for every even numbered bullet point, align to the right OK*/
-  .timeline ul li:nth-child(even){left:1.1%;width: 52.5%;}
-  /*position the circle icons on the timeline OK*/
-  .timeline ul li:nth-child(even):before{left: -5%;}
-}
-@media screen and (min-width: 990px) and (max-width: 1200px) {
-  /*for every odd numbered bullet point, align to the left OK*/
-  .timeline ul li:nth-child(odd){right: 6%; width: 53.5%;}
-  .timeline ul li:nth-child(odd):before{right:-5.5%;}
-  /* for every even numbered bullet point, align to the right OK*/
-  .timeline ul li:nth-child(even){left:1.1%; width: 52.5%;}
-  /*position the circle icons on the timeline OK*/
-  .timeline ul li:nth-child(even):before{left: -8%;}
-}
-@media screen and (max-width: 990px) {
-/* Titre des parties OK*/
-.content h2{font-size:1em; padding-top: 2.5%; }
-/*Style du texte sous la date OK*/
-.ajoutMP{font-size: 0.9em;}
-/*drawing the line itself OK*/
-.timeline:before{left:6%; width:0.3em;}
-/*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:left;
-  float:right;
-  clear:both;
-  right: -5%;
-  width: 110%;
-}
-/* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left: 5%;
-  width: 110%;
-}
-/*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before { width:35px; height:35px;}
-/*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{left: -6%;}
-.timeline ul li:nth-child(odd):before{left: -6%;}
-/*styling the numbering. OK */
-.timeline ul li:before{font-size:0.9em; padding-top:3%;}
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
 
-.content p {
-  font-size: 0.8em;
-}
-}
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+<div class="container-fluid">
+
+<div class="row align-items-start">
+  <div class="clearfix w-100">
+    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
+    </button>
+    <button class="btn text-in-color-brown float-right px-0">/</button>
+    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
+  </div>
+  <div class="col-12 text-center">
+    <a class="btn save_map_status_on_leaving" role="button" href="../_/menu.html"><img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="le logo de Scentree"></a>
+  </div>
+</div>
+
+<div class="row align-items-start text-center">
+  <!--Boutons support et news -->
+  <div class="col">
+    <a class="btn mt-4 text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
+    <br>
+    <a class="btn mt-4 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/support.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <br>
+    <a class="btn mt-1 mb-4 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveaute.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+  </div>    
+</div>
+
+<div class="row correctspacebug"></div>
+
+<div class="row h-15 align-items-end">
+  <div class="container-fluid text-center">
+  <div class="col-12 p-0 mt-5 mb-1">
+        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="/newsletter/newsletter/subscribe">
+          <span lang="fr">Newsletter</span><span lang="en">Newsletter</span>
+        </a>
+        <span class="col-12  m-0 p-0">
+          <a class="btn btn-sm save_map_status_on_leaving text-center" role="button" lang="fr" href="https://docs.google.com/forms/d/e/1FAIpQLSc0Lsx5k5lzFJ3p7YJn04Pn0KbyXCDnl52cTit8hxhf4YYQJA/viewform" target="_BLANK">Enquête de satisfaction  </a>
+          <a class="btn btn-sm save_map_status_on_leaving text-center" role="button" lang="en" href="https://docs.google.com/forms/d/e/1FAIpQLSeQljdzyC8Lkzqs2k97ZJDeC59lIV_ws2axSNfLa_0-yOezcQ/viewform" target="_BLANK">Satisfaction survey  </a>
+        </span>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/Sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
+        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
+        </a>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/legal.html">
+         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
+        </a>
+      <div class="col-12 mb-1 p-0 text-center">
+          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank"></a>
+          <a class="fab fa-facebook-square ml-3" href="https://www.linkedin.com/company/scentree/" target="_blank"></a>
+      </div>
+    </div>
+   <div class="copyright row  d-none d-sm-none d-md-block">
+        <sup>©</sup> Copyright 2019-2020 |  ScenTree SAS  | All Rights Reserved |
+   </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
+<div id="blanc1" class="row blockrgpd"></div>
+<div id="contenant" class="row">
+<div class=" col-offset-1 col-9 textRGPD" >
+  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
+  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
+</div> 
+<div class=" col-offset-2 col-3 boutonRGPD">
+  <button class="btn btn-success" id="cookie_please">
+    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
+  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
+    <span lang="fr">Non</span><span lang="en">No</span>
+  </button>
+</div>
+</div>
+<div id="blanc1" class="row blockrgpd"></div>
+</div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center gros_titre">
+  <h1 class="gros_titre text-in-color-brown"><span lang="fr">Découvrez le projet ScenTree</span><span lang="en">Discover ScenTree's project</span></h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+<div class="row">
+  <div class="col-12 text-justify"> 
+    <div class="row">
+
+      <div class="col-5 partiedroite">
+        <div class="row col-12 mt-3 nombres text-center">
+          <div class="offset-1 col-3 mt-3 mb-3 text-center compteur"><a href="../_/listingredient.html" class="listeMP-number">370</a> ingredients</div>
+          <div class="offset-1 col-3 mt-3 mb-3 compteur"><a href="../_/listdescriptors.html" class="Listefamilles-principales-number">16</a> familles principales</div>
+          <div class="offset-1 col-3 mt-3 mb-3 compteur"><a href="../_/listdescriptors.html" class="Listefamilles-descripteurs-number">82</a> descripteurs olfactifs</div>
+        </div>
+        <div class="col-12 mt-3 text-center" style="align-items: center;">
+          <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://youtube.com/embed/jpSyGY1EPVs" allowfullscreen id="video"></iframe>
+        </div>
+        </div>
+      </div>
+
+      <div class="col-7">
+        <div class="sources col-12 mt-3 mb-3">
+          <p lang="fr"><i class='fa fa-question-circle fa-fw fa-lg icone'></i>&nbsp;<b><i>ScenTree</i></b> est un projet initié en 2017 par <a href="https://www.linkedin.com/in/maxime-baud-915a79130/" target ="_BLANK">Maxime BAUD </a> et <a href= "https://www.linkedin.com/in/thomas-espinasse-1aa576103/" target ="_BLANK"> Thomas ESPINASSE </a>, deux étudiants de l’ISIPCA. Il s’agit d’une <b>classification collaborative des matières premières de parfumerie, en fonction de leur famille et de leurs descripteurs olfactifs</b>. Pour chaque matière première, une famille et quatre descripteurs principaux sont possibles. Cela amène à présenter leur classification sous la forme d’un <b>arbre</b> à plusieurs niveaux de zoom, dont chaque nœud représente une famille ou un descripteur. Le terme «<b>collaboratif</b>» signifie que cette classification découle de la contribution de professionnels de la parfumerie : parfumeurs, évaluateurs, experts en matières premières etc. Tous nous ont aidé à classifier certaines matières premières de l’arbre.</p>
+          <p lang="en"><i class='fa fa-question-circle fa-fw fa-lg icone'></i>&nbsp;<b><i>ScenTree</i></b> is a project initiated in 2017 by <a href="https://www.linkedin.com/in/maxime-baud-915a79130/" target ="_BLANK">Maxime BAUD </a> and <a href= "https://www.linkedin.com/in/thomas-espinasse-1aa576103/" target ="_BLANK"> Thomas ESPINASSE </a>, while studying at the ISIPCA (Versailles, France). It is a <b>collaborative perfumery raw materials classification, according to their olfactive family and description</b>. For each raw material, one family and four descriptors can exist. This leads to a <b>tree</b>-looking classification, with a few zoom levels, and in which every node represents a descriptor or an olfactive family. The word “<b>collaborative</b>” means that this classification is the result of the contribution of perfumery professionals: perfumers, evaluators, raw materials experts… Every contributor helped in classifying some raw materials.</p>
+        </div>
+        <div class="sources col-12 mt-3 mb-3">
+          <p lang="fr"><i class='fa fa-info fa-fw fa-lg icone'></i>&nbsp;A ce jour, la classification contient <a href="../_/listingredient.html" class="listeMP-number">370</a> matières premières, réunies en <a href="../_/listdescriptors.html" class="Listefamilles-principales-number">16</a> familles principales et <a href="../_/listdescriptors.html" class="Listefamilles-descripteurs-number">82</a> descripteurs. Pour chaque matière première, <b>chaque descripteur est classé par ordre d’importance olfactive</b>. Ainsi, plus vous vous rapprocherez d’une bordure extérieure de l’arbre, plus les descripteurs seront précis pour une matière première donnée. En somme, <b><i>ScenTree</i> discrimine</b> les ingrédients entre eux et permet de mettre en évidence leurs <b>similitudes olfactives</b>.</p>
+          <p lang="en"><i class='fa fa-info fa-fw fa-lg icone'></i>&nbsp;Today, this classification contains <a href="../_/listingredient.html" class="listeMP-number">370</a> raw materials, united into <a href="../_/listdescriptors.html" class="Listefamilles-principales-number">16</a> families and <a href="../_/listdescriptors.html" class="Listefamilles-descripteurs-number">82</a> olfactive descriptors. For each raw material, <b>every descriptor is classified in order of olfactive importance</b>. Thus, the more you get close to an external border, the more precise the descriptors will be for one raw material. Then, <b><i>ScenTree</i> discriminates</b> the ingredients and puts in evidence their <b>olfactive similarity</b>.</p>
+        </div>
+        <div class="sources col-12 mt-3 mb-3">
+          <p lang="fr"><i class='fa fa-globe-europe fa-fw fa-lg icone'></i>&nbsp;Nous vous invitons ici à un voyage. De <b>descripteur en descripteur</b>, vous trouverez l’ingrédient correspondant aux notes recherchées. En utilisant la <b>barre de recherche</b>, vous serez transportés directement vers la matière première souhaitée, pour en découvrir les facettes.Pour chaque matière première ou descripteur, il vous est possible de cliquer sur ces derniers pour en obtenir des informations. Des <b>caractéristiques techniques</b> vous seront données sur les ingrédients, et une <b>explication</b> apparaitra pour les descripteurs et familles.</p>
+          <p lang="en"><i class='fa fa-globe-europe fa-fw fa-lg icone'></i>&nbsp;You are invited to a trip. For <b>descriptor to descriptor</b>, you will find the ingredient corresponding to the notes you are looking for. By using the <b>search bar</b>, you will be directly transported to the desired ingredient, to discover its facets. For each raw material and descriptor, it is possible to click to obtain some information. <b>Technical characteristics</b> for ingredients, and an <b>explanation</b> from descriptors and families will be given.</p>
+        </div>
+        <div class="sources col-12 mt-3 mb-3">
+          <p lang="fr"><i class='fas fa-bullseye fa-fw fa-lg icone'></i>&nbsp;L’utilisation d’un lexique spécifique à la parfumerie rend cette classification accessible en priorité aux personnes étudiant, travaillant dans le domaine de la parfumerie, ou étant à l’aise avec ce vocabulaire.</p>
+          <p lang="en"><i class='fas fa-bullseye fa-fw fa-lg icone'></i>&nbsp;The use of a perfumery-specific vocabulary targets in priority people studying or working in the area of perfumery, or being comfortable with this language.</p>
+        </div>
+        <div class="sources col-12 mt-3 mb-3">
+          <p lang="fr"><i class='far fa-handshake fa-fw fa-lg icone'></i>&nbsp;Comme toute classification, sa <b>subjectivité</b> n’est pas négligeable. Chaque descripteur utilisé est un parti pris. Nous avons tenté de les faire correspondre avec l’avis général du milieu de la parfumerie, grâce à l’intervention de chaque collaborateur ayant permis à <i>ScenTree</i> de voir le jour. La <b>collaboration</b> restera toujours le guide de cette classification.</p>
+          <p lang="en"><i class='far fa-handshake fa-fw fa-lg icone'></i>&nbsp;As every classification, its <b>subjectivity</b> is not deniable. Every descriptor is a choice. We want to make them correspond to a general opinion, thanks to every contributor that permitted <i>ScenTree</i> to grow. <b>Collaboration</b> will always stay a guide for this classification.</p>
+        </div>
+        <div class="sources col-12 mt-3 mb-3">
+          <p lang="fr"><i class='fas fa-search-location fa-fw fa-lg icone'></i>&nbsp;La mise en forme de la classification <b><i>ScenTree</i></b> est inspirée de celle de <a href="http://lifemap.univ-lyon1.fr/explore.html" target ="_BLANK">LifeMap</a> crée par Mr. De Vienne pour l'université de Lyon I. Le concept est similaire à des cartographies telles que celles rencontrées dans Open Street Maps: l'exploration se fait par le biais de zooms et d'interactions avec des images.</p>
+          <p lang="en"><i class='fas fa-search-location fa-fw fa-lg icone'></i>&nbsp;<i><b>ScenTree</b></i>’s shaping is inspired by the <a href="http://lifemap.univ-lyon1.fr/explore.html" target ="_BLANK">LifeMap</a>, created by M. De Vienne from the University of Lyon I. This concept is quite similar to the ones met on cartographies as Open Street Maps: exploration is made through zooms and interactions with images.</p>
+        </div>
+        <div class="sources col-12 mt-3 mb-3">
+          <h2 lang="fr" style="font-size: 0.8em;"><b>Grimpez à l’arbre et rejoignez-nous dans cette expérience pleine d’histoires, cette invitation au voyage à travers les matières premières de la parfumerie : le <i>ScenTree</i>.</b></h2>
+          <h2 lang="en" style="font-size: 0.8em;"><b>Just climb to the tree and join us in this experience full of story-telling, this invitation to a trip through raw materials: ScenTree. </b></h2>
+        </div>
+        <div class="col-12 text-center" style="align-items: center;">
+          <p class="license text-center" lang="fr"><i>Pour tout complément d'information, question ou remarque, merci de rentrer en contact avec <a href="https://www.linkedin.com/in/maxime-baud-915a79130/" target ="_BLANK">Maxime BAUD </a> ou <a href= "https://www.linkedin.com/in/thomas-espinasse-1aa576103/" target ="_BLANK"> Thomas ESPINASSE </a></i></p>
+          <p class="license text-center" lang="en"><i>For any information, request or remark, please contact <a href="https://www.linkedin.com/in/maxime-baud-915a79130/" target ="_BLANK">Maxime BAUD</a> and <a href= "https://www.linkedin.com/in/thomas-espinasse-1aa576103/" target ="_BLANK"> Thomas ESPINASSE </a></i></p>
+
+          <p class="license"><i><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br />ScenTree project is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</i><br></p>
+
+          <p class="copyright"><sup>©</sup> Copyright 2019 |  ScenTree  | All Rights Reserved |</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>
+
