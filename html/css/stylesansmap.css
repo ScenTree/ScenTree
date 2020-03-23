@@ -113,11 +113,14 @@ hr {
 #########################*/
 .compteur{
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.8em;
   color: black;
   text-align: center;
   align-items: center;
   text-transform: uppercase;
+}
+.compteur a {
+  color: #D64E26;
 }
 /*#########################
 ######CREATION PARFUM######
