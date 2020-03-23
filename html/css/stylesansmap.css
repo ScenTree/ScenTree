@@ -108,7 +108,17 @@ hr {
 .text-underline {
   text-decoration: underline;
 }
-
+/*#########################
+############ MENU #########
+#########################*/
+.compteur{
+  font-weight: bold;
+  font-size: 1.5em;
+  color: black;
+  text-align: center;
+  align-items: center;
+  text-transform: uppercase;
+}
 /*#########################
 ######CREATION PARFUM######
 #########################*/
