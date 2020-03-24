@@ -237,7 +237,7 @@ $.extend( proto, {
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
                     "<span class='ui-state-highlight'>$&</span>") + "</span>";
       };
-      return $( "<li style='line-height:1;'></li>" )
+      return $( "<li style='line-height:1.1;'></li>" )
     .data( "item.autocomplete", item )
     .append( $( "<p></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
     .appendTo( ul );
