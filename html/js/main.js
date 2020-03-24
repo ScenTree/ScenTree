@@ -219,7 +219,7 @@ $.extend( proto, {
   },
 
   _renderItem: function( ul, item) {
-      var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(item.label.sci_name).replace(
+      var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:400;'>" + String(item.label.sci_name).replace(
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
       if (item.label["from_csv AutresNoms"]) {
@@ -237,7 +237,7 @@ $.extend( proto, {
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
                     "<span class='ui-state-highlight'>$&</span>") + "</div>";
       };
-      return $( "<li style='line-height:1.5;'></li>" )
+      return $( "<li style='line-height:1.8;'></li>" )
     .data( "item.autocomplete", item )
     .append( $( "<p class='m-0'></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
     .appendTo( ul );
