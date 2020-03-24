@@ -219,21 +219,21 @@ $.extend( proto, {
   },
 
   _renderItem: function( ul, item) {
-      var newText = "<span class='nom_de_l_ingredient p-0'>" + String(item.label.sci_name).replace(
+      var newText = "<span class='nom_de_l_ingredient m-0 p-0'>" + String(item.label.sci_name).replace(
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
       if (item.label["from_csv AutresNoms"]) {
-    newText = newText + "<br /><span class='synonymes p-0' style='margin: 0px; white-space:nowrap;' >(" + String(item.label["from_csv AutresNoms"]).replace(
+    newText = newText + "<br /><span class='synonymes m-0 p-0' style='margin: 0px; white-space:nowrap;' >(" + String(item.label["from_csv AutresNoms"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
       };
       if (item.label["from_csv Botanique"]) {
-    newText = newText + "<br /><span class='synonymes p-0'>(" + String(item.label["from_csv Botanique"]).replace(
+    newText = newText + "<br /><span class='synonymes m-0 p-0'>(" + String(item.label["from_csv Botanique"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
       };
       if (item.label["from_csv NCas"]) {
-    newText = newText + "<br /><span class='numero_cas p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
+    newText = newText + "<br /><span class='numero_cas m-0 p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
                     "<span class='ui-state-highlight'>$&</span>") + "</span>";
       };
