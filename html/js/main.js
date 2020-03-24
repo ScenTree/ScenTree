@@ -219,7 +219,7 @@ $.extend( proto, {
   },
 
   _renderItem: function( ul, item) {
-      var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:400;'>" + String(item.label.sci_name).replace(
+      var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(item.label.sci_name).replace(
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
       if (item.label["from_csv AutresNoms"]) {
