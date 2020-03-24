@@ -239,7 +239,7 @@ $.extend( proto, {
       };
       return $( "<li style='line-height:1.5;'></li>" )
     .data( "item.autocomplete", item )
-    .append( $( "<p></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
+    .append( $( "<p class='m-0'></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
     .appendTo( ul );
   }
 });
