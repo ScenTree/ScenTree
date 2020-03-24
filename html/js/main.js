@@ -225,7 +225,7 @@ $.extend( proto, {
       if (item.label["from_csv AutresNoms"]) {
     newText = newText + "<br /><span class='synonymes p-0' style='margin: 0px;' >(" + String(item.label["from_csv AutresNoms"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
-                    "<span class='ui-state-highlight' style='white-space: nowrap;'>$&</span>") + ")</span>";
+                    "<span class='ui-state-highlight' style='background-color:blue;'>$&</span>") + ")</span>";
       };
       if (item.label["from_csv Botanique"]) {
     newText = newText + "<br /><span class='synonymes p-0'>(" + String(item.label["from_csv Botanique"]).replace(
