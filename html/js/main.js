@@ -223,7 +223,7 @@ $.extend( proto, {
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
       if (item.label["from_csv AutresNoms"]) {
-    newText = newText + "<br /><span class='synonymes m-0 p-0' style='margin: 0px; white-space:nowrap;' >(" + String(item.label["from_csv AutresNoms"]).replace(
+    newText = newText + "<br /><span class='synonymes m-0 p-0' style='margin: 0px; white-space:nowrap; text-overflow: ellipsis;' >(" + String(item.label["from_csv AutresNoms"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
       };
