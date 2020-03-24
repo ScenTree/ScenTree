@@ -223,9 +223,9 @@ $.extend( proto, {
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
       if (item.label["from_csv AutresNoms"]) {
-    newText = newText + "<br /><p class='synonymes m-0 p-0' style='background-color: blue; white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;' >(" + String(item.label["from_csv AutresNoms"]).replace(
+    newText = newText + "<br /><div class='synonymes m-0 p-0' style='background-color: blue; white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;' >(" + String(item.label["from_csv AutresNoms"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
-                    "<span class='ui-state-highlight'>$&</span>") + ")</p>";
+                    "<span class='ui-state-highlight'>$&</span>") + ")</div>";
       };
       if (item.label["from_csv Botanique"]) {
     newText = newText + "<br /><span class='synonymes m-0 p-0'>(" + String(item.label["from_csv Botanique"]).replace(
@@ -233,9 +233,9 @@ $.extend( proto, {
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
       };
       if (item.label["from_csv NCas"]) {
-    newText = newText + "<br /><span class='numero_cas m-0 p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
+    newText = newText + "<div class='numero_cas m-0 p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
-                    "<span class='ui-state-highlight'>$&</span>") + "</span>";
+                    "<span class='ui-state-highlight'>$&</span>") + "</div>";
       };
       return $( "<li style='line-height:1.2;'></li>" )
     .data( "item.autocomplete", item )
