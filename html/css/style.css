@@ -328,7 +328,7 @@ html, body {
 .nom_de_l_ingredient {
     text-transform: uppercase;
     font-size: 85%;
-    color: #D64E26;
+    color: black;
 }
 .synonymes {
     font-size: 70%;
