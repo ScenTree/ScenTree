@@ -914,9 +914,7 @@ h1 {
   max-height: calc(55vh - 45px);
 }
 .item {
-  color: red;
   font-size: 0.9em;
-  line-height:1.1em;
 }
 .onglets {
     font-size: 12px;
