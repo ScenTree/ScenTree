@@ -528,7 +528,7 @@ function from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_
 function fill_with_percentage(the_html_class_as_text, the_percentage) {
   $(the_html_class_as_text).empty();
   if (! the_percentage) {
-	  return;
+    return;
   };
   if (the_percentage.toLowerCase().indexOf("restr") >= 0) {
           $(the_html_class_as_text).append($("<span></span>").attr("lang", "en").text("Not restricted"));
@@ -816,11 +816,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //$(".IFRA-infos").show(); 
 
     if (show_nothing) {
-	$(".IFRA .container").hide();
-	$(".IFRA .tab-content").hide();
-	//$(".IFRA-show-nothing").show();
+  $(".IFRA .container").hide();
+  $(".IFRA .tab-content").hide();
+  //$(".IFRA-show-nothing").show();
     } else {
-	    $(".IFRA-show-nothing").hide();
+      $(".IFRA-show-nothing").hide();
     };
     
     if (! show_the_main_48th_IFRA_table) {
@@ -1090,6 +1090,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     if (is_an_descripteur) {
         $('#DescripteurModal .modal-header').css('background-color', the_background_color);
+        $('#DescripteurModal .btnclose').css('background-color',
+          the_background_color);
         if (show_the_modal) $('#DescripteurModal').modal('show');
     };
     
