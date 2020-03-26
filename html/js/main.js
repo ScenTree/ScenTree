@@ -1090,7 +1090,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     if (is_an_descripteur) {
         $('#DescripteurModal .modal-header').css('background-color', the_background_color);
-        $('#DescripteurModal .button').css('background-color', the_background_color);
         if (show_the_modal) $('#DescripteurModal').modal('show');
     };
     
