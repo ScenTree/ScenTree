@@ -882,9 +882,10 @@ h1 {
     font-size: 15px; 
 }
 .modalheader-type2 {
-    font-size: 0.3em;
+    font-size: 0.1em;
     text-transform: uppercase;
     text-align: center;
+    color: red;
 }
 .Filiation{
     height: 10%;
