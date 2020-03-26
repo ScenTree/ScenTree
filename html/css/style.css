@@ -894,6 +894,10 @@ h1 {
     text-transform: uppercase;
     text-align: center;
 }
+.textdescripteurs {
+    font-size:x-small;
+    text-align: justify;
+}
 .Filiation{
     height: 10%;
     width: 100%;
