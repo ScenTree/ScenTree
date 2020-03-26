@@ -882,10 +882,12 @@ h1 {
     font-size: 15px; 
 }
 .modal-title1 {
-    font-size: 1em;
+    font-size: 0.5em;
     font-weight: bold;
     margin: 0;
     text-align: center;
+    align-items: center;
+    background-color: blue;
     color: red;
 }
 .modalheader-type2 {
