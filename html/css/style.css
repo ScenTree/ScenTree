@@ -472,7 +472,6 @@ td, .table td {
     font-size: 18px;
     font-weight: bold;
     text-align: center;
-    color: red;
 }
 
 .my-modal {
@@ -881,6 +880,12 @@ h1 {
 @media screen and (max-width: 768px) {
 .modal-title {
     font-size: 15px; 
+}
+.modal-title1 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: red;
 }
 .modalheader-type2 {
     font-size: 13px;
