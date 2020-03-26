@@ -115,6 +115,8 @@ html, body {
 }
 .text-center-before-md {
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 }
 
