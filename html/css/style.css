@@ -892,9 +892,7 @@ h1 {
 .type {
   display: none;
 }
-p {
-  line-height: 0.5em;
-}
+
 .modalheader-type2 {
     font-size: 13px;
     text-transform: uppercase;
@@ -918,6 +916,7 @@ p {
 .item {
   color: red;
   font-size: 0.9em;
+  line-height:1.1em;
 }
 .onglets {
     font-size: 12px;
