@@ -885,7 +885,7 @@ h1 {
     font-size: 13px;
     text-transform: uppercase;
     text-align: center;
-    color:red;
+    margin:0;
 }
 .modalheader-type2 {
     font-size: 13px;
