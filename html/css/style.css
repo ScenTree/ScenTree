@@ -889,6 +889,9 @@ h1 {
     text-align: center;
     margin:0;
 }
+.type {
+  display: none;
+}
 .modalheader-type2 {
     font-size: 13px;
     text-transform: uppercase;
