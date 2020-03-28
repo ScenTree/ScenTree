@@ -573,7 +573,7 @@ h1 {
 }
 .textitem-footer{
     font-size:small;
-    text-align: justify;
+    text-align: center;
 }
 .imgmp {
     max-width: 180px;
@@ -666,7 +666,7 @@ h1 {
 }
 .textitem-footer{
     font-size:small;
-    text-align: justify;
+    text-align: center;
 }
 .imgmp {
     max-width: 180px;
@@ -766,7 +766,7 @@ h1 {
 }
 .textitem-footer{
     font-size:small;
-    text-align: justify;
+    text-align: center;
 }
 .imgmp {
     max-width: 180px;
@@ -870,7 +870,7 @@ h1 {
 .textitem-footer{
     font-size:small;
     font-weight: normal;
-    text-align: justify;
+    text-align: center;
 }
 .imgmp {
     max-width: 180px;
@@ -932,8 +932,7 @@ h1 {
     padding-left: 35%;
 }
 .textitem-footer{
-    font-size:1em;
-    margin-bottom: 0;
+    font-size:0.4em;
     text-align: justify;
 }
 
