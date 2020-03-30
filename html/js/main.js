@@ -320,7 +320,7 @@ function CreatePopUps() {
       $.each(ok, function( index, value ) {
     var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
     //positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
-    var marker = L.marker(latlong,{icon: mark});
+    var marker = L.marker(latlong,{icon: mark, alt: ok[index]['from_csv EN Nom'] + " - " + ok[index]['from_csv FR Nom']});
     // non-ingredient -> basic modal
     if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
       marker.on("click", function() {
