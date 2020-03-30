@@ -301,8 +301,7 @@ def compute_the_webpage_adress(the_scentree_object):
     compute_the_html_name : function (the_object) {   // bilingual name
              return the_object["from_csv EN Nom"].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("[\\s\/]", "gi"), "_");
     """
-    the_text = "../ingredients/%s__%s.html" % (getNodeNameForTheJSON(the_scentree_object, 'EN').replace(" ", "_").replace("/", "_"), getNodeNameForTheJSON(the_scentree_object, 'FR').replace(" ", "_").replace("/", "_"))
-    return the_text.replace("'", "\\'")
+    return "../ingredients/%s__%s.html" % (getNodeNameForTheJSON(the_scentree_object, 'EN').replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_"), getNodeNameForTheJSON(the_scentree_object, 'FR').replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_"))
 
 def do_inter_links(the_key, the_text, the_current_scentree_object, the_language_in_two_chars, the_nodes):
     if the_key not in ("Origine geographique, Extractions, Utilisation, Allergenes, composantsmajoritaires, autresremarques, Stabilite, chemotype, medecine, Precurseurs, Isomerie, Presencenat"):
