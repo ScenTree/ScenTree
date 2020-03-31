@@ -329,7 +329,7 @@ function CreatePopUps() {
                 } else {  // else : ingredient -> link to a new html page
                         marker.on("click", function() {
         save_map_status_inside_cookies(map);
-                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\"]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\"]", "gi"), "_") + ".html";
+                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
                         });
     };
     markers.addLayer(marker);
