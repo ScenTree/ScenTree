@@ -32,7 +32,7 @@ module.exports = {
 	},
 	
 	compute_the_html_name : function (the_object) {   // bilingual name
-		return the_object["from_csv EN Nom"].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("[\\s\/]", "gi"), "_");
+		return the_object["from_csv EN Nom"].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("[\\s\/'\",]", "gi"), "_");
 	},
 
 	compute_the_html_elements : function (the_object) {   // bilingual HTML content
