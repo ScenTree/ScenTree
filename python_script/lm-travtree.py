@@ -314,8 +314,8 @@ def do_inter_links(the_key, the_text, the_current_scentree_object, the_language_
         the_text_to_be_replaced = the_node_name
         the_text_to_replace_with = "<a class='interpop' href='%s'>%s</a>" % (compute_the_webpage_adress(a_node), the_node_name) # no " inside the string, for solr
         
-        p = re.compile(r'\b(%s)\b' % the_text_to_be_replaced, flags=re.IGNORECASE)
-        the_text = p.sub(the_text_to_replace_with, the_text,)
+        p = re.compile(r'(^|[\s.,;:?!])(%s)($|[\s.,;:?!])' % the_text_to_be_replaced, flags=re.IGNORECASE)
+        the_text = p.sub(the_text_to_replace_with, the_text)
     return the_text
 
 def writejsonNode(the_json, node, the_language_in_two_chars, the_nodes):
