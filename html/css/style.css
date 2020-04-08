@@ -8,6 +8,10 @@ html, body {
 #mapblock {
   z-index: 1;
 }
+.pierrefranchomme {
+  font-size: 0,9em;
+  color: #D64E26;
+}
 .lienarticlereglementation {
   color: grey; 
   font-size: 0.9em;
