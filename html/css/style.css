@@ -578,7 +578,8 @@ h1 {
 .imgmp {
     max-width: 180px;
     max-height: 180px;
-    float: right;
+    margin: 0;
+    padding: 0;
 }
 }
 
