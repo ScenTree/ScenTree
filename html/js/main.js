@@ -859,7 +859,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
 
     
-    // PRO 
+    // PRO
+    
+    $(".pro_informations").empty();
+    
     the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
     the_new_pro_infos = new Array();
     if (the_pro_infos) {
