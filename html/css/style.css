@@ -580,6 +580,7 @@ h1 {
     max-height: 180px;
     margin: 0;
     padding: 0;
+    vertical-align: center;
 }
 }
 
@@ -672,6 +673,7 @@ h1 {
     max-height: 180px;
     margin: 0;
     padding: 0;
+    vertical-align: center;
 }
 }
 
