@@ -670,7 +670,8 @@ h1 {
 .imgmp {
     max-width: 180px;
     max-height: 180px;
-    float: right;
+    margin: 0;
+    padding: 0;
 }
 }
 
@@ -768,7 +769,8 @@ h1 {
 .imgmp {
     max-width: 180px;
     max-height: 180px;
-    float: right;
+    margin: 0;
+    padding: 0;
 }
 }
 
@@ -870,6 +872,8 @@ h1 {
 .imgmp {
     max-width: 180px;
     max-height: 180px;
+    margin: 0;
+    padding: 0;
 }
 .blockdonnees {
     width: 55%;
@@ -922,6 +926,8 @@ h1 {
 .imgmp {
     max-width: 180px;
     max-height: 180px;
+    margin: 0;
+    padding: 0;
 }
 .textitem-footer{
     font-size:0.6em;
