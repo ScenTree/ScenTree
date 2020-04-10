@@ -884,11 +884,27 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
   //console.log(a_pro_info);
-  $(".pro_informations ul").append($("<li></li>").addClass("premium_pros").addClass("list-inline-item").addClass("btn btn-lg btn-warning").text(a_pro_info["Nom Tiers"]));
+  $(".pro_informations ul")
+		    .append($("<li></li>")
+	  		.addClass("premium_pros")
+			    .addClass("list-inline-item")
+			    .addClass("btn btn-lg btn-warning")
+			    .append($("<img />")
+			    	     .attr("src", "/img/sponsors/sponsor_example_1.jpeg")
+				    .attr("title", a_pro_info["Nom Tiers"])
+				    .attr("alt", a_pro_info["Nom Tiers"])));
     };
     // the standard PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
-         $(".pro_informations ul").append($("<li></li>").addClass("standard_pros").addClass("list-inline-item").addClass("btn btn-light").text(a_pro_info["Nom Tiers"]));
+         $(".pro_informations ul")
+		    .append($("<li></li>")
+			    .addClass("standard_pros")
+			    .addClass("list-inline-item")
+			    .addClass("btn btn-light")
+			    .append($("<img />")
+				    .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
+				    .attr("title", a_pro_info["Nom Tiers"])
+			    	.attr("alt", a_pro_info["Nom Tiers"])));
   //console.log(a_pro_info);
     };
 
