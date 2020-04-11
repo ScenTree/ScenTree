@@ -880,11 +880,21 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     if (the_new_pro_infos) {
       var the_row = $("<div></div>").addClass("row align-items-center");
-      the_row.append($("<div></div>").addClass("col-lg-7").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros premium_pros_list"))));
-      the_row.append($("<div></div>").addClass("col-lg-5").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros standard_pros_list"))));
+      the_row.append($("<div></div>").addClass("col-lg-5").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros premium_pros_list"))));
+      //the_row.append($("<div></div>").addClass("col-lg-7").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros standard_pros_list"))));
+      the_row.append(
+	      $("<div></div>").addClass("col-lg-7").append(
+	          $("<div></div>").addClass("container-fluid").append(
+		      $("<div></div>").addClass("carousel slide").attr("data-ride", "carousel").attr("id", "myCarousel").append(
+			      $("<div></div>").addClass("carousel-inner  premium_and_standard_pros standard_pros_list")
+		      )
+		  )
+	      )
+      );
       $(".pro_informations").append(the_row);
     };
     // the premium PROs only, already sorted by date
+    this_is_the_first_element = true;
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
       //console.log(a_pro_info);
       $(".premium_pros_list").append($("<div></div>")
@@ -897,14 +907,30 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     // the standard PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
-      $(".standard_pros_list").append($("<div></div>")
+      /*$(".standard_pros_list").append($("<div></div>")
             .addClass("col-lg standard_pros")
                             .append($("<img />")
                                      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
                                     .addClass("img-fluid")
                                     .attr("title", a_pro_info["Nom Tiers"])
                                     .attr("alt", a_pro_info["Nom Tiers"])));
+      */
       //console.log(a_pro_info);
+     var the_classes = "carousel-item standard_pros";
+     if (this_is_the_first_element) {
+	     the_classes = the_classes + "  active";
+	     this_is_the_first_element = false;
+     };
+     $(".standard_pros_list").append($("<div></div>")
+	     .addClass(the_classes)
+	     .append($("<img />")
+		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
+		      .addClass("img-fluid ")
+                      .attr("title", a_pro_info["Nom Tiers"])
+                      .attr("alt", a_pro_info["Nom Tiers"])
+	     )
+     );
+
     };
 
 

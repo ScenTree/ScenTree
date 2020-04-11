@@ -911,6 +911,12 @@ h1 {
 
 /* PROs */
 
+.premium_pros img {
+   max-height: 200px;
+}
+.standard_pros img {
+  max-height: 100px;
+}
 
 /* LANGUAGES */
 
