@@ -490,7 +490,9 @@ td, .table td {
   text-align: justify;
 }
 
-/* TEXTE MODAL */ 
+/*#########################
+#######CONTENU MODAL#######
+#########################*/
 .item {
       font-size: 14px;
       font-weight: bold;
@@ -517,7 +519,6 @@ td, .table td {
     padding: 0;
   }
 
-
 @media screen and (max-width: 768px) {
   .item {
     font-size: 0.9em;
@@ -532,6 +533,9 @@ td, .table td {
       padding: 5px;
       font-size:small;
       font-weight: normal;
+  }
+  .iconetab {
+    display: none;
   }
 }
 
