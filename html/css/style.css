@@ -792,9 +792,6 @@ h1 {
     font-weight: normal;
     text-align: center;
 }
-.blockdonnees {
-    width: 55%;
-}
 }
 
 @media screen and (max-width: 768px) {
