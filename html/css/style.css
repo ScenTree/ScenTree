@@ -552,6 +552,7 @@ h1 {
 }
 .item {
     font-size: 14px;
+    font-weight: bold;
 }
 .textdescripteurs {
     font-size:small;
@@ -580,7 +581,6 @@ h1 {
     max-height: 180px;
     margin: 0;
     padding: 0;
-    vertical-align: middle;
 }
 }
 
@@ -673,7 +673,6 @@ h1 {
     max-height: 180px;
     margin: 0;
     padding: 0;
-    vertical-align: middle;
 }
 }
 
