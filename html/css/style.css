@@ -910,38 +910,7 @@ h1 {
 
 
 /* PROs */
-/*.premium_pros {
-    height: 100%;
-}
-.standard_pros {
-    height: 100%;
-}
-.pro_informations {
 
-}
-.premium_pros img {
-    max-height: 100%;
-}
-.standard_pros img {
-    max-height: 100%;
-}
-.standard_pros_list {
-    height: 100px;
-    overflow: scroll;
-}
-.premium_pros_list {
-    height: 200px;
-}*/
-.premium_pros_list {
-    height: 200px;
-}
-.standard_pros_list {
-    height: 100px;
-}
-.premium_and_standard_pros {
-    white-space: nowrap;
-    overflow: scroll;
-}
 
 /* LANGUAGES */
 
