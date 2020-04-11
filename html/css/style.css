@@ -475,11 +475,22 @@ td, .table td {
     font-weight: bold;
     text-align: center;
 }
-
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.textdescripteurs {
+    font-size:small;
+}
 .my-modal {
   background-color: #F2F2F2FF;
 }
-
 .my-modal-body {
   font-size: small;
   padding-top: 10px;
@@ -493,56 +504,67 @@ td, .table td {
     size:small;
     color: #C6BABA;
 }
-/*#########################
-#######CONTENU MODAL#######
-#########################*/
 .item {
-      font-size: 14px;
-      font-weight: bold;
-  }
-  .textitem {
-      padding: 5px;
-      font-size:small;
-      font-weight: normal;
-  }
-  .textitem2 {
-      font-size:small;
-      font-weight: normal;
-  }
-  .textitem3 {
-      padding: 5px;
-      font-size:small;
-      font-style: italic;
-      font-weight: normal;
-  }
-  .imgmp {
-    max-width: 180px;
-    max-height: 180px;
-    margin: 0;
-    padding: 0;
-  }
-
+  font-size: 14px;
+  font-weight: bold;
+}
+.textitem {
+  padding: 5px;
+  font-size:small;
+  font-weight: normal;
+}
+.textitem2 {
+  font-size:small;
+  font-weight: normal;
+}
+.textitem3 {
+  padding: 5px;
+  font-size:small;
+  font-style: italic;
+  font-weight: normal;
+}
+.imgmp {
+  max-width: 180px;
+  max-height: 180px;
+  margin: 0;
+  padding: 0;
+}
 @media screen and (max-width: 768px) {
-  .type {
-    display: none;
-  }
-  .item {
-    font-size: 0.9em;
-  }
-  .imgmp {
-      max-width: 180px;
-      max-height: 180px;
-      margin: 0;
-      padding: 0;
-  }
-  .textitem {
-      padding: 5px;
-      font-size:small;
-      font-weight: normal;
-  }
-  .iconetab {
-    display: none;
-  }
+.modalheader-type {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  margin:0;
+}
+.modalheader-type2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.type {
+  display: none;
+}
+.textdescripteurs {
+    font-size:0.9em;
+    text-align: justify;
+}
+.item {
+  font-size: 0.9em;
+}
+.imgmp {
+  max-width: 180px;
+  max-height: 180px;
+  margin: 0;
+  padding: 0;
+}
+.textitem {
+  padding: 5px;
+  font-size:small;
+  font-weight: normal;
+}
+.iconetab {
+  display: none;
+}
 }
 
 
@@ -576,16 +598,6 @@ h1 {
     cursor:pointer;
     display: inline;
 }
-.modalheader-type {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
-.modalheader-type2 {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
 .close {
     float: right;
     size: 120%;
@@ -601,10 +613,6 @@ h1 {
 .panelcontent {
     max-width: 100%;
     max-height: 100%;
-}
-
-.textdescripteurs {
-    font-size:small;
 }
 .textitem-footer{
     font-size:small;
@@ -641,16 +649,6 @@ h1 {
     cursor:pointer;
     display: inline;
 }
-.modalheader-type {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
-.modalheader-type2 {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
 .close {
     float: right;
     size: 120%;
@@ -666,9 +664,6 @@ h1 {
 .panelcontent {
     max-width: 100%;
     max-height: 100%;
-}
-.textdescripteurs {
-    font-size:small;
 }
 .textitem-footer{
     font-size:small;
@@ -712,16 +707,6 @@ h1 {
     cursor:pointer;
     display: inline;
 }
-.modalheader-type {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
-.modalheader-type2 {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
 .close {
     float: right;
     size: 120%;
@@ -737,9 +722,6 @@ h1 {
 .panelcontent {
     max-width: 100%;
     max-height: 100%;
-}
-.textdescripteurs {
-    font-size:small;
 }
 .textitem-footer{
     font-size:small;
@@ -786,16 +768,6 @@ h1 {
     cursor:pointer;
     display: inline;
 }
-.modalheader-type {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
-.modalheader-type2 {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
 .close {
     float: right;
     size: 120%;
@@ -829,21 +801,6 @@ h1 {
 .modal-title {
     font-size: 15px; 
 }
-.modalheader-type {
-    font-size: 13px;
-    text-transform: uppercase;
-    text-align: center;
-    margin:0;
-}
-.modalheader-type2 {
-    font-size: 13px;
-    text-transform: uppercase;
-    text-align: center;
-}
-.textdescripteurs {
-    font-size:0.9em;
-    text-align: justify;
-}
 .Filiation{
     height: 10%;
     width: 100%;
@@ -866,7 +823,6 @@ h1 {
     text-align: center;
     margin-bottom: 0;
 }
-
 }
 
 
