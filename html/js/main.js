@@ -1151,6 +1151,7 @@ $("#SynthetiqueModal").on("show.bs.modal", function (e) {
   $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
+  $(".carousel").carousel({interval: 1000});
 });
 
 $("#naturelleModal").on("show.bs.modal", function (e) {
@@ -1162,6 +1163,7 @@ $("#naturelleModal").on("show.bs.modal", function (e) {
         $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
+  $(".carousel").carousel({interval: 1000});
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
