@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev";  // "dev", "prod" or "prod2"
+var KIND_OF_ENVIRONMENT = "dev4";  // "dev", "dev4", "prod" or "prod2"
 
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
@@ -8,10 +8,14 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = false;
     var DEV_PREFIX_1 = "prod2-";
     var DEV_PREFIX_2 = "prod2_";
-} else {
+} else if (KIND_OF_ENVIRONMENT == "prod") {
     var DEV_ENVIRONMENT = false;
     var DEV_PREFIX_1 = "";
     var DEV_PREFIX_2 = "";
+} else {
+    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
+    var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
+    var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
 };
 
 var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the survey" : "20200315"};
