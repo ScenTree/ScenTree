@@ -528,6 +528,11 @@ td, .table td {
       margin: 0;
       padding: 0;
   }
+  .textitem {
+      padding: 5px;
+      font-size:small;
+      font-weight: normal;
+  }
 }
 
 
