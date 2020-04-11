@@ -489,7 +489,10 @@ td, .table td {
   font-weight: bold;
   text-align: justify;
 }
-
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
 /*#########################
 #######CONTENU MODAL#######
 #########################*/
@@ -520,6 +523,9 @@ td, .table td {
   }
 
 @media screen and (max-width: 768px) {
+  .type {
+    display: none;
+  }
   .item {
     font-size: 0.9em;
   }
@@ -538,7 +544,6 @@ td, .table td {
     display: none;
   }
 }
-
 
 
 @media screen and (min-width: 1400px) {
@@ -597,10 +602,7 @@ h1 {
     max-width: 100%;
     max-height: 100%;
 }
-.iconetab {
-    size:small;
-    color: #C6BABA;
-}
+
 .textdescripteurs {
     font-size:small;
 }
@@ -664,10 +666,6 @@ h1 {
 .panelcontent {
     max-width: 100%;
     max-height: 100%;
-}
-.iconetab {
-    size:small;
-    color: #C6BABA;
 }
 .textdescripteurs {
     font-size:small;
@@ -739,10 +737,6 @@ h1 {
 .panelcontent {
     max-width: 100%;
     max-height: 100%;
-}
-.iconetab {
-    size:small;
-    color: #C6BABA;
 }
 .textdescripteurs {
     font-size:small;
@@ -821,10 +815,6 @@ h1 {
 .onglets {
     font-size: 12px;
 }
-.iconetab {
-    size:small;
-    color: #C6BABA;
-}
 .textitem-footer{
     font-size:small;
     font-weight: normal;
@@ -845,10 +835,6 @@ h1 {
     text-align: center;
     margin:0;
 }
-.type {
-  display: none;
-}
-
 .modalheader-type2 {
     font-size: 13px;
     text-transform: uppercase;
