@@ -879,33 +879,36 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   
     };
     if (the_new_pro_infos) {
-      $(".pro_informations").append($("<ul></ul>").addClass("premium_and_standard_pros").addClass("list-inline"));
+      var the_row = $("<div></div>").addClass("row");
+      the_row.append($("<div></div>").addClass("premium_and_standard_pros premium_pros_list").addClass("col-sm").append($("<ul></ul>")));
+      the_row.append($("<div></div>").addClass("premium_and_standard_pros standard_pros_list").addClass("col-sm").append($("<ul></ul>")));
+      $(".pro_informations").append(the_row);
     };
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
   //console.log(a_pro_info);
-  $(".pro_informations ul")
+  $(".premium_pros_list ul")
+	    .addClass("h-100 list-inline")
 		    .append($("<li></li>")
 	  		.addClass("premium_pros")
-			    .addClass("list-inline-item")
-			    .addClass("btn btn-lg btn-warning")
+			    .addClass("list-inline-item h-100")
 			    .append($("<img />")
 			    	     .attr("src", "/img/sponsors/sponsor_example_1.jpeg")
-				    .addClass("img-fluid")
+				    .addClass("img-fluid mh-100")
 				    .attr("title", a_pro_info["Nom Tiers"])
 				    .attr("alt", a_pro_info["Nom Tiers"])));
     };
     // the standard PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
-         $(".pro_informations ul")
+         $(".standard_pros_list ul")
+	                .addClass("h-100 list-inline")
 		    .append($("<li></li>")
 			    .addClass("standard_pros")
-			    .addClass("list-inline-item")
-			    .addClass("btn btn-light")
+			    .addClass("list-inline-item h-100")
 			    .append($("<img />")
 				    .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
 				    .attr("title", a_pro_info["Nom Tiers"])
-				    .addClass("img-fluid")
+				    .addClass("img-fluid  mh-100")
 			    	.attr("alt", a_pro_info["Nom Tiers"])));
   //console.log(a_pro_info);
     };
