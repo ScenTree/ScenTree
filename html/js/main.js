@@ -891,6 +891,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 			    .addClass("btn btn-lg btn-warning")
 			    .append($("<img />")
 			    	     .attr("src", "/img/sponsors/sponsor_example_1.jpeg")
+				    .addClass("img-fluid")
 				    .attr("title", a_pro_info["Nom Tiers"])
 				    .attr("alt", a_pro_info["Nom Tiers"])));
     };
@@ -904,6 +905,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 			    .append($("<img />")
 				    .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
 				    .attr("title", a_pro_info["Nom Tiers"])
+				    .addClass("img-fluid")
 			    	.attr("alt", a_pro_info["Nom Tiers"])));
   //console.log(a_pro_info);
     };
