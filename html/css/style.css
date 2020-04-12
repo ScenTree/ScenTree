@@ -454,6 +454,11 @@ td, .table td {
     font-size:small;
     text-align: center;
 }
+/*Couleur du texte des onglets*/
+.navbar-nav li a {
+  color: #D64E26;
+}
+
 @media screen and (max-width: 768px) {
 .modalheader-type {
   font-size: 13px;
@@ -496,9 +501,8 @@ td, .table td {
     margin-bottom: 0;
 }
 .navbar-nav li a {
-  color: #D64E26;
   text-align: center;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 }
 
