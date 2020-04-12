@@ -908,7 +908,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 				    .attr("alt", a_pro_info["Nom Tiers"])));
     };
     // the standard PROs only, already sorted by date
-    for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
+    var the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
+    for (let a_pro_info of the_standard_pros) {
       /*$(".standard_pros_list").append($("<div></div>")
             .addClass("col-lg standard_pros")
                             .append($("<img />")
@@ -930,6 +931,15 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
     };
 
+
+    var my_carousel = tns({
+      container: '#myCarousel',
+      items: Math.min(the_standard_pros.length, 6),
+      slideBy: 'page',
+      autoplay: true,
+      controls: false, 
+      autoplayTimeout: forAFewSeconds
+    });
 
 
     //EMPTY - partie naturelle
@@ -1144,14 +1154,6 @@ $("#SynthetiqueModal").on("show.bs.modal", function (e) {
   $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
-  $("#myCarousel").slick({
-	    autoplay: true,
-	  autoplaySpeed: forAFewSeconds,
-          infinite: true,
-          //slidesToShow: 6,
-          slidesToScroll: 1,
-	  arrows: false
-  });
 });
 
 $("#naturelleModal").on("show.bs.modal", function (e) {
@@ -1163,14 +1165,6 @@ $("#naturelleModal").on("show.bs.modal", function (e) {
         $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
-  $("#myCarousel").slick({
-            autoplay: true,
-	   autoplaySpeed: forAFewSeconds,
-          infinite: true,
-          //slidesToShow: 6,
-          slidesToScroll: 1,
-	  arrows: false
-  });
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
