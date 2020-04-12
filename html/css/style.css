@@ -495,7 +495,7 @@ td, .table td {
     text-align: center;
     margin-bottom: 0;
 }
-.nav-item {
+.navbar li a {
   color: red;
 }
 }
