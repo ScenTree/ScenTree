@@ -456,7 +456,7 @@ td, .table td {
 }
 /*Couleur du texte des onglets*/
 .navbar-nav li a {
-  color: black;
+  color: #818181;
 }
 .navbar-nav li.active a {
   color: #D64E26;
