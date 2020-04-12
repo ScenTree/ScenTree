@@ -456,7 +456,7 @@ td, .table td {
 }
 /*Couleur du texte des onglets*/
 .navbar-nav li a {
-  color: #D64E26;
+  color: black;
 }
 
 @media screen and (max-width: 768px) {
@@ -501,6 +501,7 @@ td, .table td {
     margin-bottom: 0;
 }
 .navbar-nav li a {
+  color: #D64E26;
   text-align: center;
   font-size: 0.8em;
   line-height: 0.8em;
