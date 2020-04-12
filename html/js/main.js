@@ -937,7 +937,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       items: Math.min(the_standard_pros.length, 6),
       slideBy: 'page',
       autoplay: true,
-      controls: false, 
+      controls: false,
+      nav: false,
+      autoplayButton: false, 
       autoplayTimeout: forAFewSeconds
     });
 
