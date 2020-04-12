@@ -502,7 +502,8 @@ td, .table td {
 }
 .navbar-nav li a {
   text-align: center;
-  font-size: 1em;
+  font-size: 0.8em;
+  line-height: 0.8em;
 }
 }
 
