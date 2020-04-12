@@ -900,7 +900,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
       //console.log(a_pro_info);
       $(".premium_pros_list").append($("<div></div>")
-	    .addClass("col-lg premium_pros")
+	    .addClass("col premium_pros")
 			    .append($("<img />")
 			    	     .attr("src", "/img/sponsors/sponsor_example_1.jpeg")
 				    .addClass("img-fluid")
