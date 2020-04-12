@@ -496,7 +496,9 @@ td, .table td {
     margin-bottom: 0;
 }
 .navbar-nav li a {
-  color: red;
+  color: #D64E26;
+  text-align: center;
+  font-size: 0.8em;
 }
 }
 
