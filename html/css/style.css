@@ -458,6 +458,9 @@ td, .table td {
 .navbar-nav li a {
   color: black;
 }
+.navbar-nav li.active a{
+  color: #D64E26;
+}
 
 @media screen and (max-width: 768px) {
 .modalheader-type {
