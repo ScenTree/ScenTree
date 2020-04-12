@@ -21,6 +21,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
 var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the survey" : "20200315"};
 
 var in30Minutes = 1/96; // in 15 minutes
+var forAFewSeconds = 3500;
 
 // cookies part, with "js-cookie" (https://github.com/js-cookie/js-cookie)
 var RGPD_warning_has_been_done = Cookies.get('RGPD_warning'); // RGPD_warning unset means this is the first visit
@@ -889,16 +890,13 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       the_row.append(
 	      $("<div></div>").addClass("col-lg-7").append(
 	          $("<div></div>").addClass("container-fluid").append(
-		      $("<div></div>").addClass("carousel slide").attr("data-ride", "carousel").attr("id", "myCarousel").append(
-			      $("<div></div>").addClass("carousel-inner  premium_and_standard_pros standard_pros_list")
-		      )
+		      $("<div></div>").addClass("").attr("data-ride", "carousel").attr("id", "myCarousel")
 		  )
 	      )
       );
       $(".pro_informations").append(the_row);
     };
     // the premium PROs only, already sorted by date
-    this_is_the_first_element = true;
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
       //console.log(a_pro_info);
       $(".premium_pros_list").append($("<div></div>")
@@ -920,13 +918,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                                     .attr("alt", a_pro_info["Nom Tiers"])));
       */
       //console.log(a_pro_info);
-     var the_classes = "carousel-item standard_pros";
-     if (this_is_the_first_element) {
-	     the_classes = the_classes + "  active";
-	     this_is_the_first_element = false;
-     };
-     $(".standard_pros_list").append($("<div></div>")
-	     .addClass(the_classes)
+     $("#myCarousel").append($("<div></div>")
+	     .addClass("")
 	     .append($("<img />")
 		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
 		      .addClass("img-fluid ")
@@ -1151,7 +1144,14 @@ $("#SynthetiqueModal").on("show.bs.modal", function (e) {
   $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
-  $(".carousel").carousel({interval: 1000});
+  $("#myCarousel").slick({
+	    autoplay: true,
+	  autoplaySpeed: forAFewSeconds,
+          infinite: true,
+          //slidesToShow: 6,
+          slidesToScroll: 1,
+	  arrows: false
+  });
 });
 
 $("#naturelleModal").on("show.bs.modal", function (e) {
@@ -1163,7 +1163,14 @@ $("#naturelleModal").on("show.bs.modal", function (e) {
         $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
-  $(".carousel").carousel({interval: 1000});
+  $("#myCarousel").slick({
+            autoplay: true,
+	   autoplaySpeed: forAFewSeconds,
+          infinite: true,
+          //slidesToShow: 6,
+          slidesToScroll: 1,
+	  arrows: false
+  });
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
