@@ -890,10 +890,12 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       // multiple items carousel - thanks to https://medium.com/wdstack/bootstrap-4-custom-carousel-94a537364fde - https://www.codeply.com/go/sShh7372V1
       the_row.append(
 	      $("<div></div>").addClass("col-lg-7").append(
-	          $("<div></div>").addClass("container-fluid").append(
-		      $("<div></div>").addClass("carousel slide").attr("id", "myCarousel").attr("data-ride", "carousel").attr("data-interval", "3500").append(
+	          $("<div></div>").addClass("top-content").append(
+		      $("<div></div>").addClass("container-fluid").append(
+		      $("<div></div>").addClass("carousel slide").attr("id", "myCarousel").attr("data-ride", "carousel").append(
 			      $("<div></div>").addClass("carousel-inner row w-100 mx-auto").attr("role", "listbox").attr("id", "myCarousel-inner")
 		      )
+		  )
 		  )
 	      )
       );
@@ -923,7 +925,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       */
       //console.log(a_pro_info);
      $("#myCarousel-inner").append($("<div></div>")
-	     .addClass("carousel-item col-md-3")
+	     .addClass("carousel-item col-12 col-sm-6 col-md-4 col-lg-3")
 	     .append($("<img />")
 		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
 		      .addClass("img-fluid mx-auto d-block")
@@ -939,6 +941,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
 
     $('#myCarousel').on('slide.bs.carousel', function (e) {
+    /*
+        CC 2.0 License Iatek LLC 2018 - Attribution required
+    */
         var $e = $(e.relatedTarget);
         var idx = $e.index();
         var itemsPerSlide = 3;
@@ -1182,7 +1187,7 @@ $("#naturelleModal").on("show.bs.modal", function (e) {
         $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
-    $(".carousel").carousel({interval: 1000});
+    $(".carousel").carousel({interval: 3500});
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
