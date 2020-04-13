@@ -500,7 +500,7 @@ td, .table td {
   font-size:small;
   font-weight: normal;
 }
-sup .iconetab {
+sup .iconetab .fas .fa-question-circle{
   display: none;
 }
 .textitem-footer {
