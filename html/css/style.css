@@ -517,6 +517,9 @@ sup .iconetab .fas .fa-question-circle{
 th, .table th, td, .table td{
     font-size: 0.7em;
 }
+.table sup {
+  display: none;
+}
 }
 
 
