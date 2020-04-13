@@ -514,11 +514,9 @@ td, .table td {
   font-size: 0.8em;
   line-height: 0.8em;
 }
-th, .table th {
+th, .table th, td, .table td{
     font-size: 0.7em;
-}
-td, .table td {
-    font-size: 0.7em;
+    color: red;
 }
 }
 
