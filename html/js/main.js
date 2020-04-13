@@ -887,17 +887,16 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       var the_row = $("<div></div>").addClass("row align-items-center");
       the_row.append($("<div></div>").addClass("col-lg-5").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros premium_pros_list"))));
       //the_row.append($("<div></div>").addClass("col-lg-7").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros standard_pros_list"))));
+      // multiple items carousel - https://www.jqueryscript.net/slider/responsive-bootstrap-carousel-multiple-items.html
       the_row.append(
 	      $("<div></div>").addClass("col-lg-7").append(
-	         // $("<div></div>").addClass("container-fluid").append(
-	          //  $("<div></div>").addClass("row").append(
-		      $("<div></div>").addClass("glide").attr("id", "myCarousel").append(
-			      $("<div></div>").addClass("glide__track").attr("data-glide-el", "track").append(
-				      $("<ul></ul>").addClass("glide__slides")
-			      )
+	          $("<div></div>").addClass("top-content").append(
+		      $("<div></div>").addClass("container-fluid").append(
+		      $("<div></div>").addClass("carousel slide").attr("id", "myCarousel").attr("data-ride", "carousel").append(
+			      $("<div></div>").addClass("carousel-inner w-100").attr("role", "listbox").attr("id", "myCarousel-inner")
 		      )
-		   // )
-		 // )
+		  )
+		  )
 	      )
       );
       $(".pro_informations").append(the_row);
@@ -925,35 +924,44 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                                     .attr("alt", a_pro_info["Nom Tiers"])));
       */
       //console.log(a_pro_info);
-     $(".glide__slides").append($("<li></li>")
-	     .addClass("glide__slide")
+     $("#myCarousel-inner").append($("<div></div>")
+	     .addClass("carousel-item").append($("<div></div>")
+		     .addClass("col-md-6 col-lg-4")
 	     .append($("<img />")
 		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
-		      .addClass("img-fluid ")
+		      .addClass("img-fluid")
                       .attr("title", a_pro_info["Nom Tiers"])
                       .attr("alt", a_pro_info["Nom Tiers"])
+	     )
 	     )
      );
 
     };
 
+    if (the_standard_pros) {
+        $("#myCarousel-inner div").first().addClass("active");
+    };
 
-    var my_carousel = new Glide( '.glide', {
-      type: 'carousel',
-      startAt: 0,
-      perView: 6,
-      autoplay: 4000
-   }).mount();
-    /*var my_carousel = tns({
-      container: '#myCarousel',
-      items: Math.min(the_standard_pros.length, 6),
-      slideBy: 'page',
-      autoplay: true,
-      controls: false,
-      nav: false,
-      autoplayButton: false, 
-      autoplayTimeout: forAFewSeconds
-    });*/
+
+    $('.carousel .carousel-item').each(function() {
+    var minPerSlide = 4;
+    var next = $(this).next();
+    if (!next.length) {
+        next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+
+    for (var i = 0; i < minPerSlide; i++) {
+        next = next.next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+
+        next.children(':first-child').clone().appendTo($(this));
+    }
+    });
+
+    $(".carousel").carousel({interval: forAFewSeconds});
 
 
     //EMPTY - partie naturelle
@@ -1179,6 +1187,7 @@ $("#naturelleModal").on("show.bs.modal", function (e) {
         $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
+    //$(".carousel").carousel({interval: 3500});
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
@@ -1333,7 +1342,8 @@ $(".show_modal_at_start").modal("show");
 $(".go_to_main_page_after_closing_modal").on("hide.bs.modal", function() {
     window.location.href = "../_/index.html";
 });
-  
+
+
 /*suppression du copier-coller*/
 function addLink() {
     var body_element = document.getElementsByTagName('body')[0];
