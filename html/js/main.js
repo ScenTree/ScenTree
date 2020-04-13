@@ -889,13 +889,15 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       //the_row.append($("<div></div>").addClass("col-lg-7").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros standard_pros_list"))));
       the_row.append(
 	      $("<div></div>").addClass("col-lg-7").append(
-	          $("<div></div>").addClass("container-fluid").append(
-		      $("<div></div>").addClass("splide").attr("id", "myCarousel").append(
-			      $("<div></div>").addClass("splide__track").append(
-				      $("<ul></ul>").addClass("splide__list")
+	         // $("<div></div>").addClass("container-fluid").append(
+	          //  $("<div></div>").addClass("row").append(
+		      $("<div></div>").addClass("glide").attr("id", "myCarousel").append(
+			      $("<div></div>").addClass("glide__track").attr("data-glide-el", "track").append(
+				      $("<ul></ul>").addClass("glide__slides")
 			      )
 		      )
-		  )
+		   // )
+		 // )
 	      )
       );
       $(".pro_informations").append(the_row);
@@ -923,8 +925,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
                                     .attr("alt", a_pro_info["Nom Tiers"])));
       */
       //console.log(a_pro_info);
-     $(".splide__list").append($("<li></li>")
-	     .addClass("splide__slide")
+     $(".glide__slides").append($("<li></li>")
+	     .addClass("glide__slide")
 	     .append($("<img />")
 		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
 		      .addClass("img-fluid ")
@@ -936,7 +938,12 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
 
 
-    var my_carousel = new Splide( '.splide' ).mount();
+    var my_carousel = new Glide( '.glide', {
+      type: 'carousel',
+      startAt: 0,
+      perView: 6,
+      autoplay: 4000
+   }).mount();
     /*var my_carousel = tns({
       container: '#myCarousel',
       items: Math.min(the_standard_pros.length, 6),
