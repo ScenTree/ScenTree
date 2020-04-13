@@ -500,8 +500,8 @@ td, .table td {
   font-size:small;
   font-weight: normal;
 }
-.fa-question-circle {
-  display: none;
+.iconetab {
+  color:red;
 }
 .textitem-footer {
     font-size:0.7em;
