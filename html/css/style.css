@@ -500,7 +500,7 @@ td, .table td {
   font-size:small;
   font-weight: normal;
 }
-sup {
+.iconetab {
   display: none;
 }
 .textitem-footer {
@@ -515,8 +515,10 @@ sup {
   line-height: 0.8em;
 }
 th, .table th {
-    border: 1.5px solid black;
-    font-size: 0.8em;
+    font-size: 0.7em;
+}
+td, .table td {
+    font-size: 0.7em;
 }
 }
 
