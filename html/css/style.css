@@ -516,7 +516,7 @@ td, .table td {
 }
 th, .table th {
     border: 1.5px solid black;
-    color: red;
+    font-size: 0.8em;
 }
 }
 
