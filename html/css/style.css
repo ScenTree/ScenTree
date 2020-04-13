@@ -501,7 +501,7 @@ td, .table td {
   font-weight: normal;
 }
 sup .iconetab .fas .fa-question-circle{
-  display: none;
+  display: none !important;
 }
 .textitem-footer {
     font-size:0.7em;
@@ -517,7 +517,7 @@ sup .iconetab .fas .fa-question-circle{
 th, .table th, td, .table td{
     font-size: 0.7em;
 }
-.table sup {
+table .icone {
   display: none;
 }
 }
