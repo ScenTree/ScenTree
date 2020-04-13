@@ -514,6 +514,10 @@ td, .table td {
   font-size: 0.8em;
   line-height: 0.8em;
 }
+th, .table th {
+    border: 1.5px solid black;
+    color: red;
+}
 }
 
 
