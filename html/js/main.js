@@ -887,7 +887,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       var the_row = $("<div></div>").addClass("row align-items-center");
       the_row.append($("<div></div>").addClass("col-lg-5").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros premium_pros_list"))));
       //the_row.append($("<div></div>").addClass("col-lg-7").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros standard_pros_list"))));
-      // multiple items carousel - thanks to https://medium.com/wdstack/bootstrap-4-custom-carousel-94a537364fde - https://www.codeply.com/go/sShh7372V1
+      // multiple items carousel - https://www.jqueryscript.net/slider/responsive-bootstrap-carousel-multiple-items.html
       the_row.append(
 	      $("<div></div>").addClass("col-lg-7").append(
 	          $("<div></div>").addClass("top-content").append(
