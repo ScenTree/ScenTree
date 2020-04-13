@@ -358,13 +358,6 @@ $(".my-search-bar").focus(function() {
     $(this).autocomplete('search', $(this).val())
 });
 
-$("#ListeMP").click(function() {
-    $("#listeMP").modal("show");
-});
-$("#Listefamilles").click(function() {
-    $("#listefamilles").modal("show");
-});
-
 
 //pop-up
 if ($("#map").length) {
@@ -701,20 +694,20 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         if (the_ifra_info["Amendment number"]) {
                 if (the_ifra_info["version"].indexOf("48") >= 0) {
                         $(".modalbody-amendment-48").text(the_ifra_info["Amendment number"]);
-      show_the_48th_amendment_number = true;
+                            show_the_48th_amendment_number = true;
                 } else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         $(".modalbody-amendment-49").text(the_ifra_info["Amendment number"]);
-      show_the_49th_amendment_number = true;
+                            show_the_49th_amendment_number = true;
                 };
         };
 
         if (the_ifra_info["Commentaires"]) {
                 if (the_ifra_info["version"].indexOf("48") >= 0) {
                         $(".modalbody-commentifra-48").text(the_ifra_info["Commentaires"]);
-      show_the_48th_comments = true;
+                          show_the_48th_comments = true;
                 } else if (the_ifra_info["version"].indexOf("49") >= 0) {
                         $(".modalbody-commentifra-49").text(the_ifra_info["Commentaires"]);
-      show_the_49th_comments = true;
+                          show_the_49th_comments = true;
                 };
         };
 
@@ -818,6 +811,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (show_nothing) {
   $(".IFRA .container").hide();
   $(".IFRA .tab-content").hide();
+  $(".IFRA .navbar").hide();
   //$(".IFRA-show-nothing").show();
     } else {
       $(".IFRA-show-nothing").hide();
