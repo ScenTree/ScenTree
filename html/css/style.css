@@ -444,6 +444,10 @@ td, .table td {
   font-style: italic;
   font-weight: normal;
 }
+.imgmp {
+  max-width: 180px;
+  max-height: 180px;
+}
 .blockimg .imgmp {
   max-width: 180px;
   max-height: 180px;
