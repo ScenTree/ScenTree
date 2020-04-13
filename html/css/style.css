@@ -501,7 +501,7 @@ td, .table td {
   font-weight: normal;
 }
 .iconetab {
-  color:red;
+  display: none;
 }
 .textitem-footer {
     font-size:0.7em;
