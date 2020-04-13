@@ -572,6 +572,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_methode = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Extractions');
     var the_origine = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Origine geographique');
     var the_componat = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'composantsmajoritaires');
+    if (the_componat) { // avoid applying .replace to undefined
+         the_componat = the_componat.replace(/\n/g,"<br />");  //convert \n to <br /> = convert json end of line to html end of line
+     };
     var the_pemblem = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'parfumemblematiques');
     var the_chemotype = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'chemotype');
     var the_medecine = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'medecine');
@@ -595,6 +598,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (the_commentary) { // avoid applying .replace to undefined
          the_commentary = the_commentary.replace(/\n/g,"<br />");  //convert \n to <br /> = convert json end of line to html end of line
      };
+
     var the_background_color = the_node_as_json_EN_and_FR['from_csv FR Couleur'];
     if (! (the_background_color)) {
         the_background_color = "#FFFFFF"
