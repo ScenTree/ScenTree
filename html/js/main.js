@@ -946,7 +946,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     */
         var $e = $(e.relatedTarget);
         var idx = $e.index();
-        var itemsPerSlide = 3;
+        var itemsPerSlide = 5;
         var totalItems = $('.carousel-item').length;
 
         if (idx >= totalItems-(itemsPerSlide-1)) {
@@ -962,6 +962,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
             }
         }
     });
+
+    $(".carousel").carousel({interval: 3500});
 
 
     //EMPTY - partie naturelle
@@ -1187,7 +1189,7 @@ $("#naturelleModal").on("show.bs.modal", function (e) {
         $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
-    $(".carousel").carousel({interval: 3500});
+    //$(".carousel").carousel({interval: 3500});
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
