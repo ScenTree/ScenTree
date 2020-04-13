@@ -444,15 +444,15 @@ td, .table td {
   font-style: italic;
   font-weight: normal;
 }
-.imgmp {
+p .imgmp {
   max-width: 180px;
   max-height: 180px;
-  margin: 0;
-  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .textitem-footer{
-    font-size:small;
-    text-align: center;
+  font-size:small;
+  text-align: center;
 }
 /*Couleur du texte des onglets*/
 .navbar-nav li a {
