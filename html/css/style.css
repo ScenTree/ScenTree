@@ -484,11 +484,12 @@ td, .table td {
 .item {
   font-size: 0.9em;
 }
+.blockimg {
+  min-width: 100%;
+}
 .imgmp {
   max-width: 180px;
   max-height: 180px;
-  margin: 0;
-  padding: 0;
 }
 .textitem {
   padding: 5px;
