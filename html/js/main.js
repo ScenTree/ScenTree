@@ -893,7 +893,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	          $("<div></div>").addClass("top-content").append(
 		      $("<div></div>").addClass("container-fluid").append(
 		      $("<div></div>").addClass("carousel slide").attr("id", "myCarousel").attr("data-ride", "carousel").append(
-			      $("<div></div>").addClass("carousel-inner row w-100 mx-auto").attr("role", "listbox").attr("id", "myCarousel-inner")
+			      $("<div></div>").addClass("carousel-inner w-100").attr("role", "listbox").attr("id", "myCarousel-inner")
 		      )
 		  )
 		  )
@@ -925,12 +925,14 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       */
       //console.log(a_pro_info);
      $("#myCarousel-inner").append($("<div></div>")
-	     .addClass("carousel-item col-12 col-sm-6 col-md-4 col-lg-3")
+	     .addClass("carousel-item").append($("<div></div>")
+		     .addClass("col-md-6 col-lg-4")
 	     .append($("<img />")
 		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
-		      .addClass("img-fluid mx-auto d-block")
+		      .addClass("img-fluid")
                       .attr("title", a_pro_info["Nom Tiers"])
                       .attr("alt", a_pro_info["Nom Tiers"])
+	     )
 	     )
      );
 
@@ -940,30 +942,26 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         $("#myCarousel-inner div").first().addClass("active");
     };
 
-    $('#myCarousel').on('slide.bs.carousel', function (e) {
-    /*
-        CC 2.0 License Iatek LLC 2018 - Attribution required
-    */
-        var $e = $(e.relatedTarget);
-        var idx = $e.index();
-        var itemsPerSlide = 5;
-        var totalItems = $('.carousel-item').length;
 
-        if (idx >= totalItems-(itemsPerSlide-1)) {
-            var it = itemsPerSlide - (totalItems - idx);
-            for (var i=0; i<it; i++) {
-                // append slides to end
-                if (e.direction=="left") {
-                    $('.carousel-item').eq(i).appendTo('.carousel-inner');
-                }
-                else {
-                    $('.carousel-item').eq(0).appendTo('.carousel-inner');
-                }
-            }
+    $('.carousel .carousel-item').each(function() {
+    var minPerSlide = 4;
+    var next = $(this).next();
+    if (!next.length) {
+        next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+
+    for (var i = 0; i < minPerSlide; i++) {
+        next = next.next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
         }
+
+        next.children(':first-child').clone().appendTo($(this));
+    }
     });
 
-    $(".carousel").carousel({interval: 3500});
+    $(".carousel").carousel({interval: forAFewSeconds});
 
 
     //EMPTY - partie naturelle
