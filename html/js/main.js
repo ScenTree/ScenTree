@@ -865,9 +865,14 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
     
     // PRO
-    
-    $(".pro_informations").empty();
-    
+    if (is_an_synthetique) {
+	var the_pro_informations_div = $(".pro_informations_synthetics");
+    } else {
+        var the_pro_informations_div = $(".pro_informations_naturals");
+    };
+    $(".pro_informations_synthetics").empty();
+    $(".pro_informations_naturals").empty();
+
     the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
     the_new_pro_infos = new Array();
     if (the_pro_infos) {
@@ -892,14 +897,14 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	      $("<div></div>").addClass("col-lg-7").append(
 	          $("<div></div>").addClass("top-content").append(
 		      $("<div></div>").addClass("container-fluid").append(
-		      $("<div></div>").addClass("carousel slide").attr("id", "myCarousel").attr("data-ride", "carousel").append(
-			      $("<div></div>").addClass("carousel-inner w-100").attr("role", "listbox").attr("id", "myCarousel-inner")
+		      $("<div></div>").addClass("carousel slide  myCarousel").attr("data-ride", "carousel").append(
+			      $("<div></div>").addClass("carousel-inner w-100").attr("role", "listbox").addClass("myCarousel-inner")
 		      )
 		  )
 		  )
 	      )
       );
-      $(".pro_informations").append(the_row);
+      the_pro_informations_div.append(the_row);
     };
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
@@ -915,16 +920,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     // the standard PROs only, already sorted by date
     var the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
     for (let a_pro_info of the_standard_pros) {
-      /*$(".standard_pros_list").append($("<div></div>")
-            .addClass("col-lg standard_pros")
-                            .append($("<img />")
-                                     .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
-                                    .addClass("img-fluid")
-                                    .attr("title", a_pro_info["Nom Tiers"])
-                                    .attr("alt", a_pro_info["Nom Tiers"])));
-      */
-      //console.log(a_pro_info);
-     $("#myCarousel-inner").append($("<div></div>")
+     $(".myCarousel-inner").append($("<div></div>")
 	     .addClass("carousel-item").append($("<div></div>")
 		     .addClass("col-md-6 col-lg-4")
 	     .append($("<img />")
@@ -939,7 +935,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
 
     if (the_standard_pros) {
-        $("#myCarousel-inner div").first().addClass("active");
+        $(".myCarousel-inner div").first().addClass("active");
     };
 
 
