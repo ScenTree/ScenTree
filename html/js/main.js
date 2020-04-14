@@ -897,8 +897,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	      $("<div></div>").addClass("col-lg-7").append(
 	          $("<div></div>").addClass("top-content").append(
 		      $("<div></div>").addClass("container-fluid").append(
-		      $("<div></div>").addClass("carousel slide  myCarousel").attr("data-ride", "carousel").append(
-			      $("<div></div>").addClass("carousel-inner w-100").attr("role", "listbox").addClass("myCarousel-inner")
+		      $("<div></div>").addClass("splide  myCarousel").append(
+			      $("<div></div>").addClass("splide__track").append(
+				      $("<ul></ul>").addClass("splide__list")
+		              )
 		      )
 		  )
 		  )
@@ -920,44 +922,27 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     // the standard PROs only, already sorted by date
     var the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
     for (let a_pro_info of the_standard_pros) {
-     $(".myCarousel-inner").append($("<div></div>")
-	     .addClass("carousel-item").append($("<div></div>")
-		     .addClass("col-md-6 col-lg-4")
-	     .append($("<img />")
+     $(".splide__list").append($("<li></li>")
+	     .addClass("splide__slide").text(a_pro_info["Nom Tiers"])
+	     /*.append($("<img />")
 		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
-		      .addClass("img-fluid")
+		      .addClass("")
                       .attr("title", a_pro_info["Nom Tiers"])
                       .attr("alt", a_pro_info["Nom Tiers"])
-	     )
-	     )
+	     )*/
      );
 
     };
 
-    if (the_standard_pros) {
-        $(".myCarousel-inner div").first().addClass("active");
-    };
-
-
-    $('.carousel .carousel-item').each(function() {
-    var minPerSlide = 4;
-    var next = $(this).next();
-    if (!next.length) {
-        next = $(this).siblings(':first');
-    }
-    next.children(':first-child').clone().appendTo($(this));
-
-    for (var i = 0; i < minPerSlide; i++) {
-        next = next.next();
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-
-        next.children(':first-child').clone().appendTo($(this));
-    }
-    });
-
-    $(".carousel").carousel({interval: forAFewSeconds});
+    new Splide( '.splide', {
+	    type: "loop", 
+	    perMove: 1, 
+	    perPage: 3, 
+	    arrows: false,
+	    pagination: false, 
+	    autoplay: true, 
+	    interval: forAFewSeconds
+    } ).mount();
 
 
     //EMPTY - partie naturelle
