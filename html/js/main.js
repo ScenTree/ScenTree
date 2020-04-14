@@ -897,8 +897,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	      $("<div></div>").addClass("col-lg-7").append(
 	          $("<div></div>").addClass("top-content").append(
 		      $("<div></div>").addClass("container-fluid").append(
-		      $("<div></div>").addClass("carousel slide  myCarousel").attr("data-ride", "carousel").append(
-			      $("<div></div>").addClass("carousel-inner w-100").attr("role", "listbox").addClass("myCarousel-inner")
+		      $("<div></div>").addClass("glide  myCarousel").append(
+			      $("<div></div>").addClass("glide__track").attr("data-glide-el", "track").append(
+				      $("<ul></ul>").addClass("glide__slides")
+		              )
 		      )
 		  )
 		  )
@@ -919,45 +921,30 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     // the standard PROs only, already sorted by date
     var the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
+    setTimeout(() => {
     for (let a_pro_info of the_standard_pros) {
-     $(".myCarousel-inner").append($("<div></div>")
-	     .addClass("carousel-item").append($("<div></div>")
-		     .addClass("col-md-6 col-lg-4")
+     $(".glide__slides").append($("<li></li>")
+	     .addClass("glide__slide") //.text(a_pro_info["Nom Tiers"])
 	     .append($("<img />")
 		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
 		      .addClass("img-fluid")
                       .attr("title", a_pro_info["Nom Tiers"])
                       .attr("alt", a_pro_info["Nom Tiers"])
 	     )
-	     )
      );
 
     };
-
-    if (the_standard_pros) {
-        $(".myCarousel-inner div").first().addClass("active");
-    };
-
-
-    $('.carousel .carousel-item').each(function() {
-    var minPerSlide = 4;
-    var next = $(this).next();
-    if (!next.length) {
-        next = $(this).siblings(':first');
-    }
-    next.children(':first-child').clone().appendTo($(this));
-
-    for (var i = 0; i < minPerSlide; i++) {
-        next = next.next();
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-
-        next.children(':first-child').clone().appendTo($(this));
-    }
-    });
-
-    $(".carousel").carousel({interval: forAFewSeconds});
+    new Glide( '.glide', {
+	    gap: 0,
+	    type: "carousel", 
+	    startAt: 0, 
+	    perView: Math.min(6, the_standard_pros.length), 
+	    autoplay: forAFewSeconds
+    } ).mount();
+   }, 1000);
+   // about the timeout hack : 
+   // https://github.com/glidejs/glide/issues/341
+   // https://github.com/glidejs/glide/issues/203
 
 
     //EMPTY - partie naturelle
@@ -1183,7 +1170,6 @@ $("#naturelleModal").on("show.bs.modal", function (e) {
         $("*:lang(fr)").css({'display' : 'none'});
         $("*:lang(en)").css({'display' : 'initial'});
     };
-    //$(".carousel").carousel({interval: 3500});
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
