@@ -924,7 +924,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     setTimeout(() => {
     for (let a_pro_info of the_standard_pros) {
      $(".glide__slides").append($("<li></li>")
-	     .addClass("glide__slide") //.text(a_pro_info["Nom Tiers"])
+	     .addClass("glide__slide standard_pros") //.text(a_pro_info["Nom Tiers"])
 	     .append($("<img />")
 		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
 		      .addClass("img-fluid")
