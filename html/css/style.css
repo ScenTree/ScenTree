@@ -541,6 +541,9 @@ th, .table th, td, .table td{
 .panel-footer{
     font-size:12px;
 }
+.sondage a{
+  color: #D64E26;
+}
 }
 
 
