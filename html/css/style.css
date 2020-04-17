@@ -520,6 +520,7 @@ th, .table th, td, .table td{
 }
 .iconetab {
   color: red;
+  size: 0;
 }
 }
 
