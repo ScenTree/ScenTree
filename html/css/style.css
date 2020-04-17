@@ -519,7 +519,7 @@ th, .table th, td, .table td{
     font-size: 0.7em;
 }
 table .icone {
-  display: none;
+  size: 0;
 }
 }
 
