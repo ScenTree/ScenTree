@@ -230,9 +230,6 @@ hr {
 .particulier {
   min-width: 100%;
 }
-.logosupporter{
-  min-height: 200%;
-}
 .logomenu {
   min-width: 100%;
   min-height: 100%;
@@ -439,8 +436,9 @@ hr {
 .correctspacebug {
     height: 20em;
 }
-.logomenu:hover{
+.logomenu:hover, .logopremium:hover; .logostandards:hover {
     transform: scale(1.1);
+    cursor:pointer;
 }
 
 /*#########################
