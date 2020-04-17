@@ -549,6 +549,7 @@ th, .table th, td, .table td{
 }
 .IFRA .tab-content{
   background-color: blue;
+  min-width: 100%;
 }
 }
 
