@@ -544,6 +544,10 @@ th, .table th, td, .table td{
 .sondage a{
   color: #D64E26;
 }
+.petitbtn {
+  line-height: 0.1em;
+}
+
 }
 
 
