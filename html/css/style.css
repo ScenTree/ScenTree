@@ -121,7 +121,18 @@ html, body {
   text-align: right;
 }
 }
-
+/*#########################
+#######MODAL VIDEO#########
+#########################*/
+.titlemodalvideo {
+  font-size: 2em;
+  font-weight: bold;
+}
+.titlemodalvideo2{
+  font-size: 1em;
+  font-weight: normal;
+  text-align: justify;
+}
 
 /*#########################
 #######PAGE ENTIERE########
