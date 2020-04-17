@@ -503,7 +503,7 @@ td, .table td {
 .textitem2 {
   font-size:small;
   font-weight: normal;
-  text-align: center;
+  align-items: center;
 }
 .lienarticlereglementation {
   color: grey; 
