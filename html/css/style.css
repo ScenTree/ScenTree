@@ -496,7 +496,7 @@ td, .table td {
   max-height: 180px;
 }
 .textitem {
-  padding: 5px;
+  padding: 2px;
   font-size:small;
   font-weight: normal;
 }
@@ -519,7 +519,6 @@ th, .table th, td, .table td{
     font-size: 0.7em;
 }
 .iconetab {
-  color: red;
   display: none !important;
 }
 }
