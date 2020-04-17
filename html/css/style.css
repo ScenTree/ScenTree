@@ -547,10 +547,6 @@ th, .table th, td, .table td{
 .petitbtn {
   line-height: 1em;
 }
-.IFRA .tab-content .tab-pane{
-  background-color: blue;
-  min-width: 100%;
-}
 }
 
 
