@@ -578,17 +578,10 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_bota = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom Botanique');
     var the_methode = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Extractions');
     var the_origine = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Origine geographique');
-<<<<<<< HEAD
-    var the_componat = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'composantsmajoritaires').replace(/\n/g,"<br />");
-=======
     var the_componat = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'composantsmajoritaires');
-<<<<<<< HEAD
     if (the_componat) { // avoid applying .replace to undefined
          the_componat = the_componat.replace(/\n/g,"<br />");  //convert \n to <br /> = convert json end of line to html end of line
      };
->>>>>>> 1fb6b5475864d017a639075535ae707f7ac0ac42
-=======
->>>>>>> 1cefb27a7c9b92552125699bb954fabfa8980393
     var the_pemblem = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'parfumemblematiques');
     var the_chemotype = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'chemotype');
     var the_medecine = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'medecine');
