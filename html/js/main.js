@@ -584,6 +584,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
      };
     var the_pemblem = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'parfumemblematiques');
     var the_chemotype = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'chemotype');
+    if (the_chemotype) { // avoid applying .replace to undefined
+         the_chemotype = the_chemotype.replace(/\n/g,"<br />");  //convert \n to <br /> = convert json end of line to html end of line
+     };
     var the_medecine = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'medecine');
     //Synthétiques
     var the_densite = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Densite');
