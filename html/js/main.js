@@ -320,7 +320,7 @@ function CreatePopUps() {
       $.each(ok, function( index, value ) {
     var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
     //positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
-    var marker = L.marker(latlong,{icon: mark});
+    var marker = L.marker(latlong,{icon: mark, alt: ok[index]['from_csv EN Nom'] + " - " + ok[index]['from_csv FR Nom']});
     // non-ingredient -> basic modal
     if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
       marker.on("click", function() {
@@ -329,7 +329,7 @@ function CreatePopUps() {
                 } else {  // else : ingredient -> link to a new html page
                         marker.on("click", function() {
         save_map_status_inside_cookies(map);
-                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/]", "gi"), "_") + ".html";
+                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
                         });
     };
     markers.addLayer(marker);

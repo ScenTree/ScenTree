@@ -301,10 +301,10 @@ def compute_the_webpage_adress(the_scentree_object):
     compute_the_html_name : function (the_object) {   // bilingual name
              return the_object["from_csv EN Nom"].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("[\\s\/]", "gi"), "_");
     """
-    return "../ingredients/%s__%s.html" % (getNodeNameForTheJSON(the_scentree_object, 'EN').replace(" ", "_").replace("/", "_"), getNodeNameForTheJSON(the_scentree_object, 'FR').replace(" ", "_").replace("/", "_"))
+    return "../ingredients/%s__%s.html" % (getNodeNameForTheJSON(the_scentree_object, 'EN').replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_"), getNodeNameForTheJSON(the_scentree_object, 'FR').replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_").replace(",", "_"))
 
 def do_inter_links(the_key, the_text, the_current_scentree_object, the_language_in_two_chars, the_nodes):
-    if the_key not in ("Origine geographique, Extractions, Utilisation, Allergenes, composantsmajoritaires, autresremarques, Stabilite, chemotype, medecine, Precurseurs, Isomerie, Presencenat"):
+    if the_key not in ("Origine geographique", "Extractions", "Utilisation", "Allergenes", "composantsmajoritaires", "autresremarques", "Stabilite", "chemotype", "medecine", "Synthese", "Precurseurs", "Isomerie", "Presencenat"):
         return the_text
     for a_node in sorted(the_nodes, key = lambda n : len(getNodeNameForTheJSON(n, the_language_in_two_chars)), reverse=True):
         if not hasattr(a_node, "the_properties_from_the_csv") or not bool(a_node.the_properties_from_the_csv) or a_node == the_current_scentree_object or len( str(a_node.the_properties_from_the_csv['id'][the_language_in_two_chars]) ) != 5: # is not an ingredient
@@ -312,10 +312,10 @@ def do_inter_links(the_key, the_text, the_current_scentree_object, the_language_
         #print("replacing = ", getNodeNameForTheJSON(a_node, the_language_in_two_chars))
         the_node_name = getNodeNameForTheJSON(a_node, the_language_in_two_chars)
         the_text_to_be_replaced = the_node_name
-        the_text_to_replace_with = "<a class='interpop' href='%s'>%s</a>" % (compute_the_webpage_adress(a_node), the_node_name)
+        the_text_to_replace_with = r"\1<a class='interpop' href='%s'>%s</a>\3" % (compute_the_webpage_adress(a_node), the_node_name) # no " inside the string, for solr
         
-        p = re.compile(r'\b(%s)\b' % the_text_to_be_replaced, flags=re.IGNORECASE)
-        the_text = p.sub(the_text_to_replace_with, the_text,)
+        p = re.compile(r"(^|[\s.,;:?!'])(%s)($|[\s.,;:?!'])" % the_text_to_be_replaced, flags=re.IGNORECASE)
+        the_text = p.sub(the_text_to_replace_with, the_text)
     return the_text
 
 def writejsonNode(the_json, node, the_language_in_two_chars, the_nodes):
