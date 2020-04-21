@@ -888,7 +888,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         //console.log(a_pro_info);
   
     };
-    if (the_new_pro_infos) {
+    if (the_new_pro_infos && (the_new_pro_infos.length > 0)) {
+      $(".ad_to_the_potential_sponsors").remove();
+
       var the_row = $("<div></div>").addClass("row align-items-center");
       the_row.append($("<div></div>").addClass("col-lg-5").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros premium_pros_list"))));
       //the_row.append($("<div></div>").addClass("col-lg-7").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros standard_pros_list"))));
@@ -934,6 +936,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
      );
 
     };
+
+   if (the_standard_pros && (the_standard_pros.length > 0)) {
     new Glide( '.glide', {
 	    gap: 0,
 	    type: "carousel", 
@@ -941,6 +945,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	    perView: Math.min(6, the_standard_pros.length), 
 	    autoplay: forAFewSeconds
     } ).mount();
+   };
    }, 1000);
    // about the timeout hack : 
    // https://github.com/glidejs/glide/issues/341
