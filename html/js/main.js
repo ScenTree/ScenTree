@@ -889,29 +889,38 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   
     };
     if (the_new_pro_infos && (the_new_pro_infos.length > 0)) {
+      var the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
+      var the_premimum_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FP"));
+
       $(".ad_to_the_potential_sponsors").remove();
 
       var the_row = $("<div></div>").addClass("row align-items-center");
-      the_row.append($("<div></div>").addClass("col-lg-5").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros premium_pros_list"))));
-      //the_row.append($("<div></div>").addClass("col-lg-7").append($("<div></div>").addClass("container-fluid").append($("<div></div>").addClass("row premium_and_standard_pros standard_pros_list"))));
-      // multiple items carousel - https://www.jqueryscript.net/slider/responsive-bootstrap-carousel-multiple-items.html
-      the_row.append(
-	      $("<div></div>").addClass("col-lg-7").append(
-	          $("<div></div>").addClass("top-content").append(
-		      $("<div></div>").addClass("container-fluid").append(
-		      $("<div></div>").addClass("glide  myCarousel").append(
-			      $("<div></div>").addClass("glide__track").attr("data-glide-el", "track").append(
-				      $("<ul></ul>").addClass("glide__slides")
-		              )
-		      )
-		  )
-		  )
-	      )
+      var the_container_for_the_premium_pros = $("<div></div>").addClass("container-fluid").append(
+          $("<div></div>").addClass("row premium_and_standard_pros premium_pros_list")
       );
+      var the_container_for_the_standard_pros = $("<div></div>").addClass("top-content").append(
+                  $("<div></div>").addClass("container-fluid").append(
+                      $("<div></div>").addClass("glide  myCarousel").append(
+                              $("<div></div>").addClass("glide__track").attr("data-glide-el", "track").append(
+                                      $("<ul></ul>").addClass("glide__slides")
+                              )
+                      )
+                  )
+      ); // multiple items carousel - https://www.jqueryscript.net/slider/responsive-bootstrap-carousel-multiple-items.html
+
+      if (the_premimum_pros.length >= 2) {
+          the_row.append($("<div></div>").addClass("col-lg-5").append(the_container_for_the_premium_pros));
+          the_row.append($("<div></div>").addClass("col-lg-7").append(the_container_for_the_standard_pros));
+      } else if (the_premimum_pros.length == 1) {
+          the_row.append($("<div></div>").addClass("col-lg-2").append(the_container_for_the_premium_pros));
+          the_row.append($("<div></div>").addClass("col-lg-10").append(the_container_for_the_standard_pros));
+      } else {
+          the_row.append($("<div></div>").addClass("col-lg-12").append(the_container_for_the_standard_pros));
+      };
       the_pro_informations_div.append(the_row);
     };
     // the premium PROs only, already sorted by date
-    for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
+    for (let a_pro_info of the_premimum_pros) {
       //console.log(a_pro_info);
       $(".premium_pros_list").append($("<div></div>")
 	    .addClass("col premium_pros")
@@ -922,7 +931,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 				    .attr("alt", a_pro_info["Nom Tiers"])));
     };
     // the standard PROs only, already sorted by date
-    var the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
     setTimeout(() => {
     for (let a_pro_info of the_standard_pros) {
      $(".glide__slides").append($("<li></li>")
