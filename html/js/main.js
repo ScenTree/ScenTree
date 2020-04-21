@@ -938,15 +938,18 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
 
    if (the_standard_pros && (the_standard_pros.length > 0)) {
-    new Glide( '.glide', {
+    var the_carousel = new Glide( '.glide', {
 	    gap: 0,
 	    type: "carousel", 
 	    startAt: 0, 
 	    perView: Math.min(6, the_standard_pros.length), 
 	    autoplay: forAFewSeconds
     } ).mount();
+    if (the_standard_pros.length <= 6) {
+        the_carousel.pause();
+    };
    };
-   }, 1000);
+    }, 1000);
    // about the timeout hack : 
    // https://github.com/glidejs/glide/issues/341
    // https://github.com/glidejs/glide/issues/203
