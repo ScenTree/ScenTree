@@ -811,7 +811,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
     //$(".IFRA .container").show();
     //$(".IFRA .tab-content").show();
-    //$(".IFRA-show-nothing").hide();
+    $(".IFRA-show-nothing").hide();
     //$(".IFRA-table").show();
     //$(".IFRA-infos").show(); 
 
@@ -819,9 +819,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $(".IFRA .container").hide();
   $(".IFRA .tab-content").hide();
   $(".IFRA .navbar").hide();
-  //$(".IFRA-show-nothing").show();
-    } else {
-      $(".IFRA-show-nothing").hide();
+  $(".IFRA-show-nothing").show();
+    //} else {
+      //$(".IFRA-show-nothing").hide();
     };
     
 
