@@ -809,8 +809,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     };
 
-if (the_ifra_info["version"] == "Annexe Type II 49TH") {
-    $(".IFRA-infos").hide();
+if (the_ifra_info["version"] = "Annexe Type II 49TH") {
+    show_the_49th_comments = false;
   };
     //$(".IFRA .container").show();
     //$(".IFRA .tab-content").show();
