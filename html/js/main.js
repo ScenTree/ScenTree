@@ -802,10 +802,13 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     console.log("IFRA - no");
   };
 
-        if (the_ifra_info["version"] != "PasIFRA") {
+  if (the_ifra_info["version"] != "PasIFRA") {
     show_nothing = false;
   };
-
+  if (the_ifra_info["version"] != "Annexe Type II 49TH") {
+    $(".restriction").hide();
+  };
+  
     };
     };
 
