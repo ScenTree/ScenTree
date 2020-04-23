@@ -824,10 +824,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       $(".IFRA-show-nothing").hide();
     };
     
-    if (! show_nothing) {
-      $(".IFRA-show-nothing").hide();
-    };
-    
+
     if (! show_the_main_48th_IFRA_table) {
       $(".main-48th-IFRA-table").hide();
     }; 
