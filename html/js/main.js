@@ -809,7 +809,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     };
 
-if (the_ifra_info["version"] != "Annexe Type II 49TH") {
+if (the_ifra_info["version"] == "Annexe Type II 49TH") {
     $(".IFRA-infos").hide();
   };
     //$(".IFRA .container").show();
