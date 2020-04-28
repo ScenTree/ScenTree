@@ -542,6 +542,18 @@ function fill_with_percentage(the_html_class_as_text, the_percentage) {
         };
 };
 
+function get_the_pro_img_from_the_pro_info(the_pro_info) {
+     var the_html_div = $("<div></div>");
+     var the_main_html_img = $("<img />");
+     the_main_html_img.attr("src", "/img/sponsors/sponsor_example_1.jpeg")
+	.addClass("img-fluid")
+	.attr("title", the_pro_info["Nom Tiers"])
+	.attr("alt", the_pro_info["Nom Tiers"]);
+    the_html_div.append(the_main_html_img);
+    return the_html_div;
+};
+
+
 function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //convert \n to <br /> = convert 'json end of line' to 'html end of line'
     //var the_node_as_json_2 = {};
@@ -922,40 +934,34 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_premimum_pros) {
       //console.log(a_pro_info);
+      the_pro_img = get_the_pro_img_from_the_pro_info(a_pro_info);
       $(".premium_pros_list").append($("<div></div>")
 	    .addClass("col premium_pros")
-			    .append($("<img />")
-			    	     .attr("src", "/img/sponsors/sponsor_example_1.jpeg")
-				    .addClass("img-fluid")
-				    .attr("title", a_pro_info["Nom Tiers"])
-				    .attr("alt", a_pro_info["Nom Tiers"])));
+	    .append(the_pro_img));
     };
     // the standard PROs only, already sorted by date
     setTimeout(() => {
     for (let a_pro_info of the_standard_pros) {
+     the_pro_img = get_the_pro_img_from_the_pro_info(a_pro_info);
      $(".glide__slides").append($("<li></li>")
 	     .addClass("glide__slide standard_pros") //.text(a_pro_info["Nom Tiers"])
-	     .append($("<img />")
-		      .attr("src", "/img/sponsors/sponsor_example_2.jpeg")
-		      .addClass("img-fluid")
-                      .attr("title", a_pro_info["Nom Tiers"])
-                      .attr("alt", a_pro_info["Nom Tiers"])
-	     )
-     );
-
+	     .append(the_pro_img));
     };
 
    if (the_standard_pros && (the_standard_pros.length > 0)) {
+    if (the_standard_pros.length <= 6)  {
+	    var the_autoplay = false;
+    } else {
+	    var the_autoplay = forAFewSeconds;
+    };
     var the_carousel = new Glide( '.glide', {
 	    gap: 0,
 	    type: "carousel", 
 	    startAt: 0, 
 	    perView: Math.min(6, the_standard_pros.length), 
-	    autoplay: forAFewSeconds
+	    autoplay: the_autoplay, 
+	    keyboard: false
     } ).mount();
-    if (the_standard_pros.length <= 6) {
-        the_carousel.pause();
-    };
    };
     }, 1000);
    // about the timeout hack : 
