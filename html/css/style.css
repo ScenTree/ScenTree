@@ -917,12 +917,6 @@ h1 {
   max-height: 100px;
 }
 
-.moq-circleXXX {
-	position: relative;
-        color: red;
-        top: 8px;
-	right: -50%;
-}
 .moq-circle {
         position: absolute;
         color: red;
