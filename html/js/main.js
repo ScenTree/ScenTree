@@ -549,7 +549,8 @@ function fill_with_percentage(the_html_class_as_text, the_percentage) {
 };
 
 function get_the_pro_img_from_the_pro_info(the_pro_info) {
-     var the_html_div = $("<div></div>");
+     var the_html_div = $("<div></div>")
+	.addClass("p-2");
      var the_main_html_img_in_french = $("<img />");
      the_main_html_img_in_french.attr("src", "/img/sponsors/sponsor_example_1.jpeg")
 	.addClass("img-fluid")
@@ -562,7 +563,12 @@ function get_the_pro_img_from_the_pro_info(the_pro_info) {
         .attr("title", "Learn more about " + the_pro_info["Nom Tiers"])
         .attr("alt", "Learn more about " + the_pro_info["Nom Tiers"])
         .attr("lang", "en");
-
+    if (the_pro_info["MOQ"]) {
+        var the_moq_circle = $("<span></span>")
+	    .addClass("fas fa-circle moq-circle")
+            .attr("title", the_pro_info["MOQ"]);
+        the_html_div.append(the_moq_circle);
+    };
     the_html_div.append(the_main_html_img_in_french);
     the_html_div.append(the_main_html_img_in_english);
     return the_html_div;

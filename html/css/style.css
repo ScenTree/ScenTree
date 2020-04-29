@@ -917,6 +917,13 @@ h1 {
   max-height: 100px;
 }
 
+.moq-circle {
+	position: relative;
+        color: red;
+        top: 0px;
+	right: -50%;
+}
+
 /* LANGUAGES */
 
 *:lang(fr) {
