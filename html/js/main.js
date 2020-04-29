@@ -550,7 +550,7 @@ function fill_with_percentage(the_html_class_as_text, the_percentage) {
 
 function get_the_pro_img_from_the_pro_info(the_pro_info) {
      var the_html_div = $("<div></div>")
-	.addClass("p-2");
+	.addClass("m-2 with-relative-position");
      var the_main_html_img_in_french = $("<img />");
      the_main_html_img_in_french.attr("src", "/img/sponsors/sponsor_example_1.jpeg")
 	.addClass("img-fluid")

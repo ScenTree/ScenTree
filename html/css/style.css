@@ -917,13 +917,21 @@ h1 {
   max-height: 100px;
 }
 
-.moq-circle {
+.moq-circleXXX {
 	position: relative;
         color: red;
         top: 8px;
 	right: -50%;
 }
-
+.moq-circle {
+        position: absolute;
+        color: red;
+        top: 0px;
+	right: 0px;
+}
+.with-relative-position {
+	position: relative;
+}
 /* LANGUAGES */
 
 *:lang(fr) {
