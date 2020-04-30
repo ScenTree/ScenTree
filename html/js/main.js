@@ -976,8 +976,12 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
    if (the_standard_pros && (the_standard_pros.length > 0)) {
     if (the_standard_pros.length <= 6)  {
 	    var the_autoplay = false;
+	    var the_swipeThreshold_option = false;
+	    var the_dragThreshold_otpion = false;
     } else {
 	    var the_autoplay = forAFewSeconds;
+	    var the_swipeThreshold_option = 80;
+	    var the_dragThreshold_otpion = 120;
     };
     var the_carousel = new Glide( '.glide', {
 	    gap: 0,
@@ -985,7 +989,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	    startAt: 0, 
 	    perView: Math.min(6, the_standard_pros.length), 
 	    autoplay: the_autoplay, 
-	    keyboard: false
+	    keyboard: false, 
+	    swipeThreshold: the_swipeThreshold_option, 
+	    dragThreshold: the_dragThreshold_otpion
     } ).mount();
     automatically_display_the_correct_language();
    };
