@@ -770,22 +770,18 @@ h1 {
 }
 }
 
-@media screen and (max-width: 768px) {
-
-}
-
 
 /* PROs */
 .premium_pros img {
-   max-height: 200px;
+   max-height: 5em;
 }
 .standard_pros img {
-  max-height: 100px;
+  max-height: 3em;
 }
 
 .moq-circle {
-        position: absolute;
-        top: 0px;
+  position: absolute;
+  top: 0px;
 	right: 0px;
 }
 .with-relative-position {
