@@ -773,10 +773,10 @@ h1 {
 
 /* PROs */
 .premium_pros img {
-   max-height: 6em;
+   max-height: 5em;
 }
 .standard_pros img {
-  max-height: 4em;
+  max-height: 3em;
 }
 
 .moq-circle {
