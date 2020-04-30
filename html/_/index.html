@@ -13,11 +13,14 @@
 <title lang="en">ScenTree - The new collaborative perfumery ingredients classification</title>
 <!--Description Google-->
 <meta name="description" content="ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
+
 <!-- Bootstrap -->
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <!-- Fichier Style CSS -->
+
+
 <link href="../css/style.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
@@ -27,6 +30,8 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
 integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
 crossorigin=""/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -199,7 +204,7 @@ crossorigin=""/>
 </div>
 </div>
 
-
+</main>
 
 
 <!-- MODAL DESCRIPTEURS -->
@@ -1020,10 +1025,17 @@ crossorigin=""/>
 </div>  <!--fin body-->
 
 <div class="modal-footer m-0 p-0">
-  <div class="container-fluid col-12 pro_informations textitem-footer mt-1 mb-0">
-        <span lang="fr" class="mb-0">Vous <u>commercialisez</u> des ingrédients présents dans la classification ScenTree et vous souhaitez que nos utilisateurs le sachent ? <br>Merci de rentrer en contact avec l'adresse mail suivante : <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
-        <span lang="en" class="mb-0">You are <u>commercializing</u> some of the raw materials present in <i><b>ScenTree</b></i> classification and you would like our users to know it? <br>Please contact this email address: <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
-  </div>
+  <div class="container-fluid">
+   <div class="row">  
+    <div class="ad_to_the_potential_sponsors  col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+      <p class="pro_informations textitem-footer mt-1 mb-0">
+        <span lang="fr" class="mb-0">Vous <u>commercialisez</u> des matières premières présentes dans la classification ScenTree et vous souhaitez que nos utilisateurs le sachent ? <br>Merci de rentrer en contact avec l'adresse mail suivante : <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
+        <span lang="en" class="mb-0">You are <u>commercializing</u> some of the raw materials present in <i><b>ScenTree</b></i> classification and you would like our users to know it? Please contact this email address: <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
+      </p>
+    </div>
+    <div class="pro_informations_naturals col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"></div>
+   </div>
+   </div>
 </div> <!--fin footer-->
 
 </div> <!--fin content-->
@@ -1867,20 +1879,23 @@ crossorigin=""/>
 
   </div> <!--fin modal-body-->
   </div>
-
   <div class="modal-footer m-0 p-0">
-    <div class="container-fluid col-12 pro_informations textitem-footer mt-1 mb-0">
-          <span lang="fr" class="mb-0">Vous <u>commercialisez</u> des ingrédients présents dans la classification ScenTree et vous souhaitez que nos utilisateurs le sachent ? <br>Merci de rentrer en contact avec l'adresse mail suivante : <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
-          <span lang="en" class="mb-0">You are <u>commercializing</u> some of the raw materials present in <i><b>ScenTree</b></i> classification and you would like our users to know it? <br>Please contact this email address: <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
-    </div>
+      <div class="container-fluid">
+       <div class="row">
+        <div class="ad_to_the_potential_sponsors  col-12 text-center">
+          <p class="textitem-footer mt-1 mb-0">
+            <span lang="fr" class="mb-0">Vous <u>commercialisez</u> des matières premières présentes dans la classification ScenTree et vous souhaitez que nos utilisateurs le sachent ? <br>Merci de rentrer en contact avec l'adresse mail suivante : <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
+            <span lang="en" class="mb-0">You are <u>commercializing</u> some of the raw materials present in <i><b>ScenTree</b></i> classification and you would like our users to know it? Please contact this email address: <a href="mailto:fournisseurs@scentree.co">fournisseurs@scentree.co</a></span>
+          </p>
+        </div>
+           <div class="pro_informations_synthetics col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"></div>
+      </div>
+      </div>
   </div> <!--fin footer-->
 </div> <!-- fin content -->
 </div> <!-- fin container -->
 </div> 
 </div> <!-- fin synthetique -->
-
-
-
 
 
 <!--############################################### -->
@@ -1891,13 +1906,14 @@ crossorigin=""/>
 
 <script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
 <script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
 <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
 integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
 crossorigin=""></script>
 
+<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
 
 <script src="../js/main.js"></script>
 
@@ -1911,6 +1927,5 @@ if (Cookies.get('RGPD_no_cookie') == -1) {
   gtag('config', 'UA-140166656-1');
 };
 </script>
-</main>
 </body>
 </html>

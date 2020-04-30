@@ -776,11 +776,22 @@ h1 {
 
 
 /* PROs */
-.premium_pros {
-    
+.premium_pros img {
+   max-height: 200px;
+}
+.standard_pros img {
+  max-height: 100px;
 }
 
-
+.moq-circle {
+        position: absolute;
+        color: red;
+        top: 0px;
+	right: 0px;
+}
+.with-relative-position {
+	position: relative;
+}
 /* LANGUAGES */
 
 *:lang(fr) {
@@ -817,3 +828,5 @@ p.#you_can_zoom {
     max-width: 10px;
     max-height: 10px;
 }
+
+

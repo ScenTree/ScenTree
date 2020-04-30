@@ -13,7 +13,7 @@ import psycopg2 ##for postgresql connection
 import re
 
 PLEASE_QUIT = False
-THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT = ("dev", "prod", "prod2")
+THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT = ("dev", "dev4", "prod", "prod2")
 if len(sys.argv) == 3:
     MY_SCENTREE_ENVIRONMENT = sys.argv[1]
     THE_PATH_OF_THE_BDD_FOLDER = sys.argv[2]
@@ -43,10 +43,12 @@ if MY_SCENTREE_ENVIRONMENT == "prod":
     THE_NAME_OF_THE_DATABASE = "gis"
 elif MY_SCENTREE_ENVIRONMENT == "prod2":
     THE_NAME_OF_THE_DATABASE = "prod2_gis"
+elif MY_SCENTREE_ENVIRONMENT == "dev4":
+    THE_NAME_OF_THE_DATABASE = "dev4_gis"
 else:
     THE_NAME_OF_THE_DATABASE = "dev_gis"
 
-THE_USER_OF_THE_DATABASE = "maxime"
+THE_USER_OF_THE_DATABASE = os.environ.get("USER", "maxime")
 THE_SECRET_PSWRD = os.environ.get('THE_SECRET_PSWRD')
 THE_URL_TO_THE_DATABASE = "localhost"
 
