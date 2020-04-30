@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
+var KIND_OF_ENVIRONMENT = "dev4"; // "dev", "prod" or "prod2"
  
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
@@ -561,8 +561,21 @@ function get_the_pro_img_from_the_pro_info(the_pro_info) {
         .attr("alt", "Learn more about " + the_pro_info["Nom Tiers"])
         .attr("lang", "en");
     if (the_pro_info["MOQ"]) {
+	var the_moq_value_as_float = Number(the_pro_info["MOQ"].slice(0, -3).replace(",", ".")); // moq must be ending with ' kg'
+        var the_moq_color = "moq-default-color";
+	if (the_moq_value_as_float) {
+		if (the_moq_value_as_float <= 0.5) {
+			the_moq_color = "moq-0_5-color";
+		} else if (the_moq_value_as_float == 1.0) {
+			the_moq_color = "moq-1-color";
+		} else if (the_moq_value_as_float == 5.0) {
+			the_moq_color = "moq-5-color";
+		} else if (the_moq_value_as_float >= 10.0) {
+			the_moq_color = "moq-10-color";
+		};
+	};
         var the_moq_circle = $("<span></span>")
-	    .addClass("fas fa-circle moq-circle")
+	    .addClass("fas fa-circle moq-circle " + the_moq_color)
             .attr("title", the_pro_info["MOQ"]);
         the_html_div.append(the_moq_circle);
     };
