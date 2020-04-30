@@ -770,17 +770,13 @@ h1 {
 }
 }
 
-@media screen and (max-width: 768px) {
-
-}
-
 
 /* PROs */
 .premium_pros img {
-   max-height: 2em;
+   max-height: 6em;
 }
 .standard_pros img {
-  max-height: 1em;
+  max-height: 3em;
 }
 
 .moq-circle {
