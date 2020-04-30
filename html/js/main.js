@@ -549,7 +549,7 @@ function get_the_pro_img_from_the_pro_info(the_pro_info) {
 	.addClass("d-block m-2 with-relative-position")
 	.attr("href", "../sponsors/" + the_pro_info["Nom Tiers"] + ".html");
      var the_main_html_img_in_french = $("<img />");
-     the_main_html_img_in_french.attr("src", "/img/sponsors/sponsor_example.jpeg")
+     the_main_html_img_in_french.attr("src", "/img/sponsors/sponsor_example_1.jpeg")
 	.addClass("img-fluid")
 	.attr("title", "En savoir plus sur " + the_pro_info["Nom Tiers"])
 	.attr("alt", "En savoir plus sur " + the_pro_info["Nom Tiers"])
