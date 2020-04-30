@@ -777,16 +777,16 @@ h1 {
 
 /* PROs */
 .premium_pros img {
-   max-height: 200px;
+   max-height: 2em;
 }
 .standard_pros img {
-  max-height: 100px;
+  max-height: 1em;
 }
 
 .moq-circle {
-        position: absolute;
-        color: red;
-        top: 0px;
+  position: absolute;
+  color: red;
+  top: 0px;
 	right: 0px;
 }
 .with-relative-position {
