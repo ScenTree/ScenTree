@@ -781,13 +781,28 @@ h1 {
 
 .moq-circle {
   position: absolute;
-  color: red;
   top: 0px;
 	right: 0px;
 }
 .with-relative-position {
 	position: relative;
 }
+.moq-default-color {
+        color: black;
+}
+.moq-0_5-color {
+	color: red;
+}
+.moq-1-color {
+        color: yellow;
+}
+.moq-5-color {
+        color: blue;
+}
+.moq-10-color {
+        color: green;
+}
+
 /* LANGUAGES */
 
 *:lang(fr) {
@@ -824,5 +839,3 @@ p.#you_can_zoom {
     max-width: 10px;
     max-height: 10px;
 }
-
-
