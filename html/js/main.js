@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev4"; // "dev", "prod" or "prod2"
+var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
  
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
