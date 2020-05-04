@@ -446,8 +446,8 @@ hr {
     cursor:pointer;
 }
 
-.logostandards {
-  size: 2em;
+.sponsors {
+  min-height: 5em;
 }
 /*#########################
 #########LANGUAGE##########
