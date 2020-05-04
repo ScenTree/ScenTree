@@ -447,6 +447,7 @@ hr {
 }
 .logostandards img {
   min-height: 5em;
+  min-width: 5em;
 
 }
 /*#########################
