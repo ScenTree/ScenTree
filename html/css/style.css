@@ -564,6 +564,12 @@ th, .table th, td, .table td{
 .standard_pros img {
   max-height: 3em;
 }
+.moq-circle {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  size: 0.2em;
+}
 }
 
 
