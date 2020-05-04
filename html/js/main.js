@@ -951,7 +951,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
       $(".ad_to_the_potential_sponsors").remove();
 
-      var the_row = $("<div></div>").addClass("row align-items-center");
+      var the_row = $("<div></div>").addClass("row both_sponsors align-items-center");
+
       var the_container_for_the_premium_pros = $("<div></div>").addClass("container-fluid").append(
           $("<div></div>").addClass("row premium_and_standard_pros premium_pros_list")
       );
