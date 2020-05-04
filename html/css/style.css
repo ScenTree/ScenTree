@@ -808,6 +808,10 @@ h1 {
 .carouselcentré {
   background-color: red;
 }
+.glide__track {
+  vertical-align: middle;
+  background-color: yellow;
+}
 
 /* LANGUAGES */
 
