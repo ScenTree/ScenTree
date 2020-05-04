@@ -792,8 +792,7 @@ h1 {
 }
 
 .moq-circle {
-  position: absolute;
-	right: 1em;
+  display: none;
 }
 .with-relative-position {
 	position: relative;
