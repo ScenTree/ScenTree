@@ -805,9 +805,10 @@ h1 {
 .premium_and_standard_pros{
   background-color: blue;
 }
-.both_sponsors {
+.carouselcentré {
   background-color: red;
 }
+
 /* LANGUAGES */
 
 *:lang(fr) {
