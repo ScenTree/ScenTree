@@ -802,7 +802,9 @@ h1 {
 .moq-10-color {
         color: green;
 }
-
+.premium_pros_list{
+  background-color: blue;
+}
 /* LANGUAGES */
 
 *:lang(fr) {
