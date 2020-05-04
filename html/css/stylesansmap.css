@@ -445,7 +445,9 @@ hr {
     transform: scale(1.1);
     cursor:pointer;
 }
-
+.logostandards {
+  min-height: 2em;
+}
 /*#########################
 #########LANGUAGE##########
 #########################*/
