@@ -576,7 +576,7 @@ function get_the_pro_img_from_the_pro_info(the_pro_info) {
 	};
         var the_moq_circle = $("<span></span>")
 	    .addClass("fas fa-circle moq-circle " + the_moq_color)
-            .attr("title", the_pro_info["MOQ"]);
+            .attr("title", "MOQ= " + the_pro_info["MOQ"]);
         the_html_div.append(the_moq_circle);
     };
     the_html_div.append(the_main_html_img_in_french);
