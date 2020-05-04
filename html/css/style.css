@@ -558,6 +558,12 @@ th, .table th, td, .table td{
 .petitbtn {
   line-height: 1em;
 }
+.premium_pros img {
+   max-height: 3em;
+}
+.standard_pros img {
+  max-height: 3em;
+}
 }
 
 
