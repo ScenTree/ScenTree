@@ -959,9 +959,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       var the_container_for_the_standard_pros = $("<div></div>").addClass("top-content").append(
                   $("<div></div>").addClass("container-fluid").append(
                       $("<div></div>").addClass("glide carouselcentré myCarousel").append(
-                              //$("<div></div>").addClass("glide__track").attr("data-glide-el", "track").append(
+                              $("<div></div>").addClass("glide__track").attr("data-glide-el", "track").append(
                                       $("<ul></ul>").addClass("glide__slides")
-                              //)
+                              )
                       )
                   )
       ); // multiple items carousel - https://www.jqueryscript.net/slider/responsive-bootstrap-carousel-multiple-items.html
