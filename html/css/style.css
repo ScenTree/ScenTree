@@ -790,9 +790,7 @@ h1 {
 .standard_pros img {
   max-height: 3em;
 }
-.the_moq_circle {
-  size: 5em;
-}
+
 .moq-circle {
   position: absolute;
 	right: 1em;
@@ -814,18 +812,6 @@ h1 {
 }
 .moq-10-color {
         color: green;
-}
-.premium_and_standard_pros{
-  background-color: blue;
-}
-.carouselcentré {
-  background-color: red;
-}
-.glide__slides {
-  vertical-align: middle;
-  background-color: yellow;
-  max-height: 100%;
-  min-height: 100%;
 }
 
 /* LANGUAGES */
