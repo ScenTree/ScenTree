@@ -790,7 +790,9 @@ h1 {
 .standard_pros img {
   max-height: 3em;
 }
-
+.the_moq_circle {
+  size: 5em;
+}
 .moq-circle {
   position: absolute;
 	right: 1em;
@@ -799,7 +801,7 @@ h1 {
 	position: relative;
 }
 .moq-default-color {
-        color: black;
+  color: black;
 }
 .moq-0_5-color {
 	color: red;
