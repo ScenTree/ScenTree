@@ -445,7 +445,7 @@ hr {
     transform: scale(1.1);
     cursor:pointer;
 }
-.logostandards {
+.logostandards img {
   min-height: 5em;
 
 }
