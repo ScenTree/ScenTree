@@ -449,6 +449,9 @@ hr {
 .sponsors {
   min-height: 5em;
 }
+.logostandards {
+  min-height: 100%;
+}
 /*#########################
 #########LANGUAGE##########
 #########################*/
