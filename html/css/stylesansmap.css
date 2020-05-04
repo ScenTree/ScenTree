@@ -814,6 +814,10 @@ font-size: 10px;
 .sponsors {
   max-width: 100%;
 }
+.logostandards {
+  min-height: 5em;
+  min-width: 6em;
+}
 }
 
 @media screen and (min-width: 768px) {
