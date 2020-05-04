@@ -959,8 +959,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       var the_container_for_the_standard_pros = $("<div></div>").addClass("top-content").append(
                   $("<div></div>").addClass("container-fluid").append(
                       $("<div></div>").addClass("glide carouselcentré myCarousel").append(
-                              $("<div></div>").addClass("glide__track mt-1 mb-1").attr("data-glide-el", "track").append(
-                                      $("<ul></ul>").addClass("glide__slides")
+                              $("<div></div>").addClass("glide__track m-0").attr("data-glide-el", "track").append(
+                                      $("<ul></ul>").addClass("glide__slides m-0")
                               )
                       )
                   )
