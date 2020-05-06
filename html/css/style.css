@@ -559,14 +559,17 @@ th, .table th, td, .table td{
   line-height: 1em;
 }
 .premium_pros img {
-   max-height: 50%;
+  max-height: 50%;
 }
 .premium_pros {
-   min-height: 50%;
-   background-color: blue;
+  min-height: 50%;
+  background-color: blue;
 }
 .standard_pros img {
   max-height: 3em;
+}
+.standard_pros {
+  background-color: green;
 }
 .moq-circle {
   position: absolute;
