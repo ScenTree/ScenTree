@@ -568,7 +568,7 @@ th, .table th, td, .table td{
   background-color: red;
 }
 .premium_pros img {
-  max-height: 10em !important;
+  max-height: 1em !important;
 }
 .standard_pros img {
   max-height: 3em;
