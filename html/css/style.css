@@ -561,15 +561,18 @@ th, .table th, td, .table td{
 .premium_pros img {
   max-height: 50%;
 }
+.both_sponsors {
+  background-color: blue;
+}
 .premium_pros {
   max-height: 20% !important; 
-  background-color: blue;
+  /*background-color: blue;*/
 }
 .standard_pros img {
   max-height: 3em;
 }
 .standard_pros {
-  background-color: green;
+  /*background-color: green;*/
 }
 .moq-circle {
   position: absolute;
