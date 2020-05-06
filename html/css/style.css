@@ -558,6 +558,10 @@ th, .table th, td, .table td{
 .petitbtn {
   line-height: 1em;
 }
+.modal-footer {
+  max-height: 5em;  
+  min-height: 5em;
+}
 .premium_pros img {
    max-height: 0.2em;
    min-height: 0.2em;
