@@ -562,11 +562,10 @@ th, .table th, td, .table td{
    max-height: 2em;
 }
 .premium_pros {
-   max-height: 2em;
    background-color: blue;
 }
 .standard_pros img {
-  max-height: 5em;
+  max-height: 3em;
 }
 .moq-circle {
   position: absolute;
