@@ -558,9 +558,6 @@ th, .table th, td, .table td{
 .petitbtn {
   line-height: 1em;
 }
-.premium_pros img {
-  max-height: 50%;
-}
 .both_sponsors {
   background-color: blue;
   min-height: 100%;
@@ -569,6 +566,10 @@ th, .table th, td, .table td{
 .premium_pros {
   max-height: 20%; 
   background-color: red;
+}
+.premium_pros img {
+  max-height: 10% !important;
+
 }
 .standard_pros img {
   max-height: 3em;
