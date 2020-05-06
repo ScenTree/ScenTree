@@ -559,8 +559,8 @@ th, .table th, td, .table td{
   line-height: 1em;
 }
 .premium_pros img {
-   max-height: 1em;
-   min-height: 1em;
+   max-height: 0.2em;
+   min-height: 0.2em;
 }
 .premium_pros {
    background-color: blue;
