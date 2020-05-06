@@ -567,15 +567,16 @@ th, .table th, td, .table td{
   max-height: 20%; 
   background-color: red;
 }
+.standard_pros {
+  background-color: green;
+}
 .premium_pros img {
-  max-height: 1em !important;
+  max-height: 3em !important;
 }
 .standard_pros img {
-  max-height: 3em;
+  max-height: 3em !important;
 }
-.standard_pros {
-  /*background-color: green;*/
-}
+
 .moq-circle {
   position: absolute;
   top: 0px;
