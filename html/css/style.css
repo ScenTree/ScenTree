@@ -566,7 +566,7 @@ th, .table th, td, .table td{
    background-color: blue;
 }
 .standard_pros img {
-  max-height: 3em;
+  max-height: 5em;
 }
 .moq-circle {
   position: absolute;
