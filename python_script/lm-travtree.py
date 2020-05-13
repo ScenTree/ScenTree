@@ -304,7 +304,7 @@ def compute_the_webpage_adress(the_scentree_object):
     return "../ingredients/%s__%s.html" % (getNodeNameForTheJSON(the_scentree_object, 'EN').replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_"), getNodeNameForTheJSON(the_scentree_object, 'FR').replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_").replace(",", "_"))
 
 def do_inter_links(the_key, the_text, the_current_scentree_object, the_language_in_two_chars, the_nodes):
-    if the_key not in ("Origine geographique", "Extractions", "Utilisation", "Allergenes", "composantsmajoritaires", "autresremarques", "Stabilite", "chemotype", "medecine", "Synthese", "Precurseurs", "Isomerie", "Presencenat"):
+    if the_key not in ("Origine geographique", "Extractions", "Botanique", "Utilisation", "Allergenes", "composantsmajoritaires", "autresremarques", "Stabilite", "chemotype", "medecine", "Synthese", "Precurseurs", "Isomerie", "Presencenat"):
         return the_text
     for a_node in sorted(the_nodes, key = lambda n : len(getNodeNameForTheJSON(n, the_language_in_two_chars)), reverse=True):
         if not hasattr(a_node, "the_properties_from_the_csv") or not bool(a_node.the_properties_from_the_csv) or a_node == the_current_scentree_object or len( str(a_node.the_properties_from_the_csv['id'][the_language_in_two_chars]) ) != 5: # is not an ingredient
