@@ -566,6 +566,7 @@ th, .table th, td, .table td{
   max-height: 3em !important;
 }
 .standard_pros img {
+  min-height: 5em !important;
   max-height: 5em !important;
 }
 
