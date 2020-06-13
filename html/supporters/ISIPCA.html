@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title lang="fr">ScenTree - ISIPCA</title>
+<title lang="en">ScenTree - ISIPCA</title>
+<!--Description Google-->
+<meta name="description" content="Découvrez qui est Cinquième Sens Co-working, le partenaire de ScenTree, la nouvelle classification innovante et collaborative des matières premières utilisées en parfumerie. Voyagez dans l'univers merveilleux des odeurs." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Fichier Style CSS -->
+<link href="../css/style.css" rel="stylesheet" />
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+</head>
+
+<body class="h-100">
+<main class="h-100">
+
+<!-- MODAL Cinquième Sens -->
+
+<div class="modal fade in  my-modal show_modal_at_start go_to_main_page_after_closing_modal" tabindex="-1" role="dialog" id="partenaireCinquiemeSens">
+<div class="modal-dialog modal-lg" role="document">
+<div class="modal-content">
+
+<div class="modal-header d-block">
+  <button type="button" class="close float-right" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h1 class="text-center  modal-title modal-title1"><b>ISIPCA : From senses to expertise </b></h1>
+</div>
+
+<div class="modal-body text-size-14px text-justify scrollbar-inside">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+  <p>
+    <span>
+    	<b><span lang="fr">Site internet :</span><span lang="en">Website :</span></b>
+    	<a class="interpop" href="www.isipca.fr" target="_blank">www.isipca.fr</a>
+    </span>
+    <br>
+    <span>
+    	<b><span lang="fr">Téléphone :</span><span lang="en">Phone :</span></b> (+33)01 39 23 70 00
+    </span>
+  </p>
+  <p>
+    <span lang="fr">Fondée en 1970, l’ISIPCA (Institut Supérieur International du Parfum, de la Cosmétique et de l'Aromatique Alimentaire) transmet à ses étudiants français et étrangers, des savoir-faire d’excellence uniques au monde. C'est la seule école du secteur à intégrer une filière commerciale et une filière scientifique, de formation initiale (de Bac+1 à Bac+6) en temps plein ou en apprentissage et de formation continue, avec des cursus en français et en anglais.  L’enseignement de haut niveau de l’ISIPCA ouvre la voie à des carrières spécialisées et destine ses étudiants à occuper des postes à responsabilité au sein des secteurs phares de l'industrie du luxe, de la cosmétique, des arômes alimentaires ou de la parfumerie.</span>
+    <span lang="en">Founded in 1970, the ISIPCA (Institut Supérieur International du Parfum, de la Cosmétique et de l'Aromatique Alimentaire) transmits to its French and international students, know-how of excellence unique in the world. It is the only school in the sector to integrate both a commercial and a scientific branch, with initial training (from Bac+1 to Bac+6) on a full-time basis or as an apprenticeship and continuing education, with courses in French and English.  ISIPCA's high level education opens the way to specialized careers and prepares its students for positions of responsibility in the flagship sectors of the luxury goods, cosmetics, food flavorings and perfumery industries.</span>
+    <br>
+    <span lang="fr">Depuis sa création par Jean-Jacques Guerlain, l'ISIPCA forme des professionnels reconnus pour leur engagement, leur précision et leur créativité. Ils contribuent au rayonnement d’une expertise française qui constitue la référence mondiale. ISIPCA est une école de la Chambre de commerce et d'industrie de Paris IDF.</span>
+    <span lang="en">Since its creation by Jean-Jacques Guerlain, ISIPCA has been training professionals recognized for their commitment, precision and creativity. They contribute to the radiance of French expertise which constitutes the world reference. ISIPCA is a school of the Chambre de commerce et d'industrie of Paris IDF.</span>
+  </p>
+  
+
+</div>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-3  order-first order-sm-first order-lg-last"><p class="text-center"><img class="img-fluid  max-height-200px" src="../img/sponsors/isipca.png" alt="Logo d'ISIPCA"></p></div>
+</div>
+</div>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-secondary mx-auto" data-dismiss="modal"><span lang="fr">Fermer</span><span lang="en">Close</span></button>
+</div> <!-- fin footer -->
+
+</div>
+</div>
+</div>
+
+
+
+</main>
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## -->
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+
+</body>
+</html>
+

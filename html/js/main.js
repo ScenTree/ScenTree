@@ -1,5 +1,5 @@
 var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
- 
+  
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
     var DEV_PREFIX_1 = "dev-"; // dev- ,  pre_prod- ,  or empty for production
@@ -649,6 +649,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_fusionp = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'PFusion');
     var the_fbrute = put_all_digits_into_sub(from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'formulebrute'));
     var the_synonyme = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'AutresNoms');
+    var the_detection = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Threshold');
 
 
     var the_commentary = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Commentaires');
@@ -1087,6 +1088,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-jecfa1').empty();
   $('#modalbody-flavis1').empty();
   $('#modalbody-synonymes').empty();
+  $('#modalbody-detection').empty();
   
 
   //EMPTY - Descripteurs
@@ -1192,6 +1194,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-jecfa1').append(the_JECFA);
   $('#modalbody-flavis1').append(the_FLAVIS);
   $('#modalbody-synonymes').append(the_synonyme);
+  $('#modalbody-detection').append(the_detection);
 
   //APPEND - Partie Descripteurs
   $('#modaltitle2').append(the_title);
@@ -1204,16 +1207,16 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         $('#naturelleModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict').empty();
         $('#modalbody-pictA').empty();
-        $('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-        $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />"); 
+        $('#modalbody-pict').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
+        $('#modalbody-pictA').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />"); 
         if (show_the_modal) $('#naturelleModal').modal('show');
     };
     if (is_an_synthetique) {
         $('#SynthetiqueModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict1').empty();
         $('#modalbody-pict1A').empty();
-        $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-        $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+        $('#modalbody-pict1').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
+        $('#modalbody-pict1A').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
         if (show_the_modal) $('#SynthetiqueModal').modal('show');
     };
     if (is_an_descripteur) {
