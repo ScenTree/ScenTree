@@ -213,7 +213,6 @@ html, body {
     color: #D64E26;
     font-size: 10px;
 }
-
 /*#########################
 ###########RGPD############
 #########################*/
@@ -567,11 +566,12 @@ th, .table th, td, .table td{
   max-height: 100%;
 }
 .premium_pros img {
+  min-height: 3em !important;
   max-height: 3em !important;
 }
 .standard_pros img {
-  min-height: 5em !important;
-  max-height: 5em !important;
+  min-height: 4em !important;
+  max-height: 4em !important;
 }
 
 .moq-circle {
