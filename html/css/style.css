@@ -101,6 +101,9 @@ html, body {
 .text-my-grey {
     color : grey;
 }
+.commercialize{
+  display: none;
+}
 
 @media screen and (max-width: 767px) {
 .font-italic-before-md {
