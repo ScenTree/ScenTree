@@ -953,7 +953,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       the_premium_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FP"));
 
       $(".ad_to_the_potential_sponsors").remove();
-      $(".commercialize").append();
+      $(".commercialize").css('display', inline);
 
       var the_row = $("<div></div>").addClass("row both_sponsors align-items-center");
 
