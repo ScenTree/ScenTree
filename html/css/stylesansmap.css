@@ -450,6 +450,13 @@ hr {
     cursor:pointer;
 }
 
+.sponsors {
+  min-height: 6em;
+}
+.logostandards {
+  min-height: 6em;
+  min-width: 7em;
+}
 /*#########################
 #########LANGUAGE##########
 #########################*/
@@ -807,6 +814,14 @@ font-size: 10px;
 }
 .petitbtn {
   line-height: 1em;
+}
+.sponsors {
+  min-width: 100%;
+  max-width: 100%;
+}
+.logostandards {
+  min-height: 5em;
+  min-width: 6em;
 }
 }
 

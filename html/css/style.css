@@ -558,6 +558,24 @@ th, .table th, td, .table td{
 .petitbtn {
   line-height: 1em;
 }
+.both_sponsors {
+  min-height: 100%;
+  max-height: 100%;
+}
+.premium_pros img {
+  max-height: 3em !important;
+}
+.standard_pros img {
+  min-height: 5em !important;
+  max-height: 5em !important;
+}
+
+.moq-circle {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  size: 0.2em;
+}
 }
 
 
@@ -770,16 +788,36 @@ h1 {
 }
 }
 
-@media screen and (max-width: 768px) {
-
-}
-
 
 /* PROs */
-.premium_pros {
-    
+.premium_pros img {
+   max-height: 5em;
+}
+.standard_pros img {
+  max-height: 5em;
 }
 
+.moq-circle {
+  display: none;
+}
+.with-relative-position {
+	position: relative;
+}
+.moq-default-color {
+  color: black;
+}
+.moq-0_5-color {
+	color: red;
+}
+.moq-1-color {
+        color: yellow;
+}
+.moq-5-color {
+        color: blue;
+}
+.moq-10-color {
+        color: green;
+}
 
 /* LANGUAGES */
 

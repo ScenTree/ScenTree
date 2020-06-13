@@ -8,15 +8,22 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = false;
     var DEV_PREFIX_1 = "prod2-";
     var DEV_PREFIX_2 = "prod2_";
-} else {
+} else if (KIND_OF_ENVIRONMENT == "prod") {
     var DEV_ENVIRONMENT = false;
     var DEV_PREFIX_1 = "";
     var DEV_PREFIX_2 = "";
+} else {
+    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
+    var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
+    var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
 };
 
 var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the survey" : "20200315"};
 
 var in30Minutes = 1/96; // in 15 minutes
+var forAFewSeconds = 3500;
+
+automatically_display_the_correct_language();
 
 // cookies part, with "js-cookie" (https://github.com/js-cookie/js-cookie)
 var RGPD_warning_has_been_done = Cookies.get('RGPD_warning'); // RGPD_warning unset means this is the first visit
@@ -248,7 +255,7 @@ $.extend( proto, {
 /* end of jQuery UI Autocomplete HTML Extension */
 
 /* Définissions de la map*/
-if ($("#map").length) {
+if ($("#map").length > 0) {
     var map = L.map('map', {zoomControl: true, attributionControl: false});
 };
 /* Dire que la map est disponible dans le cache du serveur à l'adresse suivante */
@@ -275,7 +282,7 @@ var the_previous_map__longitude = Cookies.get('the_previous_map__longitude');
 /* Définir la taille de la carte */
 //map.addLayer(tol_fr);
 //map.addLayer(tol_en);
-if ($("#map").length) {
+if ($("#map").length > 0) {
   map.setView([the_previous_map__latitude || 2, the_previous_map__longitude || 0, ], the_previous_map__zoom || zoom_initial);
 };
 /* Définission de l'icone qui pointe les MP recherchées*/
@@ -284,6 +291,10 @@ var mark = L.icon({
     iconSize:     [75, 25], // size of the icon
     iconAnchor:   [35, 13], // point of the icon which will correspond to marker's location
 });
+
+
+automatically_display_the_correct_language();
+
 
 /////////////////////////////
 /////CREATION DES POP-UP/////
@@ -360,7 +371,7 @@ $(".my-search-bar").focus(function() {
 
 
 //pop-up
-if ($("#map").length) {
+if (map) {
   map.on("moveend", function() {
       CreatePopUps();
   });
@@ -532,6 +543,49 @@ function fill_with_percentage(the_html_class_as_text, the_percentage) {
                 $(the_html_class_as_text).text(the_percentage + " %");
         };
 };
+
+function get_the_pro_img_from_the_pro_info(the_pro_info) {
+     var the_html_div = $("<a></a>")
+	.addClass("d-block m-2 with-relative-position")
+	.attr("href", "../supporters/" + the_pro_info["Nom Tiers"] + ".html");
+     var the_main_html_img_in_french = $("<img />");
+     the_main_html_img_in_french.attr("src", "/img/sponsors/" + the_pro_info["Nom Tiers"] + ".png")
+	.addClass("img-fluid")
+	.attr("title", "En savoir plus sur " + the_pro_info["Nom Tiers"])
+	.attr("alt", "En savoir plus sur " + the_pro_info["Nom Tiers"])
+	.attr("lang", "fr");
+     var the_main_html_img_in_english = $("<img />");
+     the_main_html_img_in_english.attr("src", "/img/sponsors/" + the_pro_info["Nom Tiers"] + ".png")
+        .addClass("img-fluid")
+        .attr("title", "Learn more about " + the_pro_info["Nom Tiers"])
+        .attr("alt", "Learn more about " + the_pro_info["Nom Tiers"])
+        .attr("lang", "en");
+
+    //if (the_pro_info["MOQ"]) {
+  	//var the_moq_value_as_float = Number(the_pro_info["MOQ"].slice(0, -3).replace(",", ".")); // moq must be ending with ' kg'
+          //var the_moq_color = "moq-default-color";
+  	//if (the_moq_value_as_float) {
+  		//if (the_moq_value_as_float <= 0.5) {
+  			//the_moq_color = "moq-0_5-color";
+  		//} else if (the_moq_value_as_float == 1.0) {
+  			//the_moq_color = "moq-1-color";
+  		//} else if (the_moq_value_as_float == 5.0) {
+  			//the_moq_color = "moq-5-color";
+  		//} else if (the_moq_value_as_float >= 10.0) {
+  			//the_moq_color = "moq-10-color";
+  		//};
+  	//};
+    //var the_moq_circle = $("<span></span>")
+	    //.addClass("fas fa-circle moq-circle " + the_moq_color)
+      //.attr("title", "MOQ= " + the_pro_info["MOQ"]);
+      //the_html_div.append(the_moq_circle);
+    //};
+
+    the_html_div.append(the_main_html_img_in_french);
+    the_html_div.append(the_main_html_img_in_english);
+    return the_html_div;
+};
+
 
 function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //convert \n to <br /> = convert 'json end of line' to 'html end of line'
@@ -867,9 +921,20 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
             $(".commentaires49").hide();
     };
     
-    // PRO 
-    the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
-    the_new_pro_infos = new Array();
+    // PRO
+    var the_pro_informations_div = $("<div></div>");
+    if (is_an_synthetique) {
+	the_pro_informations_div = $(".pro_informations_synthetics");
+    } else {
+        the_pro_informations_div = $(".pro_informations_naturals");
+    };
+    $(".pro_informations_synthetics").empty();
+    $(".pro_informations_naturals").empty();
+
+    var the_pro_infos = the_node_as_json_EN_and_FR['PRO'];
+    var the_new_pro_infos = new Array();
+    var the_standard_pros = new Array();
+    var the_premium_pros = new Array();
     if (the_pro_infos) {
         // built the JSON array from an aray of strings
   for (let an_pro_info of the_pro_infos) {
@@ -883,20 +948,81 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         //console.log(a_pro_info);
   
     };
-    if (the_new_pro_infos) {
-      $(".pro_informations").append($("<ul></ul>").addClass("premium_and_standard_pros").addClass("list-inline"));
+    if (the_new_pro_infos && (the_new_pro_infos.length > 0)) {
+      the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
+      the_premium_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FP"));
+
+      $(".ad_to_the_potential_sponsors").remove();
+
+      var the_row = $("<div></div>").addClass("row both_sponsors align-items-center");
+
+      var the_container_for_the_premium_pros = $("<div></div>").addClass("container-fluid").append(
+          $("<div></div>").addClass("row premium_and_standard_pros premium_pros_list")
+      );
+      var the_container_for_the_standard_pros = $("<div></div>").addClass("top-content").append(
+                  $("<div></div>").addClass("container-fluid").append(
+                      $("<div></div>").addClass("glide carouselcentré myCarousel").append(
+                              $("<div></div>").addClass("glide__track m-0").attr("data-glide-el", "track").append(
+                                      $("<ul></ul>").addClass("glide__slides m-0")
+                              )
+                      )
+                  )
+      ); // multiple items carousel - https://www.jqueryscript.net/slider/responsive-bootstrap-carousel-multiple-items.html
+
+      if (the_premium_pros.length >= 2) {
+          the_row.append($("<div></div>").addClass("col-lg-5").append(the_container_for_the_premium_pros));
+          the_row.append($("<div></div>").addClass("col-lg-7").append(the_container_for_the_standard_pros));
+      } else if (the_premium_pros.length == 1) {
+          the_row.append($("<div></div>").addClass("col-lg-2").append(the_container_for_the_premium_pros));
+          the_row.append($("<div></div>").addClass("col-lg-10").append(the_container_for_the_standard_pros));
+      } else {
+          the_row.append($("<div></div>").addClass("col-lg-12").append(the_container_for_the_standard_pros));
+      };
+      the_pro_informations_div.append(the_row);
     };
     // the premium PROs only, already sorted by date
-    for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FP"))) {
-  //console.log(a_pro_info);
-  $(".pro_informations ul").append($("<li></li>").addClass("premium_pros").addClass("list-inline-item").addClass("btn btn-lg btn-warning").text(a_pro_info["Nom Tiers"]));
+    for (let a_pro_info of the_premium_pros) {
+      //console.log(a_pro_info);
+      the_pro_img = get_the_pro_img_from_the_pro_info(a_pro_info);
+      $(".premium_pros_list").append($("<div></div>")
+	    .addClass("col premium_pros")
+	    .append(the_pro_img));
     };
     // the standard PROs only, already sorted by date
-    for (let a_pro_info of the_new_pro_infos.filter((a) => (a["Type"] == "FS"))) {
-         $(".pro_informations ul").append($("<li></li>").addClass("standard_pros").addClass("list-inline-item").addClass("btn btn-light").text(a_pro_info["Nom Tiers"]));
-  //console.log(a_pro_info);
+    setTimeout(() => {
+    for (let a_pro_info of the_standard_pros) {
+     the_pro_img = get_the_pro_img_from_the_pro_info(a_pro_info);
+     $(".glide__slides").append($("<li></li>")
+	     .addClass("glide__slide standard_pros") //.text(a_pro_info["Nom Tiers"])
+	     .append(the_pro_img));
     };
 
+   if (the_standard_pros && (the_standard_pros.length > 0)) {
+    if (the_standard_pros.length <= 6)  {
+	    var the_autoplay = false;
+	    var the_swipeThreshold_option = false;
+	    var the_dragThreshold_otpion = false;
+    } else {
+	    var the_autoplay = forAFewSeconds;
+	    var the_swipeThreshold_option = 80;
+	    var the_dragThreshold_otpion = 120;
+    };
+    var the_carousel = new Glide( '.glide', {
+	    gap: 0,
+	    type: "carousel", 
+	    startAt: 0, 
+	    perView: Math.min(6, the_standard_pros.length), 
+	    autoplay: the_autoplay, 
+	    keyboard: false, 
+	    swipeThreshold: the_swipeThreshold_option, 
+	    dragThreshold: the_dragThreshold_otpion
+    } ).mount();
+    automatically_display_the_correct_language();
+   };
+    }, 1000);
+   // about the timeout hack : 
+   // https://github.com/glidejs/glide/issues/341
+   // https://github.com/glidejs/glide/issues/203
 
 
     //EMPTY - partie naturelle
@@ -1196,7 +1322,7 @@ function switch_to_en() {
     // clear search input
     $(".searchinput").val('');
     // change map
-    if ($("#map").length) {
+    if (map) {
         map.addLayer(tol_en);
         map.removeLayer(tol_fr);
     };
@@ -1222,7 +1348,7 @@ function switch_to_fr() {
     // clear search input
     $(".searchinput").val('');  
     // change map
-    if ($("#map").length) {
+    if (map) {
         map.addLayer(tol_fr);
         map.removeLayer(tol_en);
     };
@@ -1247,17 +1373,21 @@ $(".to_french_radio_input").click(function() {
     location.reload();
 });
 
-var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
-               navigator.language ||   // All browsers
-               navigator.userLanguage; // IE <= 10
 
-//console.log(language);
+function automatically_display_the_correct_language() { 
+    
+    var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
+                   navigator.language ||   // All browsers
+                   navigator.userLanguage; // IE <= 10
 
-if ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-")))) {
-    switch_to_fr();
-} else {
-    switch_to_en();
+    if ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-")))) {
+        switch_to_fr();
+    } else {
+        switch_to_en();
+    };
 };
+automatically_display_the_correct_language();
+
 
 $('.navbar-nav>li>a').on('click', function(){
     $('.navbar-collapse').collapse('hide');
@@ -1272,7 +1402,7 @@ $("#close_you_can_zoom").on('click', function() {
 });
 
 $(".save_map_status_on_leaving").on("click", function() {
-    if ($("#map").length) {
+    if (map) {
   save_map_status_inside_cookies(map);
     };
 });
@@ -1280,7 +1410,8 @@ $(".show_modal_at_start").modal("show");
 $(".go_to_main_page_after_closing_modal").on("hide.bs.modal", function() {
     window.location.href = "../_/index.html";
 });
-  
+
+
 /*suppression du copier-coller*/
 function addLink() {
     var body_element = document.getElementsByTagName('body')[0];
