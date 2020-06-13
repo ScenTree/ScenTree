@@ -69,7 +69,7 @@ html, body {
 
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(95vh - 320px);
+  max-height: calc(90vh - 320px);
 }
 
 .scrollbar-inside2 {
