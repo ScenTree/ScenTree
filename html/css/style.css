@@ -650,7 +650,7 @@ h1 {
 }
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(104vh - 320px);
+  max-height: calc(30% - 0px);
 }
 .space{
     height:20%;
