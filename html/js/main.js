@@ -584,6 +584,37 @@ function get_the_pro_img_from_the_pro_info(the_pro_info) {
     return the_html_div;
 };
 
+function show_the_carousel(the_length) {
+    setTimeout(() => {
+    if (the_length > 0) {
+    if (the_length <= 6)  {
+            var the_autoplay = false;
+            var the_swipeThreshold_option = false;
+            var the_dragThreshold_otpion = false;
+    } else {
+            var the_autoplay = forAFewSeconds;
+            var the_swipeThreshold_option = 80;
+            var the_dragThreshold_otpion = 120;
+    };
+    var myCarousel = new Glide( '.glide', {
+            gap: 0,
+            type: "carousel",
+            startAt: 0,
+            perView: Math.min(6, the_length),
+            autoplay: the_autoplay,
+            keyboard: false,
+            swipeThreshold: the_swipeThreshold_option,
+            dragThreshold: the_dragThreshold_otpion
+    } );
+    myCarousel.mount();
+    automatically_display_the_correct_language();
+   };
+   }, 1000);
+   // about the timeout hack : 
+   // https://github.com/glidejs/glide/issues/341
+   // https://github.com/glidejs/glide/issues/203
+
+};
 
 function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //convert \n to <br /> = convert 'json end of line' to 'html end of line'
@@ -935,7 +966,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (the_pro_infos) {
         // built the JSON array from an aray of strings
   for (let an_pro_info of the_pro_infos) {
-    var the_pro_info = JSON.parse(an_pro_info);
+    if (! window.document.jsdom_reader) {
+      var the_pro_info = JSON.parse(an_pro_info);
+    } else {
+      var the_pro_info = an_pro_info;
+    };
     the_new_pro_infos.push(the_pro_info);
   };
     };
@@ -985,7 +1020,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	    .append(the_pro_img));
     };
     // the standard PROs only, already sorted by date
-    setTimeout(() => {
     for (let a_pro_info of the_standard_pros) {
      the_pro_img = get_the_pro_img_from_the_pro_info(a_pro_info);
      $(".glide__slides").append($("<li></li>")
@@ -993,32 +1027,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	     .append(the_pro_img));
     };
 
-   if (the_standard_pros && (the_standard_pros.length > 0)) {
-    if (the_standard_pros.length <= 6)  {
-	    var the_autoplay = false;
-	    var the_swipeThreshold_option = false;
-	    var the_dragThreshold_otpion = false;
-    } else {
-	    var the_autoplay = forAFewSeconds;
-	    var the_swipeThreshold_option = 80;
-	    var the_dragThreshold_otpion = 120;
-    };
-    var the_carousel = new Glide( '.glide', {
-	    gap: 0,
-	    type: "carousel", 
-	    startAt: 0, 
-	    perView: Math.min(6, the_standard_pros.length), 
-	    autoplay: the_autoplay, 
-	    keyboard: false, 
-	    swipeThreshold: the_swipeThreshold_option, 
-	    dragThreshold: the_dragThreshold_otpion
-    } ).mount();
-    automatically_display_the_correct_language();
+   if (the_standard_pros && (window.document.jsdom_reader != 1)) {
+	show_the_carousel(the_standard_pros.length);
    };
-    }, 1000);
-   // about the timeout hack : 
-   // https://github.com/glidejs/glide/issues/341
-   // https://github.com/glidejs/glide/issues/203
 
 
     //EMPTY - partie naturelle
@@ -1201,8 +1212,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         $('#naturelleModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict').empty();
         $('#modalbody-pictA').empty();
-        $('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-        $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />"); 
+        $('#modalbody-pict').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
+        $('#modalbody-pictA').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />"); 
         if (show_the_modal) $('#naturelleModal').modal('show');
     };
     if (is_an_synthetique) {
@@ -1316,7 +1327,7 @@ function switch_to_en() {
     // clear search input
     $(".searchinput").val('');
     // change map
-    if (map) {
+    if (map && map.addLayer) {
         map.addLayer(tol_en);
         map.removeLayer(tol_fr);
     };

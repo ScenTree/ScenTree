@@ -52,6 +52,7 @@ if (! fs.existsSync(descripteurs_secondaires_folder_path)) {
 
 
 
+console.log("the JSON file …");
 var the_objects = jsonfile.readFileSync(the_json_file);
 console.log(the_objects.length);
 
@@ -68,8 +69,16 @@ async function get_the_dom_from_the_net(the_html_file) {
 async function generate_one_file(dom, the_current_object) {
     console.log("inside sub-function with " + the_current_object['sci_name']);
     
-    dom.window.markofun(the_current_object, false);
+    var the_pros_of_the_current_object = the_current_object['PRO'];
+    if (the_pros_of_the_current_object) {
+	    var the_length_of_the_carousel = (the_pros_of_the_current_object.filter((a) => (a["Type"] == "FS"))).length;
+    } else {
+	    var the_length_of_the_carousel = 0;
+    };
     
+    dom.window.markofun(the_current_object, false);
+    console.log("dom.window.markofun : done");
+
     var the_script_to_open_the_modal_onload = dom.window.document.getElementById("script_for_generated_pages");
     if (! the_script_to_open_the_modal_onload) the_script_to_open_the_modal_onload = dom.window.document.createElement("script");
     the_script_to_open_the_modal_onload.id = "script_for_generated_pages";
@@ -77,9 +86,9 @@ async function generate_one_file(dom, the_current_object) {
     //the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#Vidéo').hide(); $('.modal-backdrop').remove(); markofun(" + JSON.stringify(the_current_object) + ", true); });";
     //the_script_to_open_the_modal_onload.text = "markofun(" + JSON.stringify(the_current_object) + ", true);";
     if (scentree_objects.is_synthetic(the_current_object)) {
-    	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#SynthetiqueModal').modal('show'); });";
+    	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#SynthetiqueModal').modal('show'); show_the_carousel(" + the_length_of_the_carousel + "); });";
     } else if (scentree_objects.is_natural(the_current_object)) { 
-	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#naturelleModal').modal('show'); });";
+	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#naturelleModal').modal('show'); show_the_carousel(" + the_length_of_the_carousel + "); });";
     } else {
 	the_script_to_open_the_modal_onload.text = "$(window).on('load',function(){ $('#DescripteurModal').modal('show'); });";
     };
