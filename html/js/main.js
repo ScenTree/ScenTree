@@ -966,11 +966,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (the_pro_infos) {
         // built the JSON array from an aray of strings
   for (let an_pro_info of the_pro_infos) {
-    if (! window.document.jsdom_reader) {
-      var the_pro_info = JSON.parse(an_pro_info);
-    } else {
-      var the_pro_info = an_pro_info;
-    };
+    //if (! window.document.jsdom_reader) {
+    var the_pro_info = JSON.parse(an_pro_info);
+    //} else {
+    //  var the_pro_info = an_pro_info;
+    //};
     the_new_pro_infos.push(the_pro_info);
   };
     };
