@@ -217,7 +217,9 @@ html, body {
 ###########RGPD############
 #########################*/
 .textRGPD {
-   text-align: justify 
+   text-align: justify;
+   margin-top: 2%;
+
 }
 .boutonRGPD {
     text-align: center;
