@@ -1409,10 +1409,6 @@ $("#partenaireCinquiemeSens").on("show.bs.modal", function() {
     $("#lesCollaborateurs").modal("hide");
 });
 
-$("#close_you_can_zoom").on('click', function() {
-    $('#you_can_zoom').css({"display" : "none"});
-});
-
 $(".save_map_status_on_leaving").on("click", function() {
     if (map) {
   save_map_status_inside_cookies(map);
