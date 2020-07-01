@@ -218,8 +218,11 @@ html, body {
 #########################*/
 .textRGPD {
    text-align: justify;
-   margin-top: 2%;
-
+   margin-top: 4%;
+}
+img.cookiesimg {
+    max-height: 10em;
+    max-width: 10em;
 }
 .boutonRGPD {
     text-align: center;
@@ -248,6 +251,12 @@ html, body {
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
+@media screen and (max-width: 767px) {
+#RGPD_warning {
+  max-height: 30%;
+}
+}
+
 #closevideo {
   position:absolute;
   right:-20px;
