@@ -217,14 +217,17 @@ html, body {
 ###########RGPD############
 #########################*/
 .textRGPD {
-   text-align: justify 
+    text-align: justify;
+    font-size: 0.9em;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 .boutonRGPD {
     text-align: center;
     margin-top: 1em;
 }
 .NONRGPD {
-    font-style: 50%;
+    font-size: 80%;
 }
 @keyframes RGPD_animation {
   0%   {bottom: -100px;}
