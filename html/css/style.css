@@ -221,6 +221,7 @@ html, body {
 }
 .boutonRGPD {
     text-align: center;
+    margin-top: 1em;
 }
 .NONRGPD {
     font-style: 50%;
