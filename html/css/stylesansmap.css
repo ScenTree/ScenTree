@@ -3,40 +3,41 @@ html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 /* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'520';}
-.timeline ul li:nth-child(2):before{content:'512';}
+.timeline ul li:nth-child(1):before{content:'525';}
+.timeline ul li:nth-child(2):before{content:'520';}
 .timeline ul li:nth-child(3):before{content:'512';}
-.timeline ul li:nth-child(4):before{content:'504';}
-.timeline ul li:nth-child(5):before{content:'500';}
+.timeline ul li:nth-child(4):before{content:'512';}
+.timeline ul li:nth-child(5):before{content:'504';}
 .timeline ul li:nth-child(6):before{content:'500';}
-.timeline ul li:nth-child(7):before{content:'496';}
+.timeline ul li:nth-child(7):before{content:'500';}
 .timeline ul li:nth-child(8):before{content:'496';}
-.timeline ul li:nth-child(9):before{content:'488';}
-.timeline ul li:nth-child(10):before{content:'480';}
-.timeline ul li:nth-child(11):before{content:'471';}
-.timeline ul li:nth-child(12):before{content:'464';}
-.timeline ul li:nth-child(13):before{content:'456';}
-.timeline ul li:nth-child(14):before{content:'448';}
-.timeline ul li:nth-child(15):before{content:'440';}
-.timeline ul li:nth-child(16):before{content:'432';}
-.timeline ul li:nth-child(17):before{content:'426';}
+.timeline ul li:nth-child(9):before{content:'496';}
+.timeline ul li:nth-child(10):before{content:'488';}
+.timeline ul li:nth-child(11):before{content:'480';}
+.timeline ul li:nth-child(12):before{content:'471';}
+.timeline ul li:nth-child(13):before{content:'464';}
+.timeline ul li:nth-child(14):before{content:'456';}
+.timeline ul li:nth-child(15):before{content:'448';}
+.timeline ul li:nth-child(16):before{content:'440';}
+.timeline ul li:nth-child(17):before{content:'432';}
 .timeline ul li:nth-child(18):before{content:'426';}
-.timeline ul li:nth-child(19):before{content:'419';}
-.timeline ul li:nth-child(20):before{content:'413';}
+.timeline ul li:nth-child(19):before{content:'426';}
+.timeline ul li:nth-child(20):before{content:'419';}
 .timeline ul li:nth-child(21):before{content:'413';}
-.timeline ul li:nth-child(22):before{content:'406';}
-.timeline ul li:nth-child(23):before{content:'398';}
-.timeline ul li:nth-child(24):before{content:'391';}
+.timeline ul li:nth-child(22):before{content:'413';}
+.timeline ul li:nth-child(23):before{content:'406';}
+.timeline ul li:nth-child(24):before{content:'398';}
 .timeline ul li:nth-child(25):before{content:'391';}
-.timeline ul li:nth-child(26):before{content:'384';}
-.timeline ul li:nth-child(27):before{content:'379';}
-.timeline ul li:nth-child(28):before{content:'372';}
+.timeline ul li:nth-child(26):before{content:'391';}
+.timeline ul li:nth-child(27):before{content:'384';}
+.timeline ul li:nth-child(28):before{content:'379';}
 .timeline ul li:nth-child(29):before{content:'372';}
-.timeline ul li:nth-child(30):before{content:'365';}
+.timeline ul li:nth-child(30):before{content:'372';}
 .timeline ul li:nth-child(31):before{content:'365';}
 .timeline ul li:nth-child(32):before{content:'365';}
 .timeline ul li:nth-child(33):before{content:'365';}
 .timeline ul li:nth-child(34):before{content:'365';}
+.timeline ul li:nth-child(35):before{content:'365';}
 
 p {
   font-size: 0.8em;
