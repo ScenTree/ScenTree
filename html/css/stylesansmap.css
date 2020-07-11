@@ -1,6 +1,7 @@
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 /* assign numbering*/
 .timeline ul li:nth-child(1):before{content:'525';}
 .timeline ul li:nth-child(2):before{content:'520';}
@@ -43,6 +44,9 @@ p {
 }
 .maskedtitle {
   font-size: 1em;
+}
+.slogan{
+  font-size:0.75em;
 }
 h4 {
   font-size: 1em;
