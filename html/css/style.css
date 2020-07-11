@@ -190,7 +190,6 @@ html, body {
 }
 }
 
-
 .m-top-40 {
     margin-top: 20vh;
 }
@@ -270,7 +269,9 @@ html, body {
 .logomenu:hover{
     transform: scale(1.1);
 }
-
+.logostandards:hover{
+    transform: scale(1.1);
+}
 #menu-block-sm {
    height: 60px;
    float: top;
