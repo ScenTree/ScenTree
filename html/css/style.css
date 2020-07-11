@@ -9,8 +9,8 @@ html, body {
   z-index: 1;
 }
 .correctspacebug {
-  min-height: 23em;
-  max-height: 23em;
+  min-height: 22em;
+  max-height: 22em;
 }
 .lienarticlereglementation {
   color: grey; 
