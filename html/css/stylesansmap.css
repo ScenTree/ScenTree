@@ -46,22 +46,17 @@ p {
 .maskedtitle {
   font-size: 1em;
 }
-.slogan{
-  font-size:0.75em;
-}
-@media screen and (min-width: 1400px) {
-.slogan {
-  font-size:1.2em;
-}
-.correctspacebug {
-  min-height: 19.5em;
-  max-height: 19.5em;
-}
-}
 .correctspacebug {
   min-height: 5em;
   max-height: 5em;
 }
+.slogan{
+  font-size:0.75em;
+}
+@media screen and (min-width: 1400px) {
+
+}
+
 h4 {
   font-size: 1em;
 }
@@ -544,6 +539,13 @@ caption {
 .pagederoulante {
   height: 92%;
   overflow-y: scroll;
+}
+.slogan {
+  font-size:1.2em;
+}
+.correctspacebug {
+  min-height: 19.5em;
+  max-height: 19.5em;
 }
 .img1allergene{
   float: right;
