@@ -547,6 +547,14 @@ caption {
 /*#########################
 #######RESPONSIVE##########
 #########################*/
+@media screen and (min-width: 1400px) {
+.boutonclickable {
+    color: black;
+    font-size: 0.9vw;
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline;
+}
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
 .pagederoulante {
