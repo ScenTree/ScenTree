@@ -9,8 +9,8 @@ html, body {
   z-index: 1;
 }
 .correctspacebug {
-  min-height: 21.5em;
-  max-height: 21.5em;
+  min-height: 21em;
+  max-height: 21em;
 }
 .slogan{
   font-size: 1.2em;
