@@ -54,7 +54,13 @@ p {
   font-size:0.75em;
 }
 @media screen and (min-width: 1400px) {
-
+.slogan {
+  font-size:1.2em;
+}
+.correctspacebug {
+  min-height: 19.5em;
+  max-height: 19.5em;
+}
 }
 
 h4 {
@@ -539,13 +545,6 @@ caption {
 .pagederoulante {
   height: 92%;
   overflow-y: scroll;
-}
-.slogan {
-  font-size:1.2em;
-}
-.correctspacebug {
-  min-height: 19.5em;
-  max-height: 19.5em;
 }
 .img1allergene{
   float: right;
