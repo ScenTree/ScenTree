@@ -566,8 +566,8 @@ th, .table th, td, .table td{
 
 @media screen and (min-width: 1500px) {
 .correctspacebug {
-  min-height: 26em;
-  max-height: 26em;
+  min-height: 25.5em;
+  max-height: 25.5em;
 }
 .text-in-color-brown {
   font-size: 2em;
