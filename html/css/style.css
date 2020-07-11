@@ -1,354 +1,841 @@
-<!DOCTYPE html>
-<html class="h-100">
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<link rel="canonical" href="https://www.scentree.co/_/support.html">
-<!--ADD FAVICON -->
-<link rel="icon" type="image/png" href="../img/logotfav.png" />
-<!-- Titre de la page -->   
-<title lang="fr">ScenTree - Ils nous soutiennent - They Support us</title>
-<title lang="en">ScenTree - Ils nous soutiennent - They Support us</title>
-<!--Description Google-->
-<meta name="description" content="Chaque semaine, des séances d'olfaction sont organisées afin d'évaluer et de classifier les nouveaux ingrédients de parfum de la plateforme. Les participants à ces séances sont listés ici. Nous les remercions chaleureusement pour leur implication et leur gentillesse."  />
-<!-- Bootstrap -->
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+html, body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#menu-block {
+  z-index: 2;
+  min-height: 500px;
+}
+#mapblock {
+  z-index: 1;
+}
+.correctspacebug {
+  min-height: 5em;
+  max-height: 5em;
+}
+.slogan{
+  font-size: 0.75em;
+}
 
-<!-- Fichier Style CSS -->
-<link href="../css/stylesansmap.css" rel="stylesheet" />
+.lienarticlereglementation {
+  color: grey; 
+  font-size: 0.9em;
+}
+.fab {
+  font-size: 120%;
+  color: #494747;
+}
+.notifi1 {
+  color: red;
+}
+.notifi2 {
+  color: red;
+}
+.notifi3 {
+  color: red;
+  position: absolute;
+  z-index: 1;
+  right: 7%;
+  top: 5%;
+}
+.notifi4 {
+  color: red;
+}
+.dropdown-toggle:after { 
+  content: none 
+}
+.interpop{
+  color: #6586B4;
+}
+.max-height-200px {
+  max-height: 200px;
+}
+.max-height-100px {
+  max-height: 100px;
+}
+.max-height-70px {
+  max-height: 70px;
+}
+.max-height-30px {
+  max-height: 30px;
+}
+.max-height-25px {
+  max-height: 25px;
+}
+.max-height-20px {
+  max-height: 20px;
+}
+.max-height-15px {
+  max-height: 15px;
+}
+.max-height-10px {
+  max-height: 10px;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(90vh - 320px);
+}
+.scrollbar-inside2 {
+  overflow-y: auto;
+  max-height: calc(125vh - 320px);
+}
+.text-size-20px {
+  font-size: 20px;
+}
+.text-size-18px {
+  font-size: 18px;
+}
+.text-size-16px {
+  font-size: 16px;
+}
+.text-size-14px {
+  font-size: 14px;
+}
+.text-size-11px {
+  font-size: 11px;
+}
+.text-size-1-1vw {
+ font-size: 1.1vw; 
+}
+.text-size-1-3vw {
+ font-size: 1.3vw; 
+}
+.text-my-grey {
+    color : grey;
+}
+.commercialize{
+  font-size: 0.9em;
+  display: none;
+}
 
-<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-<!-- leaflet -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-crossorigin=""/>
-
-<!-- Hotjar Tracking Code for www.scentree.co -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:1894594,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
-</head>
-
-<body class="d-flex flex-column h-100">
-<header class="d-md-none">
-<!-- fixed navbar -->
-<nav class="navbar  fixed-top  fillright">
-  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="../_/menu.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../img/logon.png" alt="ScenTree, la nouvelle encyclopédie des ingrédients de parfum." title="ScenTree, la nouvelle encyclopédie des ingrédients de parfum. "></a>
-<div class="dropdown">
-  <a href="../_/index.html"><i class="fas fa-reply" style="color: black;"></i></a>
-</div>
-<div class="dropdown pl-2">
-  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="fas fa-bars"></i>
-  </button>
-  <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="dropdownMenuButton-sm">
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" checked /><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
-      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" checked /><img src="../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
-    </div>
-    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
-    <a class="dropdown-item btn  save_map_status_on_leaving text-in-color-brown they_support_us__link" role="button" href="../_/support.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
-    <a class="dropdown-item btn  save_map_status_on_leaving text-in-color-brown the_news__link" role="button" href="../_/nouveaute.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
-    <div class="dropdown-divider"></div>
-    <a class="dropdown-item btn save_map_status_on_leaving petitbtn" role="button" href="/newsletter/newsletter/subscribe"><span lang="fr">Newsletter</span><span lang="en">Newsletter</span></a>
-    <a class="dropdown-item btn save_map_status_on_leaving petitbtn" role="button" href="../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
-    <a class="dropdown-item btn save_map_status_on_leaving petitbtn" role="button" href="../_/Sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
-    <a class="dropdown-item btn save_map_status_on_leaving petitbtn mb-1" role="button" href="../_/legal.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
-    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank" title="Découvrez notre page Linkedin"></a>
-    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank" title="Découvrez notre page Instagram"></a>
-  </div>
-  <span><i class="fas fa-info-circle notifi3"></i></span>
-</div>
-</nav>
-</header>
-
-
-<!-- Class container corresponds à l'ensemble de la page-->
-<main role="main" class="flex-shrink-0 h-100">
-
-<div class="container-fluid h-100 PageEntiere">
-<div class="row h-100">
-
-<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
-
-<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
-<div class="container-fluid">
-
-<div class="row align-items-start">
-  <div class="clearfix w-100">
-    <button class="btn to_english_button float-right" type="button"><img src="../img/anglais.png" alt="ScenTree in english" class="imgen">
-    </button>
-    <button class="btn text-in-color-brown float-right px-0">/</button>
-    <button class="btn to_french_button float-right" type="button"><img src="../img/france.png" alt="ScenTree en français"  class="imgfr"></button>
-  </div>
-  <div class="col-12 text-center">
-      <a class="btn save_map_status_on_leaving" role="button" href="../_/menu.html">
-        <img class="img-fluid logomenu boutonclickable pl-2 d-block max-height-120px" src="../img/logon.png" alt="ScenTree, la nouvelle encyclopédie des ingrédients de parfum." title="ScenTree, la nouvelle encyclopédie des ingrédients de parfum. ">
-      </a>
-  </div>
-</div>
-
-<div class="col-12 mb-2 text-center" style="vertical-align: middle; ">
-  <h1 class="d-none d-sm-none d-md-block slogan">Exploring the branch of perfumed ingredients</h1>
-</div>
-
-<div class="row align-items-start text-center mt-3 mb-3">
-  <!--Recherche -->
-  <a class="btn text-in-color-brown" role="button" href="../_/index.html"><span lang="fr"><b>Revenir à la classification </b></span><span lang="en"><b>Come back to the classification </b></span></a>
-</div>
-
-<div class="row align-items-start text-center">
-  <!--Boutons support et news -->
-  <div class="col">
-    <a class="btn mt-3 mb-3 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/support.html"><span lang="fr"><b>Ils nous soutiennent   </b></span><span lang="en"><b>They support us  </b></span><span><i class="fas fa-info-circle notifi1"></i></span></a>
-    <br>
-    <a class="btn mt-1 mb-2 text-in-color-brown save_map_status_on_leaving" role="button" href="../_/nouveaute.html"><span lang="fr"><b>Les nouveautés !   </b></span><span lang="en"><b>News from ScenTree !  </b></span><span><i class="fas fa-info-circle notifi2"></i></span></a>
-  </div>    
-</div>
-
-<div class="row correctspacebug"></div>
-
-<div class="row h-15 align-items-end">
-  <div class="container-fluid text-center">
-  <div class="col-12 p-0 mb-1">
-        <a class="col-12  mt-1 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="/newsletter/newsletter/subscribe">
-          <span lang="fr">Newsletter</span><span lang="en">Newsletter</span>
-        </a>
-        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/Sources.html">
-          <span lang="fr">Sources</span><span lang="en">Sources</span>
-        </a>
-        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/contacts.html">
-        <span lang="fr">Contacts</span><span lang="en">Contacts</span>
-        </a>
-        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/legal.html">
-         <span lang="fr">Mentions Légales</span><span lang="en">Legal Mentions</span>
-        </a>
-      <div class="col-12 mb-1 p-0 text-center">
-          <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank" title="Découvrez notre page Linkedin"></a>
-          <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank" title="Découvrez notre page Instagram"></a>
-      </div>
-    </div>
-   <div class="copyright row  d-none d-sm-none d-md-block">
-        <sup>©</sup> Copyright 2019-2020 |  ScenTree SAS  | All Rights Reserved |
-   </div>
-  </div>
-</div>
-
-</div>
-</div>
-
-
-<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
-
-
-<div id="RGPD_warning" class="col-sm-10 col-md-10 col-lg-10 col-xl-10">
-<div id="blanc1" class="row blockrgpd"></div>
-<div id="contenant" class="row">
-<div class=" col-offset-1 col-9 textRGPD" >
-  <p lang="fr"><i>Notre site internet utilise des cookies à des fins de statistiques, de perfomances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</i></p>
-  <p lang="en"><i>Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</i></p>
-</div> 
-<div class=" col-offset-2 col-3 boutonRGPD">
-  <button class="btn btn-success" id="cookie_please">
-    <span lang="fr">Accepter et continuer</span><span lang="en">Accept and continue</span>
-  </button><button class="btn btn-default btn-md NONRGPD" id="no_cookie">
-    <span lang="fr">Non</span><span lang="en">No</span>
-  </button>
-</div>
-</div>
-<div id="blanc1" class="row blockrgpd"></div>
-</div>
-<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
-
-<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
-<div class="col-12 text-center gros_titre">
-  <h1 class="gros_titre text-in-color-brown"><span lang="fr">LES SOUTIENS DU PROJET</span><span lang="en">THEY SUPPORT US</span></h1>
-</div>
-
-<hr>
-
-<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
-
-<p class="mt-3">
-  <span lang="fr"> Le projet <i>ScenTree</i> a été imaginé et conçu entre 2017 et 2020. Initialement imaginé afin de réunir et d’harmoniser nos connaissances sur les matières premières, <i>ScenTree</i> s’est rapidement transformé en ce que vous voyez aujourd’hui. Après 2 ans de développement du logiciel et de la base de données, nous sommes fiers de vous présenter notre travail. </span>
-  <span lang="en"> <i>ScenTree</i> was imagined and conceived between 2017 and 2020. Initially, the aim was to gather and harmonize our knowledge regarding raw materials. ScenTree quickly became what you see today. After two years of developing the software and the database, we are proud to show our work today. </span>
-</p>
-<p class="mt-3">
-  <span lang="fr"> Ce projet n’aurait jamais pu voir le jour sans le soutien particulier de nombreuses personnes. Nous tenions à les remercier ici : </span>
-  <span lang="en"> This project could not see the light without the particular support of few people. We wish to thank them here :</span>
-</p>
-
-<div class="row">
-  <div class="col-12 col-xs-12">
-    <div class="row"> 
-      <div class="col-6 col-xs-12 entreprise">
-        <div class="mt-3 m-0 p-0 text-center">
-          <h2 class="text-center" style="font-size: 1em;">
-            <span lang="fr"><b class="bplus">Sociétés partenaires</b> </span>
-            <span lang="en"><b class="bplus">Partner companies</b> </span>
-          </h2>
-        </div>
-
-        <!--
-        <div class="mt-3 m-0 p-0 col-12 sponsors">
-          <a class="btn offset-1 col-4 logopremium" role="button" href="../supporters/[YOUR COMPANY - PREMIUM].html">
-            <img class="img-fluid boutonclickable" src="../img/sponsors/Givaudan.png" alt="le logo de Cinquième Sens">
-          </a>
-          <a class="btn offset-2 col-4 logopremium" role="button" href="../supporters/[YOUR COMPANY - PREMIUM].html">
-            <img class="img-fluid boutonclickable" src="../img/sponsors/Givaudan.png" alt="le logo de Cinquième Sens">
-          </a>
-          Débloquer le deuxième Premium sur la première ligne
-          <a class="btn offset-2 col-4 logopremium" role="button" href="../supporters/cinquieme_sens.html">
-            <img class="img-fluid boutonclickable" src="../img/sponsors/Logo-Vecto-5S-20x20.png" alt="le logo de Cinquième Sens">
-          </a>
-        </div>
-        <!--Débloquer une ligne de standard-->
-        <div class="mt-3 m-0 p-0 col-12 sponsors">
-          <a class="btn offset-2 col-3 logostandards" role="button" href="../supporters/cinquieme_sens.html">
-            <img class="img-fluid boutonclickable" src="../img/sponsors/Logo-Vecto-5S-20x20.png" alt="le logo de Cinquième Sens">
-          </a>
-          <a class="btn offset-1 col-4 logostandards" role="button" href="../supporters/ISIPCA.html">
-            <img class="img-fluid boutonclickable" src="../img/sponsors/isipca.png" alt="le logo d'ISIPCA'">
-          </a>
-          <!--<a class="btn offset-1 col-2 logostandards" role="button" href="../supporters/cinquieme_sens.html">
-            <img class="img-fluid boutonclickable" src="../img/sponsors/Logo-Vecto-5S-20x20.png" alt="le logo de Cinquième Sens">
-          </a>-->
-        </div>
-      </div>
-
-      <div class="col-6 col-xs-12 particulier">
-        <h2 class="mt-3 m-0 p-0 text-center" style="font-size: 1em;">
-          <span lang="fr"><b class="bplus">Professionnels ayant participé à la base de données ScenTree</b> </span>
-          <span lang="en"><b class="bplus">Professionals who participated to the ScenTree database :</b> </span>
-        </h2>
-        <p>
-          <!--POUR TOUT LES NOUVEAUX ->  class="nouveausupporter"  -->
-          <ul style="font-size: 0.8em;">
-            <li>AMIEL Fanny -<span lang="fr" class="profession"> (Etudiante à l'ESP)</span><span lang="en" class="profession"> (ESP student)</span></li>
-            <li>ASTORRI Marc -<span lang="fr" class="profession"> (Ancien Apprenti Parfumeur)</span><span lang="en" class="profession"> (Former Perfumer Apprentice)</span></li>
-            <li>BAKOUCHE Stéphanie -<span lang="fr" class="profession"> (Parfumeur indépendante chez SENSABA)</span><span lang="en" class="profession"> (Perfumer Freelance at SENSABA)</span></li>
-            <li>BAUDRY Carine -<span lang="fr" class="profession"> (Expert thé et infusion - Enseignante olfaction/arômes à l'ISIPCA)</span><span lang="en" class="profession"> (Tea and infusion expert - Teacher olfaction/flavours at ISIPCA)</span></li>
-            <li>BELLOT Raphaël -<span lang="fr" class="profession"> (Apprenti Chimie Analytique Fine Fragrance)</span><span lang="en" class="profession"> (Apprentice in Fine Fragrance Analytical Chemistry)</span></li>
-            <li>BUCHANAN Jessica -<span lang="fr" class="profession"> (Parfumeur indépendant chez 1000 Flowers)</span><span lang="en" class="profession"> (Perfumer Freelance at 1000 Flowers)</span></li>
-            <li>CERVI Yohan -<span lang="fr" class="profession"> (Directeur de la création chez MAELSTROM Parfumeurs)</span><span lang="en" class="profession"> (Director of Creation at MAELSTROM Parfumeurs)</span></li>
-            <li>DECOLIN Clémence -<span lang="fr" class="profession"> (Evaluatrice Fine Fragrance)</span><span lang="en" class="profession"> (Fine Fragrance Evaluator)</span></li>
-            <li>DHORME Morgan -<span lang="fr" class="profession"> (Parfumeur Créateur – Chidho Cosmétiques)</span><span lang="en" class="profession"> (Perfumer at Chidho Cosmétiques)</span></li>
-            <li>DURIEZ Jean-Michel -<span lang="fr" class="profession"> (Parfumeur Créateur – Parfums Jean-Michel Duriez Paris)</span><span lang="en" class="profession"> (Perfumer at Parfums Jean-Michel Duriez Paris)</span></li>
-            <li>FALIU Juliette -<span lang="fr" class="profession"> (Consultante/Rédactrice – Le Nez Bavard)</span><span lang="en" class="profession"> (Consultant and Writer at Le Nez Bavard)</span></li>
-            <li>FATTAL A.Elie -<span lang="fr" class="profession"> (Evaluateur Fine Fragrance Junior)</span><span lang="en" class="profession"> (Junior Evaluator Fine Fragrance)</span></li>
-            <li>FIZET-PREVOT Hélène -<span lang="fr" class="profession"> (Parfumeur indépendant chez HF PERFUMES)</span><span lang="en" class="profession"> (Perfumer Freelance at HF PERFUMES)</span></li>
-            <li>FRACHON Axelle -<span lang="fr" class="profession"> (Formatrice Parfum)</span><span lang="en" class="profession"> (Perfume Trainer)</span></li>
-            <li>HAGUIER Mathilde -<span lang="fr" class="profession"> (Parfumeur Junior chez IPRA Fragrances)</span><span lang="en" class="profession"> (Junior perfumer at IPRA Fragrances)</span></li>
-            <li>JOUANILLOU JOSUE -<span lang="fr" class="profession"> (Etudiant à l'ESP)</span><span lang="en" class="profession"> (ESP student)</span></li>
-            <li>LAMBERT Hanna -<span lang="fr" class="profession"> (Apprentie Parfumeur Analyste chez Only Fragrance)</span><span lang="en" class="profession"> (Analyst Perfumer Apprentice at Only Fragrance)</span></li>
-            <li>LE FLEM Gabriel -<span lang="fr" class="profession"> (Chargé d'études)</span><span lang="en" class="profession"> (Study leaders)</span></li>
-            <li>LEMONNIER Aymeric -<span lang="fr" class="profession"> (Apprenti parfumeur chez MAELSTROM Parfumeurs)</span><span lang="en" class="profession"> (Perfumer intern at MAELSTROM Parfumeurs)</span></li>
-            <li>LERIOUX PATRIS Joelle -<span lang="fr" class="profession"> (Parfumeur indépendant. Fondatrice de Le parfumeur français)</span><span lang="en" class="profession"> (Independant Perfumer. Founder of Le Parfumeur Français)</span></li>
-            <li>MORVAN Axel -<span lang="fr" class="profession"> (Parfumeur Analyste)</span><span lang="en" class="profession"> (Analyst Perfumer)</span></li>
-            <li>NORMAND Sophie -<span lang="fr" class="profession"> (Rédactrice - Formatrice Parfum)</span><span lang="en" class="profession"> (Writer - Perfume Trainer)</span></li>
-            <li>OLCZYK Nicolas -<span lang="fr" class="profession"> (Expert Parfum chez Parfums, Tendances & Inspirations)</span><span lang="en" class="profession"> (Fragrance Expert at Parfums, Tendances & Inspirations)</span></li>
-            <li>OROFINO Delphine -<span lang="fr" class="profession"> (Marketing de la Parfumerie et des Cosmétiques)</span><span lang="en" class="profession"> (Marketing of perfumes and cosmetics)</span></li>
-            <li>PILGEUN Kim -<span lang="fr" class="profession"> (Elève au GIP / Evaluation Fine Fragrance chez Symrise)</span><span lang="en" class="profession"> (GIP Grasse / Symrise Paris FF evaluation)</span></li>
-            <li>PROIA Stéphane -<span lang="fr" class="profession"> (Evaluateur Junior)</span><span lang="en" class="profession"> (Junior Evaluator)</span></li>
-            <li>RAYNAL Sabine - <span lang="fr" class="profession"> (Enseignante à l’ISIPCA)</span><span lang="en" class="profession"> (Teacher at ISIPCA)</span></li>
-            <li>REVILLARD Patrice - <span lang="fr" class="profession"> (Co-fondateur et Parfumeur chez MAELSTROM Parfumeurs)</span><span lang="en" class="profession"> (Co-Founder and Perfumer at MAELSTROM Parfumeurs)</span></li>
-            <li>SARICA Jordan - <span lang="fr" class="profession"> (Apprenti Parfumeur chez Accord & Parfum)</span><span lang="en" class="profession"> (Perfumer intern at Accord & Parfum)</span></li>
-            <li>TAMEN Jeremy -<span lang="fr" class="profession"> (Formateur expert dans les Fragrances du thé)</span><span lang="en" class="profession"> (Trainer - Tea fragrances expert)</span></li>
-            <li>TESSON Olivier -<span lang="fr" class="profession"> (Fondateur d'Olivier Parfumerie (Youtube/Instagram) )</span><span lang="en" class="profession"> (Founder of Olivier Parfumerie (Youtube/Instagram) )</span></li>
-            <li>TRANI Christelle -<span lang="fr" class="profession"> (Parfumeur chez IPRA Fragrances)</span><span lang="en" class="profession"> (Perfumer at IPRA Fragrances)</span></li>
-            <li>VILLEPREUX Céline -<span lang="fr" class="profession"> (Experte Matières Premières – Firmenich)</span><span lang="en" class="profession"> (Raw Materials Expert at Firmenich)</span></li>
-            <li class="nouveausupporter">ZAROKIAN Cécile -<span lang="fr" class="profession"> (CEO et Parfumeur indépendant chez Cécile Zarokian Parfumeur)</span><span lang="en" class="profession"> (CEO / Independant perfumer at Cécile Zarokian Perfumer)</span></li>
-            <li class="nouveausupporter">ZIMER Pauline -<span lang="fr" class="profession"> (Apprentie parfumeur chez Cécile Zarokian Parfumeur)</span><span lang="en" class="profession"> (Trainee Parfumer at Cécile Zarokian Perfumer)</span></li>
-          </ul>
-        </p>
-        <p class="mt-3 m-0 p-0 text-center">
-          <span lang="fr"><b>Ils parlent de ScenTree : </b> </span>
-          <span lang="en"><b>They talk about ScenTree :</b> </span>
-        </p>
-          <ul style="font-size: 0.8em;">
-            <li><a class="interpop" href="https://www.nez-larevue.fr/magazine/entretiens/scentree-tout-le-monde-a-besoin-dune-source-fiable-pour-les-matieres-premieres-de-parfumerie/" target="_blank">Nez-La Revue</a></li>
-            <li><a class="interpop" href="https://www.fragrantica.fr/news/Scentree-un-outif-de-classification-d%C3%A9di%C3%A9-aux-mati%C3%A8res-premi%C3%A8res-3224.html" target="_blank">Fragrantica</a></li>
-            <li><a class="interpop" href="https://www.perfumerflavorist.com/fragrance/application/multiuse/ScenTree-Launches-English-Interactive-Fragrance-Material-Tool.html" target="_blank">Perfumer & Flavorist</a></li>
-            <li><a class="interpop" href="http://espritdeparfum.com/scentree-plateforme-dinformations-sur-les-matieres-premieres/" target="_blank">Sylvaine Delacourte</a></li>
-            <li><a class="interpop" href="https://dunmotalautre.com/2019/11/14/innovation-un-arbre-pour-les-matieres-premieres-interview-de-leurs-createurs/" target="_blank">D'un mot à l'autre</a></li>
-          </ul>
-        <p class="mt-3 m-0 p-0 text-center">
-          <span lang="fr"><b>Développement informatique</b> </span>
-          <span lang="en"><b>Informatics development</b> </span>
-        </p>
-          <ul style="font-size: 0.8em;">
-            <li>JACQUELINET Julien </li>
-            <li>BAUD Maxime</li>
-            <li>DE VIENNE Damien</li>
-          </ul>
-        <p class="mt-3 m-0 p-0 text-center">
-          <span lang="fr"><b>Responsable mentions légales et juridiques</b> </span>
-          <span lang="en"><b>Legal and juridical mentions</b> </span>
-        </p>
-          <ul style="font-size: 0.8em;">
-            <li>VASKOU Marie</li>
-          </ul>
-        <p class="mt-3 m-0 p-0 text-center">
-          <span lang="fr"><b>Graphismes, visuels et <a href="video.html">vidéo </a></b> </span>
-          <span lang="en"><b>Graphism, visuals and <a href="video.html">video </a></b> </span>
-        </p>
-          <ul style="font-size: 0.8em;">
-            <li>ERCOLANELLI Clara (Logo)</li>
-            <li>SHOGUN SHOOTER (Vidéo)</li>
-          </ul>
-      </div>
-    </div>
-  </div>  
-</div>
-</div>
-
-</div>
-</div>
-</div>
-</main>
+/*#########################
+#######MODAL VIDEO#########
+#########################*/
+.titlemodalvideo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.titlemodalvideo2{
+  font-size: 1em;
+  font-weight: normal;
+  text-align: justify;
+}
 
 
 
+/*#########################
+###########MAP#############
+#########################*/
+#map {
+    min-height: 500px;
+    min-width: 200px;
+}
+.fill2{
+    /*z-index: 5;*/
+    background-color: white;
+}
 
-<!--############################################### -->
-<!--############## PARTIE JAVASCRIPT ############## --> 
-<!--############################################### -->
+/*#########################
+## MES STYLES RESPONSIVES #
+#########################*/
+@media screen and (max-width: 767px) {
+.h-md-85 {
+    height: 90%;
+    position: absolute;
+    bottom: 0px;
+}
+.h-60px-md-100pc {
+   height: 45px;
+}
+.h-80pc-md-100pc {
+    height: calc(100vh - 45px);
+}
+.h-100-with-padding-60px-before-md {
+   height: 100%;
+   padding-top: 60px;
+}
+.PageEntiere {
+    background-color: white;
+    padding-top: 60px;
+}
+.font-italic-before-md {
+  font-style: italic;
+}
+.text-center-before-md {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.logomenu{
+    max-height: 40px;
+}
+}
+@media screen and (min-width: 768px) {
+.h-md-85 {
+    height: 100%;
+}
+.h-60px-md-100pc {
+    height: 100%;
+}
+.h-80pc-md-100pc {
+    height: 100%;
+}
+.h-100-with-padding-60px-before-md {
+   height: 100%;
+}
+.PageEntiere {
+    background-color: white;
+}
+}
 
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
-<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
-<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+.m-top-40 {
+    margin-top: 20vh;
+}
+.m-top-90 {
+    margin-top: 90%;
+}
+.m-top-15-percent {
+    margin-top: 15%;
+}
+.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 10px;
+}
+/*#########################
+###########RGPD############
+#########################*/
+.textRGPD {
+    text-align: justify;
+    font-size: 0.9em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.boutonRGPD {
+    text-align: center;
+    margin-top: 1em;
+}
+.NONRGPD {
+    font-size: 80%;
+}
+@keyframes RGPD_animation {
+  0%   {bottom: -100px;}
+  100% {bottom: 40%;}
+}
+#RGPD_warning {
+    display: none;
+    position: absolute;
+    bottom: 40%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+    z-index: 9999;
+    background-color: #FFF8C2;
+    animation-name: RGPD_animation;
+    animation-duration: 2s;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+#closevideo {
+  position:absolute;
+  right:-20px;
+  top:0;
+  z-index:999;
+  font-size:2rem;
+  font-weight: normal;
+  opacity:1;
+}
 
-<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-crossorigin=""></script>
+/*#########################
+#######RUBAN DROITE########
+#########################*/
+.boutonclickable {
+    cursor:pointer;
+}
+.fillright{
+    background-color:#FBE5D6FF;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
 
 
-<script src="../js/main.js" type="text/javascript"></script>
+/*##################################################
+############ZONE DU MENU ET LOGO####################
+##################################################*/
+.logomenu:hover{
+    transform: scale(1.1);
+}
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
-<script>
-if (Cookies.get('RGPD_no_cookie') == -1) {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-140166656-1');
+#menu-block-sm {
+   height: 60px;
+   float: top;
+}
+
+.text-in-color-brown {
+  color: #D64E26;
+  font-size: 1em;
+}
+
+/*##################################################
+############ZONE DE LA RECHERCHE####################
+##################################################*/
+
+.searchinput-sm {
+  width: 300px;
+  border: none;
+}
+
+.titrerecherche {
+    height:4%;
+    width: 100%;
+    text-decoration:underline;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+.searchinput::placeholder {
+  font-size: 1vw; 
+}
+.ui-autocomplete {
+    max-height:40%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position:absolute;
+} 
+.nom_de_l_ingredient {
+    text-transform: uppercase;
+    font-size: 85%;
+    color: black;
+}
+.synonymes {
+    font-size: 70%;
+    color: grey;
+}
+.numero_cas {
+    font-style: italic;
+    font-size: 65%;
+    color: black;
+}
+.ui-state-highlight { 
+    background: #FAE8BE !important;
+}
+.ui-state-active { 
+    background: #FFF7E4 !important;
+    border-color: #FAE8BE !important;
+}
+
+
+
+/*#########################
+###########IFRA############
+#########################*/
+table {
+  border: 1px solid black;
+  width: 100%;
+}
+th, .table th {
+    border: 1.5px solid black;
+    text-align: center;
+    height: 50%;
+    font-style: large;
+    background-color: #FBE5D6FF;
+}
+td, .table td {
+    border: 1px solid black;
+    text-align: center;  
+    vertical-align: middle;
+}
+
+.caption {
+    color : grey;
+    text-align: center;
+    font-style: italic;
+    caption-side: top;
+}
+.width-100-px {
+  width: 100px;
+}
+
+.IFRA-number {
+  white-space: nowrap;
+}
+
+.IFRA-show-nothing {
+  display: none;
 };
-</script>
-</body>
-</html>
+
+/*#########################
+###########MODAL###########
+#########################*/
+.modal-title1 {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.textdescripteurs {
+    font-size:small;
+}
+.my-modal {
+  background-color: #F2F2F2FF;
+}
+.my-modal-body {
+  font-size: small;
+  padding-top: 10px;
+}
+.nav-item {
+  white-space: nowrap;
+  font-weight: bold;
+  text-align: justify;
+}
+.iconetab {
+    size:small;
+    color: #C6BABA;
+}
+.item {
+  font-size: 14px;
+  font-weight: bold;
+}
+.textitem {
+  padding: 5px;
+  font-size:small;
+  font-weight: normal;
+}
+.textitem2 {
+  font-size:small;
+  font-weight: normal;
+}
+.textitem3 {
+  padding: 5px;
+  font-size:small;
+  font-style: italic;
+  font-weight: normal;
+}
+.imgmp {
+  max-width: 180px;
+  max-height: 180px;
+}
+.blockimg .imgmp {
+  max-width: 180px;
+  max-height: 180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.textitem-footer{
+  font-size:small;
+  text-align: center;
+}
+/*Couleur du texte des onglets*/
+.navbar-nav li a {
+  color: #818181;
+}
+.navbar-nav li.active a {
+  color: #D64E26;
+}
+
+@media screen and (max-width: 768px) {
+.modalheader-type {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  margin:0;
+}
+.modalheader-type2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.type {
+  display: none;
+}
+.textdescripteurs {
+    font-size:0.9em;
+    text-align: justify;
+}
+.item {
+  font-size: 0.9em;
+}
+.blockimg {
+  min-width: 100%;
+}
+.imgmp {
+  max-width: 180px;
+  max-height: 180px;
+}
+.textitem {
+  padding: 2px;
+  font-size:small;
+  font-weight: normal;
+}
+.lienarticlereglementation {
+  color: grey; 
+  font-size: 0.7em;
+}
+.textitem-footer {
+    font-size:0.7em;
+    text-align: center;
+    margin-bottom: 0;
+}
+.navbar-nav li a {
+  color: #D64E26;
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 0.8em;
+}
+th, .table th, td, .table td{
+    font-size: 0.7em;
+}
+.iconetab {
+  display: none !important;
+}
+.modal-title {
+    font-size: 15px; 
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+}
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(55vh - 45px);
+}
+.onglets {
+    font-size: 12px;
+}
+.panel-footer{
+    font-size:12px;
+}
+.sondage a{
+  color: #D64E26;
+}
+.petitbtn {
+  line-height: 1em;
+}
+.both_sponsors {
+  min-height: 100%;
+  max-height: 100%;
+}
+.premium_pros img {
+  min-height: 3em !important;
+  max-height: 3em !important;
+}
+.standard_pros img {
+  min-width: 3em !important;
+  max-width: 3em !important;
+  min-height: 3em !important;
+  max-height: 3em !important;
+}
+.moq-circle {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  size: 0.2em;
+}
+}
+
+
+@media screen and (min-width: 1400px) {
+h1 {
+   width: 100%;
+   font-style: bold;
+   font-size: 0.9vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+}
+.correctspacebug {
+  min-height: 19.5em;
+  max-height: 19.5em;
+}
+.slogan{
+  font-size: 1.2em;
+}
+.text-in-color-brown{
+  font-size: 1.2em;
+}
+.blanc2 {
+  height: 44%;
+}
+.block{
+    height: 100%;
+    text-align: center;
+    padding-top: 2%;
+}
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(105vh - 320px);
+}
+.space{
+    height:30%;
+}
+.boutonclickable {
+    color:black;
+    font-size: 0.9vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+h1 {
+   width: 100%;
+   font-style: bold;
+   font-size: 1.1vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+}
+.blanc2 {
+   height: 42%;
+}
+.block{
+    height: 72%;
+    text-align: center;
+}
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(102vh - 320px);
+}
+.space{
+    height:20%;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.1vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+}
+
+
+
+@media screen and (min-width: 990px) and (max-width: 1200px) {
+h1 {
+   width: 100%;
+   font-style: bold;
+   font-size: 1.1vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+}
+.blanc2 {
+   height: 42%;
+}
+#block{
+    height: 70%;
+    width: 40%;
+    text-align: center;
+}
+#block2{
+    height: 70%;
+    width: 60%;
+    text-align: center;
+}
+.boutons {
+    height: 10%;
+}
+.space{
+    height:20%;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.1vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+}
+
+@media screen and (min-width: 768px) and (max-width: 990px) {
+h1 {
+    width: 100%;
+   font-style: bold;
+   font-size: 1.3vw;
+   margin-top: 0%;
+   margin-bottom: 0%;
+   display: none;
+}
+.blanc2 {
+    height: 30%;
+}
+.space{
+    height: 10%;
+}
+.boutons {
+    height: 20%;
+}
+.block{
+    height: 70%;
+    text-align: center;
+}
+#searchclear {
+    display: none;
+}
+.searchinput {
+    border-radius: 7px;
+}
+.block{
+    height: 40%;
+    text-align: center;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.3vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
+}
+.close {
+    float: right;
+    size: 120%;
+    padding-right: 5%;
+}
+.Filiation{
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-style: italic;
+}
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.onglets {
+    font-size: 12px;
+}
+}
+
+
+/* PROs */
+.premium_pros img {
+   max-height: 5em;
+}
+.standard_pros img {
+  max-height: 5em;
+}
+
+.moq-circle {
+  display: none;
+}
+.with-relative-position {
+	position: relative;
+}
+.moq-default-color {
+  color: black;
+}
+.moq-0_5-color {
+	color: red;
+}
+.moq-1-color {
+        color: yellow;
+}
+.moq-5-color {
+        color: blue;
+}
+.moq-10-color {
+        color: green;
+}
+
+/* LANGUAGES */
+
+*:lang(fr) {
+    display: initial;
+}
+*:lang(en) {
+    display: initial;
+}
+
+/* YOU CAN ZOOM */
+#you_can_zoom {
+    display: none;
+    position: absolute;
+    width: 220px;
+    top: 3%;
+    right: 3%;
+    z-index: 999;
+    font-size: small;
+    color: #D64E26;
+    text-align: justify; 
+    border: 0.25rem solid;
+    border-color: #F0BEB0;
+    border-radius: 10px;
+}
+p.#you_can_zoom {
+    margin: 5%;
+}
+#close_you_can_zoom {
+    color: #D64E26;
+}
+
+#imgen #imgfr {
+    display: inline-block;
+    max-width: 10px;
+    max-height: 10px;
+}
