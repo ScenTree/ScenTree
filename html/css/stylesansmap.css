@@ -844,6 +844,9 @@ font-size: 10px;
     width: 100%;
     transform: translate(-50%, 0);
 }
+.NONRGPD{
+  font-size: 0.8em;
+}
 .partiedroite{
   min-width: 100%;
 }
