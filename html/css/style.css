@@ -45,7 +45,6 @@ html, body {
 .interpop{
   color: #6586B4;
 }
-
 .max-height-200px {
   max-height: 200px;
 }
@@ -122,14 +121,6 @@ html, body {
   margin-bottom: 0;
 }
 }
-@media screen and (min-width: 768px) {
-.text-align-left-strictly-after-md {
-  text-align: left;
-}
-.text-align-right-strictly-after-md {
-  text-align: right;
-}
-}
 /*#########################
 #######MODAL VIDEO#########
 #########################*/
@@ -142,6 +133,7 @@ html, body {
   font-weight: normal;
   text-align: justify;
 }
+
 
 /*#########################
 #######PAGE ENTIERE########
@@ -204,6 +196,8 @@ html, body {
    height: 100%;
 }
 }
+
+
 .m-top-40 {
     margin-top: 20vh;
 }
@@ -264,7 +258,6 @@ html, body {
   opacity:1;
 }
 
-
 /*#########################
 #######RUBAN DROITE########
 #########################*/
@@ -300,13 +293,6 @@ html, body {
   color: #D64E26;
 }
 
-.text-in-size-16px {
-  font-size: 18px
-}
-
-.with-my-border {
-  border: 2px solid #D64E26;
-}
 /*##################################################
 ############ZONE DE LA RECHERCHE####################
 ##################################################*/
