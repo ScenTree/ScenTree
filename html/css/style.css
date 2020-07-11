@@ -343,20 +343,6 @@ html, body {
     border-color: #FAE8BE !important;
 }
 
-/*###############################################
-############ZONE DES BOUTONS ####################
-###############################################*/
-.boutons {
-    height: 10%; 
-}
-/*CONTACT*/
-.mail2 {
-    padding-top: 8%;
-}
-/*CREDITS*/
-.profession {
-    font-size: 12px;
-}
 
 
 /*#########################
