@@ -214,7 +214,7 @@ html, body {
     text-align: center;
 }
 .NONRGPD {
-    font-size: 50%;
+    font-size: 80%;
 }
 @keyframes RGPD_animation {
   0%   {bottom: -100px;}
