@@ -461,7 +461,14 @@ hr {
     transform: scale(1.1);
     cursor:pointer;
 }
-
+.logopremium:hover {
+    transform: scale(1.1);
+    cursor:pointer;
+}
+.logostandards:hover {
+    transform: scale(1.1);
+    cursor:pointer;
+}
 .sponsors {
   min-height: 6em;
 }
