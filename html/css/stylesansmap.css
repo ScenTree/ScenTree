@@ -453,13 +453,6 @@ hr {
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
 }
-.boutonclickable {
-    color:black;
-    font-size: 0.9vw;
-    text-decoration:underline;
-    cursor:pointer;
-    display: inline;
-}
 .logomenu:hover {
     transform: scale(1.1);
     cursor:pointer;
