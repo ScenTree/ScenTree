@@ -448,10 +448,7 @@ hr {
     height: 20em;
 }
 .logomenu {
-  min-height: 5em;
-  max-height: 5em;
-  min-width: 5em;
-  max-width: 5em;
+  size: 25em;
 }
 .logomenu:hover {
     transform: scale(1.1);
