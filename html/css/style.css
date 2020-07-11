@@ -184,8 +184,11 @@ html, body {
 .PageEntiere {
     background-color: white;
 }
+.correctspacebug{
+  min-height: 15em;
+  max-height: 15em;
 }
-
+}
 
 .m-top-40 {
     margin-top: 20vh;
