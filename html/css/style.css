@@ -566,6 +566,11 @@ th, .table th, td, .table td{
 
 
 @media screen and (min-width: 1400px) {
+.correctspacebug {
+  min-height: 24em;
+  max-height: 24em;
+}
+
 h1 {
     width: 100%;
    font-style: bold;
