@@ -12,6 +12,10 @@ html, body {
   min-height: 5em;
   max-height: 5em;
 }
+.slogan{
+  font-size: 0.75em;
+}
+
 .lienarticlereglementation {
   color: grey; 
   font-size: 0.9em;
@@ -274,7 +278,7 @@ html, body {
 
 .text-in-color-brown {
   color: #D64E26;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 /*##################################################
@@ -562,6 +566,9 @@ h1 {
   max-height: 19.5em;
 }
 .slogan{
+  font-size: 1.2em;
+}
+.text-in-color-brown{
   font-size: 1.2em;
 }
 .blanc2 {
