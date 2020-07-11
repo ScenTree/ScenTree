@@ -834,7 +834,7 @@ font-size: 10px;
   min-width:100%;
 }
 .boutonRGPD {
-  margin-top: 5%;
+  margin: 5%;
   text-align: center;
   min-width: 100%;
 }
@@ -842,7 +842,7 @@ font-size: 10px;
     bottom: 20%;
     left: 50%;
     width: 100%;
-    transform: translate(-50%, 0);
+    transform: translate(-20%, 0);
 }
 .partiedroite{
   min-width: 100%;
