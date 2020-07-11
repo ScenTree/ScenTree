@@ -53,6 +53,10 @@ p {
 .slogan {
   font-size:1.2em;
 }
+.correctspacebug {
+  min-height: 19.5em;
+  max-height: 19.5em;
+}
 }
 .correctspacebug {
   min-height: 5em;
