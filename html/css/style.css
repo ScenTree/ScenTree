@@ -8,6 +8,10 @@ html, body {
 #mapblock {
   z-index: 1;
 }
+.correctspacebug {
+  min-height: 20em;
+  max-height: 20em;
+}
 .lienarticlereglementation {
   color: grey; 
   font-size: 0.9em;
