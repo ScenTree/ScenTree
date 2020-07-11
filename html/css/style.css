@@ -12,6 +12,9 @@ html, body {
   min-height: 21.5em;
   max-height: 21.5em;
 }
+.slogan{
+  font-size: 0.75em;
+}
 .lienarticlereglementation {
   color: grey; 
   font-size: 0.9em;
