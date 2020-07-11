@@ -54,7 +54,10 @@ p {
   font-size:1.2em;
 }
 }
-
+.correctspacebug {
+  min-height: 5em;
+  max-height: 5em;
+}
 h4 {
   font-size: 1em;
 }
@@ -628,9 +631,7 @@ min-width: 100%;
 .blanccorrectionmisenepage{
   height: 0%;
 }
-.correctspacebug {
-    height: 1.1em;
-}
+
 .particulier ul {
   margin: 0;
   padding:0;
