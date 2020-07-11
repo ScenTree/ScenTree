@@ -564,19 +564,10 @@ th, .table th, td, .table td{
 }
 }
 
-@media screen and (min-width: 1500px) {
-.correctspacebug {
-  min-height: 25.5em;
-  max-height: 25.5em;
-}
-.text-in-color-brown {
-  font-size: 1.2em;
-}
-}
 
 @media screen and (min-width: 1400px) {
 h1 {
-    width: 100%;
+   width: 100%;
    font-style: bold;
    font-size: 0.9vw;
    margin-top: 0%;
