@@ -209,16 +209,12 @@ html, body {
 #########################*/
 .textRGPD {
     text-align: justify;
-    font-size: 0.9em;
-    margin-top: 1em;
-    margin-bottom: 1em;
 }
 .boutonRGPD {
     text-align: center;
-    margin-top: 1em;
 }
 .NONRGPD {
-    font-size: 80%;
+    font-size: 50%;
 }
 @keyframes RGPD_animation {
   0%   {bottom: -100px;}
@@ -232,13 +228,14 @@ html, body {
     width: 100%;
     transform: translate(-50%, 0);
     z-index: 9999;
-    background-color: #FFF8C2;
+    background-color: #FBE5D6FF;
     animation-name: RGPD_animation;
     animation-duration: 2s;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    border: 2px solid #D64E26;
 }
 #closevideo {
   position:absolute;
@@ -551,6 +548,28 @@ th, .table th, td, .table td{
   right: 0px;
   size: 0.2em;
 }
+.envoiRGPD {
+  min-width: 100%;
+}
+.textRGPD {
+  margin-top: 5%;
+  text-align: justify;
+  min-width:100%;
+}
+.boutonRGPD {
+  margin: 5%;
+  text-align: center;
+  min-width: 100%;
+}
+#RGPD_warning {
+    bottom: 30%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+}
+.NONRGPD{
+  font-size: 0.8em;
+}
 }
 
 
@@ -786,13 +805,13 @@ h1 {
   display: none;
 }
 .with-relative-position {
-	position: relative;
+  position: relative;
 }
 .moq-default-color {
   color: black;
 }
 .moq-0_5-color {
-	color: red;
+  color: red;
 }
 .moq-1-color {
         color: yellow;
