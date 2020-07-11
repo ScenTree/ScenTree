@@ -252,10 +252,6 @@ hr {
 .particulier {
   min-width: 100%;
 }
-/*.logomenu {
-  min-width: 100%;
-  min-height: 100%;
-}*/
 }
 /*#########################
 #####MENTIONS LEGALES######
@@ -438,13 +434,6 @@ hr {
 /*#########################
 #######RUBAN DROITE########
 #########################*/
-/*.logomenu {
-    color:black;
-    font-size: 0.9vw;
-    text-decoration:underline;
-    cursor:pointer;
-    display: inline;
-}*/
 .fillright{
     background-color:#FBE5D6FF;
     border-top-left-radius: 7px;
@@ -457,6 +446,9 @@ hr {
 }
 .correctspacebug {
     height: 20em;
+}
+.logomenu{
+  size: 2em;
 }
 .logomenu:hover {
     transform: scale(1.1);
@@ -700,7 +692,7 @@ overflow-x: auto;
 }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 .PageEntiere {
     background-color: white;
     padding-top: 60px;
