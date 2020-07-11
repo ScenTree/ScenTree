@@ -9,11 +9,8 @@ html, body {
   z-index: 1;
 }
 .correctspacebug {
-  min-height: 19.5em;
-  max-height: 19.5em;
-}
-.slogan{
-  font-size: 1.2em;
+  min-height: 15em;
+  max-height: 15em;
 }
 .lienarticlereglementation {
   color: grey; 
@@ -167,6 +164,9 @@ html, body {
   margin-top: 0;
   margin-bottom: 0;
 }
+.logomenu{
+    max-height: 40px;
+}
 }
 @media screen and (min-width: 768px) {
 .h-md-85 {
@@ -184,11 +184,8 @@ html, body {
 .PageEntiere {
     background-color: white;
 }
-.correctspacebug{
-  min-height: 15em;
-  max-height: 15em;
 }
-}
+
 
 .m-top-40 {
     margin-top: 20vh;
@@ -268,12 +265,6 @@ html, body {
 ##################################################*/
 .logomenu:hover{
     transform: scale(1.1);
-}
-
-@media screen and (max-width: 767px) {
-.logomenu{
-    max-height: 40px;
-}
 }
 
 #menu-block-sm {
@@ -565,6 +556,13 @@ h1 {
    font-size: 0.9vw;
    margin-top: 0%;
    margin-bottom: 0%;
+}
+.correctspacebug {
+  min-height: 19.5em;
+  max-height: 19.5em;
+}
+.slogan{
+  font-size: 1.2em;
 }
 .blanc2 {
   height: 44%;
