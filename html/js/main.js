@@ -501,6 +501,17 @@ $(function() {
         SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
         SPfocus.on("click", function() {
       markofun(jsonData[0]);
+	      if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
+	      marker.on("click", function() {
+	            markofun(ok[index]);
+	      });
+	                } else {  // else : ingredient -> link to a new html page
+	                        marker.on("click", function() {
+	        save_map_status_inside_cookies(map);
+	                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
+	                        });
+	    };
+
         });
                     searchMarker.addTo(map);
     },
