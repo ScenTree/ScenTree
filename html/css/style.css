@@ -8,6 +8,14 @@ html, body {
 #mapblock {
   z-index: 1;
 }
+.correctspacebug {
+  min-height: 5em;
+  max-height: 5em;
+}
+.slogan{
+  font-size: 0.75em;
+}
+
 .lienarticlereglementation {
   color: grey; 
   font-size: 0.9em;
@@ -38,7 +46,6 @@ html, body {
 .interpop{
   color: #6586B4;
 }
-
 .max-height-200px {
   max-height: 200px;
 }
@@ -66,17 +73,14 @@ html, body {
 .text-underline {
   text-decoration: underline;
 }
-
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(95vh - 320px);
+  max-height: calc(90vh - 320px);
 }
-
 .scrollbar-inside2 {
   overflow-y: auto;
   max-height: calc(125vh - 320px);
 }
-
 .text-size-20px {
   font-size: 20px;
 }
@@ -101,26 +105,11 @@ html, body {
 .text-my-grey {
     color : grey;
 }
-
-@media screen and (max-width: 767px) {
-.font-italic-before-md {
-  font-style: italic;
-}
-.text-center-before-md {
-  text-align: center;
-  margin-top: 0;
-  margin-bottom: 0;
-}
+.commercialize{
+  font-size: 0.9em;
+  display: none;
 }
 
-@media screen and (min-width: 768px) {
-.text-align-left-strictly-after-md {
-  text-align: left;
-}
-.text-align-right-strictly-after-md {
-  text-align: right;
-}
-}
 /*#########################
 #######MODAL VIDEO#########
 #########################*/
@@ -134,20 +123,7 @@ html, body {
   text-align: justify;
 }
 
-/*#########################
-#######PAGE ENTIERE########
-#########################*/
-@media screen and (max-width: 767px) {
-.PageEntiere {
-    background-color: white;
-    padding-top: 60px;
-}
-}
-@media screen and (min-width: 768px) {
-.PageEntiere {
-    background-color: white;
-}
-}
+
 
 /*#########################
 ###########MAP#############
@@ -180,6 +156,21 @@ html, body {
    height: 100%;
    padding-top: 60px;
 }
+.PageEntiere {
+    background-color: white;
+    padding-top: 60px;
+}
+.font-italic-before-md {
+  font-style: italic;
+}
+.text-center-before-md {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.logomenu{
+    max-height: 40px;
+}
 }
 @media screen and (min-width: 768px) {
 .h-md-85 {
@@ -194,7 +185,11 @@ html, body {
 .h-100-with-padding-60px-before-md {
    height: 100%;
 }
+.PageEntiere {
+    background-color: white;
 }
+}
+
 .m-top-40 {
     margin-top: 20vh;
 }
@@ -209,18 +204,17 @@ html, body {
     color: #D64E26;
     font-size: 10px;
 }
-
 /*#########################
 ###########RGPD############
 #########################*/
 .textRGPD {
-   text-align: justify 
+    text-align: justify;
 }
 .boutonRGPD {
     text-align: center;
 }
 .NONRGPD {
-    font-style: 50%;
+    font-size: 80%;
 }
 @keyframes RGPD_animation {
   0%   {bottom: -100px;}
@@ -233,14 +227,15 @@ html, body {
     left: 50%;
     width: 100%;
     transform: translate(-50%, 0);
-    z-index: 999;
-    background-color: #FFF8C2;
+    z-index: 9999;
+    background-color: #FBE5D6FF;
     animation-name: RGPD_animation;
     animation-duration: 2s;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    border: 2px solid #D64E26;
 }
 #closevideo {
   position:absolute;
@@ -251,7 +246,6 @@ html, body {
   font-weight: normal;
   opacity:1;
 }
-
 
 /*#########################
 #######RUBAN DROITE########
@@ -272,13 +266,9 @@ html, body {
 .logomenu:hover{
     transform: scale(1.1);
 }
-
-@media screen and (max-width: 767px) {
-.logomenu{
-    max-height: 40px;
+.logostandards:hover{
+    transform: scale(1.1);
 }
-}
-
 #menu-block-sm {
    height: 60px;
    float: top;
@@ -286,15 +276,9 @@ html, body {
 
 .text-in-color-brown {
   color: #D64E26;
+  font-size: 1em;
 }
 
-.text-in-size-16px {
-  font-size: 18px
-}
-
-.with-my-border {
-  border: 2px solid #D64E26;
-}
 /*##################################################
 ############ZONE DE LA RECHERCHE####################
 ##################################################*/
@@ -345,20 +329,6 @@ html, body {
     border-color: #FAE8BE !important;
 }
 
-/*###############################################
-############ZONE DES BOUTONS ####################
-###############################################*/
-.boutons {
-    height: 10%; 
-}
-/*CONTACT*/
-.mail2 {
-    padding-top: 8%;
-}
-/*CREDITS*/
-.profession {
-    font-size: 12px;
-}
 
 
 /*#########################
@@ -558,16 +528,68 @@ th, .table th, td, .table td{
 .petitbtn {
   line-height: 1em;
 }
+.both_sponsors {
+  min-height: 100%;
+  max-height: 100%;
+}
+.premium_pros img {
+  min-height: 3em !important;
+  max-height: 3em !important;
+}
+.standard_pros img {
+  min-width: 3em !important;
+  max-width: 3em !important;
+  min-height: 3em !important;
+  max-height: 3em !important;
+}
+.moq-circle {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  size: 0.2em;
+}
+.envoiRGPD {
+  min-width: 100%;
+}
+.textRGPD {
+  margin-top: 5%;
+  text-align: justify;
+  min-width:100%;
+}
+.boutonRGPD {
+  margin: 5%;
+  text-align: center;
+  min-width: 100%;
+}
+#RGPD_warning {
+    bottom: 30%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+}
+.NONRGPD{
+  font-size: 0.8em;
+}
 }
 
 
 @media screen and (min-width: 1400px) {
 h1 {
-    width: 100%;
+   width: 100%;
    font-style: bold;
    font-size: 0.9vw;
    margin-top: 0%;
    margin-bottom: 0%;
+}
+.correctspacebug {
+  min-height: 19.5em;
+  max-height: 19.5em;
+}
+.slogan{
+  font-size: 1.2em;
+}
+.text-in-color-brown{
+  font-size: 1.2em;
 }
 .blanc2 {
   height: 44%;
@@ -626,7 +648,7 @@ h1 {
 }
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(105vh - 320px);
+  max-height: calc(102vh - 320px);
 }
 .space{
     height:20%;
@@ -776,22 +798,20 @@ h1 {
    max-height: 5em;
 }
 .standard_pros img {
-  max-height: 3em;
+  max-height: 5em;
 }
 
 .moq-circle {
-  position: absolute;
-  top: 0px;
-	right: 0px;
+  display: none;
 }
 .with-relative-position {
-	position: relative;
+  position: relative;
 }
 .moq-default-color {
-        color: black;
+  color: black;
 }
 .moq-0_5-color {
-	color: red;
+  color: red;
 }
 .moq-1-color {
         color: yellow;
@@ -839,5 +859,3 @@ p.#you_can_zoom {
     max-width: 10px;
     max-height: 10px;
 }
-
-

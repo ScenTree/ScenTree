@@ -1,5 +1,5 @@
-var KIND_OF_ENVIRONMENT = "dev4"; // "dev", "prod" or "prod2"
- 
+var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
+  
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
     var DEV_PREFIX_1 = "dev-"; // dev- ,  pre_prod- ,  or empty for production
@@ -499,10 +499,17 @@ $(function() {
         
 
         SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
-        SPfocus.on("click", function() {
-      markofun(jsonData[0]);
-        });
-                    searchMarker.addTo(map);
+        	if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
+	     		SPfocus.on("click", function() {
+	            markofun(jsonData[0]);
+	      	});
+	        } else {  // else : ingredient -> link to a new html page
+	            SPfocus.on("click", function() {
+	            save_map_status_inside_cookies(map);
+	            window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
+	    		});
+	    	};
+        searchMarker.addTo(map);
     },
     dataType : 'jsonp',
     jsonp : 'json.wrf'
@@ -547,7 +554,7 @@ function fill_with_percentage(the_html_class_as_text, the_percentage) {
 function get_the_pro_img_from_the_pro_info(the_pro_info) {
      var the_html_div = $("<a></a>")
 	.addClass("d-block m-2 with-relative-position")
-	.attr("href", "../sponsors/" + the_pro_info["Nom Tiers"] + ".html");
+	.attr("href", "../supporters/" + the_pro_info["Nom Tiers"] + ".html");
      var the_main_html_img_in_french = $("<img />");
      the_main_html_img_in_french.attr("src", "/img/sponsors/" + the_pro_info["Nom Tiers"] + ".png")
 	.addClass("img-fluid")
@@ -560,30 +567,63 @@ function get_the_pro_img_from_the_pro_info(the_pro_info) {
         .attr("title", "Learn more about " + the_pro_info["Nom Tiers"])
         .attr("alt", "Learn more about " + the_pro_info["Nom Tiers"])
         .attr("lang", "en");
-    if (the_pro_info["MOQ"]) {
-	var the_moq_value_as_float = Number(the_pro_info["MOQ"].slice(0, -3).replace(",", ".")); // moq must be ending with ' kg'
-        var the_moq_color = "moq-default-color";
-	if (the_moq_value_as_float) {
-		if (the_moq_value_as_float <= 0.5) {
-			the_moq_color = "moq-0_5-color";
-		} else if (the_moq_value_as_float == 1.0) {
-			the_moq_color = "moq-1-color";
-		} else if (the_moq_value_as_float == 5.0) {
-			the_moq_color = "moq-5-color";
-		} else if (the_moq_value_as_float >= 10.0) {
-			the_moq_color = "moq-10-color";
-		};
-	};
-        var the_moq_circle = $("<span></span>")
-	    .addClass("fas fa-circle moq-circle " + the_moq_color)
-            .attr("title", the_pro_info["MOQ"]);
-        the_html_div.append(the_moq_circle);
-    };
+
+    //if (the_pro_info["MOQ"]) {
+  	//var the_moq_value_as_float = Number(the_pro_info["MOQ"].slice(0, -3).replace(",", ".")); // moq must be ending with ' kg'
+          //var the_moq_color = "moq-default-color";
+  	//if (the_moq_value_as_float) {
+  		//if (the_moq_value_as_float <= 0.5) {
+  			//the_moq_color = "moq-0_5-color";
+  		//} else if (the_moq_value_as_float == 1.0) {
+  			//the_moq_color = "moq-1-color";
+  		//} else if (the_moq_value_as_float == 5.0) {
+  			//the_moq_color = "moq-5-color";
+  		//} else if (the_moq_value_as_float >= 10.0) {
+  			//the_moq_color = "moq-10-color";
+  		//};
+  	//};
+    //var the_moq_circle = $("<span></span>")
+	    //.addClass("fas fa-circle moq-circle " + the_moq_color)
+      //.attr("title", "MOQ= " + the_pro_info["MOQ"]);
+      //the_html_div.append(the_moq_circle);
+    //};
+
     the_html_div.append(the_main_html_img_in_french);
     the_html_div.append(the_main_html_img_in_english);
     return the_html_div;
 };
 
+function show_the_carousel(the_length) {
+    setTimeout(() => {
+    if (the_length > 0) {
+    if (the_length <= 6)  {
+            var the_autoplay = false;
+            var the_swipeThreshold_option = false;
+            var the_dragThreshold_otpion = false;
+    } else {
+            var the_autoplay = forAFewSeconds;
+            var the_swipeThreshold_option = 80;
+            var the_dragThreshold_otpion = 120;
+    };
+    var myCarousel = new Glide( '.glide', {
+            gap: 0,
+            type: "carousel",
+            startAt: 0,
+            perView: Math.min(6, the_length),
+            autoplay: the_autoplay,
+            keyboard: false,
+            swipeThreshold: the_swipeThreshold_option,
+            dragThreshold: the_dragThreshold_otpion
+    } );
+    myCarousel.mount();
+    automatically_display_the_correct_language();
+   };
+   }, 1000);
+   // about the timeout hack : 
+   // https://github.com/glidejs/glide/issues/341
+   // https://github.com/glidejs/glide/issues/203
+
+};
 
 function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //convert \n to <br /> = convert 'json end of line' to 'html end of line'
@@ -647,6 +687,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_fusionp = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'PFusion');
     var the_fbrute = put_all_digits_into_sub(from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'formulebrute'));
     var the_synonyme = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'AutresNoms');
+    var the_detection = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Threshold');
 
 
     var the_commentary = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Commentaires');
@@ -935,7 +976,11 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (the_pro_infos) {
         // built the JSON array from an aray of strings
   for (let an_pro_info of the_pro_infos) {
+    //if (! window.document.jsdom_reader) {
     var the_pro_info = JSON.parse(an_pro_info);
+    //} else {
+    //  var the_pro_info = an_pro_info;
+    //};
     the_new_pro_infos.push(the_pro_info);
   };
     };
@@ -950,16 +995,18 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       the_premium_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FP"));
 
       $(".ad_to_the_potential_sponsors").remove();
+      $(".commercialize").css('display', "inline");
 
-      var the_row = $("<div></div>").addClass("row align-items-center");
+      var the_row = $("<div></div>").addClass("row both_sponsors align-items-center");
+
       var the_container_for_the_premium_pros = $("<div></div>").addClass("container-fluid").append(
           $("<div></div>").addClass("row premium_and_standard_pros premium_pros_list")
       );
       var the_container_for_the_standard_pros = $("<div></div>").addClass("top-content").append(
                   $("<div></div>").addClass("container-fluid").append(
-                      $("<div></div>").addClass("glide  myCarousel").append(
-                              $("<div></div>").addClass("glide__track").attr("data-glide-el", "track").append(
-                                      $("<ul></ul>").addClass("glide__slides")
+                      $("<div></div>").addClass("glide carouselcentré myCarousel").append(
+                              $("<div></div>").addClass("glide__track m-0").attr("data-glide-el", "track").append(
+                                      $("<ul></ul>").addClass("glide__slides m-0")
                               )
                       )
                   )
@@ -985,7 +1032,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	    .append(the_pro_img));
     };
     // the standard PROs only, already sorted by date
-    setTimeout(() => {
     for (let a_pro_info of the_standard_pros) {
      the_pro_img = get_the_pro_img_from_the_pro_info(a_pro_info);
      $(".glide__slides").append($("<li></li>")
@@ -993,32 +1039,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 	     .append(the_pro_img));
     };
 
-   if (the_standard_pros && (the_standard_pros.length > 0)) {
-    if (the_standard_pros.length <= 6)  {
-	    var the_autoplay = false;
-	    var the_swipeThreshold_option = false;
-	    var the_dragThreshold_otpion = false;
-    } else {
-	    var the_autoplay = forAFewSeconds;
-	    var the_swipeThreshold_option = 80;
-	    var the_dragThreshold_otpion = 120;
-    };
-    var the_carousel = new Glide( '.glide', {
-	    gap: 0,
-	    type: "carousel", 
-	    startAt: 0, 
-	    perView: Math.min(6, the_standard_pros.length), 
-	    autoplay: the_autoplay, 
-	    keyboard: false, 
-	    swipeThreshold: the_swipeThreshold_option, 
-	    dragThreshold: the_dragThreshold_otpion
-    } ).mount();
-    automatically_display_the_correct_language();
+   if (the_standard_pros && (window.document.jsdom_reader != 1)) {
+	show_the_carousel(the_standard_pros.length);
    };
-    }, 1000);
-   // about the timeout hack : 
-   // https://github.com/glidejs/glide/issues/341
-   // https://github.com/glidejs/glide/issues/203
 
 
     //EMPTY - partie naturelle
@@ -1084,6 +1107,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-jecfa1').empty();
   $('#modalbody-flavis1').empty();
   $('#modalbody-synonymes').empty();
+  $('#modalbody-detection').empty();
   
 
   //EMPTY - Descripteurs
@@ -1189,6 +1213,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modalbody-jecfa1').append(the_JECFA);
   $('#modalbody-flavis1').append(the_FLAVIS);
   $('#modalbody-synonymes').append(the_synonyme);
+  $('#modalbody-detection').append(the_detection);
 
   //APPEND - Partie Descripteurs
   $('#modaltitle2').append(the_title);
@@ -1201,16 +1226,16 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         $('#naturelleModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict').empty();
         $('#modalbody-pictA').empty();
-        $('#modalbody-pict').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-        $('#modalbody-pictA').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".jpg' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />"); 
+        $('#modalbody-pict').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
+        $('#modalbody-pictA').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />"); 
         if (show_the_modal) $('#naturelleModal').modal('show');
     };
     if (is_an_synthetique) {
         $('#SynthetiqueModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict1').empty();
         $('#modalbody-pict1A').empty();
-        $('#modalbody-pict1').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
-        $('#modalbody-pict1A').append("<img class='imgmp' src='../img/matieres_premieres/" + the_img_title + ".PNG' alt='" + the_webpage_title + "' title='" + the_webpage_title + "' />");
+        $('#modalbody-pict1').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
+        $('#modalbody-pict1A').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
         if (show_the_modal) $('#SynthetiqueModal').modal('show');
     };
     if (is_an_descripteur) {
@@ -1316,7 +1341,7 @@ function switch_to_en() {
     // clear search input
     $(".searchinput").val('');
     // change map
-    if (map) {
+    if (map && map.addLayer) {
         map.addLayer(tol_en);
         map.removeLayer(tol_fr);
     };

@@ -1,36 +1,45 @@
-
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+
 /* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'496';}
-.timeline ul li:nth-child(2):before{content:'496';}
-.timeline ul li:nth-child(3):before{content:'488';}
-.timeline ul li:nth-child(4):before{content:'480';}
-.timeline ul li:nth-child(5):before{content:'471';}
-.timeline ul li:nth-child(6):before{content:'464';}
-.timeline ul li:nth-child(7):before{content:'456';}
-.timeline ul li:nth-child(8):before{content:'448';}
-.timeline ul li:nth-child(9):before{content:'440';}
-.timeline ul li:nth-child(10):before{content:'432';}
-.timeline ul li:nth-child(11):before{content:'426';}
-.timeline ul li:nth-child(12):before{content:'426';}
-.timeline ul li:nth-child(13):before{content:'419';}
-.timeline ul li:nth-child(14):before{content:'413';}
-.timeline ul li:nth-child(15):before{content:'413';}
-.timeline ul li:nth-child(16):before{content:'406';}
-.timeline ul li:nth-child(17):before{content:'398';}
-.timeline ul li:nth-child(18):before{content:'391';}
-.timeline ul li:nth-child(19):before{content:'391';}
-.timeline ul li:nth-child(20):before{content:'384';}
-.timeline ul li:nth-child(21):before{content:'379';}
-.timeline ul li:nth-child(22):before{content:'372';}
-.timeline ul li:nth-child(23):before{content:'372';}
-.timeline ul li:nth-child(24):before{content:'365';}
-.timeline ul li:nth-child(25):before{content:'365';}
-.timeline ul li:nth-child(26):before{content:'365';}
-.timeline ul li:nth-child(27):before{content:'365';}
-.timeline ul li:nth-child(28):before{content:'365';}
+.timeline ul li:nth-child(1):before{content:'530';}
+.timeline ul li:nth-child(2):before{content:'525';}
+.timeline ul li:nth-child(3):before{content:'525';}
+.timeline ul li:nth-child(4):before{content:'520';}
+.timeline ul li:nth-child(5):before{content:'512';}
+.timeline ul li:nth-child(6):before{content:'512';}
+.timeline ul li:nth-child(7):before{content:'504';}
+.timeline ul li:nth-child(8):before{content:'500';}
+.timeline ul li:nth-child(9):before{content:'500';}
+.timeline ul li:nth-child(10):before{content:'496';}
+.timeline ul li:nth-child(11):before{content:'496';}
+.timeline ul li:nth-child(12):before{content:'488';}
+.timeline ul li:nth-child(13):before{content:'480';}
+.timeline ul li:nth-child(14):before{content:'471';}
+.timeline ul li:nth-child(15):before{content:'464';}
+.timeline ul li:nth-child(16):before{content:'456';}
+.timeline ul li:nth-child(17):before{content:'448';}
+.timeline ul li:nth-child(18):before{content:'440';}
+.timeline ul li:nth-child(19):before{content:'432';}
+.timeline ul li:nth-child(20):before{content:'426';}
+.timeline ul li:nth-child(21):before{content:'426';}
+.timeline ul li:nth-child(22):before{content:'419';}
+.timeline ul li:nth-child(23):before{content:'413';}
+.timeline ul li:nth-child(24):before{content:'413';}
+.timeline ul li:nth-child(25):before{content:'406';}
+.timeline ul li:nth-child(26):before{content:'398';}
+.timeline ul li:nth-child(27):before{content:'391';}
+.timeline ul li:nth-child(28):before{content:'391';}
+.timeline ul li:nth-child(29):before{content:'384';}
+.timeline ul li:nth-child(30):before{content:'379';}
+.timeline ul li:nth-child(31):before{content:'372';}
+.timeline ul li:nth-child(32):before{content:'372';}
+.timeline ul li:nth-child(33):before{content:'365';}
+.timeline ul li:nth-child(34):before{content:'365';}
+.timeline ul li:nth-child(35):before{content:'365';}
+.timeline ul li:nth-child(36):before{content:'365';}
+.timeline ul li:nth-child(37):before{content:'365';}
 
 p {
   font-size: 0.8em;
@@ -38,6 +47,23 @@ p {
 .maskedtitle {
   font-size: 1em;
 }
+.correctspacebug {
+  min-height: 5em;
+  max-height: 5em;
+}
+.slogan{
+  font-size:0.75em;
+}
+@media screen and (min-width: 1400px) {
+.slogan {
+  font-size:1.2em;
+}
+.correctspacebug {
+  min-height: 19.5em;
+  max-height: 19.5em;
+}
+}
+
 h4 {
   font-size: 1em;
 }
@@ -100,12 +126,10 @@ hr {
 /*POLICES */
 .text-in-color-brown {
   color: #D64E26;
+  font-size: 1em;
 }
 .with-my-border {
   border: 2px solid #D64E26;
-}
-.max-height-120px {
-  max-height: 120px;
 }
 .max-height-30px {
   max-height: 30px;
@@ -222,7 +246,7 @@ hr {
 }
 .nouveausupporter {
   font-weight: bold;
-  color: red;
+  color: #D64E26;
 }
 .logopremium, .logostandards {
   border: 1px solid #FBE5D6FF;
@@ -234,10 +258,6 @@ hr {
 }
 .particulier {
   min-width: 100%;
-}
-.logomenu {
-  min-width: 100%;
-  min-height: 100%;
 }
 }
 /*#########################
@@ -400,13 +420,14 @@ hr {
     width: 100%;
     transform: translate(-50%, 0);
     z-index: 999;
-    background-color: #FFF8C2;
+    background-color: #FBE5D6FF;
     animation-name: RGPD_animation;
     animation-duration: 2s;
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
+    border: 2px solid #D64E26;
 }
 #closevideo {
   position:absolute;
@@ -421,13 +442,6 @@ hr {
 /*#########################
 #######RUBAN DROITE########
 #########################*/
-.logomenu {
-    color:black;
-    font-size: 0.9vw;
-    text-decoration:underline;
-    cursor:pointer;
-    display: inline;
-}
 .fillright{
     background-color:#FBE5D6FF;
     border-top-left-radius: 7px;
@@ -438,14 +452,32 @@ hr {
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
 }
-.correctspacebug {
-    height: 20em;
+.boutonclickable {
+    color:black;
+    font-size: 0.9vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
 }
-.logomenu:hover, .logopremium:hover; .logostandards:hover {
+.logomenu:hover {
     transform: scale(1.1);
     cursor:pointer;
 }
-
+.logopremium:hover {
+    transform: scale(1.1);
+    cursor:pointer;
+}
+.logostandards:hover {
+    transform: scale(1.1);
+    cursor:pointer;
+}
+.sponsors {
+  min-height: 6em;
+}
+.logostandards {
+  min-height: 6em;
+  min-width: 7em;
+}
 /*#########################
 #########LANGUAGE##########
 #########################*/
@@ -519,6 +551,13 @@ caption {
 .pagederoulante {
   height: 92%;
   overflow-y: scroll;
+}
+.boutonclickable {
+    color:black;
+    font-size: 1.1vw;
+    text-decoration:underline;
+    cursor:pointer;
+    display: inline;
 }
 .img1allergene{
   float: right;
@@ -604,9 +643,7 @@ min-width: 100%;
 .blanccorrectionmisenepage{
   height: 0%;
 }
-.correctspacebug {
-    height: 1.1em;
-}
+
 .particulier ul {
   margin: 0;
   padding:0;
@@ -636,7 +673,11 @@ overflow-x: auto;
     font-size: 8px;
 }
 }
-
+@media screen and (min-width: 1400px) {
+.text-in-color-brown{
+  font-size: 1.2em;
+}
+}
 @media screen and (min-width: 768px) and (max-width: 990px) {
 table {
 min-width: 100%;
@@ -669,7 +710,7 @@ overflow-x: auto;
 }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 .PageEntiere {
     background-color: white;
     padding-top: 60px;
@@ -789,6 +830,25 @@ font-size: 10px;
 .envoiRGPD {
   min-width: 100%;
 }
+.textRGPD {
+  margin-top: 5%;
+  text-align: justify;
+  min-width:100%;
+}
+.boutonRGPD {
+  margin: 5%;
+  text-align: center;
+  min-width: 100%;
+}
+#RGPD_warning {
+    bottom: 30%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, 0);
+}
+.NONRGPD{
+  font-size: 0.8em;
+}
 .partiedroite{
   min-width: 100%;
 }
@@ -803,6 +863,14 @@ font-size: 10px;
 }
 .petitbtn {
   line-height: 1em;
+}
+.sponsors {
+  min-width: 100%;
+  max-width: 100%;
+}
+.logostandards {
+  min-height: 5em;
+  min-width: 6em;
 }
 }
 
@@ -837,6 +905,11 @@ font-size: 10px;
 .ajoutMP{
   color:black;
   font-size: 0.8em;
+  font-weight: bold;
+}
+.ajoutMPavecSponsor {
+  color:black;
+  font-size: 1.3em;
   font-weight: bold;
 }
 /*drawing the line itself OK */
