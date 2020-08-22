@@ -45,7 +45,10 @@ for a_legit_key in the_legit_keys_without_any_language:
 
 
 # read the JSON file and get the link and what to be linked
-with open(sys.argv[1]) as the_json_file:
+the_new_ingredients_FR = []
+the_new_ingredients_EN = []
+the_new_ingredients_EN_and_FR = []
+with open(sys.argv[1], encoding='utf-8') as the_json_file:
     the_json = json.load(the_json_file)
     the_ingredients = [ an_element for an_element in the_json if len(an_element["from_csv EN id"]) == 5 ]
     
@@ -54,6 +57,8 @@ with open(sys.argv[1]) as the_json_file:
     the_ingredients_by_name_FR = { an_element["from_csv FR Nom"].lower() : an_element for an_element in the_ingredients  }
 
     for an_ingredient in the_ingredients:
+        the_new_ingredient_EN = {}
+        the_new_ingredient_FR = {}
         def my_regexp_fonction_for_one_language(matchobj, the_ingredients_by_name_for_a_language):
             """
             mandatory : 3 catches with parenthesis (matchobj.group(1), matchobj.group(2), matchobj.group(3))
@@ -79,7 +84,10 @@ with open(sys.argv[1]) as the_json_file:
             if a_key in the_legit_keys_EN:
                 the_text = p.sub(my_regexp_fonction_for_EN_language, a_value)
                 if DEBUG and the_text != a_value:
-                    print("\n", a_value, "\n replaced by \n", the_text, "\n")
+                    sys.stderr.write("\n" + a_value + "\n replaced by \n" + the_text + "\n")
+                the_new_ingredient_EN[a_key] = the_text
+            else:
+                the_new_ingredient_EN[a_key] = a_value
 
         # for language FR
         the_ingredients_to_be_replaced = [ an_other_ingredient for an_other_ingredient in sorted(the_ingredients_by_name_FR, key = len, reverse = True) if an_other_ingredient.lower() != an_ingredient["from_csv FR Nom"].lower() ]
@@ -88,6 +96,17 @@ with open(sys.argv[1]) as the_json_file:
             if a_key in the_legit_keys_FR:
                 the_text = p.sub(my_regexp_fonction_for_FR_language, a_value)
                 if DEBUG and the_text != a_value:
-                    print("\n", a_value, "\n replaced by \n", the_text, "\n")
+                    sys.stderr.write("\n" + a_value +"\n replaced by \n" + the_text + "\n")
+                the_new_ingredient_FR[a_key] = the_text
+            else:
+                the_new_ingredient_FR[a_key] = a_value
+        
+        the_new_ingredients_EN.append(the_new_ingredient_EN)
+        the_new_ingredients_FR.append(the_new_ingredient_FR)
+        the_new_ingredient_EN_and_FR = dict(the_new_ingredient_FR)
+        the_new_ingredient_EN_and_FR.update(the_new_ingredient_EN)
+        the_new_ingredients_EN_and_FR.append(the_new_ingredient_EN_and_FR)
 
-
+#print(the_new_ingredients_FR)
+#print(the_new_ingredients_EN)
+print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=False))
