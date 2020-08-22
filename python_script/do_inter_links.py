@@ -18,16 +18,9 @@ def compute_the_webpage_adress(the_scentree_object):
     the_FR_name = the_scentree_object["from_csv FR Nom"].replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_")
     return "../ingredients/%s__%s.html" % (the_EN_name, the_FR_name)
 
-def my_regexp_fonction(matchobj):
-    """
-    mandatory : 3 catches with parenthesis (matchobj.group(1), matchobj.group(2), matchobj.group(3))
-    """
-    the_name_EN_or_FR_of_an_ingredient = matchobj.group(2)
-    the_link_in_html = "<a class='interpop' href='%s'>%s</a>" % (compute_the_webpage_adress(the_name_EN_or_FR_of_an_ingredient), the_name_EN_or_FR_of_an_ingredient)
-    return matchobj.group(1) + the_link_in_html + matchobj.group(3)
 
-
-the_legit_keys = []
+the_legit_keys_EN = []
+the_legit_keys_FR = []
 the_legit_keys_without_any_language = (
         "Origine geographique", 
         "Extractions", 
@@ -45,8 +38,8 @@ the_legit_keys_without_any_language = (
         "Presencenat"
         )
 for a_legit_key in the_legit_keys_without_any_language:
-    for a_language in ("from_csv EN", "from_csv FR"):
-        the_legit_keys.append(a_language + " " + a_legit_key)
+    the_legit_keys_EN.append("from_csv EN " + a_legit_key)
+    the_legit_keys_FR.append("from_csv FR " + a_legit_key)
 
 
 # read the JSON file and get the link and what to be linked
@@ -59,6 +52,7 @@ with open(sys.argv[1]) as the_json_file:
     the_ingredients_by_name_FR = { an_element["from_csv FR Nom"].lower() : an_element for an_element in the_ingredients  }
 
     for an_ingredient in the_ingredients:
+        print("\n\n", an_ingredient)
         def my_regexp_fonction_for_EN_language(matchobj):
             """
             mandatory : 3 catches with parenthesis (matchobj.group(1), matchobj.group(2), matchobj.group(3))
@@ -72,17 +66,11 @@ with open(sys.argv[1]) as the_json_file:
             if matchobj.group(3):
                 the_replacement_text += matchobj.group(3)
             return the_replacement_text
-        def my_regexp_fonction_for_FR_language(matchobj):
-            """
-            mandatory : 3 catches with parenthesis (matchobj.group(1), matchobj.group(2), matchobj.group(3))
-            """
-            the_name_FR_of_an_ingredient = matchobj.group(2)
-            the_link_in_html = "<a class='interpop' href='%s'>%s</a>" % (compute_the_webpage_adress(the_ingredients_by_name_FR[the_name_FR_of_an_ingredient]), the_name_FR_of_an_ingredient)
-            return matchobj.group(1) + the_link_in_html + matchobj.group(3)
-        the_ingredients_to_be_replaced = [ an_other_ingredient for an_other_ingredient in sorted(the_ingredients_by_name_EN, key = len, reverse = True) if an_other_ingredient != an_ingredient ]
+        the_ingredients_to_be_replaced = [ an_other_ingredient for an_other_ingredient in sorted(the_ingredients_by_name_EN, key = len, reverse = True) if an_other_ingredient.lower() != an_ingredient["from_csv EN Nom"].lower() ]
+        print(the_ingredients_to_be_replaced)
         p = re.compile(r"(^|[\s.,;:?!'(])(%s)($|[\s.,;:?!')])" % "|".join(the_ingredients_to_be_replaced), flags=re.IGNORECASE)
         for a_key, a_value in an_ingredient.items():
-            if a_key in the_legit_keys:
+            if a_key in the_legit_keys_EN:
                 the_text = p.sub(my_regexp_fonction_for_EN_language, a_value)
                 if the_text != a_value:
                     print("\n", a_value, "\n replaced by \n", the_text, "\n")
