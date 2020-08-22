@@ -9,6 +9,8 @@ import re
 
 # one argument = TreeFeaturesNEW_EN_and_FR.json (JSON with both languages)
 
+DEBUG = True
+
 
 def compute_the_webpage_adress(the_scentree_object):
     """
@@ -52,13 +54,12 @@ with open(sys.argv[1]) as the_json_file:
     the_ingredients_by_name_FR = { an_element["from_csv FR Nom"].lower() : an_element for an_element in the_ingredients  }
 
     for an_ingredient in the_ingredients:
-        print("\n\n", an_ingredient)
-        def my_regexp_fonction_for_EN_language(matchobj):
+        def my_regexp_fonction_for_one_language(matchobj, the_ingredients_by_name_for_a_language):
             """
             mandatory : 3 catches with parenthesis (matchobj.group(1), matchobj.group(2), matchobj.group(3))
             """
-            the_name_EN_of_an_ingredient = matchobj.group(2)
-            the_link_in_html = "<a class='interpop' href='%s'>%s</a>" % (compute_the_webpage_adress(the_ingredients_by_name_EN[the_name_EN_of_an_ingredient.lower()]), the_name_EN_of_an_ingredient)
+            the_name_in_a_language_of_an_ingredient = matchobj.group(2)
+            the_link_in_html = "<a class='interpop' href='%s'>%s</a>" % (compute_the_webpage_adress(the_ingredients_by_name_for_a_language[the_name_in_a_language_of_an_ingredient.lower()]), the_name_in_a_language_of_an_ingredient)
             the_replacement_text = ""
             if matchobj.group(1):
                 the_replacement_text += matchobj.group(1)
@@ -66,14 +67,27 @@ with open(sys.argv[1]) as the_json_file:
             if matchobj.group(3):
                 the_replacement_text += matchobj.group(3)
             return the_replacement_text
+        def my_regexp_fonction_for_EN_language(matchobj):
+            return my_regexp_fonction_for_one_language(matchobj, the_ingredients_by_name_EN)
+        def my_regexp_fonction_for_FR_language(matchobj):
+            return my_regexp_fonction_for_one_language(matchobj, the_ingredients_by_name_FR)
+       
+        # for language EN
         the_ingredients_to_be_replaced = [ an_other_ingredient for an_other_ingredient in sorted(the_ingredients_by_name_EN, key = len, reverse = True) if an_other_ingredient.lower() != an_ingredient["from_csv EN Nom"].lower() ]
-        print(the_ingredients_to_be_replaced)
         p = re.compile(r"(^|[\s.,;:?!'(])(%s)($|[\s.,;:?!')])" % "|".join(the_ingredients_to_be_replaced), flags=re.IGNORECASE)
         for a_key, a_value in an_ingredient.items():
             if a_key in the_legit_keys_EN:
                 the_text = p.sub(my_regexp_fonction_for_EN_language, a_value)
-                if the_text != a_value:
+                if DEBUG and the_text != a_value:
                     print("\n", a_value, "\n replaced by \n", the_text, "\n")
 
+        # for language FR
+        the_ingredients_to_be_replaced = [ an_other_ingredient for an_other_ingredient in sorted(the_ingredients_by_name_FR, key = len, reverse = True) if an_other_ingredient.lower() != an_ingredient["from_csv FR Nom"].lower() ]
+        p = re.compile(r"(^|[\s.,;:?!'(])(%s)($|[\s.,;:?!')])" % "|".join(the_ingredients_to_be_replaced), flags=re.IGNORECASE)
+        for a_key, a_value in an_ingredient.items():
+            if a_key in the_legit_keys_FR:
+                the_text = p.sub(my_regexp_fonction_for_FR_language, a_value)
+                if DEBUG and the_text != a_value:
+                    print("\n", a_value, "\n replaced by \n", the_text, "\n")
 
 
