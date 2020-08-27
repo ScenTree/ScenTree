@@ -50,8 +50,13 @@ for a_legit_key in the_legit_keys_without_any_language:
 the_new_ingredients_FR = []
 the_new_ingredients_EN = []
 the_new_ingredients_EN_and_FR = []
+sys.stderr.write("Opening file '%s'" % sys.argv[1])
+sys.stderr.flush()
 with open(sys.argv[1], encoding='utf-8') as the_json_file:
     the_json = json.load(the_json_file)
+    sys.stderr.write("File opened !")
+    sys.stderr.flush()
+    
     the_ingredients = [ an_element for an_element in the_json if len(an_element["from_csv EN id"]) == 5 ]
     
     # dictionaries { ingredient name EN or FR : ingredient as dict }, to be used in 'my_regexp_fonction'
@@ -59,6 +64,9 @@ with open(sys.argv[1], encoding='utf-8') as the_json_file:
     the_ingredients_by_name_FR = { an_element["from_csv FR Nom"].lower() : an_element for an_element in the_ingredients  }
 
     for an_ingredient in the_ingredients:
+        sys.stderr.write("Treading ingredient %s" % an_ingredient["from_csv FR Nom"])
+        sys.stderr.flush()
+
         the_new_ingredient_EN = {}
         the_new_ingredient_FR = {}
         def my_regexp_fonction_for_one_language(matchobj, the_ingredients_by_name_for_a_language):
