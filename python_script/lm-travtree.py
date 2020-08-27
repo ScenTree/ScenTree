@@ -10,7 +10,6 @@ import time
 import numpy as np
 from ete3 import Tree
 import psycopg2 ##for postgresql connection
-import re
 
 import commons
 
@@ -323,7 +322,7 @@ def writejsonNode(the_json, node, the_language_in_two_chars, the_nodes):
         if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value[the_language_in_two_chars]):
-                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, a_key.replace("\n", "\\n")))
+                    the_json.write("    \"from_csv %s\": \"%s\", \n" % (a_key, a_value[the_language_in_two_chars].replace("\n", "\\n")))
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
         the_json.write("  },\n")
 
@@ -343,11 +342,11 @@ def writejsonNodeBothLanguages(the_json, node, the_nodes):
         if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value['EN']):
-                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, a_key.replace("\n", "\\n")))
+                    the_json.write("    \"from_csv EN %s\": \"%s\", \n" % (a_key, a_value['EN'].replace("\n", "\\n")))
         if hasattr(node, "the_properties_from_the_csv"):
             for a_key, a_value in node.the_properties_from_the_csv.items():
                 if bool(a_value['FR']):
-                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, a_key.replace("\n", "\\n")))
+                    the_json.write("    \"from_csv FR %s\": \"%s\", \n" % (a_key, a_value['FR'].replace("\n", "\\n")))
         the_json.write("    \"lon\": \"%.20f\"\n" % (node.x))
         the_json.write("  },\n")
 
