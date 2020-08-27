@@ -6,6 +6,8 @@ import json
 import collections
 import re
 
+import commons
+
 
 # one argument = TreeFeaturesNEW_EN_and_FR.json (JSON with both languages)
 
@@ -16,9 +18,9 @@ def compute_the_webpage_adress(the_scentree_object):
     """
     the_scentree_object = json element
     """
-    the_EN_name = the_scentree_object["from_csv EN Nom"].replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_")
-    the_FR_name = the_scentree_object["from_csv FR Nom"].replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_")
-    return "../ingredients/%s__%s.html" % (the_EN_name, the_FR_name)
+    the_EN_name = the_scentree_object["from_csv EN Nom"]
+    the_FR_name = the_scentree_object["from_csv FR Nom"]
+    return commons.compute_the_webpage_adress(the_EN_name, the_FR_name)
 
 
 the_legit_keys_EN = []

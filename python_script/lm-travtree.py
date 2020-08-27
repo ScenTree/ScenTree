@@ -12,6 +12,8 @@ from ete3 import Tree
 import psycopg2 ##for postgresql connection
 import re
 
+import commons
+
 PLEASE_QUIT = False
 THE_CORRECT_VALUES_FOR_MY_SCENTREE_ENVIRONMENT = ("dev", "dev4", "prod", "prod2")
 if len(sys.argv) == 3:
@@ -303,7 +305,7 @@ def compute_the_webpage_adress(the_scentree_object):
     compute_the_html_name : function (the_object) {   // bilingual name
              return the_object["from_csv EN Nom"].replace( new RegExp("[\\s\/]", "gi"), "_") + "__" + the_object["from_csv FR Nom"].replace( new RegExp("[\\s\/]", "gi"), "_");
     """
-    return "../ingredients/%s__%s.html" % (getNodeNameForTheJSON(the_scentree_object, 'EN').replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_"), getNodeNameForTheJSON(the_scentree_object, 'FR').replace(" ", "_").replace("/", "_").replace("'", "_").replace('"', "_").replace(",", "_"))
+    return commons.compute_the_webpage_adress(getNodeNameForTheJSON(the_scentree_object, 'EN'), getNodeNameForTheJSON(the_scentree_object, 'FR'))
 
 
 def writejsonNode(the_json, node, the_language_in_two_chars, the_nodes):
