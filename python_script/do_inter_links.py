@@ -11,6 +11,7 @@ import commons
 
 # one argument = TreeFeaturesNEW_EN_and_FR.json (JSON with both languages)
 
+#DEBUG = True
 DEBUG = False
 
 
@@ -47,14 +48,14 @@ for a_legit_key in the_legit_keys_without_any_language:
 
 
 # read the JSON file and get the link and what to be linked
-the_new_ingredients_FR = []
-the_new_ingredients_EN = []
 the_new_ingredients_EN_and_FR = []
 sys.stderr.write("Opening file '%s' … " % sys.argv[1])
+sys.stderr.flush()
 with open(sys.argv[1], encoding='utf-8') as the_json_file:
     the_json = json.load(the_json_file)
     sys.stderr.write("File opened ! ")
-    
+    sys.stderr.flush()
+
     the_ingredients = [ an_element for an_element in the_json if len(an_element["from_csv EN id"]) == 5 ]
     
     # dictionaries { ingredient name EN or FR : ingredient as dict }, to be used in 'my_regexp_fonction'
@@ -63,6 +64,7 @@ with open(sys.argv[1], encoding='utf-8') as the_json_file:
 
     for an_ingredient in the_ingredients:
         sys.stderr.write("• %s " % an_ingredient["from_csv FR Nom"])
+        sys.stderr.flush()
 
         the_new_ingredient_EN = {}
         the_new_ingredient_FR = {}
@@ -78,6 +80,9 @@ with open(sys.argv[1], encoding='utf-8') as the_json_file:
             the_replacement_text += the_link_in_html
             if matchobj.group(3):
                 the_replacement_text += matchobj.group(3)
+            if DEBUG:
+                sys.stderr.write("'" + matchobj.string + "' -> matchobj.groups = " + str(matchobj.groups()) + " -> '" + the_replacement_text + "'\n")
+                sys.stderr.flush()
             return the_replacement_text
         def my_regexp_fonction_for_EN_language(matchobj):
             return my_regexp_fonction_for_one_language(matchobj, the_ingredients_by_name_EN)
@@ -86,34 +91,37 @@ with open(sys.argv[1], encoding='utf-8') as the_json_file:
        
         # for language EN
         the_ingredients_to_be_replaced = [ an_other_ingredient for an_other_ingredient in sorted(the_ingredients_by_name_EN, key = len, reverse = True) if an_other_ingredient.lower() != an_ingredient["from_csv EN Nom"].lower() ]
-        p = re.compile(r"(^|[\s.,;:?!'(])(%s)($|[\s.,;:?!')])" % "|".join(the_ingredients_to_be_replaced), flags=re.IGNORECASE)
+        the_regexp_for_EN = r"(^|[\s.,;:?!'(])(%s)($|[\s.,;:?!')])" % "|".join([re.escape(i) for i in the_ingredients_to_be_replaced])
+        if DEBUG:
+            sys.stderr.write("the_regexp_for_EN : " + the_regexp_for_EN + "\n")
+            sys.stderr.flush()
+        p = re.compile(the_regexp_for_EN, flags=re.IGNORECASE)
         for a_key, a_value in an_ingredient.items():
             if a_key in the_legit_keys_EN:
                 the_text = p.sub(my_regexp_fonction_for_EN_language, a_value)
                 if DEBUG and the_text != a_value:
                     sys.stderr.write("\n" + a_value + "\n replaced by \n" + the_text + "\n")
                 the_new_ingredient_EN[a_key] = the_text
-            else:
-                the_new_ingredient_EN[a_key] = a_value
 
         # for language FR
         the_ingredients_to_be_replaced = [ an_other_ingredient for an_other_ingredient in sorted(the_ingredients_by_name_FR, key = len, reverse = True) if an_other_ingredient.lower() != an_ingredient["from_csv FR Nom"].lower() ]
-        p = re.compile(r"(^|[\s.,;:?!'(])(%s)($|[\s.,;:?!')])" % "|".join(the_ingredients_to_be_replaced), flags=re.IGNORECASE)
+        the_regexp_for_FR = r"(^|[\s.,;:?!'(])(%s)($|[\s.,;:?!')])" % "|".join([re.escape(i) for i in the_ingredients_to_be_replaced])
+        if DEBUG:
+            sys.stderr.write("the_regexp_for_FR : " + the_regexp_for_FR + "\n")
+            sys.stderr.flush()
+        p = re.compile(the_regexp_for_FR, flags=re.IGNORECASE)
         for a_key, a_value in an_ingredient.items():
             if a_key in the_legit_keys_FR:
                 the_text = p.sub(my_regexp_fonction_for_FR_language, a_value)
                 if DEBUG and the_text != a_value:
                     sys.stderr.write("\n" + a_value +"\n replaced by \n" + the_text + "\n")
                 the_new_ingredient_FR[a_key] = the_text
-            else:
-                the_new_ingredient_FR[a_key] = a_value
         
-        the_new_ingredients_EN.append(the_new_ingredient_EN)
-        the_new_ingredients_FR.append(the_new_ingredient_FR)
-        the_new_ingredient_EN_and_FR = dict(the_new_ingredient_FR)
-        the_new_ingredient_EN_and_FR.update(the_new_ingredient_EN)
-        the_new_ingredients_EN_and_FR.append(the_new_ingredient_EN_and_FR)
+        the_ingredient__copy = dict(an_ingredient)
+        the_ingredient__copy.update(the_new_ingredient_FR)
+        the_ingredient__copy.update(the_new_ingredient_EN)
+        the_new_ingredients_EN_and_FR.append(the_ingredient__copy)
 
-#print(the_new_ingredients_FR)
-#print(the_new_ingredients_EN)
-print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=False))
+
+#print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=False))
+print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=True))
