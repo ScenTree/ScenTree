@@ -66,9 +66,17 @@ async function get_the_dom_from_the_net(the_html_file) {
   return dom;
 };
 
-async function generate_one_file(dom, the_current_object) {
+async function generate_one_file(the_dom_to_be_copied, the_current_object) {
     console.log("inside sub-function with " + the_current_object['sci_name']);
-    
+   
+    the_dom_to_be_copied.window.markofun(the_current_object, false);
+    console.log("the_dom_to_be_copied.window.markofun : done");
+
+    var dom = new JSDOM(the_dom_to_be_copied.serialize());
+
+    // remove parts of the DOM
+
+
     var the_pros_of_the_current_object = the_current_object['PRO'];
     if (the_pros_of_the_current_object) {
 	    var the_length_of_the_carousel = (the_pros_of_the_current_object.filter((a) => (a["Type"] == "FS"))).length;
@@ -76,9 +84,6 @@ async function generate_one_file(dom, the_current_object) {
 	    var the_length_of_the_carousel = 0;
     };
     
-    dom.window.markofun(the_current_object, false);
-    console.log("dom.window.markofun : done");
-
     var the_script_to_open_the_modal_onload = dom.window.document.getElementById("script_for_generated_pages");
     if (! the_script_to_open_the_modal_onload) the_script_to_open_the_modal_onload = dom.window.document.createElement("script");
     the_script_to_open_the_modal_onload.id = "script_for_generated_pages";
@@ -108,22 +113,24 @@ async function generate_one_file(dom, the_current_object) {
 	}
 	console.log("The file " + the_name_of_the_file + ".html was saved !");
     });
+    dom.window.close(); // normally, this is unnecessary
 };
 
 async function generate_files(the_scentree_objects, the_html_file, the_min, the_max) {
-  /*console.log("loading the dom …");
+  console.log("loading the dom …");
   var dom = await get_the_dom_from_the_net(the_html_file);
-  console.log("dom loaded ! :-)");*/
+  console.log("dom loaded ! :-)");
   if (!the_min) the_min = 0;
   if (!the_max) the_max = the_scentree_objects.length;
   console.log("min = ", the_min, " to max = ", the_max);
   for (var i = the_min; i < the_max; i++) {
     console.log(i + "/" + the_scentree_objects.length);
-    var dom = await get_the_dom_from_the_net(the_html_file);
+    //var dom = await get_the_dom_from_the_net(the_html_file);
     var the_current_object = the_scentree_objects[i];
     console.log(the_current_object);
     await generate_one_file(dom, the_current_object);
   };
+  dom.window.close(); // otherwise we need to force quitting the js script with control-C
 };
 
 generate_files(the_objects, the_html_file_as_a_path, parseInt(the_min, 10), parseInt(the_max, 10));
