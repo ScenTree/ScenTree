@@ -74,7 +74,16 @@ async function generate_one_file(the_dom_to_be_copied, the_current_object) {
 
     var dom = new JSDOM(the_dom_to_be_copied.serialize());
 
+
     // remove parts of the DOM
+    if (! scentree_objects.is_natural(the_current_object)) {
+        var html_element_to_be_removed = dom.window.document.getElementById("naturelleModal");
+        html_element_to_be_removed.parentNode.removeChild(html_element_to_be_removed);
+    };
+    if (! scentree_objects.is_synthetic(the_current_object)) {
+        var html_element_to_be_removed = dom.window.document.getElementById("SynthetiqueModal");
+        html_element_to_be_removed.parentNode.removeChild(html_element_to_be_removed);
+    };
 
 
     var the_pros_of_the_current_object = the_current_object['PRO'];
