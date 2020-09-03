@@ -57,7 +57,8 @@ with open(sys.argv[1], encoding='utf-8') as the_json_file:
     sys.stderr.flush()
 
     the_ingredients = [ an_element for an_element in the_json if len(an_element["from_csv EN id"]) == 5 ]
-    
+    the_other_elements = [ an_element for an_element in the_json if len(an_element["from_csv EN id"]) != 5 ]
+
     # dictionaries { ingredient name EN or FR : ingredient as dict }, to be used in 'my_regexp_fonction'
     the_ingredients_by_name_EN = { an_element["from_csv EN Nom"].lower() : an_element for an_element in the_ingredients  }
     the_ingredients_by_name_FR = { an_element["from_csv FR Nom"].lower() : an_element for an_element in the_ingredients  }
@@ -122,6 +123,7 @@ with open(sys.argv[1], encoding='utf-8') as the_json_file:
         the_ingredient__copy.update(the_new_ingredient_EN)
         the_new_ingredients_EN_and_FR.append(the_ingredient__copy)
 
+    the_new_ingredients_EN_and_FR.extend(the_other_elements) # keep the non-ingredient elements in the json file
 
 #print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=False))
 print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=True))
