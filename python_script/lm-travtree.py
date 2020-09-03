@@ -61,7 +61,7 @@ THE_PATH_OF_THE_LOG_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "result.json"
  # JSON files to populate solr database (taxoEN and taxoFR)
 THE_PATH_OF_THE_EN_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_EN.json"
 THE_PATH_OF_THE_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_FR.json"
-THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_EN_and_FR.json"
+THE_PATH_OF_THE_EN_AND_FR_JSON_FILE = THE_PATH_OF_THE_BDD_FOLDER + "/" + "TreeFeaturesNEW_EN_and_FR_original.json"
 
 if not os.path.isfile(THE_PATH_OF_THE_TRE_FILE):
     print("The tree.tre file is not there, I've looked in : ", THE_PATH_OF_THE_TRE_FILE)
