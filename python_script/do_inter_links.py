@@ -133,8 +133,8 @@ the_length_of_the_output_JSON_file = len(the_new_ingredients_EN_and_FR)
 #print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=False))
 print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=True))
 
-sys.stderr.write("Checking the length of the input JSON file : %s" % the_length_of_the_input_JSON_file)
+sys.stderr.write("\nChecking the length of the input JSON file : %s ; " % the_length_of_the_input_JSON_file)
 sys.stderr.flush()
-sys.stderr.write("Checking the length of the OUTput JSON file : %s" % the_length_of_the_output_JSON_file)
+sys.stderr.write("Checking the length of the OUTput JSON file : %s\n" % the_length_of_the_output_JSON_file)
 sys.stderr.flush()
 

@@ -70,8 +70,8 @@ for an_ingredient in the_ingredients:
 the_length_of_the_output_JSON_file = len(the_ingredients)
 print(json.dumps(the_ingredients, sort_keys=False, indent=4))
 
-sys.stderr.write("Checking the length of the input JSON file : %s" % the_length_of_the_input_JSON_file)
+sys.stderr.write("\nChecking the length of the input JSON file : %s ; " % the_length_of_the_input_JSON_file)
 sys.stderr.flush()
-sys.stderr.write("Checking the length of the OUTput JSON file : %s" % the_length_of_the_output_JSON_file)
+sys.stderr.write("Checking the length of the OUTput JSON file : %s\n" % the_length_of_the_output_JSON_file)
 sys.stderr.flush()
 
