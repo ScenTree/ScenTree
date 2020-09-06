@@ -48,6 +48,7 @@ for a_legit_key in the_legit_keys_without_any_language:
 
 
 # read the JSON file and get the link and what to be linked
+the_length_of_the_input_JSON_file = 0
 the_new_ingredients_EN_and_FR = []
 sys.stderr.write("Opening file '%s' … " % sys.argv[1])
 sys.stderr.flush()
@@ -55,7 +56,10 @@ with open(sys.argv[1], encoding='utf-8') as the_json_file:
     the_json = json.load(the_json_file)
     sys.stderr.write("File opened ! ")
     sys.stderr.flush()
-
+    try:
+        the_length_of_the_input_JSON_file = len(the_json)
+    except:
+        pass
     the_ingredients = [ an_element for an_element in the_json if len(an_element["from_csv EN id"]) == 5 ]
     the_other_elements = [ an_element for an_element in the_json if len(an_element["from_csv EN id"]) != 5 ]
 
@@ -125,5 +129,12 @@ with open(sys.argv[1], encoding='utf-8') as the_json_file:
 
     the_new_ingredients_EN_and_FR.extend(the_other_elements) # keep the non-ingredient elements in the json file
 
+the_length_of_the_output_JSON_file = len(the_new_ingredients_EN_and_FR)
 #print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=False))
 print(json.dumps(the_new_ingredients_EN_and_FR, indent=4, ensure_ascii=True))
+
+sys.stderr.write("Checking the length of the input JSON file : %s" % the_length_of_the_input_JSON_file)
+sys.stderr.flush()
+sys.stderr.write("Checking the length of the OUTput JSON file : %s" % the_length_of_the_output_JSON_file)
+sys.stderr.flush()
+
