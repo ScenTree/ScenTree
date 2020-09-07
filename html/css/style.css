@@ -435,6 +435,17 @@ td, .table td {
   margin-left: auto;
   margin-right: auto;
 }
+.imgmap {
+  max-width: 19em;
+  max-height: 180px;
+}
+.blockimg .imgmap {
+  max-width: 19em;
+  max-height: 180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .textitem-footer{
   font-size:small;
   text-align: center;
