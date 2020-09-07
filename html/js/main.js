@@ -1225,9 +1225,9 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (is_an_naturelle) {
         $('#naturelleModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict').empty();
-        $('#modalbody-pictA').empty();
+        $('#modalbody-pictmap').empty();
         $('#modalbody-pict').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
-        $('#modalbody-pictA').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />"); 
+        $('#modalbody-pictmap').append("<img class='imgmp' src=\"../img/matieres_premieres/map/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />"); 
         if (show_the_modal) $('#naturelleModal').modal('show');
     };
     if (is_an_synthetique) {
