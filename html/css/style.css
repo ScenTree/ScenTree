@@ -445,6 +445,12 @@ td, .table td {
   margin-left: auto;
   margin-right: auto;
 }
+.creditsphoto {
+  text-align: center;
+  color: #A5A5A5;
+  font-size: 0.8em;
+  font-style: italic;
+}
 
 .textitem-footer{
   font-size:small;
