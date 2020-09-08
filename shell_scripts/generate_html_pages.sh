@@ -60,8 +60,8 @@ then
 fi
 
 
-npm install jsdom
-npm install jsonfile
+npm install jsdom "$THE_NODEJS_SCRIPTS_FOLDER"
+npm install jsonfile "$THE_NODEJS_SCRIPTS_FOLDER"
 node "$THE_COUNTING_SCRIPT" "$THE_FILES_FOLDER/TreeFeaturesNEW_EN_and_FR.json" "$THE_HTML_FOLDER/_/menu.html"
 node "$THE_DESCRIPTOR_GENERATOR_SCRIPT" "$THE_FILES_FOLDER/TreeFeaturesNEW_EN_and_FR.json" "$THE_HTML_FOLDER/_/listdescriptors.html"
 node "$THE_HTML_PAGES_GENERATOR_SCRIPT" "$THE_FILES_FOLDER/TreeFeaturesNEW_EN_and_FR.json" "$THE_HTML_FOLDER/_/index.html" 
