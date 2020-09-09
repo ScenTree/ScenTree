@@ -60,10 +60,28 @@ then
 fi
 
 
-npm install jsdom "$THE_NODEJS_SCRIPTS_FOLDER"
-npm install jsonfile "$THE_NODEJS_SCRIPTS_FOLDER"
+cd "$THE_NODEJS_SCRIPTS_FOLDER"
+npm install jsdom
+npm install jsonfile
+cd -
 node "$THE_COUNTING_SCRIPT" "$THE_FILES_FOLDER/TreeFeaturesNEW_EN_and_FR.json" "$THE_HTML_FOLDER/_/menu.html"
 node "$THE_DESCRIPTOR_GENERATOR_SCRIPT" "$THE_FILES_FOLDER/TreeFeaturesNEW_EN_and_FR.json" "$THE_HTML_FOLDER/_/listdescriptors.html"
-node "$THE_HTML_PAGES_GENERATOR_SCRIPT" "$THE_FILES_FOLDER/TreeFeaturesNEW_EN_and_FR.json" "$THE_HTML_FOLDER/_/index.html" 
+
+the_number_of_elements=$(cat "$THE_FILES_FOLDER/TreeFeaturesNEW_EN_and_FR.json" | python3 -c "import sys, json; ll = json.load(sys.stdin); print(len(ll));")
+the_counter=0
+echo "the_number_of_elements = $the_number_of_elements"
+while [ $the_counter -lt $the_number_of_elements ]
+do
+	the_max=$(expr $the_counter + 100)
+	if [ $the_max -gt $the_number_of_elements ]
+	then
+		the_max=$the_number_of_elements
+	fi
+
+	#node "$THE_HTML_PAGES_GENERATOR_SCRIPT" "$THE_FILES_FOLDER/TreeFeaturesNEW_EN_and_FR.json" "$THE_HTML_FOLDER/_/index.html" $the_counter  $the_max
+	echo "the_min = $the_counter ; the_max = $the_max"
+
+	the_counter=$(expr $the_counter + 100)
+done
 
 
