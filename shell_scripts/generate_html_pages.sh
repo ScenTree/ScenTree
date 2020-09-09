@@ -75,7 +75,7 @@ do
 	the_max=$(expr $the_counter + 100)
 	if [ $the_max -gt $the_number_of_elements ]
 	then
-		the_max=$(expr $the_number_of_elements + 1)
+		the_max=$the_number_of_elements
 	fi
 
 	node "$THE_HTML_PAGES_GENERATOR_SCRIPT" "$THE_FILES_FOLDER/TreeFeaturesNEW_EN_and_FR.json" "$THE_HTML_FOLDER/_/index.html" $the_counter  $the_max
