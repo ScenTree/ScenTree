@@ -139,7 +139,7 @@ async function generate_files(the_scentree_objects, the_html_file, the_min, the_
     console.log(i + "/" + the_scentree_objects.length);
     //var dom = await get_the_dom_from_the_net(the_html_file);
     var the_current_object = the_scentree_objects[i];
-    console.log(the_current_object);
+    //console.log(the_current_object);
     await generate_one_file(dom, the_current_object);
   };
   dom.window.close(); // otherwise we need to force quitting the js script with control-C
