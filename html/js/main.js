@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
+var KIND_OF_ENVIRONMENT = "dev5"; // "dev", "prod" or "prod2"
   
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
@@ -13,7 +13,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_1 = "";
     var DEV_PREFIX_2 = "";
 } else {
-    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
+    var DEV_ENVIRONMENT = false; // if set to true, do not link to ingredient html webpages
     var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
     var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
 };
@@ -909,54 +909,83 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //$(".IFRA-infos").show(); 
 
     if (show_nothing) {
-  $(".IFRA .container").hide();
-  $(".IFRA .tab-content").hide();
-  $(".IFRA .navbar").hide();
-  //$(".IFRA-show-nothing").show();
+  	$(".IFRA .container").hide();
+  	$(".IFRA .tab-content").hide();
+  	$(".IFRA .navbar").hide();
+  	$(".IFRA-show-nothing").show();
     } else {
-      $(".IFRA-show-nothing").hide();
+        $(".IFRA-show-nothing").hide();
+        $(".IFRA .container").show();
+  	$(".IFRA .tab-content").show();
+  	$(".IFRA .navbar").show();
     };
     
 
     if (! show_the_main_48th_IFRA_table) {
       $(".main-48th-IFRA-table").hide();
+    } else {
+	    $(".main-48th-IFRA-table").show();
     }; 
     if (! show_the_main_49th_IFRA_table) {
       $(".main-49th-IFRA-table").hide();
+    } else {
+	    $(".main-49th-IFRA-table").show();
     };
     if (! show_the_skin_IFRA_table) {
             $(".skin-IFRA-table").hide();
+    } else {
+	    $(".skin-IFRA-table").show();
     };
     if (! show_the_listy_48th_IFRA_table_without_botanicals) {
             $(".listy-48th-IFRA-table-without-botanicals").hide();
+    } else {
+	$(".listy-48th-IFRA-table-without-botanicals").show();	    
     };
     if (! show_the_listy_49th_IFRA_table_without_botanicals) {
             $(".listy-49th-IFRA-table-without-botanicals").hide();
+    } else {
+	    $(".listy-49th-IFRA-table-without-botanicals").show();
     };
     if (! show_the_listy_48th_IFRA_table_with_botanicals) {
             $(".listy-48th-IFRA-table-with-botanicals").hide();
+    } else {
+	    $(".listy-48th-IFRA-table-with-botanicals").show();
     };
     if (! show_the_listy_49th_IFRA_table_with_botanicals) {
             $(".listy-49th-IFRA-table-with-botanicals").hide();
+    } else {
+	    $(".listy-49th-IFRA-table-with-botanicals").show();
     };
 
     if (! show_the_48th_restriction_type) {
       $(".restriction").hide();
+    } else {
+	    $(".restriction").show();
     };
     if (! show_the_49th_restriction_type) {
             $(".restriction49").hide();
+    } else {
+	 $(".restriction49").show();	    
     };
     if (! show_the_48th_amendment_number) {
             $(".amendment").hide();
+    } else {
+	$(".amendment").show();	    
     };
     if (! show_the_49th_amendment_number) {
             $(".amendment49").hide();
+    } else {
+	$(".amendment49").show();	    
     };
     if (! show_the_48th_comments) {
             $(".commentaires").hide();
+    } else {
+	$(".commentaires").show();	    
     };
     if (! show_the_49th_comments) {
             $(".commentaires49").hide();
+    } else {
+	$(".commentaires49").show();	    
     };
     
     // PRO
