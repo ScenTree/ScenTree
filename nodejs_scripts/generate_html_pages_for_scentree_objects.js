@@ -73,7 +73,7 @@ async function generate_one_file(the_dom_to_be_copied, the_current_object) {
     console.log("the_dom_to_be_copied.window.markofun : done");
 
     var dom = new JSDOM(the_dom_to_be_copied.serialize());
-
+    the_dom_to_be_copied.window.close();
 
     // remove parts of the DOM
     if (! scentree_objects.is_natural(the_current_object)) {
@@ -129,18 +129,19 @@ async function generate_one_file(the_dom_to_be_copied, the_current_object) {
 };
 
 async function generate_files(the_scentree_objects, the_html_file, the_min, the_max) {
-  console.log("loading the dom …");
+  /*console.log("loading the dom …");
   var dom = await get_the_dom_from_the_net(the_html_file);
-  console.log("dom loaded ! :-)");
+  console.log("dom loaded ! :-)");*/
   if (!the_min) the_min = 0;
   if (!the_max) the_max = the_scentree_objects.length;
   console.log("min = ", the_min, " to max = ", the_max);
   for (var i = the_min; i < the_max; i++) {
     console.log(i + "/" + the_scentree_objects.length);
-    //var dom = await get_the_dom_from_the_net(the_html_file);
+    var dom = await get_the_dom_from_the_net(the_html_file);
     var the_current_object = the_scentree_objects[i];
     //console.log(the_current_object);
     await generate_one_file(dom, the_current_object);
+    dom.window.close();
   };
   dom.window.close(); // otherwise we need to force quitting the js script with control-C
 };
