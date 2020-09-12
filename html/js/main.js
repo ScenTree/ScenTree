@@ -497,7 +497,8 @@ $(function() {
         searchMarker.remove();
         searchMarker = new L.FeatureGroup();
         
-
+        var ok = jsonData;
+	var index = 0; 
         SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
         	if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
 	     		SPfocus.on("click", function() {
