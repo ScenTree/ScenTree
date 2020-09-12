@@ -13,7 +13,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_1 = "";
     var DEV_PREFIX_2 = "";
 } else {
-    var DEV_ENVIRONMENT = false; // if set to true, do not link to ingredient html webpages
+    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
     var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
     var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
 };
@@ -1023,7 +1023,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
       the_premium_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FP"));
 
-      $(".ad_to_the_potential_sponsors").remove();
+      $(".ad_to_the_potential_sponsors").hide();
       $(".commercialize").css('display', "inline");
 
       var the_row = $("<div></div>").addClass("row both_sponsors align-items-center");
@@ -1051,6 +1051,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
           the_row.append($("<div></div>").addClass("col-lg-12").append(the_container_for_the_standard_pros));
       };
       the_pro_informations_div.append(the_row);
+    } else {
+	    $(".ad_to_the_potential_sponsors").show();
     };
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_premium_pros) {
