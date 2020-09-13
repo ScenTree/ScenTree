@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
+var KIND_OF_ENVIRONMENT = "dev5"; // "dev", "prod" or "prod2"
   
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
@@ -13,7 +13,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_1 = "";
     var DEV_PREFIX_2 = "";
 } else {
-    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
+    var DEV_ENVIRONMENT = false; // if set to true, do not link to ingredient html webpages
     var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
     var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
 };
@@ -497,7 +497,8 @@ $(function() {
         searchMarker.remove();
         searchMarker = new L.FeatureGroup();
         
-
+        var ok = jsonData;
+	var index = 0; 
         SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
         	if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
 	     		SPfocus.on("click", function() {
@@ -707,6 +708,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
 
     // IFRA
+    $(".to-be-emptied").empty();
     show_the_main_48th_IFRA_table = false;
     show_the_main_49th_IFRA_table = false;
     show_the_skin_IFRA_table = false;
@@ -724,6 +726,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     show_the_49th_comments = false;
 
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
+    //console.log("the_ifra_infos = " + the_ifra_infos);
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
         var the_ifra_info = JSON.parse(an_infra_info);
@@ -909,54 +912,83 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //$(".IFRA-infos").show(); 
 
     if (show_nothing) {
-  $(".IFRA .container").hide();
-  $(".IFRA .tab-content").hide();
-  $(".IFRA .navbar").hide();
-  //$(".IFRA-show-nothing").show();
+  	$(".IFRA .container").hide();
+  	$(".IFRA .tab-content").hide();
+  	$(".IFRA .navbar").hide();
+  	$(".IFRA-show-nothing").show();
     } else {
-      $(".IFRA-show-nothing").hide();
+        $(".IFRA-show-nothing").hide().attr("style", "display : none !important");
+        $(".IFRA .container").show();
+  	$(".IFRA .tab-content").show();
+  	$(".IFRA .navbar").show();
     };
     
 
     if (! show_the_main_48th_IFRA_table) {
-      $(".main-48th-IFRA-table").hide();
+      $(".main-48th-IFRA-table").hide().attr("style", "display : none !important");;
+    } else {
+	    $(".main-48th-IFRA-table").show();
     }; 
     if (! show_the_main_49th_IFRA_table) {
-      $(".main-49th-IFRA-table").hide();
+      $(".main-49th-IFRA-table").hide().attr("style", "display : none !important");;
+    } else {
+	    $(".main-49th-IFRA-table").show();
     };
     if (! show_the_skin_IFRA_table) {
-            $(".skin-IFRA-table").hide();
+            $(".skin-IFRA-table").hide().attr("style", "display : none !important");;
+    } else {
+	    $(".skin-IFRA-table").show();
     };
     if (! show_the_listy_48th_IFRA_table_without_botanicals) {
-            $(".listy-48th-IFRA-table-without-botanicals").hide();
+            $(".listy-48th-IFRA-table-without-botanicals").hide().attr("style", "display : none !important");;
+    } else {
+	$(".listy-48th-IFRA-table-without-botanicals").show();	    
     };
     if (! show_the_listy_49th_IFRA_table_without_botanicals) {
-            $(".listy-49th-IFRA-table-without-botanicals").hide();
+            $(".listy-49th-IFRA-table-without-botanicals").hide().attr("style", "display : none !important");;
+    } else {
+	    $(".listy-49th-IFRA-table-without-botanicals").show();
     };
     if (! show_the_listy_48th_IFRA_table_with_botanicals) {
-            $(".listy-48th-IFRA-table-with-botanicals").hide();
+            $(".listy-48th-IFRA-table-with-botanicals").hide().attr("style", "display : none !important");;
+    } else {
+	    $(".listy-48th-IFRA-table-with-botanicals").show();
     };
     if (! show_the_listy_49th_IFRA_table_with_botanicals) {
-            $(".listy-49th-IFRA-table-with-botanicals").hide();
+            $(".listy-49th-IFRA-table-with-botanicals").hide().attr("style", "display : none !important");;
+    } else {
+	    $(".listy-49th-IFRA-table-with-botanicals").show();
     };
 
     if (! show_the_48th_restriction_type) {
-      $(".restriction").hide();
+      $(".restriction").hide().attr("style", "display : none !important");;
+    } else {
+	    $(".restriction").show();
     };
     if (! show_the_49th_restriction_type) {
-            $(".restriction49").hide();
+            $(".restriction49").hide().attr("style", "display : none !important");;
+    } else {
+	 $(".restriction49").show();	    
     };
     if (! show_the_48th_amendment_number) {
-            $(".amendment").hide();
+            $(".amendment").hide().attr("style", "display : none !important");;
+    } else {
+	$(".amendment").show();	    
     };
     if (! show_the_49th_amendment_number) {
-            $(".amendment49").hide();
+            $(".amendment49").hide().attr("style", "display : none !important");;
+    } else {
+	$(".amendment49").show();	    
     };
     if (! show_the_48th_comments) {
-            $(".commentaires").hide();
+            $(".commentaires").hide().attr("style", "display : none !important");;
+    } else {
+	$(".commentaires").show();	    
     };
     if (! show_the_49th_comments) {
-            $(".commentaires49").hide();
+            $(".commentaires49").hide().attr("style", "display : none !important");;
+    } else {
+	$(".commentaires49").show();	    
     };
     
     // PRO
@@ -994,7 +1026,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
       the_premium_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FP"));
 
-      $(".ad_to_the_potential_sponsors").remove();
+      $(".ad_to_the_potential_sponsors").hide();
       $(".commercialize").css('display', "inline");
 
       var the_row = $("<div></div>").addClass("row both_sponsors align-items-center");
@@ -1022,6 +1054,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
           the_row.append($("<div></div>").addClass("col-lg-12").append(the_container_for_the_standard_pros));
       };
       the_pro_informations_div.append(the_row);
+    } else {
+	    $(".ad_to_the_potential_sponsors").show();
     };
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_premium_pros) {
@@ -1115,7 +1149,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modaltitle2').empty();
   $('#modalbody-comment2').empty();
 
-  //EMPTY - IFRA 
+  //EMPTY - IFRA
   //nat
   $('#modalbody-amendment').empty();
   $('#modalbody-cat1').empty();

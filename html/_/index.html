@@ -516,11 +516,11 @@ crossorigin=""/>
               <span lang="fr">IFRA <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) recommande des utilisations maximales pour certaines matières premières dans leur produit fini. L'avis donné par cette association possède une grande valeur dans le milieu du parfum. Respecter les normes IFRA est gage de qualité et de sécurité à l'emploi du parfum."></sup> :</span>
               <span lang="en">IFRA <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides maximum uses for some raw materials in finished products. The notices given by this association have a great value in the perfume industry. Respecting IFRA standards is a guarantee of quality and security when using the perfume."></sup> :</span>
             </h2>
-            <!--<h3 class="textitem d-inline IFRA-show-nothing">
+            <h3 class="textitem IFRA-show-nothing d-inline">
               <span lang="fr">Ingrédient non réglementé</span>
               <span lang="en">This ingredient is not restricted</span>
-            </h3>-->
-            <br>
+            </h3>
+	    <br>
             <!--Onglets pour les amendements IFRA-->
             <div class="panel-heading m-0 p-0">
               <nav class="navbar navbar-expand-lg bg-transparent">
@@ -556,43 +556,51 @@ crossorigin=""/>
                     <!-- Block définissant Type d'amendement, Numéro d'amendement, Commentaires, Tables, Annexe I-->
                     <div class="blockifra1 mt-1">
                       <!--Type de restriction-->
-                      <h2 class="item restriction d-inline IFRA-infos">
+		      <div class="restriction">
+                      <h2 class="item d-inline IFRA-infos">
                           <span lang="fr">Type de restriction <sup class="fas fa-question-circle iconetab" title="L'IFRA défini plusieurs type de restriction en fonction de la nature de l'ingrédient concerné et de sa dangerosité."></sup> :</span>
                           <span lang="en">Restriction type <sup class="fas fa-question-circle iconetab" title="IFRA defines several types of restriction according to the nature and dangerousness of the concerned ingredient. "></sup> :</span>
                       </h2>
                       <h3 class="textitem d-inline">
-                        <span class="modalbody-ifra-48"></span>
+                        <span class="to-be-emptied modalbody-ifra-48"></span>
                       </h3>
                       <br>
+		      </div>
                       <!--Cause d'apparition de l'ingrédients concerné-->
+		      <div class="amendment">
                       <h2 class="item cause d-inline IFRA-infos">
                           <span lang="fr">Cause de la restriction <sup class="fas fa-question-circle iconetab" title="Tous les ingrédients ne sont pas réglementés pour la même raison, l'IFRA précise donc les propriétés de l'ingrédient responsables de la restriction."></sup> :</span>
                           <span lang="en">Cause of restriction <sup class="fas fa-question-circle iconetab" title="All ingredients are not regulated for the same reason, so IFRA specifies the properties of the ingredient responsible for the restriction."></sup> :</span>
                       </h2>
                       <h3 class="textitem d-inline">
-                        <span class="modalbody-cause-48"></span>
+                        <span class="to-be-emptied modalbody-cause-48"></span>
                       </h3>
                       <br>
+		      </div>
                       <!--Amendement d'apparition de l'ingrédients concerné-->
-                      <h2 class="item amendment d-inline IFRA-infos">
+		      <div class="amendment">
+                      <h2 class="item d-inline IFRA-infos">
                           <span lang="fr">Amendement <sup class="fas fa-question-circle iconetab" title="Numéro du dernier amendement dans lequel le standard de l'ingrédient a été modifié. A ce jour, nous en sommes au 49ème. "></sup> :</span>
                           <span lang="en">Amendment <sup class="fas fa-question-circle iconetab" title="Number of the last amendment in which this ingredient's regulation was modified. Today, we have reached the 49th"></sup> :</span>
                       </h2>
                       <h3 class="textitem d-inline">
-                        <span class="modalbody-amendment-48"></span>
+                        <span class="to-be-emptied modalbody-amendment-48"></span>
                       </h3>
                       <br>
+		      </div>
                       <!--Commentaires-->
-                      <h2 class="item commentaires d-inline IFRA-infos">
+		      <div class="commentaires">
+                      <h2 class="item d-inline IFRA-infos">
                           <span lang="fr">Commentaires <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) fourni un certain nombre de recommandations ou de spécifications justifiants les restrictions des ingrédients."></sup> :</span>
                           <span lang="en">Comments <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides a certain amount of recommandations or specifications to explain the ingredients restrictions."></sup> :</span>
                       </h2>
                       <h3 class="textitem d-inline">
-                        <span class="modalbody-commentifra-48"></span>  
+                        <span class="to-be-emptied modalbody-commentifra-48"></span>  
                       </h3>
+		      </div>	
 
                       <!--Blocktable contient tout les tableaux + les paragraphes de responsabilité et le lien vers les modaux IFRA-->
-                      <div class="blocktable mt-3">
+                      <div class="blocktable mt-3 main-48th-IFRA-table">
                         <!--Titre des tableaux : "Dosage limite recommandé"-->
                         <h2 class="item d-inline">
                             <span lang="fr">Dosage limite recommandé <sup class="fas fa-question-circle iconetab" title="L'IFRA recommande dans ses standards un dosage maximum pour chaque produit réglementé et pour chaque catégorie de produit fini. Il faut ainsi voir ces pourcentages comme la plus haute concentration recommandée en ingrédient réglementé dans le produit fini."></sup> :</span>
@@ -600,7 +608,7 @@ crossorigin=""/>
                         </h2>
                         <!-- Là on arrive dans les types de tableau, il y en a 3 . Ils dépendent du contenu de modalbody-ifra (type d'amendement)-->
                         <div class="table-responsive text-center m-0">
-                              <table class="table1 main-48th-IFRA-table IFRA-table mb-3">
+                              <table class="table1 IFRA-table mb-3">
                                 <!-- EN-TETE DU TABLEAU-->
                                 <tr>
                                   <th>
@@ -650,17 +658,17 @@ crossorigin=""/>
                                 </tr>
                                 <!-- CORPS DU TABLEAU-->
                                 <tr>
-                                  <td><span class="modalbody-48-cat1"></span></td>
-                                  <td><span class="modalbody-48-cat2"></span></td>
-                                  <td><span class="modalbody-48-cat3"></span></td>
-                                  <td><span class="modalbody-48-cat4"></span></td>
-                                  <td><span class="modalbody-48-cat5"></span></td>
-                                  <td><span class="modalbody-48-cat6"></span></td>
-                                  <td><span class="modalbody-48-cat7"></span></td>
-                                  <td><span class="modalbody-48-cat8"></span></td>
-                                  <td><span class="modalbody-48-cat9"></span></td>
-                                  <td><span class="modalbody-48-cat10"></span></td>
-                                  <td><span class="modalbody-48-cat11"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat1"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat2"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat3"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat4"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat5"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat6"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat7"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat8"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat9"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat10"></span></td>
+                                  <td><span class="to-be-emptied modalbody-48-cat11"></span></td>
                                 </tr>
                               </table>
                             
@@ -676,9 +684,9 @@ crossorigin=""/>
                                   <th><span lang="fr">Produits rincés</span><span lang="en">Rinse off products</span></th>
                                 </tr>
                                 <tr>
-                                  <td><span class="modalbody-leave-on"></span></td>
-                                  <td><span class="modalbody-rinse-off"></span></td>
-                                  <td><span class="modalbody-non-skin-contact"></span></td>
+                                  <td><span class="to-be-emptied modalbody-leave-on"></span></td>
+                                  <td><span class="to-be-emptied modalbody-rinse-off"></span></td>
+                                  <td><span class="to-be-emptied modalbody-non-skin-contact"></span></td>
                                 </tr>
                               </table>
                         </div>
@@ -707,7 +715,7 @@ crossorigin=""/>
                                     <td>CAS N°</td>
                                     <td>Estimated Concentration</td>
                                   </tr>
-                                <tbody class="ingredients-containing-with-botanicals-48">
+                                <tbody class="to-be-emptied ingredients-containing-with-botanicals-48">
                                 </tbody>
                         </table>
                       </div>
@@ -741,7 +749,7 @@ crossorigin=""/>
                                 <span lang="en">Estimated Concentration</span>
                               </td>
                             </tr>
-                            <tbody class="ingredients-containing-without-botanicals-48">
+                            <tbody class="to-be-emptied ingredients-containing-without-botanicals-48">
                             </tbody>
                       </table>
                     </div><!--Fermeture blockannexeI48-->
@@ -759,49 +767,57 @@ crossorigin=""/>
 
                     <div class="blockcategories49 mt-1">
                       <!--Type de restriction-->
-                      <h2 class="item restriction49 d-inline IFRA-infos">
+		      <div class="restriction49">
+		      <h2 class="item d-inline IFRA-infos">
                           <span lang="fr">Type de restriction <sup class="fas fa-question-circle iconetab" title="L'IFRA défini plusieurs type de restriction en fonction de la nature de l'ingrédient concerné et de sa dangerosité."></sup> :</span>
                           <span lang="en">Restriction type <sup class="fas fa-question-circle iconetab" title="IFRA defines several types of restriction according to the nature and dangerousness of the concerned ingredient. "></sup> :</span>
                       </h2>
                       <h3 class="textitem d-inline">
-                          <span class="modalbody-ifra-49"></span>
+                          <span class="to-be-emptied modalbody-ifra-49"></span>
                       </h3>
                       <br>
+		      </div>
                       <!--Cause d'apparition de l'ingrédients concerné-->
+		      <div class="amendment49">
                       <h2 class="item cause d-inline IFRA-infos">
                           <span lang="fr">Cause de la restriction <sup class="fas fa-question-circle iconetab" title="Tous les ingrédients ne sont pas réglementés pour la même raison, l'IFRA précise donc les propriétés de l'ingrédient responsables de la restriction."></sup> :</span>
                           <span lang="en">Cause of restriction <sup class="fas fa-question-circle iconetab" title="All ingredients are not regulated for the same reason, so IFRA specifies the properties of the ingredient responsible for the restriction."></sup> :</span>
                       </h2>
                       <h3 class="textitem d-inline">
-                        <span class="modalbody-cause-49"></span>
+                        <span class="to-be-emptied modalbody-cause-49"></span>
                       </h3>
                       <br>
+		      </div>
                       <!--Amendement d'apparition de l'ingrédients concerné-->
-                      <h2 class="item amendment49 d-inline IFRA-infos">
+		      <div class="amendment49">
+                      <h2 class="item d-inline IFRA-infos">
                           <span lang="fr">Amendement <sup class="fas fa-question-circle iconetab" title="Numéro du premier amendement dans lequel l'ingrédient à été ajouté. A ce jour, nous en sommes au 49ème. "></sup> :</span>
                           <span lang="en">Amendment <sup class="fas fa-question-circle iconetab" title="Number of the first amendment in which the ingredient was added. Today, we have reached the 49th. "></sup> :</span>
                       </h2>
                       <h3 class="textitem d-inline">
-                        <span class="modalbody-amendment-49"></span>
+                        <span class="to-be-emptied modalbody-amendment-49"></span>
                       </h3>
                       <br>
+		      </div>
                       <!--Commentaires-->
-                      <h2 class="item commentaires49 d-inline IFRA-infos">
+		      <div class="commentaires49">
+                      <h2 class="item  d-inline IFRA-infos">
                           <span lang="fr">Commentaires <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) fourni un certain nombre de recommandations ou de spécifications justifiants les restrictions des ingrédients."></sup> :</span>
                           <span lang="en">Comments <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides a certain amount of recommandations or specifications to explain the ingredients restrictions."></sup> :</span>
                       </h2>
                       <h3 class="textitem d-inline">
-                        <span class="modalbody-commentifra-49"></span>  
+                        <span class="to-be-emptied modalbody-commentifra-49"></span>  
                       </h3>
-                      
-                      <div class="blocktable49 mt-3">
+		      </div>
+
+                      <div class="blocktable49  mt-3 main-49th-IFRA-table">
                         <!--Titre des tableaux : "Dosage limite recommandé"-->
                         <h3 class="item d-inline">
                           <span lang="fr">Dosage limite recommandé <sup class="fas fa-question-circle iconetab" title="L'IFRA recommande dans ses standards un dosage maximum pour chaque produit réglementé et pour chaque catégorie de produit fini. Il faut ainsi voir ces pourcentages comme la plus haute concentration recommandée en ingrédient réglementé dans le produit fini."></sup> :</span>
                           <span lang="en">Quantitative limit on the use <sup class="fas fa-question-circle iconetab" title="IFRA recommends in its standards a maximum dosage for each regulated product and for each category of finished product. These percentages should therefore be seen as the highest recommended concentration of the regulated ingredient in the finished product."></sup> :</span>
                         </h3>
                         <div class="table-responsive text-center m-0">
-                              <table class="table149 main-49th-IFRA-table IFRA-table">
+                              <table class="table149  IFRA-table">
                                 <!-- EN-TETE DU TABLEAU-->
                                 <tr>
                                   <th>
@@ -843,15 +859,15 @@ crossorigin=""/>
                                 </tr>
                                 <!-- CORPS DU TABLEAU-->
                                 <tr>
-                                  <td><span class="modalbody-49-cat1"></span></td>
-                                  <td><span class="modalbody-49-cat2"></span></td>
-                                  <td><span class="modalbody-49-cat3"></span></td>
-                                  <td><span class="modalbody-49-cat4"></span></td>
-                                  <td><span class="modalbody-49-cat5A"></span></td>
-                                  <td><span class="modalbody-49-cat5B"></span></td>
-                                  <td><span class="modalbody-49-cat5C"></span></td>
-                                  <td><span class="modalbody-49-cat5D"></span></td>
-                                  <td><span class="modalbody-49-cat6"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat1"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat2"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat3"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat4"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat5A"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat5B"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat5C"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat5D"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat6"></span></td>
                                 </tr>
                                 <tr class="mt-2">
                                   <th>
@@ -892,15 +908,15 @@ crossorigin=""/>
                                   </th>
                                 </tr>
                                 <tr>
-                                  <td><span class="modalbody-49-cat7A"></span></td>
-                                  <td><span class="modalbody-49-cat7B"></span></td>
-                                  <td><span class="modalbody-49-cat8"></span></td>
-                                  <td><span class="modalbody-49-cat9"></span></td>
-                                  <td><span class="modalbody-49-cat10A"></span></td>
-                                  <td><span class="modalbody-49-cat10B"></span></td>
-                                  <td><span class="modalbody-49-cat11A"></span></td>
-                                  <td><span class="modalbody-49-cat11B"></span></td>
-                                  <td><span class="modalbody-49-cat12"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat7A"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat7B"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat8"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat9"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat10A"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat10B"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat11A"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat11B"></span></td>
+                                  <td><span class="to-be-emptied modalbody-49-cat12"></span></td>
                                 </tr>
                               </table>
                         </div>
@@ -928,7 +944,7 @@ crossorigin=""/>
                                   <td>CAS N°</td>
                                   <td>Estimated Concentration</td>
                                 </tr>
-                              <tbody class="ingredients-containing-with-botanicals-49">
+                              <tbody class="to-be-emptied ingredients-containing-with-botanicals-49">
                               </tbody>
                         </table>
                       </div>
@@ -963,7 +979,7 @@ crossorigin=""/>
                                 <span lang="en">Estimated Concentration</span>
                               </td>
                             </tr>
-                          <tbody class="ingredients-containing-without-botanicals-49">
+                          <tbody class="to-be-emptied ingredients-containing-without-botanicals-49">
                           </tbody>
                         </table>
                     </div><!--Fermeture blockannexeI49-->
@@ -1376,10 +1392,10 @@ crossorigin=""/>
                   <span lang="fr">IFRA <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) recommande des utilisations maximales pour certaines matières premières dans leur produit fini. L'avis donné par cette association possède une grande valeur dans le milieu du parfum. Respecter les normes IFRA est gage de qualité et de sécurité à l'emploi du parfum."></sup> :</span>
                   <span lang="en">IFRA <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides maximum uses for some raw materials in finished products. The notices given by this association have a great value in the perfume industry. Respecting IFRA standards is a guarantee of quality and security when using the perfume."></sup> :</span>
                 </h2>
-                <!--<h3 class="textitem d-inline IFRA-show-nothing">
+                <h3 class="textitem IFRA-show-nothing d-inline">
                   <span lang="fr">Ingrédient non réglementé</span>
                   <span lang="en">This ingredient is not restricted</span>
-                </h3>-->
+                </h3>
                 <br>
                 <!--Onglets pour les amendements IFRA-->
                 <div class="panel-heading m-0 p-0">
@@ -1448,7 +1464,8 @@ crossorigin=""/>
                             <!-- Block définissant Type d'amendement, Numéro d'amendement, Commentaires, Tables, Annexe I-->
                             <div class="blockifra1 mt-1">
                               <!--Type de restriction-->
-                              <h2 class="item d-inline restriction IFRA-infos">
+			      <div class="restriction">
+                              <h2 class="item d-inline IFRA-infos">
                                 <span lang="fr">Type de restriction <sup class="fas fa-question-circle iconetab" title="L'IFRA défini plusieurs type de restriction en fonction de la nature de l'ingrédient concerné et de sa dangerosité."></sup> :</span>
                                 <span lang="en">Restriction type <sup class="fas fa-question-circle iconetab" title="IFRA defines several types of restriction according to the nature and dangerousness of the concerned ingredient. "></sup> :</span>
                               </h2>
@@ -1456,8 +1473,10 @@ crossorigin=""/>
                                 <span class="modalbody-ifra-48"></span>
                               </h3>
                               <br>
+			      </div>
                               <!--Cause d'apparition de l'ingrédients concerné-->
-                              <h2 class="item d-inline cause IFRA-infos">
+			      <div class="amendment">
+                              <h2 class="item d-inline IFRA-infos">
                                 <span lang="fr">Cause de la restriction <sup class="fas fa-question-circle iconetab" title="Tous les ingrédients ne sont pas réglementés pour la même raison, l'IFRA précise donc les propriétés de l'ingrédient responsables de la restriction."></sup> :</span>
                                 <span lang="en">Cause of restriction <sup class="fas fa-question-circle iconetab" title="All ingredients are not regulated for the same reason, so IFRA specifies the properties of the ingredient responsible for the restriction."></sup> :</span>
                               </h2>
@@ -1465,8 +1484,10 @@ crossorigin=""/>
                                 <span class="modalbody-cause-48"></span>
                               </h3>
                               <br>
+			      </div>
                               <!--Amendement d'apparition de l'ingrédients concerné-->
-                              <h2 class="item d-inline amendment IFRA-infos">
+			      <div class="amendment">
+                              <h2 class="item d-inline IFRA-infos">
                                 <span lang="fr">Amendement <sup class="fas fa-question-circle iconetab" title="Numéro du premier amendement dans lequel l'ingrédient à été ajouté. A ce jour, nous en sommes au 49ème. "></sup> :</span>
                                 <span lang="en">Amendment <sup class="fas fa-question-circle iconetab" title="Number of the last amendment in which this ingredient's regulation was modified. Today, we have reached the 49th."></sup> :</span>
                               </h2>
@@ -1474,17 +1495,20 @@ crossorigin=""/>
                                 <span class="modalbody-amendment-48"></span>
                               </h3>
                               <br>
+			      </div>
                               <!--Commentaires-->
-                              <h2 class="item d-inline commentaires IFRA-infos">
+			      <div class="commentaires">
+                              <h2 class="item d-inline IFRA-infos">
                                 <span lang="fr">Commentaires <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) fourni un certain nombre de recommandations ou de spécifications justifiants les restrictions des ingrédients."></sup> :</span>
                                 <span lang="en">Comments <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides a certain amount of recommandations or specifications to explain the ingredients restrictions."></sup> :</span>
                               </h2>
                               <h3 class="textitem d-inline">
                                 <span class="modalbody-commentifra-48"></span>  
                               </h3>
-                              
+                              </div>
+
                               <!--Blocktable contient tout les tableaux + les paragraphes de responsabilité et le lien vers les modaux IFRA-->
-                              <div class="blocktable mt-3">
+                              <div class="blocktable mt-3 main-48th-IFRA-table">
                                 <!--Titre des tableaux : "Dosage limite recommandé"-->
                                 <h2 class="item d-inline">
                                   <span lang="fr">Dosage limite recommandé <sup class="fas fa-question-circle iconetab" title="L'IFRA recommande dans ses standards un dosage maximum pour chaque produit réglementé et pour chaque catégorie de produit fini. Il faut ainsi voir ces pourcentages comme la plus haute concentration recommandée en ingrédient réglementé dans le produit fini."></sup> :</span>
@@ -1492,7 +1516,7 @@ crossorigin=""/>
                                 </h2>
                                 <!-- Là on arrive dans les types de tableau, il y en a 3 . Ils dépendent du contenu de modalbody-ifra (type d'amendement)-->
                                 <div class="table-responsive text-center m-0">
-                                      <table class="table1 main-48th-IFRA-table IFRA-table mb-3">
+                                      <table class="table1  IFRA-table mb-3">
                                         <!-- EN-TETE DU TABLEAU-->
                                         <tr>
                                           <th>
@@ -1655,16 +1679,19 @@ crossorigin=""/>
 
                             <div class="blockcategories49 mt-1">
                               <!--Type de restriction-->
-                              <h2 class="item d-inline restriction49 IFRA-infos">
+			      <div class="restriction49">
+                              <h2 class="item d-inline IFRA-infos">
                                   <span lang="fr">Type de restriction <sup class="fas fa-question-circle iconetab" title="L'IFRA défini plusieurs type de restriction en fonction de la nature de l'ingrédient concerné et de sa dangerosité."></sup> :</span>
                                   <span lang="en">Restriction type <sup class="fas fa-question-circle iconetab" title="IFRA defines several types of restriction according to the nature and dangerousness of the concerned ingredient. "></sup> :</span>
                               </h2>
                               <h3 class="textitem d-inline">
-                                <span class="modalbody-ifra-49"></span>
+                                <span class="to-be-emptied modalbody-ifra-49"></span>
                               </h3>
                               <br>
+			      </div>
                               <!--Cause d'apparition de l'ingrédients concerné-->
-                              <h2 class="item d-inline cause IFRA-infos">
+			      <div class="amendment49">
+                              <h2 class="item d-inline IFRA-infos">
                                 <span lang="fr">Cause de la restriction <sup class="fas fa-question-circle iconetab" title="Tous les ingrédients ne sont pas réglementés pour la même raison, l'IFRA précise donc les propriétés de l'ingrédient responsables de la restriction."></sup> :</span>
                                 <span lang="en">Cause of restriction <sup class="fas fa-question-circle iconetab" title="All ingredients are not regulated for the same reason, so IFRA specifies the properties of the ingredient responsible for the restriction."></sup> :</span>
                               </h2>
@@ -1672,8 +1699,10 @@ crossorigin=""/>
                                 <span class="modalbody-cause-49"></span>
                               </h3>
                               <br>
+			      </div>
                               <!--Amendement d'apparition de l'ingrédients concerné-->
-                              <h2 class="item d-inline amendment49 IFRA-infos">
+			      <div class="amendment49">
+                              <h2 class="item d-inline IFRA-infos">
                                 <span lang="fr">Amendement <sup class="fas fa-question-circle iconetab" title="Numéro du premier amendement dans lequel l'ingrédient à été ajouté. A ce jour, nous en sommes au 49ème. "></sup> :</span>
                                 <span lang="en">Amendment <sup class="fas fa-question-circle iconetab" title="Number of the first amendment in which the ingredient was added. Today, we have reached the 49th. "></sup> :</span>
                               </h2>
@@ -1681,23 +1710,26 @@ crossorigin=""/>
                                 <span class="modalbody-amendment-49"></span>
                               </h3>
                               <br>
+			      </div>
                               <!--Commentaires-->
-                              <h2 class="item d-inline commentaires49 IFRA-infos">
+			      <div class="commentaires49">
+                              <h2 class="item d-inline IFRA-infos">
                                 <span lang="fr">Commentaires <sup class="fas fa-question-circle iconetab" title="L'IFRA (International Fragrance Association) fourni un certain nombre de recommandations ou de spécifications justifiants les restrictions des ingrédients."></sup> :</span>
                                 <span lang="en">Comments <sup class="fas fa-question-circle iconetab" title="The IFRA (International Fragrance Association) provides a certain amount of recommandations or specifications to explain the ingredients restrictions."></sup> :</span>
                               </h2>
                               <h3 class="textitem d-inline">
                                 <span class="modalbody-commentifra-49"></span>  
                               </h3>
-                              
-                              <div class="blocktable49 mt-3">
+                              </div>
+
+                              <div class="blocktable49  mt-3 main-49th-IFRA-table">
                                 <!--Titre des tableaux : "Dosage limite recommandé"-->
                                 <h2 class="item d-inline">
                                   <span lang="fr">Dosage limite recommandé <sup class="fas fa-question-circle iconetab" title="L'IFRA recommande dans ses standards un dosage maximum pour chaque produit réglementé et pour chaque catégorie de produit fini. Il faut ainsi voir ces pourcentages comme la plus haute concentration recommandée en ingrédient réglementé dans le produit fini."></sup> :</span>
                                   <span lang="en">Quantitative limit on the use <sup class="fas fa-question-circle iconetab" title="IFRA recommends in its standards a maximum dosage for each regulated product and for each category of finished product. These percentages should therefore be seen as the highest recommended concentration of the regulated ingredient in the finished product."></sup> :</span>
                                 </h2>
                                 <div class="table-responsive text-center m-0">
-                                      <table class="table149 main-49th-IFRA-table IFRA-table">
+                                      <table class="table149 IFRA-table">
                                         <!-- EN-TETE DU TABLEAU-->
                                         <tr>
                                           <th>
