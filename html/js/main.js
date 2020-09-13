@@ -13,7 +13,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_1 = "";
     var DEV_PREFIX_2 = "";
 } else {
-    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
+    var DEV_ENVIRONMENT = false; // if set to true, do not link to ingredient html webpages
     var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
     var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
 };
@@ -708,6 +708,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
 
     // IFRA
+    $(".to-be-emptied").empty();
     show_the_main_48th_IFRA_table = false;
     show_the_main_49th_IFRA_table = false;
     show_the_skin_IFRA_table = false;
@@ -1147,7 +1148,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modaltitle2').empty();
   $('#modalbody-comment2').empty();
 
-  //EMPTY - IFRA 
+  //EMPTY - IFRA
   //nat
   $('#modalbody-amendment').empty();
   $('#modalbody-cat1').empty();
