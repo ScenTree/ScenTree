@@ -726,6 +726,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     show_the_49th_comments = false;
 
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
+    //console.log("the_ifra_infos = " + the_ifra_infos);
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
         var the_ifra_info = JSON.parse(an_infra_info);
