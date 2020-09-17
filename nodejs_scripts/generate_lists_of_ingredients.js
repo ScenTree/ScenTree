@@ -70,11 +70,11 @@ async function complete_the_html_file(the_json_file, the_file) {
    if (the_file) {
     var the_dom = await get_the_dom_from_the_html_file(the_file);
     
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_naturals_EN, the_dom.window.document.getElementById("listeMP-Ingredients-naturels-EN"), "ingredients/");
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_naturals_FR, the_dom.window.document.getElementById("listeMP-Ingredients-naturels-FR"), "ingredients/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_naturals_EN, the_dom.window.document.getElementById("listeMP-Ingredients-naturels-EN"), "en/ingredients/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_naturals_FR, the_dom.window.document.getElementById("listeMP-Ingredients-naturels-FR"), "fr/ingredients/");
 
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_synthetics_EN, the_dom.window.document.getElementById("listeMP-Ingredients-synthetiques-EN"), "ingredients/");
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_synthetics_FR, the_dom.window.document.getElementById("listeMP-Ingredients-synthetiques-FR"), "ingredients/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_synthetics_EN, the_dom.window.document.getElementById("listeMP-Ingredients-synthetiques-EN"), "en/ingredients/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_synthetics_FR, the_dom.window.document.getElementById("listeMP-Ingredients-synthetiques-FR"), "fr/ingredients/");
 
     console.log("------");
     //console.log(dom);
