@@ -22,6 +22,7 @@ var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the 
 
 var in30Minutes = 1/96; // in 15 minutes
 var forAFewSeconds = 3500;
+var LANGUAGE_PREFIX_FOR_URLs = "en";
 
 automatically_display_the_correct_language();
 
@@ -303,6 +304,29 @@ automatically_display_the_correct_language();
 function is_an_ingredient(the_object) {
   return (the_object['ingredient'] == 'yes');
 };
+function is_a_main_descriptor(the_object) {
+  return ((the_object["from_csv FR Type"] == "Descripteur") && (the_object["from_csv FR id"].length == 3));
+};
+function get_the_url_of_a_scentree_object(the_scentree_object) {
+        var the_html_address_prefix = "../" + LANGUAGE_PREFIX_FOR_URLs; // +"en" or +"fr"
+        if (is_an_ingredient(the_scentree_object)) {
+                the_html_address_prefix = the_html_address_prefix + "/ingredients/";
+        } else if (is_a_main_descriptor(the_scentree_object)) {
+		if (LANGUAGE_PREFIX_FOR_URLs == "fr") {
+			the_html_address_prefix = the_html_address_prefix + "/descripteurs_principaux/";
+		} else {
+                        the_html_address_prefix = the_html_address_prefix + "/main_descriptors/";
+		};
+        } else { // this is a secondary descriptor
+                if (LANGUAGE_PREFIX_FOR_URLs == "fr") {
+                        the_html_address_prefix = the_html_address_prefix + "/descripteurs_secondaires/";
+                } else {
+                        the_html_address_prefix = the_html_address_prefix + "/secondary_descriptors/";
+                };
+        };
+        return the_html_address_prefix + the_scentree_object['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + the_scentree_object['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
+};
+
 
 //We create here the function that will build popups (modals).
 function CreatePopUps() {
@@ -332,16 +356,16 @@ function CreatePopUps() {
     var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
     //positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
     var marker = L.marker(latlong,{icon: mark, alt: ok[index]['from_csv EN Nom'] + " - " + ok[index]['from_csv FR Nom']});
-    // non-ingredient -> basic modal
-    if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
+    // dev -> basic modal
+    if (DEV_ENVIRONMENT) {
       marker.on("click", function() {
             markofun(ok[index]);
       });
-                } else {  // else : ingredient -> link to a new html page
-                        marker.on("click", function() {
-        save_map_status_inside_cookies(map);
-                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
-                        });
+    } else {  // else : link to a new html page
+        marker.on("click", function() {
+            save_map_status_inside_cookies(map);
+	    window.location.href = get_the_url_of_a_scentree_object(ok[index]);
+        });
     };
     markers.addLayer(marker);
       });
@@ -500,15 +524,15 @@ $(function() {
         var ok = jsonData;
 	var index = 0; 
         SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
-        	if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
+        	if (DEV_ENVIRONMENT) {
 	     		SPfocus.on("click", function() {
 	            markofun(jsonData[0]);
 	      	});
-	        } else {  // else : ingredient -> link to a new html page
+	        } else {  // else : link to a new html page
 	            SPfocus.on("click", function() {
-	            save_map_status_inside_cookies(map);
-	            window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
-	    		});
+	                save_map_status_inside_cookies(map);
+         	    	window.location.href = get_the_url_of_a_scentree_object(ok[index]);
+	   	    });
 	    	};
         searchMarker.addTo(map);
     },
@@ -726,7 +750,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     show_the_49th_comments = false;
 
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
-    //console.log("the_ifra_infos = " + the_ifra_infos);
+    console.log("the_ifra_infos = " + the_ifra_infos);
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
         var the_ifra_info = JSON.parse(an_infra_info);
@@ -1381,6 +1405,9 @@ function switch_to_en() {
     };
     //change page title only for the main page
     if (document.title ==  "ScenTree - Classification innovante des ingrédients parfum") document.title = "ScenTree - The new collaborative perfumery raw materials classification";
+
+    // set prefix for ingredients and descriptors html pages
+    LANGUAGE_PREFIX_FOR_URLs = "en";
 };
 function switch_to_fr() {
     // emphasize the FR button
@@ -1407,6 +1434,9 @@ function switch_to_fr() {
     };
     //change page title only for the main page
     if (document.title ==  "ScenTree - The new collaborative perfumery raw materials classification") document.title = "ScenTree - Classification innovante des ingrédients parfum";
+    
+    // set prefix for ingredients and descriptors html pages
+    LANGUAGE_PREFIX_FOR_URLs = "fr";
 };
 
 $(".to_english_button").click(function() {
