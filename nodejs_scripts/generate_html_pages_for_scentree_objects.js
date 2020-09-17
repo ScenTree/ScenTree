@@ -35,19 +35,30 @@ const the_max = the_sixth_arg;
 
 // folders path
 let the_folder_path = path.dirname(the_html_file_as_a_path);
-let ingredients_folder_path = the_folder_path + "/../ingredients/";
-let descripteurs_principaux_folder_path = the_folder_path + "/../descripteurs_principaux/";
-let descripteurs_secondaires_folder_path = the_folder_path + "/../descripteurs_secondaires/";
-if (! fs.existsSync(ingredients_folder_path)) {
-	fs.mkdirSync(ingredients_folder_path, { recursive: true });
+let ingredients_folder_path_FR = the_folder_path + "/../fr/ingredients/";
+let ingredients_folder_path_EN = the_folder_path + "/../en/ingredients/";
+let descripteurs_principaux_folder_path_FR = the_folder_path + "/../fr/descripteurs_principaux/";
+let descripteurs_secondaires_folder_path_FR = the_folder_path + "/../fr/descripteurs_secondaires/";
+let descripteurs_principaux_folder_path_EN = the_folder_path + "/../en/main_descriptors/";
+let descripteurs_secondaires_folder_path_EN = the_folder_path + "/../en/secondary_descriptors/";
+if (! fs.existsSync(ingredients_folder_path_FR)) {
+	fs.mkdirSync(ingredients_folder_path_FR, { recursive: true });
 };
-if (! fs.existsSync(descripteurs_principaux_folder_path)) {
-        fs.mkdirSync(descripteurs_principaux_folder_path, { recursive: true });
+if (! fs.existsSync(ingredients_folder_path_EN)) {
+        fs.mkdirSync(ingredients_folder_path_EN, { recursive: true });
 };
-if (! fs.existsSync(descripteurs_secondaires_folder_path)) {
-        fs.mkdirSync(descripteurs_secondaires_folder_path, { recursive: true });
+if (! fs.existsSync(descripteurs_principaux_folder_path_FR)) {
+        fs.mkdirSync(descripteurs_principaux_folder_path_FR, { recursive: true });
 };
-
+if (! fs.existsSync(descripteurs_secondaires_folder_path_FR)) {
+        fs.mkdirSync(descripteurs_secondaires_folder_path_FR, { recursive: true });
+};
+if (! fs.existsSync(descripteurs_principaux_folder_path_EN)) {
+        fs.mkdirSync(descripteurs_principaux_folder_path_EN, { recursive: true });
+};
+if (! fs.existsSync(descripteurs_secondaires_folder_path_EN)) {
+        fs.mkdirSync(descripteurs_secondaires_folder_path_EN, { recursive: true });
+};
 
 
 
@@ -111,6 +122,20 @@ async function generate_one_file(the_dom_to_be_copied, the_current_object) {
     };
     dom.window.document.body.appendChild(the_script_to_open_the_modal_onload);
     
+    // language = FR
+    var dom_for_FR = new JSDOM(dom.serialize());
+    for (let a_foreign_language of dom_for_FR.window.document.querySelectorAll(":lang(en)")) {
+	a_foreign_language.parentNode.removeChild(a_foreign_language);
+    };
+    generate_one_file_for_one_language(ingredients_folder_path_FR, descripteurs_principaux_folder_path_FR, descripteurs_secondaires_folder_path_FR, the_current_object, dom_for_FR);
+    // language = EN
+    for (let a_foreign_language of dom.window.document.querySelectorAll(":lang(fr)")) {
+        a_foreign_language.parentNode.removeChild(a_foreign_language);
+    };
+    generate_one_file_for_one_language(ingredients_folder_path_EN, descripteurs_principaux_folder_path_EN, descripteurs_secondaires_folder_path_EN, the_current_object, dom); 
+};
+
+function generate_one_file_for_one_language(ingredients_folder_path, descripteurs_principaux_folder_path, descripteurs_secondaires_folder_path, the_current_object, dom) {
     let the_name_of_the_file = scentree_objects.compute_the_html_name(the_current_object);
     if (scentree_objects.is_an_ingredient(the_current_object)) {
 	the_name_of_the_file = ingredients_folder_path + the_name_of_the_file;
