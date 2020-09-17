@@ -73,11 +73,11 @@ async function complete_the_html_file(the_json_file, the_file) {
    if (the_file) {
     var the_dom = await get_the_dom_from_the_html_file(the_file);
     
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_main_descriptors_EN, the_dom.window.document.getElementById("Listefamilles-Familles-principales-EN"), "descripteurs_principaux/");
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_main_descriptors_FR, the_dom.window.document.getElementById("Listefamilles-Familles-principales-FR"), "descripteurs_principaux/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_main_descriptors_EN, the_dom.window.document.getElementById("Listefamilles-Familles-principales-EN"), "en/descripteurs_principaux/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_main_descriptors_FR, the_dom.window.document.getElementById("Listefamilles-Familles-principales-FR"), "fr/descripteurs_principaux/");
 
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_secondary_descriptors_EN, the_dom.window.document.getElementById("Listefamilles-Descripteurs-secondaires-EN"), "descripteurs_secondaires/");
-    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_secondary_descriptors_FR, the_dom.window.document.getElementById("Listefamilles-Descripteurs-secondaires-FR"), "descripteurs_secondaires/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_secondary_descriptors_EN, the_dom.window.document.getElementById("Listefamilles-Descripteurs-secondaires-EN"), "en/descripteurs_secondaires/");
+    populate_the_html_file_with_scentree_objects(the_dom, the_array_of_secondary_descriptors_FR, the_dom.window.document.getElementById("Listefamilles-Descripteurs-secondaires-FR"), "fr/descripteurs_secondaires/");
 
     console.log("------");
     //console.log(dom);
