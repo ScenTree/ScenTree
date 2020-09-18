@@ -308,20 +308,20 @@ function is_a_main_descriptor(the_object) {
   return ((the_object["from_csv FR Type"] == "Descripteur") && (the_object["from_csv FR id"].length == 3));
 };
 function get_the_url_of_a_scentree_object(the_scentree_object) {
-        var the_html_address_prefix = "../" + LANGUAGE_PREFIX_FOR_URLs; // +"en" or +"fr"
+        var the_html_address_prefix = "../" + LANGUAGE_PREFIX_FOR_URLs + "-"; // +"en" or +"fr"
         if (is_an_ingredient(the_scentree_object)) {
-                the_html_address_prefix = the_html_address_prefix + "/ingredients/";
+                the_html_address_prefix = the_html_address_prefix + "ingredients/";
         } else if (is_a_main_descriptor(the_scentree_object)) {
 		if (LANGUAGE_PREFIX_FOR_URLs == "fr") {
-			the_html_address_prefix = the_html_address_prefix + "/descripteurs_principaux/";
+			the_html_address_prefix = the_html_address_prefix + "descripteurs_principaux/";
 		} else {
-                        the_html_address_prefix = the_html_address_prefix + "/main_descriptors/";
+                        the_html_address_prefix = the_html_address_prefix + "main_descriptors/";
 		};
         } else { // this is a secondary descriptor
                 if (LANGUAGE_PREFIX_FOR_URLs == "fr") {
-                        the_html_address_prefix = the_html_address_prefix + "/descripteurs_secondaires/";
+                        the_html_address_prefix = the_html_address_prefix + "descripteurs_secondaires/";
                 } else {
-                        the_html_address_prefix = the_html_address_prefix + "/secondary_descriptors/";
+                        the_html_address_prefix = the_html_address_prefix + "secondary_descriptors/";
                 };
         };
         return the_html_address_prefix + the_scentree_object['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + the_scentree_object['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";

@@ -35,12 +35,12 @@ const the_max = the_sixth_arg;
 
 // folders path
 let the_folder_path = path.dirname(the_html_file_as_a_path);
-let ingredients_folder_path_FR = the_folder_path + "/../fr/ingredients/";
-let ingredients_folder_path_EN = the_folder_path + "/../en/ingredients/";
-let descripteurs_principaux_folder_path_FR = the_folder_path + "/../fr/descripteurs_principaux/";
-let descripteurs_secondaires_folder_path_FR = the_folder_path + "/../fr/descripteurs_secondaires/";
-let descripteurs_principaux_folder_path_EN = the_folder_path + "/../en/main_descriptors/";
-let descripteurs_secondaires_folder_path_EN = the_folder_path + "/../en/secondary_descriptors/";
+let ingredients_folder_path_FR = the_folder_path + "/../fr-ingredients/";
+let ingredients_folder_path_EN = the_folder_path + "/../en-ingredients/";
+let descripteurs_principaux_folder_path_FR = the_folder_path + "/../fr-descripteurs_principaux/";
+let descripteurs_secondaires_folder_path_FR = the_folder_path + "/../fr-descripteurs_secondaires/";
+let descripteurs_principaux_folder_path_EN = the_folder_path + "/../en-main_descriptors/";
+let descripteurs_secondaires_folder_path_EN = the_folder_path + "/../en-secondary_descriptors/";
 if (! fs.existsSync(ingredients_folder_path_FR)) {
 	fs.mkdirSync(ingredients_folder_path_FR, { recursive: true });
 };
