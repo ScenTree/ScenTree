@@ -666,7 +666,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
     var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
     var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
-    var the_webpage_description = "Le " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") est un ingrédient utilisé dans les parfums. De son utilisation à son odeur en passant par sa réglementation, venez en découvrir tous les secrets avec ScenTree !";
+    var the_webpage_description_FR = "Le " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") est un ingrédient utilisé dans les parfums. De son utilisation à son odeur en passant par sa réglementation, venez en découvrir tous les secrets avec ScenTree !";
+    var the_webpage_description_EN = "The " + the_node_as_json_EN_and_FR['from_csv EN Nom'] + " (Cas number : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") is an ingredient used in perfumes. Discover all about its exploitation, its smell, and its regulation with ScenTree !";
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -1304,7 +1305,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
    $('title').html('ScenTree - ' + the_webpage_title);
    $('meta[name=description]').remove();
-   $('head').append( '<meta name="description" content="' + the_webpage_description + '" />');
+   $('head').append( '<meta lang="fr" name="description" content="' + the_webpage_description_FR + '" />');
+   $('head').append( '<meta lang="en" name="description" content="' + the_webpage_description_EN + '" />');
 
 };
 
@@ -1312,33 +1314,33 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 $("#SynthetiqueModal").on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("*:lang(en)").css({'display' : 'none'});
-        $("*:lang(fr)").css({'display' : 'initial'});
+        $("head, body :lang(en)").css({'display' : 'none'});
+        $("head, body :lang(fr)").css({'display' : 'initial'});
     } else {
-  $("*:lang(fr)").css({'display' : 'none'});
-        $("*:lang(en)").css({'display' : 'initial'});
+        $("head, body :lang(fr)").css({'display' : 'none'});
+        $("head, body :lang(en)").css({'display' : 'initial'});
     };
 });
 
 $("#naturelleModal").on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("*:lang(en)").css({'display' : 'none'});
-        $("*:lang(fr)").css({'display' : 'initial'});
+        $("head, body :lang(en)").css({'display' : 'none'});
+        $("head, body :lang(fr)").css({'display' : 'initial'});
     } else {
-        $("*:lang(fr)").css({'display' : 'none'});
-        $("*:lang(en)").css({'display' : 'initial'});
+        $("head, body :lang(fr)").css({'display' : 'none'});
+        $("head, body :lang(en)").css({'display' : 'initial'});
     };
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("*:lang(en)").css({'display' : 'none'});
-        $("*:lang(fr)").css({'display' : 'initial'});
+        $("head, body :lang(en)").css({'display' : 'none'});
+        $("head, body :lang(fr)").css({'display' : 'initial'});
     } else {
-        $("*:lang(fr)").css({'display' : 'none'});
-        $("*:lang(en)").css({'display' : 'initial'});
+        $("head, body :lang(fr)").css({'display' : 'none'});
+        $("head, body :lang(en)").css({'display' : 'initial'});
     };
 });
 
@@ -1390,7 +1392,7 @@ function switch_to_en() {
     Cookies.set('display_french_language', -1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-        $("*:lang(fr)").remove();
+        $("head, body :lang(fr)").remove();
     };
     //$("*:lang(en)").css({'display' : 'initial'});
     // change search
@@ -1419,7 +1421,7 @@ function switch_to_fr() {
     Cookies.set('display_french_language', 1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-  $("*:lang(en)").remove();
+        $("head, body :lang(en)").remove();
     };
     //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
