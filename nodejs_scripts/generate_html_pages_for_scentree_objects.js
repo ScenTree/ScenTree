@@ -148,7 +148,7 @@ function generate_one_file_for_one_language(ingredients_folder_path, descripteur
     };
     
     // add a language to the HTML element
-    dom.window.document.html.setAttribute('lang', the_language_in_two_chars);
+    dom.window.document.getElementsByTagName('html')[0].setAttribute('lang', the_language_in_two_chars);
     
     let the_name_of_the_file = scentree_objects.compute_the_html_name(the_current_object);
     if (scentree_objects.is_an_ingredient(the_current_object)) {
