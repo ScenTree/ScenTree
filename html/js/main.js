@@ -1314,33 +1314,33 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 $("#SynthetiqueModal").on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("head, body :lang(en)").css({'display' : 'none'});
-        $("head, body :lang(fr)").css({'display' : 'initial'});
+        $("head :lang(en), body :lang(en)").css({'display' : 'none'});
+        $("head :lang(fr), body :lang(fr)").css({'display' : 'initial'});
     } else {
-        $("head, body :lang(fr)").css({'display' : 'none'});
-        $("head, body :lang(en)").css({'display' : 'initial'});
+        $("head :lang(fr), body :lang(fr)").css({'display' : 'none'});
+        $("head :lang(en), body :lang(en)").css({'display' : 'initial'});
     };
 });
 
 $("#naturelleModal").on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("head, body :lang(en)").css({'display' : 'none'});
-        $("head, body :lang(fr)").css({'display' : 'initial'});
+        $("head :lang(en), body :lang(en)").css({'display' : 'none'});
+        $("head :lang(fr), body :lang(fr)").css({'display' : 'initial'});
     } else {
-        $("head, body :lang(fr)").css({'display' : 'none'});
-        $("head, body :lang(en)").css({'display' : 'initial'});
+        $("head :lang(fr), body :lang(fr)").css({'display' : 'none'});
+        $("head :lang(en), body :lang(en)").css({'display' : 'initial'});
     };
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("head, body :lang(en)").css({'display' : 'none'});
-        $("head, body :lang(fr)").css({'display' : 'initial'});
+        $("head :lang(en), body :lang(en)").css({'display' : 'none'});
+        $("head :lang(fr), body :lang(fr)").css({'display' : 'initial'});
     } else {
-        $("head, body :lang(fr)").css({'display' : 'none'});
-        $("head, body :lang(en)").css({'display' : 'initial'});
+        $("head :lang(fr), body :lang(fr)").css({'display' : 'none'});
+        $("head :lang(en), body :lang(en)").css({'display' : 'initial'});
     };
 });
 
@@ -1392,7 +1392,7 @@ function switch_to_en() {
     Cookies.set('display_french_language', -1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-        $("head, body :lang(fr)").remove();
+        $("head :lang(fr), body :lang(fr)").remove();
     };
     //$("*:lang(en)").css({'display' : 'initial'});
     // change search
@@ -1421,7 +1421,7 @@ function switch_to_fr() {
     Cookies.set('display_french_language', 1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-        $("head, body :lang(en)").remove();
+        $("head :lang(en), body :lang(en)").remove();
     };
     //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
