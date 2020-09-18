@@ -99,6 +99,14 @@ async function generate_one_file(the_dom_to_be_copied, the_current_object) {
 	var html_element_to_be_removed = dom.window.document.getElementById("DescripteurModal");
 	html_element_to_be_removed.parentNode.removeChild(html_element_to_be_removed);
     };
+    
+    // add <meta name="robots" content="noindex"> in the DOM for descriptors only
+    if (scentree_objects.is_a_descripteur(the_current_object)) {
+            var the_meta_element = dom.window.document.createElement("meta");
+	    the_meta_element.name = "robots";
+	    the_meta_element.content = "noindex";
+	    dom.window.document.getElementsByTagName('head')[0].appendChild(the_meta_element);
+    };
 
     var the_pros_of_the_current_object = the_current_object['PRO'];
     if (the_pros_of_the_current_object) {
