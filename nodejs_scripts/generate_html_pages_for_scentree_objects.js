@@ -132,18 +132,24 @@ async function generate_one_file(the_dom_to_be_copied, the_current_object) {
     
     // language = FR
     var dom_for_FR = new JSDOM(dom.serialize());
-    for (let a_foreign_language of dom_for_FR.window.document.querySelectorAll(":lang(en)")) {
-	a_foreign_language.parentNode.removeChild(a_foreign_language);
-    };
-    generate_one_file_for_one_language(ingredients_folder_path_FR, descripteurs_principaux_folder_path_FR, descripteurs_secondaires_folder_path_FR, the_current_object, dom_for_FR);
+    generate_one_file_for_one_language(ingredients_folder_path_FR, descripteurs_principaux_folder_path_FR, descripteurs_secondaires_folder_path_FR, the_current_object, dom_for_FR, "fr");
     // language = EN
-    for (let a_foreign_language of dom.window.document.querySelectorAll(":lang(fr)")) {
-        a_foreign_language.parentNode.removeChild(a_foreign_language);
-    };
-    generate_one_file_for_one_language(ingredients_folder_path_EN, descripteurs_principaux_folder_path_EN, descripteurs_secondaires_folder_path_EN, the_current_object, dom); 
+    generate_one_file_for_one_language(ingredients_folder_path_EN, descripteurs_principaux_folder_path_EN, descripteurs_secondaires_folder_path_EN, the_current_object, dom, "en"); 
 };
 
-function generate_one_file_for_one_language(ingredients_folder_path, descripteurs_principaux_folder_path, descripteurs_secondaires_folder_path, the_current_object, dom) {
+function generate_one_file_for_one_language(ingredients_folder_path, descripteurs_principaux_folder_path, descripteurs_secondaires_folder_path, the_current_object, dom, the_language_in_two_chars) {
+    if (the_language_in_two_chars == 'fr') {
+	    var the_language_to_remove_in_two_chars = 'en';
+    } else {
+	    var the_language_to_remove_in_two_chars = 'fr';
+    };
+    for (let a_foreign_language of dom.window.document.querySelectorAll(":lang(" + the_language_to_remove_in_two_chars + ")")) {
+        a_foreign_language.parentNode.removeChild(a_foreign_language);
+    };
+    
+    // add a language to the HTML element
+    dom.window.document.html.setAttribute('lang', the_language_in_two_chars);
+    
     let the_name_of_the_file = scentree_objects.compute_the_html_name(the_current_object);
     if (scentree_objects.is_an_ingredient(the_current_object)) {
 	the_name_of_the_file = ingredients_folder_path + the_name_of_the_file;
