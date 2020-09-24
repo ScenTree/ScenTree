@@ -33,6 +33,20 @@ const the_html_file_as_a_path = the_fourth_arg;
 const the_min = the_fifth_arg;
 const the_max = the_sixth_arg;
 
+// folder names as a dict
+let the_folder_names_as_dict = {
+	"fr" : {
+		"ingredients" : "fr-ingredients", 
+		"descripteurs_principaux" : "fr-descripteurs_principaux", 
+		"descripteurs_secondaires" : "fr-descripteurs_secondaires"
+	}, 
+	"en" : {
+                "ingredients" : "en-ingredients",
+                "descripteurs_principaux" : "en-main_descriptors",
+                "descripteurs_secondaires" : "en-secondary_descriptors"
+	}
+}
+
 // folders path
 let the_folder_path = path.dirname(the_html_file_as_a_path);
 let ingredients_folder_path_FR = the_folder_path + "/../fr-ingredients/";
@@ -149,7 +163,25 @@ function generate_one_file_for_one_language(ingredients_folder_path, descripteur
     
     // add a language to the HTML element
     dom.window.document.getElementsByTagName('html')[0].setAttribute('lang', the_language_in_two_chars);
-    
+   
+
+    // canonical / alternate <link>
+    if (scentree_objects.is_an_ingredient(the_current_object)) {
+	    var the_object_is = "ingredients";
+    } else if (scentree_objects.is_a_famille_principale(the_current_object)) {
+	    var the_object_is = "descripteurs_principaux";
+    } else {
+	    var the_object_is = "descripteurs_secondaires";
+    };
+    //var the_canonical_link = dom.window.document.createElement("link");
+    //the_canonical_link.href = ;
+    var the_alternate_link = dom.window.document.createElement("link");
+    the_alternate_link.rel = "alternate";
+    the_alternate_link.href = "../" + the_folder_names_as_dict[the_language_to_remove_in_two_chars][the_object_is] + "/" + scentree_objects.compute_the_html_name(the_current_object) + ".html";
+    the_alternate_link.hreflang = the_language_to_remove_in_two_chars;
+    dom.window.document.getElementsByTagName('head')[0].appendChild(the_alternate_link);
+
+
     let the_name_of_the_file = scentree_objects.compute_the_html_name(the_current_object);
     if (scentree_objects.is_an_ingredient(the_current_object)) {
 	the_name_of_the_file = ingredients_folder_path + the_name_of_the_file;
