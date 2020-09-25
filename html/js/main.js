@@ -1465,7 +1465,15 @@ function automatically_display_the_correct_language() {
                    navigator.language ||   // All browsers
                    navigator.userLanguage; // IE <= 10
 
-    if ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-")))) {
+    var display_the_french_language = ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-"))));
+    // force the language if indicated in the <html> tag
+    if ($("html")[0].lang == "en") {
+	    display_the_french_language = false;
+    } else if ($("html")[0].lang == "fr") {
+	display_the_french_language = true;	    
+    };
+
+    if (display_the_french_language) {
         switch_to_fr();
     } else {
         switch_to_en();
