@@ -668,6 +668,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
     //communs
     var the_use = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
+    var the_use_FR = the_node_as_json_EN_and_FR['from_csv FR Utilisation'];
+    var the_use_EN = the_node_as_json_EN_and_FR['from_csv EN Utilisation'];
     var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
     var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
     var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
@@ -1309,9 +1311,13 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
    $('title').html('ScenTree - ' + the_webpage_title);
    $('meta[name=description]').remove();
-   $('head').append( '<meta lang="fr" name="description" content="' + the_webpage_description_FR + '" />');
-   $('head').append( '<meta lang="en" name="description" content="' + the_webpage_description_EN + '" />');
-
+   if (is_an_ingredient) {
+        $('head').append( '<meta lang="fr" name="description" content="' + the_webpage_description_FR + '" />');
+        $('head').append( '<meta lang="en" name="description" content="' + the_webpage_description_EN + '" />');
+   } else {
+        $('head').append( '<meta lang="fr" name="description" content="' + the_use_FR + '" />');
+	$('head').append( '<meta lang="en" name="description" content="' + the_use_EN + '" />');
+   };
 };
 
 
