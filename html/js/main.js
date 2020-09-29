@@ -13,7 +13,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_1 = "";
     var DEV_PREFIX_2 = "";
 } else {
-    var DEV_ENVIRONMENT = false; // if set to true, do not link to ingredient html webpages
+    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
     var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
     var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
 };
@@ -659,13 +659,23 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //    };
     //});
     // the_node_as_json = the_node_as_json_2;
-    
+
+    var is_an_ingredient = (the_node_as_json_EN_and_FR['ingredient'] == "yes");
+    var is_an_naturelle = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Naturelle");
+    var is_an_synthetique = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Synthétique");
+    var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
+
+
     //communs
     var the_use = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
     var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
     var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
     var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
-    var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
+    if (is_an_ingredient) {
+	var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
+    } else {
+	var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    }
     var the_webpage_description_FR = "Le " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") est un ingrédient utilisé dans les parfums. De son utilisation à son odeur en passant par sa réglementation, venez en découvrir tous les secrets avec ScenTree !";
     var the_webpage_description_EN = "The " + the_node_as_json_EN_and_FR['from_csv EN Nom'] + " (Cas number : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") is an ingredient used in perfumes. Discover all about its exploitation, its smell, and its regulation with ScenTree !";
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
@@ -725,12 +735,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (! (the_background_color)) {
         the_background_color = "#FFFFFF"
     };
-
-    var is_an_ingredient = (the_node_as_json_EN_and_FR['ingredient'] == "yes");
-    var is_an_naturelle = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Naturelle");
-    var is_an_synthetique = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Synthétique");
-    var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
-
 
     // IFRA
     $(".to-be-emptied").empty();
