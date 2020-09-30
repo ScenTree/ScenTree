@@ -13,7 +13,7 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_1 = "";
     var DEV_PREFIX_2 = "";
 } else {
-    var DEV_ENVIRONMENT = false; // if set to true, do not link to ingredient html webpages
+    var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
     var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
     var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
 };
@@ -22,6 +22,7 @@ var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the 
 
 var in30Minutes = 1/96; // in 15 minutes
 var forAFewSeconds = 3500;
+var LANGUAGE_PREFIX_FOR_URLs = "en";
 
 automatically_display_the_correct_language();
 
@@ -303,6 +304,29 @@ automatically_display_the_correct_language();
 function is_an_ingredient(the_object) {
   return (the_object['ingredient'] == 'yes');
 };
+function is_a_main_descriptor(the_object) {
+  return ((the_object["from_csv FR Type"] == "Descripteur") && (the_object["from_csv FR id"].length == 3));
+};
+function get_the_url_of_a_scentree_object(the_scentree_object) {
+        var the_html_address_prefix = "../" + LANGUAGE_PREFIX_FOR_URLs + "-"; // +"en" or +"fr"
+        if (is_an_ingredient(the_scentree_object)) {
+                the_html_address_prefix = the_html_address_prefix + "ingredients/";
+        } else if (is_a_main_descriptor(the_scentree_object)) {
+		if (LANGUAGE_PREFIX_FOR_URLs == "fr") {
+			the_html_address_prefix = the_html_address_prefix + "descripteurs_principaux/";
+		} else {
+                        the_html_address_prefix = the_html_address_prefix + "main_descriptors/";
+		};
+        } else { // this is a secondary descriptor
+                if (LANGUAGE_PREFIX_FOR_URLs == "fr") {
+                        the_html_address_prefix = the_html_address_prefix + "descripteurs_secondaires/";
+                } else {
+                        the_html_address_prefix = the_html_address_prefix + "secondary_descriptors/";
+                };
+        };
+        return the_html_address_prefix + the_scentree_object['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + the_scentree_object['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
+};
+
 
 //We create here the function that will build popups (modals).
 function CreatePopUps() {
@@ -332,16 +356,16 @@ function CreatePopUps() {
     var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
     //positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
     var marker = L.marker(latlong,{icon: mark, alt: ok[index]['from_csv EN Nom'] + " - " + ok[index]['from_csv FR Nom']});
-    // non-ingredient -> basic modal
-    if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
+    // dev -> basic modal
+    if (DEV_ENVIRONMENT) {
       marker.on("click", function() {
             markofun(ok[index]);
       });
-                } else {  // else : ingredient -> link to a new html page
-                        marker.on("click", function() {
-        save_map_status_inside_cookies(map);
-                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
-                        });
+    } else {  // else : link to a new html page
+        marker.on("click", function() {
+            save_map_status_inside_cookies(map);
+	    window.location.href = get_the_url_of_a_scentree_object(ok[index]);
+        });
     };
     markers.addLayer(marker);
       });
@@ -500,15 +524,15 @@ $(function() {
         var ok = jsonData;
 	var index = 0; 
         SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
-        	if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
+        	if (DEV_ENVIRONMENT) {
 	     		SPfocus.on("click", function() {
 	            markofun(jsonData[0]);
 	      	});
-	        } else {  // else : ingredient -> link to a new html page
+	        } else {  // else : link to a new html page
 	            SPfocus.on("click", function() {
-	            save_map_status_inside_cookies(map);
-	            window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
-	    		});
+	                save_map_status_inside_cookies(map);
+         	    	window.location.href = get_the_url_of_a_scentree_object(ok[index]);
+	   	    });
 	    	};
         searchMarker.addTo(map);
     },
@@ -635,14 +659,27 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //    };
     //});
     // the_node_as_json = the_node_as_json_2;
-    
+
+    var is_an_ingredient = (the_node_as_json_EN_and_FR['ingredient'] == "yes");
+    var is_an_naturelle = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Naturelle");
+    var is_an_synthetique = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Synthétique");
+    var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
+
+
     //communs
     var the_use = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
+    var the_use_FR = the_node_as_json_EN_and_FR['from_csv FR Utilisation'];
+    var the_use_EN = the_node_as_json_EN_and_FR['from_csv EN Utilisation'];
     var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
     var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
     var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
-    var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
-    var the_webpage_description = "Le " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") est un ingrédient utilisé dans les parfums. De son utilisation à son odeur en passant par sa réglementation, venez en découvrir tous les secrets avec ScenTree !";
+    if (is_an_ingredient) {
+	var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
+    } else {
+	var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    }
+    var the_webpage_description_FR = "Le " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") est un ingrédient utilisé dans les parfums. De son utilisation à son odeur en passant par sa réglementation, venez en découvrir tous les secrets avec ScenTree !";
+    var the_webpage_description_EN = "The " + the_node_as_json_EN_and_FR['from_csv EN Nom'] + " (Cas number : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") is an ingredient used in perfumes. Discover all about its exploitation, its smell, and its regulation with ScenTree !";
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -701,12 +738,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         the_background_color = "#FFFFFF"
     };
 
-    var is_an_ingredient = (the_node_as_json_EN_and_FR['ingredient'] == "yes");
-    var is_an_naturelle = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Naturelle");
-    var is_an_synthetique = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Synthétique");
-    var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
-
-
     // IFRA
     $(".to-be-emptied").empty();
     show_the_main_48th_IFRA_table = false;
@@ -726,7 +757,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     show_the_49th_comments = false;
 
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
-    //console.log("the_ifra_infos = " + the_ifra_infos);
+    console.log("the_ifra_infos = " + the_ifra_infos);
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
         var the_ifra_info = JSON.parse(an_infra_info);
@@ -1280,41 +1311,46 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
 
    $('title').html('ScenTree - ' + the_webpage_title);
    $('meta[name=description]').remove();
-   $('head').append( '<meta name="description" content="' + the_webpage_description + '" />');
-
+   if (is_an_ingredient) {
+        $('head').append( '<meta lang="fr" name="description" content="' + the_webpage_description_FR + '" />');
+        $('head').append( '<meta lang="en" name="description" content="' + the_webpage_description_EN + '" />');
+   } else {
+        $('head').append( '<meta lang="fr" name="description" content="' + the_use_FR + '" />');
+	$('head').append( '<meta lang="en" name="description" content="' + the_use_EN + '" />');
+   };
 };
 
 
 $("#SynthetiqueModal").on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("*:lang(en)").css({'display' : 'none'});
-        $("*:lang(fr)").css({'display' : 'initial'});
+        $("*[lang=en]").not("html").css({'display' : 'none'});
+        $("*[lang=fr]").not("html").css({'display' : 'initial'});
     } else {
-  $("*:lang(fr)").css({'display' : 'none'});
-        $("*:lang(en)").css({'display' : 'initial'});
+        $("*[lang=fr]").not("html").css({'display' : 'none'});
+        $("*[lang=en]").not("html").css({'display' : 'initial'});
     };
 });
 
 $("#naturelleModal").on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("*:lang(en)").css({'display' : 'none'});
-        $("*:lang(fr)").css({'display' : 'initial'});
+        $("*[lang=en]").not("html").css({'display' : 'none'});
+        $("*[lang=fr]").not("html").css({'display' : 'initial'});
     } else {
-        $("*:lang(fr)").css({'display' : 'none'});
-        $("*:lang(en)").css({'display' : 'initial'});
+        $("*[lang=fr]").not("html").css({'display' : 'none'});
+        $("*[lang=en]").not("html").css({'display' : 'initial'});
     };
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("*:lang(en)").css({'display' : 'none'});
-        $("*:lang(fr)").css({'display' : 'initial'});
+        $("*[lang=en]").not("html").css({'display' : 'none'});
+        $("*[lang=fr]").not("html").css({'display' : 'initial'});
     } else {
-        $("*:lang(fr)").css({'display' : 'none'});
-        $("*:lang(en)").css({'display' : 'initial'});
+        $("*[lang=fr]").not("html").css({'display' : 'none'});
+        $("*[lang=en]").not("html").css({'display' : 'initial'});
     };
 });
 
@@ -1352,6 +1388,8 @@ $("#naturelleModal").on("hide.bs.modal", function (e) {
 });
 $('#DescripteurModal').on("hidden.bs.modal", function (e) {
         $('title').html("ScenTree - Classification innovante des ingrédients parfum");
+        save_map_status_inside_cookies(map);
+        window.location.href = "../_/index.html";
 });
 
 var URL_PREFIX_SELECTER;
@@ -1366,7 +1404,7 @@ function switch_to_en() {
     Cookies.set('display_french_language', -1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-        $("*:lang(fr)").remove();
+        $("*[lang=fr]").not("html").remove();
     };
     //$("*:lang(en)").css({'display' : 'initial'});
     // change search
@@ -1381,6 +1419,9 @@ function switch_to_en() {
     };
     //change page title only for the main page
     if (document.title ==  "ScenTree - Classification innovante des ingrédients parfum") document.title = "ScenTree - The new collaborative perfumery raw materials classification";
+
+    // set prefix for ingredients and descriptors html pages
+    LANGUAGE_PREFIX_FOR_URLs = "en";
 };
 function switch_to_fr() {
     // emphasize the FR button
@@ -1392,7 +1433,7 @@ function switch_to_fr() {
     Cookies.set('display_french_language', 1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-  $("*:lang(en)").remove();
+        $("*[lang=en]").not("html").remove();
     };
     //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
@@ -1407,6 +1448,9 @@ function switch_to_fr() {
     };
     //change page title only for the main page
     if (document.title ==  "ScenTree - The new collaborative perfumery raw materials classification") document.title = "ScenTree - Classification innovante des ingrédients parfum";
+    
+    // set prefix for ingredients and descriptors html pages
+    LANGUAGE_PREFIX_FOR_URLs = "fr";
 };
 
 $(".to_english_button").click(function() {
@@ -1433,7 +1477,15 @@ function automatically_display_the_correct_language() {
                    navigator.language ||   // All browsers
                    navigator.userLanguage; // IE <= 10
 
-    if ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-")))) {
+    var display_the_french_language = ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-"))));
+    // force the language if indicated in the <html> tag
+    if ($("html")[0].lang == "en") {
+	    display_the_french_language = false;
+    } else if ($("html")[0].lang == "fr") {
+	display_the_french_language = true;	    
+    };
+
+    if (display_the_french_language) {
         switch_to_fr();
     } else {
         switch_to_en();
