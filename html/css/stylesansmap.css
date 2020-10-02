@@ -152,6 +152,24 @@ hr {
   font-size: 2.5em;
 }
 /*#########################
+######### SOMMAIRE ########
+#########################*/
+.TitreSommaire{
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+.RecapArticle {
+  text-align: center;
+  font-size: 0.8em;
+}
+.MAJArticle {
+    text-align: end;
+    font-size: 0.6em;
+    color: slategrey;
+}
+/*#########################
 ######CREATION PARFUM######
 #########################*/
 .listetypeparfum {
