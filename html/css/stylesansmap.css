@@ -183,6 +183,9 @@ hr {
   color: #D64E26;
   font-weight: bold;
 }
+.panel-body ol ul {
+  line-height: 1.2;
+}
 .soustitre {
   font-weight: bold;
   list-style-position: inside;
