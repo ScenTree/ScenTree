@@ -186,6 +186,10 @@ hr {
 .soustitre {
   font-weight: bold;
 }
+.type {
+  color: #D64E26;
+  list-style-position: inside;
+}
 /*#########################
 ######CREATION PARFUM######
 #########################*/
