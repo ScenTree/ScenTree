@@ -186,7 +186,7 @@ hr {
 .soustitre {
   font-weight: bold;
 }
-.type {
+.type li {
   color: #D64E26;
   list-style-position: inside;
 }
