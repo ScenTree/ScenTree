@@ -179,7 +179,7 @@ hr {
 /*#########################
 #########LAVANDULA#########
 #########################*/
-.panel-heading {
+.panel-title a {
   color: #D64E26;
   font-weight: bold;
 }
