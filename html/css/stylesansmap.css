@@ -183,7 +183,7 @@ hr {
   color: #D64E26;
   font-weight: bold;
 }
-.panel-body ol ul {
+.panel-body ol, ol ul {
   line-height: 1.2;
 }
 .soustitre {
@@ -192,6 +192,7 @@ hr {
 }
 .type {
   color: #D64E26;
+  margin-top: 
 }
 /*#########################
 ######CREATION PARFUM######
