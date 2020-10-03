@@ -165,9 +165,13 @@ hr {
   font-size: 0.8em;
 }
 .MAJArticle {
-    text-align: end;
-    font-size: 0.6em;
-    color: slategrey;
+  text-align: end;
+  font-size: 0.6em;
+  color: slategrey;
+}
+.imgcard{
+  max-width: 70%;
+  min-width: 70%;
 }
 /*#########################
 ######CREATION PARFUM######
