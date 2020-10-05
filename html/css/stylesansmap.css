@@ -194,9 +194,10 @@ hr {
   color: #5613B6;
   list-style-position: inside;
 }
-tr:hover {
+.chromato tr:hover {
   background-color: lightblue;
 }
+
 /*#########################
 ######CREATION PARFUM######
 #########################*/
