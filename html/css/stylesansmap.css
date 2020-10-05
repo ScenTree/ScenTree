@@ -194,11 +194,9 @@ hr {
   color: #5613B6;
   list-style-position: inside;
 }
-.chromato {
-  background-color: white;
-}
-.chromato tr:hover {
+.highlightedcells {
   background-color: lightblue;
+  font-weight: bold;
 }
 
 /*#########################
