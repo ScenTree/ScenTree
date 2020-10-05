@@ -575,10 +575,6 @@ td, .table td {
     white-space: normal;
 }
 
-tr:nth-child(even) {
-  background-color: #F1F0F0;
-  color:#121212; 
-}
 caption {
     color: #D64E26;
     text-align: center;
