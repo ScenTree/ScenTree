@@ -574,7 +574,9 @@ td, .table td {
     vertical-align: middle;
     white-space: normal;
 }
-
+tbody tr:hover {
+  background: lightblue;
+}
 caption {
     color: #D64E26;
     text-align: center;
