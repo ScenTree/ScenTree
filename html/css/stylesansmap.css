@@ -179,6 +179,13 @@ hr {
 /*#########################
 #########LAVANDULA#########
 #########################*/
+.paragraphelavande {
+  font-size: 0.85em;
+    margin-right: auto;
+    margin-top: 0.4em;
+    margin-bottom: 0.4em;
+    line-height: 1.4;
+}
 .panel-title a {
   color: #D64E26;
   font-weight: bold;
