@@ -435,6 +435,23 @@ td, .table td {
   margin-left: auto;
   margin-right: auto;
 }
+.imgmap {
+  max-width: 19em;
+  max-height: 180px;
+}
+.blockimg .imgmap {
+  max-width: 19em;
+  max-height: 180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.creditsphoto {
+  text-align: center;
+  color: #A5A5A5;
+  font-size: 0.65em;
+  font-style: italic;
+}
+
 .textitem-footer{
   font-size:small;
   text-align: center;
@@ -824,13 +841,13 @@ h1 {
 }
 
 /* LANGUAGES */
-
+/*
 *:lang(fr) {
     display: initial;
 }
 *:lang(en) {
     display: initial;
-}
+}*/
 
 /* YOU CAN ZOOM */
 #you_can_zoom {
