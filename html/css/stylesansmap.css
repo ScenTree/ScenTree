@@ -172,8 +172,6 @@ hr {
   color: slategrey;
 }
 .card-img-top{
-    min-width: 120px;
-    min-height: 120px;
     max-width: 15em;
     max-height: 15em;
 }
@@ -416,13 +414,6 @@ hr {
 /*#########################
 ########NEWSLETTER#########
 #########################*/
-.card-img-top {
-  margin-top: 5%;
-  min-width: 120px;
-  min-height: 120px;
-  max-width: 120px;
-  max-height: 120px;
-}
 .card {
   align-items: center;
   border: 1px solid #E99A1F;
