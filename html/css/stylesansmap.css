@@ -171,9 +171,11 @@ hr {
   font-size: 0.6em;
   color: slategrey;
 }
-.imgcard{
-  max-width: 70%;
-  min-width: 70%;
+.card-img-top{
+    min-width: 120px;
+    min-height: 120px;
+    max-width: 15em;
+    max-height: 15em;
 }
 .liensommaire{
   color: #D64E26;
