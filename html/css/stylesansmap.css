@@ -367,20 +367,7 @@ hr {
   height: 15%; 
   width: 20%;
 }
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 15%;
-  width: 15%;
-}
-.img3creationparfum {
-  float: left;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
+
 .img4creationparfum {
   float: right;
   margin: 1%;
@@ -619,21 +606,6 @@ caption {
   width: 20%;
 }
 
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 18%;
-  width: 18%;
-}
-.img3creationparfum {
-  float: left;
-  margin-right: 1%;
-  margin-left: 0%;
-  height: 20%;
-  width: 20%;
-}
 .img4creationparfum {
   float: right;
   margin: 1%;
@@ -796,24 +768,6 @@ ul {
   margin-top:2%; 
   margin-bottom: 2%;
 }
-.img2creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-left:10%;
-  margin-right: 10%;
-  margin-top:2%; 
-  margin-bottom: 5%;
-}
-.img3creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
 .img4creationparfum {
   display: none;
 }
@@ -908,10 +862,6 @@ font-size: 10px;
 .PageEntiere {
     background-color: white;
 }
-.img4creationparfum {
-  display: none;
-}
-
 }
 
 
@@ -919,87 +869,27 @@ font-size: 10px;
 ########NOUVEAUTES#########
 #########################*/
 /*set up size of the whole timeline OK */
-.timeline{
-  position: relative;
-  margin: 0px auto;
-  width:100%;
-}
+.timeline{position: relative; margin: 0px auto; width:100%;}
 /* Titre des parties OK*/
-.content h2{
-  color:#D64E26;
-  font-size:1.3em;
-  font-weight: bold;
-  padding-top: 2.5%;
-}
+.content h2{ color:#D64E26; font-size:1.3em; font-weight: bold; padding-top: 2.5%;}
 /*Style du texte sous la date OK*/
-.ajoutMP{
-  color:black;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-.ajoutMPavecSponsor {
-  color:black;
-  font-size: 1.3em;
-  font-weight: bold;
-}
+.ajoutMP{ color:black; font-size: 0.8em; font-weight: bold;}
+.ajoutMPavecSponsor { color:black; font-size: 1.3em; font-weight: bold;}
 /*drawing the line itself OK */
-.timeline:before{
-  content: '';
-  position:absolute;
-  left:50%;
-  width:0.5em;
-  height:100%;
-  background-color:#D64E26;
-}
+.timeline:before{ content: ''; position:absolute; left:50%; width:0.5em; height:100%; background-color:#D64E26;}
 /*styling the size of each step/content OK */
-.timeline ul li{
-  list-style: none;
-  position:relative;
-  width:50%;
-  padding:5px 35px;
-}
+.timeline ul li{ list-style: none; position:relative; width:50%; padding:5px 35px;}
 /*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:right;
-  float:left;
-  clear:both;
-  right: 4%;
-  width: 52.5%;
-}
+.timeline ul li:nth-child(odd){ text-align:right; float:left; clear:both; right: 4%; width: 52.5%;}
 /* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left:1.1%;
-  width: 52%;
-}
+.timeline ul li:nth-child(even){ text-align:left; float:right; clear:both; left:1.1%; width: 52%;}
 /*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before {
-  content:'';
-  position:absolute;
-  width:40px;
-  height:40px;
-  background-color:#F7B88E;
-  border-radius:60%;
-  box-shadow: 0 0 0 6px rgba(251, 229, 214);
-  z-index:1
-}
+.timeline ul li:before { content:''; position:absolute; width:40px; height:40px; background-color:#F7B88E; border-radius:60%; box-shadow: 0 0 0 6px rgba(251, 229, 214); z-index:1}
 /*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{
-  left: -3.6%;
-}
-.timeline ul li:nth-child(odd):before{
-  right:-3.6%;
-}
+.timeline ul li:nth-child(even):before{ left: -3.6%;}
+.timeline ul li:nth-child(odd):before{ right:-3.6%;}
 /*styling the numbering. OK */
-.timeline ul li:before{
-  font-weight:bold;
-  font-size:1.2em;
-  color:white;
-  text-align:center;
-  padding-top:1%;
-}
+.timeline ul li:before{ font-weight:bold; font-size:1.2em; color:white; text-align:center; padding-top:1%;}
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
   /*for every odd numbered bullet point, align to the left OK*/
@@ -1021,27 +911,15 @@ font-size: 10px;
 }
 @media screen and (max-width: 990px) {
 /* Titre des parties OK*/
-.content h2{font-size:1em; padding-top: 2.5%; }
+.content h2{font-size:1em; padding-top: 2.5%;}
 /*Style du texte sous la date OK*/
 .ajoutMP{font-size: 0.9em;}
 /*drawing the line itself OK*/
 .timeline:before{left:6%; width:0.3em;}
 /*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:left;
-  float:right;
-  clear:both;
-  right: -5%;
-  width: 110%;
-}
+.timeline ul li:nth-child(odd){ text-align:left; float:right; clear:both; right: -5%; width: 110%;}
 /* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left: 5%;
-  width: 110%;
-}
+.timeline ul li:nth-child(even){ text-align:left; float:right; clear:both; left: 5%; width: 110%;}
 /*create circle icon on the timeline from the left (odd) OK */
 .timeline ul li:before { width:35px; height:35px;}
 /*position the circle icons on the timeline OK*/
@@ -1049,7 +927,6 @@ font-size: 10px;
 .timeline ul li:nth-child(odd):before{left: -6%;}
 /*styling the numbering. OK */
 .timeline ul li:before{font-size:0.9em; padding-top:3%;}
-
 .content p {
   font-size: 0.8em;
 }
