@@ -183,10 +183,10 @@ hr {
 #########################*/
 .paragraphelavande {
   font-size: 0.85em;
-    margin-right: auto;
-    margin-top: 0.4em;
-    margin-bottom: 0.4em;
-    line-height: 1.4;
+  margin-right: auto;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  line-height: 1.4;
 }
 .panel-title a {
   color: #D64E26;
@@ -214,14 +214,11 @@ hr {
 .listetypeparfum {
   text-decoration: underline;
   color: #D64E26;
-  font-size: 0.8em;
-  margin-bottom: 0;
-  margin-top: 0; 
+  font-size: 1em;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem; 
 }
-.categorieparfum li {
-  margin: 0;
-  line-height: 1.2;
-}
+
 /*#########################
 ########INGREDIENTS########
 #########################*/
@@ -369,11 +366,6 @@ hr {
   margin-bottom: 0%; 
   height: 15%; 
   width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 30%;
-  width: 30%;
 }
 .img2creationparfum {
   float: right;
@@ -626,11 +618,7 @@ caption {
   height: 15%; 
   width: 20%;
 }
-.img1creationparfum {
-  align-items: center;
-  height: 60%;
-  width: 60%;
-}
+
 .img2creationparfum {
   float: right;
   margin-bottom: 1%;
@@ -807,11 +795,6 @@ ul {
   margin:0;
   margin-top:2%; 
   margin-bottom: 2%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 100%;
-  width: 100%;
 }
 .img2creationparfum {
   align-items: center;
