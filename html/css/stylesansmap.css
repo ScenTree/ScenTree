@@ -227,13 +227,7 @@ hr {
   min-width: 70%;
   max-width: 70%;
 }
-.timelineifra {
-  align-items: center;
-  min-height: 50%;
-  max-height: 50%;
-  min-width: 50%;
-  max-width: 50%;
-}
+
 /*#########################
 ##########SOURCES##########
 #########################*/
@@ -479,15 +473,7 @@ caption {
     font-style: italic;
     caption-side: top;
 }
-.categorieifra table {
-  text-align: right;
-}
-.categorieifra td, .table td {
-    border: 1px solid black;
-    text-align: left;  
-    vertical-align: middle;
-    white-space: normal;
-}
+
 /*#########################
 #######RESPONSIVE##########
 #########################*/
@@ -514,13 +500,7 @@ caption {
   min-height: 20%;
   max-height: 20%;
 }
-.timelineifra {
-  align-items: center;
-  min-height: 70%;
-  max-height: 70%;
-  min-width: 70%;
-  max-width: 70%;
-}
+
 table {
 min-width: 100%;
 }
@@ -585,13 +565,6 @@ overflow-x: auto;
   color: #D64E26;
   font-size: 0.9em;
 }
-.timelineifra {
-  align-items: center;
-  min-height: 85%;
-  max-height: 85%;
-  min-width: 85%;
-  max-width: 85%;
-}
 }
 
 @media screen and (max-width: 767px) {
@@ -630,13 +603,6 @@ ul {
   min-width: 60%;
   max-width: 60%;
 }
-.timelineifra {
-  align-items: center;
-  min-height: 100%;
-  max-height: 100%;
-  min-width: 100%;
-  max-width: 100%;
-}
 
 .imgingredientblock {
   display: none;
@@ -657,7 +623,7 @@ font-size: 10px;
 .textRGPD {
   margin-top: 5%;
   text-align: justify;
-  min-width:100%;
+  min-width: 100%;
 }
 .boutonRGPD {
   margin: 5%;
