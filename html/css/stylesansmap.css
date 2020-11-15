@@ -5,9 +5,6 @@ html, body {
 p {
   font-size: 0.8em;
 }
-.maskedtitle {
-  font-size: 1em;
-}
 .correctspacebug {
   min-height: 5em;
   max-height: 5em;
@@ -180,6 +177,9 @@ hr {
 /*#########################
 ########INGREDIENTS########
 #########################*/
+.maskedtitle {
+  font-size: 1em;
+}
 .titreMP {
   font-weight: bold;
   color: #D64E26;
@@ -197,28 +197,14 @@ hr {
   font-size: 1em;
   text-decoration: underline;
   text-transform: uppercase;
-  margin-top: 0.5em;
 }
 .catégories2 {
   font-weight: bold;
   text-decoration: underline;
-  margin-top: 0.8em;
 }
 .sous_texte{
   font-weight: normal;
   text-decoration: none;
-}
-.imgMP1{
-  float: right;
-  margin-left: 2%;
-  max-height: 20%;
-  max-width: 20%;
-}
-.imgingredient {
-  min-height: 15%;
-  max-height: 15%;
-  min-width: 15%;
-  max-width: 15%;
 }
 .resumenat{
   align-items: center;
@@ -491,16 +477,6 @@ caption {
     display: inline;
 }
 
-.imgMP1{
-  float: right;
-  top: 10%;
-  margin-left: 2%;
-  min-width: 20%;
-  max-width: 20%; 
-  min-height: 20%;
-  max-height: 20%;
-}
-
 table {
 min-width: 100%;
 }
@@ -595,13 +571,6 @@ ul {
   min-height: 90%;
   max-width: 90%;
   max-height: 90%;
-}
-.imgMP1{
-  float: none;
-  min-height: 60%;
-  max-height: 60%;
-  min-width: 60%;
-  max-width: 60%;
 }
 
 .imgingredientblock {
