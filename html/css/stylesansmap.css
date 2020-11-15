@@ -534,13 +534,6 @@ overflow-x: auto;
   color: #D64E26;
   font-size: 0.9em;
 }
-ol li {
-  padding: 0;
-  margin: 0;
-}
-.paragraphelavande{
-  min-width: 100%;
-}
 }
 
 @media screen and (max-width: 767px) {
@@ -560,8 +553,12 @@ ol li {
   font-weight: bold;
   font-size: 1em;
 }
-ul {
-  padding-left: 1.5em;
+ol ul li {
+  padding: 0;
+  margin: 0;
+}
+.paragraphelavande{
+  min-width: 100%;
 }
 .solvemobilepadding {
   margin-top:85%; 
