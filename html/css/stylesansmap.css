@@ -286,7 +286,7 @@ hr {
 
 /*#########################
 ########NEWSLETTER#########
-#########################
+#########################*/
 .card {
   align-items: center;
   border: 1px solid #E99A1F;
@@ -309,8 +309,7 @@ hr {
   background-color: #FBE5D6FF; 
   border: 1px solid #E99A1F;
   box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}*/
-
+}
 /*#########################
 ########COPYRIGHT##########
 #########################*/
@@ -323,6 +322,7 @@ hr {
 /*#########################
 ###########RGPD############
 #########################*/
+
 .textRGPD {
    text-align: justify 
 }
@@ -471,12 +471,14 @@ caption {
     cursor:pointer;
     display: inline;
 }
+
 table {
 min-width: 100%;
 }
 .blanccorrectionmisenepage{
   height: 0%;
 }
+
 .particulier ul {
   margin: 0;
   padding:0;
@@ -545,9 +547,6 @@ overflow-x: auto;
   height: 100%;
   overflow-y: visible;
 }
-.container {
-  min-width: 100%;
-}
 .logomenu{
     max-height: 40px;
 }
@@ -556,7 +555,9 @@ overflow-x: auto;
   font-weight: bold;
   font-size: 1em;
 }
-
+ul {
+  padding-left: 1.5em;
+}
 .solvemobilepadding {
   margin-top:85%; 
 }
