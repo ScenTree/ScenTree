@@ -5,6 +5,7 @@ html, body {
 p {
   font-size: 0.8em;
 }
+
 .correctspacebug {
   min-height: 5em;
   max-height: 5em;
@@ -28,9 +29,7 @@ h4 {
 #mapblock {
   z-index: 1;
 }
-/*.bplus{
-  color: #D64E26;
-}*/
+
 .gros_titre {
   margin-top: 1%;
   font-weight: bold;
@@ -202,10 +201,7 @@ hr {
   font-weight: bold;
   text-decoration: underline;
 }
-.sous_texte{
-  font-weight: normal;
-  text-decoration: none;
-}
+
 .resumenat{
   align-items: center;
   min-height: 70%;
@@ -288,10 +284,9 @@ hr {
   max-height: 70%;
 }
 
-
 /*#########################
 ########NEWSLETTER#########
-#########################*/
+#########################
 .card {
   align-items: center;
   border: 1px solid #E99A1F;
@@ -314,7 +309,8 @@ hr {
   background-color: #FBE5D6FF; 
   border: 1px solid #E99A1F;
   box-shadow: 3px 3px 22px 0px rgba(251,229,214,1);
-}
+}*/
+
 /*#########################
 ########COPYRIGHT##########
 #########################*/
@@ -327,7 +323,6 @@ hr {
 /*#########################
 ###########RGPD############
 #########################*/
-
 .textRGPD {
    text-align: justify 
 }
@@ -476,14 +471,12 @@ caption {
     cursor:pointer;
     display: inline;
 }
-
 table {
 min-width: 100%;
 }
 .blanccorrectionmisenepage{
   height: 0%;
 }
-
 .particulier ul {
   margin: 0;
   padding:0;
@@ -540,6 +533,13 @@ overflow-x: auto;
 .text-in-color-brown {
   color: #D64E26;
   font-size: 0.9em;
+}
+ol li {
+  padding: 0;
+  margin: 0;
+}
+.paragraphelavande{
+  min-width: 100%;
 }
 }
 
