@@ -1305,6 +1305,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     };
     if (is_an_descripteur) {
         $('#DescripteurModal .modal-header').css('background-color', the_background_color);
+        $('#modalbody-pictdescripteurs').empty();
+        $('#modalbody-pictdescripteurs').append("<img class='imgmp' src=\"../img/descripteurs/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
         if (show_the_modal) $('#DescripteurModal').modal('show');
     };
     
