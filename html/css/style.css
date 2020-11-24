@@ -131,6 +131,7 @@ html, body {
 }
 .typedescripteur {
   text-align: end;
+  text-transform: uppercase;
 }
 .nomdescripteur{
   font-size: 2em;
@@ -777,7 +778,6 @@ h1 {
    font-size: 1.3vw;
    margin-top: 0%;
    margin-bottom: 0%;
-   display: none;
 }
 .blanc2 {
     height: 30%;
