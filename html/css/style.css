@@ -139,8 +139,11 @@ html, body {
 }
 
 @media screen and (max-width: 768px) {
-  .textdescripteurs {
-    font-size:0.9em;
+.textdescripteurs {
+  font-size:0.9em;
+}
+.nomdescripteur {
+  font-size: 20px;
 }
 }
 
