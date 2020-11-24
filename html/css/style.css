@@ -132,7 +132,10 @@ html, body {
 .typedescripteur {
   text-align: end;
 }
-
+.nomdescripteur{
+  font-size: 2em;
+  font-weight: 200;
+}
 @media screen and (max-width: 768px) {
 .textdescripteurs {
   font-size:0.9em;
