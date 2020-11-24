@@ -443,7 +443,10 @@ td, .table td {
 /*##############################
 ###########MODAL BODY###########
 ##############################*/
-
+.ligneinfo {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
 .my-modal {
   background-color: #F2F2F2FF;
 }
