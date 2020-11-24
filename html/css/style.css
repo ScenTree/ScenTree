@@ -717,8 +717,6 @@ h1 {
 @media screen and (min-width: 990px) and (max-width: 1200px) {
 h1 {
    width: 100%;
-   font-style: bold;
-   font-size: 1.1vw;
    margin-top: 0%;
    margin-bottom: 0%;
 }
