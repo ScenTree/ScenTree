@@ -431,6 +431,11 @@ td, .table td {
 }
 }
 
+@media screen and (max-width: 990px) {
+.type {
+  display: none;
+}
+}
 /*##############################
 ###########MODAL BODY###########
 ##############################*/
@@ -511,9 +516,7 @@ td, .table td {
 
 @media screen and (max-width: 768px) {
 
-.type {
-  display: none;
-}
+
 
 .item {
   font-size: 0.9em;
