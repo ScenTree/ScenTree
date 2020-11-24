@@ -123,7 +123,18 @@ html, body {
   text-align: justify;
 }
 
+/*#########################
+#######DESCRIPTEURS########
+#########################*/
+.textdescripteurs {
+    font-size:small;
+}
 
+@media screen and (max-width: 768px) {
+  .textdescripteurs {
+    font-size:0.9em;
+}
+}
 
 /*#########################
 ###########MAP#############
@@ -387,9 +398,7 @@ td, .table td {
     text-transform: uppercase;
     text-align: center;
 }
-.textdescripteurs {
-    font-size:small;
-}
+
 .my-modal {
   background-color: #F2F2F2FF;
 }
@@ -465,6 +474,7 @@ td, .table td {
 }
 
 @media screen and (max-width: 768px) {
+
 .modalheader-type {
   font-size: 13px;
   text-transform: uppercase;
@@ -479,10 +489,7 @@ td, .table td {
 .type {
   display: none;
 }
-.textdescripteurs {
-    font-size:0.9em;
-    text-align: justify;
-}
+
 .item {
   font-size: 0.9em;
 }
