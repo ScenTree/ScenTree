@@ -386,6 +386,7 @@ td, .table td {
 /*################################
 ###########MODAL HEADER###########
 ################################*/
+@media screen and (min-width: 768px) {
 .modal-title {
     font-size: 1.2em !important;
     font-weight: bold !important;
@@ -401,6 +402,8 @@ td, .table td {
     text-transform: uppercase;
     text-align: center;
 }
+}
+
 @media screen and (max-width: 768px) {
 .modalheader-type {
   font-size: 13px;
