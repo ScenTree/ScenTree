@@ -147,9 +147,7 @@ html, body {
 .textdescripteurs {
   font-size:0.9em;
 }
-.nomMP{
-  text-align: center;
-}
+
 }
 
 /*#########################
@@ -437,6 +435,9 @@ td, .table td {
 @media screen and (max-width: 990px) {
 .type {
   display: none;
+}
+.nomMP{
+  text-align: center;
 }
 }
 /*##############################
