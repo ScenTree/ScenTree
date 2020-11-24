@@ -131,7 +131,6 @@ html, body {
 }
 .typedescripteur {
   text-align: end;
-  font-size: 18px;
 }
 
 @media screen and (max-width: 768px) {
@@ -415,7 +414,7 @@ td, .table td {
   text-align: center;
 }
 .modal-title {
-    font-size: 1.2em; 
+    font-size: 1em; 
 }
 }
 
