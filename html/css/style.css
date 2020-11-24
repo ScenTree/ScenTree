@@ -129,10 +129,6 @@ html, body {
 .textdescripteurs {
   font-size:small;
 }
-.nomdescripteur {
-  font-weight: bold;
-  font-size: 12px;
-}
 .typedescripteur {
   text-align: end;
   font-size: 18px;
@@ -141,9 +137,6 @@ html, body {
 @media screen and (max-width: 768px) {
 .textdescripteurs {
   font-size:0.9em;
-}
-.nomdescripteur {
-  font-size: 20px;
 }
 }
 
@@ -391,11 +384,11 @@ td, .table td {
   display: none;
 };
 
-/*#########################
-###########MODAL###########
-#########################*/
-.modal-title1 {
-    font-size: 18px;
+/*################################
+###########MODAL HEADER###########
+################################*/
+.modal-title {
+    font-size: 1.2em;
     font-weight: bold;
     text-align: center;
 }
@@ -409,6 +402,26 @@ td, .table td {
     text-transform: uppercase;
     text-align: center;
 }
+@media screen and (max-width: 768px) {
+.modalheader-type {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  margin:0;
+}
+.modalheader-type2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.modal-title {
+    font-size: 1.2em; 
+}
+}
+
+/*##############################
+###########MODAL BODY###########
+##############################*/
 
 .my-modal {
   background-color: #F2F2F2FF;
@@ -486,17 +499,6 @@ td, .table td {
 
 @media screen and (max-width: 768px) {
 
-.modalheader-type {
-  font-size: 13px;
-  text-transform: uppercase;
-  text-align: center;
-  margin:0;
-}
-.modalheader-type2 {
-  font-size: 13px;
-  text-transform: uppercase;
-  text-align: center;
-}
 .type {
   display: none;
 }
@@ -537,9 +539,7 @@ th, .table th, td, .table td{
 .iconetab {
   display: none !important;
 }
-.modal-title {
-    font-size: 1.2em; 
-}
+
 .Filiation{
     height: 10%;
     width: 100%;
