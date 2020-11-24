@@ -387,9 +387,9 @@ td, .table td {
 ###########MODAL HEADER###########
 ################################*/
 .modal-title {
-    font-size: 1.2em;
-    font-weight: bold;
-    text-align: center;
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: center !important;
 }
 .modalheader-type {
     font-style: 18px;
