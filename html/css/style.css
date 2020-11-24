@@ -538,7 +538,7 @@ th, .table th, td, .table td{
   display: none !important;
 }
 .modal-title {
-    font-size: 15px; 
+    font-size: 1.2em; 
 }
 .Filiation{
     height: 10%;
