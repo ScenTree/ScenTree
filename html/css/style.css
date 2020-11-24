@@ -621,13 +621,6 @@ th, .table th, td, .table td{
 
 
 @media screen and (min-width: 1400px) {
-h1 {
-   width: 100%;
-   font-style: bold;
-   font-size: 0.9vw;
-   margin-top: 0%;
-   margin-bottom: 0%;
-}
 .correctspacebug {
   min-height: 19.5em;
   max-height: 19.5em;
@@ -679,13 +672,6 @@ h1 {
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
-h1 {
-   width: 100%;
-   font-style: bold;
-   font-size: 1.1vw;
-   margin-top: 0%;
-   margin-bottom: 0%;
-}
 .blanc2 {
    height: 42%;
 }
@@ -728,11 +714,6 @@ h1 {
 
 
 @media screen and (min-width: 990px) and (max-width: 1200px) {
-h1 {
-   width: 100%;
-   margin-top: 0%;
-   margin-bottom: 0%;
-}
 .blanc2 {
    height: 42%;
 }
@@ -778,13 +759,6 @@ h1 {
 }
 
 @media screen and (min-width: 768px) and (max-width: 990px) {
-h1 {
-    width: 100%;
-   font-style: bold;
-   font-size: 1.3vw;
-   margin-top: 0%;
-   margin-bottom: 0%;
-}
 .blanc2 {
     height: 30%;
 }
