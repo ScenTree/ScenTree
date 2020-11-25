@@ -492,33 +492,12 @@ td, .table td {
   font-style: italic;
   font-weight: normal;
 }
-.imgmp {
-  max-width: 180px;
-  max-height: 180px;
-}
-.blockimg .imgmp {
-  max-width: 180px;
-  max-height: 180px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.imgmap {
-  max-width: 19em;
-  max-height: 180px;
-}
-.blockimg .imgmap {
-  max-width: 19em;
-  max-height: 180px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .creditsphoto {
   text-align: center;
   color: #A5A5A5;
   font-size: 0.65em;
   font-style: italic;
 }
-
 .textitem-footer{
   font-size:small;
   text-align: center;
@@ -532,18 +511,8 @@ td, .table td {
 }
 
 @media screen and (max-width: 768px) {
-
-
-
 .item {
   font-size: 0.9em;
-}
-.blockimg {
-  min-width: 100%;
-}
-.imgmp {
-  max-width: 180px;
-  max-height: 180px;
 }
 .textitem {
   padding: 2px;
