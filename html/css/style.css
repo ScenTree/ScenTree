@@ -147,7 +147,6 @@ html, body {
 .textdescripteurs {
   font-size:0.9em;
 }
-
 }
 
 /*#########################
@@ -161,7 +160,74 @@ html, body {
     /*z-index: 5;*/
     background-color: white;
 }
+/*################################
+###########MODAL HEADER###########
+################################*/
+@media screen and (min-width: 768px) {
+.modal-title {
+    font-size: 1.2em !important;
+    font-weight: bold !important;
+    text-align: center !important;
+}
+.modalheader-type {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.modalheader-type2 {
+    font-style: 18px;
+    text-transform: uppercase;
+    text-align: center;
+}
+}
 
+@media screen and (max-width: 768px) {
+.modalheader-type {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  margin:0;
+}
+.modalheader-type2 {
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.modal-title {
+    font-size: 1em; 
+}
+}
+
+@media screen and (max-width: 990px) {
+.type {
+  display: none;
+}
+.nomMP{
+  text-align: center;
+}
+}
+/*##############################
+###########MODAL BODY###########
+##############################*/
+.panelcontent {
+    max-width: 100%;
+    max-height: 100%;
+}
+.ligneinfo {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+.ligneinfoserrée1er {
+  margin-top: 1em;
+  margin-bottom: 0em;
+}
+.ligneinfoserrée {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+.blockimg {
+  margin: auto;
+}
 /*#########################
 ## MES STYLES RESPONSIVES #
 #########################*/
@@ -394,71 +460,7 @@ td, .table td {
   display: none;
 };
 
-/*################################
-###########MODAL HEADER###########
-################################*/
-@media screen and (min-width: 768px) {
-.modal-title {
-    font-size: 1.2em !important;
-    font-weight: bold !important;
-    text-align: center !important;
-}
-.modalheader-type {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
-.modalheader-type2 {
-    font-style: 18px;
-    text-transform: uppercase;
-    text-align: center;
-}
-}
 
-@media screen and (max-width: 768px) {
-.modalheader-type {
-  font-size: 13px;
-  text-transform: uppercase;
-  text-align: center;
-  margin:0;
-}
-.modalheader-type2 {
-  font-size: 13px;
-  text-transform: uppercase;
-  text-align: center;
-}
-.modal-title {
-    font-size: 1em; 
-}
-}
-
-@media screen and (max-width: 990px) {
-.type {
-  display: none;
-}
-.nomMP{
-  text-align: center;
-}
-}
-/*##############################
-###########MODAL BODY###########
-##############################*/
-.panelcontent {
-    max-width: 100%;
-    max-height: 100%;
-}
-.ligneinfo {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-.ligneinfoserrée1er {
-  margin-top: 1em;
-  margin-bottom: 0em;
-}
-.ligneinfoserrée {
-  margin-top: 0em;
-  margin-bottom: 0em;
-}
 
 
 .my-modal {
