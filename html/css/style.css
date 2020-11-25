@@ -447,6 +447,16 @@ td, .table td {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+.ligneinfoserrée1er {
+  margin-top: 1em;
+  margin-bottom: 0em;
+}
+.ligneinfoserrée {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+
 .my-modal {
   background-color: #F2F2F2FF;
 }
