@@ -147,6 +147,12 @@ html, body {
 .textdescripteurs {
   font-size:0.9em;
 }
+.imgmp{
+  max-width: 15em;
+  margin: 1em;
+
+}
+
 }
 
 /*#########################
