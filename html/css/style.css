@@ -150,9 +150,11 @@ html, body {
 .imgmp{
   max-width: 15em;
   margin: 1em;
-
 }
-
+.imgmap{
+  max-width: 15em;
+  margin: 1em;
+}
 }
 
 /*#########################
