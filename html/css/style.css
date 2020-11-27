@@ -233,6 +233,7 @@ html, body {
 }
 .blockimg {
   margin: auto;
+  text-align: center;
 }
 /*#########################
 ## MES STYLES RESPONSIVES #
