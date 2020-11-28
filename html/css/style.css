@@ -1,6 +1,10 @@
 html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 990px) {}
+@media screen and (max-width: 1400px) {}
+
 #menu-block {
   z-index: 2;
   min-height: 500px;
@@ -8,22 +12,8 @@ html, body {
 #mapblock {
   z-index: 1;
 }
-.correctspacebug {
-  min-height: 5em;
-  max-height: 5em;
-}
-.slogan{
-  font-size: 0.9em;
-}
 
-.lienarticlereglementation {
-  color: grey; 
-  font-size: 0.9em;
-}
-.fab {
-  font-size: 120%;
-  color: #494747;
-}
+
 .notifi1 {
   color: red;
 }
@@ -46,69 +36,8 @@ html, body {
 .interpop{
   color: #6586B4;
 }
-.max-height-200px {
-  max-height: 200px;
-}
-.max-height-100px {
-  max-height: 100px;
-}
-.max-height-70px {
-  max-height: 70px;
-}
-.max-height-30px {
-  max-height: 30px;
-}
-.max-height-25px {
-  max-height: 25px;
-}
-.max-height-20px {
-  max-height: 20px;
-}
-.max-height-15px {
-  max-height: 15px;
-}
-.max-height-10px {
-  max-height: 10px;
-}
-.text-underline {
-  text-decoration: underline;
-}
-.scrollbar-inside {
-  overflow-y: auto;
-  max-height: calc(90vh - 320px);
-}
-.scrollbar-inside2 {
-  overflow-y: auto;
-  max-height: calc(125vh - 320px);
-}
-.text-size-20px {
-  font-size: 20px;
-}
-.text-size-18px {
-  font-size: 18px;
-}
-.text-size-16px {
-  font-size: 16px;
-}
-.text-size-14px {
-  font-size: 14px;
-}
-.text-size-11px {
-  font-size: 11px;
-}
-.text-size-1-1vw {
- font-size: 1.1vw; 
-}
-.text-size-1-3vw {
- font-size: 1.3vw; 
-}
-.text-my-grey {
-    color : grey;
-}
-.commercialize{
-  font-size: 0.9em;
-  display: none;
-}
+
+
 
 /*#########################
 #######MODAL VIDEO#########
@@ -138,6 +67,7 @@ html, body {
   font-size: 2em;
   font-weight: 200;
 }
+
 @media screen and (min-width: 768px) and (max-width: 990px) {
 .typedescripteur {
   font-size: 1em;
@@ -217,6 +147,15 @@ html, body {
 /*##############################
 ###########MODAL BODY###########
 ##############################*/
+.scrollbar-inside {
+  overflow-y: auto;
+  max-height: calc(90vh - 320px);
+}
+.scrollbar-inside2 {
+  overflow-y: auto;
+  max-height: calc(125vh - 320px);
+}
+
 .panelcontent {
     max-width: 100%;
     max-height: 100%;
@@ -237,9 +176,65 @@ html, body {
   margin: auto;
   text-align: center;
 }
+.lienarticlereglementation {
+  color: grey; 
+  font-size: 0.9em;
+}
 /*#########################
 ## MES STYLES RESPONSIVES #
 #########################*/
+.max-height-200px {
+  max-height: 200px;
+}
+.max-height-100px {
+  max-height: 100px;
+}
+.max-height-70px {
+  max-height: 70px;
+}
+.max-height-30px {
+  max-height: 30px;
+}
+.max-height-25px {
+  max-height: 25px;
+}
+.max-height-20px {
+  max-height: 20px;
+}
+.max-height-15px {
+  max-height: 15px;
+}
+.max-height-10px {
+  max-height: 10px;
+}
+.text-underline {
+  text-decoration: underline;
+}
+.text-my-grey {
+    color : grey;
+}
+.text-size-20px {
+  font-size: 20px;
+}
+.text-size-18px {
+  font-size: 18px;
+}
+.text-size-16px {
+  font-size: 16px;
+}
+.text-size-14px {
+  font-size: 14px;
+}
+.text-size-11px {
+  font-size: 11px;
+}
+.text-size-1-1vw {
+ font-size: 1.1vw; 
+}
+.text-size-1-3vw {
+ font-size: 1.3vw; 
+}
+
 @media screen and (max-width: 767px) {
 .h-md-85 {
     height: 90%;
@@ -299,11 +294,7 @@ html, body {
 .m-top-15-percent {
     margin-top: 15%;
 }
-.copyright {
-    text-align: center;
-    color: #D64E26;
-    font-size: 10px;
-}
+
 /*#########################
 ###########RGPD############
 #########################*/
@@ -358,8 +349,13 @@ html, body {
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
 }
-
-
+.slogan{
+  font-size: 0.9em;
+}
+.fab {
+  font-size: 120%;
+  color: #494747;
+}
 /*##################################################
 ############ZONE DU MENU ET LOGO####################
 ##################################################*/
@@ -376,7 +372,6 @@ html, body {
 
 .text-in-color-brown {
   color: #D64E26;
-  font-size: 1em;
 }
 
 /*##################################################
@@ -429,6 +424,11 @@ html, body {
     border-color: #FAE8BE !important;
 }
 
+.copyright {
+    text-align: center;
+    color: #D64E26;
+    font-size: 10px;
+}
 
 
 /*#########################
