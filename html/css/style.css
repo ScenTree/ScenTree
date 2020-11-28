@@ -222,7 +222,7 @@ html, body {
 
 @media screen and (min-width: 990px) and (max-width: 1200px) {
 .Newsupport{
-  font-size: 0.9em
+  font-size: 0.9em;
 }
 .searchinput::placeholder {
   font-size: 0.9em; 
@@ -230,7 +230,7 @@ html, body {
 }
 @media screen and (min-width: 768px) and (max-width: 990px) {
 .Newsupport{
-  font-size: 0.8em
+  font-size: 0.8em;
 }
 .searchinput::placeholder {
   font-size: 0.8em; 
