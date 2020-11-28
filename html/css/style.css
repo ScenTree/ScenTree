@@ -224,10 +224,16 @@ html, body {
 .Newsupport{
   font-size: 0.9em
 }
+.searchinput::placeholder {
+  font-size: 0.9em; 
+}
 }
 @media screen and (min-width: 768px) and (max-width: 990px) {
 .Newsupport{
   font-size: 0.8em
+}
+.searchinput::placeholder {
+  font-size: 0.8em; 
 }
 }
 
