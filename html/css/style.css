@@ -270,7 +270,7 @@ html, body {
     margin-bottom: 0%;
 }
 .searchinput::placeholder {
-  font-size: 1vw; 
+  font-size: 1em; 
 }
 .ui-autocomplete {
     max-height:40%;
