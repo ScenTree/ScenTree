@@ -115,7 +115,7 @@ html, body {
 ##############################*/
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(90vh - 320px);
+  max-height: calc(99vh - 320px);
 }
 .scrollbar-inside2 {
   overflow-y: auto;
@@ -557,7 +557,7 @@ th, .table th, td, .table td{
 }
 .scrollbar-inside {
   overflow-y: auto;
-  max-height: calc(102vh - 320px);
+  max-height: calc(99vh - 320px);
 }
 .space{
     height:20%;
