@@ -38,6 +38,9 @@ html, body {
 .typedescripteur {
   font-size: 1em;
 }
+.modal-dialog{
+  max-width: 80%;
+}
 }
 @media screen and (max-width: 768px) {
 .textdescripteurs {
