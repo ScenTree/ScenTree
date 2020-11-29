@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev5"; // "dev", "prod" or "prod2"
+var KIND_OF_ENVIRONMENT = "dev2"; // "dev", "prod" or "prod2"
   
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
@@ -1291,20 +1291,22 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         $('#naturelleModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict').empty();
         $('#modalbody-pictmap').empty();
-        $('#modalbody-pict').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
-        $('#modalbody-pictmap').append("<img class='imgmap' src=\"../img/matieres_premieres/map/" + the_img_title + ".png\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />"); 
+        $('#modalbody-pict').append("<img class='imgmp img-responsive img-fluid' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
+        $('#modalbody-pictmap').append("<img class='imgmap img-responsive img-fluid' src=\"../img/matieres_premieres/map/" + the_img_title + ".png\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />"); 
         if (show_the_modal) $('#naturelleModal').modal('show');
     };
     if (is_an_synthetique) {
         $('#SynthetiqueModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict1').empty();
         $('#modalbody-pict1A').empty();
-        $('#modalbody-pict1').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
-        $('#modalbody-pict1A').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
+        $('#modalbody-pict1').append("<img class='imgmp img-responsive img-fluid' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
+        $('#modalbody-pict1A').append("<img class='imgmp img-responsive img-fluid' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
         if (show_the_modal) $('#SynthetiqueModal').modal('show');
     };
     if (is_an_descripteur) {
         $('#DescripteurModal .modal-header').css('background-color', the_background_color);
+        $('#modalbody-pictdescripteurs').empty();
+        $('#modalbody-pictdescripteurs').append("<img class='imgmp img-responsive img-fluid' src=\"../img/descripteurs/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
         if (show_the_modal) $('#DescripteurModal').modal('show');
     };
     
