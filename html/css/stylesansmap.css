@@ -6,14 +6,6 @@ p {
   font-size: 0.8em;
 }
 
-.slogan{
-  font-size:0.75em;
-}
-@media screen and (min-width: 1400px) {
-.slogan {
-  font-size:1.2em;
-}
-}
 
 h4 {
   font-size: 1em;
@@ -63,6 +55,26 @@ hr {
   right: 7%;
   top: 5%;
 }
+.slogan{
+  font-size: 0.9em;
+}
+@media screen and (min-width: 990px) and (max-width: 1200px) {
+.Newsupport{
+  font-size: 0.9em;
+}
+.slogan{
+  font-size: 0.8em;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 990px) {
+.Newsupport{
+  font-size: 0.8em;
+}
+.slogan{
+  font-size: 0.7em;
+}
+}
+
 .dropdown-toggle:after { 
   content: none 
 }
@@ -99,6 +111,7 @@ hr {
   color: #D64E26;
   font-size: 2.5em;
 }
+
 /*#########################
 ######### SOMMAIRE ########
 #########################*/
@@ -499,6 +512,9 @@ overflow-x: auto;
 }
 @media screen and (min-width: 1400px) {
 .text-in-color-brown{
+  font-size: 1.2em;
+}
+.slogan{
   font-size: 1.2em;
 }
 }
