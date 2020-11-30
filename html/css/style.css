@@ -172,9 +172,10 @@ html, body {
 #RGPD_warning {
     display: none;
     position: absolute;
-    bottom: 40%;
+    bottom: 30%;
     left: 50%;
     width: 100%;
+    min-height: 30%
     transform: translate(-50%, 0);
     z-index: 9999;
     background-color: #FBE5D6FF;
