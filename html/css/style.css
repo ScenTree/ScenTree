@@ -196,26 +196,6 @@ html, body {
   font-weight: normal;
   opacity:1;
 }
-.btncookie {
-   -webkit-border-radius: 12px;
-   -moz-border-radius: 12px;
-   border-radius: 12px;
-   color: #D64E26;
-   font-family: Open Sans;
-   font-size: 31px;
-   font-weight: 600;
-   padding: 22px;
-   background-color: #FBE5D6;
-   -webkit-box-shadow: 8px 5px 20px 0 #D64E26;
-   -moz-box-shadow: 8px 5px 20px 0 #D64E26;
-   box-shadow: 8px 5px 20px 0 #D64E26;
-   text-shadow: 1px 1px 20px #D64E26;
-   border: solid #D64E26 1px;
-   text-decoration: none;
-   display: inline-block;
-   cursor: pointer;
-   text-align: center;
-}
 }
 /*#########################
 #######RUBAN DROITE########
