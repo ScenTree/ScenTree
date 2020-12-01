@@ -497,8 +497,16 @@ th, .table th, td, .table td{
     width: 100%;
     transform: translate(-50%, 0);
 }
-.NONRGPD{
+.cookie {
+  max-width: 8em;
+  min-width: 8em;
+}
+.textRGPD {
   font-size: 0.8em;
+  text-align: justify;
+}
+.NONRGPD{
+  font-size: 0.6em;
 }
 }
 
