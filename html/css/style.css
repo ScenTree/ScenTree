@@ -495,7 +495,7 @@ th, .table th, td, .table td{
     bottom: 20%;
     left: 50%;
     width: 100%;
-    transform: translate(-50%, 0);
+    transform: translate(-30%, 0);
 }
 .cookie {
   max-width: 8em;
