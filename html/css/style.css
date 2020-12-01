@@ -484,12 +484,10 @@ th, .table th, td, .table td{
   min-width: 100%;
 }
 .textRGPD {
-  margin-top: 5%;
   text-align: justify;
   min-width:100%;
 }
 .boutonRGPD {
-  margin: 5%;
   text-align: center;
   min-width: 100%;
 }
