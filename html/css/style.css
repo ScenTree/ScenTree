@@ -241,6 +241,11 @@ html, body {
 .slogan{
   font-size: 0.7em;
 }
+.textRGPD {
+  min-width:100%;
+  font-size: 0.9em;
+  text-align: justify;
+}
 }
 
 .text-in-color-brown {
@@ -484,8 +489,9 @@ th, .table th, td, .table td{
   min-width: 100%;
 }
 .textRGPD {
-  text-align: justify;
   min-width:100%;
+  font-size: 0.8em;
+  text-align: justify;
 }
 .boutonRGPD {
   text-align: center;
@@ -502,8 +508,7 @@ th, .table th, td, .table td{
   min-width: 8em;
 }
 .textRGPD {
-  font-size: 0.8em;
-  text-align: justify;
+
 }
 .NONRGPD{
   font-size: 0.8em;
