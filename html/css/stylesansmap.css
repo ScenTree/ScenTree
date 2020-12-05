@@ -334,7 +334,7 @@ hr {
     text-align: center;
 }
 .NONRGPD {
-    font-style: 50%;
+    font-style: 80%;
 }
 @keyframes RGPD_animation {
   0%   {bottom: -100px;}
@@ -343,9 +343,10 @@ hr {
 #RGPD_warning {
     display: none;
     position: absolute;
-    bottom: 40%;
+    bottom: 30%;
     left: 50%;
     width: 100%;
+    min-height: 30%;
     transform: translate(-50%, 0);
     z-index: 999;
     background-color: #FBE5D6FF;
@@ -537,6 +538,10 @@ overflow-x: auto;
   color: #D64E26;
   font-size: 0.9em;
 }
+.textRGPD {
+  font-size: 0.9em;
+  text-align: justify;
+}
 }
 
 @media screen and (max-width: 767px) {
@@ -582,21 +587,24 @@ font-size: 10px;
 .formulaire {
   min-width: 100%;
 }
+.cookie {
+  max-width: 8em;
+  min-width: 8em;
+}
 .envoiRGPD {
   min-width: 100%;
 }
 .textRGPD {
-  margin-top: 5%;
+  min-width:100%;
+  font-size: 0.8em;
   text-align: justify;
-  min-width: 100%;
 }
 .boutonRGPD {
-  margin: 5%;
   text-align: center;
   min-width: 100%;
 }
 #RGPD_warning {
-    bottom: 30%;
+    bottom: 10%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, 0);
