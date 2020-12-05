@@ -161,28 +161,42 @@ crossorigin=""/>
   </div>
 </div>
 
-<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+    <div id="RGPD_warning" class="col-8">
+    <div>
+      <div class="row m-0 p-0" style="align-items: center;">
+        <div class="col-12 boutonRGPD order-lg-last">
+          <div class="row" style="align-items: center;">
+            <div class="col-xs-12 col-md-3">
+              <img src="../img/cookies.png" class="img-fluid img-responsive cookie" alt="Je suis un cookie chocolat noisette. Je sors du four. Impossible de me refuser." title="Je suis un cookie chocolat noisette. Je sors du four. Impossible de me refuser.">
+            </div>
+            <div class="col-xs-12 col-md-9 textRGPD">
+              <span lang="fr">
+                Notre site internet utilise des cookies à des fins de statistiques, de performances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.
+              </span>
+              <span lang="en">
+                <p>Our website uses cookies for statistics, performance, and security. These anonymous data allow us to give you an optimal navigation experience. You can always disable cookies in your browser settings.</p>
+              </span>
+            </div> 
+          </div>
 
-
-<div id="RGPD_warning" class="col-sm-10 col-8">
-    <div class="row blockrgpd"></div>
-    <div id="contenant" class="row">
-      <div class=" col-offset-1 col-9 col-xs-12 textRGPD" >
-        <p lang="fr">Notre site internet utilise des cookies à des fins de statistiques, de performances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.</p>
-        <p lang="en">Our website is using cookies for statistics, performance and security. These anonymous data allow us to give you an optimal navigation experience. You still can disable the cookies in your navigator’s parameters.</p>
-      </div> 
-      <div class=" col-offset-2 col-3 col-xs-12 boutonRGPD" style="padding-top: 1%;">
-        <button class="btn btn-success" id="cookie_please">
-          <span lang="fr">Accepter tout</span>
-          <span lang="en">Accept all</span>
-        </button>
-        <button class="btn NONRGPD" id="no_cookie">
-          <span lang="fr">Non</span>
-          <span lang="en">No</span>
-        </button>
+          <div class="col-xs-12 offset-md-2 col-md-8 mt-2 mb-2" style="align-items: center;">
+            <button class="btn NONRGPD col-xs-12 col-md-5 order-xs-last" id="no_cookie">
+              <span lang="fr">Refuser tout</span>
+              <span lang="en">Refuse all</span>
+            </button>
+            <button class="btn btn-success col-xs-12 col-md-6 order-xs-first" id="cookie_please">
+              <span lang="fr">Accepter tout</span>
+              <span lang="en">Accept all</span>
+            </button>
+          </div>
+        </div>
+        
       </div>
     </div>
-</div>
+  </div>
+    
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
 <!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
 
 <!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
