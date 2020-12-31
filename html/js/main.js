@@ -1318,14 +1318,14 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
    $('meta[name=description]').remove();
 
    if (is_an_ingredient) {
-        $('head').append( '<title lang="fr"> ScenTree - ' + the_webpage_title_FR + '</title>');
-        $('head').append( '<title lang="en"> ScenTree - ' + the_webpage_title_EN + '</title>');
+        $('head').append( '<title lang="fr">ScenTree - ' + the_webpage_title_FR + '</title>');
+        $('head').append( '<title lang="en">ScenTree - ' + the_webpage_title_EN + '</title>');
 
         $('head').append( '<meta lang="fr" name="description" content="' + the_webpage_description_FR + '" />');
         $('head').append( '<meta lang="en" name="description" content="' + the_webpage_description_EN + '" />');
    } else {
-        $('head').append( '<title lang="fr"> ScenTree - ' + the_webpage_title_descripteur_FR + '</title>');
-        $('head').append( '<title lang="en"> ScenTree - ' + the_webpage_title_descripteur_EN + '</title>');
+        $('head').append( '<title lang="fr">ScenTree - ' + the_webpage_title_descripteur_FR + '</title>');
+        $('head').append( '<title lang="en">ScenTree - ' + the_webpage_title_descripteur_EN + '</title>');
         $('head').append( '<meta lang="fr" name="description" content="' + the_use_FR + '" />');
         $('head').append( '<meta lang="en" name="description" content="' + the_use_EN + '" />');
 
