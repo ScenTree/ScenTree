@@ -66,12 +66,10 @@ html, body {
     text-align: center !important;
 }
 .modalheader-type {
-    font-style: 18px;
     text-transform: uppercase;
     text-align: center;
 }
 .modalheader-type2 {
-    font-style: 18px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -329,7 +327,6 @@ th, .table th {
     border: 1.5px solid black;
     text-align: center;
     height: 50%;
-    font-style: large;
     background-color: #FBE5D6FF;
 }
 td, .table td {
@@ -372,7 +369,6 @@ td, .table td {
   text-align: justify;
 }
 .iconetab {
-    size:small;
     color: #C6BABA;
 }
 .item {
@@ -482,7 +478,6 @@ th, .table th, td, .table td{
   position: absolute;
   top: 0px;
   right: 0px;
-  size: 0.2em;
 }
 .envoiRGPD {
   min-width: 100%;
@@ -550,7 +545,6 @@ th, .table th, td, .table td{
 }
 .close {
     float: right;
-    size: 120%;
     padding-right: 5%;
 }
 .Filiation{
@@ -587,7 +581,6 @@ th, .table th, td, .table td{
 }
 .close {
     float: right;
-    size: 120%;
     padding-right: 5%;
 }
 .Filiation{
@@ -631,7 +624,6 @@ th, .table th, td, .table td{
 }
 .close {
     float: right;
-    size: 120%;
     padding-right: 5%;
 }
 .Filiation{
@@ -677,7 +669,6 @@ th, .table th, td, .table td{
 }
 .close {
     float: right;
-    size: 120%;
     padding-right: 5%;
 }
 .Filiation{
