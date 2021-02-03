@@ -1,4 +1,4 @@
-var KIND_OF_ENVIRONMENT = "dev"; // "dev", "prod" or "prod2"
+var KIND_OF_ENVIRONMENT = "dev2"; // "dev", "prod" or "prod2"
   
 if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
@@ -22,6 +22,7 @@ var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the 
 
 var in30Minutes = 1/96; // in 15 minutes
 var forAFewSeconds = 3500;
+var LANGUAGE_PREFIX_FOR_URLs = "en";
 
 automatically_display_the_correct_language();
 
@@ -303,6 +304,29 @@ automatically_display_the_correct_language();
 function is_an_ingredient(the_object) {
   return (the_object['ingredient'] == 'yes');
 };
+function is_a_main_descriptor(the_object) {
+  return ((the_object["from_csv FR Type"] == "Descripteur") && (the_object["from_csv FR id"].length == 3));
+};
+function get_the_url_of_a_scentree_object(the_scentree_object) {
+        var the_html_address_prefix = "../" + LANGUAGE_PREFIX_FOR_URLs + "-"; // +"en" or +"fr"
+        if (is_an_ingredient(the_scentree_object)) {
+                the_html_address_prefix = the_html_address_prefix + "ingredients/";
+        } else if (is_a_main_descriptor(the_scentree_object)) {
+    if (LANGUAGE_PREFIX_FOR_URLs == "fr") {
+      the_html_address_prefix = the_html_address_prefix + "descripteurs_principaux/";
+    } else {
+                        the_html_address_prefix = the_html_address_prefix + "main_descriptors/";
+    };
+        } else { // this is a secondary descriptor
+                if (LANGUAGE_PREFIX_FOR_URLs == "fr") {
+                        the_html_address_prefix = the_html_address_prefix + "descripteurs_secondaires/";
+                } else {
+                        the_html_address_prefix = the_html_address_prefix + "secondary_descriptors/";
+                };
+        };
+        return the_html_address_prefix + the_scentree_object['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + the_scentree_object['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
+};
+
 
 //We create here the function that will build popups (modals).
 function CreatePopUps() {
@@ -332,16 +356,16 @@ function CreatePopUps() {
     var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
     //positionnement de l'icone pointeur, n'est pas utilisé en réalité. 
     var marker = L.marker(latlong,{icon: mark, alt: ok[index]['from_csv EN Nom'] + " - " + ok[index]['from_csv FR Nom']});
-    // non-ingredient -> basic modal
-    if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
+    // dev -> basic modal
+    if (DEV_ENVIRONMENT) {
       marker.on("click", function() {
             markofun(ok[index]);
       });
-                } else {  // else : ingredient -> link to a new html page
-                        marker.on("click", function() {
-        save_map_status_inside_cookies(map);
-                                window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
-                        });
+    } else {  // else : link to a new html page
+        marker.on("click", function() {
+            save_map_status_inside_cookies(map);
+      window.location.href = get_the_url_of_a_scentree_object(ok[index]);
+        });
     };
     markers.addLayer(marker);
       });
@@ -497,18 +521,19 @@ $(function() {
         searchMarker.remove();
         searchMarker = new L.FeatureGroup();
         
-
+        var ok = jsonData;
+  var index = 0; 
         SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1}).addTo(searchMarker);
-        	if (( ! is_an_ingredient(ok[index]) ) || DEV_ENVIRONMENT) {
-	     		SPfocus.on("click", function() {
-	            markofun(jsonData[0]);
-	      	});
-	        } else {  // else : ingredient -> link to a new html page
-	            SPfocus.on("click", function() {
-	            save_map_status_inside_cookies(map);
-	            window.location.href = "../ingredients/" + ok[index]['from_csv EN Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + "__" + ok[index]['from_csv FR Nom'].replace( new RegExp("[\\s\/'\",]", "gi"), "_") + ".html";
-	    		});
-	    	};
+          if (DEV_ENVIRONMENT) {
+          SPfocus.on("click", function() {
+              markofun(jsonData[0]);
+          });
+          } else {  // else : link to a new html page
+              SPfocus.on("click", function() {
+                  save_map_status_inside_cookies(map);
+                window.location.href = get_the_url_of_a_scentree_object(ok[index]);
+          });
+        };
         searchMarker.addTo(map);
     },
     dataType : 'jsonp',
@@ -553,14 +578,14 @@ function fill_with_percentage(the_html_class_as_text, the_percentage) {
 
 function get_the_pro_img_from_the_pro_info(the_pro_info) {
      var the_html_div = $("<a></a>")
-	.addClass("d-block m-2 with-relative-position")
-	.attr("href", "../supporters/" + the_pro_info["Nom Tiers"] + ".html");
+  .addClass("d-block m-2 with-relative-position")
+  .attr("href", "../supporters/" + the_pro_info["Nom Tiers"] + ".html");
      var the_main_html_img_in_french = $("<img />");
      the_main_html_img_in_french.attr("src", "/img/sponsors/" + the_pro_info["Nom Tiers"] + ".png")
-	.addClass("img-fluid")
-	.attr("title", "En savoir plus sur " + the_pro_info["Nom Tiers"])
-	.attr("alt", "En savoir plus sur " + the_pro_info["Nom Tiers"])
-	.attr("lang", "fr");
+  .addClass("img-fluid")
+  .attr("title", "En savoir plus sur " + the_pro_info["Nom Tiers"])
+  .attr("alt", "En savoir plus sur " + the_pro_info["Nom Tiers"])
+  .attr("lang", "fr");
      var the_main_html_img_in_english = $("<img />");
      the_main_html_img_in_english.attr("src", "/img/sponsors/" + the_pro_info["Nom Tiers"] + ".png")
         .addClass("img-fluid")
@@ -569,21 +594,21 @@ function get_the_pro_img_from_the_pro_info(the_pro_info) {
         .attr("lang", "en");
 
     //if (the_pro_info["MOQ"]) {
-  	//var the_moq_value_as_float = Number(the_pro_info["MOQ"].slice(0, -3).replace(",", ".")); // moq must be ending with ' kg'
+    //var the_moq_value_as_float = Number(the_pro_info["MOQ"].slice(0, -3).replace(",", ".")); // moq must be ending with ' kg'
           //var the_moq_color = "moq-default-color";
-  	//if (the_moq_value_as_float) {
-  		//if (the_moq_value_as_float <= 0.5) {
-  			//the_moq_color = "moq-0_5-color";
-  		//} else if (the_moq_value_as_float == 1.0) {
-  			//the_moq_color = "moq-1-color";
-  		//} else if (the_moq_value_as_float == 5.0) {
-  			//the_moq_color = "moq-5-color";
-  		//} else if (the_moq_value_as_float >= 10.0) {
-  			//the_moq_color = "moq-10-color";
-  		//};
-  	//};
+    //if (the_moq_value_as_float) {
+      //if (the_moq_value_as_float <= 0.5) {
+        //the_moq_color = "moq-0_5-color";
+      //} else if (the_moq_value_as_float == 1.0) {
+        //the_moq_color = "moq-1-color";
+      //} else if (the_moq_value_as_float == 5.0) {
+        //the_moq_color = "moq-5-color";
+      //} else if (the_moq_value_as_float >= 10.0) {
+        //the_moq_color = "moq-10-color";
+      //};
+    //};
     //var the_moq_circle = $("<span></span>")
-	    //.addClass("fas fa-circle moq-circle " + the_moq_color)
+      //.addClass("fas fa-circle moq-circle " + the_moq_color)
       //.attr("title", "MOQ= " + the_pro_info["MOQ"]);
       //the_html_div.append(the_moq_circle);
     //};
@@ -634,14 +659,28 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //    };
     //});
     // the_node_as_json = the_node_as_json_2;
-    
+
+    var is_an_ingredient = (the_node_as_json_EN_and_FR['ingredient'] == "yes");
+    var is_an_naturelle = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Naturelle");
+    var is_an_synthetique = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Synthétique");
+    var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
+
+
     //communs
     var the_use = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Utilisation');
+    var the_use_FR = the_node_as_json_EN_and_FR['from_csv FR Utilisation'];
+    var the_use_EN = the_node_as_json_EN_and_FR['from_csv EN Utilisation'];
     var the_type = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Type');
     var the_title = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Nom');
     var the_img_title = the_node_as_json_EN_and_FR['from_csv FR Nom'];
-    var the_webpage_title = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " - " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
-    var the_webpage_description = "Le " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") est un ingrédient utilisé dans les parfums. De son utilisation à son odeur en passant par sa réglementation, venez en découvrir tous les secrets avec ScenTree !";
+
+    var the_webpage_title_FR = the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv FR NCas'] + ")";
+    var the_webpage_title_EN = the_node_as_json_EN_and_FR['from_csv EN Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ")";
+    var the_webpage_title_descripteur_FR = the_node_as_json_EN_and_FR['from_csv FR Nom'];
+    var the_webpage_title_descripteur_EN = the_node_as_json_EN_and_FR['from_csv EN Nom'];
+    
+    var the_webpage_description_FR = "Le " + the_node_as_json_EN_and_FR['from_csv FR Nom'] + " (N°Cas : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") est un ingrédient utilisé dans les parfums. De son utilisation à son odeur en passant par sa réglementation, venez en découvrir tous les secrets avec ScenTree !";
+    var the_webpage_description_EN = "The " + the_node_as_json_EN_and_FR['from_csv EN Nom'] + " (Cas number : " + the_node_as_json_EN_and_FR['from_csv EN NCas'] + ") is an ingredient used in perfumes. Discover all about its exploitation, its smell, and its regulation with ScenTree !";
     var the_aspect = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Aspect');
     var the_allergenes = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Allergenes');
     var the_tenue = from_json_dict_EN_FR_to_HTML_spans_with_lang_EN_FR(the_node_as_json_EN_and_FR, 'Tenue');
@@ -700,13 +739,8 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
         the_background_color = "#FFFFFF"
     };
 
-    var is_an_ingredient = (the_node_as_json_EN_and_FR['ingredient'] == "yes");
-    var is_an_naturelle = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Naturelle");
-    var is_an_synthetique = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Synthétique");
-    var is_an_descripteur = (the_node_as_json_EN_and_FR['from_csv FR Type'] == "Descripteur");
-
-
     // IFRA
+    $(".to-be-emptied").empty();
     show_the_main_48th_IFRA_table = false;
     show_the_main_49th_IFRA_table = false;
     show_the_skin_IFRA_table = false;
@@ -724,6 +758,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     show_the_49th_comments = false;
 
     the_ifra_infos = the_node_as_json_EN_and_FR['IFRA'];
+    console.log("the_ifra_infos = " + the_ifra_infos);
     if (the_ifra_infos) {
     for (let an_infra_info of the_ifra_infos) {
         var the_ifra_info = JSON.parse(an_infra_info);
@@ -909,60 +944,89 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     //$(".IFRA-infos").show(); 
 
     if (show_nothing) {
-  $(".IFRA .container").hide();
-  $(".IFRA .tab-content").hide();
-  $(".IFRA .navbar").hide();
-  //$(".IFRA-show-nothing").show();
+    $(".IFRA .container").hide();
+    $(".IFRA .tab-content").hide();
+    $(".IFRA .navbar").hide();
+    $(".IFRA-show-nothing").show();
     } else {
-      $(".IFRA-show-nothing").hide();
+        $(".IFRA-show-nothing").hide().attr("style", "display : none !important");
+        $(".IFRA .container").show();
+    $(".IFRA .tab-content").show();
+    $(".IFRA .navbar").show();
     };
     
 
     if (! show_the_main_48th_IFRA_table) {
-      $(".main-48th-IFRA-table").hide();
+      $(".main-48th-IFRA-table").hide().attr("style", "display : none !important");;
+    } else {
+      $(".main-48th-IFRA-table").show();
     }; 
     if (! show_the_main_49th_IFRA_table) {
-      $(".main-49th-IFRA-table").hide();
+      $(".main-49th-IFRA-table").hide().attr("style", "display : none !important");;
+    } else {
+      $(".main-49th-IFRA-table").show();
     };
     if (! show_the_skin_IFRA_table) {
-            $(".skin-IFRA-table").hide();
+            $(".skin-IFRA-table").hide().attr("style", "display : none !important");;
+    } else {
+      $(".skin-IFRA-table").show();
     };
     if (! show_the_listy_48th_IFRA_table_without_botanicals) {
-            $(".listy-48th-IFRA-table-without-botanicals").hide();
+            $(".listy-48th-IFRA-table-without-botanicals").hide().attr("style", "display : none !important");;
+    } else {
+  $(".listy-48th-IFRA-table-without-botanicals").show();      
     };
     if (! show_the_listy_49th_IFRA_table_without_botanicals) {
-            $(".listy-49th-IFRA-table-without-botanicals").hide();
+            $(".listy-49th-IFRA-table-without-botanicals").hide().attr("style", "display : none !important");;
+    } else {
+      $(".listy-49th-IFRA-table-without-botanicals").show();
     };
     if (! show_the_listy_48th_IFRA_table_with_botanicals) {
-            $(".listy-48th-IFRA-table-with-botanicals").hide();
+            $(".listy-48th-IFRA-table-with-botanicals").hide().attr("style", "display : none !important");;
+    } else {
+      $(".listy-48th-IFRA-table-with-botanicals").show();
     };
     if (! show_the_listy_49th_IFRA_table_with_botanicals) {
-            $(".listy-49th-IFRA-table-with-botanicals").hide();
+            $(".listy-49th-IFRA-table-with-botanicals").hide().attr("style", "display : none !important");;
+    } else {
+      $(".listy-49th-IFRA-table-with-botanicals").show();
     };
 
     if (! show_the_48th_restriction_type) {
-      $(".restriction").hide();
+      $(".restriction").hide().attr("style", "display : none !important");;
+    } else {
+      $(".restriction").show();
     };
     if (! show_the_49th_restriction_type) {
-            $(".restriction49").hide();
+            $(".restriction49").hide().attr("style", "display : none !important");;
+    } else {
+   $(".restriction49").show();      
     };
     if (! show_the_48th_amendment_number) {
-            $(".amendment").hide();
+            $(".amendment").hide().attr("style", "display : none !important");;
+    } else {
+  $(".amendment").show();     
     };
     if (! show_the_49th_amendment_number) {
-            $(".amendment49").hide();
+            $(".amendment49").hide().attr("style", "display : none !important");;
+    } else {
+  $(".amendment49").show();     
     };
     if (! show_the_48th_comments) {
-            $(".commentaires").hide();
+            $(".commentaires").hide().attr("style", "display : none !important");;
+    } else {
+  $(".commentaires").show();      
     };
     if (! show_the_49th_comments) {
-            $(".commentaires49").hide();
+            $(".commentaires49").hide().attr("style", "display : none !important");;
+    } else {
+  $(".commentaires49").show();      
     };
     
     // PRO
     var the_pro_informations_div = $("<div></div>");
     if (is_an_synthetique) {
-	the_pro_informations_div = $(".pro_informations_synthetics");
+  the_pro_informations_div = $(".pro_informations_synthetics");
     } else {
         the_pro_informations_div = $(".pro_informations_naturals");
     };
@@ -994,7 +1058,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
       the_standard_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FS"));
       the_premium_pros = the_new_pro_infos.filter((a) => (a["Type"] == "FP"));
 
-      $(".ad_to_the_potential_sponsors").remove();
+      $(".ad_to_the_potential_sponsors").hide();
       $(".commercialize").css('display', "inline");
 
       var the_row = $("<div></div>").addClass("row both_sponsors align-items-center");
@@ -1022,25 +1086,27 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
           the_row.append($("<div></div>").addClass("col-lg-12").append(the_container_for_the_standard_pros));
       };
       the_pro_informations_div.append(the_row);
+    } else {
+      $(".ad_to_the_potential_sponsors").show();
     };
     // the premium PROs only, already sorted by date
     for (let a_pro_info of the_premium_pros) {
       //console.log(a_pro_info);
       the_pro_img = get_the_pro_img_from_the_pro_info(a_pro_info);
       $(".premium_pros_list").append($("<div></div>")
-	    .addClass("col premium_pros")
-	    .append(the_pro_img));
+      .addClass("col premium_pros")
+      .append(the_pro_img));
     };
     // the standard PROs only, already sorted by date
     for (let a_pro_info of the_standard_pros) {
      the_pro_img = get_the_pro_img_from_the_pro_info(a_pro_info);
      $(".glide__slides").append($("<li></li>")
-	     .addClass("glide__slide standard_pros") //.text(a_pro_info["Nom Tiers"])
-	     .append(the_pro_img));
+       .addClass("glide__slide standard_pros") //.text(a_pro_info["Nom Tiers"])
+       .append(the_pro_img));
     };
 
    if (the_standard_pros && (window.document.jsdom_reader != 1)) {
-	show_the_carousel(the_standard_pros.length);
+  show_the_carousel(the_standard_pros.length);
    };
 
 
@@ -1115,7 +1181,7 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
   $('#modaltitle2').empty();
   $('#modalbody-comment2').empty();
 
-  //EMPTY - IFRA 
+  //EMPTY - IFRA
   //nat
   $('#modalbody-amendment').empty();
   $('#modalbody-cat1').empty();
@@ -1225,62 +1291,78 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     if (is_an_naturelle) {
         $('#naturelleModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict').empty();
-        $('#modalbody-pictA').empty();
-        $('#modalbody-pict').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
-        $('#modalbody-pictA').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />"); 
+        $('#modalbody-pictmap').empty();
+        $('#modalbody-pict').append("<img class='imgmp img-responsive img-fluid' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title_FR + "\" title=\"" + the_webpage_title_FR + "\" />");
+        $('#modalbody-pictmap').append("<img class='imgmap img-responsive img-fluid' src=\"../img/matieres_premieres/map/" + the_img_title + ".png\" alt=\"" + the_webpage_title_FR + "\" title=\"" + the_webpage_title_FR + "\" />"); 
         if (show_the_modal) $('#naturelleModal').modal('show');
     };
     if (is_an_synthetique) {
         $('#SynthetiqueModal .modal-header').css('background-color', the_background_color);
         $('#modalbody-pict1').empty();
         $('#modalbody-pict1A').empty();
-        $('#modalbody-pict1').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
-        $('#modalbody-pict1A').append("<img class='imgmp' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title + "\" title=\"" + the_webpage_title + "\" />");
+        $('#modalbody-pict1').append("<img class='imgmp img-responsive img-fluid' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title_FR + "\" title=\"" + the_webpage_title_FR + "\" />");
+        $('#modalbody-pict1A').append("<img class='imgmp img-responsive img-fluid' src=\"../img/matieres_premieres/" + the_img_title + ".PNG\" alt=\"" + the_webpage_title_FR + "\" title=\"" + the_webpage_title_FR + "\" />");
         if (show_the_modal) $('#SynthetiqueModal').modal('show');
     };
     if (is_an_descripteur) {
         $('#DescripteurModal .modal-header').css('background-color', the_background_color);
+        $('#modalbody-pictdescripteurs').empty();
+        $('#modalbody-pictdescripteurs').append("<img class='imgmp img-responsive img-fluid' src=\"../img/descripteurs/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title_descripteur_FR + "\" title=\"" + the_webpage_title_descripteur_FR + "\" />");
         if (show_the_modal) $('#DescripteurModal').modal('show');
     };
     
 
-   $('title').html('ScenTree - ' + the_webpage_title);
-   $('meta[name=description]').remove();
-   $('head').append( '<meta name="description" content="' + the_webpage_description + '" />');
+   /*$('title').html('ScenTree - ' + the_webpage_title);*/
 
+   $('title').remove();
+   $('meta[name=description]').remove();
+
+   if (is_an_ingredient) {
+        $('head').append( '<title lang="fr">ScenTree - ' + the_webpage_title_FR + '</title>');
+        $('head').append( '<title lang="en">ScenTree - ' + the_webpage_title_EN + '</title>');
+
+        $('head').append( '<meta lang="fr" name="description" content="' + the_webpage_description_FR + '" />');
+        $('head').append( '<meta lang="en" name="description" content="' + the_webpage_description_EN + '" />');
+   } else {
+        $('head').append( '<title lang="fr">ScenTree - ' + the_webpage_title_descripteur_FR + '</title>');
+        $('head').append( '<title lang="en">ScenTree - ' + the_webpage_title_descripteur_EN + '</title>');
+        $('head').append( '<meta lang="fr" name="description" content="' + the_use_FR + '" />');
+        $('head').append( '<meta lang="en" name="description" content="' + the_use_EN + '" />');
+
+   };
 };
 
 
 $("#SynthetiqueModal").on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("*:lang(en)").css({'display' : 'none'});
-        $("*:lang(fr)").css({'display' : 'initial'});
+        $("*[lang=en]").not("html").css({'display' : 'none'});
+        $("*[lang=fr]").not("html").css({'display' : 'initial'});
     } else {
-  $("*:lang(fr)").css({'display' : 'none'});
-        $("*:lang(en)").css({'display' : 'initial'});
+        $("*[lang=fr]").not("html").css({'display' : 'none'});
+        $("*[lang=en]").not("html").css({'display' : 'initial'});
     };
 });
 
 $("#naturelleModal").on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("*:lang(en)").css({'display' : 'none'});
-        $("*:lang(fr)").css({'display' : 'initial'});
+        $("*[lang=en]").not("html").css({'display' : 'none'});
+        $("*[lang=fr]").not("html").css({'display' : 'initial'});
     } else {
-        $("*:lang(fr)").css({'display' : 'none'});
-        $("*:lang(en)").css({'display' : 'initial'});
+        $("*[lang=fr]").not("html").css({'display' : 'none'});
+        $("*[lang=en]").not("html").css({'display' : 'initial'});
     };
 });
 
 $('#DescripteurModal').on("show.bs.modal", function (e) {
     var display_french_language = Cookies.get('display_french_language');
     if (display_french_language == 1) {
-        $("*:lang(en)").css({'display' : 'none'});
-        $("*:lang(fr)").css({'display' : 'initial'});
+        $("*[lang=en]").not("html").css({'display' : 'none'});
+        $("*[lang=fr]").not("html").css({'display' : 'initial'});
     } else {
-        $("*:lang(fr)").css({'display' : 'none'});
-        $("*:lang(en)").css({'display' : 'initial'});
+        $("*[lang=fr]").not("html").css({'display' : 'none'});
+        $("*[lang=en]").not("html").css({'display' : 'initial'});
     };
 });
 
@@ -1318,6 +1400,8 @@ $("#naturelleModal").on("hide.bs.modal", function (e) {
 });
 $('#DescripteurModal').on("hidden.bs.modal", function (e) {
         $('title').html("ScenTree - Classification innovante des ingrédients parfum");
+        save_map_status_inside_cookies(map);
+        window.location.href = "../_/index.html";
 });
 
 var URL_PREFIX_SELECTER;
@@ -1332,7 +1416,7 @@ function switch_to_en() {
     Cookies.set('display_french_language', -1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-        $("*:lang(fr)").remove();
+        $("*[lang=fr]").not("html").remove();
     };
     //$("*:lang(en)").css({'display' : 'initial'});
     // change search
@@ -1347,6 +1431,9 @@ function switch_to_en() {
     };
     //change page title only for the main page
     if (document.title ==  "ScenTree - Classification innovante des ingrédients parfum") document.title = "ScenTree - The new collaborative perfumery raw materials classification";
+
+    // set prefix for ingredients and descriptors html pages
+    LANGUAGE_PREFIX_FOR_URLs = "en";
 };
 function switch_to_fr() {
     // emphasize the FR button
@@ -1358,7 +1445,7 @@ function switch_to_fr() {
     Cookies.set('display_french_language', 1, { expires: 365});
     // DOM
     if (! window.document.jsdom_reader) {
-  $("*:lang(en)").remove();
+        $("*[lang=en]").not("html").remove();
     };
     //$("*:lang(fr)").css({'display' : 'initial'});
     // change search
@@ -1373,6 +1460,9 @@ function switch_to_fr() {
     };
     //change page title only for the main page
     if (document.title ==  "ScenTree - The new collaborative perfumery raw materials classification") document.title = "ScenTree - Classification innovante des ingrédients parfum";
+    
+    // set prefix for ingredients and descriptors html pages
+    LANGUAGE_PREFIX_FOR_URLs = "fr";
 };
 
 $(".to_english_button").click(function() {
@@ -1399,7 +1489,15 @@ function automatically_display_the_correct_language() {
                    navigator.language ||   // All browsers
                    navigator.userLanguage; // IE <= 10
 
-    if ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-")))) {
+    var display_the_french_language = ((Cookies.get('display_french_language') == 1) || (! Cookies.get('display_french_language')) && ((language.toLowerCase() == "fr") || (language.toLowerCase().startsWith("fr-"))));
+    // force the language if indicated in the <html> tag
+    if ($("html")[0].lang == "en") {
+      display_the_french_language = false;
+    } else if ($("html")[0].lang == "fr") {
+  display_the_french_language = true;     
+    };
+
+    if (display_the_french_language) {
         switch_to_fr();
     } else {
         switch_to_en();

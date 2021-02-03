@@ -51,6 +51,11 @@ the_json_file = open(THE_PATH_OF_THE_JSONFILE, 'r')
 the_ingredients = json.load(the_json_file)
 the_json_file.close()
 
+try:
+    the_length_of_the_input_JSON_file = len(the_ingredients)
+except:
+    the_length_of_the_input_JSON_file = 0
+
 # updating the JSON ingredients with CSV infos
 for an_ingredient in the_ingredients:
     for a_pro in the_pros:
@@ -62,4 +67,11 @@ for an_ingredient in the_ingredients:
 
 
 # echoing a JSON
+the_length_of_the_output_JSON_file = len(the_ingredients)
 print(json.dumps(the_ingredients, sort_keys=False, indent=4))
+
+sys.stderr.write("\nChecking the length of the input JSON file : %s ; " % the_length_of_the_input_JSON_file)
+sys.stderr.flush()
+sys.stderr.write("Checking the length of the OUTput JSON file : %s\n" % the_length_of_the_output_JSON_file)
+sys.stderr.flush()
+

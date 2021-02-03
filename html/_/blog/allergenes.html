@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html class="h-100">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<link rel="canonical" href="https://www.scentree.co/_/blog/allergenes.html" />
+<!--ADD FAVICON -->
+<link rel="icon" type="image/png" href="../../img/logotfav.png" />
+<!-- Titre de la page -->   
+<title>ScenTree - The allergens_Les allergènes</title>
+<!--Description Google-->
+<meta name="description" lang="fr" content="Linalol, Limonène, Eugénol, Salicylate de Benzyl, tant de molécules chimiques dans vos parfums ? .. Venez découvrir les secrets de ces ingrédients souvent diabolisés. " />
+<meta name="description" lang="en" content="Linalool, Limonene, Eugenol, Benzyl Salicylate, so many chemical molecules in your perfumes ? ... Come and discover the secrets of these demonized ingredients." />
+<!-- Bootstrap -->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- Fichier Style CSS -->
+<link href="../../css/stylesansmap.css" rel="stylesheet" />
+
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<!-- leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+crossorigin=""/>
+<!-- Hotjar Tracking Code for www.scentree.co -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1894594,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+</head>
+
+<body class="d-flex flex-column h-100">
+<header class="d-md-none">
+<!-- fixed navbar -->
+<nav class="navbar  fixed-top  fillright">
+  <a class="btn  mr-auto  save_map_status_on_leaving" role="button" href="../../_/menu.html"><img id="logo-image-sm" class="img-fluid  logomenu boutonclickable" src="../../img/logon.png" alt="ScenTree, la nouvelle encyclopédie des ingrédients de parfum." title="ScenTree, la nouvelle encyclopédie des ingrédients de parfum. "></a>
+<div class="dropdown">
+  <a href="../../_/index.html"><i class="fas fa-reply" style="color: black;"></i></a>
+</div>
+<div class="dropdown pl-2">
+  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-bars"></i>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="dropdownMenuButton-sm">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-light to_french_radio_input"><input type="radio" name="options" id="option1" checked /><img src="../../img/france.png" alt="ScenTree en français"  class="imgfr"></label>
+      <label class="btn btn-light to_english_radio_input"><input type="radio" name="options" id="option2" checked /><img src="../../img/anglais.png" alt="ScenTree in english" class="imgen"></label>
+    </div>
+    <!--<button class="dropdown-item btn" type="button" data-toggle="modal" data-target="#lesNouveautes">Les nouveautés</button>-->
+    <a class="dropdown-item btn  save_map_status_on_leaving text-in-color-brown they_support_us__link" role="button" href="../../_/support.html"><span lang="fr">Ils nous soutiennent  </span><span lang="en">They support us  </span><span><i class="fas fa-info-circle notifi1"></i></span></a>
+    <a class="dropdown-item btn  save_map_status_on_leaving text-in-color-brown the_news__link" role="button" href="../../_/nouveaute.html"><span lang="fr">Les nouveautés  </span><span lang="en">News from us  </span><span><i class="fas fa-info-circle notifi2"></i></span></a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item btn save_map_status_on_leaving petitbtn" role="button" href="../blog/summary.html"><span lang="fr">Blog</span><span lang="en">Blog</span></a>
+    <a class="dropdown-item btn save_map_status_on_leaving petitbtn" role="button" href="../../_/contacts.html"><span lang="fr">Contacts</span><span lang="en">Contacts</span></a>
+    <a class="dropdown-item btn save_map_status_on_leaving petitbtn" role="button" href="../../_/Sources.html"><span lang="fr">Sources</span><span lang="en">Sources</span></a>
+    <a class="dropdown-item btn save_map_status_on_leaving petitbtn mb-1" role="button" href="../../_/legal.html"><span lang="fr">Mentions légales</span><span lang="en">Legal Mentions</span></a>
+    <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank" title="Découvrez notre page Linkedin"></a>
+    <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank" title="Découvrez notre page Instagram"></a>
+  </div>
+  <span><i class="fas fa-info-circle notifi3"></i></span>
+</div>
+</nav>
+</header>
+
+
+<!-- Class container corresponds à l'ensemble de la page-->
+<main role="main" class="flex-shrink-0 h-100">
+
+<div class="container-fluid h-100 PageEntiere">
+<div class="row h-100">
+
+<!-- Cette classe container est divisée en 2 partie, mapblock (partie de gauche) et rightblock (partie de droite avec le logo la recherche etc etc) -->
+
+<div id="menu-block" class="d-none d-md-flex  col-md-3 h-100 fillright">
+  <div class="container-fluid" style="position: relative;"><!-- Drapeau Logo Slogan-->
+
+    <div class="w-100 text-center"> <!--BOUTON FR/EN-->
+      <button class="btn to_english_button float-right" type="button">
+        <img src="../../img/anglais.png" alt="ScenTree in english" class="imgen">
+      </button>
+      <button class="btn text-in-color-brown float-right px-0">/</button>
+      <button class="btn to_french_button float-right" type="button">
+        <img src="../../img/france.png" alt="ScenTree en français"  class="imgfr">
+      </button>
+    </div>
+    <div class="w-100 text-center"> <!-- Logo Menu-->
+      <a class="btn save_map_status_on_leaving" role="button" href="../../_/menu.html">
+        <img class="img-fluid img-responsive logomenu d-block max-height-120px" src="../../img/logon.png" alt="ScenTree, la nouvelle encyclopédie des ingrédients de parfum. " title="ScenTree, la nouvelle encyclopédie des ingrédients de parfum. ">
+      </a>
+     <!--Slogan-->
+      <h1 class="d-none d-sm-none d-md-block slogan m-0 p-0">Exploring the branches of scent</h1>
+    </div>
+
+    <div class="mt-3 mb-3">
+      <div class="w-100 text-center">
+        <a class="btn text-in-color-brown Newsupport" role="button" href="../../_/index.html">
+          <span lang="fr"><b>Revenir à la classification </b></span>
+          <span lang="en"><b>Back to classification </b></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="w-100 text-center"> <!-- News & Support-->
+      <div class="mt-3">
+        <a class="btn text-in-color-brown Newsupport save_map_status_on_leaving they_support_us__link" role="button" href="../../_/support.html">
+          <span lang="fr"><b>Ils nous soutiennent   </b></span>
+          <span lang="en"><b>They support us  </b></span>
+          <span><i class="fas fa-info-circle notifi1"></i></span>
+        </a>
+      </div>
+      <div class="mb-3">
+        <a class="btn text-in-color-brown Newsupport save_map_status_on_leaving  the_news__link" role="button" href="../../_/nouveaute.html">
+          <span lang="fr"><b>Les nouveautés !   </b></span>
+          <span lang="en"><b>News from ScenTree!  </b></span>
+          <span><i class="fas fa-info-circle notifi2"></i></span>
+        </a>  
+      </div>    
+    </div>
+
+    <div class="p-0 text-center"  style="bottom: 0; left:0 ; right: 0; position: absolute;"> <!-- BlockBas-->
+      <div>
+        <a class="col-12  m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../_/blog/summary.html">
+          <span lang="fr">Blog</span><span lang="en">Blog</span>
+        </a>
+      </div>
+      <div>
+        <a class="col-12 m-0 p-0 btn btn-sm save_map_status_on_leaving text-center" role="button" href="../../_/Sources.html">
+          <span lang="fr">Sources</span><span lang="en">Sources</span>
+        </a>
+      </div>
+      <div>
+        <a class="fab fa-linkedin ml-2" href="https://www.linkedin.com/company/scentree/" target="_blank" title="Découvrez notre page Linkedin"></a>
+        <a class="fab fa-instagram ml-3" href="https://www.instagram.com/scentree.co/" target="_blank" title="Découvrez notre page Instagram"></a>
+      </div>
+      <div class="copyright text-center row mt-3 mb-2 ml-0 mr-0 p-0"> <!--Contacts & Mentions Légales-->
+        <a class="col-6 copyright btn btn-sm save_map_status_on_leaving text-center m-0 p-0" role="button" href="../../_/contacts.html">
+          <span lang="fr">Contact</span>
+          <span lang="en">Contact</span>
+        </a>
+        <a class="col-6 copyright btn btn-sm save_map_status_on_leaving text-center m-0 p-0" role="button" href="../../_/legal.html">
+          <span lang="fr">Mentions Légales</span>
+          <span lang="en">Legal Mentions</span>
+        </a>
+        <div class="w-100">
+          <sup>©</sup> Copyright 2019-2020 |  ScenTree SAS  | All Rights Reserved |
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div id="mapblock" class="col-md-9 order-md-first p-0  h-100  fill2">
+
+
+<div id="RGPD_warning" class="col-8">
+    <div>
+      <div class="row m-0 p-0" style="align-items: center;">
+        <div class="col-12 boutonRGPD order-lg-last">
+          <div class="row" style="align-items: center;">
+            <div class="col-xs-12 col-md-3">
+              <img src="../../img/cookies.png" class="img-fluid img-responsive cookie" alt="Je suis un cookie chocolat noisette. Je sors du four. Impossible de me refuser." title="Je suis un cookie chocolat noisette. Je sors du four. Impossible de me refuser.">
+            </div>
+            <div class="col-xs-12 col-md-9 textRGPD">
+              <span lang="fr">
+                Notre site internet utilise des cookies à des fins de statistiques, de performances et de sécurité. Ces données anonymes nous permettent de vous offrir une expérience de navigation optimale. Vous pouvez toutefois désactiver les cookies dans les paramètres de votre navigateur.
+              </span>
+              <span lang="en">
+                <p>Our website uses cookies for statistics, performance, and security. These anonymous data allow us to give you an optimal navigation experience. You can always disable cookies in your browser settings.</p>
+              </span>
+            </div> 
+          </div>
+
+          <div class="col-xs-12 offset-md-2 col-md-8 mt-2 mb-2" style="align-items: center;">
+            <button class="btn NONRGPD col-xs-12 col-md-5 order-xs-last" id="no_cookie">
+              <span lang="fr">Refuser tout</span>
+              <span lang="en">Refuse all</span>
+            </button>
+            <button class="btn btn-success col-xs-12 col-md-6 order-xs-first" id="cookie_please">
+              <span lang="fr">Accepter tout</span>
+              <span lang="en">Accept all</span>
+            </button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+<!--<div id="map" class="h-100-with-padding-60px-before-md"></div>-->
+
+<!-- C'EST ICI QUE COMMENCE LE CODE DE LA PARTIE DE GAUCHE -->
+<div class="col-12 text-center gros_titre">
+  <h1 class="gros_titre text-in-color-brown">
+    <span lang="fr">NOS PARFUMS SONT-ILS DE DANGEREUX ALLERGENES ?</span>
+    <span lang="en">ARE OUR PERFUMES A DANGEROUS SOURCE OF ALLERGIES?</span>
+  </h1>
+</div>
+
+<hr>
+
+<div class="col-12 pagederoulante text-justify scrollbarblockgauche"> 
+
+  <h2 class="sous_titre mt-3">
+    <span lang="fr">
+      Doit-on avoir peur des extraits, molécules et ingrédients de nos parfums ? (Provoquent-ils des allergies ?)
+      <br>Les ingrédients allergènes présentent-ils un danger pour le consommateur ?
+    </span>
+    <span lang="en">Is there a reason to fear our perfume ingredients and molecules ? Are allergenic compounds dangerous for the consumer ?</span>
+  </h2>
+
+  <h3 class="sous_titre">
+    <span lang="fr">Introduction – Les molécules inscrites sur le flacon de nos parfum</span>
+    <span lang="en">Introduction – Molecules on our perfume labels</span>
+  </h3>
+
+  <div class="row">
+    <div class="col-xs-12 col-md-9 col-lg-9 order-xs-last">
+      <p class="paragraphelavande">
+        <span lang="fr"><i><a class="interpop" href="../../fr-ingredients/Linalool__Linalol.html" target="_BLANK">Linalol</a>, <a class="interpop" href="../../fr-ingredients/D-Limonene__Limonène-D.html" target="_BLANK">Limonène</a>, <a class="interpop" href="../../fr-ingredients/Eugenol__Eugénol.html" target="_BLANK">Eugénol</a>, <a class="interpop" href="../../fr-ingredients/Benzyl_Salicylate__Salicylate_de_Benzyle.html" target="_BLANK">Salicylate de Benzyl</a></i>… Vous avez sans doute déjà remarqué le nom de ces molécules sur le flacon de vos parfums. Elles sont partout ! Il s’agit de molécules qualifiées « d’allergènes ». Comme souvent, les molécules "chimiques", et notamment les allergènes, font peur. Certaines marques créent même des parfums « sans allergènes » afin d’attirer une clientèle soucieuse de sa santé et effrayée par la présence de tant de molécules inconnues. Ces allégations sont surtout mises en place pour rassurer les consommateurs. Or, nous allons voir ici que certaines de ces molécules ne provoquent pas nécessairement d'allergies et que leur impact est souvent dramatisé</span>
+        <span lang="en"><i><a class="interpop" href="../../en-ingredients/Linalool__Linalol.html" target="_BLANK">Linalool</a>, <a class="interpop" href="../../en-ingredients/D-Limonene__Limonène-D.html" target="_BLANK">Limonene</a>, <a class="interpop" href="../../en-ingredients/Eugenol__Eugénol.html" target="_BLANK">Eugenol</a>, <a class="interpop" href="../../en-ingredients/Benzyl_Salicylate__Salicylate_de_Benzyle.html" target="_BLANK">Benzyl Salicylate</a></i>... You have probably already noticed the names of these molecules on the label of your perfumes. They're everywhere! They are molecules called "allergens". As is often the case, molecules, especially allergens, are frightening. Some brands even create "allergen-free" fragrances to attract health-conscious customers who are afraid of so many unknown molecules. These claims are mainly put in place to reassure consumers. However, we will see here that some of these molecules do not necessarily provoke allergies and that their impact is often dramatized.</span>
+      </p>
+    </div>
+    <div class="col-xs-12 col-md-3 col-lg-3 order-xs-first">
+      <img class="img-responsive img-fluid" lang="fr" src="../../img/blog/loupeallergens.jpg" alt="Packaging produit cosmétique et allergènes" title="Packaging produit cosmétique et allergènes">
+      <img class="img-responsive img-fluid" lang="en" src="../../img/blog/loupeallergens.jpg" alt="Packaging cosmetic products and allergens" title="Packaging cosmetic products and allergens">
+    </div>
+  </div>
+   
+  <h3 class="sous_titre mt-3">
+    <span lang="fr">Un allergène, c’est quoi ?</span>
+    <span lang="en">What is an allergen ?</span>
+  </h3>
+
+  <div class="paragraphelavande">
+    <span lang="fr">Dans la composition de nos parfums portés et utilisés chaque jour, 26 allergènes réputés peuvent exister. Cette liste de 26 molécules et extraits est dictée par l’ <a href="https://eur-lex.europa.eu/legal-content/fr/ALL/?uri=CELEX%3A32009R1223" target="_blank">annexe III du règlement cosmétique européen 1223/2009</a>. Il s’agit de molécules qui, lorsqu'elle sont présentes en quantités importantes, peuvent avoir la faculté de se fixer à une protéine présente dans notre peau. Cela peut entrainer une allergie (cf. schéma ci-dessous) faisant intervenir notre système immunitaire et provoquant ainsi une allergie.<br>A noter également que certains extraits et certaines molécules réputées allergènes le sont uniquement lorsqu'un facteur annexe s'installe et induit une transformation chimique. C'est le cas notamment de certains extraits et de certaines molécules qui, au contact du soleil, peuvent s'oxyder et devenir de puissants allergènes. <br>Les allergies peuvent alors se manifester sous la forme de plaques rouges, de picotements etc. Le comité scientifique pour la sécurité des consommateurs a répertorié 54 molécules et 28 extraits naturels pouvant provoquer une allergie chez l’Homme. Cette dernière liste n’est pas exploitée dans le milieu de la parfumerie.</span>
+    <span lang="en">In the composition of our fragrances worn and used every day, 26 known allergens may exist. This list of 26 molecules and extracts is dictated by <a href="https://eur-lex.europa.eu/legal-content/fr/ALL/?uri=CELEX%3A32009R1223" target="_blank">Annex III of the European Cosmetic Regulation 1223/2009</a>. These are molecules which, when present in significant quantities, may have the ability to bind to a protein present in our skin. This can lead to an allergy involving our immune system and thus cause an allergic reaction.<br>It should also be noted that some molecules known to be allergenic are so only when an additional factor sets in and induces a transformation of the molecule. This is the case of some molecules that oxidise in light to become powerful allergens.<br>Allergies can then manifest themselves in the form of red patches, tingling, etc. The Scientific Committee for Consumer Safety has listed 54 molecules and 28 natural extracts that can cause an allergy for humans. This latter list isnot used in the perfume industry.</span>
+  </div>
+
+  
+  
+  <h3 class="sous_titre">
+    <span lang="fr">Qui est allergique ?</span>
+    <span lang="en">Who's allergic?</span>
+  </h3>
+  <div class="paragraphelavande">
+    <span lang="fr">En Europe, ces allergies concernent seulement 1 à 3% de la population. Cela signifie que vous avez une à trois chances sur cent d’être allergique à l'une des 26 substances listées par la réglementation cosmétique. A cela s'ajoute le fait qu'un parfum contient très rarement, voir jamais, ces 26 allergènes ensemble. </span>
+    <span lang="en">In Europe, these allergic reactions affect only 1 to 3% of the population. This means that you have one to three chances in one hundred of being allergic to at least one of the 26 substances listed by the cosmetic regulations.</span>
+  </div>
+
+  <h3 class="sous_titre">
+    <span lang="fr">Les mesures pour lutter contre les allergies</span>
+    <span lang="en">Measures taken to struggle against allergy</span>
+  </h3>
+
+  <div class="row"> 
+    <div class="container-fluid mt-3">
+      <div class="row">
+
+        <div class="col-xs-12 col-md-3 col-lg-3">
+          <img lang="fr" class="img-responsive img-fluid" src="../../img/blog/rincevsnonrince.png" alt="Différences entre un produit rincé et un non-rincé" >
+          <img lang="en" class="img-responsive img-fluid" src="../../img/blog/rincevsnonrince.png" alt="Différences entre un produit rincé et un non-rincé" >
+        </div>
+
+        <div class="col-xs-12 col-md-9 col-lg-9">
+          <p class="paragraphelavande">
+            <span lang="fr">Alors, <b class="bplus">la réglementation cosmétique impose plusieurs mesures.</b> Ces mesures sont prises pour que chaque personne, allergique ou non, puisse consommer les produits contenant du parfum présents sur le marché. Si vous n’êtes allergique à aucune des substances, ces mesures n’ont pas d’utilité pour vous.</span>
+            <span lang="en">So, <b class="bplus">cosmetic regulations impose several measures</b>. These measures are taken so that every person, allergic or not, can consume the perfumes on the market. If you are not allergic to any of the substances, these measures are of no use to you.</span>      
+          </p>
+          <p class="paragraphelavande">
+            <span lang="fr">La première intervient lors de la fabrication d’un parfum. Dans le cas où ce parfum entrera en contact avec la peau, il existe deux types de produits : </span>
+            <span lang="en">The first one occurs during the creation of a perfume. In the event that this perfume gets in contact with the skin, there are two types of products :</span>
+          <ul class="categorieparfum" style="font-size: 0.8em;">
+            <li>
+              <span lang="fr">Les produits dits « <b>rincés</b> » (shampoings, gels douche…). Ces produits ne sont pas destinés à rester en contact avec la peau après leur utilisation. </span>
+              <span lang="en">So-called « <b>rinced</b> » products (shampoos, shower gels…). These products are not to stay on the skin after usage.</span>
+            </li> 
+            <li>
+              <span lang="fr">Les produits dits « <b>non-rincés</b> » (parfums alcooliques, crèmes…). Pour ces produits, le contact avec la peau entraine une exposition continue s'arrêtant lorsque l'utilisateur du produit contenant du parfum se lave et donc, rince les molécules allergènes. </span>
+              <span lang="en">So-called « <b>not-rinced</b> » products (alcoholic perfumes, lotions…). Skin contact with these products is permanent and stops when the perfumes evaporates or when the consumer washes the concerned zone.</span>
+            </li>
+          </ul>
+          </p>
+          <p class="paragraphelavande">
+            <span lang="fr"><b class="bplus">Dans les produits rincés</b>, la présence d’un allergène ne doit pas excéder <b class="bplus">100 ppm</b> (soit 0,01%) dans le produit fini. <b class="bplus">Dans les produits non-rincés</b>, cette présence ne doit pas excéder <b class="bplus">10 ppm</b> (0,001%).<br>Par ailleurs, tout allergène présent à un taux supérieur à celui recommandé entraine sa mention sur le flacon du produit.</span>
+            <span lang="en">In <b class="bplus">rinsed products</b>, the presence of an allergen must not exceed <b class="bplus">100 ppm</b> (i.e. 0.01%) in the finished product. In <b class="bplus">  non-rinsed products</b>, the presence of an allergen shall not exceed <b class="bplus">10 ppm</b> (0.001%).<br>In addition, any allergen used at a higher level than the recommended one must be mentioned on the product label.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h3 class="sous_titre">
+      <span lang="fr">Quel est le danger ?</span>
+      <span lang="en">What is the danger ?</span>
+  </h3>
+
+  <div class="paragraphelavande">
+    <span lang="fr">Par exemple, dans le cas où votre produit contient sur son packaging la mention de quatre molécules ou extraits allergènes, sans savoir à quel(s) allergène(s) vous pourriez être allergique, cela signifie que vous avez tout au plus 0,5% de chance de contracter une allergie en utilisant ce produit. Faible, non ?</span>
+    <span lang="en">For example, if your product contains four allergenic molecules on its packaging, without knowing to which allergen(s) you might be allergic, this means that you have at most a 0.5% chance of contracting an allergy when using this product. Low, isn't it?</span>
+  </div>
+
+  <div class="paragraphelavande text-underline">
+    <span lang="fr">Voici la liste des 26 allergènes dits « probables », répertoriés par la réglementation cosmétique et utilisables en parfumerie :</span>
+    <span lang="en">Find bellow a list of the 26 so-called "probable" allergens, found in the cosmetic regulation and being used in perfumery.</span>
+  </div>
+
+  <div class="container col-xs-12 col-md-11 col-lg-11" style="overflow-x:auto;">
+    <table style="font-size: 0.8em;">
+        <caption>
+          <span lang="fr">Les 26 allergènes en parfumerie</span>
+          <span lang="en">All 26 allergens in perfumery</span>
+        </caption>
+        <thead> <!-- En-tête du tableau -->
+         <tr>
+            <th>
+              <span lang="fr">Nom</span>
+              <span lang="en">Name</span>
+            </th>
+            <th>N° CAS</th>
+            <th>
+              <span lang="fr">Nom</span>
+              <span lang="en">Name</span>
+            </th>
+            <th>N° CAS</th>
+         </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <h4>
+              <span lang="fr"><a class="interpop" href="../../fr-ingredients/Isoraldeine_70®__Isoraldéine_70®.html" target="_BLANK">Isométhyl Ionone-Alpha</a></span>
+              <span lang="en"><a class="interpop" href="../../en-ingredients/Isoraldeine_70®__Isoraldéine_70®.html" target="_BLANK">Isomethyl Ionone-Alpha</a></span>
+              </h4>
+            </td>
+            <td>127-51-5</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Coumarin__Coumarine.html" target="_BLANK">Coumarine</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Coumarin__Coumarine.html" target="_BLANK">Coumarin</a></span>
+              </h4>
+            </td>
+            <td>91-64-5</td>
+          </tr> 
+          <tr>
+            <td>
+              <h4>  
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Jasmonal_A®__Jasmonal_A®.html" target="_BLANK">Aldéhyde Amyl Cinnamique</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Jasmonal_A®__Jasmonal_A®.html" target="_BLANK">Amyl Cinnamaldehyde</a></span>
+              </h4>  
+            </td>
+            <td>122-40-7</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Eugenol__Eugénol.html" target="_BLANK">Eugénol</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Eugenol__Eugénol.html" target="_BLANK">Eugenol</a></span>
+              </h4>
+            </td>
+            <td>97-53-0</td>
+          </tr> 
+          <tr>
+            <td>Alcool Amyl Cinnamique</td>
+            <td>101-85-9</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Farnesol__Farnésol.html" target="_BLANK">Farnésol</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Farnesol__Farnésol.html" target="_BLANK">Farnesol</a></span>
+              </h4>
+            </td>
+            <td>4602-84-0</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop"  href="../../fr-ingredients/Anisyl_Alcohol__Alcool_Anisique.html">Alcool Anisique</a></span>
+                <span lang="en"><a class="interpop"  href="../../en-ingredients/Anisyl_Alcohol__Alcool_Anisique.html">Anisyl Alcohol</a></span>
+              </h4>
+            </td>
+            <td>105-13-5</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Geraniol__Géraniol.html" target="_BLANK">Géraniol</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Geraniol__Géraniol.html" target="_BLANK">Geraniol</a></span>
+              </h4>
+            </td>
+            <td>106-24-1</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Benzyl_Alcohol__Alcool_Benzylique.html" target="_BLANK">Alcool Benzylique</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Benzyl_Alcohol__Alcool_Benzylique.html" target="_BLANK">Benzyl Alcohol</a></span>
+              </h4>
+            </td>
+            <td>100-51-6</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Jasmonal_H®__Jasmonal_H®.html" target="_BLANK">Hexyl Cinnamique Aldéhyde</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Jasmonal_H®__Jasmonal_H®.html" target="_BLANK">Hexyl Cinnamaldehyde</a></span>
+              </h4>
+            </td>
+            <td>101-86-0</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Benzyl_Benzoate__Benzoate_de_Benzyle.html" target="_BLANK">Benzoate de Benzyle</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Benzyl_Benzoate__Benzoate_de_Benzyle.html" target="_BLANK">Benzyl Benzoate</a></span>
+              </h4>
+            </td>
+            <td>120-51-4</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Hydroxycitronellal__Hydroxycitronellal.html" target="_BLANK">Hydroxycitronellal</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Hydroxycitronellal__Hydroxycitronellal.html" target="_BLANK">Hydroxycitronellal</a></span>
+              </h4>
+            </td>
+            <td>107-75-5</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Benzyl_Cinnamate__Cinnamate_de_Benzyle.html" target="_BLANK">Cinnamate de Benzyl</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Benzyl_Cinnamate__Cinnamate_de_Benzyle.html" target="_BLANK">Benzyl Cinnamate</a></span>
+              </h4>
+            </td>
+            <td>103-41-3</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Lyral®__Lyral®.html" target="_BLANK">Hydroxyisohexyl 3-Cyclohexene Carboxaldéhyde</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Lyral®__Lyral®.html" target="_BLANK">Hydroxyisohexyl 3-Cyclohexene Carboxaldéhyde</a></span>
+              </h4>
+            </td>
+            <td>31906-04-4</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Benzyl_Salicylate__Salicylate_de_Benzyle.html" target="_BLANK">Salicylate de Benzyle</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Benzyl_Salicylate__Salicylate_de_Benzyle.html" target="_BLANK">Benzyl Salicylate</a></span>
+              </h4>
+            </td>
+            <td>118-58-1</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Isoeugenol__Iso_Eugénol.html" target="_BLANK">Iso Eugénol</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Isoeugenol__Iso_Eugénol.html" target="_BLANK">Isoeugenol</a></span>
+              </h4>
+            </td>
+            <td>97-54-1</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Lilial®__Lilial®.html" target="_BLANK">Butylphenyl Methylpropional</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Lilial®__Lilial®.html" target="_BLANK">Butylphenyl Methylpropional</a></span>
+              </h4>
+            </td>
+            <td>80-54-6</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/D-Limonene__Limonène-D.html" target="_BLANK">Limonène-D</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/D-Limonene__Limonène-D.html" target="_BLANK">D-Limonene</a></span>
+              </h4>
+            </td>
+            <td>5989-27-5</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Cinnamaldehyde__Aldéhyde_Cinnamique.html" target="_BLANK">Aldéhyde Cinnamique</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Cinnamaldehyde__Aldéhyde_Cinnamique.html" target="_BLANK">Cinnamaldehyde</a></span>
+              </h4>
+            </td>
+            <td>104-55-2</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Linalool__Linalol.html" target="_BLANK">Linalol</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Linalool__Linalol.html" target="_BLANK">Linalool</a></span>
+              </h4>
+            </td>
+            <td>78-70-6</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Cinnamyl_Alcohol__Alcool_Cinnamique.html" target="_BLANK">Alcool Cinnamique</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Cinnamyl_Alcohol__Alcool_Cinnamique.html" target="_BLANK">Cinnamyl Alcohol</a></span>
+              </h4>
+            </td>
+            <td>104-54-1</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Folione®__Folione®.html" target="_BLANK">2-Octynoate de Méthyle</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Folione®__Folione®.html" target="_BLANK">Methyl 2-Octynoate</a></span>
+              </h4>
+            </td>
+            <td>111-12-6</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Citral__Citral.html" target="_BLANK">Citral</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Citral__Citral.html" target="_BLANK">Citral</a></span>
+              </h4>
+            </td>
+            <td>5392-40-5</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Oak_Moss_Absolute__Mousse_de_Chêne_Absolue.html" target="_BLANK">Extraits de Mousse de Chêne </a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Oak_Moss_Absolute__Mousse_de_Chêne_Absolue.html" target="_BLANK">Oak Moss Extract</a></span>
+              </h4>
+            </td>
+            <td>90028-68-5</td>
+          </tr>
+          <tr>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Citronellol__Citronellol.html" target="_BLANK">Citronellol</a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Citronellol__Citronellol.html" target="_BLANK">Citronellol</a></span>
+              </h4>
+            </td>
+            <td>106-22-9</td>
+            <td>
+              <h4>
+                <span lang="fr"><a class="interpop" href="../../fr-ingredients/Treemoss_Absolute__Mousse_d_arbre_Absolue.html" target="_BLANK">Extraits de Mousse d’Arbre </a></span>
+                <span lang="en"><a class="interpop" href="../../en-ingredients/Treemoss_Absolute__Mousse_d_arbre_Absolue.html" target="_BLANK">Treemoss Extract</a></span>
+              </h4>
+            </td>
+            <td>90028-67-4</td>
+          </tr><!--Corps du tableau-->
+        </tbody>
+    </table>
+  </div>
+
+
+  <p>
+    <u><b>Sources:</b></u>
+    <br>
+    <ul style="font-size: 0.8em;">
+      <li style="overflow-wrap: break-word;"><a href="https://ec.europa.eu/health/scientific_committees/opinions_layman/perfume-allergies/fr/index.htm#3" target="_blank">https://ec.europa.eu/health/scientific_committees/opinions_layman/perfume-allergies/fr/index.htm#3</a></li>
+      <li style="overflow-wrap: break-word;"><a href="https://www.ecomundo.eu/fr/blog/allergenes-cosmetique-conformite" target="_blank">https://www.ecomundo.eu/fr/blog/allergenes-cosmetique-conformite</a></li>
+    </ul>
+  </p>
+
+  <hr>
+
+<div class="mb-3">
+  <p>
+    <span lang="fr" class="mb-1"><b class="bplus"><u>Découvrez nos autres articles :</u></b></span>
+    <span lang="en" class="mb-1"><b class="bplus"><u>Get to read our other articles :</u></b></span>
+    <ul class="particulier mt-0" style="font-size: 0.8em;">
+      <li>
+        <a href="../blog/ingredientparfums.html">
+          <span lang="fr"> Découvrez tous les secrets des ingredients de vos parfums !</span> 
+          <span lang="en"> Discover more about your perfume ingredients !</span>
+        </a>
+      </li>
+      <li>
+        <a href="../blog/creationparfum.html">
+          <span lang="fr"> Découvrez comment vos parfums sont fabriqués </span> 
+          <span lang="en"> Discover more about how your perfume are made </span>
+        </a>
+      </li>
+    </ul>
+  </p>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+<!--############################################### -->
+<!--############## PARTIE JAVASCRIPT ############## --> 
+<!--############################################### -->
+
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+<script   src="https://code.jquery.com/jquery-3.4.1.min.js"   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="   crossorigin="anonymous"></script>
+<script   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+crossorigin=""></script>
+
+
+<script src="../../js/main.js" type="text/javascript"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-140166656-1"></script>
+<script>
+if (Cookies.get('RGPD_no_cookie') == -1) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-140166656-1');
+};
+</script>
+</body>
+</html>

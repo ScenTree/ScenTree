@@ -2,67 +2,10 @@ html, body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* assign numbering*/
-.timeline ul li:nth-child(1):before{content:'530';}
-.timeline ul li:nth-child(2):before{content:'525';}
-.timeline ul li:nth-child(3):before{content:'525';}
-.timeline ul li:nth-child(4):before{content:'520';}
-.timeline ul li:nth-child(5):before{content:'512';}
-.timeline ul li:nth-child(6):before{content:'512';}
-.timeline ul li:nth-child(7):before{content:'504';}
-.timeline ul li:nth-child(8):before{content:'500';}
-.timeline ul li:nth-child(9):before{content:'500';}
-.timeline ul li:nth-child(10):before{content:'496';}
-.timeline ul li:nth-child(11):before{content:'496';}
-.timeline ul li:nth-child(12):before{content:'488';}
-.timeline ul li:nth-child(13):before{content:'480';}
-.timeline ul li:nth-child(14):before{content:'471';}
-.timeline ul li:nth-child(15):before{content:'464';}
-.timeline ul li:nth-child(16):before{content:'456';}
-.timeline ul li:nth-child(17):before{content:'448';}
-.timeline ul li:nth-child(18):before{content:'440';}
-.timeline ul li:nth-child(19):before{content:'432';}
-.timeline ul li:nth-child(20):before{content:'426';}
-.timeline ul li:nth-child(21):before{content:'426';}
-.timeline ul li:nth-child(22):before{content:'419';}
-.timeline ul li:nth-child(23):before{content:'413';}
-.timeline ul li:nth-child(24):before{content:'413';}
-.timeline ul li:nth-child(25):before{content:'406';}
-.timeline ul li:nth-child(26):before{content:'398';}
-.timeline ul li:nth-child(27):before{content:'391';}
-.timeline ul li:nth-child(28):before{content:'391';}
-.timeline ul li:nth-child(29):before{content:'384';}
-.timeline ul li:nth-child(30):before{content:'379';}
-.timeline ul li:nth-child(31):before{content:'372';}
-.timeline ul li:nth-child(32):before{content:'372';}
-.timeline ul li:nth-child(33):before{content:'365';}
-.timeline ul li:nth-child(34):before{content:'365';}
-.timeline ul li:nth-child(35):before{content:'365';}
-.timeline ul li:nth-child(36):before{content:'365';}
-.timeline ul li:nth-child(37):before{content:'365';}
-
 p {
   font-size: 0.8em;
 }
-.maskedtitle {
-  font-size: 1em;
-}
-.correctspacebug {
-  min-height: 5em;
-  max-height: 5em;
-}
-.slogan{
-  font-size:0.75em;
-}
-@media screen and (min-width: 1400px) {
-.slogan {
-  font-size:1.2em;
-}
-.correctspacebug {
-  min-height: 19.5em;
-  max-height: 19.5em;
-}
-}
+
 
 h4 {
   font-size: 1em;
@@ -70,9 +13,7 @@ h4 {
 #mapblock {
   z-index: 1;
 }
-.bplus{
-  color: #D64E26;
-}
+
 .gros_titre {
   margin-top: 1%;
   font-weight: bold;
@@ -114,6 +55,26 @@ hr {
   right: 7%;
   top: 5%;
 }
+.slogan{
+  font-size: 0.9em;
+}
+@media screen and (min-width: 990px) and (max-width: 1200px) {
+.Newsupport{
+  font-size: 0.9em;
+}
+.slogan{
+  font-size: 0.8em;
+}
+}
+@media screen and (min-width: 768px) and (max-width: 990px) {
+.Newsupport{
+  font-size: 0.8em;
+}
+.slogan{
+  font-size: 0.7em;
+}
+}
+
 .dropdown-toggle:after { 
   content: none 
 }
@@ -126,7 +87,6 @@ hr {
 /*POLICES */
 .text-in-color-brown {
   color: #D64E26;
-  font-size: 1em;
 }
 .with-my-border {
   border: 2px solid #D64E26;
@@ -150,23 +110,79 @@ hr {
   color: #D64E26;
   font-size: 2.5em;
 }
+
+/*#########################
+######### SOMMAIRE ########
+#########################*/
+.TitreSommaire{
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}
+.RecapArticle {
+  text-align: center;
+  font-size: 0.8em;
+}
+.MAJArticle {
+  text-align: end;
+  font-size: 0.6em;
+  color: slategrey;
+}
+.card-img-top{
+    max-width: 15em;
+    max-height: 15em;
+}
+.liensommaire{
+  color: #D64E26;
+}
+/*#########################
+#########LAVANDULA#########
+#########################*/
+.paragraphelavande {
+  font-size: 0.85em;
+  margin-right: auto;
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+  line-height: 1.4;
+}
+.panel-title a {
+  color: #D64E26;
+  font-weight: bold;
+}
+.panel-body ol, ol ul {
+  line-height: 1.3;
+}
+.soustitre {
+  font-weight: bold;
+  list-style-position: inside;
+}
+.type {
+  color: #5613B6;
+  list-style-position: inside;
+}
+.highlightedcells {
+  background-color: lightblue;
+  font-weight: bold;
+}
+
 /*#########################
 ######CREATION PARFUM######
 #########################*/
 .listetypeparfum {
   text-decoration: underline;
   color: #D64E26;
-  font-size: 0.8em;
-  margin-bottom: 0;
-  margin-top: 0; 
+  font-size: 1em;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem; 
 }
-.categorieparfum li {
-  margin: 0;
-  line-height: 1.2;
-}
+
 /*#########################
 ########INGREDIENTS########
 #########################*/
+.maskedtitle {
+  font-size: 1em;
+}
 .titreMP {
   font-weight: bold;
   color: #D64E26;
@@ -184,29 +200,12 @@ hr {
   font-size: 1em;
   text-decoration: underline;
   text-transform: uppercase;
-  margin-top: 0.5em;
 }
 .catégories2 {
   font-weight: bold;
   text-decoration: underline;
-  margin-top: 0.8em;
 }
-.sous_texte{
-  font-weight: normal;
-  text-decoration: none;
-}
-.imgMP1{
-  float: right;
-  margin-left: 2%;
-  max-height: 20%;
-  max-width: 20%;
-}
-.imgingredient {
-  min-height: 15%;
-  max-height: 15%;
-  min-width: 15%;
-  max-width: 15%;
-}
+
 .resumenat{
   align-items: center;
   min-height: 70%;
@@ -214,13 +213,7 @@ hr {
   min-width: 70%;
   max-width: 70%;
 }
-.timelineifra {
-  align-items: center;
-  min-height: 50%;
-  max-height: 50%;
-  min-width: 50%;
-  max-width: 50%;
-}
+
 /*#########################
 ##########SOURCES##########
 #########################*/
@@ -294,75 +287,10 @@ hr {
   max-width: 70%;
   max-height: 70%;
 }
-.img1allergene{
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img2allergene { 
-  height: 20%;
-  width: 50%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 1%;
-  margin-bottom: 0%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 30%;
-  width: 30%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 15%;
-  width: 15%;
-}
-.img3creationparfum {
-  float: left;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 15%;
-  width: 15%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 20%;
-  width: 20%;
-}
+
 /*#########################
 ########NEWSLETTER#########
 #########################*/
-.card-img-top {
-  margin-top: 5%;
-  min-width: 120px;
-  min-height: 120px;
-  max-width: 120px;
-  max-height: 120px;
-}
 .card {
   align-items: center;
   border: 1px solid #E99A1F;
@@ -406,7 +334,7 @@ hr {
     text-align: center;
 }
 .NONRGPD {
-    font-style: 50%;
+    font-style: 80%;
 }
 @keyframes RGPD_animation {
   0%   {bottom: -100px;}
@@ -415,9 +343,10 @@ hr {
 #RGPD_warning {
     display: none;
     position: absolute;
-    bottom: 40%;
+    bottom: 30%;
     left: 50%;
     width: 100%;
+    min-height: 30%;
     transform: translate(-50%, 0);
     z-index: 999;
     background-color: #FBE5D6FF;
@@ -497,12 +426,10 @@ hr {
 /*#########################
 ###########LISTE###########
 #########################*/
-ol {
-  padding-left: 1em;
-}
 li::before {
   font-weight: bold; 
 }
+
 /*#########################
 ###########TABLE############
 #########################*/
@@ -523,10 +450,8 @@ td, .table td {
     vertical-align: middle;
     white-space: normal;
 }
-
-tr:nth-child(even) {
-  background-color: #F1F0F0;
-  color:#121212; 
+tbody tr:hover {
+  background: lightblue;
 }
 caption {
     color: #D64E26;
@@ -534,15 +459,7 @@ caption {
     font-style: italic;
     caption-side: top;
 }
-.categorieifra table {
-  text-align: right;
-}
-.categorieifra td, .table td {
-    border: 1px solid black;
-    text-align: left;  
-    vertical-align: middle;
-    white-space: normal;
-}
+
 /*#########################
 #######RESPONSIVE##########
 #########################*/
@@ -559,84 +476,7 @@ caption {
     cursor:pointer;
     display: inline;
 }
-.img1allergene{
-  float: right;
-  margin-left: 2%; 
-  margin-bottom: 0;
-  height: 20%;
-  width: 20%;
-}
-.img2allergene { 
-  height: 25%;
-  width: 60%;
-  margin-bottom: 2%; 
-}
-.img3allergene { 
-  float: left;
-  margin: 3%;
-  margin-top: 5%;
-  margin-bottom: 5%; 
-  height: 15%; 
-  width: 20%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 60%;
-  width: 60%;
-}
-.img2creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 18%;
-  width: 18%;
-}
-.img3creationparfum {
-  float: left;
-  margin-right: 1%;
-  margin-left: 0%;
-  height: 20%;
-  width: 20%;
-}
-.img4creationparfum {
-  float: right;
-  margin: 1%;
-  height: 20%;
-  width: 20%;
-}
-.img5creationparfum {
-  float: left;
-  margin-top: 2%;
-  margin-right: 3%;
-  margin-bottom: 2%;
-  height: 30%;
-  width: 30%;
-}
-.img6creationparfum {
-  float: right;
-  margin-bottom: 1%;
-  margin-right: 0%;
-  margin-left: 2%;
-  height: 25%;
-  width: 25%;
-}
-.imgMP1{
-  float: right;
-  top: 10%;
-  margin-left: 2%;
-  min-width: 20%;
-  max-width: 20%; 
-  min-height: 20%;
-  max-height: 20%;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 70%;
-  max-height: 70%;
-  min-width: 70%;
-  max-width: 70%;
-}
+
 table {
 min-width: 100%;
 }
@@ -662,9 +502,6 @@ overflow-x: auto;
 .blanccorrectionmisenepage{
   height: 0%;
 }
-.correctspacebug {
-    height: 2em;
-}
 .particulier ul {
   margin: 0;
   padding:0;
@@ -677,6 +514,9 @@ overflow-x: auto;
 .text-in-color-brown{
   font-size: 1.2em;
 }
+.slogan{
+  font-size: 1.2em;
+}
 }
 @media screen and (min-width: 768px) and (max-width: 990px) {
 table {
@@ -686,9 +526,6 @@ overflow-x: auto;
 .pagederoulante {
   height: 92%;
   overflow-y: scroll;
-}
-.correctspacebug {
-    height: 2em;
 }
 .particulier ul {
   margin: 0;
@@ -701,12 +538,9 @@ overflow-x: auto;
   color: #D64E26;
   font-size: 0.9em;
 }
-.timelineifra {
-  align-items: center;
-  min-height: 85%;
-  max-height: 85%;
-  min-width: 85%;
-  max-width: 85%;
+.textRGPD {
+  font-size: 0.9em;
+  text-align: justify;
 }
 }
 
@@ -739,80 +573,6 @@ ul {
   max-width: 90%;
   max-height: 90%;
 }
-.img1allergene {
-  text-align: center;
-  margin-bottom: 5%;
-  height: 90%;
-  width: 90%;
-}
-.img2allergene { 
-  text-align: center;
-  height: 15%;
-  width: 90%; 
-  margin: 0;
-  margin-top:2%; 
-  margin-bottom: 4%;
-}
-.img3allergene { 
-  text-align: center;
-  height: 30%;
-  width: 90%; 
-  margin:0;
-  margin-top:2%; 
-  margin-bottom: 2%;
-}
-.img1creationparfum {
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-.img2creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-left:10%;
-  margin-right: 10%;
-  margin-top:2%; 
-  margin-bottom: 5%;
-}
-.img3creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.img4creationparfum {
-  display: none;
-}
-.img5creationparfum {
-  display: none;
-}
-.img6creationparfum {
-  align-items: center;
-  height: 80%;
-  width: 80%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.imgMP1{
-  float: none;
-  min-height: 60%;
-  max-height: 60%;
-  min-width: 60%;
-  max-width: 60%;
-}
-.timelineifra {
-  align-items: center;
-  min-height: 100%;
-  max-height: 100%;
-  min-width: 100%;
-  max-width: 100%;
-}
 
 .imgingredientblock {
   display: none;
@@ -827,21 +587,24 @@ font-size: 10px;
 .formulaire {
   min-width: 100%;
 }
+.cookie {
+  max-width: 8em;
+  min-width: 8em;
+}
 .envoiRGPD {
   min-width: 100%;
 }
 .textRGPD {
-  margin-top: 5%;
-  text-align: justify;
   min-width:100%;
+  font-size: 0.8em;
+  text-align: justify;
 }
 .boutonRGPD {
-  margin: 5%;
   text-align: center;
   min-width: 100%;
 }
 #RGPD_warning {
-    bottom: 30%;
+    bottom: 10%;
     left: 50%;
     width: 100%;
     transform: translate(-50%, 0);
@@ -878,10 +641,6 @@ font-size: 10px;
 .PageEntiere {
     background-color: white;
 }
-.img4creationparfum {
-  display: none;
-}
-
 }
 
 
@@ -889,87 +648,27 @@ font-size: 10px;
 ########NOUVEAUTES#########
 #########################*/
 /*set up size of the whole timeline OK */
-.timeline{
-  position: relative;
-  margin: 0px auto;
-  width:100%;
-}
+.timeline{position: relative; margin: 0px auto; width:100%;}
 /* Titre des parties OK*/
-.content h2{
-  color:#D64E26;
-  font-size:1.3em;
-  font-weight: bold;
-  padding-top: 2.5%;
-}
+.content h2{ color:#D64E26; font-size:1.3em; font-weight: bold; padding-top: 2.5%;}
 /*Style du texte sous la date OK*/
-.ajoutMP{
-  color:black;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-.ajoutMPavecSponsor {
-  color:black;
-  font-size: 1.3em;
-  font-weight: bold;
-}
+.ajoutMP{ color:black; font-size: 0.8em; font-weight: bold;}
+.ajoutMPavecSponsor { color:black; font-size: 1.3em; font-weight: bold;}
 /*drawing the line itself OK */
-.timeline:before{
-  content: '';
-  position:absolute;
-  left:50%;
-  width:0.5em;
-  height:100%;
-  background-color:#D64E26;
-}
+.timeline:before{ content: ''; position:absolute; left:50%; width:0.5em; height:100%; background-color:#D64E26;}
 /*styling the size of each step/content OK */
-.timeline ul li{
-  list-style: none;
-  position:relative;
-  width:50%;
-  padding:5px 35px;
-}
+.timeline ul li{ list-style: none; position:relative; width:50%; padding:5px 35px;}
 /*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:right;
-  float:left;
-  clear:both;
-  right: 4%;
-  width: 52.5%;
-}
+.timeline ul li:nth-child(odd){ text-align:right; float:left; clear:both; right: 4%; width: 52.5%;}
 /* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left:1.1%;
-  width: 52%;
-}
+.timeline ul li:nth-child(even){ text-align:left; float:right; clear:both; left:1.1%; width: 52%;}
 /*create circle icon on the timeline from the left (odd) OK */
-.timeline ul li:before {
-  content:'';
-  position:absolute;
-  width:40px;
-  height:40px;
-  background-color:#F7B88E;
-  border-radius:60%;
-  box-shadow: 0 0 0 6px rgba(251, 229, 214);
-  z-index:1
-}
+.timeline ul li:before { content:''; position:absolute; width:40px; height:40px; background-color:#F7B88E; border-radius:60%; box-shadow: 0 0 0 6px rgba(251, 229, 214); z-index:1}
 /*position the circle icons on the timeline OK*/
-.timeline ul li:nth-child(even):before{
-  left: -3.6%;
-}
-.timeline ul li:nth-child(odd):before{
-  right:-3.6%;
-}
+.timeline ul li:nth-child(even):before{ left: -3.6%;}
+.timeline ul li:nth-child(odd):before{ right:-3.6%;}
 /*styling the numbering. OK */
-.timeline ul li:before{
-  font-weight:bold;
-  font-size:1.2em;
-  color:white;
-  text-align:center;
-  padding-top:1%;
-}
+.timeline ul li:before{ font-weight:bold; font-size:1.2em; color:white; text-align:center; padding-top:1%;}
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
   /*for every odd numbered bullet point, align to the left OK*/
@@ -991,27 +690,15 @@ font-size: 10px;
 }
 @media screen and (max-width: 990px) {
 /* Titre des parties OK*/
-.content h2{font-size:1em; padding-top: 2.5%; }
+.content h2{font-size:1em; padding-top: 2.5%;}
 /*Style du texte sous la date OK*/
 .ajoutMP{font-size: 0.9em;}
 /*drawing the line itself OK*/
 .timeline:before{left:6%; width:0.3em;}
 /*for every odd numbered bullet point, align to the left OK*/
-.timeline ul li:nth-child(odd){
-  text-align:left;
-  float:right;
-  clear:both;
-  right: -5%;
-  width: 110%;
-}
+.timeline ul li:nth-child(odd){ text-align:left; float:right; clear:both; right: -5%; width: 110%;}
 /* for every even numbered bullet point, align to the right OK*/
-.timeline ul li:nth-child(even){
-  text-align:left;
-  float:right;
-  clear:both;
-  left: 5%;
-  width: 110%;
-}
+.timeline ul li:nth-child(even){ text-align:left; float:right; clear:both; left: 5%; width: 110%;}
 /*create circle icon on the timeline from the left (odd) OK */
 .timeline ul li:before { width:35px; height:35px;}
 /*position the circle icons on the timeline OK*/
@@ -1019,7 +706,6 @@ font-size: 10px;
 .timeline ul li:nth-child(odd):before{left: -6%;}
 /*styling the numbering. OK */
 .timeline ul li:before{font-size:0.9em; padding-top:3%;}
-
 .content p {
   font-size: 0.8em;
 }
