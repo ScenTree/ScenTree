@@ -467,12 +467,28 @@ $(function() {
           return;
         };
         var docs = JSON.stringify(step1.suggestions);
-        var jsonData = JSON.parse(docs);
-        jsonData.sort(function(a,b) {
-      a1 = a.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
-      b1 = b.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
-      return(a1.length-b1.length);
-        });
+        var jsonData = JSON.parse(docs); // [{"term" : "benzo-alpha-pyrone, 2-oxo-1,2-benzopyran, 1-benzopyran-2-one", "payload":"scentree_id"}]
+	// -> [{"term" : "benzo-alpha-pyrone"}, {"term" : "2-oxo-1,2-benzopyran"}, {"term" : "1-benzopyran-2-one"}]
+	var the_new_jsonData = [];
+	for (let an_index = 0; an_index < jsonData.length; an_index++) {
+            the_new_terms = jsonData[an_index].term.split(", ");
+	    for (let a_sub_index = 0; a_sub_index < the_new_terms.length; a_sub_index++) {
+                the_new_jsonData.push({
+			"term" : the_new_terms[a_sub_index], 
+			"payload" : jsonData[an_index].payload, 
+			"levenshtein_distance" : levenshteinDistance(the_new_terms[a_sub_index], the_value_from_the_search_input.toString())
+		});
+	    };
+	};
+	/*jsonData.sort(function(a,b) {
+      	    a1 = a.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+            b1 = b.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+            return(a1.length-b1.length);
+        });*/
+	jsonData = the_new_jsonData;
+	jsonData.sort(function(a,b) {
+		return a.levenshtein_distance < b.levenshtein_distance;
+	});
         var ids_as_an_array = [];
         $.map(jsonData, function(value, key) {
       object_id = value.payload;
