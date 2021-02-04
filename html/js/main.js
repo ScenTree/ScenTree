@@ -487,13 +487,31 @@ $(function() {
         });*/
 	jsonData = the_new_jsonData;
 	jsonData.sort(function(a,b) {
-		return a.levenshtein_distance < b.levenshtein_distance;
+		return a.levenshtein_distance - b.levenshtein_distance;
 	});
+	//console.log(jsonData);
+	/*
+	from
+	 [ {term: "laventerre", payload: "160", levenshtein_distance: 7}
+           {term: "Lavande HE", payload: "91", levenshtein_distance: 8}
+           {term: "2-Octanone", payload: "160", levenshtein_distance: 9}
+         ]
+	to 
+	  [ 160, 91 ] (removal of duplicated ids)
+	*/
+        var ids_as_an_array = [];
+        for (let an_index = 0; an_index < jsonData.length; an_index++) {
+	    var the_current_id = jsonData[an_index].payload;
+	    if (! ids_as_an_array.includes(the_current_id)) {
+                ids_as_an_array.push(the_current_id);
+	    };
+	}; 
+       /*
         var ids_as_an_array = [];
         $.map(jsonData, function(value, key) {
       object_id = value.payload;
       ids_as_an_array.push(object_id);
-        });
+        });*/
         
         if (! ids_as_an_array.length) { // no id no ajax request (otherwise : error in the javascript script)
       response();
