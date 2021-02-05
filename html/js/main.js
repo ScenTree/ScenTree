@@ -462,7 +462,8 @@ $(function() {
     url : URL_SUGGESTER,
     
     success : function(data) {
-        var step1 = data.suggest.mySuggester[the_value_from_the_search_input.toString()];
+	var the_search_word = the_value_from_the_search_input.toString();
+        var step1 = data.suggest.mySuggester[the_search_word];
         if (! step1.suggestions) {
           return;
         };
@@ -473,11 +474,13 @@ $(function() {
 	for (let an_index = 0; an_index < jsonData.length; an_index++) {
             the_new_terms = jsonData[an_index].term.split(", ");
 	    for (let a_sub_index = 0; a_sub_index < the_new_terms.length; a_sub_index++) {
-                the_new_jsonData.push({
+                if (the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase())) { 
+		    the_new_jsonData.push({
 			"term" : the_new_terms[a_sub_index], 
 			"payload" : jsonData[an_index].payload, 
-			"levenshtein_distance" : levenshteinDistance(the_new_terms[a_sub_index], the_value_from_the_search_input.toString())
-		});
+			"levenshtein_distance" : levenshteinDistance(the_new_terms[a_sub_index], the_search_word)
+		    });
+		};
 	    };
 	};
 	/*jsonData.sort(function(a,b) {
@@ -489,7 +492,8 @@ $(function() {
 	jsonData.sort(function(a,b) {
 		return a.levenshtein_distance - b.levenshtein_distance;
 	});
-	//console.log(jsonData);
+	console.log("the_search_word = " + the_search_word);
+	console.log(jsonData);
 	/*
 	from
 	 [ {term: "laventerre", payload: "160", levenshtein_distance: 7}
