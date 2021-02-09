@@ -518,8 +518,8 @@ $(function() {
         });*/
         
         if (! ids_as_an_array.length) { // no id no ajax request (otherwise : error in the javascript script)
-      response();
-      return;
+            response();
+            return;
         };
         
         ids_as_a_string = ids_as_an_array.join("%20");
@@ -532,12 +532,12 @@ $(function() {
       success : function(data_from_selecter) {
           var the_infos_from_the_selecter = data_from_selecter.response.docs;
           response($.map(the_infos_from_the_selecter, function(value, key) {
-        var sci_name = value.sci_name;
-        var NCas = value["from_csv NCas"];
-        return {
-            label : value,
-            value : sci_name + " " + NCas
-        };
+              var sci_name = value.sci_name;
+              var NCas = value["from_csv NCas"];
+              return {
+                  label : value,
+                  value : sci_name + " " + NCas
+              };
           }));
       },
       
