@@ -531,7 +531,57 @@ $(function() {
       
       success : function(data_from_selecter) {
           var the_infos_from_the_selecter = data_from_selecter.response.docs;
-          response($.map(the_infos_from_the_selecter, function(value, key) {
+	  var the_infos_from_the_selecter__by_id = {};
+	  for (var a_counter = 0; a_counter < the_infos_from_the_selecter.length; a_counter++) {
+              var the_current_element = the_infos_from_the_selecter[a_counter];
+	      the_infos_from_the_selecter__by_id[the_current_element.id] = the_current_element;
+	  };
+	  //console.log("the_infos_from_the_selecter__by_id = ");
+	  //console.log(the_infos_from_the_selecter__by_id);
+          
+          for (var a_counter = 0; a_counter < jsonData.length; a_counter++) {
+              var the_current_element = jsonData[a_counter];
+              var the_current_id = the_current_element.payload;
+              var the_scentree_object = the_infos_from_the_selecter__by_id[the_current_id];
+              
+	      var is_the_main_name = (the_current_element.term == the_scentree_object.sci_name);
+	      var is_PRO = (the_scentree_object["from_csv PRO"] != undefined);
+	      var popularity = the_scentree_object["from_csv audience"];
+	      var is_natural = (the_scentree_object["from_csv Type"] == "Naturelle");
+ 
+ 	      the_current_element["is_the_main_name"] = is_the_main_name;
+	      the_current_element["is_PRO"] = is_PRO;
+	      the_current_element["popularity"] = popularity;
+	      the_current_element["is_natural"] = is_natural;
+	  };
+	  //console.log("jsonData = ");
+	  //console.log(jsonData);
+
+          jsonData.sort(function(a, b) {
+		  if (a.levenshtein_distance != b.levenshtein_distance) {
+			  return a.levenshtein_distance - b.levenshtein_distance;
+		  };
+		  if (a.is_the_main_name != b.is_the_main_name) {
+			  if (a.is_the_main_name) {
+				  return 1;
+			  } else {
+				  return -1;
+			  };
+		  };
+		  if (a.popularity != b.popularity) {
+			  return b.popularity - a.popularity;
+		  };
+		  if (a.is_natural) {
+			  return 1;
+		  } else {
+			  return -1
+		  };
+	  });
+
+          //console.log("jsonData = ");
+          //console.log(jsonData);
+
+	  response($.map(the_infos_from_the_selecter, function(value, key) {
               var sci_name = value.sci_name;
               var NCas = value["from_csv NCas"];
               return {
