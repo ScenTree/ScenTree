@@ -489,11 +489,11 @@ $(function() {
             return(a1.length-b1.length);
         });*/
 	jsonData = the_new_jsonData;
-	jsonData.sort(function(a,b) {
+	/*jsonData.sort(function(a,b) {
 		return a.levenshtein_distance - b.levenshtein_distance;
 	});
 	console.log("the_search_word = " + the_search_word);
-	console.log(jsonData);
+	console.log(jsonData);*/
 	/*
 	from
 	 [ {term: "laventerre", payload: "160", levenshtein_distance: 7}
