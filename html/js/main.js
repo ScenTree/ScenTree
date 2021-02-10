@@ -563,18 +563,25 @@ $(function() {
 		  };
 		  if (a.is_the_main_name != b.is_the_main_name) {
 			  if (a.is_the_main_name) {
-				  return 1;
+				  return -1; // is_the_main_name == True -> first in the list
 			  } else {
+				  return 1;
+			  };
+		  };
+		  if (a.is_PRO != b.is_PRO) {
+			  if (a.is_PRO) {
 				  return -1;
+			  } else {
+				  return 1;
 			  };
 		  };
 		  if (a.popularity != b.popularity) {
 			  return b.popularity - a.popularity;
 		  };
 		  if (a.is_natural) {
-			  return 1;
+			  return -1;
 		  } else {
-			  return -1
+			  return 1
 		  };
 	  });
 
