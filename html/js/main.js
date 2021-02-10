@@ -443,7 +443,7 @@ const levenshteinDistance = (str1 = '', str2 = '') => {
    return track[str2.length][str1.length];
 };
 
-
+var DEBUG_SEARCH = true;
 $(function() {
     var str;
     //définitions des URL de la requete de solr//
@@ -467,14 +467,37 @@ $(function() {
         if (! step1.suggestions) {
           return;
         };
+	// we are looking for CAS number only if 'the_search_word' is digit + "-" only - at least two chars
+        var the_cas_numbers_as_regexp = /^[0-9]+\-[0-9]+\-[0-9]+$/;
+	var this_may_be_a_cas_number_as_regexp = /[0-9][0-9]/;
+	var is_input_a_cas_number = the_search_word.match(this_may_be_a_cas_number_as_regexp);
+        if (DEBUG_SEARCH) {
+		console.log("is_input_a_cas_number = " + is_input_a_cas_number);
+	};
+
         var docs = JSON.stringify(step1.suggestions);
         var jsonData = JSON.parse(docs); // [{"term" : "benzo-alpha-pyrone, 2-oxo-1,2-benzopyran, 1-benzopyran-2-one", "payload":"scentree_id"}]
 	// -> [{"term" : "benzo-alpha-pyrone"}, {"term" : "2-oxo-1,2-benzopyran"}, {"term" : "1-benzopyran-2-one"}]
+	// also : "464-45-9 / 507-70-0" -> "464-45-9", "507-70-0"
+	if (DEBUG_SEARCH) {
+	    console.log("jsonData before splitting = ");
+	    console.log(jsonData);
+	};
 	var the_new_jsonData = [];
 	for (let an_index = 0; an_index < jsonData.length; an_index++) {
-            the_new_terms = jsonData[an_index].term.split(", ");
+            the_new_terms = jsonData[an_index].term.replaceAll(", ", " / ").replaceAll(" ; ", " / ").split(" / ");
 	    for (let a_sub_index = 0; a_sub_index < the_new_terms.length; a_sub_index++) {
-                if (the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase())) { 
+		var is_a_text_with_input_inside = (the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase()) && (! is_input_a_cas_number));
+                var is_a_cas_number_with_input_inside = (is_input_a_cas_number && the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase())
+                       && the_new_terms[a_sub_index].toLowerCase().match(the_cas_numbers_as_regexp));
+		if (false) {
+			console.log("the_new_terms[a_sub_index].toLowerCase() = " + the_new_terms[a_sub_index].toLowerCase());
+			console.log("the_search_word.toLowerCase() = " + the_search_word.toLowerCase());
+			console.log("old condition = " + the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase()));
+			console.log("is_a_text_with_input_inside = " + is_a_text_with_input_inside);
+			console.log("is_a_cas_number_with_input_inside = " + is_a_cas_number_with_input_inside);
+		};
+		if (is_a_text_with_input_inside || is_a_cas_number_with_input_inside) { 
 		    the_new_jsonData.push({
 			"term" : the_new_terms[a_sub_index], 
 			"payload" : jsonData[an_index].payload, 
@@ -491,9 +514,11 @@ $(function() {
 	jsonData = the_new_jsonData;
 	/*jsonData.sort(function(a,b) {
 		return a.levenshtein_distance - b.levenshtein_distance;
-	});
-	console.log("the_search_word = " + the_search_word);
-	console.log(jsonData);*/
+	});*/
+	if (DEBUG_SEARCH) {
+	    console.log("the_search_word = " + the_search_word);
+	    console.log(jsonData);
+	};
 	/*
 	from
 	 [ {term: "laventerre", payload: "160", levenshtein_distance: 7}
@@ -536,14 +561,17 @@ $(function() {
               var the_current_element = the_infos_from_the_selecter[a_counter];
 	      the_infos_from_the_selecter__by_id[the_current_element.id] = the_current_element;
 	  };
-	  //console.log("the_infos_from_the_selecter__by_id = ");
-	  //console.log(the_infos_from_the_selecter__by_id);
-          
+	  if (DEBUG_SEARCH) {
+	      console.log("the_infos_from_the_selecter__by_id (inside SELECT+success) = ");
+	      console.log(the_infos_from_the_selecter__by_id);
+	  };
           for (var a_counter = 0; a_counter < jsonData.length; a_counter++) {
               var the_current_element = jsonData[a_counter];
               var the_current_id = the_current_element.payload;
               var the_scentree_object = the_infos_from_the_selecter__by_id[the_current_id];
-              
+              if (! the_scentree_object) {
+		      continue;
+	      };
 	      var is_the_main_name = (the_current_element.term == the_scentree_object.sci_name);
 	      var is_PRO = (the_scentree_object["from_csv PRO"] != undefined);
 	      var popularity = the_scentree_object["from_csv audience"];
@@ -554,9 +582,10 @@ $(function() {
 	      the_current_element["popularity"] = popularity;
 	      the_current_element["is_natural"] = is_natural;
 	  };
-	  //console.log("jsonData = ");
-	  //console.log(jsonData);
-
+	  if (DEBUG_SEARCH) {
+	      console.log("jsonData (inside SELECT+success) = ");
+	      console.log(jsonData);
+	  };
           jsonData.sort(function(a, b) {
 		  if (a.levenshtein_distance != b.levenshtein_distance) {
 			  return a.levenshtein_distance - b.levenshtein_distance;
@@ -584,10 +613,10 @@ $(function() {
 			  return 1;
 		  };
 	  });
-
-          //console.log("jsonData = ");
-          //console.log(jsonData);
-
+          if (DEBUG_SEARCH) {
+              console.log("jsonData (after .sort) = ");
+              console.log(jsonData);
+	  };
 	  response($.map(the_infos_from_the_selecter, function(value, key) {
               var sci_name = value.sci_name;
               var NCas = value["from_csv NCas"];
