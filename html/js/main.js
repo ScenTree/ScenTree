@@ -502,7 +502,7 @@ $(function() {
 		    the_new_jsonData.push({
 			"term" : the_new_terms[a_sub_index], 
 			"payload" : jsonData[an_index].payload, 
-			"levenshtein_distance" : levenshteinDistance(the_new_terms[a_sub_index], the_search_word)
+			"levenshtein_distance" : levenshteinDistance(the_new_terms[a_sub_index].toLowerCase(), the_search_word.toLowerCase())
 		    });
 		};
 	    };
