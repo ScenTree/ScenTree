@@ -451,7 +451,8 @@ $(function() {
     //var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
     var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/" + DEV_PREFIX_2 + "select_EN_and_FR/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
-    
+    var SEARCH_MAX = 20;
+
     $(".my-search-bar").autocomplete({
   source : function(request, response) {
       //envoi de la requête à searchinput, la classe HTML définie dans l'index.html
@@ -519,6 +520,7 @@ $(function() {
 	    console.log("the_search_word = " + the_search_word);
 	    console.log(jsonData);
 	};
+	var jsonData = jsonData.slice(0, SEARCH_MAX);
 	/*
 	from
 	 [ {term: "laventerre", payload: "160", levenshtein_distance: 7}
@@ -548,7 +550,7 @@ $(function() {
         };
         
         ids_as_a_string = ids_as_an_array.join("%20");
-        var URL_SELECTER = URL_PREFIX_SELECTER + "(" + ids_as_a_string + ")" + "&rows=10" + URL_SUFFIX;
+        var URL_SELECTER = URL_PREFIX_SELECTER + "(" + ids_as_a_string + ")" + "&rows=" + SEARCH_MAX + URL_SUFFIX;
         console.log(URL_SELECTER);
         
         $.ajax({
@@ -571,9 +573,9 @@ $(function() {
               var the_current_element = jsonData[a_counter];
               var the_current_id = the_current_element.payload;
               var the_scentree_object = the_infos_from_the_selecter__by_id[the_current_id];
-              /*if (! the_scentree_object) {
+              if (! the_scentree_object) {
 		      continue;
-	      };*/
+	      };
 	      var is_the_main_name = (the_current_element.term == the_scentree_object.sci_name);
 	      var is_PRO = (the_scentree_object["from_csv PRO"] != undefined);
 	      var popularity = the_scentree_object["from_csv audience"];
