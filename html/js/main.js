@@ -512,9 +512,9 @@ $(function() {
             return(a1.length-b1.length);
         });*/
 	jsonData = the_new_jsonData;
-	/*jsonData.sort(function(a,b) {
+	jsonData.sort(function(a,b) {
 		return a.levenshtein_distance - b.levenshtein_distance;
-	});*/
+	}); // useful pre-sort, because the solr-selecter will return only the first 10 scentree objects
 	if (DEBUG_SEARCH) {
 	    console.log("the_search_word = " + the_search_word);
 	    console.log(jsonData);
@@ -548,7 +548,7 @@ $(function() {
         };
         
         ids_as_a_string = ids_as_an_array.join("%20");
-        var URL_SELECTER = URL_PREFIX_SELECTER + "(" + ids_as_a_string + ")" + URL_SUFFIX;
+        var URL_SELECTER = URL_PREFIX_SELECTER + "(" + ids_as_a_string + ")" + "&rows=10" + URL_SUFFIX;
         console.log(URL_SELECTER);
         
         $.ajax({
@@ -562,6 +562,8 @@ $(function() {
 	      the_infos_from_the_selecter__by_id[the_current_element.id] = the_current_element;
 	  };
 	  if (DEBUG_SEARCH) {
+              console.log("the_infos_from_the_selecter (inside SELECT+success) = ");
+              console.log(the_infos_from_the_selecter);
 	      console.log("the_infos_from_the_selecter__by_id (inside SELECT+success) = ");
 	      console.log(the_infos_from_the_selecter__by_id);
 	  };
@@ -569,9 +571,9 @@ $(function() {
               var the_current_element = jsonData[a_counter];
               var the_current_id = the_current_element.payload;
               var the_scentree_object = the_infos_from_the_selecter__by_id[the_current_id];
-              if (! the_scentree_object) {
+              /*if (! the_scentree_object) {
 		      continue;
-	      };
+	      };*/
 	      var is_the_main_name = (the_current_element.term == the_scentree_object.sci_name);
 	      var is_PRO = (the_scentree_object["from_csv PRO"] != undefined);
 	      var popularity = the_scentree_object["from_csv audience"];
@@ -617,7 +619,19 @@ $(function() {
               console.log("jsonData (after .sort) = ");
               console.log(jsonData);
 	  };
-	  response($.map(the_infos_from_the_selecter, function(value, key) {
+	  // sorted jsonData -> sorted the_infos_from_the_selecter
+	  var the_infos_from_the_selecter__ordered = [];
+	  var the_ids_already_seen = [];
+          for (var a_counter = 0; a_counter < jsonData.length; a_counter++) {
+               var the_current_id = jsonData[a_counter].payload;
+	       if (! the_ids_already_seen.includes(the_current_id)) {
+		   if (the_infos_from_the_selecter__by_id[the_current_id]) {
+	               the_infos_from_the_selecter__ordered.push(the_infos_from_the_selecter__by_id[the_current_id]);
+		   };
+	       };
+	       the_ids_already_seen.push(the_current_id);
+	  };
+	  response($.map(the_infos_from_the_selecter__ordered, function(value, key) {
               var sci_name = value.sci_name;
               var NCas = value["from_csv NCas"];
               return {
