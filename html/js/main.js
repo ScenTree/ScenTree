@@ -476,6 +476,12 @@ $(function() {
 		console.log("is_input_a_cas_number = " + is_input_a_cas_number);
 	};
 
+        // the search word as a regexp
+	var the_search_word_as_regexp = new RegExp("(^|\\s+)" + the_search_word.toLowerCase());
+        if (DEBUG_SEARCH) {
+            console.log("the_search_word_as_regexp = " + the_search_word_as_regexp);
+        };
+	
         var docs = JSON.stringify(step1.suggestions);
         var jsonData = JSON.parse(docs); // [{"term" : "benzo-alpha-pyrone, 2-oxo-1,2-benzopyran, 1-benzopyran-2-one", "payload":"scentree_id"}]
 	// -> [{"term" : "benzo-alpha-pyrone"}, {"term" : "2-oxo-1,2-benzopyran"}, {"term" : "1-benzopyran-2-one"}]
@@ -484,21 +490,23 @@ $(function() {
 	    console.log("jsonData before splitting = ");
 	    console.log(jsonData);
 	};
+	// filtering the results from the suggester : we only care about words that begin with the user input
 	var the_new_jsonData = [];
 	for (let an_index = 0; an_index < jsonData.length; an_index++) {
             the_new_terms = jsonData[an_index].term.replaceAll(", ", " / ").replaceAll(" ; ", " / ").split(" / ");
 	    for (let a_sub_index = 0; a_sub_index < the_new_terms.length; a_sub_index++) {
-		var is_a_text_with_input_inside = (the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase()) && (! is_input_a_cas_number));
-                var is_a_cas_number_with_input_inside = (is_input_a_cas_number && the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase())
+		var is_a_text_with_input_at_the_beginning_of_a_word = ((! is_input_a_cas_number) && (the_search_word_as_regexp.test(the_new_terms[a_sub_index].toLowerCase()))); 
+		//var is_a_text_with_input_inside = (the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase()) && (! is_input_a_cas_number));
+                var is_a_cas_number_with_input_inside = (is_input_a_cas_number && the_new_terms[a_sub_index].toLowerCase().startsWith(the_search_word.toLowerCase())
                        && the_new_terms[a_sub_index].toLowerCase().match(the_cas_numbers_as_regexp));
-		if (false) {
+		/*if (DEBUG_SEARCH) {
 			console.log("the_new_terms[a_sub_index].toLowerCase() = " + the_new_terms[a_sub_index].toLowerCase());
 			console.log("the_search_word.toLowerCase() = " + the_search_word.toLowerCase());
 			console.log("old condition = " + the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase()));
 			console.log("is_a_text_with_input_inside = " + is_a_text_with_input_inside);
 			console.log("is_a_cas_number_with_input_inside = " + is_a_cas_number_with_input_inside);
-		};
-		if (is_a_text_with_input_inside || is_a_cas_number_with_input_inside) { 
+		};*/
+		if (is_a_text_with_input_at_the_beginning_of_a_word || is_a_cas_number_with_input_inside) { 
 		    the_new_jsonData.push({
 			"term" : the_new_terms[a_sub_index], 
 			"payload" : jsonData[an_index].payload, 
