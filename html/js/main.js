@@ -596,6 +596,9 @@ $(function() {
 	      var is_the_main_name = (the_current_element.term == the_scentree_object["from_csv " + EN_or_FR + " Nom"]);
 	      var is_PRO = (the_scentree_object["PRO"] != undefined);
 	      var popularity = parseInt(the_scentree_object["from_csv " + EN_or_FR + " Audience"], 10);
+	      if (popularity == NaN) {
+		      popularity = 0;
+	      };
 	      var is_natural = (the_scentree_object["from_csv FR Type"] == "Naturelle");
  
  	      the_current_element["is_the_main_name"] = is_the_main_name;
