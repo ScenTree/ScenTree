@@ -14,8 +14,8 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 } else {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
-    var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
-    var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
+    var DEV_PREFIX_1 = ""; // dev- ,  pre_prod- ,  or empty for production
+    var DEV_PREFIX_2 = ""; // dev_ ,  pre_prod__ ,   or empty for production
 };
 
 var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the survey" : "20200315"};
