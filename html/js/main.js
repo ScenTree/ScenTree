@@ -234,23 +234,23 @@ $.extend( proto, {
       var n_cas = item.label["from_csv FR NCas"];
       
       var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(sci_name).replace(
-                new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
-                "<span class='ui-state-highlight'>$&</span>") + "</span>";
+                new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"),
+                "$1<span class='ui-state-highlight'>$2</span>") + "</span>";
       
       if (autres_nom) {
           newText = newText + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;' >(" + String(autres_nom).replace(
-                    new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
-                    "<span class='ui-state-highlight'>$&</span>") + ")</div>";
+                    new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"), 
+                    "$1<span class='ui-state-highlight'>$2</span>") + ")</div>";
       };
       if (botanique) {
           newText = newText + "<br /><span class='synonymes m-0 p-0'>(" + String(botanique).replace(
-                    new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
-                    "<span class='ui-state-highlight'>$&</span>") + ")</span>";
+                    new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"), 
+                    "$1<span class='ui-state-highlight'>$2</span>") + ")</span>";
       };
       if (n_cas) {
           newText = newText + "<div class='numero_cas m-0 p-0' >N° CAS : " + String(n_cas).replace(
-                    new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
-                    "<span class='ui-state-highlight'>$&</span>") + "</div>";
+                    new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"),  
+                    "$1<span class='ui-state-highlight'>$2</span>") + "</div>";
       };
       return $( "<li style='line-height:1.8;'></li>" )
           .data( "item.autocomplete", item )
