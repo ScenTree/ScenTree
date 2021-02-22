@@ -586,8 +586,8 @@ $(function() {
 	      };
 	      var is_the_main_name = (the_current_element.term == the_scentree_object.sci_name);
 	      var is_PRO = (the_scentree_object["PRO"] != undefined);
-	      var popularity = parseInt(the_scentree_object["from_csv EN Audience"], 10) + parseInt(the_scentree_object["from_csv FR Audience"], 10);
-	      var is_natural = (the_scentree_object["from_csv FR Type"] == "Naturelle");
+	      var popularity = parseInt(the_scentree_object["from_csv Audience"], 10);
+	      var is_natural = ((the_scentree_object["from_csv Type"] == "Naturelle") || (the_scentree_object["from_csv Type"] == "Natural"));
  
  	      the_current_element["is_the_main_name"] = is_the_main_name;
 	      the_current_element["is_PRO"] = is_PRO;
