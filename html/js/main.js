@@ -599,9 +599,9 @@ $(function() {
 	      console.log(jsonData);
 	  };
           jsonData.sort(function(a, b) {
-		  if (a.levenshtein_distance != b.levenshtein_distance) {
+		  /*if (a.levenshtein_distance != b.levenshtein_distance) {
 			  return a.levenshtein_distance - b.levenshtein_distance;
-		  };
+		  };*/
 		  if (a.is_the_main_name != b.is_the_main_name) {
 			  if (a.is_the_main_name) {
 				  return -1; // is_the_main_name == True -> first in the list
@@ -619,11 +619,23 @@ $(function() {
 		  if (a.popularity != b.popularity) {
 			  return b.popularity - a.popularity;
 		  };
+		  /*
 		  if (a.is_natural) {
 			  return -1;
 		  } else {
 			  return 1;
+		  };*/
+		  if (a.is_natural != b.is_natural) {
+		      if (a.is_natural) {
+                          return -1;
+                      } else {
+                          return 1;
+                      };
 		  };
+                  if (a.levenshtein_distance != b.levenshtein_distance) {
+                          return a.levenshtein_distance - b.levenshtein_distance;
+                  };
+
 	  });
           if (DEBUG_SEARCH) {
               console.log("jsonData (after .sort) = ");
