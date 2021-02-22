@@ -228,12 +228,15 @@ $.extend( proto, {
 
   _renderItem: function( ul, item) {
       var EN_or_FR = LANGUAGE_PREFIX_FOR_URLs.toUpperCase();
-      var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(item.label.sci_name).replace(
-                new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
-                "<span class='ui-state-highlight'>$&</span>") + "</span>";
+      var sci_name = item.label["from_csv " + EN_or_FR + " Nom"];
       var autres_nom = item.label["from_csv " + EN_or_FR + " AutresNoms"];
       var botanique = item.label["from_csv " + EN_or_FR + " Botanique"];
       var n_cas = item.label["from_csv FR NCas"];
+      
+      var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(sci_name).replace(
+                new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
+                "<span class='ui-state-highlight'>$&</span>") + "</span>";
+      
       if (autres_nom) {
           newText = newText + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;' >(" + String(autres_nom).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
@@ -660,7 +663,8 @@ $(function() {
 	       the_ids_already_seen.push(the_current_id);
 	  };
 	  response($.map(the_infos_from_the_selecter__ordered, function(value, key) {
-              var sci_name = value.sci_name;
+	      var EN_or_FR = LANGUAGE_PREFIX_FOR_URLs.toUpperCase();
+              var sci_name = value["from_csv " + EN_or_FR + " Nom"];
               var NCas = value["from_csv FR NCas"];
               return {
                   label : value,
