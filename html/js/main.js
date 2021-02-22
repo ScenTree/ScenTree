@@ -227,28 +227,32 @@ $.extend( proto, {
   },
 
   _renderItem: function( ul, item) {
+      var EN_or_FR = LANGUAGE_PREFIX_FOR_URLs.toUpperCase();
       var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(item.label.sci_name).replace(
                 new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
                 "<span class='ui-state-highlight'>$&</span>") + "</span>";
-      if (item.label["from_csv AutresNoms"]) {
-    newText = newText + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;' >(" + String(item.label["from_csv AutresNoms"]).replace(
+      var autres_nom = item.label["from_csv " + EN_or_FR + " AutresNoms"];
+      var botanique = item.label["from_csv " + EN_or_FR + " Botanique"];
+      var n_cas = item.label["from_csv FR NCas"];
+      if (autres_nom) {
+          newText = newText + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;' >(" + String(autres_nom).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</div>";
       };
-      if (item.label["from_csv Botanique"]) {
-    newText = newText + "<br /><span class='synonymes m-0 p-0'>(" + String(item.label["from_csv Botanique"]).replace(
+      if (botanique) {
+          newText = newText + "<br /><span class='synonymes m-0 p-0'>(" + String(botanique).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
                     "<span class='ui-state-highlight'>$&</span>") + ")</span>";
       };
-      if (item.label["from_csv NCas"]) {
-    newText = newText + "<div class='numero_cas m-0 p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
+      if (n_cas) {
+          newText = newText + "<div class='numero_cas m-0 p-0' >N° CAS : " + String(n_cas).replace(
                     new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
                     "<span class='ui-state-highlight'>$&</span>") + "</div>";
       };
       return $( "<li style='line-height:1.8;'></li>" )
-    .data( "item.autocomplete", item )
-    .append( $( "<p class='m-0'></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
-    .appendTo( ul );
+          .data( "item.autocomplete", item )
+          .append( $( "<p class='m-0'></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
+          .appendTo( ul );
   }
 });
 
@@ -451,7 +455,7 @@ $(function() {
     //var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
     var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/" + DEV_PREFIX_2 + "select_EN_and_FR/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
-    var SEARCH_MAX = 20;
+    var SEARCH_MAX = 100;
 
     $(".my-search-bar").autocomplete({
   source : function(request, response) {
@@ -558,8 +562,10 @@ $(function() {
         };
         
         ids_as_a_string = ids_as_an_array.join("%20");
-        var URL_SELECTER = URL_PREFIX_SELECTER + "(" + ids_as_a_string + ")" + "&rows=" + SEARCH_MAX + URL_SUFFIX;
+        var URL_SELECTER = URL_PREFIX_SELECTER_BOTH_LANGUAGES + "(" + ids_as_a_string + ")" + "&rows=" + SEARCH_MAX + URL_SUFFIX;
         console.log(URL_SELECTER);
+	
+	var EN_or_FR = LANGUAGE_PREFIX_FOR_URLs.toUpperCase();
         
         $.ajax({
       url : URL_SELECTER,
@@ -584,10 +590,10 @@ $(function() {
               if (! the_scentree_object) {
 		      continue;
 	      };
-	      var is_the_main_name = (the_current_element.term == the_scentree_object.sci_name);
+	      var is_the_main_name = (the_current_element.term == the_scentree_object["from_csv " + EN_or_FR + " Nom"]);
 	      var is_PRO = (the_scentree_object["PRO"] != undefined);
-	      var popularity = parseInt(the_scentree_object["from_csv Audience"], 10);
-	      var is_natural = ((the_scentree_object["from_csv Type"] == "Naturelle") || (the_scentree_object["from_csv Type"] == "Natural"));
+	      var popularity = parseInt(the_scentree_object["from_csv " + EN_or_FR + " Audience"], 10);
+	      var is_natural = (the_scentree_object["from_csv FR Type"] == "Naturelle");
  
  	      the_current_element["is_the_main_name"] = is_the_main_name;
 	      the_current_element["is_PRO"] = is_PRO;
@@ -655,7 +661,7 @@ $(function() {
 	  };
 	  response($.map(the_infos_from_the_selecter__ordered, function(value, key) {
               var sci_name = value.sci_name;
-              var NCas = value["from_csv NCas"];
+              var NCas = value["from_csv FR NCas"];
               return {
                   label : value,
                   value : sci_name + " " + NCas
