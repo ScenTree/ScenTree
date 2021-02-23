@@ -238,9 +238,23 @@ $.extend( proto, {
                 "$1<span class='ui-state-highlight'>$2</span>") + "</span>";
       
       if (autres_nom) {
-          newText = newText + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;' >(" + String(autres_nom).replace(
-                    new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"), 
-                    "$1<span class='ui-state-highlight'>$2</span>") + ")</div>";
+	  // center the display on the first matching synonym (search = 'la' -> Bacdanol + synonyms = landacanol among a lot of others)
+	  var autres_nom = String(autres_nom);
+	  var the_index_of_the_term = autres_nom.search(new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi")); // if not found, = -1
+	  //console.log("inside autocomplete : autres_nom = " + autres_nom + " ; the_term = " + this.term + " ; the_index_of_the_term = " + the_index_of_the_term);
+          newText = newText
+		      + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; max-width: 10%; overflow: hidden; text-overflow: ellipsis;' ><div style='float: right'>"
+		      + autres_nom.slice(0, the_index_of_the_term).replace(
+                          new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"), 
+                          "$1<span class='ui-state-highlight'>$2</span>"
+		        )
+	              + "</div></div>"
+	              + "<div class='synonymes m-0 p-0' style='white-space: nowrap; min-width: 90%; overflow: hidden; text-overflow: ellipsis;' >"
+	              + autres_nom.slice(the_index_of_the_term).replace(
+                          new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"),
+                          "$1<span class='ui-state-highlight'>$2</span>"
+                        )
+		      + ")</div>";
       };
       if (botanique) {
           newText = newText + "<br /><span class='synonymes m-0 p-0'>(" + String(botanique).replace(
