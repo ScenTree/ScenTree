@@ -239,7 +239,7 @@ $.extend( proto, {
       };
 
       var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(sci_name).replace(
-                new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"),
+                new RegExp("(^|\\s|-)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"), // note the '-' added to the first part of the regexp
                 "$1<span class='ui-state-highlight'>$2</span>") + "</span>";
       
       if (autres_nom) {
@@ -514,8 +514,9 @@ $(function() {
 	};
 
         // the search word as a regexp
-	var the_search_word_as_regexp = new RegExp("(^|\\s+)" + get_all_accents_in_a_regexp(the_search_word.toLowerCase()));
-        if (DEBUG_SEARCH) {
+	var the_search_word_as_regexp_for_synonyms = new RegExp("(^|\\s+)" + get_all_accents_in_a_regexp(the_search_word.toLowerCase()));
+        var the_search_word_as_regexp_for_sci_names = new RegExp("(^|\\s+|-)" + get_all_accents_in_a_regexp(the_search_word.toLowerCase()));
+	if (DEBUG_SEARCH) {
             console.log("the_search_word_as_regexp = " + the_search_word_as_regexp);
         };
 	
@@ -530,7 +531,14 @@ $(function() {
 	// filtering the results from the suggester : we only care about words that begin with the user input
 	var the_new_jsonData = [];
 	for (let an_index = 0; an_index < jsonData.length; an_index++) {
-            the_new_terms = jsonData[an_index].term.replaceAll(", ", " / ").replaceAll(" ; ", " / ").split(" / ");
+            var the_text = jsonData[an_index].term;
+            var the_search_word_as_regexp;
+            if (the_text.includes(", ") || the_text.includes(" ; ") || the_text.includes(" / ")) {
+                the_search_word_as_regexp = the_search_word_as_regexp_for_synonyms;
+	    } else {
+		    the_search_word_as_regexp = the_search_word_as_regexp_for_sci_names;
+	    };
+            the_new_terms = the_text.replaceAll(", ", " / ").replaceAll(" ; ", " / ").split(" / ");
 	    for (let a_sub_index = 0; a_sub_index < the_new_terms.length; a_sub_index++) {
 		var is_a_text_with_input_at_the_beginning_of_a_word = ((! is_input_a_cas_number) && (the_search_word_as_regexp.test(the_new_terms[a_sub_index].toLowerCase()))); 
 		//var is_a_text_with_input_inside = (the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase()) && (! is_input_a_cas_number));
