@@ -235,7 +235,7 @@ $.extend( proto, {
     
       var the_search_term = this.term;
       if (the_search_term) {
-          var the_search_word_as_regexp = new RegExp("(^|\\s+)" + this.term.toLowerCase());
+          var the_search_word_as_regexp = new RegExp("(^|\\s+)" + get_all_accents_in_a_regexp(this.term.toLowerCase()));
       };
 
       var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(sci_name).replace(
@@ -514,7 +514,7 @@ $(function() {
 	};
 
         // the search word as a regexp
-	var the_search_word_as_regexp = new RegExp("(^|\\s+)" + the_search_word.toLowerCase());
+	var the_search_word_as_regexp = new RegExp("(^|\\s+)" + get_all_accents_in_a_regexp(the_search_word.toLowerCase()));
         if (DEBUG_SEARCH) {
             console.log("the_search_word_as_regexp = " + the_search_word_as_regexp);
         };
