@@ -232,28 +232,44 @@ $.extend( proto, {
       var autres_nom = item.label["from_csv " + EN_or_FR + " AutresNoms"];
       var botanique = item.label["from_csv " + EN_or_FR + " Botanique"];
       var n_cas = item.label["from_csv FR NCas"];
-      
+    
+      var the_search_term = this.term;
+      if (the_search_term) {
+          var the_search_word_as_regexp = new RegExp("(^|\\s+)" + this.term.toLowerCase());
+      };
+
       var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(sci_name).replace(
                 new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"),
                 "$1<span class='ui-state-highlight'>$2</span>") + "</span>";
       
       if (autres_nom) {
 	  // center the display on the first matching synonym (search = 'la' -> Bacdanol + synonyms = landacanol among a lot of others)
+	  // /!\ display the full synonym, example = 'to' -> 'sandal touch' (do not display only 'touch')
+	  // -> sort the synonyms (synonyms as text -> synonyms as array -> sort the array with criteria : 'matches the searched term'  otherwise keep the original order)
 	  var autres_nom = String(autres_nom);
-	  var the_index_of_the_term = autres_nom.search(new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi")); // if not found, = -1
-	  //console.log("inside autocomplete : autres_nom = " + autres_nom + " ; the_term = " + this.term + " ; the_index_of_the_term = " + the_index_of_the_term);
-          newText = newText
-		      + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; max-width: 10%; overflow: hidden; text-overflow: ellipsis;' ><div style='float: right'>"
-		      + autres_nom.slice(0, the_index_of_the_term).replace(
+          var the_synonyms_as_array = autres_nom.replaceAll(", ", " / ").replaceAll(" ; ", " / ").split(" / ");
+	  console.log(the_synonyms_as_array);
+          the_synonyms_as_array.sort(function(a, b) {
+		  if (! the_search_term) { // do not sort
+			  return 0;
+		  };
+		  var a_contains_the_search = the_search_word_as_regexp.test(a.toLowerCase());
+		  var b_contains_the_search = the_search_word_as_regexp.test(b.toLowerCase());
+	          if (a_contains_the_search != b_contains_the_search) {
+	    	      if (a_contains_the_search) {
+			  return -1;
+		      } else {
+			  return 1;
+		      };
+		  };
+	  });
+          
+	  newText = newText
+		      + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;'>("
+		      + the_synonyms_as_array.join(", ").replace(
                           new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"), 
                           "$1<span class='ui-state-highlight'>$2</span>"
 		        )
-	              + "</div></div>"
-	              + "<div class='synonymes m-0 p-0' style='white-space: nowrap; min-width: 90%; overflow: hidden; text-overflow: ellipsis;' >"
-	              + autres_nom.slice(the_index_of_the_term).replace(
-                          new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"),
-                          "$1<span class='ui-state-highlight'>$2</span>"
-                        )
 		      + ")</div>";
       };
       if (botanique) {
