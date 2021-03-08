@@ -14,8 +14,8 @@ if (KIND_OF_ENVIRONMENT == "dev") {
     var DEV_PREFIX_2 = "";
 } else {
     var DEV_ENVIRONMENT = true; // if set to true, do not link to ingredient html webpages
-    var DEV_PREFIX_1 = "dev4-"; // dev- ,  pre_prod- ,  or empty for production
-    var DEV_PREFIX_2 = "dev4_"; // dev_ ,  pre_prod__ ,   or empty for production
+    var DEV_PREFIX_1 = ""; // dev- ,  pre_prod- ,  or empty for production
+    var DEV_PREFIX_2 = ""; // dev_ ,  pre_prod__ ,   or empty for production
 };
 
 var UPDATED_ON = {"they support us" : "20200315", "the news" : "20200315", "the survey" : "20200315"};
@@ -227,28 +227,65 @@ $.extend( proto, {
   },
 
   _renderItem: function( ul, item) {
-      var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(item.label.sci_name).replace(
-                new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),
-                "<span class='ui-state-highlight'>$&</span>") + "</span>";
-      if (item.label["from_csv AutresNoms"]) {
-    newText = newText + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;' >(" + String(item.label["from_csv AutresNoms"]).replace(
-                    new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
-                    "<span class='ui-state-highlight'>$&</span>") + ")</div>";
+      var EN_or_FR = LANGUAGE_PREFIX_FOR_URLs.toUpperCase();
+      var sci_name = item.label["from_csv " + EN_or_FR + " Nom"];
+      var autres_nom = item.label["from_csv " + EN_or_FR + " AutresNoms"];
+      var botanique = item.label["from_csv " + EN_or_FR + " Botanique"];
+      var n_cas = item.label["from_csv FR NCas"];
+    
+      var the_search_term = this.term;
+      if (the_search_term) {
+          var the_search_word_as_regexp = new RegExp("(^|\\s+)" + get_all_accents_in_a_regexp(this.term.toLowerCase()));
       };
-      if (item.label["from_csv Botanique"]) {
-    newText = newText + "<br /><span class='synonymes m-0 p-0'>(" + String(item.label["from_csv Botanique"]).replace(
-                    new RegExp(get_all_accents_in_a_regexp(this.term), "gi"), 
-                    "<span class='ui-state-highlight'>$&</span>") + ")</span>";
+
+      var newText = "<span class='nom_de_l_ingredient m-0 p-0' style='font-weight:600;'>" + String(sci_name).replace(
+                new RegExp("(^|\\s|-)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"), // note the '-' added to the first part of the regexp
+                "$1<span class='ui-state-highlight'>$2</span>") + "</span>";
+      
+      if (autres_nom) {
+	  // center the display on the first matching synonym (search = 'la' -> Bacdanol + synonyms = landacanol among a lot of others)
+	  // /!\ display the full synonym, example = 'to' -> 'sandal touch' (do not display only 'touch')
+	  // -> sort the synonyms (synonyms as text -> synonyms as array -> sort the array with criteria : 'matches the searched term'  otherwise keep the original order)
+	  var autres_nom = String(autres_nom);
+          var the_synonyms_as_array = autres_nom.replaceAll(", ", " / ").replaceAll(" ; ", " / ").split(" / ");
+	  console.log(the_synonyms_as_array);
+          the_synonyms_as_array.sort(function(a, b) {
+		  if (! the_search_term) { // do not sort
+			  return 0;
+		  };
+		  var a_contains_the_search = the_search_word_as_regexp.test(a.toLowerCase());
+		  var b_contains_the_search = the_search_word_as_regexp.test(b.toLowerCase());
+	          if (a_contains_the_search != b_contains_the_search) {
+	    	      if (a_contains_the_search) {
+			  return -1;
+		      } else {
+			  return 1;
+		      };
+		  };
+	  });
+          
+	  newText = newText
+		      + "<br /><div class='synonymes m-0 p-0' style='white-space: nowrap; width: 100%; overflow: hidden; text-overflow: ellipsis;'>("
+		      + the_synonyms_as_array.join(", ").replace(
+                          new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"), 
+                          "$1<span class='ui-state-highlight'>$2</span>"
+		        )
+		      + ")</div>";
       };
-      if (item.label["from_csv NCas"]) {
-    newText = newText + "<div class='numero_cas m-0 p-0' >N° CAS : " + String(item.label["from_csv NCas"]).replace(
-                    new RegExp(get_all_accents_in_a_regexp(this.term), "gi"),  
-                    "<span class='ui-state-highlight'>$&</span>") + "</div>";
+      if (botanique) {
+          newText = newText + "<br /><span class='synonymes m-0 p-0'>(" + String(botanique).replace(
+                    new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"), 
+                    "$1<span class='ui-state-highlight'>$2</span>") + ")</span>";
+      };
+      if (n_cas) {
+          newText = newText + "<div class='numero_cas m-0 p-0' >N° CAS : " + String(n_cas).replace(
+                    new RegExp("(^|\\s)(" + get_all_accents_in_a_regexp(this.term) + ")", "gi"),  
+                    "$1<span class='ui-state-highlight'>$2</span>") + "</div>";
       };
       return $( "<li style='line-height:1.8;'></li>" )
-    .data( "item.autocomplete", item )
-    .append( $( "<p class='m-0'></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
-    .appendTo( ul );
+          .data( "item.autocomplete", item )
+          .append( $( "<p class='m-0'></p>" )[ this.options.html ? "html" : "text" ]( newText ) )
+          .appendTo( ul );
   }
 });
 
@@ -419,6 +456,31 @@ jQuery.ui.autocomplete.prototype._resizeMenu = function () {
 ///////FONCTION RECHERCHE///////////////
 ////////////////////////////////////////
 
+
+// https://www.tutorialspoint.com/levenshtein-distance-in-javascript
+const levenshteinDistance = (str1 = '', str2 = '') => {
+   const track = Array(str2.length + 1).fill(null).map(() =>
+   Array(str1.length + 1).fill(null));
+   for (let i = 0; i <= str1.length; i += 1) {
+      track[0][i] = i;
+   }
+   for (let j = 0; j <= str2.length; j += 1) {
+      track[j][0] = j;
+   }
+   for (let j = 1; j <= str2.length; j += 1) {
+      for (let i = 1; i <= str1.length; i += 1) {
+         const indicator = str1[i - 1] === str2[j - 1] ? 0 : 1;
+         track[j][i] = Math.min(
+            track[j][i - 1] + 1, // deletion
+            track[j - 1][i] + 1, // insertion
+            track[j - 1][i - 1] + indicator, // substitution
+         );
+      }
+   }
+   return track[str2.length][str1.length];
+};
+
+var DEBUG_SEARCH = true;
 $(function() {
     var str;
     //définitions des URL de la requete de solr//
@@ -426,7 +488,8 @@ $(function() {
     //var URL_PREFIX_SELECTER = "/select_EN/?q=id%3A";
     var URL_PREFIX_SELECTER_BOTH_LANGUAGES = "/" + DEV_PREFIX_2 + "select_EN_and_FR/?q=id%3A";
     var URL_SUFFIX = "&wt=json";
-    
+    var SEARCH_MAX = 100;
+
     $(".my-search-bar").autocomplete({
   source : function(request, response) {
       //envoi de la requête à searchinput, la classe HTML définie dans l'index.html
@@ -437,44 +500,217 @@ $(function() {
     url : URL_SUGGESTER,
     
     success : function(data) {
-        var step1 = data.suggest.mySuggester[the_value_from_the_search_input.toString()];
+	var the_search_word = the_value_from_the_search_input.toString();
+        var step1 = data.suggest.mySuggester[the_search_word];
         if (! step1.suggestions) {
           return;
         };
+	// we are looking for CAS number only if 'the_search_word' is digit + "-" only - at least two chars
+        var the_cas_numbers_as_regexp = /^[0-9]+\-[0-9]+\-[0-9]+$/;
+	var this_may_be_a_cas_number_as_regexp = /[0-9][0-9]/;
+	var is_input_a_cas_number = the_search_word.match(this_may_be_a_cas_number_as_regexp);
+        if (DEBUG_SEARCH) {
+		console.log("is_input_a_cas_number = " + is_input_a_cas_number);
+	};
+
+        // the search word as a regexp
+	var the_search_word_as_regexp_for_synonyms = new RegExp("(^|\\s+)" + get_all_accents_in_a_regexp(the_search_word.toLowerCase()));
+        var the_search_word_as_regexp_for_sci_names = new RegExp("(^|\\s+|-)" + get_all_accents_in_a_regexp(the_search_word.toLowerCase()));
+	if (DEBUG_SEARCH) {
+            console.log("the_search_word_as_regexp = " + the_search_word_as_regexp);
+        };
+	
         var docs = JSON.stringify(step1.suggestions);
-        var jsonData = JSON.parse(docs);
-        jsonData.sort(function(a,b) {
-      a1 = a.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
-      b1 = b.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
-      return(a1.length-b1.length);
-        });
+        var jsonData = JSON.parse(docs); // [{"term" : "benzo-alpha-pyrone, 2-oxo-1,2-benzopyran, 1-benzopyran-2-one", "payload":"scentree_id"}]
+	// -> [{"term" : "benzo-alpha-pyrone"}, {"term" : "2-oxo-1,2-benzopyran"}, {"term" : "1-benzopyran-2-one"}]
+	// also : "464-45-9 / 507-70-0" -> "464-45-9", "507-70-0"
+	if (DEBUG_SEARCH) {
+	    console.log("jsonData before splitting = ");
+	    console.log(jsonData);
+	};
+	// filtering the results from the suggester : we only care about words that begin with the user input
+	var the_new_jsonData = [];
+	for (let an_index = 0; an_index < jsonData.length; an_index++) {
+            var the_text = jsonData[an_index].term;
+            var the_search_word_as_regexp;
+            if (the_text.includes(", ") || the_text.includes(" ; ") || the_text.includes(" / ")) {
+                the_search_word_as_regexp = the_search_word_as_regexp_for_synonyms;
+	    } else {
+		    the_search_word_as_regexp = the_search_word_as_regexp_for_sci_names;
+	    };
+            the_new_terms = the_text.replaceAll(", ", " / ").replaceAll(" ; ", " / ").split(" / ");
+	    for (let a_sub_index = 0; a_sub_index < the_new_terms.length; a_sub_index++) {
+		var is_a_text_with_input_at_the_beginning_of_a_word = ((! is_input_a_cas_number) && (the_search_word_as_regexp.test(the_new_terms[a_sub_index].toLowerCase()))); 
+		//var is_a_text_with_input_inside = (the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase()) && (! is_input_a_cas_number));
+                var is_a_cas_number_with_input_inside = (is_input_a_cas_number && the_new_terms[a_sub_index].toLowerCase().startsWith(the_search_word.toLowerCase())
+                       && the_new_terms[a_sub_index].toLowerCase().match(the_cas_numbers_as_regexp));
+		/*if (DEBUG_SEARCH) {
+			console.log("the_new_terms[a_sub_index].toLowerCase() = " + the_new_terms[a_sub_index].toLowerCase());
+			console.log("the_search_word.toLowerCase() = " + the_search_word.toLowerCase());
+			console.log("old condition = " + the_new_terms[a_sub_index].toLowerCase().includes(the_search_word.toLowerCase()));
+			console.log("is_a_text_with_input_inside = " + is_a_text_with_input_inside);
+			console.log("is_a_cas_number_with_input_inside = " + is_a_cas_number_with_input_inside);
+		};*/
+		if (is_a_text_with_input_at_the_beginning_of_a_word || is_a_cas_number_with_input_inside) { 
+		    the_new_jsonData.push({
+			"term" : the_new_terms[a_sub_index], 
+			"payload" : jsonData[an_index].payload, 
+			"levenshtein_distance" : levenshteinDistance(the_new_terms[a_sub_index].toLowerCase(), the_search_word.toLowerCase())
+		    });
+		};
+	    };
+	};
+	/*jsonData.sort(function(a,b) {
+      	    a1 = a.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+            b1 = b.term[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+            return(a1.length-b1.length);
+        });*/
+	jsonData = the_new_jsonData;
+	jsonData.sort(function(a,b) {
+		return a.levenshtein_distance - b.levenshtein_distance;
+	}); // useful pre-sort, because the solr-selecter will return only the first 10 scentree objects
+	if (DEBUG_SEARCH) {
+	    console.log("the_search_word = " + the_search_word);
+	    console.log(jsonData);
+	};
+	var jsonData = jsonData.slice(0, SEARCH_MAX);
+	/*
+	from
+	 [ {term: "laventerre", payload: "160", levenshtein_distance: 7}
+           {term: "Lavande HE", payload: "91", levenshtein_distance: 8}
+           {term: "2-Octanone", payload: "160", levenshtein_distance: 9}
+         ]
+	to 
+	  [ 160, 91 ] (removal of duplicated ids)
+	*/
+        var ids_as_an_array = [];
+        for (let an_index = 0; an_index < jsonData.length; an_index++) {
+	    var the_current_id = jsonData[an_index].payload;
+	    if (! ids_as_an_array.includes(the_current_id)) {
+                ids_as_an_array.push(the_current_id);
+	    };
+	}; 
+       /*
         var ids_as_an_array = [];
         $.map(jsonData, function(value, key) {
       object_id = value.payload;
       ids_as_an_array.push(object_id);
-        });
+        });*/
         
         if (! ids_as_an_array.length) { // no id no ajax request (otherwise : error in the javascript script)
-      response();
-      return;
+            response();
+            return;
         };
         
         ids_as_a_string = ids_as_an_array.join("%20");
-        var URL_SELECTER = URL_PREFIX_SELECTER + "(" + ids_as_a_string + ")" + URL_SUFFIX;
+        var URL_SELECTER = URL_PREFIX_SELECTER_BOTH_LANGUAGES + "(" + ids_as_a_string + ")" + "&rows=" + SEARCH_MAX + URL_SUFFIX;
         console.log(URL_SELECTER);
+	
+	var EN_or_FR = LANGUAGE_PREFIX_FOR_URLs.toUpperCase();
         
         $.ajax({
       url : URL_SELECTER,
       
       success : function(data_from_selecter) {
           var the_infos_from_the_selecter = data_from_selecter.response.docs;
-          response($.map(the_infos_from_the_selecter, function(value, key) {
-        var sci_name = value.sci_name;
-        var NCas = value["from_csv NCas"];
-        return {
-            label : value,
-            value : sci_name + " " + NCas
-        };
+	  var the_infos_from_the_selecter__by_id = {};
+	  for (var a_counter = 0; a_counter < the_infos_from_the_selecter.length; a_counter++) {
+              var the_current_element = the_infos_from_the_selecter[a_counter];
+	      the_infos_from_the_selecter__by_id[the_current_element.id] = the_current_element;
+	  };
+	  if (DEBUG_SEARCH) {
+              console.log("the_infos_from_the_selecter (inside SELECT+success) = ");
+              console.log(the_infos_from_the_selecter);
+	      console.log("the_infos_from_the_selecter__by_id (inside SELECT+success) = ");
+	      console.log(the_infos_from_the_selecter__by_id);
+	  };
+          for (var a_counter = 0; a_counter < jsonData.length; a_counter++) {
+              var the_current_element = jsonData[a_counter];
+              var the_current_id = the_current_element.payload;
+              var the_scentree_object = the_infos_from_the_selecter__by_id[the_current_id];
+              if (! the_scentree_object) {
+		      continue;
+	      };
+	      var is_the_main_name = (the_current_element.term == the_scentree_object["from_csv " + EN_or_FR + " Nom"]);
+	      var is_PRO = (the_scentree_object["PRO"] != undefined);
+	      var popularity = parseInt(the_scentree_object["from_csv " + EN_or_FR + " Audience"], 10);
+	      if (popularity == NaN) {
+		      popularity = 0;
+	      };
+	      var is_natural = (the_scentree_object["from_csv FR Type"] == "Naturelle");
+ 
+ 	      the_current_element["is_the_main_name"] = is_the_main_name;
+	      the_current_element["is_PRO"] = is_PRO;
+	      the_current_element["popularity"] = popularity;
+	      the_current_element["is_natural"] = is_natural;
+	  };
+	  if (DEBUG_SEARCH) {
+	      console.log("jsonData (inside SELECT+success) = ");
+	      console.log(jsonData);
+	  };
+          jsonData.sort(function(a, b) {
+		  /*if (a.levenshtein_distance != b.levenshtein_distance) {
+			  return a.levenshtein_distance - b.levenshtein_distance;
+		  };*/
+		  if (a.is_the_main_name != b.is_the_main_name) {
+			  if (a.is_the_main_name) {
+				  return -1; // is_the_main_name == True -> first in the list
+			  } else {
+				  return 1;
+			  };
+		  };
+		  if (a.is_PRO != b.is_PRO) {
+			  if (a.is_PRO) {
+				  return -1;
+			  } else {
+				  return 1;
+			  };
+		  };
+		  if (a.popularity != b.popularity) {
+			  return b.popularity - a.popularity;
+		  };
+		  /*
+		  if (a.is_natural) {
+			  return -1;
+		  } else {
+			  return 1;
+		  };*/
+		  if (a.is_natural != b.is_natural) {
+		      if (a.is_natural) {
+                          return -1;
+                      } else {
+                          return 1;
+                      };
+		  };
+                  if (a.levenshtein_distance != b.levenshtein_distance) {
+                          return a.levenshtein_distance - b.levenshtein_distance;
+                  };
+
+	  });
+          if (DEBUG_SEARCH) {
+              console.log("jsonData (after .sort) = ");
+              console.log(jsonData);
+	  };
+	  // sorted jsonData -> sorted the_infos_from_the_selecter
+	  var the_infos_from_the_selecter__ordered = [];
+	  var the_ids_already_seen = [];
+          for (var a_counter = 0; a_counter < jsonData.length; a_counter++) {
+               var the_current_id = jsonData[a_counter].payload;
+	       if (! the_ids_already_seen.includes(the_current_id)) {
+		   if (the_infos_from_the_selecter__by_id[the_current_id]) {
+	               the_infos_from_the_selecter__ordered.push(the_infos_from_the_selecter__by_id[the_current_id]);
+		   };
+	       };
+	       the_ids_already_seen.push(the_current_id);
+	  };
+	  response($.map(the_infos_from_the_selecter__ordered, function(value, key) {
+	      var EN_or_FR = LANGUAGE_PREFIX_FOR_URLs.toUpperCase();
+              var sci_name = value["from_csv " + EN_or_FR + " Nom"];
+              var NCas = value["from_csv FR NCas"];
+              return {
+                  label : value,
+                  value : sci_name + " " + NCas
+              };
           }));
       },
       
