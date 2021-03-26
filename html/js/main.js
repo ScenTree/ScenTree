@@ -1526,7 +1526,6 @@ function markofun(the_node_as_json_EN_and_FR, show_the_modal = true) {
     
     if (is_an_naturelle) {
         $('#naturelleModal .modal-header').css('background-color', the_background_color);
-        $('#naturelleModal .modal-footer').css('background-color', the_background_color);
         $('#modalbody-pict').empty();
         $('#modalbody-pictmap').empty();
         $('#modalbody-pict').append("<img class='imgmp img-responsive img-fluid' src=\"../img/matieres_premieres/" + the_img_title + ".jpg\" alt=\"" + the_webpage_title_FR + "\" title=\"" + the_webpage_title_FR + "\" />");
