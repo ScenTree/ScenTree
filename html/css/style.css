@@ -213,12 +213,20 @@ html, body {
   font-size: 120%;
   color: #494747;
 }
+
 .logomenu:hover{
     transform: scale(1.1);
+    cursor:pointer;
 }
 .logostandards:hover{
     transform: scale(1.1);
+    cursor:pointer;
 }
+.logopremium, .logostandards {
+  border: 1px solid #FBE5D6FF;
+  box-shadow: 2px 2px 22px 0px rgba(251,229,214,1);
+}
+
 #menu-block-sm {
    height: 60px;
    float: top;
