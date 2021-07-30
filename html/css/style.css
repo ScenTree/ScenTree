@@ -144,6 +144,9 @@ html, body {
   margin: auto;
   text-align: center;
 }
+.imgmp{
+  align-items: top;
+}
 .lienarticlereglementation {
   color: grey; 
   font-size: 0.9em;
