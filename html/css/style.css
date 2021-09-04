@@ -850,10 +850,10 @@ p.#you_can_zoom {
 }
 #you_can_zoom {
     width: 90%;
-    top: 80%;
+    top: 70%;
     right: 5%;
     background-color: white;
-
+    font-size: small;
 }
 }
 @media screen and (min-width: 768px) {
