@@ -873,9 +873,9 @@ p.#you_can_zoom {
     background-color: white;
 }
 #you_can_zoom {
-    width: 45%;
-    top: 25%;
-    color: blue
+    width: 35%;
+    top: 75%;
+    right: 45%;
 }
 }
 
