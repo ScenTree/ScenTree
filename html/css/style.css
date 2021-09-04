@@ -849,8 +849,8 @@ p.#you_can_zoom {
     max-height: 40px;
 }
 #you_can_zoom {
-    width: 45%;
-    top: 25%;
+    width: 65%;
+    top: 65%;
 }
 }
 @media screen and (min-width: 768px) {
