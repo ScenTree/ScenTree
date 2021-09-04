@@ -848,6 +848,20 @@ p.#you_can_zoom {
 .logomenu{
     max-height: 40px;
 }
+#you_can_zoom {
+    display: none;
+    position: absolute;
+    width: 17%;
+    top: 5%;
+    right: 28%;
+    z-index: 999;
+    font-size: small;
+    color: blue;
+    text-align: center;
+    border: 0.1rem solid;
+    border-color: #D64E26;
+    border-radius: 10px;
+}
 }
 @media screen and (min-width: 768px) {
 .h-md-85 {
