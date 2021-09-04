@@ -869,6 +869,11 @@ p.#you_can_zoom {
 .PageEntiere {
     background-color: white;
 }
+#you_can_zoom {
+    width: 45%;
+    top: 25%;
+    color: blue
+}
 }
 
 .m-top-40 {
