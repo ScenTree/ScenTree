@@ -738,15 +738,15 @@ th, .table th, td, .table td{
 #you_can_zoom {
     display: none;
     position: absolute;
-    width: 220px;
-    top: 3%;
-    right: 3%;
+    width: 25%;
+    top: 5%;
+    right: 26%;
     z-index: 999;
     font-size: small;
     color: #D64E26;
-    text-align: justify; 
-    border: 0.25rem solid;
-    border-color: #F0BEB0;
+    text-align: justify;
+    border: 0.1rem solid;
+    border-color: #D64E26;
     border-radius: 10px;
 }
 p.#you_can_zoom {
