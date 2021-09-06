@@ -736,7 +736,7 @@ th, .table th, td, .table td{
 
 /* YOU CAN ZOOM */
 #you_can_zoom {
-    display: none;
+    /*display: none;*/
     position: absolute;
     width: 17%;
     top: 5%;
