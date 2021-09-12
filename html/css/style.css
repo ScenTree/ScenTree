@@ -738,21 +738,22 @@ th, .table th, td, .table td{
 #you_can_zoom {
     display: none;
     position: absolute;
-    width: 220px;
-    top: 3%;
-    right: 3%;
+    width: 17%;
+    top: 5%;
+    right: 28%;
     z-index: 999;
     font-size: small;
-    color: #D64E26;
-    text-align: justify; 
-    border: 0.25rem solid;
-    border-color: #F0BEB0;
+    color: black;
+    text-align: center;
+    border: 0.1rem solid;
+    border-color: #D64E26;
     border-radius: 10px;
 }
 p.#you_can_zoom {
     margin: 5%;
 }
 #close_you_can_zoom {
+    z-index: 999;
     color: #D64E26;
 }
 
@@ -848,6 +849,13 @@ p.#you_can_zoom {
 .logomenu{
     max-height: 40px;
 }
+#you_can_zoom {
+    width: 90%;
+    top: 75%;
+    right: 5%;
+    background-color: white;
+    font-size: small;
+}
 }
 @media screen and (min-width: 768px) {
 .h-md-85 {
@@ -863,6 +871,12 @@ p.#you_can_zoom {
    height: 100%;
 }
 .PageEntiere {
+    background-color: white;
+}
+#you_can_zoom {
+    width: 35%;
+    top: 75%;
+    right: 45%;
     background-color: white;
 }
 }
