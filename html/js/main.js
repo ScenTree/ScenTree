@@ -34,14 +34,14 @@ if (! window.document.jsdom_reader) {
       Cookies.set('RGPD_warning', '1', { expires: 365 });
       $("#RGPD_warning").css({'display' : 'block'});
       //$("#modal_video").modal("show");
-      //$("#you_can_zoom").css({'display' : 'block'});
+      $("#you_can_zoom").css({'display' : 'block'});
   } else {
       if ((! RGPD_choice_has_been_done) || ((RGPD_choice_has_been_done != 1) && (RGPD_choice_has_been_done != -1))) {
           $("#RGPD_warning").css({'display' : 'block'});
-          $("#you_can_zoom").css({'display' : 'block'});
+          //$("#you_can_zoom").css({'display' : 'block'});
       } else {
           $("#RGPD_warning").css({'display' : 'None'});
-          $("#you_can_zoom").css({'display' : 'None'});
+          //$("#you_can_zoom").css({'display' : 'None'});
       };
   };
 };
